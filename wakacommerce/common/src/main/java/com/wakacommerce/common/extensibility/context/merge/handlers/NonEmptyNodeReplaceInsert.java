@@ -15,8 +15,6 @@ import java.util.List;
   * are simply appended to the source document. This handler differs from its
  * parent in that it will not replace an existing node with a node from
  * the patch document if that patch node contains no child nodes.
- *
- *Jeff Fischer
  */
 public class NonEmptyNodeReplaceInsert extends NodeReplaceInsert {
 

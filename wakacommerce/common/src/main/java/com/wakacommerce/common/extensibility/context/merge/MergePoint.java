@@ -26,9 +26,6 @@ import java.util.List;
  * to replace all the child nodes of a given node with all the child nodes from the same
  * parent node in the patch document, with the exception of a single node. That single
  * node may instead contribute its contents in a additive fashion (rather than replace).
- * 
- *jfischer
- *
  */
 public class MergePoint {
     

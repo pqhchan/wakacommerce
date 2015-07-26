@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.extensibility.context;
 
 import org.apache.commons.lang.StringUtils;
@@ -8,9 +7,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *jfischer
- */
 public class ResourceInputStream extends InputStream {
 
     private final InputStream is;

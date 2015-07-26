@@ -1,6 +1,3 @@
-#specify fully qualified resource path. e.g.: /org/broadleafcommerce/profile/extensibility/applicationContext.xml
-#separate each entry with a new line
-#comments may be added by placing a pound symbol '#' in front of the line
 bl-common-applicationContext-persistence.xml
 bl-profile-applicationContext-persistence.xml
 bl-framework-applicationContext-persistence.xml

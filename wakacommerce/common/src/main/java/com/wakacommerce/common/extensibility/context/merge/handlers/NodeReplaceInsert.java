@@ -19,9 +19,6 @@ import java.util.List;
  * with the same nodes from the patch document. Note, additional nodes
  * from the patch document that are not present in the source document
  * are simply appended to the source document.
- * 
- *jfischer
- *
  */
 public class NodeReplaceInsert extends BaseHandler {
     

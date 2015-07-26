@@ -223,6 +223,7 @@
                     </configuration>
                     <dependencies>
                         <!-- Other dependencies -->
+                        <!--
                         <dependency>
                             <groupId>org.hsqldb</groupId>
                             <artifactId>hsqldb</artifactId>
@@ -230,6 +231,12 @@
                             <type>jar</type>
                             <scope>compile</scope>
                         </dependency>
+                        -->
+                        <dependency>
+						    <groupId>mysql</groupId>
+						    <artifactId>mysql-connector-java</artifactId>
+						    <version>5.1.26</version>
+						</dependency>
                         <dependency>
                             <groupId>commons-dbcp</groupId>
                             <artifactId>commons-dbcp</artifactId>

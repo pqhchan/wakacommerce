@@ -18,7 +18,6 @@ import java.util.regex.Pattern;
  * <p>
  * This will also prevents multiple XSD references that cause parse exceptions when the final XML file is presented to Spring
  * 
- *Phillip Verheyden (phillipuniverse)
  */
 public class SchemaLocationNodeValueMerge extends SpaceDelimitedNodeValueMerge {
 

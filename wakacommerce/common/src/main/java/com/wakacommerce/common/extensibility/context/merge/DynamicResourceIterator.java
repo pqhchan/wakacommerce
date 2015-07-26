@@ -17,12 +17,12 @@ import java.util.Collection;
  * This class serves as a basic iterator for a list of source files to be
  * merged. The interesting part, however, is that additional resources
  * may be inserted at any time at the current iterator position.
- *
- *Jeff Fischer
  */
 public class DynamicResourceIterator extends ArrayList<ResourceInputStream> {
 
-    private static final Log LOG = LogFactory.getLog(DynamicResourceIterator.class);
+	private static final long serialVersionUID = 1L;
+
+	private static final Log LOG = LogFactory.getLog(DynamicResourceIterator.class);
 
     private int position = 0;
     private int embeddedInsertPosition = 0;

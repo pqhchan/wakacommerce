@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.extensibility.context.merge;
 
 import org.apache.commons.io.IOUtils;
@@ -44,8 +43,6 @@ import javax.xml.transform.stream.StreamResult;
  * This class manages all xml merge interactions with callers. It is responsible for
  * not only loading the handler configurations, but also for cycling through the handlers
  * in a prioritized fashion and exporting the final merged document.
- *
- *jfischer
  *
  */
 public class MergeManager {
@@ -93,14 +90,12 @@ public class MergeManager {
         }
     }
 
-    private void removeSkippedMergeComponents(Properties props)
-            throws UnsupportedEncodingException {
+    private void removeSkippedMergeComponents(Properties props) throws UnsupportedEncodingException {
         InputStream inputStream = null;
         InputStreamReader inputStreamReader = null;
         BufferedReader bufferedReader = null;
         try {
-            inputStream = this.getClass().getClassLoader()
-                    .getResourceAsStream("/broadleaf-commmerce/skipMergeComponents.txt");
+            inputStream = this.getClass().getClassLoader().getResourceAsStream("/broadleaf-commmerce/skipMergeComponents.txt");
 
             if (inputStream == null) {
                 return;
@@ -116,8 +111,7 @@ public class MergeManager {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 if (LOG.isDebugEnabled()) {
-                    LOG.debug("mergeComponentOverrides - overridding "
-                            + line);
+                    LOG.debug("mergeComponentOverrides - overridding " + line);
                 }
                 removeSkipMergeComponents(props, line);
             }

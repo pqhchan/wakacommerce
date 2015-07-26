@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.extensibility.context.merge;
 
 import org.apache.commons.logging.Log;
@@ -17,11 +16,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-/**
- *
- *jfischer
- *
- */
 public class MergeXmlConfigResource {
 
     private static final Log LOG = LogFactory.getLog(MergeXmlConfigResource.class);

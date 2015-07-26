@@ -53,8 +53,6 @@ import java.util.List;
  * can either denote concrete files like "/WEB-INF/patch.xml" or Ant-style patterns
  * like "/WEB-INF/*-context.xml" (see {@link org.springframework.util.pathMatcher}
  * javadoc for pattern details).
- *
- *Jeff Fischer
  */
 public class MergeXmlWebApplicationContext extends XmlWebApplicationContext {
 
@@ -80,7 +78,6 @@ public class MergeXmlWebApplicationContext extends XmlWebApplicationContext {
      */
     protected void loadBeanDefinitions(XmlBeanDefinitionReader reader) throws BeansException, IOException {
         String[] broadleafConfigLocations = StandardConfigLocations.retrieveAll(standardLocationTypes);
-
         ArrayList<ResourceInputStream> sources = new ArrayList<ResourceInputStream>(20);
         for (String location : broadleafConfigLocations) {
             InputStream source = MergeXmlWebApplicationContext.class.getClassLoader().getResourceAsStream(location);
@@ -90,6 +87,7 @@ public class MergeXmlWebApplicationContext extends XmlWebApplicationContext {
         }
         ResourceInputStream[] filteredSources = new ResourceInputStream[]{};
         filteredSources = sources.toArray(filteredSources);
+        
         String patchLocation = getPatchLocation();
         String[] patchLocations = StringUtils.tokenizeToStringArray(patchLocation, ConfigurableApplicationContext.CONFIG_LOCATION_DELIMITERS);
         List<ResourceInputStream> patchList = new ArrayList<ResourceInputStream>();
@@ -144,9 +142,6 @@ public class MergeXmlWebApplicationContext extends XmlWebApplicationContext {
         return resolverList;
     }
 
-    /* (non-Javadoc)
-     * @see org.springframework.context.support.AbstractApplicationContext#doClose()
-     */
     @Override
     protected void doClose() {
         if (getShutdownBean() != null && getShutdownMethod() != null) {
@@ -161,16 +156,10 @@ public class MergeXmlWebApplicationContext extends XmlWebApplicationContext {
         super.doClose();
     }
 
-    /**
-     * @return the patchLocation
-     */
     public String getPatchLocation() {
         return patchLocation;
     }
 
-    /**
-     * @param patchLocation the patchLocation to set
-     */
     public void setPatchLocation(String patchLocation) {
         this.patchLocation = patchLocation;
     }

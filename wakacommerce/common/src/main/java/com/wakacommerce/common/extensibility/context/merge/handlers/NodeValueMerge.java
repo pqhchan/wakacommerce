@@ -14,9 +14,6 @@ import java.util.Set;
  * delimited text values of a source and patch node. This merge takes into
  * account the same values from both nodes, such that the resulting string
  * is a union of the two without any repeat values.
- * 
- *jfischer
- *
  */
 public class NodeValueMerge extends BaseHandler {
 

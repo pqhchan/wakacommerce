@@ -1,11 +1,5 @@
-
 package com.wakacommerce.common.extensibility.context.merge.handlers;
 
-/**
- * Convenience base class which all handler implementations extend. This class
- * provides the common properties required by all MergeHandler implemenations.
- *jfischer
- */
 public abstract class BaseHandler implements MergeHandler, Comparable<Object> {
 
     protected int priority;
