@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  #%L
+  BroadleafCommerce Framework
+  %%
+  Copyright (C) 2009 - 2013 Broadleaf Commerce
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+        http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  #L%
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+           
+    <!-- Entity mappings - override for extensibility -->
+    <bean id="com.wakacommerce.core.catalog.domain.Category" class="com.wakacommerce.core.catalog.domain.CategoryImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.catalog.domain.CategoryAttribute" class="com.wakacommerce.core.catalog.domain.CategoryAttributeImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.catalog.domain.CategoryProductXref" class="com.wakacommerce.core.catalog.domain.CategoryProductXrefImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.order.domain.FulfillmentGroup" class="com.wakacommerce.core.order.domain.FulfillmentGroupImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.order.domain.FulfillmentGroupItem" class="com.wakacommerce.core.order.domain.FulfillmentGroupItemImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.order.domain.FulfillmentGroupFee" class="com.wakacommerce.core.order.domain.FulfillmentGroupFeeImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.order.domain.FulfillmentOption" class="com.wakacommerce.core.order.domain.FulfillmentOptionImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.order.fulfillment.domain.FixedPriceFulfillmentOption" class="com.wakacommerce.core.order.fulfillment.domain.FixedPriceFulfillmentOptionImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.order.fulfillment.domain.BandedPriceFulfillmentOption" class="com.wakacommerce.core.order.fulfillment.domain.BandedPriceFulfillmentOptionImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.order.fulfillment.domain.BandedWeightFulfillmentOption" class="com.wakacommerce.core.order.fulfillment.domain.BandedWeightFulfillmentOptionImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.order.fulfillment.domain.FulfillmentBand" class="com.wakacommerce.core.order.fulfillment.domain.FulfillmentBandImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.order.fulfillment.domain.FulfillmentPriceBand" class="com.wakacommerce.core.order.fulfillment.domain.FulfillmentPriceBandImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.order.fulfillment.domain.FulfillmentWeightBand" class="com.wakacommerce.core.order.fulfillment.domain.FulfillmentWeightBandImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.order.domain.Order" class="com.wakacommerce.core.order.domain.OrderImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.order.domain.OrderLock" class="com.wakacommerce.core.order.domain.OrderLockImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.order.domain.OrderMultishipOption" class="com.wakacommerce.core.order.domain.OrderMultishipOptionImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.order.domain.DynamicPriceDiscreteOrderItem" class="com.wakacommerce.core.order.domain.DynamicPriceDiscreteOrderItemImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.order.domain.OrderItem" class="com.wakacommerce.core.order.domain.OrderItemImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.order.domain.DiscreteOrderItem" class="com.wakacommerce.core.order.domain.DiscreteOrderItemImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.order.domain.BundleOrderItem" class="com.wakacommerce.core.order.domain.BundleOrderItemImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.order.domain.GiftWrapOrderItem" class="com.wakacommerce.core.order.domain.GiftWrapOrderItemImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.order.domain.PersonalMessage" class="com.wakacommerce.core.order.domain.PersonalMessageImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.order.domain.TaxDetail" class="com.wakacommerce.core.order.domain.TaxDetailImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.payment.domain.OrderPayment" class="com.wakacommerce.core.payment.domain.OrderPaymentImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.payment.domain.PaymentTransaction" class="com.wakacommerce.core.payment.domain.PaymentTransactionImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.payment.domain.PaymentLog" class="com.wakacommerce.core.payment.domain.PaymentLogImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.catalog.domain.Product" class="com.wakacommerce.core.catalog.domain.ProductImpl" scope="prototype" />
+    <bean id="com.wakacommerce.core.catalog.domain.ProductAttribute" class="com.wakacommerce.core.catalog.domain.ProductAttributeImpl" scope="prototype" />
+    <bean id="com.wakacommerce.core.catalog.domain.ProductBundle" class="com.wakacommerce.core.catalog.domain.ProductBundleImpl" scope="prototype" />
+    <bean id="com.wakacommerce.core.catalog.domain.ProductOption" class="com.wakacommerce.core.catalog.domain.ProductOptionImpl" scope="prototype" />
+    <bean id="com.wakacommerce.core.catalog.domain.ProductOptionValue" class="com.wakacommerce.core.catalog.domain.ProductOptionValueImpl" scope="prototype" />
+    <bean id="com.wakacommerce.core.catalog.domain.SkuBundleItem" class="com.wakacommerce.core.catalog.domain.SkuBundleItemImpl" scope="prototype" />
+    <bean id="com.wakacommerce.core.catalog.domain.Sku" class="com.wakacommerce.core.catalog.domain.SkuImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.catalog.domain.SkuAttribute" class="com.wakacommerce.core.catalog.domain.SkuAttributeImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.catalog.domain.SkuFee" class="com.wakacommerce.core.catalog.domain.SkuFeeImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.payment.domain.secure.BankAccountPayment" class="com.wakacommerce.core.payment.domain.secure.BankAccountPaymentImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.payment.domain.secure.CreditCardPayment" class="com.wakacommerce.core.payment.domain.secure.CreditCardPaymentInfoImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.payment.domain.secure.GiftCardPayment" class="com.wakacommerce.core.payment.domain.secure.GiftCardPaymentImpl" scope="prototype"/>    
+    <bean id="com.wakacommerce.core.offer.domain.Offer" class="com.wakacommerce.core.offer.domain.OfferImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.offer.domain.OfferRule" class="com.wakacommerce.core.offer.domain.OfferRuleImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.offer.domain.CustomerOffer" class="com.wakacommerce.core.offer.domain.CustomerOfferImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.offer.domain.OfferCode" class="com.wakacommerce.core.offer.domain.OfferCodeImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.offer.domain.CandidateOrderOffer" class="com.wakacommerce.core.offer.domain.CandidateOrderOfferImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.offer.domain.CandidateItemOffer" class="com.wakacommerce.core.offer.domain.CandidateItemOfferImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.offer.domain.CandidateFulfillmentGroupOffer" class="com.wakacommerce.core.offer.domain.CandidateFulfillmentGroupOfferImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.offer.domain.OrderAdjustment" class="com.wakacommerce.core.offer.domain.OrderAdjustmentImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.offer.domain.OrderItemAdjustment" class="com.wakacommerce.core.offer.domain.OrderItemAdjustmentImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.order.domain.OrderItemPriceDetail" class="com.wakacommerce.core.order.domain.OrderItemPriceDetailImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.order.domain.OrderItemQualifier" class="com.wakacommerce.core.order.domain.OrderItemQualifierImpl" scope="prototype"/>    
+    <bean id="com.wakacommerce.core.offer.domain.OrderItemPriceDetailAdjustment" class="com.wakacommerce.core.offer.domain.OrderItemPriceDetailAdjustmentImpl" scope="prototype"/>    
+    <bean id="com.wakacommerce.core.offer.domain.FulfillmentGroupAdjustment" class="com.wakacommerce.core.offer.domain.FulfillmentGroupAdjustmentImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.pricing.domain.ShippingRate" class="com.wakacommerce.core.pricing.domain.ShippingRateImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.offer.domain.OfferInfo" class="com.wakacommerce.core.offer.domain.OfferInfoImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.common.media.domain.Media" class="com.wakacommerce.common.media.domain.MediaImpl" scope="prototype" />
+    <bean id="com.wakacommerce.core.rating.domain.RatingSummary" class="com.wakacommerce.core.rating.domain.RatingSummaryImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.rating.domain.RatingDetail" class="com.wakacommerce.core.rating.domain.RatingDetailImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.rating.domain.ReviewDetail" class="com.wakacommerce.core.rating.domain.ReviewDetailImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.rating.domain.ReviewFeedback" class="com.wakacommerce.core.rating.domain.ReviewFeedbackImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.search.domain.CategoryExcludedSearchFacet" class="com.wakacommerce.core.search.domain.CategoryExcludedSearchFacetImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.search.domain.Field" class="com.wakacommerce.core.search.domain.FieldImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.search.domain.SearchFacet" class="com.wakacommerce.core.search.domain.SearchFacetImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.search.domain.SearchFacetRange" class="com.wakacommerce.core.search.domain.SearchFacetRangeImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.search.domain.SearchSynonym" class="com.wakacommerce.core.search.domain.SearchSynonymImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.search.redirect.domain.SearchRedirect" class="com.wakacommerce.core.search.redirect.domain.SearchRedirectImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.util.domain.CodeType" class="com.wakacommerce.core.util.domain.CodeTypeImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.offer.domain.OfferItemCriteria" class="com.wakacommerce.core.offer.domain.OfferItemCriteriaImpl" scope="prototype" />
+    <bean id="com.wakacommerce.core.offer.domain.OfferAudit" class="com.wakacommerce.core.offer.domain.OfferAuditImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.core.catalog.domain.CategorySiteMapGeneratorConfiguration" class="com.wakacommerce.core.catalog.domain.CategorySiteMapGeneratorConfigurationImpl" scope="prototype" />
+    <bean id="com.wakacommerce.common.currency.domain.BroadleafCurrency" class="com.wakacommerce.common.currency.domain.BroadleafCurrencyImpl"/>
+
+</beans>

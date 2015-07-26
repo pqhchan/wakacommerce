@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  #%L
+  BroadleafCommerce Profile
+  %%
+  Copyright (C) 2009 - 2013 Broadleaf Commerce
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+        http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  #L%
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+           
+    <!-- Entity mappings - override for extensibility -->
+    <bean id="com.wakacommerce.profile.core.domain.Address" class="com.wakacommerce.profile.core.domain.AddressImpl" scope="prototype">
+        <property name="country">
+            <bean class="com.wakacommerce.profile.core.domain.CountryImpl">
+                <property name="abbreviation" value="US"/>
+                <property name="name" value="United States"/>
+            </bean>
+        </property>
+    </bean>
+    <bean id="com.wakacommerce.profile.core.domain.ChallengeQuestion" class="com.wakacommerce.profile.core.domain.ChallengeQuestionImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.profile.core.domain.Country" class="com.wakacommerce.profile.core.domain.CountryImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.profile.core.domain.Customer" class="com.wakacommerce.profile.core.domain.CustomerImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.profile.core.domain.CustomerAttribute" class="com.wakacommerce.profile.core.domain.CustomerAttributeImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.profile.core.domain.CustomerForgotPasswordSecurityToken" class="com.wakacommerce.profile.core.domain.CustomerForgotPasswordSecurityTokenImpl" scope="prototype"/>  
+    <bean id="com.wakacommerce.profile.core.domain.CustomerAddress" class="com.wakacommerce.profile.core.domain.CustomerAddressImpl" scope="prototype">
+        <property name="address" ref="com.wakacommerce.profile.core.domain.Address"/>
+    </bean>
+    <bean id="com.wakacommerce.profile.core.domain.CustomerPayment" class="com.wakacommerce.profile.core.domain.CustomerPaymentImpl" scope="prototype">
+        <property name="billingAddress" ref="com.wakacommerce.profile.core.domain.Address"/>
+    </bean>
+    <bean id="com.wakacommerce.profile.core.domain.CustomerPhone" class="com.wakacommerce.profile.core.domain.CustomerPhoneImpl" scope="prototype">
+        <property name="phone" ref="com.wakacommerce.profile.core.domain.Phone"/>
+    </bean>
+    <bean id="com.wakacommerce.profile.core.domain.IdGeneration" class="com.wakacommerce.profile.core.domain.IdGenerationImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.profile.core.domain.Phone" class="com.wakacommerce.profile.core.domain.PhoneImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.profile.core.domain.Role" class="com.wakacommerce.profile.core.domain.RoleImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.profile.core.domain.State" class="com.wakacommerce.profile.core.domain.StateImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.profile.core.domain.CountrySubdivision" class="com.wakacommerce.profile.core.domain.CountrySubdivisionImpl" scope="prototype"/>
+    <bean id="com.wakacommerce.profile.core.domain.CountrySubdivisionCategory" class="com.wakacommerce.profile.core.domain.CountrySubdivisionCategoryImpl" scope="prototype"/>
+
+</beans>

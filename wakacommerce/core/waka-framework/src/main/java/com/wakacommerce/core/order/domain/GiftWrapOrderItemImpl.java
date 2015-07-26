@@ -1,0 +1,98 @@
+
+package com.wakacommerce.core.order.domain;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import com.wakacommerce.common.copy.CreateResponse;
+import com.wakacommerce.common.copy.MultiTenantCopyContext;
+import com.wakacommerce.common.presentation.AdminPresentationClass;
+import com.wakacommerce.common.presentation.AdminPresentationCollection;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "BLC_GIFTWRAP_ORDER_ITEM")
+@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region="blOrderElements")
+@AdminPresentationClass(friendlyName = "GiftWrapOrderItemImpl_giftWrapOrderItem")
+public class GiftWrapOrderItemImpl extends DiscreteOrderItemImpl implements GiftWrapOrderItem {
+
+    private static final long serialVersionUID = 1L;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "giftWrapOrderItem", targetEntity = OrderItemImpl.class,
+            cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region="blOrderElements")
+    @AdminPresentationCollection(friendlyName="OrderItemImpl_Price_Details",
+                tab = OrderItemImpl.Presentation.Tab.Name.Advanced, tabOrder = OrderItemImpl.Presentation.Tab.Order.Advanced)
+    protected List<OrderItem> wrappedItems = new ArrayList<OrderItem>();
+
+    public List<OrderItem> getWrappedItems() {
+        return wrappedItems;
+    }
+
+    public void setWrappedItems(List<OrderItem> wrappedItems) {
+        this.wrappedItems = wrappedItems;
+    }
+
+    @Override
+    public OrderItem clone() {
+        GiftWrapOrderItem orderItem = (GiftWrapOrderItem) super.clone();
+        if (wrappedItems != null) orderItem.getWrappedItems().addAll(wrappedItems);
+        
+        return orderItem;
+    }
+
+    @Override
+    public  CreateResponse<DiscreteOrderItemImpl> createOrRetrieveCopyInstance(MultiTenantCopyContext context) throws CloneNotSupportedException {
+        CreateResponse<DiscreteOrderItemImpl> createResponse = super.createOrRetrieveCopyInstance(context);
+        if (createResponse.isAlreadyPopulated()) {
+            return createResponse;
+        }
+        GiftWrapOrderItem cloned = (GiftWrapOrderItem)createResponse.getClone();
+        for(OrderItem entry : wrappedItems){
+            OrderItem clonedEntry = ((OrderItemImpl)entry).createOrRetrieveCopyInstance(context).getClone();
+            clonedEntry.setGiftWrapOrderItem(cloned);
+            cloned.getWrappedItems().add(clonedEntry);
+        }
+        return  createResponse;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = super.hashCode();
+        int result = super.hashCode();
+        result = prime * result + ((wrappedItems == null) ? 0 : wrappedItems.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null) 
+            return false;
+        if (!super.equals(obj))
+            return false;
+        if (!getClass().isAssignableFrom(obj.getClass()))
+            return false;
+        GiftWrapOrderItemImpl other = (GiftWrapOrderItemImpl) obj;
+
+        if (!super.equals(obj)) {
+            return false;
+        }
+        
+        if (id != null && other.id != null) {
+            return id.equals(other.id);
+        }
+
+        if (wrappedItems == null) {
+            if (other.wrappedItems != null)
+                return false;
+        } else if (!wrappedItems.equals(other.wrappedItems))
+            return false;
+        return true;
+    }
+}
