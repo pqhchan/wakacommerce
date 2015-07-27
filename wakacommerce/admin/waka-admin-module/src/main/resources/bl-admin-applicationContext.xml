@@ -163,6 +163,7 @@
     </mo:override>
     
     <bean id="messageSource" class="com.wakacommerce.common.util.BroadleafMergeResourceBundleMessageSource">
+        <property name="defaultEncoding" value="utf-8"></property>
         <property name="basenames">
             <list>
                 <value>classpath:/messages/CustomerCareMessages</value>

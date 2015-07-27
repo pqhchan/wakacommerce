@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.security.domain;
 
 import org.apache.commons.lang3.StringUtils;
@@ -52,11 +51,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-/**
- * 
- *jfischer
- *
- */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "BLC_ADMIN_USER")
