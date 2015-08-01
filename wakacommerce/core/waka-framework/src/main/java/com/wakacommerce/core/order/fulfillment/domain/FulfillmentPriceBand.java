@@ -23,7 +23,7 @@ import com.wakacommerce.core.order.service.type.FulfillmentBandResultAmountType;
  *  <li>If two bands have the same retail price minimum amount, the cheapest resulting amount is used</li>
  * </ol>
  * 
- *Phillip Verheyden
+ *  
  * @see {@link BandedPriceFulfillmentOption}
  */
 public interface FulfillmentPriceBand extends FulfillmentBand {

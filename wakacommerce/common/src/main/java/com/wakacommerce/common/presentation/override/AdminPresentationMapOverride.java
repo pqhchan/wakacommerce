@@ -4,7 +4,7 @@ package com.wakacommerce.common.presentation.override;
 import com.wakacommerce.common.presentation.AdminPresentationMap;
 
 /**
- *Jeff Fischer
+ * 
  * @deprecated use {@link AdminPresentationMergeOverrides} instead
  */
 @Deprecated

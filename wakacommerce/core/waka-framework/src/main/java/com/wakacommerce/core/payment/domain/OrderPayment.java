@@ -32,7 +32,7 @@ import java.util.List;
  * @see {@link PaymentTransactionType}
  * @see {@link PaymentTransaction}
  * @see {@link PaymentType}
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 public interface OrderPayment extends Serializable, Status {
 

@@ -18,7 +18,7 @@ import com.wakacommerce.core.workflow.state.RollbackHandler;
  * activity should implement the {@link ModuleActivity} interface as well. This ensures that there is proper logging
  * for users that are using your module so that they know exactly what their final workflow configuration looks like.
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  * @param <T>
  * @see {@link BaseActivity}
  * @see {@link ModuleActivity}

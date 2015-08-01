@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import com.wakacommerce.common.util.BLCSystemProperty;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Component("blStringLikeFilterValueConverter")
 public class StringLikeFilterValueConverter implements FilterValueConverter<String> {

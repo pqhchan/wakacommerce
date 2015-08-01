@@ -48,7 +48,7 @@ import com.wakacommerce.openadmin.web.service.FormBuilderServiceImpl;
  * <p>
  * Implementations of this class should extend from the {@link AbstractRowLevelSecurityProvider}
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  * @see {@link AbstractRowLevelSecurityProvider}
  * @see {@link RowLevelSecurityService}
  */

@@ -12,7 +12,7 @@ import java.util.List;
  * are simply appended to the source document. This is specialized for the
  * mo:overrideItem element.
  * 
- *jfischer
+ *  
  *
  */
 public class MetadataOverrideNodeReplaceInsert extends NodeReplaceInsert {

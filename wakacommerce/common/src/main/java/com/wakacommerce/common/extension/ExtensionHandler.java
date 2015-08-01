@@ -35,7 +35,7 @@ package com.wakacommerce.common.extension;
  * </pre>
  * 
  * 
- *bpolster
+ * 
  * @see {@link AbstractExtensionHandler}
  */
 public interface ExtensionHandler {

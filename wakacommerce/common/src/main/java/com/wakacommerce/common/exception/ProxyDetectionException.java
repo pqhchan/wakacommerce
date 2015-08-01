@@ -6,7 +6,7 @@ package com.wakacommerce.common.exception;
  * class for a proxy. This is generally in relation to getting the original entity implementation from
  * a Hibernate javassist proxy.
  *
- *Jeff Fischer
+ * 
  */
 public class ProxyDetectionException extends RuntimeException {
 

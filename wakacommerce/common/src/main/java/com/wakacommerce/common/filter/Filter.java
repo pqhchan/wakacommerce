@@ -4,7 +4,7 @@ package com.wakacommerce.common.filter;
 import java.util.List;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class Filter {
 

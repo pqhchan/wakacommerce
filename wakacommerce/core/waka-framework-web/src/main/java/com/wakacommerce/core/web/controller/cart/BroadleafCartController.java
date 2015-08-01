@@ -33,7 +33,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * In charge of performing the various modify cart operations
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class BroadleafCartController extends AbstractCartController {
     

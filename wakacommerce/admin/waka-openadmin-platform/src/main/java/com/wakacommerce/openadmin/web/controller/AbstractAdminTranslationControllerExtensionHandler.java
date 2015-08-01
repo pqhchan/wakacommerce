@@ -7,7 +7,7 @@ import com.wakacommerce.openadmin.web.form.TranslationForm;
 
 /**
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public abstract class AbstractAdminTranslationControllerExtensionHandler extends AbstractExtensionHandler
         implements AdminTranslationControllerExtensionHandler {

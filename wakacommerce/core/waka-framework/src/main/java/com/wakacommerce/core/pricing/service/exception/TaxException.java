@@ -2,7 +2,7 @@
 package com.wakacommerce.core.pricing.service.exception;
 
 /**
- *jfischer
+ *  
  *
  */
 public class TaxException extends Exception {

@@ -48,7 +48,7 @@ import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 
 /**
- *jfischer
+ *  
  */
 @Component("blAdornedTargetListPersistenceModule")
 @Scope("prototype")

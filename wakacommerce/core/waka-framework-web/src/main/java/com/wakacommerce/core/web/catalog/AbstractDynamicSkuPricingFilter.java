@@ -13,7 +13,7 @@ import java.io.IOException;
 
 /**
  * 
- *jfischer
+ *  
  * @see {@link DefaultDynamicSkuPricingFilter}
  */
 public abstract class AbstractDynamicSkuPricingFilter implements DynamicSkuPricingFilter {

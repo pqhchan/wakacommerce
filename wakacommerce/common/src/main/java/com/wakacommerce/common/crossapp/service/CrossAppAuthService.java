@@ -11,7 +11,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * from the admin applicaiton.
  * 
  * @see CrossAppAdminAuthService
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface CrossAppAuthService {
 

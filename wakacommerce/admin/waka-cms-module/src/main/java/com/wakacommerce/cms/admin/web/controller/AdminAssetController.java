@@ -1,23 +1,12 @@
-/*
- * #%L
- * BroadleafCommerce CMS Module
- * %%
- * Copyright (C) 2009 - 2013 Broadleaf Commerce
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *       http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * #L%
- */
 package com.wakacommerce.cms.admin.web.controller;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,31 +21,15 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.wakacommerce.cms.admin.web.service.AssetFormBuilderService;
 import com.wakacommerce.cms.file.StaticAssetMultiTenantExtensionManager;
-import com.wakacommerce.cms.file.dao.StaticAssetDaoQueryExtensionManager;
-import com.wakacommerce.cms.file.domain.StaticAsset;
 import com.wakacommerce.cms.file.domain.StaticAssetImpl;
 import com.wakacommerce.cms.file.service.StaticAssetService;
 import com.wakacommerce.common.site.domain.Site;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.openadmin.web.controller.entity.AdminBasicEntityController;
 import com.wakacommerce.openadmin.web.form.component.ListGrid;
 import com.wakacommerce.openadmin.web.form.entity.EntityForm;
 import com.wakacommerce.openadmin.web.form.entity.EntityFormAction;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-/**
- * Handles admin operations for the {@link Asset} entity. This is mostly to support displaying image assets inline 
- * in listgrids.
- * 
- *Andre Azzolini (apazzolini)
- */
 @Controller("blAdminAssetController")
 @RequestMapping("/" + AdminAssetController.SECTION_KEY)
 public class AdminAssetController extends AdminBasicEntityController {
@@ -102,7 +75,7 @@ public class AdminAssetController extends AdminBasicEntityController {
         mainActions.add(0, new EntityFormAction("UPLOAD_ASSET")
                 .withButtonClass("upload-asset")
                 .withIconClass("icon-camera")
-                .withDisplayText("Upload_Asset"));
+                .withDisplayText("上传资源"));
 
         // Change the listGrid view to one that has a hidden form for uploading the image.
         model.addAttribute("viewType", "entityListWithUploadForm");
@@ -118,7 +91,7 @@ public class AdminAssetController extends AdminBasicEntityController {
     public String viewEntityForm(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable  Map<String, String> pathVars,
             @PathVariable(value="id") String id) throws Exception {
-        Site currentSite = BroadleafRequestContext.getBroadleafRequestContext().getNonPersistentSite();
+        Site currentSite = WakaRequestContext.getWakaRequestContext().getNonPersistentSite();
 
         model.addAttribute("cmsUrlPrefix", staticAssetService.getStaticAssetUrlPrefix());
         String returnPath = super.viewEntityForm(request, response, model, pathVars, id);

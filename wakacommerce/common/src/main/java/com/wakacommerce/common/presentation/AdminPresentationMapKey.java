@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
  * Represents a single key value presented to a user in a selectable
  * list when editing a map value in the admin tool
  *
- *Jeff Fischer
+ * 
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD})

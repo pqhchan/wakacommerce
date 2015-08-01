@@ -24,7 +24,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.wakacommerce.common.presentation.client.SupportedFieldType;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.openadmin.dto.Property;
 import com.wakacommerce.openadmin.server.service.persistence.PersistenceException;
 import com.wakacommerce.openadmin.server.service.persistence.module.provider.request.ExtractValueRequest;
@@ -36,7 +36,7 @@ import java.io.Serializable;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- *bpolster
+ * 
  */
 @Component("blHTMLFieldPersistenceProvider")
 @Scope("prototype")
@@ -119,7 +119,7 @@ public class HTMLFieldPersistenceProvider extends FieldPersistenceProviderAdapte
      */
     public String fixAssetPathsForDisplay(String val) {
         String contextPath = "/";
-        BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
         if (brc != null) {                        
             HttpServletRequest request = brc.getRequest();
             if (request != null) {

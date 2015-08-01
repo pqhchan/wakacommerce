@@ -1,13 +1,13 @@
 
 package com.wakacommerce.openadmin.web.rulebuilder.enums;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 
 /**
- * Extension Listener interface to provide option values for {@link BroadleafEnumerationType} for admin rule builders.
+ * Extension Listener interface to provide option values for {@link WakaEnumType} for admin rule builders.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface RuleBuilderEnumOptionsExtensionListener {
     

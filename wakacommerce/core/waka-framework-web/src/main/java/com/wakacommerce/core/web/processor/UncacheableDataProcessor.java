@@ -54,7 +54,7 @@ import javax.annotation.Resource;
  *      <blc:uncacheableData />  
  *  }
  * </pre>
- *bpolster
+ * 
  */
 public class UncacheableDataProcessor extends AbstractElementProcessor {
     

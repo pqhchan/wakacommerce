@@ -5,7 +5,7 @@ import com.wakacommerce.core.order.domain.OrderItem;
 
 /**
  * Class that contains a reference to an OrderItem
- *bpolster
+ * 
  *
  */
 public class OrderItemHolder {

@@ -9,7 +9,7 @@ import java.util.List;
 
 
 /**
- *bpolster
+ * 
  */
 public class AbstractRuleBuilderFieldServiceExtensionHandler extends AbstractExtensionHandler
         implements RuleBuilderFieldServiceExtensionHandler {

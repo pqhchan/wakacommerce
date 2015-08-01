@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.email.service;
 
 import org.apache.commons.logging.Log;
@@ -16,9 +15,6 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-/**
- *jfischer
- */
 @Service("blEmailTrackingManager")
 public class EmailTrackingManagerImpl implements EmailTrackingManager {
 

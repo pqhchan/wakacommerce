@@ -3,8 +3,8 @@ package com.wakacommerce.core.web.catalog;
 
 import org.springframework.beans.factory.annotation.Value;
 
-import com.wakacommerce.common.web.BLCAbstractHandlerMapping;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaAbstractHandlerMapping;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.catalog.domain.Sku;
 import com.wakacommerce.core.catalog.service.CatalogService;
 
@@ -18,12 +18,10 @@ import javax.servlet.http.HttpServletRequest;
  * If the URL matches a valid Sku then this mapping returns the handler configured via the 
  * controllerName property or blSkuController by default. 
  *
- *Joshua Skorton (jskorton)
- * @since 3.2
  * @see com.wakacommerce.core.catalog.domain.Sku
  * @see CatalogService
  */
-public class SkuHandlerMapping extends BLCAbstractHandlerMapping {
+public class SkuHandlerMapping extends WakaAbstractHandlerMapping {
     
     private String controllerName="blSkuController";
 
@@ -42,7 +40,7 @@ public class SkuHandlerMapping extends BLCAbstractHandlerMapping {
         if(!useSku) {
             return null;
         }
-        BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
         if (context != null && context.getRequestURIWithoutContext() != null) {
             Sku sku = catalogService.findSkuByURI(context.getRequestURIWithoutContext());
             if (sku != null) {

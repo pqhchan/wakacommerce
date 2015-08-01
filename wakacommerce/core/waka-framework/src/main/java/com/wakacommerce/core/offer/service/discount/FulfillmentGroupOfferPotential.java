@@ -7,7 +7,7 @@ import com.wakacommerce.core.offer.domain.Offer;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public class FulfillmentGroupOfferPotential {

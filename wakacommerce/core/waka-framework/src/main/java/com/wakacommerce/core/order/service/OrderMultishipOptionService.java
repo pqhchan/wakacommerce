@@ -10,7 +10,7 @@ import com.wakacommerce.core.order.service.call.OrderMultishipOptionDTO;
 /**
  * Service to interact with OrderMultishipOptions
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface OrderMultishipOptionService {
 

@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * 
- *Phillip Verheyden
+ *  
  */
 public class AdminExporterDTO implements Serializable {
 

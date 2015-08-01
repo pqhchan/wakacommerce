@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Allows Broadleaf Add-On modules to manipulate the list of rule fields.
  * 
- *bpolster
+ * 
  */
 public interface RuleBuilderFieldServiceExtensionHandler extends ExtensionHandler {
     

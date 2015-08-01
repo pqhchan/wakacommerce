@@ -25,7 +25,7 @@ import com.wakacommerce.common.util.BLCCollectionUtils;
 import com.wakacommerce.common.util.StopWatch;
 import com.wakacommerce.common.util.TransactionUtils;
 import com.wakacommerce.common.util.TypedTransformer;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.catalog.dao.ProductDao;
 import com.wakacommerce.core.catalog.dao.SkuDao;
 import com.wakacommerce.core.catalog.domain.Product;
@@ -62,8 +62,8 @@ import javax.annotation.Resource;
 /**
  * Responsible for building and rebuilding the Solr index
  * 
- *Andre Azzolini (apazzolini)
- *Jeff Fischer
+ * 
+ * 
  */
 @Service("blSolrIndexService")
 public class SolrIndexServiceImpl implements SolrIndexService {
@@ -845,7 +845,7 @@ public class SolrIndexServiceImpl implements SolrIndexService {
     @Override
     public Object[] saveState() {
          return new Object[] {
-             BroadleafRequestContext.getBroadleafRequestContext(),
+             WakaRequestContext.getWakaRequestContext(),
              SkuPricingConsiderationContext.getSkuPricingConsiderationContext(),
              SkuPricingConsiderationContext.getSkuPricingService(),
              SkuActiveDateConsiderationContext.getSkuActiveDatesService()
@@ -855,7 +855,7 @@ public class SolrIndexServiceImpl implements SolrIndexService {
     @Override
     @SuppressWarnings("rawtypes")
     public void restoreState(Object[] pack) {
-         BroadleafRequestContext.setBroadleafRequestContext((BroadleafRequestContext) pack[0]);
+         WakaRequestContext.setWakaRequestContext((WakaRequestContext) pack[0]);
          SkuPricingConsiderationContext.setSkuPricingConsiderationContext((HashMap) pack[1]);
          SkuPricingConsiderationContext.setSkuPricingService((DynamicSkuPricingService) pack[2]);
          SkuActiveDateConsiderationContext.setSkuActiveDatesService((DynamicSkuActiveDatesService) pack[3]);

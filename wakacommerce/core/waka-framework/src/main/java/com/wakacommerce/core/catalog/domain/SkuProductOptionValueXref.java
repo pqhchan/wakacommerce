@@ -26,7 +26,7 @@ import com.wakacommerce.common.copy.MultiTenantCloneable;
 /**
  * Join entity between {@link Sku} and {@link ProductOptionValue}.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface SkuProductOptionValueXref extends Serializable, MultiTenantCloneable<SkuProductOptionValueXref> {
 

@@ -11,7 +11,7 @@ import com.wakacommerce.common.config.domain.ModuleConfiguration;
  * The SiteMapConfiguration is a class that drives the building of the SiteMap.  It contains general properties that drive
  * the creation of the SiteMap such as directory paths, etc.
  * 
- *bpolster
+ * 
  */
 public interface SiteMapConfiguration extends ModuleConfiguration {
         

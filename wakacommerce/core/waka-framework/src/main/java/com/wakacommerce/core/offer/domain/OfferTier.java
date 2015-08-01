@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 /**
  * Represents a tier and amount combination for an offer.   For example, an offer might allow a
  * 10% off if a user purchases 1 -5 but then allow 15% off if they purchase more than 5.    
- *bpolster
+ * 
  *
  */
 public interface OfferTier extends Comparable<OfferTier>{

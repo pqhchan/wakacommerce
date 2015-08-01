@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.web.security;
 
 import org.springframework.security.web.DefaultRedirectStrategy;
@@ -7,7 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.ServletWebRequest;
 
 import com.wakacommerce.common.util.BLCRequestUtils;
-import com.wakacommerce.common.web.controller.BroadleafControllerUtility;
+import com.wakacommerce.common.web.controller.WakaControllerUtility;
 
 import java.io.IOException;
 
@@ -18,10 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  * If the incoming request is an ajax request, the system will add the desired redirect path to the session and
  * then redirect to the path configured for the redirectPath property.
  * 
- * It is assumed that the redirectPath will be picked up by the BroadleafRedirectController.
- * 
- *bpolster
- * 
+ * It is assumed that the redirectPath will be picked up by the WakaRedirectController.
  */
 @Component("blAuthenticationSuccessRedirectStrategy")
 public class BroadleafAuthenticationSuccessRedirectStrategy implements RedirectStrategy {
@@ -31,7 +27,7 @@ public class BroadleafAuthenticationSuccessRedirectStrategy implements RedirectS
 
     @Override
     public void sendRedirect(HttpServletRequest request, HttpServletResponse response, String url) throws IOException {
-        if (BroadleafControllerUtility.isAjaxRequest(request)) {
+        if (WakaControllerUtility.isAjaxRequest(request)) {
             if (BLCRequestUtils.isOKtoUseSession(new ServletWebRequest(request))) {
                 request.getSession().setAttribute("BLC_REDIRECT_URL", url);
             }
@@ -41,7 +37,7 @@ public class BroadleafAuthenticationSuccessRedirectStrategy implements RedirectS
     }
 
     public String updateLoginErrorUrlForAjax(String url) {
-        String blcAjax = BroadleafControllerUtility.BLC_AJAX_PARAMETER;
+        String blcAjax = WakaControllerUtility.WK_AJAX_PARAMETER;
         if (url != null && url.indexOf("?") > 0) {
             url = url + "&" + blcAjax + "=true";
         } else {

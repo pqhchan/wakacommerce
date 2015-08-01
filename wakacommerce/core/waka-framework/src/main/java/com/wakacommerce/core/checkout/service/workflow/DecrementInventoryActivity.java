@@ -38,7 +38,7 @@ import com.wakacommerce.core.workflow.state.ActivityStateManagerImpl;
 /**
  * Decrements inventory
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 public class DecrementInventoryActivity extends BaseActivity<ProcessContext<CheckoutSeed>> {
 

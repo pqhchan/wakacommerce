@@ -1,16 +1,15 @@
 package com.wakacommerce.common.web.extensibility;
 
+import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
+
 import org.springframework.beans.BeansException;
-import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.ConfigurableWebApplicationContext;
 import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.wakacommerce.common.classloader.release.ThreadLocalManager;
-
-import javax.servlet.ServletContext;
-import javax.servlet.ServletContextEvent;
 
 public class MergeContextLoader extends ContextLoaderListener {
 

@@ -21,7 +21,7 @@ import java.util.Arrays;
  * the fields here because {@link InMemoryResource} does not provide a default constructor. This causes issues when
  * deserializing an instance from disk (such as in a caching scenario that overflows from memory to disk).
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class GeneratedResource extends AbstractResource implements Serializable {
     

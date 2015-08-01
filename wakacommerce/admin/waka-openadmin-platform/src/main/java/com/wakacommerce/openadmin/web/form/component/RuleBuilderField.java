@@ -5,7 +5,7 @@ import com.wakacommerce.openadmin.web.form.entity.Field;
 import com.wakacommerce.openadmin.web.rulebuilder.dto.DataWrapper;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public class RuleBuilderField extends Field {
 

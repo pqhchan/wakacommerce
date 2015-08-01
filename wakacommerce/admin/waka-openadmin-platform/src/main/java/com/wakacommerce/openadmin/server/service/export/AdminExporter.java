@@ -11,7 +11,7 @@ import java.util.Map;
 
 /**
  * 
- *Phillip Verheyden
+ *  
  */
 public interface AdminExporter {
 

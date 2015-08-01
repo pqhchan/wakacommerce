@@ -10,7 +10,7 @@ import com.wakacommerce.core.catalog.domain.RelatedProductDTO;
  * Interface for finding related products.   Could be extended to support more complex
  * related product functions.    
  * 
- *bpolster
+ * 
  *
  */
 public interface RelatedProductsService {   

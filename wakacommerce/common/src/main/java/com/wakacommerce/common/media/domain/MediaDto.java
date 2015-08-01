@@ -5,7 +5,7 @@ import com.wakacommerce.common.util.UnknownUnwrapTypeException;
 
 /**
  * A null safe media object.
- *bpolster
+ * 
  *
  */
 public class MediaDto implements Media {

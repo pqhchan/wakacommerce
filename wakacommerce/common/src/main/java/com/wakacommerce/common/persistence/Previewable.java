@@ -4,7 +4,7 @@ package com.wakacommerce.common.persistence;
  * Interface that exposes properties useful for determining if an entity is intended for preview only,
  * as opposed to standard production entities
  *
- *Jeff Fischer
+ * 
  */
 public interface Previewable {
 

@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import com.wakacommerce.common.currency.domain.BroadleafCurrency;
 import com.wakacommerce.common.money.util.CurrencyAdapter;
 import com.wakacommerce.common.util.xml.BigDecimalRoundingAdapter;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Money implements Serializable, Cloneable, Comparable<Money>, Externalizable {
@@ -421,7 +421,7 @@ public class Money implements Serializable, Cloneable, Comparable<Money>, Extern
         }
 
         // Check the BLC Thread
-        BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
 
         if (brc != null && brc.getBroadleafCurrency() != null) {
             assert brc.getBroadleafCurrency().getCurrencyCode()!=null;

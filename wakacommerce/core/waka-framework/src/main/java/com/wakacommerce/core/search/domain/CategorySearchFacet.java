@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface CategorySearchFacet extends Serializable, MultiTenantCloneable<CategorySearchFacet> {
 

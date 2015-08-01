@@ -5,7 +5,7 @@ import org.springframework.beans.factory.FactoryBean;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public class ExplicitNameFactoryBean implements FactoryBean {

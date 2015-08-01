@@ -10,7 +10,7 @@ package com.wakacommerce.openadmin.web.form.entity;
  * the security of the fields.   For example, if a user has access to Page, then they should also have access to the
  * fields introduced by the PageTemplate.
  * 
- *bpolster
+ * 
  *
  */
 public class DynamicEntityFormInfo {

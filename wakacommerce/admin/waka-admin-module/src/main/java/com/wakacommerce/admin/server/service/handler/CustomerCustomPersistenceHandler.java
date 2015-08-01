@@ -24,7 +24,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- *jfischer
+ *  
  */
 @Component("blCustomerCustomPersistenceHandler")
 public class CustomerCustomPersistenceHandler extends CustomPersistenceHandlerAdapter {

@@ -9,7 +9,7 @@
                 <div class="title">
                     <h5>
                         <i th:class="${module.icon}"></i>
-                        [[#{${module.moduleKey}}]]
+                        [[${module.name}]]
                     </h5>
                 </div>
                 <div class="content" 
@@ -18,7 +18,7 @@
                         <li th:each="section : ${module.sections}" 
                             th:classappend="${(currentAdminSection != null) and (currentAdminSection.id == section.id) ? 'active' : ''}">
                             <a blc_admin:admin_section_href="${section}">
-                                [[#{${section.sectionKey}}]]
+                                [[${section.name}]]
                             </a>
                         </li>
                     </ul>

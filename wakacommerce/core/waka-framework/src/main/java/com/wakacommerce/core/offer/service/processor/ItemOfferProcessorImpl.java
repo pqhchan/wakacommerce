@@ -36,7 +36,7 @@ import java.util.Map.Entry;
 /**
  * Filter and apply order item offers.
  * 
- *jfischer
+ *  
  *
  */
 @Service("blItemOfferProcessor")

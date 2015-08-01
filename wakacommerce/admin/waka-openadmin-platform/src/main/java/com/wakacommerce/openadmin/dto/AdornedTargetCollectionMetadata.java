@@ -6,7 +6,7 @@ import java.util.Arrays;
 import com.wakacommerce.openadmin.dto.visitor.MetadataVisitor;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class AdornedTargetCollectionMetadata extends CollectionMetadata {
 

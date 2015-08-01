@@ -14,7 +14,7 @@ import com.wakacommerce.common.vendor.service.exception.PaymentException;
  * Braintree and Paypal have API hooks to either do a date based query or an individual
  * inquiry on a particular transaction.</p>
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public interface PaymentGatewayReportingService {
 

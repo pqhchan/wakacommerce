@@ -2,7 +2,7 @@
 package com.wakacommerce.openadmin.audit;
 
 import com.wakacommerce.common.time.SystemTime;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.openadmin.server.security.domain.AdminUser;
 
 import java.lang.reflect.Field;
@@ -63,7 +63,7 @@ public class AdminAuditableListener {
 
     protected void setAuditValueAgent(Field field, Object entity) throws IllegalArgumentException, IllegalAccessException {
         try {
-            BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
+            WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
             if (context != null && context.getAdmin() && context.getAdditionalProperties().containsKey("adminUser")) {
                 field.setAccessible(true);
                 field.set(entity, ((AdminUser) context.getAdditionalProperties().get("adminUser")).getId());

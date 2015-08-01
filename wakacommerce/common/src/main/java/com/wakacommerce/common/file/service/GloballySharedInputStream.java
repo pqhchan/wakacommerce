@@ -11,7 +11,7 @@ import java.io.InputStream;
  * filesystem.    It allows multi-site implementations to only generate one copy of assets that are being
  * resized.
  * 
- *bpolster
+ * 
  *
  */
 public class GloballySharedInputStream extends InputStream {

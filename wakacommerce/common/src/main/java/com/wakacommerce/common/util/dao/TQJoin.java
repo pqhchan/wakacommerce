@@ -14,7 +14,7 @@ package com.wakacommerce.common.util.dao;
  * </p>
  * The alias value can be used in subsequent restriction expressions.
  *
- *Jeff Fischer
+ * 
  */
 public class TQJoin {
 

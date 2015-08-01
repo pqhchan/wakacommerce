@@ -16,7 +16,7 @@ import com.wakacommerce.common.i18n.service.type.ISOCodeStatusType;
  * {@link http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2}
  * {@link http://www.iso.org/iso/iso-3166-1_decoding_table}
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public interface ISOCountry extends Serializable {
 

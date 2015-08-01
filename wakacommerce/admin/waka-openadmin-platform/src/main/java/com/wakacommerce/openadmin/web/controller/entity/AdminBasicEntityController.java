@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.web.controller.entity;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -34,7 +33,7 @@ import com.wakacommerce.common.presentation.client.SupportedFieldType;
 import com.wakacommerce.common.sandbox.SandBoxHelper;
 import com.wakacommerce.common.util.BLCArrayUtils;
 import com.wakacommerce.common.util.BLCMessageUtils;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.common.web.JsonResponse;
 import com.wakacommerce.openadmin.dto.AdornedTargetCollectionMetadata;
 import com.wakacommerce.openadmin.dto.AdornedTargetList;
@@ -81,8 +80,6 @@ import javax.servlet.http.HttpServletResponse;
  * The default implementation of the {@link #BroadleafAdminAbstractEntityController}. This delegates every call to 
  * super and does not provide any custom-tailored functionality. It is responsible for rendering the admin for every
  * entity that is not explicitly customized by its own controller.
- * 
- *Andre Azzolini (apazzolini)
  */
 @Controller("blAdminBasicEntityController")
 @RequestMapping("/{sectionKey:.+}")
@@ -436,7 +433,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
     }
     
     protected String translateErrorMessage(ObjectError error) {
-        BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
         if (context != null && context.getMessageSource() != null) {
             return context.getMessageSource().getMessage(error.getCode(), null, error.getCode(), context.getJavaLocale());
         } else {

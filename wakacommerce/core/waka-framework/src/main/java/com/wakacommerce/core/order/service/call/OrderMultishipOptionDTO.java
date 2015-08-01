@@ -8,7 +8,7 @@ package com.wakacommerce.core.order.service.call;
  * 
  * @see OrderMultishipOptionForm
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class OrderMultishipOptionDTO {
 

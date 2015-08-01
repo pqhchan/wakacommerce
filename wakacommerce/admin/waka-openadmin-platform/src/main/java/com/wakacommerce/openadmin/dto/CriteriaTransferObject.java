@@ -14,7 +14,7 @@ import com.wakacommerce.openadmin.server.service.persistence.module.criteria.Fil
  * Generic persistent entity criteria transfer object.
  * Provides a storage mechanism for query related information regarding an entity.
  * 
- *Jeff Fischer
+ * 
  */
 public class CriteriaTransferObject {
 

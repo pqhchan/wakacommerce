@@ -37,7 +37,7 @@ import org.thymeleaf.standard.expression.StandardExpressions;
 import org.thymeleaf.standard.processor.attr.StandardFragmentAttrProcessor;
 
 import com.wakacommerce.common.config.service.SystemPropertiesService;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.web.service.SimpleCacheKeyResolver;
 import com.wakacommerce.core.web.service.TemplateCacheKeyResolverService;
 
@@ -74,7 +74,7 @@ import javax.annotation.Resource;
  * Implementations of {@link TemplateCacheKeyResolverService} can rely on variables like the customer, site, theme, etc. to
  * build the final cacheKey.
  *  
- *bpolster
+ * 
  * @see {@link TemplateCacheKeyResolverService}
  * @see {@link SimpleCacheKeyResolver}
  */
@@ -269,7 +269,7 @@ public class BroadleafCacheProcessor extends AbstractAttrProcessor {
             // check for a URL param that overrides caching - useful for testing if this processor is incorrectly
             // caching a page (possibly due to an bad cacheKey).
 
-            BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+            WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
             if (brc != null && brc.getWebRequest() != null) {
                 WebRequest request = brc.getWebRequest();
                 String disableCachingParam = request.getParameter("disableThymeleafTemplateCaching");

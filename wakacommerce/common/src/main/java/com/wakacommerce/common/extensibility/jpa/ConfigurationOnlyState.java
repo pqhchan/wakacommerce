@@ -4,7 +4,7 @@ package com.wakacommerce.common.extensibility.jpa;
 import com.wakacommerce.common.classloader.release.ThreadLocalManager;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class ConfigurationOnlyState {
 

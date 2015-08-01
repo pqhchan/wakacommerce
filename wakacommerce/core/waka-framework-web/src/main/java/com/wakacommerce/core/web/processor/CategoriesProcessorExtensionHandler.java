@@ -9,7 +9,7 @@ import com.wakacommerce.core.catalog.domain.Category;
 import java.util.List;
 
 /**
- *Jeff Fischer
+ * 
  */
 public interface CategoriesProcessorExtensionHandler extends ExtensionHandler {
 

@@ -13,7 +13,7 @@ import java.io.Serializable;
 import java.util.Map;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class FieldMetadataOverride {
 

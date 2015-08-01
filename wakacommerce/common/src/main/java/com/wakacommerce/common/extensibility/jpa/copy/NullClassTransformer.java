@@ -13,7 +13,7 @@ import com.wakacommerce.common.extensibility.jpa.convert.BroadleafClassTransform
  * 
  * This transformer should not typically be used.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class NullClassTransformer implements BroadleafClassTransformer {
     

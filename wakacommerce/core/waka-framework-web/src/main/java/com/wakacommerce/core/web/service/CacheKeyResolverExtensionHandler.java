@@ -6,7 +6,7 @@ import com.wakacommerce.common.extension.ExtensionResultStatusType;
 
 
 /**
- *bpolster
+ * 
  */
 public interface CacheKeyResolverExtensionHandler extends ExtensionHandler {
 

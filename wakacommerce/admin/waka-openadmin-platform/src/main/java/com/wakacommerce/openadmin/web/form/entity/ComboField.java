@@ -6,7 +6,7 @@ import java.util.Map;
 
 
 /**
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class ComboField extends Field {
 

@@ -9,7 +9,7 @@ import com.wakacommerce.core.catalog.domain.SkuFee;
 /**
  * {@code SkuDao} provides persistence access to {@code Sku} instances
  *
- *Jeff Fischer
+ * 
  */
 public interface SkuDao {
 

@@ -10,7 +10,7 @@ import com.wakacommerce.profile.core.domain.Customer;
 /**
  * Extension handler for merge cart
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface MergeCartServiceExtensionHandler extends ExtensionHandler {
     

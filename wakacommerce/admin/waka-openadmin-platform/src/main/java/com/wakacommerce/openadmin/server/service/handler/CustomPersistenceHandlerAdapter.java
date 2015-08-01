@@ -22,7 +22,7 @@ import java.util.Map;
  * Convenience class for those {@link com.wakacommerce.openadmin.server.service.handler.CustomPersistenceHandler} implementations
  * that do not wish to implement all the methods of the interface.
  *
- *Jeff Fischer
+ * 
  */
 public class CustomPersistenceHandlerAdapter implements CustomPersistenceHandler {
 

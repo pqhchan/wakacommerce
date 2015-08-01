@@ -5,7 +5,7 @@ import java.math.RoundingMode;
 
 /**
  * Interface to centralize the promotion rounding functionality found in several of the Promotable classes.
- *bpolster
+ * 
  *
  */
 public interface PromotionRounding {

@@ -30,7 +30,7 @@ import org.springframework.context.MessageSourceAware;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Component;
 
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.web.api.BroadleafWebServicesException;
 import com.wakacommerce.core.web.api.wrapper.ErrorMessageWrapper;
 import com.wakacommerce.core.web.api.wrapper.ErrorWrapper;
@@ -50,7 +50,7 @@ import javax.ws.rs.ext.Provider;
 /**
  * JAXRS-compatible exception mapper
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  * @deprecated along with the other JAXRS components, this is deprecated in favor of using Spring MVC for REST services
  */
 @Provider
@@ -75,7 +75,7 @@ public class JaxrsRestExceptionMapper implements ExceptionMapper<Throwable>, Mes
         MediaType mediaType = resolveResponseMediaType(t);
         ErrorWrapper errorWrapper = (ErrorWrapper) context.getBean(ErrorWrapper.class.getName());
         Locale locale = null;
-        BroadleafRequestContext requestContext = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext requestContext = WakaRequestContext.getWakaRequestContext();
         if (requestContext != null) {
             locale = requestContext.getJavaLocale();
         }

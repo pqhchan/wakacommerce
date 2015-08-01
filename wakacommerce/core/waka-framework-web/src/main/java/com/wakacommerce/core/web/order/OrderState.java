@@ -16,7 +16,7 @@ import javax.annotation.Resource;
  * utilizes the DAO to retrieve the full order from its dehydrated state in the
  * Hibernate cache.
  * 
- *jfischer
+ *  
  *
  */
 public class OrderState {

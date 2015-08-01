@@ -11,7 +11,7 @@ import org.springframework.core.Ordered;
  * usage information.
  *
  * @see com.wakacommerce.common.extensibility.context.merge.AbstractRemoveBeanPostProcessor
- *Jeff Fischer
+ * 
  */
 public class LateStageRemoveBeanPostProcessor extends AbstractRemoveBeanPostProcessor implements Ordered {
 

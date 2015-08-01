@@ -44,7 +44,7 @@ import com.wakacommerce.core.payment.domain.PaymentTransaction;
 import com.wakacommerce.core.payment.service.OrderPaymentService;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @XmlRootElement(name = "transaction")
 @XmlAccessorType(value = XmlAccessType.FIELD)

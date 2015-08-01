@@ -1,5 +1,3 @@
-
-
 package com.wakacommerce.openadmin.web.controller.entity;
 
 import org.apache.commons.lang3.StringUtils;
@@ -37,8 +35,6 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * The operations in this controller are actions that do not necessarily depend on a section key being present.
- * 
- *Andre Azzolini (apazzolini)
  */
 @Controller("blAdminBasicOperationsController")
 public class AdminBasicOperationsController extends AdminAbstractController {

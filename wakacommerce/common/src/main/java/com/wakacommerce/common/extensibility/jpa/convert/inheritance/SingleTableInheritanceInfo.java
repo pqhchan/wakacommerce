@@ -5,7 +5,7 @@ import javax.persistence.DiscriminatorType;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public class SingleTableInheritanceInfo {

@@ -8,7 +8,7 @@ import java.io.Serializable;
  * search indexes and indicate that information in this class should be searched for search terms during actual
  * searches.
  *
- *Jeff Fischer
+ * 
  */
 public interface Searchable<T extends Serializable> extends ValueAssignable<T> {
 

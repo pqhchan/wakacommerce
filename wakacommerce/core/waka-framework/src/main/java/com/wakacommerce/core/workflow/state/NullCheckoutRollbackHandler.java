@@ -12,7 +12,7 @@ import com.wakacommerce.core.workflow.Activity;
 import com.wakacommerce.core.workflow.ProcessContext;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Component("blNullCheckoutRollbackHandler")
 public class NullCheckoutRollbackHandler implements RollbackHandler<CheckoutSeed> {

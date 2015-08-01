@@ -14,7 +14,7 @@ import java.lang.annotation.Target;
  * for the collection entity members based on the parent entity. See the multi-tenant module documentation for more
  * information.
  *
- *Jeff Fischer
+ * 
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD})

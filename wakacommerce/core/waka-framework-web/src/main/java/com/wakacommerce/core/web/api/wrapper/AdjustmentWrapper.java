@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  * This is a JAXB wrapper around OrderAdjustmentWrapper.
  * <p/>
- * Author: ppatel, bpolster
+ * Author: ppatel,  
  */
 @XmlRootElement(name = "adjustment")
 @XmlAccessorType(value = XmlAccessType.FIELD)

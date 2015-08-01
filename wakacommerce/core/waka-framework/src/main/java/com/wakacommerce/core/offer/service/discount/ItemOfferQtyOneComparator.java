@@ -9,7 +9,7 @@ import com.wakacommerce.core.offer.service.discount.domain.PromotableCandidateIt
  * The same as {@link ItemOfferComparator} but uses the {@link PromotableCandidateItemOffer#getPotentialSavingsQtyOne()}
  * method instead.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class ItemOfferQtyOneComparator implements Comparator<PromotableCandidateItemOffer> {
     

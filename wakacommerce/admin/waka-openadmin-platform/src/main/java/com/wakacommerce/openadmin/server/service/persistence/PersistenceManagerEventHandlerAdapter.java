@@ -11,7 +11,7 @@ import com.wakacommerce.openadmin.dto.PersistencePackage;
  * Convenience adapter for PersistenceManagerEventHandler implementations that don't need to implement every
  * method of the interface.
  *
- *Jeff Fischer
+ * 
  */
 public class PersistenceManagerEventHandlerAdapter implements PersistenceManagerEventHandler {
 

@@ -12,7 +12,7 @@ import com.wakacommerce.common.i18n.domain.ISOCountry;
  * For example, ISO 3166-1 define codes for countries/dependent territories that are widely used
  * by many systems. You can use this service to find the defined countries based on the alpha-2 code for that country.
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public interface ISOService {
 

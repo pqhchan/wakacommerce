@@ -27,7 +27,7 @@ import org.springframework.validation.Validator;
 import com.wakacommerce.core.web.checkout.model.GiftCardInfoForm;
 
 /**
- *Jerry Ocanas (jocanas)
+ *   (jocanas)
  */
 @Component("blGiftCardInfoFormValidator")
 public class GiftCardInfoFormValidator implements Validator {

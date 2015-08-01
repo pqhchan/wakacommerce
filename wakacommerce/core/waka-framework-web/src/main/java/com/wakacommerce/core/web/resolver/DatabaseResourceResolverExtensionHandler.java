@@ -13,7 +13,7 @@ import java.io.InputStream;
 /**
  * Extension handler for resolving templates from the database.
  * 
- *Andre Azzolini (apazzolini), bpolster
+ * ,  
  */
 public interface DatabaseResourceResolverExtensionHandler extends ExtensionHandler {
     

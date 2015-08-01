@@ -25,7 +25,7 @@ import com.wakacommerce.common.i18n.domain.TranslatedEntity;
 import com.wakacommerce.common.i18n.domain.Translation;
 import com.wakacommerce.common.i18n.domain.TranslationImpl;
 import com.wakacommerce.common.sandbox.SandBoxHelper;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 
 import java.util.HashMap;
 import java.util.List;
@@ -152,7 +152,7 @@ public class TranslationServiceImpl implements TranslationService {
             extensionManager.getProxy().isValidState(response);
             isValidForCache = response.getResult();
         }
-        if (!BroadleafRequestContext.getBroadleafRequestContext().isProductionSandBox() || !isValidForCache) {
+        if (!WakaRequestContext.getWakaRequestContext().isProductionSandBox() || !isValidForCache) {
             Translation translation = dao.readTranslation(entityType, entityId, property, localeCode, localeCountryCode,
                     ResultType.IGNORE);
             if (translation != null) {
@@ -167,7 +167,7 @@ public class TranslationServiceImpl implements TranslationService {
 
     @Override
     public void removeTranslationFromCache(Translation translation) {
-        if (BroadleafRequestContext.getBroadleafRequestContext().isProductionSandBox()) {
+        if (WakaRequestContext.getWakaRequestContext().isProductionSandBox()) {
             ResultType resultType = ResultType.STANDARD;
             if (extensionManager != null) {
                 ExtensionResultHolder<ResultType> response = new ExtensionResultHolder<ResultType>();
@@ -387,7 +387,7 @@ public class TranslationServiceImpl implements TranslationService {
     }
 
     protected int getThresholdForFullCache() {
-        if (BroadleafRequestContext.getBroadleafRequestContext().isProductionSandBox()) {
+        if (WakaRequestContext.getWakaRequestContext().isProductionSandBox()) {
             return thresholdForFullCache;
         } else {
             // don't cache when not in a SandBox

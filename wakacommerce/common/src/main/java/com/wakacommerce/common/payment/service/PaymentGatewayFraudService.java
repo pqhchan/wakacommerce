@@ -11,7 +11,7 @@ import com.wakacommerce.common.payment.dto.PaymentResponseDTO;
  *
  * <p>This API allows you to call certain fraud prevention APIs exposed from the gateway.</p>
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public interface PaymentGatewayFraudService {
 

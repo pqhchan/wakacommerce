@@ -24,7 +24,7 @@ import javax.persistence.criteria.Root;
  * instance of this type should have no effect.
  *
  * @see com.wakacommerce.common.extension.ResultType
- *Jeff Fischer
+ * 
  */
 public interface SparselyPopulatedQueryExtensionHandler extends ExtensionHandler {
 
@@ -42,7 +42,7 @@ public interface SparselyPopulatedQueryExtensionHandler extends ExtensionHandler
     ExtensionResultStatusType refineRetrieve(Class<?> type, ResultType resultType, CriteriaBuilder builder, CriteriaQuery criteria, Root root, List<Predicate> restrictions);
 
     /**
-     * Perform any setup operations. This is usually done before executing the query and can serve to prepare the BroadleafRequestContext (if applicable).
+     * Perform any setup operations. This is usually done before executing the query and can serve to prepare the WakaRequestContext (if applicable).
      *
      * @param type the class type for the query
      * @param resultType pass a ResultType of IGNORE to explicitly ignore setup, even if the multitenant module is loaded
@@ -51,7 +51,7 @@ public interface SparselyPopulatedQueryExtensionHandler extends ExtensionHandler
     ExtensionResultStatusType setup(Class<?> type, ResultType resultType);
 
     /**
-     * Perform any breakdown operations. This is usually done after executing the query and can serve to reset the BroadleafRequestContext (if applicable)
+     * Perform any breakdown operations. This is usually done after executing the query and can serve to reset the WakaRequestContext (if applicable)
      *
      * @param type the class type for the query
      * @param resultType pass a ResultType of IGNORE to explicitly ignore breakdown, even if the multitenant module is loaded

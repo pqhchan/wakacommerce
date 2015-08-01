@@ -28,7 +28,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  * 
- *Phillip Verheyden
+ *  
  *
  */
 @Service("blAdminCatalogService")

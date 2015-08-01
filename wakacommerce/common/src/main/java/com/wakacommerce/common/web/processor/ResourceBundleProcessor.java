@@ -101,8 +101,8 @@ import javax.servlet.http.HttpServletRequest;
  *                              the list of files or the single minified file
  * @param <b>files</b>          (required) a comma-separated list of files that should be bundled together
  * 
- *apazzolini
- *bpolster
+ *  
+ * 
  * @see {@link ResourceBundlingService}
  */
 public class ResourceBundleProcessor extends AbstractElementProcessor {

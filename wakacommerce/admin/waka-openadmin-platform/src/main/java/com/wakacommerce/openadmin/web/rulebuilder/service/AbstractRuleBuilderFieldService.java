@@ -10,7 +10,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.MessageSource;
 
 import com.wakacommerce.common.presentation.client.SupportedFieldType;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.openadmin.server.dao.DynamicEntityDao;
 import com.wakacommerce.openadmin.server.service.persistence.PersistenceManager;
 import com.wakacommerce.openadmin.server.service.persistence.PersistenceManagerFactory;
@@ -31,7 +31,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public abstract class AbstractRuleBuilderFieldService implements RuleBuilderFieldService, ApplicationContextAware, InitializingBean {
 
@@ -63,7 +63,7 @@ public abstract class AbstractRuleBuilderFieldService implements RuleBuilderFiel
             
             //translate the label to display
             String label = field.getFieldLabel();
-            BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
+            WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
             MessageSource messages = context.getMessageSource();
             label = messages.getMessage(label, null, label, context.getJavaLocale());
             fieldDTO.setLabel(label);
@@ -207,10 +207,10 @@ public abstract class AbstractRuleBuilderFieldService implements RuleBuilderFiel
             
             // This cannot be null during startup as we do not want to remove the null safety checks in a multi-tenant env.
             boolean contextWasNull = false;
-            if (BroadleafRequestContext.getBroadleafRequestContext() == null) {
-                BroadleafRequestContext brc = new BroadleafRequestContext();
+            if (WakaRequestContext.getWakaRequestContext() == null) {
+                WakaRequestContext brc = new WakaRequestContext();
                 brc.setIgnoreSite(true);
-                BroadleafRequestContext.setBroadleafRequestContext(brc);
+                WakaRequestContext.setWakaRequestContext(brc);
                 contextWasNull = true;
             }
 
@@ -218,7 +218,7 @@ public abstract class AbstractRuleBuilderFieldService implements RuleBuilderFiel
                 init();
             } finally {
                 if (contextWasNull) {
-                    BroadleafRequestContext.setBroadleafRequestContext(null);
+                    WakaRequestContext.setWakaRequestContext(null);
                 }
             }
         }

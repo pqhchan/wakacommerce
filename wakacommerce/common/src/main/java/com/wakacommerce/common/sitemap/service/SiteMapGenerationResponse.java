@@ -9,7 +9,7 @@ import java.util.List;
  * Represents the outcome of a SiteMap generation request.   Can be extended for specific domain objectives but 
  * generally provides the directory location where the SiteMap request is stored.
  * 
- *bpolster
+ * 
  */
 public class SiteMapGenerationResponse {
 

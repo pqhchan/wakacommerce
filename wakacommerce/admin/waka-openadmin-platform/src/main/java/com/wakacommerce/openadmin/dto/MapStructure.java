@@ -7,7 +7,7 @@ import com.wakacommerce.openadmin.dto.visitor.PersistencePerspectiveItemVisitor;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public class MapStructure implements Serializable, PersistencePerspectiveItem {

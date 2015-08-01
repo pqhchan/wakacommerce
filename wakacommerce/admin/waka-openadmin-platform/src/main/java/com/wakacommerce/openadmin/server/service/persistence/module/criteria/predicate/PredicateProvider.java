@@ -11,7 +11,7 @@ import com.wakacommerce.openadmin.server.service.persistence.module.criteria.Fie
 import java.util.List;
 
 /**
- *Jeff Fischer
+ * 
  */
 public interface PredicateProvider<T, Y> {
 

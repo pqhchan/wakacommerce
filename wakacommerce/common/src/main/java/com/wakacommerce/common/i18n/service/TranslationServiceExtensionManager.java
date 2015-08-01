@@ -12,7 +12,7 @@ import com.wakacommerce.common.extension.SparselyPopulatedQueryExtensionHandler;
  * pattern for multitenancy.
  *
  * @see com.wakacommerce.common.extension.SparselyPopulatedQueryExtensionHandler
- *Jeff Fischer
+ * 
  */
 @Service("blTranslationServiceExtensionManager")
 public class TranslationServiceExtensionManager extends ExtensionManager<SparselyPopulatedQueryExtensionHandler> {

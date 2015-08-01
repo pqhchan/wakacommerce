@@ -16,7 +16,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 /**
- *Jeff Fischer
+ * 
  */
 public abstract class AbstractFieldPersistenceProvider implements FieldPersistenceProvider {
 

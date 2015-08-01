@@ -13,7 +13,7 @@ import com.wakacommerce.common.presentation.client.OperationType;
  * This annotation is used to describe a simple persistent collection
  * for use by the admin tool.
  *
- *Jeff Fischer
+ * 
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD})

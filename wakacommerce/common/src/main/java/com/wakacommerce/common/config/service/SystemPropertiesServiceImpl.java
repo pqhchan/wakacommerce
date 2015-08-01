@@ -16,7 +16,7 @@ import com.wakacommerce.common.config.domain.SystemProperty;
 import com.wakacommerce.common.config.service.type.SystemPropertyFieldType;
 import com.wakacommerce.common.extensibility.jpa.SiteDiscriminator;
 import com.wakacommerce.common.extension.ExtensionResultHolder;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 
 import javax.annotation.Resource;
 
@@ -24,7 +24,7 @@ import javax.annotation.Resource;
  * Service that retrieves property settings from the database.   If not set in 
  * the DB then returns the value from property files.
  *  
- *bpolster
+ * 
  *
  */
 @Service("blSystemPropertiesService")
@@ -65,7 +65,7 @@ public class SystemPropertiesServiceImpl implements SystemPropertiesService{
 
         String result;
         // We don't want to utilize this cache for sandboxes
-        if (BroadleafRequestContext.getBroadleafRequestContext().getSandBox() == null) {
+        if (WakaRequestContext.getWakaRequestContext().getSandBox() == null) {
             result = getPropertyFromCache(name);
         } else {
             result = null;
@@ -120,10 +120,10 @@ public class SystemPropertiesServiceImpl implements SystemPropertiesService{
      */
     protected String buildKey(String propertyName) {
         String key = propertyName;
-        BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
         if (brc != null) {
-            if (brc.getSite() != null) {
-                key = brc.getSite().getId() + "-" + key;
+            if (brc.getNonPersistentSite() != null) {
+                key = brc.getNonPersistentSite().getId() + "-" + key;
             }
         }
         return key;

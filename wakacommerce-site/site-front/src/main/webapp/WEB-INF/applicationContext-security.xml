@@ -35,8 +35,9 @@
         
         <!-- Wishlist modifications live under /account, but we don't need HTTPS -->
         <sec:intercept-url pattern="/account/wishlist/**" access="ROLE_USER" requires-channel="any" />
-        
+        <sec:intercept-url pattern="/account/**" access="ROLE_USER" requires-channel="any" />
         <!-- Specify these URLs as requiring HTTPS to encrypt user data  -->
+        <!-- 
         <sec:intercept-url pattern="/register*" requires-channel="https" />
         <sec:intercept-url pattern="/login*/**" requires-channel="https" />
         <sec:intercept-url pattern="/account/**" access="ROLE_USER" requires-channel="https" />
@@ -44,13 +45,14 @@
         <sec:intercept-url pattern="/null-checkout/**" requires-channel="https" />
         <sec:intercept-url pattern="/null-giftcard/**" requires-channel="https" />
         <sec:intercept-url pattern="/confirmation/**" requires-channel="https" />
+        -->
         
         <!-- Since the cart page is viewing as a modal, we want to allow it on any page -->
         <sec:intercept-url pattern="/cart/**" requires-channel="any" />
         
         <!-- All URLs not explicitly specified as https will be served under http -->
-        <sec:intercept-url pattern="/" requires-channel="http"/>
-        <sec:intercept-url pattern="/**" requires-channel="http"/>
+        <sec:intercept-url pattern="/" requires-channel="any"/>
+        <sec:intercept-url pattern="/**" requires-channel="any"/>
         
         <!-- Define the login form along with the success and failure handlers -->
         <sec:form-login login-page='/login'
@@ -94,13 +96,13 @@
     </bean>
 
     <!-- Sets the login failure URL -->
-    <bean id="blAuthenticationFailureHandler" class="com.wakacommerce.common.security.BroadleafAuthenticationFailureHandler">
+    <bean id="blAuthenticationFailureHandler" class="com.wakacommerce.common.security.WakaAuthenticationFailureHandler">
         <constructor-arg value="/login?error=true" />
         <property name="redirectStrategy" ref="blAuthenticationFailureRedirectStrategy" />
     </bean>
 
     <!-- Sets the login success URL -->
-    <bean id="blAuthenticationSuccessHandler" class="com.wakacommerce.core.web.order.security.BroadleafAuthenticationSuccessHandler">
+    <bean id="blAuthenticationSuccessHandler" class="com.wakacommerce.core.web.order.security.WakaAuthenticationSuccessHandler">
         <property name="redirectStrategy" ref="blAuthenticationSuccessRedirectStrategy" />
         <property name="defaultTargetUrl" value="/" />
         <property name="targetUrlParameter" value="successUrl" />

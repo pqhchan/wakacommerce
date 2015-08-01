@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * This resolver is responsible for returning the Customer object that is currently present on the request.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface BroadleafRequestCustomerResolver {
 

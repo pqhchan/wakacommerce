@@ -34,7 +34,7 @@ import java.util.Map;
  * This should NOT be used in production, and is meant solely for demonstration
  * purposes only.
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Service("blNullPaymentGatewayWebResponseService")
 public class NullPaymentGatewayWebResponseServiceImpl implements PaymentGatewayWebResponseService {

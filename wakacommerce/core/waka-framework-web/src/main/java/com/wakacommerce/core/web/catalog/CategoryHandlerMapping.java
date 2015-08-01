@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Value;
 
-import com.wakacommerce.common.web.BLCAbstractHandlerMapping;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaAbstractHandlerMapping;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.catalog.domain.Category;
 import com.wakacommerce.core.catalog.service.CatalogService;
 
@@ -20,12 +20,10 @@ import com.wakacommerce.core.catalog.service.CatalogService;
  * If the URL matches a valid Category then this mapping returns the handler configured via the 
  * controllerName property or blCategoryController by default. 
  *
- *bpolster
- * @since 2.0
  * @see com.wakacommerce.core.catalog.domain.Category
  * @see CataService
  */
-public class CategoryHandlerMapping extends BLCAbstractHandlerMapping {
+public class CategoryHandlerMapping extends WakaAbstractHandlerMapping {
     
     private String controllerName="blCategoryController";
     
@@ -40,9 +38,8 @@ public class CategoryHandlerMapping extends BLCAbstractHandlerMapping {
     public String charEncoding;
 
     @Override
-    protected Object getHandlerInternal(HttpServletRequest request)
-            throws Exception {      
-        BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
+    protected Object getHandlerInternal(HttpServletRequest request) throws Exception {      
+        WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
         if (context != null && context.getRequestURIWithoutContext() != null) {
             String requestUri = URLDecoder.decode(context.getRequestURIWithoutContext(), charEncoding);
             Category category = catalogService.findCategoryByURI(requestUri);

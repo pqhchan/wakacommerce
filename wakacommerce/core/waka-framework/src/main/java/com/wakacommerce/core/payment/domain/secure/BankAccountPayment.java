@@ -10,7 +10,7 @@ import com.wakacommerce.core.payment.service.SecureOrderPaymentService;
  * from/to the database.
  *
  * @see {@link Referenced}
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 public interface BankAccountPayment extends Referenced {
 

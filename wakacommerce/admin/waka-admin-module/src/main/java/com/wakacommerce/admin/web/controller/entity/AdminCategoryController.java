@@ -1,4 +1,3 @@
-
 package com.wakacommerce.admin.web.controller.entity;
 
 import org.springframework.stereotype.Controller;
@@ -25,11 +24,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Handles admin operations for the {@link Category} entity.
- * 
- *Andre Azzolini (apazzolini)
- */
 @Controller("blAdminCategoryController")
 @RequestMapping("/" + AdminCategoryController.SECTION_KEY)
 public class AdminCategoryController extends AdminBasicEntityController {

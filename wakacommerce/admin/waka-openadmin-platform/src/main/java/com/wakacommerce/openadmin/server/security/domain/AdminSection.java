@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  *
- *elbertbautista
+ *  
  *
  */
 public interface AdminSection extends Serializable {

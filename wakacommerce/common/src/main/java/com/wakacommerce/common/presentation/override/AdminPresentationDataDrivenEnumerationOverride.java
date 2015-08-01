@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 import com.wakacommerce.common.presentation.AdminPresentationDataDrivenEnumeration;
 
 /**
- *Jeff Fischer
+ * 
  * @deprecated use {@link AdminPresentationMergeOverrides} instead
  */
 @Retention(RetentionPolicy.RUNTIME)

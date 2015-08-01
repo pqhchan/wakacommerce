@@ -34,7 +34,7 @@ import javax.annotation.Resource;
  * 
  * Create a sitemap index file and at least one sitemap file with the URL elements.
  * 
- *bpolster
+ * 
  *
  */
 @Service("blSiteMapService")

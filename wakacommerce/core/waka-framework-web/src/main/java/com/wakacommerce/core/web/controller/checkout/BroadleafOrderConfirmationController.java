@@ -3,7 +3,7 @@ package com.wakacommerce.core.web.controller.checkout;
 
 import org.springframework.ui.Model;
 
-import com.wakacommerce.common.web.controller.BroadleafAbstractController;
+import com.wakacommerce.common.web.controller.WakaAbstractController;
 import com.wakacommerce.core.order.domain.Order;
 import com.wakacommerce.core.order.service.OrderService;
 import com.wakacommerce.profile.core.domain.Customer;
@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class BroadleafOrderConfirmationController extends BroadleafAbstractController {
+public class BroadleafOrderConfirmationController extends WakaAbstractController {
 
     @Resource(name = "blOrderService")
     protected OrderService orderService;

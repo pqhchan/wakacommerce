@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * Form of ServiceException thrown when their is a security
  * failure while attempting to execute the operation.
  *
- *Jeff Fischer
+ * 
  */
 @ResponseStatus(value= HttpStatus.FORBIDDEN, reason="Access is denied")
 public class SecurityServiceException extends ServiceException {

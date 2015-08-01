@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.email.service;
 
 import java.util.HashMap;
@@ -18,9 +17,6 @@ import com.wakacommerce.common.email.service.message.EmailPropertyType;
 import com.wakacommerce.common.email.service.message.EmailServiceProducer;
 import com.wakacommerce.common.email.service.message.MessageCreator;
 
-/**
- *jfischer
- */
 @Service("blEmailService")
 public class EmailServiceImpl implements EmailService {
 

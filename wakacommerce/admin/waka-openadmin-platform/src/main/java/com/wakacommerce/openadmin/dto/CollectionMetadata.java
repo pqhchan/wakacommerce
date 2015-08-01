@@ -4,7 +4,7 @@ package com.wakacommerce.openadmin.dto;
 import java.util.Arrays;
 
 /**
- *Jeff Fischer
+ * 
  */
 public abstract class CollectionMetadata extends FieldMetadata {
 

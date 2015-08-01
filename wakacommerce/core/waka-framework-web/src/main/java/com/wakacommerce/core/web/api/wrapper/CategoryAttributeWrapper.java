@@ -12,7 +12,7 @@ import com.wakacommerce.core.catalog.domain.CategoryAttribute;
 
 /**
  * 
- *Phillip Verheyden
+ *  
  */
 @XmlRootElement(name = "categoryAttribute")
 @XmlAccessorType(value = XmlAccessType.FIELD)

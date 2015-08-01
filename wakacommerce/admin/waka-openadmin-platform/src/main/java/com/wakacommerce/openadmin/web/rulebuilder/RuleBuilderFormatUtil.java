@@ -6,12 +6,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.wakacommerce.common.util.FormatUtil;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 
 /**
  * Work with dates in rule builder mvel
  *
- *Jeff Fischer
+ * 
  */
 public class RuleBuilderFormatUtil {
 
@@ -26,7 +26,7 @@ public class RuleBuilderFormatUtil {
      */
     public static String formatDate(Date date) {
         SimpleDateFormat formatter = new SimpleDateFormat(DATE_FORMAT);
-        formatter.setTimeZone(BroadleafRequestContext.getBroadleafRequestContext().getTimeZone());
+        formatter.setTimeZone(WakaRequestContext.getWakaRequestContext().getTimeZone());
         return formatter.format(date);
     }
 
@@ -43,12 +43,12 @@ public class RuleBuilderFormatUtil {
         } catch (ParseException e) {
             try {
                 SimpleDateFormat formatter = new SimpleDateFormat(COMPATIBILITY_FORMAT);
-                formatter.setTimeZone(BroadleafRequestContext.getBroadleafRequestContext().getTimeZone());
+                formatter.setTimeZone(WakaRequestContext.getWakaRequestContext().getTimeZone());
                 parsedDate = formatter.parse(date);
             } catch (ParseException e1) {
                 try {
                     SimpleDateFormat formatter = new SimpleDateFormat(DATE_FORMAT);
-                    formatter.setTimeZone(BroadleafRequestContext.getBroadleafRequestContext().getTimeZone());
+                    formatter.setTimeZone(WakaRequestContext.getWakaRequestContext().getTimeZone());
                     parsedDate = formatter.parse(date);
                 } catch (ParseException e2) {
                     throw e;

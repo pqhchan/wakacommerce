@@ -29,7 +29,7 @@ import com.wakacommerce.common.extension.ExtensionResultStatusType;
 /**
  * Default implementation of OfferCodeDaoExtensionHandler.
  * 
- *Kelly Tisdell
+ *  
  *
  */
 public class DefaultOfferCodeDaoExtensionHandler extends AbstractExtensionHandler implements OfferCodeDaoExtensionHandler {

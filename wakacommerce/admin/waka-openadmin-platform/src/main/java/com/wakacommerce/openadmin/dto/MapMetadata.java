@@ -4,7 +4,7 @@ package com.wakacommerce.openadmin.dto;
 import com.wakacommerce.openadmin.dto.visitor.MetadataVisitor;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class MapMetadata extends CollectionMetadata {
 

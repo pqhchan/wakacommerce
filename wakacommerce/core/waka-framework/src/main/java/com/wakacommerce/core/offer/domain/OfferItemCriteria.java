@@ -6,7 +6,7 @@ import com.wakacommerce.common.rule.QuantityBasedRule;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public interface OfferItemCriteria extends QuantityBasedRule, MultiTenantCloneable<OfferItemCriteria> {

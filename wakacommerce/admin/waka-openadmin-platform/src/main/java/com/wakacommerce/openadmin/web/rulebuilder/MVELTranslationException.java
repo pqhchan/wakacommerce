@@ -4,7 +4,7 @@ package com.wakacommerce.openadmin.web.rulebuilder;
 import com.wakacommerce.common.exception.TranslatableException;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public class MVELTranslationException extends TranslatableException {
 

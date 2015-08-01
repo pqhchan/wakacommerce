@@ -9,7 +9,7 @@ import org.springframework.web.context.request.ServletWebRequest;
 import com.wakacommerce.common.exception.ServiceException;
 import com.wakacommerce.common.service.GenericResponse;
 import com.wakacommerce.common.util.BLCRequestUtils;
-import com.wakacommerce.common.web.controller.BroadleafAbstractController;
+import com.wakacommerce.common.web.controller.WakaAbstractController;
 import com.wakacommerce.profile.core.service.CustomerService;
 import com.wakacommerce.profile.core.service.validator.ResetPasswordValidator;
 import com.wakacommerce.profile.web.core.service.login.LoginService;
@@ -24,10 +24,10 @@ import javax.servlet.http.HttpServletResponse;
  * 
  * The actual login processing is done via Spring Security.
  * 
- *apazzolini
- *bpolster
+ *  
+ * 
  */
-public class BroadleafLoginController extends BroadleafAbstractController {
+public class BroadleafLoginController extends WakaAbstractController {
     
     @Resource(name="blCustomerService")
     protected CustomerService customerService;

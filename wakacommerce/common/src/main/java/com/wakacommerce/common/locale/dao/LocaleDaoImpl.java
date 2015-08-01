@@ -15,7 +15,7 @@ import javax.persistence.Query;
 import java.util.List;
 
 /**
- * Created by bpolster.
+ *   
  */
 @Repository("blLocaleDao")
 public class LocaleDaoImpl implements LocaleDao {

@@ -8,7 +8,7 @@ import com.wakacommerce.core.order.domain.OrderItemPriceDetail;
 /**
  * Records the actual adjustments that were made to an OrderItemPriceDetail.
  * 
- *bpolster
+ * 
  *
  */
 public interface OrderItemPriceDetailAdjustment extends Adjustment, MultiTenantCloneable<OrderItemPriceDetailAdjustment> {

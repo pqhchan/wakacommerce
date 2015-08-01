@@ -29,7 +29,7 @@ import org.springframework.web.context.request.ServletWebRequest;
 
 import com.googlecode.concurrentlinkedhashmap.ConcurrentLinkedHashMap;
 import com.wakacommerce.common.util.BLCRequestUtils;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.order.domain.Order;
 import com.wakacommerce.core.order.service.OrderLockManager;
 
@@ -43,7 +43,7 @@ import javax.servlet.http.HttpSession;
  * An {@link HttpSession} based {@link OrderLockManager}. This implementation is less concerned with the given Order
  * and instead will lock on the user's session to serialize order modification requests.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class SessionOrderLockManager implements OrderLockManager, ApplicationListener<HttpSessionDestroyedEvent> {
 
@@ -134,9 +134,9 @@ public class SessionOrderLockManager implements OrderLockManager, ApplicationLis
         if (getRequest() == null) {
             return false;
         }
-        if (BroadleafRequestContext.getBroadleafRequestContext() != null
-                && BroadleafRequestContext.getBroadleafRequestContext().getWebRequest() != null) {
-            if (!BLCRequestUtils.isOKtoUseSession(BroadleafRequestContext.getBroadleafRequestContext().getWebRequest())) {
+        if (WakaRequestContext.getWakaRequestContext() != null
+                && WakaRequestContext.getWakaRequestContext().getWebRequest() != null) {
+            if (!BLCRequestUtils.isOKtoUseSession(WakaRequestContext.getWakaRequestContext().getWebRequest())) {
                 return false;
             }
         } else if (!BLCRequestUtils.isOKtoUseSession(new ServletWebRequest(getRequest()))) {

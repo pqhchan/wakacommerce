@@ -12,7 +12,7 @@ import com.wakacommerce.core.catalog.domain.Product;
  *
  * @see Category
  * @see Product
- *Jeff Fischer
+ * 
  */
 public interface CategoryDao {
 

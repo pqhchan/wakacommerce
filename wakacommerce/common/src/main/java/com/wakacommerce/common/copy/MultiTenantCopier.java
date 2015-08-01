@@ -14,7 +14,7 @@ import com.wakacommerce.common.util.StreamCapableTransactionalOperationAdapter;
 import com.wakacommerce.common.util.StreamingTransactionCapableUtil;
 import com.wakacommerce.common.util.tenant.IdentityExecutionUtils;
 import com.wakacommerce.common.util.tenant.IdentityOperation;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.common.web.EnforceEnterpriseCollectionBehaviorState;
 
 import java.lang.reflect.Field;
@@ -39,8 +39,8 @@ import javax.persistence.OneToOne;
  * one or more times inside of their {@link #copyEntities(MultiTenantCopyContext)} implementation to clone and persist
  * an entity object tree.
  * 
- *Andre Azzolini (apazzolini)
- *Jeff Fischer
+ * 
+ * 
  */
 public abstract class MultiTenantCopier implements Ordered {
     protected static final Log LOG = LogFactory.getLog(MultiTenantCopier.class);
@@ -87,14 +87,14 @@ public abstract class MultiTenantCopier implements Ordered {
             context.clearOriginalIdentifiers();
             genericEntityService.clearAutoFlushMode();
             Object copy = copyOperation.execute(original);
-            BroadleafRequestContext.getBroadleafRequestContext().setEnforceEnterpriseCollectionBehaviorState(EnforceEnterpriseCollectionBehaviorState.FALSE);
+            WakaRequestContext.getWakaRequestContext().setEnforceEnterpriseCollectionBehaviorState(EnforceEnterpriseCollectionBehaviorState.FALSE);
             persistCopyObjectTreeInternal(copy, new HashSet<Integer>(), context);
             genericEntityService.flush();
         } catch (Exception e) {
             LOG.error("Unable to persist the copy object tree", e);
             throw ExceptionHelper.refineException(e);
         } finally {
-            BroadleafRequestContext.getBroadleafRequestContext().setEnforceEnterpriseCollectionBehaviorState(EnforceEnterpriseCollectionBehaviorState.TRUE);
+            WakaRequestContext.getWakaRequestContext().setEnforceEnterpriseCollectionBehaviorState(EnforceEnterpriseCollectionBehaviorState.TRUE);
             context.clearOriginalIdentifiers();
             genericEntityService.enableAutoFlushMode();
         }

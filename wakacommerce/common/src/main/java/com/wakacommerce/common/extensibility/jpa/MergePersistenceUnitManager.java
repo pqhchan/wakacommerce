@@ -39,8 +39,6 @@ import javax.sql.DataSource;
  * urls, class names and mapping file names that include the comprehensive collection of these
  * values from all persistence.xml files.
  *
- *
- *jfischer, jjacobs
  */
 public class MergePersistenceUnitManager extends DefaultPersistenceUnitManager {
 
@@ -331,17 +329,11 @@ public class MergePersistenceUnitManager extends DefaultPersistenceUnitManager {
         }
     }
 
-    /* (non-Javadoc)
-     * @see org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager#obtainPersistenceUnitInfo(java.lang.String)
-     */
     @Override
     public PersistenceUnitInfo obtainPersistenceUnitInfo(String persistenceUnitName) {
         return mergedPus.get(persistenceUnitName);
     }
 
-    /* (non-Javadoc)
-     * @see org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager#obtainDefaultPersistenceUnitInfo()
-     */
     @Override
     public PersistenceUnitInfo obtainDefaultPersistenceUnitInfo() {
         throw new IllegalStateException("Default Persistence Unit is not supported. The persistence unit name must be specified at the entity manager factory.");

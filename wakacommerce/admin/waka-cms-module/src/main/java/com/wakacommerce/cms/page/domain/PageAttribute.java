@@ -1,14 +1,8 @@
-
 package com.wakacommerce.cms.page.domain;
 
 import com.wakacommerce.common.copy.MultiTenantCloneable;
 import com.wakacommerce.common.value.ValueAssignable;
 
-/**
- * Stores additional attributes for {@link Page}s
- * 
- *Andre Azzolini (apazzolini)
- */
 public interface PageAttribute extends ValueAssignable<String>,MultiTenantCloneable<PageAttribute> {
 
     /**

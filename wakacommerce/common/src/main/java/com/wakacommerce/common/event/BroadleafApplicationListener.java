@@ -10,7 +10,7 @@ import org.springframework.context.ApplicationListener;
  * configured on the BroadleafApplicationEventMulticaster then it will be executed synchronously, regardless of 
  * of whether an event listener is configured.
  * 
- *Kelly Tisdell
+ *  
  *
  * @param <ApplicationEvent>
  */

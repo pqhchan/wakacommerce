@@ -69,7 +69,7 @@ import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 
 /**
- *Phillip Verheyden
+ *  
  *
  */
 @Component("blSkuCustomPersistenceHandler")

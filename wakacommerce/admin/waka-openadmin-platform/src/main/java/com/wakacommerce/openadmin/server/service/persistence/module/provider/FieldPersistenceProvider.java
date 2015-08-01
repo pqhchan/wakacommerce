@@ -26,7 +26,7 @@ import java.util.Map;
  * extend {@link FieldPersistenceProviderAdapter}.
  *
  * @see com.wakacommerce.openadmin.server.service.persistence.module.PersistenceModule
- *Jeff Fischer
+ * 
  */
 public interface FieldPersistenceProvider extends Ordered {
 

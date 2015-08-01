@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public class ForeignKey implements Serializable, PersistencePerspectiveItem {

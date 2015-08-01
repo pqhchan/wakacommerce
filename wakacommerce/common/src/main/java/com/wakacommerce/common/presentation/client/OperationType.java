@@ -5,7 +5,7 @@ package com.wakacommerce.common.presentation.client;
  * Describes the target of an admin operation. This can be a regular entity itself, or a collection
  * or map property.
  *
- *jfischer
+ *  
  *
  */
 public enum OperationType {

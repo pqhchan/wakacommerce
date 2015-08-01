@@ -4,7 +4,7 @@ package com.wakacommerce.core.search.domain;
 import java.math.BigDecimal;
 
 /**
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class SearchFacetResultDTO {
     

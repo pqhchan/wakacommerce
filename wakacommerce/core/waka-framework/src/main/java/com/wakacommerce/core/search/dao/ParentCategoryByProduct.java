@@ -24,7 +24,7 @@ package com.wakacommerce.core.search.dao;
  * Container object for the results of a lightweight query that retrieves the parent category
  * for a child product
  *
- *Jeff Fischer
+ * 
  */
 public class ParentCategoryByProduct {
 

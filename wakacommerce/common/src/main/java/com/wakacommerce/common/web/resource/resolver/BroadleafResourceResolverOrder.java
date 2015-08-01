@@ -13,7 +13,7 @@ import javax.annotation.PostConstruct;
  * Used by {@link BroadleafResourceHttpRequestHandler} which sorts resolvers that 
  * implement {@link Ordered} in its {@link PostConstruct} method.
  * 
- *bpolster
+ * 
  *
  */
 public class BroadleafResourceResolverOrder {

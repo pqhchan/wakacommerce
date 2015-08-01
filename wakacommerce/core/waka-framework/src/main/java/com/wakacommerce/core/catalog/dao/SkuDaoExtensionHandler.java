@@ -6,7 +6,7 @@ import com.wakacommerce.common.extension.ExtensionResultHolder;
 import com.wakacommerce.common.extension.ExtensionResultStatusType;
 
 /**
- *Joshua Skorton (jskorton)
+ *  
  */
 public interface SkuDaoExtensionHandler extends ExtensionHandler {
 

@@ -36,7 +36,7 @@ import java.util.Date;
  * <p>This implementation is heavily inspired by
  * <a href="http://www.slf4j.org/">SLF4J</a>'s SimpleLogger.</p>
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public class SystemSupportLoggerAdapter extends AbstractSupportLoggerAdapter implements SupportLoggerAdapter {
 

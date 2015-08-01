@@ -24,7 +24,7 @@ import java.util.List;
 import com.wakacommerce.profile.core.domain.CountrySubdivision;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public interface CountrySubdivisionService {
 

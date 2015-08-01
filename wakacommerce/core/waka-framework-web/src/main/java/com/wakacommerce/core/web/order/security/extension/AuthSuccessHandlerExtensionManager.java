@@ -9,7 +9,7 @@ import com.wakacommerce.common.extension.ExtensionManager;
 /**
  * Manager for the {@link AuthSuccessHandlerExtensionHandler}
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Service("blAuthSuccessHandlerExtensionManager")
 public class AuthSuccessHandlerExtensionManager extends ExtensionManager<AuthSuccessHandlerExtensionHandler> {

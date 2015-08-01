@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.dao.provider.metadata;
 
 import org.springframework.context.annotation.Scope;
@@ -18,12 +17,9 @@ import com.wakacommerce.openadmin.server.service.type.FieldProviderResponse;
 import java.util.HashMap;
 import java.util.Map;
 
-
 /**
  * Adds a new 'passwordConfirm' field to the metadata as well as ensures that the field type for the password field is
  * actually a password
- *
- *Phillip Verheyden (phillipuniverse)
  */
 @Component("blPasswordFieldMetadataProvider")
 @Scope("prototype")
@@ -45,7 +41,7 @@ public class PasswordFieldMetadataProvider extends AbstractFieldMetadataProvider
             //clone the password field and add in a custom one
             BasicFieldMetadata confirmMd = (BasicFieldMetadata) addMetadataFromFieldTypeRequest.getPresentationAttribute().cloneFieldMetadata();
             confirmMd.setFieldName("passwordConfirm");
-            confirmMd.setFriendlyName("AdminUserImpl_Admin_Password_Confirm");
+            confirmMd.setFriendlyName("确认密码");
             confirmMd.setExplicitFieldType(SupportedFieldType.PASSWORD_CONFIRM);
             confirmMd.setValidationConfigurations(new HashMap<String, Map<String,String>>());
             metadata.put("passwordConfirm", confirmMd);

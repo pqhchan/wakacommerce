@@ -8,7 +8,7 @@ import com.wakacommerce.profile.core.domain.CustomerForgotPasswordSecurityToken;
 
 /**
  * 
- *bpolster
+ * 
  *
  */
 public interface CustomerForgotPasswordSecurityTokenDao {

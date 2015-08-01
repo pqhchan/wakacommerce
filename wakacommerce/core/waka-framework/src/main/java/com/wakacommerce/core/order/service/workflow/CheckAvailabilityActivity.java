@@ -45,7 +45,7 @@ import javax.annotation.Resource;
  * of the passed in request. If this is an update request, this will use the {@link Sku} from {@link OrderItemRequestDTO#getOrderItemId()}.
  * If this is an add request, there is no order item yet so the {@link Sku} is looked up via the {@link OrderItemRequestDTO#getSkuId()}.
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 public class CheckAvailabilityActivity extends BaseActivity<ProcessContext<CartOperationRequest>> {
 

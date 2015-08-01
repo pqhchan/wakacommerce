@@ -2,7 +2,7 @@
 package com.wakacommerce.common.presentation.override;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class PropertyType {
 

@@ -20,7 +20,7 @@
 package com.wakacommerce.common.util;
 
 /**
- *Jeff Fischer
+ * 
  */
 public interface TransactionalOperation {
 

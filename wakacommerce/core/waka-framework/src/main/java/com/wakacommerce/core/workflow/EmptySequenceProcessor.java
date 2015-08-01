@@ -10,7 +10,7 @@ import com.wakacommerce.core.order.service.OrderService;
  * wants to invoke the super implementation of this method to obtain all functionality <i>except</i> executing the workflow
  * since they want to take charge of the entire process themselves.
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 public class EmptySequenceProcessor extends SequenceProcessor {
 

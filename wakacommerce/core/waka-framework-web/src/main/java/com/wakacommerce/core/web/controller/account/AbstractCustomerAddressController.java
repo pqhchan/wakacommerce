@@ -26,7 +26,7 @@ import org.springframework.web.bind.ServletRequestDataBinder;
 
 import com.wakacommerce.common.i18n.domain.ISOCountry;
 import com.wakacommerce.common.i18n.service.ISOService;
-import com.wakacommerce.common.web.controller.BroadleafAbstractController;
+import com.wakacommerce.common.web.controller.WakaAbstractController;
 import com.wakacommerce.core.web.controller.account.validator.CustomerAddressValidator;
 import com.wakacommerce.profile.core.domain.*;
 import com.wakacommerce.profile.core.service.AddressService;
@@ -45,9 +45,9 @@ import java.util.List;
  *
  * Operations that are shared between controllers that deal with Customer Addresses belong here.
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
-public class AbstractCustomerAddressController extends BroadleafAbstractController {
+public class AbstractCustomerAddressController extends WakaAbstractController {
 
     private static final Log LOG = LogFactory.getLog(AbstractCustomerAddressController.class);
 

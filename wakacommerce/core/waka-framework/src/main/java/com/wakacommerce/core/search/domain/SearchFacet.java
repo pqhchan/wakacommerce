@@ -9,7 +9,7 @@ import com.wakacommerce.common.copy.MultiTenantCloneable;
  * A SearchFacet is an object that represents a particular facet that can be used to guide faceted 
  * searching on a results page.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface SearchFacet extends MultiTenantCloneable<SearchFacet> {
 

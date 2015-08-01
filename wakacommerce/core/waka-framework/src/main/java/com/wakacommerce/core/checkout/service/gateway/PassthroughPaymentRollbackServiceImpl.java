@@ -42,7 +42,7 @@ import javax.annotation.Resource;
  * This is by default initiated from BroadleafCheckoutController.processPassthroughCheckout();
  * If an error occurs in the checkout workflow, the {@link ConfirmPaymentsRollbackHandler} gets invoked and will call this class.
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Service("blPassthroughPaymentRollbackService")
 public class PassthroughPaymentRollbackServiceImpl implements PaymentGatewayRollbackService {

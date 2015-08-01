@@ -27,7 +27,7 @@ import com.google.common.collect.BiMap;
 import com.wakacommerce.common.sandbox.SandBoxHelper;
 import com.wakacommerce.common.util.BLCCollectionUtils;
 import com.wakacommerce.common.util.TypedTransformer;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.catalog.domain.CategoryImpl;
 import com.wakacommerce.core.catalog.domain.ProductImpl;
 
@@ -45,7 +45,7 @@ import javax.persistence.TypedQuery;
 
 /**
  * @see com.wakacommerce.core.search.dao.SolrIndexDao
- *Jeff Fischer
+ * 
  */
 @Repository("blSolrIndexDao")
 public class SolrIndexDaoImpl implements SolrIndexDao {
@@ -59,7 +59,7 @@ public class SolrIndexDaoImpl implements SolrIndexDao {
     
     @Override
     public void populateProductCatalogStructure(List<Long> productIds, CatalogStructure catalogStructure) {
-        BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
         Boolean oldIgnoreFilters = context.getInternalIgnoreFilters();
         context.setInternalIgnoreFilters(false);
         try {

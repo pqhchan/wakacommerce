@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
  * This annotation is used to describe an array of map fields that allow map members
  * to be displayed as regular fields in the admin tool.
  *
- *Jeff Fischer
+ * 
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD})

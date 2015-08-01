@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 /**
  * Validates all of the populated properties for entities
  * 
- *Phillip Verheyden
+ *  
  * @see {@link BasicPersistenceModule#createPopulatedInstance(Serializable, Entity, Map, Boolean)}
  */
 public interface EntityValidatorService {

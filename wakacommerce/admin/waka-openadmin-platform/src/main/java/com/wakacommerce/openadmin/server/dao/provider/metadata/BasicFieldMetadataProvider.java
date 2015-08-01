@@ -49,7 +49,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Component("blBasicFieldMetadataProvider")
 @Scope("prototype")

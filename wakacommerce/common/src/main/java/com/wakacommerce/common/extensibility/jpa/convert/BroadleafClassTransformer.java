@@ -6,7 +6,7 @@ import java.util.Properties;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public interface BroadleafClassTransformer extends ClassTransformer {

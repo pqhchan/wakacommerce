@@ -14,7 +14,7 @@ import com.wakacommerce.core.catalog.domain.CategoryXrefImpl;
  * between a category and its sub-categories. This includes an ordering field.
  *
  * @see CategoryXref
- *Jeff Fischer
+ * 
  */
 public interface CategoryXrefDao {
 

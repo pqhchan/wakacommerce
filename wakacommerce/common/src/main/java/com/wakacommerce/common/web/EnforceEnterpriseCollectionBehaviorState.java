@@ -8,7 +8,7 @@ package com.wakacommerce.common.web;
  * the Enterprise module would otherwise interpret as sandboxable) without interference from the Enterprise module
  * on the collection persistence behavior. When the Enterprise module is loaded, the behavior is enforced by default.
  *
- *Jeff Fischer
+ * 
  */
 public enum EnforceEnterpriseCollectionBehaviorState {
     TRUE,FALSE,UNDEFINED

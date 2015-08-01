@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 
 /**
  * 
- *Phillip Verheyden
+ *  
  * @see {@link FulfillmentPriceBandImpl}, {@link FulfillmentWeightBandImpl}
  */
 @MappedSuperclass

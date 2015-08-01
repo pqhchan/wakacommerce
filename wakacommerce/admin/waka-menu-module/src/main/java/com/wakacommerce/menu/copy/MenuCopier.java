@@ -29,7 +29,7 @@ import com.wakacommerce.menu.domain.MenuImpl;
 /**
  * Clone menu entities
  *
- *Jeff Fischer
+ * 
  */
 public class MenuCopier extends MultiTenantCopier {
 

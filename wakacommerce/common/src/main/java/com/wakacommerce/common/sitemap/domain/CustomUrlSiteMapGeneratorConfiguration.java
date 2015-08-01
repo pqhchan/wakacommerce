@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * CustomSiteMapGenerator is controlled by this configuration.
  * 
- *bpolster
+ * 
  */
 public interface CustomUrlSiteMapGeneratorConfiguration extends SiteMapGeneratorConfiguration {
 

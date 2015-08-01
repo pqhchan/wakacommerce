@@ -6,7 +6,7 @@ import java.util.List;
 import com.wakacommerce.common.locale.domain.Locale;
 
 /**
- * Created by bpolster.
+ *   
  */
 public interface LocaleService {
 

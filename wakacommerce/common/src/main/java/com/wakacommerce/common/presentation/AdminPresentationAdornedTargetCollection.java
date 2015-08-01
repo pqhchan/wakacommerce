@@ -17,7 +17,7 @@ import com.wakacommerce.common.presentation.client.OperationType;
  * and also specify the order and promotional message information to complete the interaction.
  * The Adorned target concept embodied in this annotation makes this possible.
  *
- *Jeff Fischer
+ * 
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD})

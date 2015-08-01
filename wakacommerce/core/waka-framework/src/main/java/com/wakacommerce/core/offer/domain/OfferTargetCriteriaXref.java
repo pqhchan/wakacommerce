@@ -22,7 +22,7 @@ package com.wakacommerce.core.offer.domain;
 import java.io.Serializable;
 
 /**
- *Jeff Fischer
+ * 
  */
 public interface OfferTargetCriteriaXref extends Serializable {
 

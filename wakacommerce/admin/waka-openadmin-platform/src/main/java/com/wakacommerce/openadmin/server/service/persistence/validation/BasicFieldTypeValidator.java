@@ -5,7 +5,7 @@ import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;
 
 import com.wakacommerce.common.money.Money;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.openadmin.server.service.persistence.module.FieldNotAvailableException;
 import com.wakacommerce.openadmin.server.service.persistence.module.provider.request.PopulateValueRequest;
 
@@ -23,14 +23,14 @@ import java.util.Map;
  * Validates that values are actually of their required types before trying to populate it. Integers should be integers,
  * dates should parse correctly, etc.
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 @Component("blBasicFieldTypeValidator")
 public class BasicFieldTypeValidator implements PopulateValueRequestValidator {
 
     @Override
     public PropertyValidationResult validate(PopulateValueRequest populateValueRequest, Serializable instance) {
-        BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
         Locale locale = brc.getJavaLocale();
         DecimalFormat format = populateValueRequest.getDataFormatProvider().getDecimalFormatter();
         ParsePosition pp;

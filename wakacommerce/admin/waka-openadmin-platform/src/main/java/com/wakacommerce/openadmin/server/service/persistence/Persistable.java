@@ -2,7 +2,7 @@
 package com.wakacommerce.openadmin.server.service.persistence;
 
 /**
- *Jeff Fischer
+ * 
  */
 public interface Persistable<T, G extends Throwable> {
 

@@ -20,7 +20,7 @@ import javax.persistence.Column;
 
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

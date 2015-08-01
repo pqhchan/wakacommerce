@@ -23,7 +23,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- *Jerry Ocanas (jocanas)
+ *   (jocanas)
  */
 public class CustomerCreditInfoForm implements Serializable {
 

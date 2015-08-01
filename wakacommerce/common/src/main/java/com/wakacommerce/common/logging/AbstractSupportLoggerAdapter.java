@@ -2,7 +2,7 @@
 package com.wakacommerce.common.logging;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public abstract class AbstractSupportLoggerAdapter {
 

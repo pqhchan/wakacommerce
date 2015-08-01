@@ -25,7 +25,7 @@ import java.util.List;
  * Detect inconsistencies between the values in the SEQUENCE_GENERATOR and the primary
  * keys of the managed tables.
  *
- *Jeff Fischer
+ * 
  */
 @Repository("blSequenceGeneratorCorruptionDetection")
 public class SequenceGeneratorCorruptionDetection implements ApplicationListener<ContextRefreshedEvent> {

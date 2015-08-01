@@ -11,7 +11,7 @@ import com.wakacommerce.common.vendor.service.exception.PaymentException;
  * Each module needs to implement this if for some reason the checkout workflow fails
  * after payments have been finalized and the submitted transaction needs to rollback.</p>
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public interface PaymentGatewayRollbackService {
 

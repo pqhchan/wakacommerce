@@ -17,7 +17,7 @@ import com.wakacommerce.common.file.FileServiceException;
 import com.wakacommerce.common.file.domain.FileWorkArea;
 import com.wakacommerce.common.file.service.type.FileApplicationType;
 import com.wakacommerce.common.sitemap.service.SiteMapGenerator;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -46,7 +46,7 @@ import javax.annotation.Resource;
  * 3.  Once your file processing is complete, call {@link #addOrUpdateResources(FileWorkArea, FileApplicationType)} to
  * 4.  Call {@link #closeWorkArea()} to clear out the temporary files
  * 
- *bpolster
+ * 
  *
  */
 @Service("blFileService")
@@ -316,9 +316,9 @@ public class BroadleafFileServiceImpl implements BroadleafFileService {
 
         if (!skipSite) {
             // Create site specific directory if Multi-site (all site files will be located in the same directory)
-            BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
-            if (brc != null && brc.getSite() != null) {
-                String siteDirectory = "site-" + brc.getSite().getId();
+            WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
+            if (brc != null && brc.getNonPersistentSite() != null) {
+                String siteDirectory = "site-" + brc.getNonPersistentSite().getId();
                 String siteHash = DigestUtils.md5Hex(siteDirectory);
                 path = FilenameUtils.concat(path, siteHash.substring(0, 2));
                 path = FilenameUtils.concat(path, siteDirectory);

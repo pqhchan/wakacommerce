@@ -16,7 +16,7 @@ import java.util.Map;
  * {@link AdminPresentation} annotation. These global validators will execute on every field of every entity that is
  * attempted to be populated by the admin
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  * @see {@link PropertyValidator}
  * @see {@link EntityValidatorService#getGlobalEntityValidators()}
  * @see {@link BasicPersistenceModule#createPopulatedInstance(Serializable, Entity, Map, Boolean)}

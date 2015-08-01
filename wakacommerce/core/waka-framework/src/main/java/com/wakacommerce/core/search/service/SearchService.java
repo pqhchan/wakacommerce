@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface SearchService {
 

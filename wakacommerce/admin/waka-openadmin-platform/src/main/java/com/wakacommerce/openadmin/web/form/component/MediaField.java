@@ -5,7 +5,7 @@ import com.wakacommerce.common.media.domain.Media;
 import com.wakacommerce.openadmin.web.form.entity.Field;
 
 /**
- *bpolster
+ * 
  */
 public class MediaField extends Field {
 

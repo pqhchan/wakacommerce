@@ -15,7 +15,6 @@
 
     <bean id="blConfiguration" class="com.wakacommerce.common.config.RuntimeEnvironmentPropertiesConfigurer" />
 
-    <!-- Set up Broadleaf messaging -->
     <bean id="messageSource" class="com.wakacommerce.common.util.BroadleafMergeResourceBundleMessageSource">
         <property name="basenames">
             <list>

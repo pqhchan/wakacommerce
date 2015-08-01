@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 /**
  * An extendible enumeration of offer item restriction types. Determines how items in the order can be used across multiple promotions
@@ -15,7 +15,7 @@ import com.wakacommerce.common.BroadleafEnumerationType;
  * TARGET - Can be used as a target for multiple promotions, but cannot be used as a qualifier for multiple promotions
  * QUALIFIER_TARGET - Can be used as a qualifier and target in multiple promotions
  */
-public class OfferItemRestrictionRuleType implements Serializable, BroadleafEnumerationType {
+public class OfferItemRestrictionRuleType implements Serializable, WakaEnumType {
     
     private static final long serialVersionUID = 1L;
 

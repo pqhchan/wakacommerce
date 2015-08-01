@@ -18,7 +18,7 @@ import java.util.regex.PatternSyntaxException;
 /**
  * Validates a field against a configured 'regularExpression' item
  * 
- *Phillip Verheyden
+ *  
  */
 @Component("blRegexPropertyValidator")
 public class RegexPropertyValidator extends ValidationConfigurationBasedPropertyValidator {

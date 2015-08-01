@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 /**
  * An extendible enumeration of site map generator types.
@@ -18,9 +18,9 @@ import com.wakacommerce.common.BroadleafEnumerationType;
  *  <li><b>CUSTOM</b> - Generator that understands how to generate static based sitemap entries.</li>  
  * </ul>
  * 
- *bpolster
+ * 
  */
-public class SiteMapGeneratorType implements Serializable, BroadleafEnumerationType {
+public class SiteMapGeneratorType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 

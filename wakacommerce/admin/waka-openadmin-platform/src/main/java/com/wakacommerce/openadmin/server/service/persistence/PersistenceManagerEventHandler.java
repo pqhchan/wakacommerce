@@ -30,7 +30,7 @@ import com.wakacommerce.openadmin.dto.PersistencePackage;
  * </bean>
  * }
  *
- *Jeff Fischer
+ * 
  */
 public interface PersistenceManagerEventHandler extends Ordered {
 

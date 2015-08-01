@@ -13,7 +13,7 @@ package com.wakacommerce.openadmin.server.service.type;
  * existing behavior by setting a low order and returning HANDLED_BREAK, or add to behavior by setting any order and
  * returning HANDLED.</p>
  *
- *Jeff Fischer
+ * 
  */
 public enum FieldProviderResponse {
     HANDLED,NOT_HANDLED,HANDLED_BREAK

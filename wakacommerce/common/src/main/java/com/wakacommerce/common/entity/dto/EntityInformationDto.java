@@ -13,7 +13,7 @@ import com.wakacommerce.common.extensibility.jpa.copy.ProfileEntity;
  * 
  * The enterprise-workflow and multi-tenant modules add functionality to properly populate the dto.
  *    
- *bpolster
+ * 
  *
  */
 public class EntityInformationDto {

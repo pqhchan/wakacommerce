@@ -27,7 +27,7 @@ import com.wakacommerce.common.web.form.BroadleafFormType;
 import com.wakacommerce.profile.core.domain.Address;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public abstract class AbstractCommonAddressValidatorExtensionHandler extends AbstractExtensionHandler
         implements BroadleafCommonAddressValidatorExtensionHandler {

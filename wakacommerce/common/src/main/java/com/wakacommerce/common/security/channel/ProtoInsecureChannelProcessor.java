@@ -23,8 +23,8 @@ import javax.servlet.ServletException;
  * <p>This class encapsulates functionality given in {@link InsecureChannelProcessor} so it is unnecessary to configure
  * both</p>
  * 
- *Jeff Fischer
- *Phillip Verheyden (phillipuniverse)
+ * 
+ *     
  * @see {@link InsecureChannelProcessor}
  * @see {@link ProtoSecureChannelProcessor}
  */

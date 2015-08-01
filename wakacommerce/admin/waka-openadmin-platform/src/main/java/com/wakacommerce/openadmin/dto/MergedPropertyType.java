@@ -3,7 +3,7 @@ package com.wakacommerce.openadmin.dto;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public enum MergedPropertyType {

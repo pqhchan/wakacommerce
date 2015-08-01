@@ -15,7 +15,7 @@ import com.wakacommerce.core.search.domain.SearchCriteria;
  * {@code ProductDao} provides persistence access to {@code Product} instances
  *
  * @see Product
- *Jeff Fischer
+ * 
  */
 public interface ProductDao {
 

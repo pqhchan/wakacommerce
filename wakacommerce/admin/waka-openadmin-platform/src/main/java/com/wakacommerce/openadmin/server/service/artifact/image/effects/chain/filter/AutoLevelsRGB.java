@@ -22,7 +22,7 @@ import java.util.Map;
  * equally distributed from black to white. Note, a marginal clipping does occur at the highs and lows to account
  * for aberrant pixels in those quadrants that might erroneously effect the calculation.
  * 
- *jfischer
+ *  
  *
  */
 public class AutoLevelsRGB extends BaseFilter {

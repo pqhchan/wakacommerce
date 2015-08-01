@@ -1,5 +1,3 @@
-
-
 package com.mycompany.sample.vendor.nullPaymentGateway.web.controller;
 
 import org.apache.commons.logging.Log;
@@ -34,7 +32,7 @@ import javax.servlet.http.HttpServletRequest;
  * This should NOT be used in production, and is meant solely for demonstration
  * purposes only.
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Controller("blNullPaymentGatewayController")
 @RequestMapping("/" + NullPaymentGatewayController.GATEWAY_CONTEXT_KEY)

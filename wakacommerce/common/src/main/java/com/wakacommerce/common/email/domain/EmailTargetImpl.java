@@ -1,12 +1,9 @@
-
 package com.wakacommerce.common.email.domain;
 
 import java.util.Arrays;
 
 /**
  * Basic implementation of EmailTarget
- * 
- *bpolster
  */
 public class EmailTargetImpl implements EmailTarget {
 
@@ -16,61 +13,25 @@ public class EmailTargetImpl implements EmailTarget {
     protected String[] ccAddresses;
     protected String emailAddress;
 
-    /*
-     * (non-Javadoc)
-     * @see com.wakacommerce.common.email.domain.EmailTarget#getBCCAddresses()
-     */
-
     public String[] getBCCAddresses() {
         return bccAddresses;
     }
-
-    /*
-     * (non-Javadoc)
-     * @see com.wakacommerce.common.email.domain.EmailTarget#getCCAddresses()
-     */
 
     public String[] getCCAddresses() {
         return ccAddresses;
     }
 
-    /*
-     * (non-Javadoc)
-     * @see com.wakacommerce.common.email.domain.EmailTarget#getEmailAddress()
-     */
-
     public String getEmailAddress() {
         return emailAddress;
     }
-
-    /*
-     * (non-Javadoc)
-     * @see
-     * com.wakacommerce.common.email.domain.EmailTarget#setBCCAddresses(java.lang
-     * .String[])
-     */
 
     public void setBCCAddresses(String[] bccAddresses) {
         this.bccAddresses = bccAddresses;
     }
 
-    /*
-     * (non-Javadoc)
-     * @see
-     * com.wakacommerce.common.email.domain.EmailTarget#setCCAddresses(java.lang
-     * .String[])
-     */
-
     public void setCCAddresses(String[] ccAddresses) {
         this.ccAddresses = ccAddresses;
     }
-
-    /*
-     * (non-Javadoc)
-     * @see
-     * com.wakacommerce.common.email.domain.EmailTarget#setEmailAddress(java.lang
-     * .String)
-     */
 
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;

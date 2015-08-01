@@ -36,7 +36,7 @@ import java.util.List;
 /**
  * Extension handler for methods present in {@link AdminAbstractController}.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface AdminAbstractControllerExtensionHandler extends ExtensionHandler {
     

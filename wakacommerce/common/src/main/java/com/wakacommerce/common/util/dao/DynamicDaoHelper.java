@@ -17,7 +17,7 @@ import javax.persistence.EntityManager;
 /**
  * Provides utility methods for interacting with dynamic entities
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface DynamicDaoHelper {
 

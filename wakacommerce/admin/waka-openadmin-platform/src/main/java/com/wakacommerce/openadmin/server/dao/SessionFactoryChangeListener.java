@@ -15,7 +15,7 @@ import java.util.Map;
  * Clear the static entity metadata caches from {@code DynamicEntityDao}
  * upon recycling of the session factory.
  *
- *jfischer
+ *  
  */
 public class SessionFactoryChangeListener implements SessionFactoryObserver {
 

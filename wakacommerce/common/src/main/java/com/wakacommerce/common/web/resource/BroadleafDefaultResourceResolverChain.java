@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
  * This had to be copied as Spring set the class scope as  "package" scope thus not 
  * allowing it to be used or extended.
  *  
- *bpolster
+ * 
  *
  */
 public class BroadleafDefaultResourceResolverChain implements ResourceResolverChain {

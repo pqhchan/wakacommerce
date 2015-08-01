@@ -9,7 +9,7 @@ import com.wakacommerce.common.extension.ExtensionResultStatusType;
 
 
 /**
- *Andre Azzolini (apazzolini)
+ * 
  */
 public abstract class AbstractDatabaseResourceResolverExtensionHandler extends AbstractExtensionHandler 
         implements DatabaseResourceResolverExtensionHandler {

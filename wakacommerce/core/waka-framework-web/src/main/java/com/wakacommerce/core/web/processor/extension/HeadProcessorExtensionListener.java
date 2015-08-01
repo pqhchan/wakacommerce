@@ -5,7 +5,7 @@ import org.thymeleaf.Arguments;
 import org.thymeleaf.dom.Element;
 
 /**
- *Jerry Ocanas (jocanas)
+ *   (jocanas)
  */
 public interface HeadProcessorExtensionListener {
 

@@ -12,7 +12,7 @@ import java.util.Collection;
  * This is an extension of Spring's User class to provide additional data to the UserDetails interface.  This should be used by derivitave
  * authentication providers to return an instance of UserDetails when authenticating against a system other than the Broadleaf tables (e.g. LDAP)
  * <p/>
- * User: Kelly Tisdell
+ * User:   
  * Date: 6/19/12
  */
 public class BroadleafExternalAuthenticationUserDetails extends User {

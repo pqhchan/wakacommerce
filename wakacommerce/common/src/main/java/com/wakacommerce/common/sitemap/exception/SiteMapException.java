@@ -5,7 +5,7 @@ package com.wakacommerce.common.sitemap.exception;
 /**
  * Sitemap exception
  * 
- *Joshua Skorton (jskorton)
+ *  
  */
 public class SiteMapException extends RuntimeException {
 

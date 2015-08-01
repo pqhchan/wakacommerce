@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * Created by bpolster.
+ *   
  */
 @Service("blLocaleService")
 public class LocaleServiceImpl implements LocaleService {

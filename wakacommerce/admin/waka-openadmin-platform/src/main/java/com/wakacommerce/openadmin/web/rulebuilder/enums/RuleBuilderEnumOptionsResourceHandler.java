@@ -14,7 +14,7 @@ import java.util.List;
  * 
  * Delegates to all registered {@link RuleBuilderEnumOptionsExtensionListener} to create the resource
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Component("blRuleBuilderEnumOptionsResourceHandler")
 public class RuleBuilderEnumOptionsResourceHandler extends AbstractGeneratedResourceHandler {

@@ -19,7 +19,7 @@ import com.wakacommerce.core.catalog.domain.Sku;
  * <p>Rather than implementing this interface directly, consider sub-classing the {@link DefaultDynamicSkuActiveDatesServiceImpl}
  * and providing overrides to methods there.</p>
  * 
- *bpolster
+ * 
  *
  */
 public interface DynamicSkuActiveDatesService {

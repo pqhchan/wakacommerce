@@ -1,16 +1,9 @@
-
 package com.wakacommerce.common.config.dao;
 
 import java.util.List;
 
 import com.wakacommerce.common.config.domain.SystemProperty;
 
-/**
- * This DAO enables access to manage system properties that can be stored in the database.
- * <p/>
- * User: Kelly Tisdell
- * Date: 6/25/12
- */
 public interface SystemPropertiesDao {
 
     public SystemProperty saveSystemProperty(SystemProperty systemProperty);

@@ -19,7 +19,7 @@ import java.util.Date;
  * 
  * Each SiteMapGenerator can generate 
  * 
- *bpolster
+ * 
  *
  */
 @Component("blCustomSiteMapGenerator")

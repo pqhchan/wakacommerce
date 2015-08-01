@@ -25,7 +25,7 @@ import org.springframework.stereotype.Service;
 
 import com.wakacommerce.common.currency.domain.BroadleafCurrency;
 import com.wakacommerce.common.extension.ExtensionResultHolder;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.catalog.domain.Sku;
 import com.wakacommerce.core.order.domain.BundleOrderItem;
 import com.wakacommerce.core.order.domain.DiscreteOrderItem;
@@ -179,8 +179,8 @@ public class UpdateCartServiceImpl implements UpdateCartService {
     }
 
     protected BroadleafCurrency findActiveCurrency(){
-        if(BroadleafRequestContext.hasLocale()){
-            return BroadleafRequestContext.getBroadleafRequestContext().getBroadleafCurrency();
+        if(WakaRequestContext.hasLocale()){
+            return WakaRequestContext.getWakaRequestContext().getBroadleafCurrency();
         }
         return null;
     }

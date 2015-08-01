@@ -1,18 +1,11 @@
-
 package com.wakacommerce.common.util;
 
 import org.springframework.web.context.request.WebRequest;
 
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 
 import javax.servlet.http.HttpServletRequest;
 
-
-/**
- * Convenience methods for interacting with the request
- * 
- *bpolster
- */
 public class BLCRequestUtils {
     
     private static String OK_TO_USE_SESSION = "blOkToUseSession";
@@ -86,7 +79,7 @@ public class BLCRequestUtils {
      * to Third Party Gateways.
      */
     public static String getRequestedServerPrefix() {
-        HttpServletRequest request = BroadleafRequestContext.getBroadleafRequestContext().getRequest();
+        HttpServletRequest request = WakaRequestContext.getWakaRequestContext().getRequest();
         String scheme = request.getScheme();
         StringBuilder serverPrefix = new StringBuilder(scheme);
         serverPrefix.append("://");

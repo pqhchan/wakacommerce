@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * 
- *Phillip Verheyden
+ *  
  */
 public interface AdminExporterService {
 

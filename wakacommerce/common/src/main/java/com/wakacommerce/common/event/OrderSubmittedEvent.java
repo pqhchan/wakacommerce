@@ -5,7 +5,7 @@ package com.wakacommerce.common.event;
 /**
  * Concrete event that is raised when an order is submitted.
  * 
- *Kelly Tisdell
+ *  
  *
  */
 public class OrderSubmittedEvent extends BroadleafApplicationEvent {

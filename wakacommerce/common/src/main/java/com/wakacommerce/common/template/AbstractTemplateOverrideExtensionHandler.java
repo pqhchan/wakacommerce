@@ -7,7 +7,7 @@ import com.wakacommerce.common.extension.ExtensionResultStatusType;
 
 
 /**
- *Andre Azzolini (apazzolini)
+ * 
  */
 public abstract class AbstractTemplateOverrideExtensionHandler extends AbstractExtensionHandler implements TemplateOverrideExtensionHandler {
     

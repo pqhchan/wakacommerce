@@ -20,7 +20,7 @@ import com.wakacommerce.common.cache.StatisticsService;
 import com.wakacommerce.common.file.domain.FileWorkArea;
 import com.wakacommerce.common.file.service.BroadleafFileService;
 import com.wakacommerce.common.resource.GeneratedResource;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.common.web.resource.BroadleafDefaultResourceResolverChain;
 
 import de.jkeylockmanager.manager.KeyLockManager;
@@ -45,8 +45,8 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * @see ResourceBundlingService
- *Andre Azzolini (apazzolini)
- *Brian Polster (bpolster)
+ * 
+ *   ( )
  */
 @Service("blResourceBundlingService")
 public class ResourceBundlingServiceImpl implements ResourceBundlingService {
@@ -173,7 +173,7 @@ public class ResourceBundlingServiceImpl implements ResourceBundlingService {
     protected Resource createBundle(String versionedBundleName, List<String> filePaths,
             ResourceResolverChain resolverChain, List<Resource> locations) {
 
-        HttpServletRequest req = BroadleafRequestContext.getBroadleafRequestContext().getRequest();
+        HttpServletRequest req = WakaRequestContext.getWakaRequestContext().getRequest();
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         byte[] bytes = null;

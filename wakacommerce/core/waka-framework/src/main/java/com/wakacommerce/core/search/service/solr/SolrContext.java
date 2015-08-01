@@ -12,7 +12,7 @@ import org.apache.solr.client.solrj.impl.CloudSolrServer;
  * <p>
  * This is initialized in {@link SolrSearchServiceImpl} and used in {@link SolrIndexServiceImpl}
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class SolrContext {
 

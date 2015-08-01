@@ -23,7 +23,7 @@ import java.util.Map;
 
 
 /**
- *Andre Azzolini (apazzolini), bpolster
+ * ,  
  */                                      
 public interface SolrSearchServiceExtensionHandler extends ExtensionHandler {
 

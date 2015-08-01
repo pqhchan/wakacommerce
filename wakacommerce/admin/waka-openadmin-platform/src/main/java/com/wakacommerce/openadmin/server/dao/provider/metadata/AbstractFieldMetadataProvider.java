@@ -28,7 +28,7 @@ import javax.persistence.MapKey;
 import javax.persistence.OneToMany;
 
 /**
- *Jeff Fischer
+ * 
  */
 public abstract class AbstractFieldMetadataProvider implements FieldMetadataProvider {
 

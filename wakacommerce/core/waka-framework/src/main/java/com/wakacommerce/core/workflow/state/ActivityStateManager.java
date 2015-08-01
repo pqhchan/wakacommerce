@@ -11,7 +11,7 @@ import com.wakacommerce.core.workflow.ProcessContext;
  * for registering state and RollbackHandler instances, as well as initiating rollbacks of
  * previously registered state.
  *
- *Jeff Fischer
+ * 
  */
 public interface ActivityStateManager {
 

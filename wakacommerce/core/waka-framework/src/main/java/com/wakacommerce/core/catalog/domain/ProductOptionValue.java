@@ -15,7 +15,7 @@ import com.wakacommerce.common.money.Money;
  * <p>ProductOptionValues can also have a price adjustment associated with it which
  * will be automatically added to the Sku retail price and sale price</p>
  *
- *bpolster.
+ * .
  */
 public interface ProductOptionValue extends Serializable, MultiTenantCloneable<ProductOptionValue> {
     

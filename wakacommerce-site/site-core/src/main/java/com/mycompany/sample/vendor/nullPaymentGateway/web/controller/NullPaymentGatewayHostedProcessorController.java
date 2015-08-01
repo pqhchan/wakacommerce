@@ -1,4 +1,3 @@
-
 package com.mycompany.sample.vendor.nullPaymentGateway.web.controller;
 
 import com.mycompany.sample.payment.service.gateway.NullPaymentGatewayHostedConfiguration;
@@ -22,7 +21,7 @@ import java.util.Map;
  * This should NOT be used in production, and is meant solely for demonstration
  * purposes only.
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Controller("blNullPaymentGatewayHostedProcessorController")
 public class NullPaymentGatewayHostedProcessorController {

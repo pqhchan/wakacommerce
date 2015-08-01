@@ -17,7 +17,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class JSCompatibilityRequestWrapper extends FirewalledRequest {
 

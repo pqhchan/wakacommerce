@@ -25,7 +25,7 @@ import javax.persistence.EntityManager;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public interface DynamicEntityDao {

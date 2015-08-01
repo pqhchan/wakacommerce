@@ -39,7 +39,7 @@ import javax.annotation.Resource;
 /**
  * Decrements inventory that was put on by the {@link DecrementInventoryActivity}
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 @Component("blDecrementInventoryRollbackHandler")
 public class DecrementInventoryRollbackHandler implements RollbackHandler<CheckoutSeed>{

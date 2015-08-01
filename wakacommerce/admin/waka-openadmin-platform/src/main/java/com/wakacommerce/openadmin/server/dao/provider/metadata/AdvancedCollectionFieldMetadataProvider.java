@@ -21,7 +21,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class AdvancedCollectionFieldMetadataProvider extends FieldMetadataProviderAdapter {
 

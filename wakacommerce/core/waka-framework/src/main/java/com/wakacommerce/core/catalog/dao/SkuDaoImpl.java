@@ -36,7 +36,7 @@ import javax.persistence.criteria.Root;
 /**
  * {@inheritDoc}
  *
- *Jeff Fischer
+ * 
  */
 @Repository("blSkuDao")
 public class SkuDaoImpl implements SkuDao {

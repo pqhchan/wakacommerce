@@ -7,7 +7,7 @@ import javax.annotation.PostConstruct;
  * A simple bean that when declared in app context will cause a lifecycle
  * logging message to appear in the logging output.
  *
- *Jeff Fischer
+ * 
  */
 public class ModuleLifecycleLoggingBean {
 

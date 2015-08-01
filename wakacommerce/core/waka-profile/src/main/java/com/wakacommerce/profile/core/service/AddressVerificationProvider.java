@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Allows for pluggable address validators.
  * 
- *Kelly Tisdell
+ *  
  *
  */
 public interface AddressVerificationProvider extends ModuleProvider {

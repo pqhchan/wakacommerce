@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.config.dao;
 
 import org.apache.commons.logging.Log;
@@ -12,7 +11,7 @@ import com.wakacommerce.common.config.domain.SystemProperty;
 import com.wakacommerce.common.config.domain.SystemPropertyImpl;
 import com.wakacommerce.common.extensibility.jpa.SiteDiscriminator;
 import com.wakacommerce.common.persistence.EntityConfiguration;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 
 import java.util.List;
 
@@ -21,12 +20,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-/**
- * This DAO enables access to manage system properties that can be stored in the database.
- * <p/>
- * User: Kelly Tisdell
- * Date: 6/20/12
- */
 @Repository("blSystemPropertiesDao")
 public class SystemPropertiesDaoImpl extends AbstractCacheMissAware implements SystemPropertiesDao{
 
@@ -98,10 +91,10 @@ public class SystemPropertiesDaoImpl extends AbstractCacheMissAware implements S
 
     protected String getSite() {
         String site = "";
-        BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
         if (brc != null) {
-            if (brc.getSite() != null) {
-                site = String.valueOf(brc.getSite().getId());
+            if (brc.getNonPersistentSite() != null) {
+                site = String.valueOf(brc.getNonPersistentSite().getId());
             }
         }
         return site;

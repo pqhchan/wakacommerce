@@ -11,7 +11,7 @@ import java.util.List;
  * all nodes with the same name entirely, regardless of differences in
  * attributes.
  * 
- *jfischer
+ *  
  *
  */
 public class NodeReplace extends NodeReplaceInsert {

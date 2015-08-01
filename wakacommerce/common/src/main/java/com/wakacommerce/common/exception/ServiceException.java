@@ -4,7 +4,7 @@ package com.wakacommerce.common.exception;
 /**
  * Exception thrown when a {@link EntityService service} method fails.
  * 
- *jfischer
+ *  
  */
 public class ServiceException extends Exception {
     

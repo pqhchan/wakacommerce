@@ -50,7 +50,7 @@ import javax.management.ObjectName;
 import javax.management.ReflectionException;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Service("blStatisticsService")
 public class StatisticsServiceImpl implements DynamicMBean, StatisticsService, SelfNaming {

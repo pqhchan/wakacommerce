@@ -3,8 +3,8 @@ package com.wakacommerce.core.web.catalog;
 
 import org.springframework.beans.factory.annotation.Value;
 
-import com.wakacommerce.common.web.BLCAbstractHandlerMapping;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaAbstractHandlerMapping;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.catalog.domain.Product;
 import com.wakacommerce.core.catalog.service.CatalogService;
 
@@ -20,12 +20,12 @@ import javax.servlet.http.HttpServletRequest;
  * If the URL matches a valid Product then this mapping returns the handler configured via the 
  * controllerName property or blProductController by default. 
  *
- *bpolster
+ * 
  * @since 2.0
  * @see com.wakacommerce.core.catalog.domain.Product
  * @see CatalogService
  */
-public class ProductHandlerMapping extends BLCAbstractHandlerMapping {
+public class ProductHandlerMapping extends WakaAbstractHandlerMapping {
     
     private final String controllerName="blProductController";
     
@@ -47,7 +47,7 @@ public class ProductHandlerMapping extends BLCAbstractHandlerMapping {
         if(useSku) {
             return null;
         }
-        BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
         if (context != null && context.getRequestURIWithoutContext() != null) {
             String requestUri = URLDecoder.decode(context.getRequestURIWithoutContext(), charEncoding);
             Product product = catalogService.findProductByURI(requestUri);

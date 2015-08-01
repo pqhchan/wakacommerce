@@ -22,7 +22,7 @@ import java.util.Map;
  *
  * @deprecated NO LONGER REQUIRED AND SHOULD NOT BE USED. SEE BroadleafAdminLdapUserDetailsMapper.
  *
- *Kelly Tisdell
+ *  
  *
  */
 @Deprecated

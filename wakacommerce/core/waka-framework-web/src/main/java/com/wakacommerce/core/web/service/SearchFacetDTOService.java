@@ -12,7 +12,7 @@ import com.wakacommerce.core.search.domain.SearchFacetResultDTO;
 /**
  * Provides methods that facilitate interactions with SearchFacetDTOs and SearchFacetResultDTOs
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface SearchFacetDTOService {
 

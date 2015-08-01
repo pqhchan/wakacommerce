@@ -36,7 +36,7 @@ import java.io.Serializable;
  * it is very rare that you would actually want to instantiate a raw {@link FulfillmentOptionImpl} rather than using
  * a subclass of this.
  * </p>
- *Phillip Verheyden
+ *  
  * @see {@link FulfillmentPricingProvider}, {@link FulfillmentGroup}
  */
 public interface FulfillmentOption extends Serializable, MultiTenantCloneable<FulfillmentOption> {

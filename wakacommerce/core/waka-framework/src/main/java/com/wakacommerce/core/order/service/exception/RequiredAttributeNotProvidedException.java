@@ -5,7 +5,7 @@ package com.wakacommerce.core.order.service.exception;
  * This runtime exception will be thrown when an attempt to add to cart without specifying
  * all required product options has been made.
  * 
- *apazzolini
+ *  
  */
 public class RequiredAttributeNotProvidedException extends RuntimeException {
 

@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- *Jeff Fischer
+ * 
  */
 public abstract class AbstractBroadleafAdminRequestFilter extends OncePerRequestFilter {
 

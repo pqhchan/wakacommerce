@@ -34,7 +34,7 @@ import java.util.Set;
  * (3) All the child products for a given category
  * </p>
  *
- *Jeff Fischer
+ * 
  */
 public class CatalogStructure implements Serializable {
 

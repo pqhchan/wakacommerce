@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
  * @see {@link PaymentGatewayWebResponseService}
  * @see {@link com.wakacommerce.common.payment.dto.PaymentResponseDTO}
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public interface PaymentGatewayWebResponsePrintService {
 

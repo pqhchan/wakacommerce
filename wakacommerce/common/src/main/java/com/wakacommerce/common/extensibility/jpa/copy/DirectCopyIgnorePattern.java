@@ -2,7 +2,7 @@
 package com.wakacommerce.common.extensibility.jpa.copy;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class DirectCopyIgnorePattern {
 

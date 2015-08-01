@@ -1,4 +1,3 @@
-
 package com.wakacommerce.admin.web.controller.action;
 
 import org.springframework.stereotype.Controller;
@@ -22,8 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Controller that responds to custom catalog actions. These would normally be hooked up in customized controllers like 
  * {@link AdminProductController}
- * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  * @see {@link AdminProductController}
  */
 @Controller("blAdminCatalogActionsController")

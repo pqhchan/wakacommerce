@@ -8,7 +8,7 @@ import com.wakacommerce.common.extension.ExtensionManager;
 /**
  * Extension manager for the checkout controller
  *
- *Joshua Skorton (jskorton)
+ *  
  */
 @Service("blCheckoutControllerExtensionManager")
 public class BroadleafCheckoutControllerExtensionManager extends ExtensionManager<BroadleafCheckoutControllerExtensionHandler> {

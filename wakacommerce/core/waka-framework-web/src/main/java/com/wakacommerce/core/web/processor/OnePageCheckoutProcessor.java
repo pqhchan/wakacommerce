@@ -14,7 +14,7 @@ import com.wakacommerce.common.money.Money;
 import com.wakacommerce.common.payment.PaymentGatewayType;
 import com.wakacommerce.common.payment.PaymentType;
 import com.wakacommerce.common.vendor.service.exception.FulfillmentPriceException;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.common.web.payment.controller.PaymentGatewayAbstractController;
 import com.wakacommerce.core.order.domain.FulfillmentGroup;
 import com.wakacommerce.core.order.domain.FulfillmentOption;
@@ -67,7 +67,7 @@ import javax.servlet.http.HttpServletRequest;
  * back from a Third Party Payment gateway to complete the order (e.g. PayPal Express Checkout), then
  * the billing section will not be shown.
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public class OnePageCheckoutProcessor extends AbstractLocalVariableDefinitionElementProcessor {
 
@@ -240,7 +240,7 @@ public class OnePageCheckoutProcessor extends AbstractLocalVariableDefinitionEle
      * @param localVars
      */
     protected void populateProcessingError(Map<String, Object> localVars) {
-        BroadleafRequestContext blcContext = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext blcContext = WakaRequestContext.getWakaRequestContext();
         HttpServletRequest request = blcContext.getRequest();
         String processorError = request.getParameter(PaymentGatewayAbstractController.PAYMENT_PROCESSING_ERROR);
         localVars.put(PaymentGatewayAbstractController.PAYMENT_PROCESSING_ERROR, processorError );
@@ -393,7 +393,7 @@ public class OnePageCheckoutProcessor extends AbstractLocalVariableDefinitionEle
             }
 
             //Finally, if the edit button is explicitly clicked, set the section to Form View
-            BroadleafRequestContext blcContext = BroadleafRequestContext.getBroadleafRequestContext();
+            WakaRequestContext blcContext = WakaRequestContext.getWakaRequestContext();
             HttpServletRequest request = blcContext.getRequest();
             boolean editOrderInfo = BooleanUtils.toBoolean(request.getParameter("edit-order-info"));
             boolean editBillingInfo = BooleanUtils.toBoolean(request.getParameter("edit-billing"));
@@ -501,8 +501,8 @@ public class OnePageCheckoutProcessor extends AbstractLocalVariableDefinitionEle
      */
     protected List<String> populateExpirationMonths() {
         DateFormatSymbols dateFormatter;
-        if(BroadleafRequestContext.hasLocale()){
-            Locale locale = BroadleafRequestContext.getBroadleafRequestContext().getJavaLocale();
+        if(WakaRequestContext.hasLocale()){
+            Locale locale = WakaRequestContext.getWakaRequestContext().getJavaLocale();
             dateFormatter = new DateFormatSymbols(locale);
         } else {
             dateFormatter = new DateFormatSymbols();

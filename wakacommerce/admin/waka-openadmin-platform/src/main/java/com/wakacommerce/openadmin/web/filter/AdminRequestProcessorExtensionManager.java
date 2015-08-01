@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import com.wakacommerce.common.extension.ExtensionManager;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Component("blAdminRequestProcessorExtensionManager")
 public class AdminRequestProcessorExtensionManager extends ExtensionManager<AdminRequestProcessorExtensionHandler> {

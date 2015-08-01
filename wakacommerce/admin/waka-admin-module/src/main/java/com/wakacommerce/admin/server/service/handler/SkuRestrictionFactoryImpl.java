@@ -29,7 +29,7 @@ import javax.persistence.criteria.Predicate;
  * This class takes into account that filters should be applied on either the root Sku property itself OR the defaultSku
  * for this particular Sku.
  *
- *Jeff Fischer
+ * 
  * @deprecated this was originally designed to search for Skus by the default Sku property if it was not set on an additional
  * sku. In practice this led to a lot of performance issues to actually make it work correctly. Rather than filter directly
  * on Skus then Sku searches/filters should instead go through a Product first

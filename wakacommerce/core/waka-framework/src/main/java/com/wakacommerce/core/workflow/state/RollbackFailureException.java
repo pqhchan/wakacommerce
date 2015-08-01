@@ -13,7 +13,7 @@ import com.wakacommerce.core.workflow.WorkflowException;
  * activities that register their state with the ProcessContext will have
  * their state rolled back.
  *
- *Jeff Fischer
+ * 
  */
 public class RollbackFailureException extends WorkflowException {
 

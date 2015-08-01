@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.encryption;
 
 import org.apache.commons.logging.Log;
@@ -14,8 +13,6 @@ import com.wakacommerce.common.config.SystemPropertyRuntimeEnvironmentKeyResolve
  * for interacting with the StrongKey solution. Refer to this discussion:
  *
  * http://www.strongauth.com/forum/index.php?topic=44.0
- *
- *jfischer
  *
  */
 public class PassthroughEncryptionModule implements EncryptionModule {

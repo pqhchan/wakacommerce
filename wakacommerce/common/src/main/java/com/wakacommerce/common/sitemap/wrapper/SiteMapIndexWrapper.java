@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * Representation the sitemapindex element defined in the schema definition at
  * http://www.sitemaps.org/schemas/sitemap/0.9.
  * 
- *bpolster
+ * 
  */
 @XmlRootElement(name = "sitemapindex")
 public class SiteMapIndexWrapper {

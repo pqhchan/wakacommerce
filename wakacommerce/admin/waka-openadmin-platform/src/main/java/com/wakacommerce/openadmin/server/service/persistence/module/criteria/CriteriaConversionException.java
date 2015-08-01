@@ -25,7 +25,7 @@ package com.wakacommerce.openadmin.server.service.persistence.module.criteria;
  * during JPA criteria translation for fetch operation.
  *
  * @see com.wakacommerce.openadmin.server.service.persistence.module.criteria.CriteriaTranslatorImpl
- *Jeff Fischer
+ * 
  */
 public class CriteriaConversionException extends RuntimeException {
 

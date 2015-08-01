@@ -33,7 +33,7 @@ import java.util.Map;
  * Convenience implementation of interface so that subclasses do not have to implement uninteresting methods
  *
  * @see com.wakacommerce.openadmin.server.service.persistence.module.extension.BasicPersistenceModuleExtensionHandler
- *Jeff Fischer
+ * 
  */
 public class AbstractBasicPersistenceModuleExtensionHandler extends AbstractExtensionHandler implements BasicPersistenceModuleExtensionHandler {
 

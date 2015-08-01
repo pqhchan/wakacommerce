@@ -24,7 +24,7 @@ import java.util.Map;
 /**
  * Called during the pricing workflow to set each item's merchandise total and taxable total
  * 
- *Brian Polster 
+ *   
  */
 public class FulfillmentItemPricingActivity extends BaseActivity<ProcessContext<Order>> {
     

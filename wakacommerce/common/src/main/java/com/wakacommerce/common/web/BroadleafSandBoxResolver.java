@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
  * If a request is being served with a SandBox parameter, it indicates that the user
  * wants to see the site as if their changes were applied.
  *
- *bpolster
+ * 
  */
 public interface BroadleafSandBoxResolver  {
 

@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 /**
  * Interceptor for use with portlets that calls the {@link TranslationRequestProcessor}.
  * 
- *bpolster
+ * 
  */
 public class TranslationInterceptor implements WebRequestInterceptor {
     

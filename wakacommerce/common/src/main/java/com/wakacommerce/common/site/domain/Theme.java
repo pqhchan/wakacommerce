@@ -4,7 +4,7 @@ package com.wakacommerce.common.site.domain;
 import java.io.Serializable;
 
 /**
- * Created by bpolster.
+ *   
  */
 public interface Theme extends Serializable {
     

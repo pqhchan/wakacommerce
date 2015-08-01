@@ -31,7 +31,7 @@ import com.wakacommerce.core.order.service.workflow.CheckAvailabilityActivity;
  * Provides the same methods from {@link InventoryService} but with optional, additional context information. This context
  * can then be passed on to an {@link InventoryServiceExtensionHandler}
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  * @see {@link InventoryService}
  * @see {@link InventoryServiceExtensionHandler}
  * @see {@link CheckAvailabilityActivity}

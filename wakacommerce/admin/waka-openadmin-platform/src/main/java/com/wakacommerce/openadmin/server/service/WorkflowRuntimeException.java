@@ -20,7 +20,7 @@
 package com.wakacommerce.openadmin.server.service;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class WorkflowRuntimeException extends RuntimeException {
 

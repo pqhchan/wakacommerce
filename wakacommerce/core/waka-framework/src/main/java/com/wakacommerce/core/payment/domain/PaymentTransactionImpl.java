@@ -42,7 +42,7 @@ import javax.persistence.MapKeyColumn;
 import javax.persistence.Table;
 
 /**
- *Jerry Ocanas (jocanas)
+ *   (jocanas)
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

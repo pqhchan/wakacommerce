@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.security.domain;
 
 import org.apache.commons.logging.Log;
@@ -43,16 +42,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-/**
- * 
- *jfischer
- *
- */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "BLC_ADMIN_PERMISSION")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="blStandardElements")
-@AdminPresentationClass(friendlyName = "AdminPermissionImpl_baseAdminPermission")
+@AdminPresentationClass(friendlyName = "管理员权限")
 @DirectCopyTransform({
         @DirectCopyTransformMember(templateTokens = DirectCopyTransformTypes.MULTITENANT_ADMINPERMISSION)
 })
@@ -72,23 +66,23 @@ public class AdminPermissionImpl implements AdminPermission {
         }
     )
     @Column(name = "ADMIN_PERMISSION_ID")
-    @AdminPresentation(friendlyName = "AdminPermissionImpl_Admin_Permission_ID", group = "AdminPermissionImpl_Primary_Key", visibility = VisibilityEnum.HIDDEN_ALL)
+    @AdminPresentation(friendlyName = "权限ID", group = "主键", visibility = VisibilityEnum.HIDDEN_ALL)
     protected Long id;
 
     @Column(name = "NAME", nullable=false)
-    @AdminPresentation(friendlyName = "AdminPermissionImpl_Name", order = 3000, group = "AdminPermissionImpl_Permission")
+    @AdminPresentation(friendlyName = "权限代码", order = 3000, group = "一般")
     protected String name;
 
     @Column(name = "PERMISSION_TYPE", nullable=false)
-    @AdminPresentation(friendlyName = "AdminPermissionImpl_Permission_Type", order = 3000,
-            group = "AdminPermissionImpl_Permission",
+    @AdminPresentation(friendlyName = "权限类型", order = 3000,
+            group = "一般",
             prominent = true, gridOrder = 2000,
             fieldType = SupportedFieldType.BROADLEAF_ENUMERATION,
             broadleafEnumeration = "com.wakacommerce.openadmin.server.security.service.type.PermissionType")
     protected String type;
 
     @Column(name = "DESCRIPTION", nullable=false)
-    @AdminPresentation(friendlyName = "AdminPermissionImpl_Description", order = 1000, group = "AdminPermissionImpl_Permission",
+    @AdminPresentation(friendlyName = "权限名称", order = 1000, group = "一般",
             prominent = true, gridOrder = 2000)
     protected String description;
     
@@ -132,7 +126,7 @@ public class AdminPermissionImpl implements AdminPermission {
 
     @Column(name = "IS_FRIENDLY")
     @AdminPresentation(friendlyName = "AdminPermissionImpl_Is_Friendly",
-            order = 4000, group = "AdminPermissionImpl_Permission")
+            order = 4000, group = "一般")
     protected Boolean isFriendly = Boolean.FALSE;
 
     @Override

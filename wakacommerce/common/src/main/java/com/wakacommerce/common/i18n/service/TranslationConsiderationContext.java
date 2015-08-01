@@ -6,7 +6,7 @@ import com.wakacommerce.common.classloader.release.ThreadLocalManager;
 /**
  * Container for ThreadLocal attributes that relate to Translation.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class TranslationConsiderationContext {
 

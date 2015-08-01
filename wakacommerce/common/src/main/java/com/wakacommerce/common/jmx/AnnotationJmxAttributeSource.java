@@ -6,7 +6,7 @@ import org.springframework.jmx.export.metadata.ManagedResource;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public class AnnotationJmxAttributeSource extends org.springframework.jmx.export.annotation.AnnotationJmxAttributeSource {

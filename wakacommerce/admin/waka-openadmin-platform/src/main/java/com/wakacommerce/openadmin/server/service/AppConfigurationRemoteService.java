@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *jfischer
+ *  
  */
 @Service("blAppConfigurationRemoteService")
 public class AppConfigurationRemoteService implements AppConfigurationService {

@@ -26,7 +26,7 @@ import com.wakacommerce.common.vendor.service.exception.PaymentException;
  * This should NOT be used in production, and is meant solely for demonstration
  * purposes only.
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Service("blNullPaymentGatewayTransactionService")
 public class NullPaymentGatewayTransactionServiceImpl implements PaymentGatewayTransactionService {

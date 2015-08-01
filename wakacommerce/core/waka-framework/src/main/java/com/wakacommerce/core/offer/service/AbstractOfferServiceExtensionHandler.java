@@ -17,7 +17,7 @@ import java.util.Map;
 
 
 /**
- *Andre Azzolini (apazzolini), bpolster
+ * ,  
  */
 public class AbstractOfferServiceExtensionHandler extends AbstractExtensionHandler implements OfferServiceExtensionHandler {
     

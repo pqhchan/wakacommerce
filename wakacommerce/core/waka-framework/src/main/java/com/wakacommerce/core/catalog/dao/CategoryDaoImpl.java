@@ -31,7 +31,7 @@ import javax.persistence.criteria.Root;
 
 /**
  * 
- *Jeff Fischer
+ * 
  */
 @Repository("blCategoryDao")
 public class CategoryDaoImpl implements CategoryDao {

@@ -5,7 +5,7 @@ import org.thymeleaf.Arguments;
 import org.thymeleaf.dom.Element;
 import org.thymeleaf.processor.attr.AbstractAttributeModifierAttrProcessor;
 
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.search.domain.SearchCriteria;
 import com.wakacommerce.core.web.util.ProcessorUtils;
 
@@ -35,7 +35,7 @@ public class PaginationSizeLinkProcessor extends AbstractAttributeModifierAttrPr
 
         Map<String, String> attributes = new HashMap<String, String>();
 
-        HttpServletRequest request = BroadleafRequestContext.getBroadleafRequestContext().getRequest();
+        HttpServletRequest request = WakaRequestContext.getWakaRequestContext().getRequest();
 
         String baseUrl = request.getRequestURL().toString();
 

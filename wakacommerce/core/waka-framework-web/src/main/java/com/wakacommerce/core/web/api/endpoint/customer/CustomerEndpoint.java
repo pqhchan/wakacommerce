@@ -12,7 +12,7 @@ import javax.annotation.Resource;
  * @GET, @POST, @PUT, and @DELETE are purposely not provided here to allow implementors finer control over 
  * the details of the endpoint.
  * <p/>
- * User: Kelly Tisdell
+ * User:   
  * Date: 4/10/12
  */
 public abstract class CustomerEndpoint extends BaseEndpoint {

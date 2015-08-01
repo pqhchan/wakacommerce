@@ -56,7 +56,7 @@ import javax.annotation.Resource;
 /**
  * Rolls back all payments that have been processed or were confirmed in {@link ValidateAndConfirmPaymentActivity}.
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 @Component("blConfirmPaymentsRollbackHandler")
 public class ConfirmPaymentsRollbackHandler implements RollbackHandler<CheckoutSeed> {

@@ -6,7 +6,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.wakacommerce.common.sandbox.domain.SandBox;
 import com.wakacommerce.common.sandbox.service.SandBoxService;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.common.web.SandBoxContext;
 import com.wakacommerce.openadmin.server.security.domain.AdminUser;
 import com.wakacommerce.openadmin.server.security.remote.SecurityVerifier;
@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Component("blAdminSandBoxFilter")
 public class AdminSandBoxFilter extends OncePerRequestFilter {
@@ -46,7 +46,7 @@ public class AdminSandBoxFilter extends OncePerRequestFilter {
             session.removeAttribute(SANDBOX_ADMIN_ID_VAR);
             SandBoxContext.setSandBoxContext(null);
         } else {
-            BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+            WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
             if (brc != null) {
                 brc.getAdditionalProperties().put("adminUser", adminUser);
             }

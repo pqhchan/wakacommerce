@@ -31,7 +31,7 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
  * <p>
  * By default, this checks the existence of javax.ws.rs.core.UriInfo
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 public class IsJaxrsAvailableCondition implements Condition {
 

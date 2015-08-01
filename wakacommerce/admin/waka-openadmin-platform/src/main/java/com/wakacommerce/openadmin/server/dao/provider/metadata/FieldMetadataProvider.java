@@ -19,7 +19,7 @@ import java.util.Map;
  * phase for the admin. Providers are typically added in response to new admin presentation annotation support.
  * Implementers should generally extend {@link FieldMetadataProviderAdapter}.
  *
- *Jeff Fischer
+ * 
  */
 public interface FieldMetadataProvider extends Ordered {
 

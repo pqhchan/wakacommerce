@@ -20,7 +20,7 @@ import java.util.Map;
  * Generic DTO for a domain object. Each property of the domain object is represented by the 'properties' instance variable
  * which allows for further display metadata to be stored.
  * 
- *jfischer
+ *  
  * @see {@link Property}
  *
  */

@@ -24,7 +24,7 @@ import javax.annotation.Resource;
  * This component allows for the default provisioning of an AdminUser and roles in the Broadleaf database, based on the 
  * external authentication of a user (e.g. LDAP or custom external authentication provider).
  * 
- *Kelly Tisdell
+ *  
  *
  */
 @Service("blAdminUserProvisioningService")

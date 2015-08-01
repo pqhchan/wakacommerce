@@ -15,7 +15,7 @@ import java.io.Serializable;
  * {@link http://www.iso.org/iso/country_codes.htm}
  * {@link http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2}
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public interface Country extends Serializable {
 

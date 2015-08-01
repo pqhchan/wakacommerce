@@ -21,7 +21,7 @@ import com.wakacommerce.openadmin.server.service.persistence.module.criteria.pre
  * @see com.wakacommerce.openadmin.server.service.persistence.module.criteria.predicate.PredicateProvider
  * @see com.wakacommerce.openadmin.server.service.persistence.module.criteria.converter.FilterValueConverter
  * @see com.wakacommerce.openadmin.server.service.persistence.module.criteria.FieldPathBuilder
- *Jeff Fischer
+ * 
  */
 public class Restriction {
 

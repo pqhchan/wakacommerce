@@ -8,7 +8,7 @@ package com.wakacommerce.common.extension;
  * priority (which drives the execution order of handlers) and enabled (which if false informs the
  * manager to skip this handler).
  * 
- *bpolster
+ * 
  */
 public abstract class AbstractExtensionHandler implements ExtensionHandler {
 

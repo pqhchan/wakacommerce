@@ -11,7 +11,7 @@ import com.wakacommerce.core.order.service.type.FulfillmentBandResultAmountType;
  * This entity is a collection of properties shared between different band implementations.
  * Out of the box, Broadleaf provides implementations for banded weight and banded price.
  * 
- *Phillip Verheyden
+ *  
  * @see {@link FulfillmentPriceBand}, {@link FulfillmentWeightBand}
  */
 public interface FulfillmentBand extends Serializable {

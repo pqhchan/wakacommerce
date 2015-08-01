@@ -6,9 +6,9 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
-public class PaymentAdditionalFieldType implements Serializable, BroadleafEnumerationType {
+public class PaymentAdditionalFieldType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 

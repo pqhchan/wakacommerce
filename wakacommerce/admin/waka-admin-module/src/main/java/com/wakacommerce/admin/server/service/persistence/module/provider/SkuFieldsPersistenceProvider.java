@@ -19,7 +19,7 @@ import com.wakacommerce.openadmin.server.service.type.FieldProviderResponse;
  * itself is null. This is designed to immediately come after the {@link SkuPricingPersistenceProvider} and should not have
  * to handle any of the Money field types that occur on a Sku
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  * @see {@link SkuPricingPersistenceProvider}
  */
 @Scope("prototype")

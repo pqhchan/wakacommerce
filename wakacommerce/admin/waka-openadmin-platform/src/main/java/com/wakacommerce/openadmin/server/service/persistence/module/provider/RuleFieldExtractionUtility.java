@@ -43,7 +43,7 @@ import javax.annotation.Resource;
 /**
  * Commonality shared between {@link RuleFieldPersistenceProvider} and {@link RuleFieldValidator}
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 @Component("blRuleFieldExtractionUtility")
 public class RuleFieldExtractionUtility {

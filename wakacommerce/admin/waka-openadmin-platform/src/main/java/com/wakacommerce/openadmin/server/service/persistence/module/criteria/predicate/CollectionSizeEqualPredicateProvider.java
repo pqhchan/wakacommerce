@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Component("blCollectionSizeEqualPredicateProvider")
 public class CollectionSizeEqualPredicateProvider implements PredicateProvider<Collection, Integer> {

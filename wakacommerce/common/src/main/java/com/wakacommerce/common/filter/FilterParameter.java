@@ -2,7 +2,7 @@
 package com.wakacommerce.common.filter;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class FilterParameter {
 

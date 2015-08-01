@@ -11,7 +11,7 @@ import java.util.List;
  * from the admin applicaiton.
  * 
  * @see CrossAppAuthService
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface CrossAppAdminAuthService {
 

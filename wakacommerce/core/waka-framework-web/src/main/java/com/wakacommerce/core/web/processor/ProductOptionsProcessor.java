@@ -12,7 +12,7 @@ import org.thymeleaf.standard.expression.StandardExpressions;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wakacommerce.common.currency.util.BroadleafCurrencyUtils;
 import com.wakacommerce.common.money.Money;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.common.web.dialect.AbstractModelVariableModifierProcessor;
 import com.wakacommerce.core.catalog.domain.Product;
 import com.wakacommerce.core.catalog.domain.ProductOption;
@@ -134,7 +134,7 @@ public class ProductOptionsProcessor extends AbstractModelVariableModifierProces
         if (price == null){
             return null;
         }
-        BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
         if (brc.getJavaLocale() != null) {
             return BroadleafCurrencyUtils.getNumberFormatFromCache(brc.getJavaLocale(), price.getCurrency()).format
                                 (price.getAmount());

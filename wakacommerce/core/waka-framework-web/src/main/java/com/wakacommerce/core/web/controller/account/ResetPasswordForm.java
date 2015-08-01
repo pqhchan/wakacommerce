@@ -4,7 +4,7 @@ package com.wakacommerce.core.web.controller.account;
 import java.io.Serializable;
 
 /**
- * Created by bpolster.
+ *   
  */
 public class ResetPasswordForm implements Serializable {
     private static final long serialVersionUID = 1L;

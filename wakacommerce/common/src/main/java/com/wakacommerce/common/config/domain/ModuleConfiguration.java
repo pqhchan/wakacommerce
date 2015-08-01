@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.config.domain;
 
 import java.io.Serializable;

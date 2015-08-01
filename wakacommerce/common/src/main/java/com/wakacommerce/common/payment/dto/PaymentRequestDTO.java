@@ -62,7 +62,7 @@ import java.util.Map;
  *              .done();
  * </code></pre>
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public class PaymentRequestDTO {
 

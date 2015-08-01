@@ -31,7 +31,7 @@ import javax.persistence.Table;
 
 /**
  * 
- *Phillip Verheyden
+ *  
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

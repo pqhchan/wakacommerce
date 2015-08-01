@@ -17,7 +17,7 @@ import java.util.HashMap;
  * <p>Rather than implementing this interface directly, consider subclassing the {@link DefaultDynamicSkuPricingServiceImpl}
  * and providing overrides to methods there.</p>
  * 
- *jfischer
+ *  
  * @see {@link DefaultDynamicSkuPricingServiceImpl}
  * @see {@link com.wakacommerce.core.web.catalog.DefaultDynamicSkuPricingFilter}
  * @see {@link SkuPricingConsiderationContext}

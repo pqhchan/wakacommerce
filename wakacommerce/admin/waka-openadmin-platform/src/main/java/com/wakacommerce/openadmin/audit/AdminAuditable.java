@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.audit;
 
 import java.io.Serializable;
@@ -19,7 +18,7 @@ public class AdminAuditable implements Serializable, SandBoxNonProductionSkip, A
 
     @Column(name = "DATE_CREATED", updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
-    @AdminPresentation(friendlyName = "AdminAuditable_Date_Created", group = "AdminAuditable_Audit", readOnly = true)
+    @AdminPresentation(friendlyName = "创建时间", group = "审计", readOnly = true)
     protected Date dateCreated;
 
     @Column(name = "CREATED_BY", updatable = false)
@@ -27,7 +26,7 @@ public class AdminAuditable implements Serializable, SandBoxNonProductionSkip, A
 
     @Column(name = "DATE_UPDATED")
     @Temporal(TemporalType.TIMESTAMP)
-    @AdminPresentation(friendlyName = "AdminAuditable_Date_Updated", group = "AdminAuditable_Audit", readOnly = true)
+    @AdminPresentation(friendlyName = "更新时间", group = "审计", readOnly = true)
     protected Date dateUpdated;
 
     @Column(name = "UPDATED_BY")

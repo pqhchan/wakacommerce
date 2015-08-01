@@ -22,7 +22,7 @@ import javax.annotation.Resource;
  * the order. As a result, implementors may host sensitive user account
  * information in a datastore separate from the datastore housing the order.
  * This measure goes towards achieving a PCI compliant architecture.
- *jfischer
+ *  
  */
 @Service("blSecureOrderPaymentService")
 public class SecureOrderPaymentServiceImpl implements SecureOrderPaymentService {

@@ -34,7 +34,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Service("blNullPaymentGatewayHostedRollbackService")
 public class NullPaymentGatewayHostedRollbackServiceImpl implements PaymentGatewayRollbackService {

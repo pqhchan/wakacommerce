@@ -43,7 +43,7 @@ import com.wakacommerce.profile.core.domain.Customer;
 import com.wakacommerce.profile.core.domain.CustomerImpl;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Repository("blResourcePurgeDao")
 public class ResourcePurgeDaoImpl implements ResourcePurgeDao {

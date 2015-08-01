@@ -14,7 +14,7 @@ import java.util.Set;
  * Processor used in conjunction with {@link FixedPriceFulfillmentOption}. Simply takes the
  * flat rate defined on the option and sets that to the total shipping price of the {@link FulfillmentGroup}
  * 
- *Phillip Verheyden
+ *  
  * @see {@link FixedPriceFulfillmentOption}
  */
 public class FixedPriceFulfillmentPricingProvider implements FulfillmentPricingProvider {

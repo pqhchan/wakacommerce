@@ -32,8 +32,8 @@ import org.apache.commons.logging.LogFactory;
  * </ul>
  * </p>
  *
- *Jeff Fischer
- *elbertbautista
+ * 
+ *  
  *
  */
 public class SupportLogger {

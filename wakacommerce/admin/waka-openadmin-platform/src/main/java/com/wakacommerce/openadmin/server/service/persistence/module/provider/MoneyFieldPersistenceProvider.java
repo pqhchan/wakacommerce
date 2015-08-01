@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.wakacommerce.common.currency.util.CurrencyCodeIdentifiable;
 import com.wakacommerce.common.presentation.client.SupportedFieldType;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.openadmin.dto.Property;
 import com.wakacommerce.openadmin.server.service.persistence.module.provider.request.ExtractValueRequest;
 
@@ -17,7 +17,7 @@ import java.util.Locale;
 /**
  * Persistence provider capable of extracting friendly display values for Money fields
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Scope("prototype")
 @Component("blMoneyFieldPersistenceProvider")
@@ -35,7 +35,7 @@ public class MoneyFieldPersistenceProvider extends AbstractMoneyFieldPersistence
     
     @Override
     protected Locale getLocale(ExtractValueRequest extractValueRequest, Property property) {
-        BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
         return brc.getJavaLocale();
     }
 
@@ -56,7 +56,7 @@ public class MoneyFieldPersistenceProvider extends AbstractMoneyFieldPersistence
                 //do nothing
             }
         }
-        BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
         return brc.getJavaCurrency();
     }
     

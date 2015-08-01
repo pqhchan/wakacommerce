@@ -37,7 +37,7 @@ import com.wakacommerce.openadmin.server.service.persistence.validation.GlobalVa
 /**
  * Dummy implementation of a {@link RowLevelSecurityProvider}. Implementors should extend this class
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 public class AbstractRowLevelSecurityProvider implements RowLevelSecurityProvider {
 

@@ -5,7 +5,7 @@ package com.wakacommerce.common.exception;
  * The admin will throw this exception when a query is attempted across multiple class hierarchies
  * because it is impossible for such a query to produce any results.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class NoPossibleResultsException extends RuntimeException {
     

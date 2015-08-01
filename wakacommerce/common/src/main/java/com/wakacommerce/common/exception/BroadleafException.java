@@ -4,7 +4,7 @@ package com.wakacommerce.common.exception;
 /**
  * Base exception class for BroadleafExceptions that understands root cause messages.
  * 
- *bpolster
+ * 
  */
 public abstract class BroadleafException extends Exception implements RootCauseAccessor {
 

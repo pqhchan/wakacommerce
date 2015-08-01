@@ -5,16 +5,16 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 /**
  * <p>This represents types of payments that can be applied to an order. There might be multiple order payments with the
  * same type on an order if the customer can pay with multiple cards (like 2 credit cards or 3 gift cards).</p>
  * 
  * @see {@link OrderPayment}
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
-public class PaymentType implements Serializable, BroadleafEnumerationType {
+public class PaymentType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 

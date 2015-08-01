@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  * Abstract handler for {@link AuthSuccessHandlerExtensionHandler} so that actual implementations of this handler
  * do not need to implemenet every single method.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class AbstractAuthSuccessHandlerExtensionHandler extends AbstractExtensionHandler implements 
     AuthSuccessHandlerExtensionHandler {

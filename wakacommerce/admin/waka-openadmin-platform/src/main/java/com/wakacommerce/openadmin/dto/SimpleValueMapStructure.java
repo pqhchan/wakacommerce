@@ -5,7 +5,7 @@ import com.wakacommerce.openadmin.dto.visitor.PersistencePerspectiveItemVisitor;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public class SimpleValueMapStructure extends MapStructure {

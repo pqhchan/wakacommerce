@@ -7,7 +7,7 @@ import com.wakacommerce.common.extension.ExtensionManager;
 
 
 /**
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Service("blConfirmationControllerExtensionManager")
 public class ConfirmationControllerExtensionManager extends ExtensionManager<ConfirmationControllerExtensionHandler> {

@@ -36,7 +36,7 @@ import javax.persistence.Table;
  * BLC_SKU_AVAILABILITY
  *
  * @see {@link Sku}
- *bpolster
+ * 
  * 
  * @deprecated This is no longer required and is instead implemented as a third-party inventory module
  */

@@ -20,7 +20,7 @@ import javax.persistence.TypedQuery;
 
 /**
  *
- *elbertbautista
+ *  
  *
  */
 @Repository("blAdminNavigationDao")

@@ -11,7 +11,7 @@ import java.util.List;
  * Convenience passthrough for {@link CustomPersistenceHandlerAdapter} that provides a method for class detection
  * based on the provided constructor.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class ClassCustomPersistenceHandlerAdapter extends CustomPersistenceHandlerAdapter {
     

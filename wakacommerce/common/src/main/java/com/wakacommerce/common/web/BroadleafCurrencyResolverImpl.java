@@ -73,7 +73,7 @@ public class BroadleafCurrencyResolverImpl implements BroadleafCurrencyResolver 
 
         // 4) Check locale for currency
         if (desiredCurrency == null) {
-            Locale locale = (Locale) request.getAttribute(BroadleafLocaleResolverImpl.LOCALE_VAR, WebRequest.SCOPE_REQUEST);
+            Locale locale = (Locale) request.getAttribute(WakaLocaleResolverImpl.LOCALE_VAR, WebRequest.SCOPE_REQUEST);
             if (locale != null) {
                 desiredCurrency = locale.getDefaultCurrency();
             }

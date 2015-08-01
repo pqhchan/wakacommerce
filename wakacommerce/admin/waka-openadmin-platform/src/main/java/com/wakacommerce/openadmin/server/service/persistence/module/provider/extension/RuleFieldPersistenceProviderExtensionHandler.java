@@ -27,7 +27,7 @@ import com.wakacommerce.common.rule.QuantityBasedRule;
 /**
  * For internal usage. Allows extending API calls without subclassing the entity.
  *
- *Jeff Fischer
+ * 
  */
 public interface RuleFieldPersistenceProviderExtensionHandler extends ExtensionHandler {
 

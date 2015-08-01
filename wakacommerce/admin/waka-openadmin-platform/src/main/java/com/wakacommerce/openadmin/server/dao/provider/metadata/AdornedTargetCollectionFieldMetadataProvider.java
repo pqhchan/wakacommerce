@@ -41,7 +41,7 @@ import java.util.Map;
 import javax.persistence.ManyToOne;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Component("blAdornedTargetCollectionFieldMetadataProvider")
 @Scope("prototype")

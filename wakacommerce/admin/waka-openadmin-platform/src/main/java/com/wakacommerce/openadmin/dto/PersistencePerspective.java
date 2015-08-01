@@ -14,7 +14,7 @@ import java.util.Map;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public class PersistencePerspective implements Serializable {

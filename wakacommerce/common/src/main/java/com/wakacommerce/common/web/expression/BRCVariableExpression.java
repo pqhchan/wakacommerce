@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.web.expression;
 
 import org.apache.commons.beanutils.PropertyUtils;
@@ -10,15 +9,13 @@ import com.wakacommerce.common.sandbox.domain.SandBox;
 import com.wakacommerce.common.site.domain.Catalog;
 import com.wakacommerce.common.site.domain.Site;
 import com.wakacommerce.common.time.SystemTime;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 
 import java.util.Date;
 
 
 /**
- * Exposes the {@link BroadleafRequestContext} to the Thymeleaf expression context
- * 
- *Andre Azzolini (apazzolini)
+ * Exposes the {@link WakaRequestContext} to the Thymeleaf expression context
  */
 public class BRCVariableExpression implements BroadleafVariableExpression {
     
@@ -32,7 +29,7 @@ public class BRCVariableExpression implements BroadleafVariableExpression {
     }
     
     public SandBox getSandbox() {
-        BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
         if (brc != null) {
             return brc.getSandBox();
         }
@@ -40,7 +37,7 @@ public class BRCVariableExpression implements BroadleafVariableExpression {
     }
 
     public Site getSite() {
-        BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
         if (brc != null) {
             return brc.getNonPersistentSite();
         }
@@ -48,7 +45,7 @@ public class BRCVariableExpression implements BroadleafVariableExpression {
     }
 
     public Site getCurrentProfile() {
-        BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
         if (brc != null) {
             return brc.getCurrentProfile();
         }
@@ -56,7 +53,7 @@ public class BRCVariableExpression implements BroadleafVariableExpression {
     }
 
     public Catalog getCurrentCatalog() {
-        BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
         if (brc != null) {
             return brc.getCurrentCatalog();
         }
@@ -68,7 +65,7 @@ public class BRCVariableExpression implements BroadleafVariableExpression {
     }
     
     public Object get(String propertyName) {
-        BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
         if (brc != null) {
             try {
                 return PropertyUtils.getProperty(brc, propertyName);
@@ -84,12 +81,12 @@ public class BRCVariableExpression implements BroadleafVariableExpression {
     }
     
     public boolean isSandboxMode() {
-        BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
         return (brc == null) ? false : (brc.getSandBox() != null);
     }
     
     public Object getAdditionalProperty(String propertyName) {
-        BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
         if (brc != null) {
             return brc.getAdditionalProperties().get(propertyName);
         }

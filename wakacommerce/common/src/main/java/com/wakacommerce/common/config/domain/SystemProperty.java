@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.config.domain;
 
 import java.io.Serializable;
@@ -8,9 +7,6 @@ import com.wakacommerce.common.copy.MultiTenantCloneable;
 
 /**
  * This interface represents a System Property (name/value pair) stored in the database.  
- * <p/>
- * User: Kelly Tisdell
- * Date: 6/20/12
  */
 public interface SystemProperty extends Serializable, MultiTenantCloneable<SystemProperty> {
 

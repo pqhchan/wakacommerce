@@ -21,7 +21,7 @@ import java.util.concurrent.Executor;
  * In addition, this implementation does not broadcast or multicast events to systems outside of the 
  * running JVM, although an event listener could be configured to do just that.
  * 
- *Kelly Tisdell
+ *  
  *
  */
 public class BroadleafApplicationEventMulticaster extends

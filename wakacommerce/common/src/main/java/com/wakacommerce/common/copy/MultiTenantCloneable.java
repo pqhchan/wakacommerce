@@ -1,17 +1,14 @@
-
 package com.wakacommerce.common.copy;
 
 /**
  * Describes an entity (or @Embeddable) that is able to be cloned for the purpose of multiple tenancy.
- *
- *Jeff Fischer
  */
 public interface MultiTenantCloneable<T> {
 
     /**
      * Clone this entity for the purpose of multiple tenancy. Note, extending classes should follow this pattern:
      * </p>
-     * <code>
+     * <pre>
      * public CreateResponse&lt;MyClass&gt; createOrRetrieveCopyInstance(MultiTenantCopyContext context) throws CloneNotSupportedException {
      *      CreateResponse&lt;MyClass&gt; createResponse = super.createOrRetrieveCopyInstance(context);
      *      if (createResponse.isAlreadyPopulated()) {
@@ -23,7 +20,7 @@ public interface MultiTenantCloneable<T> {
      *
      *      return createResponse;
      * }
-     * </code>
+     * </pre>
      * </p>
      * Support should also be added for @Embeddable classes that contribute fields (collections or basic) to a cloneable entity:
      * </p>

@@ -12,7 +12,7 @@ import com.wakacommerce.core.offer.service.discount.domain.PromotableCandidateIt
  * the promotion.   The discount amount will be 0 if this
  * item was only used as a qualifier.
  * 
- *jfischer
+ *  
  */
 public class PromotionDiscount implements Serializable{ 
     private static final long serialVersionUID = 1L;

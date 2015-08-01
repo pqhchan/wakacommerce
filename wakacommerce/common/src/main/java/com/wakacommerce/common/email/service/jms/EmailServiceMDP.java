@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.email.service.jms;
 
 import org.springframework.mail.MailAuthenticationException;
@@ -16,18 +15,11 @@ import javax.jms.MessageListener;
 import javax.jms.ObjectMessage;
 import java.util.HashMap;
 
-/**
- *jfischer
- */
 public class EmailServiceMDP implements MessageListener {
 
     @Resource(name = "blMessageCreator")
     private MessageCreator messageCreator;
 
-    /*
-     * (non-Javadoc)
-     * @see javax.jms.MessageListener#onMessage(javax.jms.Message)
-     */
     @SuppressWarnings("unchecked")
     public void onMessage(Message message) {
         try {

@@ -14,7 +14,7 @@ import java.util.HashMap;
  * Default implementation of the {@link DynamicSkuPricingService} which simply ignores the considerations hashmap in all
  * method implementations
  * 
- *jfischer
+ *  
  * 
  */
 @Service("blDynamicSkuPricingService")

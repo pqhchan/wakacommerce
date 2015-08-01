@@ -6,10 +6,10 @@ import java.util.Date;
 
 import javax.xml.datatype.DatatypeConfigurationException;
 
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class FormatUtil {
 
@@ -18,7 +18,7 @@ public class FormatUtil {
 
     public static SimpleDateFormat getDateFormat() {
         SimpleDateFormat formatter = new SimpleDateFormat(DATE_FORMAT);
-        formatter.setTimeZone(BroadleafRequestContext.getBroadleafRequestContext().getTimeZone());
+        formatter.setTimeZone(WakaRequestContext.getWakaRequestContext().getTimeZone());
         return formatter;
     }
     
@@ -31,7 +31,7 @@ public class FormatUtil {
      */
     public static SimpleDateFormat getTimeZoneFormat() {
         SimpleDateFormat formatter = new SimpleDateFormat(DATE_FORMAT_WITH_TIMEZONE);
-        formatter.setTimeZone(BroadleafRequestContext.getBroadleafRequestContext().getTimeZone());
+        formatter.setTimeZone(WakaRequestContext.getWakaRequestContext().getTimeZone());
         return formatter;
     }
 

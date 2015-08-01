@@ -30,7 +30,7 @@ import java.io.Serializable;
 /**
  * For internal usage. Allows extending API calls without subclassing the entity.
  *
- *Jeff Fischer
+ * 
  */
 public interface BasicFieldPersistenceProviderExtensionHandler extends ExtensionHandler {
 

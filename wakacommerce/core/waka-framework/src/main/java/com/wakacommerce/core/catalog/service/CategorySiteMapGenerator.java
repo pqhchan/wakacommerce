@@ -25,7 +25,7 @@ import javax.annotation.Resource;
 /**
  * Responsible for generating site map entries for Category.
  * 
- *Joshua Skorton (jskorton)
+ *  
  */
 @Component("blCategorySiteMapGenerator")
 public class CategorySiteMapGenerator implements SiteMapGenerator {

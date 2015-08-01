@@ -4,7 +4,7 @@ package com.wakacommerce.openadmin.audit;
 import java.util.Date;
 
 /**
- *Jeff Fischer
+ * 
  */
 public interface AdminAudit {
 

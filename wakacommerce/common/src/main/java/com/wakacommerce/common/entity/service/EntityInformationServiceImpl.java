@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 
 /**
  * 
- *bpolster
+ * 
  *
  */
 @Service("blEntityInformationService")

@@ -13,7 +13,7 @@ import org.springframework.context.ApplicationContextAware;
  * instance of ApplicationContext is required in a custom class
  * instantiated by third-party code.
  * 
- *jfischer
+ *  
  *
  */
 public class SpringAppContext implements ApplicationContextAware {

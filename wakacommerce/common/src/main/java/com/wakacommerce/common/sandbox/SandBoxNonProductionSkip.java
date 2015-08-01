@@ -6,7 +6,7 @@ package com.wakacommerce.common.sandbox;
  * from this interface, and the persistence is being requested for a production record outside of a production deploy
  * step.
  *
- *Jeff Fischer
+ * 
  */
 public interface SandBoxNonProductionSkip {
 }

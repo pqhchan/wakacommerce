@@ -14,7 +14,7 @@ import com.wakacommerce.openadmin.server.service.persistence.module.RecordHelper
 /**
  * Contains the requested value, property and support classes.
  *
- *Jeff Fischer
+ * 
  */
 public class ExtractValueRequest {
 

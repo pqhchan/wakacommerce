@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * A DTO class used to seed a persistence package.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class PersistencePackageRequest {
 

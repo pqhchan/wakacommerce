@@ -13,7 +13,7 @@ import com.wakacommerce.openadmin.web.form.entity.EntityForm;
  * Extension handler for various methods from {@link FormBuilderService}
  * 
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  * @see {@link AbstractFormBuilderExtensionHandler}
  * @see {@link FormBuilderService}
  * @see {@link FormBuilderServiceImpl}

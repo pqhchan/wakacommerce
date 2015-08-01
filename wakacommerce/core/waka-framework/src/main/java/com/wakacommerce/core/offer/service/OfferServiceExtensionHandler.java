@@ -18,7 +18,7 @@ import java.util.Map;
 
 
 /**
- *Andre Azzolini (apazzolini), bpolster
+ * ,  
  */
 public interface OfferServiceExtensionHandler extends ExtensionHandler {
     

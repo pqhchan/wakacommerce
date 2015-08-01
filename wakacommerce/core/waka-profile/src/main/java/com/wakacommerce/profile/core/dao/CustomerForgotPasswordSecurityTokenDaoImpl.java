@@ -16,7 +16,7 @@ import java.util.List;
 
 /**
  * 
- *bpolster
+ * 
  *
  */
 @Repository("blCustomerForgotPasswordSecurityTokenDao")

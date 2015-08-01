@@ -27,7 +27,7 @@ import java.math.BigDecimal;
  * </ol>
  * <p>Note: this implementation assumes that units of measurement (lb, kg, etc) are the same across the site implementation</p>
  *
- *Phillip Verheyden
+ *  
  * 
  */
 public interface FulfillmentWeightBand extends FulfillmentBand {

@@ -37,7 +37,7 @@ import javax.annotation.Resource;
  * You may configure this validator to only validate a Full Name rather than a separate first and last name,
  * by setting the {@link com.wakacommerce.common.config.domain.SystemProperty} "validator.address.fullNameOnly"
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public class BroadleafCommonAddressValidator {
 

@@ -5,10 +5,10 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 
-public class SystemPropertyFieldType implements BroadleafEnumerationType, Serializable {
+public class SystemPropertyFieldType implements WakaEnumType, Serializable {
 
     private static final long serialVersionUID = 1L;
 

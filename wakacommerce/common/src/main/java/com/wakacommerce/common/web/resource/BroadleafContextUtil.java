@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.web.resource;
 
 import org.springframework.security.core.context.SecurityContext;
@@ -11,7 +10,7 @@ import org.springframework.web.context.request.WebRequest;
 
 import com.wakacommerce.common.classloader.release.ThreadLocalManager;
 import com.wakacommerce.common.util.DeployBehaviorUtil;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.common.web.BroadleafSandBoxResolver;
 import com.wakacommerce.common.web.BroadleafSiteResolver;
 import com.wakacommerce.common.web.BroadleafThemeResolver;
@@ -26,9 +25,6 @@ import javax.servlet.http.HttpSession;
  * 
  * <p>
  * This component provides the {@link #establishThinRequestContext()} method for that purpose.  
- *
- *bpolster
- *
  */
 @Service("blBroadleafContextUtil")
 public class BroadleafContextUtil {
@@ -48,7 +44,7 @@ public class BroadleafContextUtil {
     protected boolean versioningEnabled = false;
 
     /**
-     * Creates a BroadleafRequestContext with supported values populated
+     * Creates a WakaRequestContext with supported values populated
      * @see #establishThinRequestContextInternal(boolean, boolean)
      */
     public void establishThinRequestContext() {
@@ -56,7 +52,7 @@ public class BroadleafContextUtil {
     }
 
     /**
-     * Creates a BroadleafRequestContext without a Sandbox
+     * Creates a WakaRequestContext without a Sandbox
      * @see #establishThinRequestContextInternal(boolean, boolean)
      */
     public void establishThinRequestContextWithoutSandBox() {
@@ -64,7 +60,7 @@ public class BroadleafContextUtil {
     }
 
     /**
-     * Creates a BroadleafRequestContext without a Theme or Sandbox
+     * Creates a WakaRequestContext without a Theme or Sandbox
      * @see #establishThinRequestContextInternal(boolean, boolean)
      */
     public void establishThinRequestContextWithoutThemeOrSandbox() {
@@ -72,7 +68,7 @@ public class BroadleafContextUtil {
     }
 
     /**
-     * Adds request and site to the BroadleafRequestContext
+     * Adds request and site to the WakaRequestContext
      * 
      * If includeTheme is true then also adds the Theme.
      * If includeSandBox is true then also adds the SandBox.
@@ -81,7 +77,7 @@ public class BroadleafContextUtil {
      * @param includeSandBox
      */
     protected void establishThinRequestContextInternal(boolean includeTheme, boolean includeSandBox) {
-        BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
 
         if (brc.getRequest() == null) {
             HttpServletRequest req = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();

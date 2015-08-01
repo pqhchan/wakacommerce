@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.security.domain;
 
 import org.hibernate.annotations.BatchSize;
@@ -24,11 +23,6 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-/**
- *
- *elbertbautista
- *
- */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "BLC_ADMIN_MODULE")

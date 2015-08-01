@@ -11,7 +11,7 @@ import com.wakacommerce.core.catalog.domain.Dimension;
 /**
  * JAXB wrapper for Dimension
  * <p/>
- * User: Kelly Tisdell
+ * User:   
  * Date: 4/10/12
  */
 public class DimensionWrapper extends BaseWrapper implements APIWrapper<Dimension>{

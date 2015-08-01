@@ -8,7 +8,7 @@ import com.wakacommerce.common.config.service.type.SystemPropertyFieldType;
 /**
  * To change this template use File | Settings | File Templates.
  * <p/>
- * User: Kelly Tisdell
+ * User:   
  * Date: 6/25/12
  */
 public interface SystemPropertiesService {

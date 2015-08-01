@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * Utilized in conjunction with {@link TypedQueryBuilder} to generate TypedQueries programmatically.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class TQRestriction {
     

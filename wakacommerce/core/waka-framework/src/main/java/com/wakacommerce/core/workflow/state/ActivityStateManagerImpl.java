@@ -14,7 +14,7 @@ import java.util.Stack;
 import javax.annotation.PostConstruct;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Service("blActivityStateManager")
 public class ActivityStateManagerImpl implements ActivityStateManager {

@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public class CustomerCreditDTO<T> {
 

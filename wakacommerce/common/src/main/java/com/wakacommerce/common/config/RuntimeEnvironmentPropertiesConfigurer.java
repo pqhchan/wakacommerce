@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.config;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -141,7 +140,7 @@ public class RuntimeEnvironmentPropertiesConfigurer extends PropertyPlaceholderC
         testLocations.add(propertyLocations);
         testLocations.add(defaultPropertyLocations);
 
-        for (Resource resource : createBroadleafResource()) {
+        for (Resource resource : createWakaResource()) {
             if (resource.exists()) {
                 allLocations.add(resource);
             }
@@ -218,7 +217,7 @@ public class RuntimeEnvironmentPropertiesConfigurer extends PropertyPlaceholderC
         return resources;
     }
     
-    protected Resource[] createBroadleafResource() throws IOException {
+    protected Resource[] createWakaResource() throws IOException {
         Resource[] resources = new Resource[blcPropertyLocations.size()];
         int index = 0;
         for (Resource resource : blcPropertyLocations) {

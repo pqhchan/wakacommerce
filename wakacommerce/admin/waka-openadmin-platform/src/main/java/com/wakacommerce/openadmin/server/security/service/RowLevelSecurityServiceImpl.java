@@ -43,7 +43,7 @@ import javax.persistence.criteria.Root;
 /**
  * 
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 @Service("blRowLevelSecurityService")
 public class RowLevelSecurityServiceImpl implements RowLevelSecurityService {

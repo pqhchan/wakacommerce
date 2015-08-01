@@ -19,7 +19,7 @@ import javax.annotation.Resource;
  * 
  * Note that in servlet applications you should be using {@link CartStateFilter}
  * 
- *Phillip Verheyden
+ *  
  * @see {@link CartState}
  */
 public class CartStateInterceptor implements WebRequestInterceptor {

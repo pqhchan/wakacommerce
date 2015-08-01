@@ -7,7 +7,7 @@ import org.springframework.web.context.request.WebRequest;
 import com.wakacommerce.common.i18n.service.TranslationConsiderationContext;
 import com.wakacommerce.common.i18n.service.TranslationService;
 import com.wakacommerce.common.util.BLCSystemProperty;
-import com.wakacommerce.common.web.AbstractBroadleafWebRequestProcessor;
+import com.wakacommerce.common.web.AbstractWakaWebRequestProcessor;
 
 import javax.annotation.Resource;
 
@@ -16,10 +16,10 @@ import javax.annotation.Resource;
  * by both typical Web applications and called from a ServletFilter (such as "TranslationFilter") or 
  * from a portletFilter (such as "TranslationInterceptor")
  * 
- *bpolster
+ * 
  */
 @Component("blTranslationRequestProcessor")
-public class TranslationRequestProcessor extends AbstractBroadleafWebRequestProcessor {
+public class TranslationRequestProcessor extends AbstractWakaWebRequestProcessor {
     
     @Resource(name = "blTranslationService")
     protected TranslationService translationService;

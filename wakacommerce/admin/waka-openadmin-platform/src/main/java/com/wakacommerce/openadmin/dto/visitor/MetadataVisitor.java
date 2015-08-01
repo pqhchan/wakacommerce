@@ -7,7 +7,7 @@ import com.wakacommerce.openadmin.dto.BasicFieldMetadata;
 import com.wakacommerce.openadmin.dto.MapMetadata;
 
 /**
- *Jeff Fischer
+ * 
  */
 public interface MetadataVisitor {
 

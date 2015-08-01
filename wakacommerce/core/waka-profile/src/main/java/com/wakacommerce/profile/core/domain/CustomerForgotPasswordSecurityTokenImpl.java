@@ -13,7 +13,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- * Created by bpolster.
+ *   
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

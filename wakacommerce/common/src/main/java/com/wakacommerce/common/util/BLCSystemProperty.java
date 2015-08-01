@@ -14,7 +14,7 @@ import com.wakacommerce.common.config.service.SystemPropertiesService;
  * Note that this class is scanned as a bean to pick up the applicationContext, but the methods
  * this class provides should be invoked statically.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Service("blBLCSystemProperty")
 public class BLCSystemProperty implements ApplicationContextAware {

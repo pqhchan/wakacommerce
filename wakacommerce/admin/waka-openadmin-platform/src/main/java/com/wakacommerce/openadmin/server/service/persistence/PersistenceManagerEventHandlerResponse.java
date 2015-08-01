@@ -8,7 +8,7 @@ import com.wakacommerce.openadmin.dto.DynamicResultSet;
 import com.wakacommerce.openadmin.dto.Entity;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class PersistenceManagerEventHandlerResponse {
 

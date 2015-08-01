@@ -14,7 +14,7 @@ import org.thymeleaf.processor.ProcessorResult;
 import org.thymeleaf.processor.attr.AbstractAttrProcessor;
 import org.thymeleaf.spring4.util.FieldUtils;
 
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.openadmin.web.form.entity.DynamicEntityFormInfo;
 import com.wakacommerce.openadmin.web.form.entity.EntityForm;
 import com.wakacommerce.openadmin.web.form.entity.Field;
@@ -35,7 +35,7 @@ import java.util.Map;
  * 
  *      blc_admin:errors="*{*}"
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 @Component("blErrorsProcessor")
 public class ErrorsProcessor extends AbstractAttrProcessor {
@@ -103,7 +103,7 @@ public class ErrorsProcessor extends AbstractAttrProcessor {
             }
             
             String translatedGeneralTab = GENERAL_ERRORS_TAB_KEY;
-            BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
+            WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
             if (context != null && context.getMessageSource() != null) {
                 translatedGeneralTab = context.getMessageSource().getMessage(translatedGeneralTab, null, translatedGeneralTab, context.getJavaLocale());
             }

@@ -15,7 +15,7 @@ import java.util.Locale;
 /**
  * Abstract persistence provider that provides a method to actually handle formatting moneys.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public abstract class AbstractMoneyFieldPersistenceProvider extends FieldPersistenceProviderAdapter {
     

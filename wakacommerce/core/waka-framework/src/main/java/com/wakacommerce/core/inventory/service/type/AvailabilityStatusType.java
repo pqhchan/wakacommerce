@@ -5,17 +5,17 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 /**
  * An extendible enumeration of availability status types.
  * 
- *jfischer
+ *  
  * 
  * @deprecated This is no longer required and is instead implemented as a third-party inventory module
  */
 @Deprecated
-public class AvailabilityStatusType implements Serializable, BroadleafEnumerationType {
+public class AvailabilityStatusType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
     private static final Map<String, AvailabilityStatusType> TYPES = new LinkedHashMap<String, AvailabilityStatusType>();

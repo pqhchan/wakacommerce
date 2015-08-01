@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.config.domain;
 
 import org.hibernate.annotations.Cache;
@@ -37,10 +36,7 @@ import javax.persistence.Table;
  * Modules that need to be configured via the database should extend this.  Classes that
  * extend this MUST call setModuleConfigurationType(ModuleConfigurationType type) in their
  * constructor.
- *
- *Kelly Tisdell
  */
-
 @Entity
 @Table(name = "BLC_MODULE_CONFIGURATION")
 @EntityListeners(value = {AuditableListener.class})

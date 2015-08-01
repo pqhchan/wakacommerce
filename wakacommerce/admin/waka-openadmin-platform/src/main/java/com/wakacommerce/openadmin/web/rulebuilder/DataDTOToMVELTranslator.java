@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * Utility class to convert a DataDTO/ExpressionDTO into an MVEL string
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public class DataDTOToMVELTranslator {
 

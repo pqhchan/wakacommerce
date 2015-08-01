@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  * or location ({@link Resource}) collections based on the {@link Ordered} interface.
  * 
  *  
- *bpolster
+ * 
  *
  */
 public class BroadleafResourceHttpRequestHandler extends ResourceHttpRequestHandler {

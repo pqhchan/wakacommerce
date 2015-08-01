@@ -40,7 +40,7 @@ import javax.validation.Validator;
  * <p>For more information on the default Spring JSR-303 validator, check out the docs at
  * 
  * 
- *Phillip Verheyden
+ *  
  * @see {@link EntityValidatorServiceImpl#validate(Entity, Serializable, Map)}
  * @see {@link Validator}
  * @see <a href="http://static.springsource.org/spring/docs/3.1.3.RELEASE/spring-framework-reference/html/validation.html#validation-beanvalidation">Spring Validation Docs</a>

@@ -24,7 +24,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Service("blOrderToPaymentRequestDTOService")
 public class OrderToPaymentRequestDTOServiceImpl implements OrderToPaymentRequestDTOService {

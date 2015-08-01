@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 
 /**
  * 
- *Jeff Fischer
+ * 
  * @see {@link BasicPersistenceModule}
  */
 public interface DataFormatProvider {

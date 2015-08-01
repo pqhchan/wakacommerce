@@ -20,7 +20,7 @@ import com.wakacommerce.common.vendor.service.exception.PaymentException;
  * PaymentGateway Handlers will just need to extend this class and implement
  * the declared abstract methods.</p>
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public abstract class AbstractTRCreditCardExtensionHandler extends AbstractExtensionHandler
         implements TRCreditCardExtensionHandler {

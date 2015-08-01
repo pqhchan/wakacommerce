@@ -7,7 +7,7 @@ import com.wakacommerce.openadmin.server.security.domain.AdminRole;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public interface AdminRoleDao {

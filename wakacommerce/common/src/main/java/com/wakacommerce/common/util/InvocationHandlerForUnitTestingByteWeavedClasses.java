@@ -9,7 +9,7 @@ import java.lang.reflect.Proxy;
  * Invocation handler for unit testing byte-weaved classes. Use this InvocationHandler and utility method when Spring is unavailable
  * to complete byte-weaving.
  * 
- *Joshua Skorton (jskorton)
+ *  
  */
 public class InvocationHandlerForUnitTestingByteWeavedClasses implements InvocationHandler {
 

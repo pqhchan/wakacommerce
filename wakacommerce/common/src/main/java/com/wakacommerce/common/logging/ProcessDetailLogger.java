@@ -48,7 +48,7 @@ import java.util.Collection;
  * If you duplicated the sample configuration exactly, you would provide the logger name "com.broadleafcommerce.enterprise.workflow.process.detail"
  * to the {@link #ProcessDetailLogger(String)} constructor.
  *
- *Jeff Fischer
+ * 
  */
 public class ProcessDetailLogger {
 

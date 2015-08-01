@@ -6,7 +6,7 @@ import com.wakacommerce.openadmin.server.security.domain.AdminUser;
 import com.wakacommerce.openadmin.server.service.SandBoxMode;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class AdminSandBoxContext extends SandBoxContext {
 

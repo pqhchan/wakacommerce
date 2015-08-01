@@ -13,7 +13,7 @@ import java.util.Map;
  * Scoped as a prototype bean via bl-cms-applicationContext-entity. This bean is used to wrap an {@link StructuredContentImpl}
  * so that modifications and additional properties can be used without worrying about Hibernate's persistence.
  * 
- *bpolster.
+ * .
  * @see {@link StructuredContentServiceImpl#buildStructuredContentDTO};
  * @see {@link StructuredContentServiceImpl#buildFieldValues};
  */

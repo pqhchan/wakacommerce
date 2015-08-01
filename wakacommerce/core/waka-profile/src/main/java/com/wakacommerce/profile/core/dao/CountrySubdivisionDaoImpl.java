@@ -33,7 +33,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Repository("blCountrySubdivisionDao")
 public class CountrySubdivisionDaoImpl implements CountrySubdivisionDao {

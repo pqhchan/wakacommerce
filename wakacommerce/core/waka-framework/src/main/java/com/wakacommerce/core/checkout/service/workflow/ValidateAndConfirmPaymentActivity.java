@@ -48,7 +48,7 @@ import javax.annotation.Resource;
  * 
  * <p>If there is an exception (either in this activity or later downstream) the confirmed payments are rolled back via {@link ConfirmPaymentsRollbackHandler}
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 public class ValidateAndConfirmPaymentActivity extends BaseActivity<ProcessContext<CheckoutSeed>> {
     

@@ -51,7 +51,7 @@ import javax.annotation.Resource;
 /**
  * Overridden to provide the option values field on the SkuBundleItem list
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 @Component("blSkuBundleItemCustomPersistenceHandler")
 public class SkuBundleItemCustomPersistenceHandler extends CustomPersistenceHandlerAdapter {

@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 @Embeddable

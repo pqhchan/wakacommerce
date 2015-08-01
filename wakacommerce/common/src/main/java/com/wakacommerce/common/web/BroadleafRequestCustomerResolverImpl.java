@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * By default, we'll resolve the customer from the "customer" attribute on the request.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Service("blRequestCustomerResolver")
 public class BroadleafRequestCustomerResolverImpl implements ApplicationContextAware, BroadleafRequestCustomerResolver {
@@ -29,7 +29,7 @@ public class BroadleafRequestCustomerResolverImpl implements ApplicationContextA
     
     @Override
     public Object getCustomer() {
-        WebRequest request = BroadleafRequestContext.getBroadleafRequestContext().getWebRequest();
+        WebRequest request = WakaRequestContext.getWakaRequestContext().getWebRequest();
         return getCustomer(request);
     }
 
@@ -40,7 +40,7 @@ public class BroadleafRequestCustomerResolverImpl implements ApplicationContextA
 
     @Override
     public void setCustomer(Object customer) {
-        WebRequest request = BroadleafRequestContext.getBroadleafRequestContext().getWebRequest();
+        WebRequest request = WakaRequestContext.getWakaRequestContext().getWebRequest();
         request.setAttribute(getCustomerRequestAttributeName(), customer, WebRequest.SCOPE_REQUEST);
     }
 

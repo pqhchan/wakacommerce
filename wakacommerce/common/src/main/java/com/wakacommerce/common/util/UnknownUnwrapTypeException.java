@@ -2,7 +2,7 @@
 package com.wakacommerce.common.util;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class UnknownUnwrapTypeException extends RuntimeException {
 

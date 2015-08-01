@@ -22,9 +22,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-/**
- * Created by jfischer
- */
+  
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "BLC_LOCALE")

@@ -1,7 +1,7 @@
 
 package com.wakacommerce.core.order.service.type;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 import com.wakacommerce.core.order.domain.Order;
 
 import java.io.Serializable;
@@ -10,9 +10,9 @@ import java.util.LinkedHashMap;
 /**
  * An extendible enumeration of order status types.
  * 
- *jfischer
+ *  
  */
-public class OrderStatus implements Serializable, BroadleafEnumerationType {
+public class OrderStatus implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 

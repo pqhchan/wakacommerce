@@ -18,7 +18,7 @@ import com.wakacommerce.common.sitemap.service.type.SiteMapPriorityType;
  *   <priority>0.5</priority>
  * </url>
  * 
- *bpolster
+ * 
  */
 public interface SiteMapGeneratorConfiguration extends Serializable {
     

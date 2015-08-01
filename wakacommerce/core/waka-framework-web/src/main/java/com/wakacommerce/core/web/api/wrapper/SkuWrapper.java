@@ -18,7 +18,7 @@ import com.wakacommerce.core.catalog.domain.Sku;
 /**
  * This is a JAXB wrapper to wrap Sku.
  * <p/>
- * User: Kelly Tisdell
+ * User:   
  * Date: 4/10/12
  */
 @XmlRootElement(name = "sku")

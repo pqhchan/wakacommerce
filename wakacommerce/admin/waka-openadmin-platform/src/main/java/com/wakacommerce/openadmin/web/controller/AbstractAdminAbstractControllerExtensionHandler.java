@@ -38,7 +38,7 @@ import java.util.List;
  * Individual implementations of this extension handler should subclass this class as it will allow them to 
  * only override the methods that they need for their particular scenarios.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class AbstractAdminAbstractControllerExtensionHandler extends AbstractExtensionHandler implements AdminAbstractControllerExtensionHandler {
 

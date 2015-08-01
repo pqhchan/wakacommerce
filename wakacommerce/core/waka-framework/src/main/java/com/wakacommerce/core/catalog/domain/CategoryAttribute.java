@@ -7,7 +7,7 @@ import com.wakacommerce.common.value.Searchable;
 
 /**
  * 
- *Phillip Verheyden
+ *  
  */
 public interface CategoryAttribute extends Searchable<String>, MultiTenantCloneable<CategoryAttribute> {
 

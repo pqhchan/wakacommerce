@@ -8,7 +8,7 @@ import com.wakacommerce.common.extension.ExtensionManager;
 /**
  * Extension manager that holds the list of {@link SiteServiceExtensionHandler}.
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 @Service("blSiteServiceExtensionManager")
 public class SiteServiceExtensionManager extends ExtensionManager<SiteServiceExtensionHandler> {

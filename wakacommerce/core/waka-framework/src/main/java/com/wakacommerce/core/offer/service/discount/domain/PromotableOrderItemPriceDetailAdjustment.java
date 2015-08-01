@@ -11,7 +11,7 @@ import java.io.Serializable;
  * processing.  This and other disposable objects avoid churn on the database while the 
  * offer engine determines the best offer(s) for the order being priced.
  * 
- *bpolster
+ * 
  */
 public interface PromotableOrderItemPriceDetailAdjustment extends Serializable {
 

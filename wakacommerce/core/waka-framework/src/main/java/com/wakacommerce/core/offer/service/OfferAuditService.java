@@ -11,7 +11,7 @@ import com.wakacommerce.profile.core.domain.Customer;
  * for a particular {@link Order} and {@link Customer}. This provides easy and fast tracking of verifying max uses on
  * particular {@link Offer}s.
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 public interface OfferAuditService {
 

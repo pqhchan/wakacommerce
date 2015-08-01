@@ -36,7 +36,7 @@ import com.wakacommerce.profile.core.domain.Customer;
  * 
  * <p>For {@link PaymentTransactionType#UNCONFIRMED}, they will have children that will be either {@link PaymentTransactionType#AUTHORIZE}
  * or {@link PaymentTransactionType#AUTHORIZE_AND_CAPTURE}.</p> * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 public interface PaymentTransaction extends Serializable, Status, AdditionalFields {
 

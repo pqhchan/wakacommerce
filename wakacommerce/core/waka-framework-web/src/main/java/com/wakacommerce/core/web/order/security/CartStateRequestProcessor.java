@@ -11,8 +11,8 @@ import org.springframework.web.context.request.WebRequest;
 
 import com.wakacommerce.common.crossapp.service.CrossAppAuthService;
 import com.wakacommerce.common.util.BLCRequestUtils;
-import com.wakacommerce.common.web.AbstractBroadleafWebRequestProcessor;
-import com.wakacommerce.common.web.BroadleafWebRequestProcessor;
+import com.wakacommerce.common.web.AbstractWakaWebRequestProcessor;
+import com.wakacommerce.common.web.WakaWebRequestProcessor;
 import com.wakacommerce.core.order.domain.Order;
 import com.wakacommerce.core.order.service.MergeCartService;
 import com.wakacommerce.core.order.service.OrderService;
@@ -41,14 +41,14 @@ import javax.annotation.Resource;
  * new ServletWebRequest(httpServletRequest); new PortletWebRequest(portletRequest); <br />
  * For the interceptor pattern, you can simply implement a WebRequestInterceptor to invoke from there.
  * 
- *Phillip Verheyden
+ *  
  * @see {@link CartStateFilter}
- * @see {@link BroadleafWebRequestProcessor}
+ * @see {@link WakaWebRequestProcessor}
  * @see {@link ServletWebRequest}
  * @see {@link org.springframework.web.portlet.context.PortletWebRequest}
  */
 @Component("blCartStateRequestProcessor")
-public class CartStateRequestProcessor extends AbstractBroadleafWebRequestProcessor {
+public class CartStateRequestProcessor extends AbstractWakaWebRequestProcessor {
 
     /** Logger for this class and subclasses */
     protected final Log LOG = LogFactory.getLog(getClass());

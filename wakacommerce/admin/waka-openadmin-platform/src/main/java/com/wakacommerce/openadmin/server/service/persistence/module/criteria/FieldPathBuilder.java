@@ -28,7 +28,7 @@ import javax.persistence.metamodel.ManagedType;
 import javax.persistence.metamodel.Metamodel;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class FieldPathBuilder {
     

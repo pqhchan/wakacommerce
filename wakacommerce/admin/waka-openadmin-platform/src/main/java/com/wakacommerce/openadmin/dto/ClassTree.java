@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *jfischer
+ *  
  */
 public class ClassTree implements Serializable {
 

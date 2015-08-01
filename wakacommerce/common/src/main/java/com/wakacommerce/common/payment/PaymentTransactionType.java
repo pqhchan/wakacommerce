@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 /**
  * The PaymentTransactionType is used to represent the types of operations that could occur on the within the same payment.
@@ -20,10 +20,10 @@ import com.wakacommerce.common.BroadleafEnumerationType;
  * @see {@link #REVERSE_AUTH}
  * @see {@link #UNCONFIRMED}
  *
- *Jerry Ocanas (jocanas)
- *Phillip Verheyden (phillipuniverse)
+ *   (jocanas)
+ *     
  */
-public class PaymentTransactionType implements Serializable, BroadleafEnumerationType {
+public class PaymentTransactionType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 

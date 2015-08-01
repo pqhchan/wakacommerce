@@ -6,7 +6,7 @@ import org.apache.log4j.LogManager;
 
 /**
  * Specific implementation used with a Log4j dependency
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public class Log4jStatisticsServiceLogAdapter implements StatisticsServiceLogAdapter {
 

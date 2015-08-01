@@ -6,14 +6,14 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 /**
  * Reasonsable set of SiteMap URL priorities
  * 
- *bpolster
+ * 
  */
-public class SiteMapPriorityType implements Serializable, BroadleafEnumerationType {
+public class SiteMapPriorityType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 

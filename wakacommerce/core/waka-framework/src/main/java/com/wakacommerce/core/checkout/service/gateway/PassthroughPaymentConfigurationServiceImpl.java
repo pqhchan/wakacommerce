@@ -44,7 +44,7 @@ import javax.annotation.Resource;
  * A Default Configuration to handle Passthrough Payments, for example COD payments.
  * This default implementation just supports a rollback service.
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Service("blPassthroughPaymentConfigurationService")
 public class PassthroughPaymentConfigurationServiceImpl implements PaymentGatewayConfigurationService {

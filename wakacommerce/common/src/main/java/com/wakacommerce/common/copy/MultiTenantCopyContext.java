@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.copy;
 
 import org.apache.commons.lang.ArrayUtils;
@@ -12,7 +11,7 @@ import com.wakacommerce.common.site.domain.Catalog;
 import com.wakacommerce.common.site.domain.Site;
 import com.wakacommerce.common.util.tenant.IdentityExecutionUtils;
 import com.wakacommerce.common.util.tenant.IdentityOperation;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -23,7 +22,7 @@ import javax.persistence.Embeddable;
 
 public class MultiTenantCopyContext {
 
-    public static final String[] BROADLEAF_PACKAGE_PREFIXES = {"com.wakacommerce","com.broadleafcommerce"};
+    public static final String[] BROADLEAF_PACKAGE_PREFIXES = {"com.wakacommerce","org.wakacommerce"};
 
     protected Catalog fromCatalog;
     protected Catalog toCatalog;
@@ -150,10 +149,10 @@ public class MultiTenantCopyContext {
      * @throws java.lang.CloneNotSupportedException
      */
     public <G> CreateResponse<G> createOrRetrieveCopyInstance(Object instance) throws CloneNotSupportedException {
-        BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
         context.setCurrentCatalog(getToCatalog());
         context.setCurrentProfile(getToSite());
-        context.setSite(getToSite());
+        context.setNonPersistentSite(getToSite());
         if (instance instanceof Status && 'Y' == ((Status) instance).getArchived()) {
             throw new CloneNotSupportedException("Attempting to clone an archived instance");
         }
@@ -208,7 +207,7 @@ public class MultiTenantCopyContext {
         }
         context.setCurrentCatalog(getFromCatalog());
         context.setCurrentProfile(getFromSite());
-        context.setSite(getFromSite());
+        context.setNonPersistentSite(getFromSite());
         return new CreateResponse<G>(response, alreadyPopulate);
     }
 

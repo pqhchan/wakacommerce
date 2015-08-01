@@ -14,7 +14,7 @@ import com.wakacommerce.openadmin.server.service.persistence.module.criteria.Res
 /**
  * Contains the requested ctoConverter, cto and support classes.
  *
- *Jeff Fischer
+ * 
  */
 public class AddSearchMappingRequest {
 

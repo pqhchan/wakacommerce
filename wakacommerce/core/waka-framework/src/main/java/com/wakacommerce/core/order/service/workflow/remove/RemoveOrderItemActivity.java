@@ -18,7 +18,7 @@ import javax.annotation.Resource;
  * This class is responsible for determining which OrderItems should be removed from the order, taking into account
  * the fact that removing an OrderItem should also remove all of its child order items.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class RemoveOrderItemActivity extends BaseActivity<ProcessContext<CartOperationRequest>> {
 

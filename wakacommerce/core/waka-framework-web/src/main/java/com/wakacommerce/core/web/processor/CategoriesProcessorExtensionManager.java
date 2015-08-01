@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.wakacommerce.common.extension.ExtensionManager;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Service("blCategoriesProcessorExtensionManager")
 public class CategoriesProcessorExtensionManager extends ExtensionManager<CategoriesProcessorExtensionHandler> {

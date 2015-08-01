@@ -9,7 +9,7 @@ import com.wakacommerce.profile.core.domain.Address;
  * single Address. Useful for businesses that do not have a complicated warehouse solution
  * and fulfill from a single location.
  * 
- *Phillip Verheyden
+ *  
  */
 public class SimpleFulfillmentLocationResolver implements FulfillmentLocationResolver {
 

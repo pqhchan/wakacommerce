@@ -4,7 +4,7 @@ package com.wakacommerce.admin.web.rulebuilder.service.options;
 import org.apache.commons.lang3.reflect.FieldUtils;
 import org.springframework.stereotype.Component;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 import com.wakacommerce.common.time.HourOfDayType;
 import com.wakacommerce.core.inventory.service.type.InventoryType;
 import com.wakacommerce.openadmin.web.rulebuilder.enums.AbstractRuleBuilderEnumOptionsExtensionListener;
@@ -15,7 +15,7 @@ import java.util.Map;
 /**
  * Rule Builder enum options provider for {@link HourOfDayType}
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Component("blInventoryTypeOptionsExtensionListener")
 public class InventoryTypeEnumOptionsExtensionListener extends AbstractRuleBuilderEnumOptionsExtensionListener {
@@ -24,11 +24,11 @@ public class InventoryTypeEnumOptionsExtensionListener extends AbstractRuleBuild
      * Overridden to remove deprecated options
      */
     @Override
-    protected Map<String, ? extends BroadleafEnumerationType> getTypes(Class<? extends BroadleafEnumerationType> clazz) {
+    protected Map<String, ? extends WakaEnumType> getTypes(Class<? extends WakaEnumType> clazz) {
         
         try {
-            Map<String, ? extends BroadleafEnumerationType> options =
-                    (Map<String, ? extends BroadleafEnumerationType>) FieldUtils.readStaticField(clazz, "TYPES", true);
+            Map<String, ? extends WakaEnumType> options =
+                    (Map<String, ? extends WakaEnumType>) FieldUtils.readStaticField(clazz, "TYPES", true);
             options.remove("NONE");
             options.remove("BASIC");
             return options;
@@ -38,9 +38,9 @@ public class InventoryTypeEnumOptionsExtensionListener extends AbstractRuleBuild
     }
     
     @Override
-    protected Map<String, Class<? extends BroadleafEnumerationType>> getValuesToGenerate() {
-        Map<String, Class<? extends BroadleafEnumerationType>> map = 
-                new HashMap<String, Class<? extends BroadleafEnumerationType>>();
+    protected Map<String, Class<? extends WakaEnumType>> getValuesToGenerate() {
+        Map<String, Class<? extends WakaEnumType>> map = 
+                new HashMap<String, Class<? extends WakaEnumType>>();
         
         map.put("blcOptions_InventoryType", InventoryType.class);
         

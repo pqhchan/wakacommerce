@@ -2,7 +2,9 @@
     <input type="hidden" class="listgrid-criteria-input" th:attr="data-name=${fieldName}" />
     
     <div class="specific-input">
-        <a class="numeric-range-toggle" href="" th:text="#{dateInput.switchToRange}" />
+        <a class="numeric-range-toggle" href="">
+        切换到范围筛选
+        </a>
         <br />
     
         <div class="datepicker-container">
@@ -13,7 +15,9 @@
     </div>
     
     <div class="range-input hidden">
-        <a class="numeric-range-toggle" href="" th:text="#{dateInput.switchToSpecific}" />
+        <a class="numeric-range-toggle" href="">
+        切换到特定值筛选
+        </a>
         <br />
     
         <div class="datepicker-container">

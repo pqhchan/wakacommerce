@@ -9,7 +9,7 @@ import com.wakacommerce.core.pricing.service.exception.PricingException;
 import com.wakacommerce.profile.core.domain.Customer;
 
 /**
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface MergeCartService {
 

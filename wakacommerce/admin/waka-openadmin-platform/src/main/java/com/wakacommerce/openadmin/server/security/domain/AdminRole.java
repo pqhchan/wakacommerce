@@ -6,7 +6,7 @@ import java.util.Set;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public interface AdminRole extends Serializable {

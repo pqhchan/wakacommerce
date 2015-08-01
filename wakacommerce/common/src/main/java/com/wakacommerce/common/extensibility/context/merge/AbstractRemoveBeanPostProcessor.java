@@ -43,7 +43,7 @@ import org.springframework.context.ApplicationContextAware;
  *
  * @see LateStageRemoveBeanPostProcessor
  * @see EarlyStageRemoveBeanPostProcessor
- *Jeff Fischer
+ * 
  */
 public abstract class AbstractRemoveBeanPostProcessor implements BeanPostProcessor, ApplicationContextAware {
 

@@ -23,8 +23,6 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Handles admin operations for the {@link Offer} entity. Certain Offer fields should only render when specific values
  * are set for other fields; we provide the support for that in this controller.
- * 
- *Andre Azzolini (apazzolini)
  */
 @Controller("blAdminOfferController")
 @RequestMapping("/" + AdminOfferController.SECTION_KEY)

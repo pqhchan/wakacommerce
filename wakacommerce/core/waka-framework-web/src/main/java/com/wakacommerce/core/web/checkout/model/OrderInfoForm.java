@@ -6,7 +6,7 @@ import java.io.Serializable;
 /**
  * A form to model checking out as guest
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class OrderInfoForm implements Serializable {
 

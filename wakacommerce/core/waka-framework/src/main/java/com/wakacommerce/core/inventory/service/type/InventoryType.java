@@ -5,14 +5,14 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 /**
  * Enumeration to specify whether inventory should be checked or not.
  * 
- *Kelly Tisdell
+ *  
  */
-public class InventoryType implements Serializable, BroadleafEnumerationType {
+public class InventoryType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 

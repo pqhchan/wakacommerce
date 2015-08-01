@@ -18,8 +18,8 @@ import java.util.List;
  * Service exposing several methods for creating a Solr index based on catalog product data.
  *
  * @see com.wakacommerce.core.search.service.solr.SolrIndexCachedOperation
- *Andre Azzolini (apazzolini)
- *Jeff Fischer
+ * 
+ * 
  */
 public interface SolrIndexService {
 

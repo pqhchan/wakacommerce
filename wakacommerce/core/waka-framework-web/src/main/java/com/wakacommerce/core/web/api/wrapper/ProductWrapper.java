@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 /**
  * This is a JAXB wrapper around Product.
  *
- * User: Kelly Tisdell
+ * User:   
  * Date: 4/10/12
  */
 @XmlRootElement(name = "product")

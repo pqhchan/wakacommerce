@@ -29,7 +29,7 @@ import java.util.Map;
  * is initially added to cart, at which point a real Order gets created. This prevents creating individual orders
  * for customers that are just browsing the site.
  * 
- *apazzolini
+ *  
  */
 public class NullOrderImpl implements Order {
 

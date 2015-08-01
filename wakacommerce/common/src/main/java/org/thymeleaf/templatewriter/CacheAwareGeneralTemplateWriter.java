@@ -20,7 +20,7 @@ import java.io.Writer;
  * Wrapper for Thymeleaf's {@link AbstractGeneralTemplateWriter} that provides content caching
  * on the node level.
  * 
- *Andre Azzolini (apazzolini), Brian Polster (bpolster)
+ * ,    ( )
  */
 public class CacheAwareGeneralTemplateWriter extends AbstractGeneralTemplateWriter {
 

@@ -7,7 +7,7 @@ import com.wakacommerce.common.extension.ExtensionManager;
 
 
 /**
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Service("blTranslationDaoExtensionManager")
 public class TranslationDaoExtensionManager extends ExtensionManager<TranslationDaoExtensionHandler> {

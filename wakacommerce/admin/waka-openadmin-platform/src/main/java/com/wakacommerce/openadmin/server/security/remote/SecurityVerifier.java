@@ -6,7 +6,7 @@ import com.wakacommerce.openadmin.dto.PersistencePackage;
 import com.wakacommerce.openadmin.server.security.domain.AdminUser;
 
 /**
- *Jeff Fischer
+ * 
  */
 public interface SecurityVerifier {
 

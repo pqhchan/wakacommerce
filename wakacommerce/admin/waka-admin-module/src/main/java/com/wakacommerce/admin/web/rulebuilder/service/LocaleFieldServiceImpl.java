@@ -13,7 +13,7 @@ import com.wakacommerce.openadmin.web.rulebuilder.service.AbstractRuleBuilderFie
  * that constructs metadata necessary
  * to build the supported fields for a Locale entity
  *
- *Jeff Fischer
+ * 
  */
 @Service("blLocaleFieldService")
 public class LocaleFieldServiceImpl extends AbstractRuleBuilderFieldService {

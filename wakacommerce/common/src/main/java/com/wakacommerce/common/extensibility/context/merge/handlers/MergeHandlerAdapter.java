@@ -11,7 +11,7 @@ import java.util.List;
  * having to provide an independent, full implementation of the MergeHandler
  * interface.
  * 
- *jfischer
+ *  
  *
  */
 public class MergeHandlerAdapter implements MergeHandler {

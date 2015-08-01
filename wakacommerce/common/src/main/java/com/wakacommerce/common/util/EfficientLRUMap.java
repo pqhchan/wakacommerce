@@ -23,7 +23,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * For the first [n] entries, the underlying implementation will be a ConcurrentHashMap.   On the "n+1"th 
  * entry, this implementation will switch its underlying implementation to a synchronized LRUMap. 
  * 
- *bpolster
+ * 
  * 
  */
 public class EfficientLRUMap<K, V> implements Map<K, V> {

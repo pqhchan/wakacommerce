@@ -33,7 +33,7 @@ import javax.annotation.Resource;
 
 /**
  * @see SearchFieldResolver
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Service("blSearchFieldResolver")
 public class SearchFieldResolverImpl implements SearchFieldResolver {

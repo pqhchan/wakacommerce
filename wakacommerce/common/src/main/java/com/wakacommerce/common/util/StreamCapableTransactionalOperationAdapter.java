@@ -20,7 +20,7 @@
 package com.wakacommerce.common.util;
 
 /**
- *Jeff Fischer
+ * 
  */
 public abstract class StreamCapableTransactionalOperationAdapter implements StreamCapableTransactionalOperation {
 

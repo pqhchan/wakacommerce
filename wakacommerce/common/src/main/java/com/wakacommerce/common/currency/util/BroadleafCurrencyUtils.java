@@ -17,7 +17,7 @@ import com.wakacommerce.common.money.Money;
 /**
  * Utility methods for common currency operations
  * 
- *Phillip Verheyden
+ *  
  * @see {@link BroadleafCurrency}
  */
 public class BroadleafCurrencyUtils {

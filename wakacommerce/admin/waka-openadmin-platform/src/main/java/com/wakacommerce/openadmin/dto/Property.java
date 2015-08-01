@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public class Property implements Serializable {

@@ -6,7 +6,7 @@ import com.wakacommerce.openadmin.server.dao.DynamicEntityDao;
 /**
  * Contains the requested entity, metadata and support classes.
  *
- *Jeff Fischer
+ * 
  */
 public class OverrideViaAnnotationRequest {
 

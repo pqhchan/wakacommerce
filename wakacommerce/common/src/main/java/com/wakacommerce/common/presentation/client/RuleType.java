@@ -7,7 +7,7 @@ import java.util.Map;
 
 /**
  * 
- *ppatel/bpolster
+ *ppatel/ 
  *
  */
 public class RuleType implements Serializable {

@@ -16,7 +16,7 @@ import com.wakacommerce.common.file.FileServiceException;
 import com.wakacommerce.common.file.domain.FileWorkArea;
 import com.wakacommerce.common.file.service.type.FileApplicationType;
 import com.wakacommerce.common.site.domain.Site;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 
 import java.io.File;
 import java.io.IOException;
@@ -32,7 +32,7 @@ import javax.annotation.Resource;
  * This Provider can only be used in production systems that run on a single server or those that have a shared filesystem
  * mounted to the application servers.
  * 
- *bpolster
+ * 
  *
  */
 @Service("blDefaultFileServiceProvider")
@@ -204,9 +204,9 @@ public class FileSystemFileServiceProvider implements FileServiceProvider {
      * @param The starting directory for local files which must end with a '/';
      */
     protected String getSiteDirectory(String baseDirectory) {
-        BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
         if (brc != null) {
-            Site site = brc.getSite();
+            Site site = brc.getNonPersistentSite();
             if (site != null) {
                 String siteDirectory = "site-" + site.getId();
                 String siteHash = DigestUtils.md5Hex(siteDirectory);

@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.web.resource;
 
 import net.sf.ehcache.Cache;
@@ -25,9 +24,6 @@ import java.util.List;
 /**
  * An abstract GeneratedResourceHandler that is capable of responding to a single specified filename and generate
  * contents for that filename. This abstract parent will handle caching of the generated resource.
- * 
- *Andre Azzolini (apazzolini)
- *
  */
 public abstract class AbstractGeneratedResourceHandler implements Ordered {
     

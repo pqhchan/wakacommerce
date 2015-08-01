@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
  * Returns null for the Site (typical for non-multi-site implementations of
  * Broadleaf Commerce.
  *
- *bpolster
+ * 
  */
 public class NullBroadleafSiteResolver implements BroadleafSiteResolver {
 

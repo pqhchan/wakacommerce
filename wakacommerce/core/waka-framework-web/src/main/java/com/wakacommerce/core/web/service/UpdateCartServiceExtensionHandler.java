@@ -9,7 +9,7 @@ import com.wakacommerce.core.order.domain.Order;
 
 
 /**
- *Andre Azzolini (apazzolini), bpolster
+ * ,  
  */
 public interface UpdateCartServiceExtensionHandler extends ExtensionHandler {
     

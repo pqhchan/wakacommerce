@@ -5,14 +5,14 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 /**
  * An extendible enumeration of container shape types.
  * 
- *jfischer
+ *  
  */
-public class ContainerShapeType implements Serializable, BroadleafEnumerationType {
+public class ContainerShapeType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 

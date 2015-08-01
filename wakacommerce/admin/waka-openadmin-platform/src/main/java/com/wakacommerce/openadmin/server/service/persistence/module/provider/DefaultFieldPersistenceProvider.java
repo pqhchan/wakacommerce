@@ -13,7 +13,7 @@ import com.wakacommerce.openadmin.server.service.persistence.module.provider.req
 import com.wakacommerce.openadmin.server.service.type.FieldProviderResponse;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Component("blDefaultFieldPersistenceProvider")
 @Scope("prototype")

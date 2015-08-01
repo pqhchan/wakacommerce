@@ -36,7 +36,7 @@ import javax.persistence.InheritanceType;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public class SingleTableInheritanceClassTransformer extends AbstractClassTransformer implements BroadleafClassTransformer {

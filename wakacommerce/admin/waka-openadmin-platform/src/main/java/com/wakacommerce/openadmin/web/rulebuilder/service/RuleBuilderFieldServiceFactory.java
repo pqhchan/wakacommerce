@@ -8,7 +8,7 @@ import java.util.List;
  * given the service name. The services are injected into the factory defined in applicationContext-servlet-open-admin.xml
  * @see com.wakacommerce.openadmin.web.rulebuilder.service.RuleBuilderFieldService
  *
- *Jeff Fischer
+ * 
  */
 public interface RuleBuilderFieldServiceFactory {
 

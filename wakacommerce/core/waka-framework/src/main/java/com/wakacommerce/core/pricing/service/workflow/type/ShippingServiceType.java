@@ -1,7 +1,7 @@
 
 package com.wakacommerce.core.pricing.service.workflow.type;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 import com.wakacommerce.core.order.domain.FulfillmentOption;
 import com.wakacommerce.core.pricing.service.fulfillment.provider.FulfillmentPricingProvider;
 
@@ -12,12 +12,12 @@ import java.util.Map;
 /**
  * An extendible enumeration of shipping service types.
  * 
- *jfischer
+ *  
  * @deprecated Should use the {@link FulfillmentOption} and {@link FulfillmentPricingProvider} paradigm
  * @see {@link FulfillmentOption}, {@link FulfillmentPricingProvider}
  */
 @Deprecated
-public class ShippingServiceType implements Serializable, BroadleafEnumerationType {
+public class ShippingServiceType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 

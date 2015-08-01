@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.search.domain;
 
 import java.util.List;
@@ -6,11 +5,6 @@ import java.util.List;
 import com.wakacommerce.core.catalog.domain.Product;
 import com.wakacommerce.core.catalog.domain.Sku;
 
-/**
- * Container that holds the result of a ProductSearch or a SkuSearch
- * 
- *Andre Azzolini (apazzolini)
- */
 public class SearchResult {
     
     protected List<Product> products;

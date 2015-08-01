@@ -12,7 +12,7 @@ import com.wakacommerce.core.catalog.domain.SkuAttribute;
 /**
  * This is a JAXB wrapper for SkuAttribute
  * <p/>
- * User: Kelly Tisdell
+ * User:   
  * Date: 4/10/12
  */
 @XmlRootElement(name = "skuAttribute")

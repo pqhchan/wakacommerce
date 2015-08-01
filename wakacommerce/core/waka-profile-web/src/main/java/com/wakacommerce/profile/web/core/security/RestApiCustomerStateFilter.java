@@ -1,22 +1,4 @@
-/*
- * #%L
- * BroadleafCommerce Profile Web
- * %%
- * Copyright (C) 2009 - 2013 Broadleaf Commerce
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *       http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * #L%
- */
+  
 package com.wakacommerce.profile.web.core.security;
 
 import org.apache.commons.lang3.math.NumberUtils;
@@ -40,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * This is a basic filter for finding the customer ID on the request and setting the customer object on the request.  
- * This must come after the BroadleafRequestFilter (blRequestFilter). This should come after any security filters.
+ * This must come after the WakaRequestFilter (blRequestFilter). This should come after any security filters.
  * This filter DOES NOT provide any security.  It simply looks for a "customerId" parameter on the request or in the request header.  If it finds 
  * this parameter it looks up the customer and makes it available as a request attribute.  This is generally for use in a filter chain for RESTful web services, 
  * allowing the client consuming services to specify the customerId on whos behalf they are invoking the service.  It is assumed that services are invoked either 
@@ -50,7 +32,7 @@ import javax.servlet.http.HttpServletRequest;
  * For RESTful services, this should be used instead of CustomerStateFilter since it does not look at or touch cookies or session.
  * 
  * <p/>
- * User: Kelly Tisdell
+ * User:   
  * Date: 4/18/12
  */
 public class RestApiCustomerStateFilter extends GenericFilterBean implements Ordered {

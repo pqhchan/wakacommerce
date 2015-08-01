@@ -1,11 +1,7 @@
-
-
 package com.wakacommerce.common.web;
 
 /**
  * Responsible for providing the base url for the site / admin applications.
- * 
- *Andre Azzolini (apazzolini)
  */
 public interface BaseUrlResolver {
 

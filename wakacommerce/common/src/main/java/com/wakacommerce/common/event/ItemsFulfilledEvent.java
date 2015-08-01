@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Event that may be raised to indicate that items have been fulfilled.
  * 
- *Kelly Tisdell
+ *  
  *
  */
 public class ItemsFulfilledEvent extends BroadleafApplicationEvent {

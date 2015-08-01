@@ -8,7 +8,7 @@ import com.wakacommerce.core.order.service.type.FulfillmentType;
 
 /**
  * 
- *Phillip Verheyden
+ *  
  */
 public interface FulfillmentOptionDao {
 

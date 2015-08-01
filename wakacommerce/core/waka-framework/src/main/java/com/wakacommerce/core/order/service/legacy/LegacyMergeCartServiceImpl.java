@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * These methods used to exist in LegacyCartService.
  * 
- *apazzolini
+ *  
  */
 @Deprecated
 public class LegacyMergeCartServiceImpl implements MergeCartService {

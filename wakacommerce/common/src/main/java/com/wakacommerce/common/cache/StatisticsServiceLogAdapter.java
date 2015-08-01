@@ -2,7 +2,7 @@
 package com.wakacommerce.common.cache;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public interface StatisticsServiceLogAdapter {
 

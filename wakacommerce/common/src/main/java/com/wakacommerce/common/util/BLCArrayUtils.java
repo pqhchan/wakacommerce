@@ -9,7 +9,7 @@ import java.util.HashSet;
 /**
  * Convenience methods for interacting with arrays
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class BLCArrayUtils {
     

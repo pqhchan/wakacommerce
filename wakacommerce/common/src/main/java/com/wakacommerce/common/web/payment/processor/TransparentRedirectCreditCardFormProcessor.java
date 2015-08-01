@@ -52,7 +52,7 @@ import javax.annotation.Resource;
  * @see {@link TRCreditCardExtensionHandler}
  * @see {@link AbstractTRCreditCardExtensionHandler}
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Component("blTransparentRedirectCreditCardFormProcessor")
 public class TransparentRedirectCreditCardFormProcessor extends AbstractElementProcessor {

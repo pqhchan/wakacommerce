@@ -13,7 +13,7 @@ import com.wakacommerce.common.i18n.domain.Translation;
 /**
  * Provides data access for the {@link Translation} entity.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface TranslationDao {
 

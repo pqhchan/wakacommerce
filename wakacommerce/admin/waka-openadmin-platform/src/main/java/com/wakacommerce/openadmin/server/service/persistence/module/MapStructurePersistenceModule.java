@@ -20,7 +20,7 @@ import com.wakacommerce.common.presentation.client.OperationType;
 import com.wakacommerce.common.presentation.client.PersistencePerspectiveItemType;
 import com.wakacommerce.common.sandbox.SandBoxHelper;
 import com.wakacommerce.common.value.ValueAssignable;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.openadmin.dto.BasicFieldMetadata;
 import com.wakacommerce.openadmin.dto.CriteriaTransferObject;
 import com.wakacommerce.openadmin.dto.DynamicResultSet;
@@ -52,7 +52,7 @@ import javax.annotation.Resource;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 @Component("blMapStructurePersistenceModule")
@@ -525,7 +525,7 @@ public class MapStructurePersistenceModule extends BasicPersistenceModule {
                     identifier = prop.getValue();
                 }
                 valueInstance = (Serializable) getPersistenceManager().getDynamicEntityDao().find(valueClass, identifier);
-                BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
+                WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
                 if (sandBoxHelper.isSandBoxable(valueInstance.getClass().getName()) &&
                         context != null && !context.isProductionSandBox()) {
                     if (sandBoxHelper.isPromote() && !sandBoxHelper.isReject()) {

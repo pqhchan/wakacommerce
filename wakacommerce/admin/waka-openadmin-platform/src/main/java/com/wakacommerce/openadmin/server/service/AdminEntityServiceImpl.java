@@ -56,7 +56,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 /**
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Service("blAdminEntityService")
 public class AdminEntityServiceImpl implements AdminEntityService {

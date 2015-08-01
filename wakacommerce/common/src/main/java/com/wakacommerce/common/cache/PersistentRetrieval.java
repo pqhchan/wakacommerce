@@ -8,7 +8,7 @@ package com.wakacommerce.common.cache;
  * from the persistent store.
  *
  * @see com.wakacommerce.common.cache.AbstractCacheMissAware
- *Jeff Fischer
+ * 
  */
 public interface PersistentRetrieval<T> {
 

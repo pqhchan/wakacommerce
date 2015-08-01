@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.web.controller;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -11,7 +10,7 @@ import com.wakacommerce.common.extension.ExtensionResultHolder;
 import com.wakacommerce.common.persistence.EntityConfiguration;
 import com.wakacommerce.common.util.BLCMapUtils;
 import com.wakacommerce.common.util.TypedClosure;
-import com.wakacommerce.common.web.controller.BroadleafAbstractController;
+import com.wakacommerce.common.web.controller.WakaAbstractController;
 import com.wakacommerce.openadmin.dto.BasicFieldMetadata;
 import com.wakacommerce.openadmin.dto.ClassMetadata;
 import com.wakacommerce.openadmin.dto.ClassTree;
@@ -53,10 +52,9 @@ import javax.servlet.http.HttpServletResponse;
  * Operations that are shared between all admin controllers belong here.
  *
  * @see com.wakacommerce.openadmin.web.handler.AdminNavigationHandlerMapping
- *elbertbautista
- *apazzolini
+ *  
  */
-public abstract class AdminAbstractController extends BroadleafAbstractController {
+public abstract class AdminAbstractController extends WakaAbstractController {
     
     public static final String FILTER_VALUE_SEPARATOR = "|";
     public static final String FILTER_VALUE_SEPARATOR_REGEX = "\\|";

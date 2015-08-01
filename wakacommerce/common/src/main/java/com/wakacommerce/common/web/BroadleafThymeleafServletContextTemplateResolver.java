@@ -19,7 +19,7 @@ public class BroadleafThymeleafServletContextTemplateResolver extends ServletCon
     protected String computeResourceName(final TemplateProcessingParameters templateProcessingParameters) {
         String themePath = null;
     
-        Theme theme = BroadleafRequestContext.getBroadleafRequestContext().getTheme();
+        Theme theme = WakaRequestContext.getWakaRequestContext().getTheme();
         if (theme != null && theme.getPath() != null) {
             themePath = theme.getPath();
         }             

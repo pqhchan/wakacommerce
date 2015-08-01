@@ -8,7 +8,7 @@ import com.wakacommerce.common.extension.ExtensionManager;
 
 /**
  * Manages extension points for SolrSearchService
- *bpolster
+ * 
  */
 @Service("blSolrSearchServiceExtensionManager")
 public class SolrSearchServiceExtensionManager extends ExtensionManager<SolrSearchServiceExtensionHandler> {

@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.config.domain;
 
 import org.hibernate.annotations.Cache;
@@ -28,9 +27,6 @@ import javax.persistence.Table;
 
 /**
  * Allows the storage and retrieval of System Properties in the database
- * <p/>
- * User: Kelly Tisdell
- * Date: 6/20/12
  */
 @Entity
 @Table(name="BLC_SYSTEM_PROPERTY")

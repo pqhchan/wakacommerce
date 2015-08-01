@@ -20,7 +20,7 @@ import java.util.List;
  * </ol>
  * </p>
  * 
- *Phillip Verheyden
+ *  
  * 
  * @see SkuBundleItem
  */

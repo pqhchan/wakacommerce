@@ -29,7 +29,7 @@ import com.wakacommerce.common.vendor.service.exception.PaymentException;
  *
  * @see {@link PaymentGatewayWebResponseService}
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public interface PaymentGatewayTransactionService {
 

@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 /**
  * An extendible enumeration of order status types.
@@ -23,9 +23,9 @@ import com.wakacommerce.common.BroadleafEnumerationType;
  * to use DOMAIN resolution, set to "mysite.mycompany.com"
  * to use DOMAIN_PREFIX resolution, set to "mysite"
  * 
- *jfischer
+ *  
  */
-public class SiteResolutionType implements Serializable, BroadleafEnumerationType {
+public class SiteResolutionType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 

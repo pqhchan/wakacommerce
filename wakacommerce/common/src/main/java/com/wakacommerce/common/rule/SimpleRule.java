@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * Represents a class containing an MVEL rule
  *
- *Jeff Fischer
+ * 
  */
 public interface SimpleRule extends Serializable {
 

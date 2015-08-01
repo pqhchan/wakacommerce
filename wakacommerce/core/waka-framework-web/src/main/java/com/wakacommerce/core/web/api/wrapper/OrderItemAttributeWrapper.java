@@ -11,7 +11,7 @@ import com.wakacommerce.core.order.domain.OrderItemAttribute;
 
 /**
  * API wrapper to wrap Order Item Attributes.
- *Kelly Tisdell
+ *  
  *
  */
 @XmlRootElement(name = "orderItemAttribute")

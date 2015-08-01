@@ -12,7 +12,7 @@ import com.wakacommerce.common.presentation.client.VisibilityEnum;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 @Retention(RetentionPolicy.RUNTIME)

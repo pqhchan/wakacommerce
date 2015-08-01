@@ -11,7 +11,7 @@ import com.wakacommerce.profile.core.domain.Address;
  * 
  * <p>Note: the bean name in XML should be blFulfillmentLocationResolver
  * 
- *Phillip Verheyden
+ *  
  * @see {@link SimpleFulfillmentLocationResolver}
  */
 public interface FulfillmentLocationResolver {

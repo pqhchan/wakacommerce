@@ -24,7 +24,7 @@ import java.io.Serializable;
 import com.wakacommerce.common.copy.MultiTenantCloneable;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public interface OfferQualifyingCriteriaXref extends Serializable, MultiTenantCloneable<OfferQualifyingCriteriaXref> {
 

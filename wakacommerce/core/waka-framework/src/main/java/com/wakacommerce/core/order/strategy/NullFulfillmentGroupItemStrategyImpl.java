@@ -10,7 +10,7 @@ import com.wakacommerce.core.order.service.workflow.CartOperationRequest;
  * strategy will delegate to the default Broadleaf FulfillmentGroupItemStrategy to perform
  * the removal.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class NullFulfillmentGroupItemStrategyImpl extends FulfillmentGroupItemStrategyImpl {
     

@@ -15,7 +15,7 @@ import java.util.Map;
 /**
  * Checks for equality between this field and a configured 'otherField'
  * 
- *Phillip Verheyden
+ *  
  */
 @Component("blMatchesFieldValidator")
 public class MatchesFieldValidator extends ValidationConfigurationBasedPropertyValidator implements FieldNamePropertyValidator {

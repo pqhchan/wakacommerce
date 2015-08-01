@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.email.service;
 
 import java.io.ByteArrayOutputStream;
@@ -13,9 +12,6 @@ import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 
-/**
- *Andre Azzolini (apazzolini)
- */
 public class LoggingMailSender extends JavaMailSenderImpl {
     private static final Log LOG = LogFactory.getLog(LoggingMailSender.class);
 

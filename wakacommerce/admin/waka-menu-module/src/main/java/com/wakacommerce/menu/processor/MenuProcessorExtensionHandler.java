@@ -8,7 +8,7 @@ import com.wakacommerce.common.extension.ExtensionHandler;
 import com.wakacommerce.common.extension.ExtensionResultStatusType;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public interface MenuProcessorExtensionHandler extends ExtensionHandler {
 

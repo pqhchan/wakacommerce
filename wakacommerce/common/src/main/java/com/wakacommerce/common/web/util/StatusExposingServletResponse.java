@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.web.util;
 
 import javax.servlet.http.HttpServletResponse;
@@ -13,8 +12,6 @@ import java.io.IOException;
  * http://stackoverflow.com/questions/1302072/how-can-i-get-the-http-status-code-out-of-a-servletresponse-in-a-servletfilter<br><br>
  *
  * This won't be needed with Servlet 3.0.<br><br>
- *
- * Addeded by bpolster.
  */
 public class StatusExposingServletResponse extends HttpServletResponseWrapper {
 

@@ -1,5 +1,3 @@
-
-
 package com.wakacommerce.openadmin.web.form.entity;
 
 import org.apache.commons.lang3.StringUtils;
@@ -8,7 +6,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.wakacommerce.common.presentation.client.SupportedFieldType;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.openadmin.dto.SectionCrumb;
 import com.wakacommerce.openadmin.web.form.component.ListGrid;
 
@@ -32,7 +30,7 @@ public class EntityForm {
     public static final String MAP_KEY_GROUP = "keyGroup";
     public static final String DEFAULT_GROUP_NAME = "Default";
     public static final Integer DEFAULT_GROUP_ORDER = 99999;
-    public static final String DEFAULT_TAB_NAME = "General";
+    public static final String DEFAULT_TAB_NAME = "一般";
     public static final Integer DEFAULT_TAB_ORDER = 100;
 
     protected String id;
@@ -293,7 +291,7 @@ public class EntityForm {
         // Tabs and groups should be looked up by their display, translated name since 2 unique strings can display the same
         // thing when they are looked up in message bundles after display
         // When displayed on the form the duplicate groups and tabs look funny
-        BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
         if (context != null && context.getMessageSource() != null) {
             groupName = context.getMessageSource().getMessage(groupName, null, groupName, context.getJavaLocale());
             tabName = context.getMessageSource().getMessage(tabName, null, tabName, context.getJavaLocale());
@@ -320,7 +318,7 @@ public class EntityForm {
 
     public void addListGrid(ListGrid listGrid, String tabName, Integer tabOrder) {
         // Tabs should be looked up and referenced by their display name
-        BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
         if (context != null && context.getMessageSource() != null) {
             tabName = context.getMessageSource().getMessage(tabName, null, tabName, context.getJavaLocale());
         }

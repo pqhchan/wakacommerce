@@ -11,7 +11,7 @@ import java.util.Map;
  * The extension points can examine or update this class with response information and set a single return value with
  * {@link #setResult(Object)} or add values via the contextMap provided with {@link #getContextMap()}
  * 
- *bpolster
+ * 
  *
  */
 public class ExtensionResultHolder<T> {

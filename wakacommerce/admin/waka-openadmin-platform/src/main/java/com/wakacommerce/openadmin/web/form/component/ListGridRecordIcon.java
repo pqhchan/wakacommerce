@@ -23,7 +23,7 @@ package com.wakacommerce.openadmin.web.form.component;
 /**
  * View class for the icon that can potentially appear on list grid rows.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class ListGridRecordIcon {
     

@@ -22,7 +22,7 @@ package com.wakacommerce.common.util;
 import org.springframework.transaction.PlatformTransactionManager;
 
 /**
- *Jeff Fischer
+ * 
  */
 public interface StreamingTransactionCapable {
 

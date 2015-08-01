@@ -2,7 +2,7 @@
 package com.wakacommerce.core.web.checkout.section;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public class CheckoutSectionDTO {
 

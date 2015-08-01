@@ -35,8 +35,8 @@ import com.wakacommerce.core.inventory.service.type.InventoryType;
  * be considered available.  However, a request for available quantities of Skus with a null or 'ALWAYS_AVAILABLE' inventory type will 
  * return null (as the {@link Sku} is available but no inventory strategy is defined).</p>
  * 
- *Kelly Tisdell
- *Phillip Verheyden (phillipuniverse)
+ *  
+ *     
  */
 public interface InventoryService {
 

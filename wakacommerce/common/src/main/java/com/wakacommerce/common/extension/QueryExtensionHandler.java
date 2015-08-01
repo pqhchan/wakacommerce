@@ -12,12 +12,12 @@ import javax.persistence.criteria.Root;
 /**
  * Extension handler (generally for DAO usage) that allows contribution to a query (presumably from another module).
  *
- *Jeff Fischer
+ * 
  */
 public interface QueryExtensionHandler extends ExtensionHandler {
 
     /**
-     * Perform any setup operations. This is usually done before executing the query and can serve to prepare the BroadleafRequestContext (if applicable).
+     * Perform any setup operations. This is usually done before executing the query and can serve to prepare the WakaRequestContext (if applicable).
      *
      * @param type the class type for the query (can be null)
      * @param config pass information to the handler, perhaps to be used by the handler to determine suitability (can be null)
@@ -63,7 +63,7 @@ public interface QueryExtensionHandler extends ExtensionHandler {
     public ExtensionResultStatusType refineResults(Class<?> type, String[] config, List queryResults, ExtensionResultHolder<List> response);
 
     /**
-     * Perform any breakdown operations. This is usually done after executing the query and can serve to reset the BroadleafRequestContext (if applicable)
+     * Perform any breakdown operations. This is usually done after executing the query and can serve to reset the WakaRequestContext (if applicable)
      *
      * @param type the class type for the query (can be null)
      * @param config pass information to the handler, perhaps to be used by the handler to determine suitability (can be null)

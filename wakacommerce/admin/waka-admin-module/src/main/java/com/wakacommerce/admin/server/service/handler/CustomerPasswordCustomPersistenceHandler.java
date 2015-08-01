@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 @Component("blCustomerPasswordCustomPersistenceHandler")

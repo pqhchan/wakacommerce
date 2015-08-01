@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.email.dao;
 
 import org.springframework.stereotype.Repository;
@@ -14,10 +13,6 @@ import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-/**
- *jfischer
- *
- */
 @Repository("blEmailReportingDao")
 public class EmailReportingDaoImpl implements EmailReportingDao {
 
@@ -27,9 +22,6 @@ public class EmailReportingDaoImpl implements EmailReportingDao {
     @Resource(name="blEntityConfiguration")
     protected EntityConfiguration entityConfiguration;
 
-    /* (non-Javadoc)
-     * @see WebReportingDao#createTracking(java.lang.String, java.lang.String, java.lang.String)
-     */
     public Long createTracking(String emailAddress, String type, String extraValue) {
         EmailTracking tracking = (EmailTracking) entityConfiguration.createEntityInstance("com.wakacommerce.common.email.domain.EmailTracking");
         tracking.setDateSent(SystemTime.asDate());
@@ -46,7 +38,6 @@ public class EmailReportingDaoImpl implements EmailReportingDao {
         return target;
     }
 
-    @SuppressWarnings("unchecked")
     public EmailTracking retrieveTracking(Long emailId) {
         return (EmailTracking) em.find(entityConfiguration.lookupEntityClass("com.wakacommerce.common.email.domain.EmailTracking"), emailId);
     }

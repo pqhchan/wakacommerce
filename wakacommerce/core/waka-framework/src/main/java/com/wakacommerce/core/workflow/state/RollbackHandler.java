@@ -11,7 +11,7 @@ import com.wakacommerce.core.workflow.ProcessContext;
  * was prior to execution. Activity, ProcessContext and stateConfiguration variables can be used to gather the necessary
  * information to successfully perform the compensating operation.
  *
- *Jeff Fischer
+ * 
  */
 public interface RollbackHandler<T> {
 

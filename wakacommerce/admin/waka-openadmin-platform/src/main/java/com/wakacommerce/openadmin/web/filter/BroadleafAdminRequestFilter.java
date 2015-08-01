@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.ServletWebRequest;
 
 import com.wakacommerce.common.exception.SiteNotFoundException;
-import com.wakacommerce.common.web.BroadleafWebRequestProcessor;
+import com.wakacommerce.common.web.WakaWebRequestProcessor;
 import com.wakacommerce.openadmin.server.service.persistence.Persistable;
 import com.wakacommerce.openadmin.server.service.persistence.PersistenceThreadManager;
 import com.wakacommerce.openadmin.server.service.persistence.TargetModeType;
@@ -21,9 +21,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Responsible for setting the necessary attributes on the BroadleafRequestContext
+ * Responsible for setting the necessary attributes on the WakaRequestContext
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Component("blAdminRequestFilter")
 public class BroadleafAdminRequestFilter extends AbstractBroadleafAdminRequestFilter {
@@ -31,7 +31,7 @@ public class BroadleafAdminRequestFilter extends AbstractBroadleafAdminRequestFi
     private final Log LOG = LogFactory.getLog(BroadleafAdminRequestFilter.class);
 
     @Resource(name = "blAdminRequestProcessor")
-    protected BroadleafWebRequestProcessor requestProcessor;
+    protected WakaWebRequestProcessor requestProcessor;
 
     @Resource(name="blPersistenceThreadManager")
     protected PersistenceThreadManager persistenceThreadManager;

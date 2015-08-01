@@ -9,7 +9,7 @@ import com.wakacommerce.openadmin.web.rulebuilder.dto.FieldWrapper;
 import java.util.List;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public interface RuleBuilderFieldService extends Cloneable {
 

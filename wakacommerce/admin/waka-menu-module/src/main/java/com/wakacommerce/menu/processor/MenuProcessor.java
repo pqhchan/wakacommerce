@@ -18,7 +18,7 @@ import javax.annotation.Resource;
  * will honored first, followed by a menuName.
  * An extension manager may override the resulting menu if configured to do so.
  *
- *bpolster
+ * 
  */
 @Component("blMenuProcessor")
 public class MenuProcessor extends AbstractModelVariableModifierProcessor {

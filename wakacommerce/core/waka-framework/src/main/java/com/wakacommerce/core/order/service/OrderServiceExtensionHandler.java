@@ -10,7 +10,7 @@ import com.wakacommerce.profile.core.domain.Customer;
 
 
 /**
- *Andre Azzolini (apazzolini), bpolster
+ * ,  
  */
 public interface OrderServiceExtensionHandler extends ExtensionHandler {
     

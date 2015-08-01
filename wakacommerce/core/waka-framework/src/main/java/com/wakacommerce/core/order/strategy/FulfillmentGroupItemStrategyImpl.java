@@ -29,7 +29,7 @@ import java.util.Map.Entry;
 import javax.annotation.Resource;
 
 /**
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Service("blFulfillmentGroupItemStrategy")
 public class FulfillmentGroupItemStrategyImpl implements FulfillmentGroupItemStrategy {

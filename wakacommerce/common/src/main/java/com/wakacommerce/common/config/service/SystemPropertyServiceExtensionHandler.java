@@ -7,7 +7,7 @@ import com.wakacommerce.common.extension.ExtensionResultStatusType;
 
 
 /**
- *bpolster
+ * 
  */
 public interface SystemPropertyServiceExtensionHandler extends ExtensionHandler {
     

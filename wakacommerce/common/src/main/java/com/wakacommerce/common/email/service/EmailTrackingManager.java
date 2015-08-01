@@ -1,13 +1,7 @@
-
 package com.wakacommerce.common.email.service;
 
 import java.util.Map;
 
-
-/**
- *jfischer
- *
- */
 public interface EmailTrackingManager {
 
     public Long createTrackedEmail(String emailAddress, String type, String extraValue);

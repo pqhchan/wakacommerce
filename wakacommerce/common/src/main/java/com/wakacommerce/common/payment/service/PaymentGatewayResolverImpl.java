@@ -10,7 +10,7 @@ import com.wakacommerce.common.payment.PaymentGatewayType;
  * Default Resolver implementation. Extensions and modules can override this to provide
  * more exotic scenarios on which PaymentGateway should be used.
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Service("blPaymentGatewayResolver")
 public class PaymentGatewayResolverImpl implements PaymentGatewayResolver {

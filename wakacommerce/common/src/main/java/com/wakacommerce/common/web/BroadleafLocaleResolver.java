@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.web;
 
 import org.springframework.web.context.request.WebRequest;
@@ -9,8 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * Responsible for returning the Locale to use for the current request.
- *
- *bpolster
  */
 public interface BroadleafLocaleResolver  {
 

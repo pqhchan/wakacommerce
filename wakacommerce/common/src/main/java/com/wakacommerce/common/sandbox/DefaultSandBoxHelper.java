@@ -14,7 +14,7 @@ import javax.persistence.EntityManager;
 
 /**
  * @see com.wakacommerce.common.sandbox.SandBoxHelper
- *Jeff Fischer
+ * 
  */
 @Component("blSandBoxHelper")
 public class DefaultSandBoxHelper implements SandBoxHelper {

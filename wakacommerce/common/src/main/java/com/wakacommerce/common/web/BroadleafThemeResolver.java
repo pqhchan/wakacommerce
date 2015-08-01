@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
  * Responsible for returning the theme used by Broadleaf Commerce for the current request.
  * For a single site installation, this should return a theme whose path and name are empty string.
  *
- *bpolster
+ * 
  */
 public interface BroadleafThemeResolver {
     

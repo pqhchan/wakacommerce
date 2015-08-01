@@ -17,7 +17,7 @@ import java.util.Map;
  * 
  * This class should be used as your base if you are writing a validator based on a {@link ValidationConfiguration}
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 public abstract class ValidationConfigurationBasedPropertyValidator implements PropertyValidator {
 

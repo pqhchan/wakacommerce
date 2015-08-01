@@ -6,7 +6,7 @@ import java.io.Serializable;
 /**
  * Represents a class containing an MVEL rule and an associated quantity.
  *
- *Jeff Fischer
+ * 
  */
 public interface QuantityBasedRule extends Serializable {
 

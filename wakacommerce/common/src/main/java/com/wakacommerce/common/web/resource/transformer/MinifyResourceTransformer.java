@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
  * {@link com.wakacommerce.common.resource.service.ResourceMinificationService} is used to
  * perform the minification. 
  *
- *Brian Polster
+ *  
  * @since 4.0
  */
 @Component("blMinifyResourceTransformer")

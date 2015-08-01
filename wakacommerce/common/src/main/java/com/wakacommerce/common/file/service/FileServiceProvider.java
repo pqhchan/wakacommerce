@@ -10,7 +10,7 @@ import com.wakacommerce.common.file.service.type.FileApplicationType;
 /**
  * Interface to be implemented by a FileProvider.   This could be a local FileProvider or a remote service like Amazon S3.
  * 
- *bpolster
+ * 
  *
  */
 public interface FileServiceProvider {

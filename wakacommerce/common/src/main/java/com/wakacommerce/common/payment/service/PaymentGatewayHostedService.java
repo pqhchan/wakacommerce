@@ -12,7 +12,7 @@ import com.wakacommerce.common.vendor.service.exception.PaymentException;
  * This API allows you to create the call to send a user to the Gateway's Hosted page
  * and to capture and record transaction responses back from them.</p>
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public interface PaymentGatewayHostedService {
 

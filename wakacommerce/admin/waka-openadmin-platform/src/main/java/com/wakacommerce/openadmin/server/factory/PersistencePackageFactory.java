@@ -8,7 +8,7 @@ import com.wakacommerce.openadmin.server.domain.PersistencePackageRequest;
 /**
  * Responsible for creating different persistence packages for different operations
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface PersistencePackageFactory {
 

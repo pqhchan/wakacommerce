@@ -44,8 +44,8 @@ import javax.servlet.ServletRequest;
  * <a href="https://github.com/BroadleafCommerce/BroadleafCommerce/issues/424">this issue report</a>
  * </p>
  * 
- *Jeff Fischer
- *Phillip Verheyden (phillipuniverse)
+ * 
+ *     
  * @see {@link ProtoSecureChannelProcessor}
  * @see {@link ProtoInsecureChannelProcessor}
  * @see {@link SecureChannelProcessor}

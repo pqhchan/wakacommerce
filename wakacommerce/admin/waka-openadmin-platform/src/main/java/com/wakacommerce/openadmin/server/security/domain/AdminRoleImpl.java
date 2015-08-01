@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.security.domain;
 
 import org.apache.commons.logging.Log;
@@ -37,16 +36,11 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-/**
- * 
- *jfischer
- *
- */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "BLC_ADMIN_ROLE")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="blStandardElements")
-@AdminPresentationClass(friendlyName = "AdminRoleImpl_baseAdminRole")
+@AdminPresentationClass(friendlyName = "管理员角色")
 @DirectCopyTransform({
         @DirectCopyTransformMember(templateTokens = DirectCopyTransformTypes.MULTITENANT_ADMINROLE)
 })
@@ -66,15 +60,15 @@ public class AdminRoleImpl implements AdminRole, AdminMainEntity {
         }
     )
     @Column(name = "ADMIN_ROLE_ID")
-    @AdminPresentation(friendlyName = "AdminRoleImpl_Admin_Role_ID", group = "AdminRoleImpl_Primary_Key", visibility = VisibilityEnum.HIDDEN_ALL)
+    @AdminPresentation(friendlyName = "角色ID", group = "主键", visibility = VisibilityEnum.HIDDEN_ALL)
     protected Long id;
 
     @Column(name = "NAME", nullable=false)
-    @AdminPresentation(friendlyName = "AdminRoleImpl_Name", order = 1, group = "AdminRoleImpl_Role")
+    @AdminPresentation(friendlyName = "角色代码", order = 1, group = "角色")
     protected String name;
 
     @Column(name = "DESCRIPTION", nullable=false)
-    @AdminPresentation(friendlyName = "AdminRoleImpl_Description", order=2, group = "AdminRoleImpl_Role", prominent=true)
+    @AdminPresentation(friendlyName = "角色名称", order=2, group = "角色", prominent=true)
     protected String description;
 
     /** All users that have this role */

@@ -1,22 +1,4 @@
-/*
- * #%L
- * broadleaf-theme
- * %%
- * Copyright (C) 2009 - 2015 Broadleaf Commerce
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *       http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * #L%
- */
+  
 package com.wakacommerce.common.web.resource.resolver;
 
 
@@ -31,7 +13,7 @@ import org.springframework.web.servlet.resource.ResourceResolver;
 import org.springframework.web.servlet.resource.ResourceResolverChain;
 
 import com.wakacommerce.common.site.domain.Site;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 
 import java.util.List;
 
@@ -45,12 +27,6 @@ import javax.servlet.http.HttpServletRequest;
  * which loads the modified file.
  * 
  * The processes were split to allow for caching of the resource but not the URL path.
- * 
- * @since 4.0
- * 
- *Reggie Cole
- *Brian Polster
- * @since Broadleaf 4.0
  */
 @Component("blBLCJSUrlPathResolver")
 public class BLCJSUrlPathResolver extends AbstractResourceResolver implements Ordered {
@@ -65,7 +41,7 @@ public class BLCJSUrlPathResolver extends AbstractResourceResolver implements Or
     protected String resolveUrlPathInternal(String resourceUrlPath, List<? extends Resource> locations,
             ResourceResolverChain chain) {
         if (resourceUrlPath.contains(BLC_JS_NAME)) {
-            Site site = BroadleafRequestContext.getBroadleafRequestContext().getNonPersistentSite();
+            Site site = WakaRequestContext.getWakaRequestContext().getNonPersistentSite();
             if (site != null && site.getId() != null) {
                 return addVersion(resourceUrlPath, "-"+site.getId());
             } else {

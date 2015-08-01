@@ -1,4 +1,3 @@
-
 package com.wakacommerce.menu.admin.server.handler;
 
 import org.apache.commons.logging.Log;
@@ -31,9 +30,6 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Resource;
 
-/**
- *Elbert Bautista (elbertbautista)
- */
 @Component("blMenuItemCustomPersistenceHandler")
 public class MenuItemCustomPersistenceHandler extends CustomPersistenceHandlerAdapter {
 

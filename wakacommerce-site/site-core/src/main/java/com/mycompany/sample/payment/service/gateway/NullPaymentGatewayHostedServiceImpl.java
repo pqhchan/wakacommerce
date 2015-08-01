@@ -24,7 +24,7 @@ import javax.annotation.Resource;
  * This should NOT be used in production, and is meant solely for demonstration
  * purposes only.
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Service("blNullPaymentGatewayHostedService")
 public class NullPaymentGatewayHostedServiceImpl implements PaymentGatewayHostedService {

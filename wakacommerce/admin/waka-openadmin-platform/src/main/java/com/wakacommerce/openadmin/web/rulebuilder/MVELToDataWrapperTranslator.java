@@ -24,7 +24,7 @@ import com.wakacommerce.openadmin.web.rulebuilder.statement.PhraseTranslator;
  * Utility class to convert an MVEL string into a DataWrapper object
  * which can then be serialized on your view.
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public class MVELToDataWrapperTranslator {
 

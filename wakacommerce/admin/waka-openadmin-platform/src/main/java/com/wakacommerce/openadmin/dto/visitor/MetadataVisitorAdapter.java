@@ -9,7 +9,7 @@ import com.wakacommerce.openadmin.dto.BasicFieldMetadata;
 import com.wakacommerce.openadmin.dto.MapMetadata;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class MetadataVisitorAdapter implements MetadataVisitor, Serializable {
 

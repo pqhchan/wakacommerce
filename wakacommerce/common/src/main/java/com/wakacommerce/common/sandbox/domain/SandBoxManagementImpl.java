@@ -40,7 +40,7 @@ import javax.persistence.Table;
  * To workaround, we use this management entity that exposes the properties seamlessly of SandBox to the admin, but
  * holds the site discriminator on its own table (rather than BLC_SANDBOX), which fixes the issue.
  *
- *Jeff Fischer
+ * 
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

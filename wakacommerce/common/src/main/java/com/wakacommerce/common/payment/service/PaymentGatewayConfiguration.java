@@ -8,7 +8,7 @@ import com.wakacommerce.common.payment.PaymentGatewayType;
  * <p>This API is intended to define the specific configuration parameters
  * that this gateway implementation currently supports.</p>
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public interface PaymentGatewayConfiguration {
 

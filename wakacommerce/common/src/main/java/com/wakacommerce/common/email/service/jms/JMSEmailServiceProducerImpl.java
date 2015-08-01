@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.email.service.jms;
 
 import org.springframework.jms.core.JmsTemplate;
@@ -15,10 +14,6 @@ import javax.jms.Session;
 import java.io.Serializable;
 import java.util.Map;
 
-/**
- *jfischer
- *
- */
 public class JMSEmailServiceProducerImpl implements JMSEmailServiceProducer {
 
     private JmsTemplate emailServiceTemplate;

@@ -41,7 +41,7 @@ import com.wakacommerce.common.presentation.client.LookupType;
 import com.wakacommerce.common.presentation.client.SupportedFieldType;
 import com.wakacommerce.common.presentation.client.VisibilityEnum;
 import com.wakacommerce.common.util.DateUtil;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.catalog.domain.ProductImpl.Presentation;
 import com.wakacommerce.core.catalog.service.dynamic.DefaultDynamicSkuPricingInvocationHandler;
 import com.wakacommerce.core.catalog.service.dynamic.DynamicSkuPrices;
@@ -586,7 +586,7 @@ public class SkuImpl implements Sku {
             if (currency != null) {
                 tmpCurrency = currency;
             } else {
-                tmpCurrency = BroadleafRequestContext.getCurrency();
+                tmpCurrency = WakaRequestContext.getCurrency();
             }
             if (retailPrice != null) {
                 dsp.setRetailPrice(new Money(retailPrice, tmpCurrency));

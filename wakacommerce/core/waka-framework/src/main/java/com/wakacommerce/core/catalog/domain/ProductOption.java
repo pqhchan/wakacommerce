@@ -31,7 +31,7 @@ import java.util.List;
  * <p>26 would indicate that there are 25 SKUs that are used to track inventory and potentially
  * override pricing.    The extra "1" sku is used to hold the default pricing.</p>
  *
- * bpolster
+ *  
  */
 public interface ProductOption extends Serializable, MultiTenantCloneable<ProductOption> {
     

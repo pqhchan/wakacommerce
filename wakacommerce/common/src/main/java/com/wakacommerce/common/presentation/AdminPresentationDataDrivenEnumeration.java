@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 import com.wakacommerce.common.enumeration.domain.DataDrivenEnumerationValueImpl;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD})

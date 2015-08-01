@@ -13,7 +13,7 @@ import com.wakacommerce.core.inventory.service.type.AvailabilityStatusType;
  * class is persisted.  If you just want to add additional fields then you should extend {@link SkuAvailabilityImpl}.
  *
  * @see {@link SkuAvailabilityImpl}
- *bpolster
+ * 
  * 
  * @deprecated This is no longer required and is instead implemented as a third-party inventory module
  */

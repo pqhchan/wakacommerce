@@ -15,7 +15,7 @@ import java.util.TreeSet;
 /**
  * Convenience methods for interacting with maps
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class BLCMapUtils {
     

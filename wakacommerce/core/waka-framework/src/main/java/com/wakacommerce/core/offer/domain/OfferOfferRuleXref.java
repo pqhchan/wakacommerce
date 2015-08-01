@@ -24,7 +24,7 @@ import java.io.Serializable;
 import com.wakacommerce.common.copy.MultiTenantCloneable;
 
 /**
- *Jeff Fischer
+ * 
  */
 public interface OfferOfferRuleXref extends Serializable, MultiTenantCloneable<OfferOfferRuleXref> {
 

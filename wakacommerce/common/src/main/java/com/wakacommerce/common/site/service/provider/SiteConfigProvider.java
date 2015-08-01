@@ -6,7 +6,7 @@ import java.util.Map;
 import com.wakacommerce.common.site.domain.Site;
 
 /**
- *Jeff Fischer
+ * 
  */
 public interface SiteConfigProvider {
 

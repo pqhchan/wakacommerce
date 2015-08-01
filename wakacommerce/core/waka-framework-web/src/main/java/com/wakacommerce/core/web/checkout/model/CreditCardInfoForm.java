@@ -15,7 +15,7 @@ import java.io.Serializable;
  * <p>This form can also be used for simple payment methods where only a paymentMethod and
  * amount is required.</p>
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public class CreditCardInfoForm implements Serializable {
 

@@ -9,7 +9,7 @@ import com.wakacommerce.common.extension.ExtensionResultStatusType;
 
 
 /**
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface TranslationDaoExtensionHandler extends ExtensionHandler {
     

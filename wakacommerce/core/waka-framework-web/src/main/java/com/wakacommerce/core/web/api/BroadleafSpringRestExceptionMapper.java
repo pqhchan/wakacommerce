@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
 import com.wakacommerce.common.util.ApplicationContextHolder;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.web.api.wrapper.ErrorMessageWrapper;
 import com.wakacommerce.core.web.api.wrapper.ErrorWrapper;
 
@@ -30,8 +30,8 @@ import com.wakacommerce.core.web.api.wrapper.ErrorWrapper;
  * Handles exceptions that can occur in the Broadleaf REST APIs. Specifically, this will serialize exceptions into
  * consumable JSON or XML so that clients that utilize the API don't have to treat exception responses as special cases.
  *
- *Chris Kittrell (ckittrell)
- *Phillip Verheyden (phillipuniverse)
+ *  
+ *     
  */
 public class BroadleafSpringRestExceptionMapper {
 
@@ -49,7 +49,7 @@ public class BroadleafSpringRestExceptionMapper {
         ErrorWrapper errorWrapper = (ErrorWrapper) context.getBean(ErrorWrapper.class.getName());
         BroadleafWebServicesException blcException = (BroadleafWebServicesException) ex;
         Locale locale = null;
-        BroadleafRequestContext requestContext = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext requestContext = WakaRequestContext.getWakaRequestContext();
         if (requestContext != null) {
             locale = requestContext.getJavaLocale();
         }
@@ -89,7 +89,7 @@ public class BroadleafSpringRestExceptionMapper {
     public @ResponseBody ErrorWrapper handleNoHandlerFoundException(HttpServletRequest request, HttpServletResponse response, Exception ex){
         ErrorWrapper errorWrapper = (ErrorWrapper) context.getBean(ErrorWrapper.class.getName());
         Locale locale = null;
-        BroadleafRequestContext requestContext = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext requestContext = WakaRequestContext.getWakaRequestContext();
         if (requestContext != null) {
             locale = requestContext.getJavaLocale();
         }
@@ -113,7 +113,7 @@ public class BroadleafSpringRestExceptionMapper {
     public @ResponseBody ErrorWrapper handleHttpMediaTypeNotSupportedException(HttpServletRequest request, HttpServletResponse response, Exception ex){
         ErrorWrapper errorWrapper = (ErrorWrapper) context.getBean(ErrorWrapper.class.getName());
         Locale locale = null;
-        BroadleafRequestContext requestContext = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext requestContext = WakaRequestContext.getWakaRequestContext();
         if (requestContext != null) {
             locale = requestContext.getJavaLocale();
         }
@@ -139,7 +139,7 @@ public class BroadleafSpringRestExceptionMapper {
         Locale locale = null;
         String parameterType = null;
         String parameterName = null;
-        BroadleafRequestContext requestContext = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext requestContext = WakaRequestContext.getWakaRequestContext();
         if (requestContext != null) {
             locale = requestContext.getJavaLocale();
         }
@@ -174,7 +174,7 @@ public class BroadleafSpringRestExceptionMapper {
     public @ResponseBody ErrorWrapper handleException(HttpServletRequest request, HttpServletResponse response, Exception ex){
         ErrorWrapper errorWrapper = (ErrorWrapper) context.getBean(ErrorWrapper.class.getName());
         Locale locale = null;
-        BroadleafRequestContext requestContext = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext requestContext = WakaRequestContext.getWakaRequestContext();
         if (requestContext != null) {
             locale = requestContext.getJavaLocale();
         }

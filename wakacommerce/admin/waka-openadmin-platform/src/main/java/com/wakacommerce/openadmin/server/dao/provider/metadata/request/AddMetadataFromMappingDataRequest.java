@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Contains the requested Hibernate type, metadata and support classes.
  *
- *Jeff Fischer
+ * 
  */
 public class AddMetadataFromMappingDataRequest {
 

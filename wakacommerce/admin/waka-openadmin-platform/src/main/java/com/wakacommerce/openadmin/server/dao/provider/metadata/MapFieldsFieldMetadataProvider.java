@@ -31,7 +31,7 @@ import java.lang.reflect.ParameterizedType;
 import java.util.Map;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Component("blMapFieldsFieldMetadataProvider")
 @Scope("prototype")

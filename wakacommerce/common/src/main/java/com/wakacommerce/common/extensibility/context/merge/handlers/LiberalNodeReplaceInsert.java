@@ -11,7 +11,7 @@ import java.util.List;
  * from the patch document that are not present in the source document
  * are simply appended to the source document.
  * 
- *jfischer
+ *  
  *
  */
 public class LiberalNodeReplaceInsert extends NodeReplaceInsert {

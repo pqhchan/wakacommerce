@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.config;
 
 import org.apache.commons.logging.Log;

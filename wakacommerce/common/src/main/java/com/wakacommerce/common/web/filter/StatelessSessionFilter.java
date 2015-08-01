@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  * 
  * Intended for use by REST api requests.
  * 
- *bpolster
+ * 
  */
 @Component("blStatelessSessionFilter")
 public class StatelessSessionFilter extends GenericFilterBean {

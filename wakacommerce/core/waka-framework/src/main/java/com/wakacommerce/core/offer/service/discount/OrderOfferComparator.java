@@ -7,7 +7,7 @@ import com.wakacommerce.core.offer.service.discount.domain.PromotableCandidateOr
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public class OrderOfferComparator implements Comparator<PromotableCandidateOrderOffer> {

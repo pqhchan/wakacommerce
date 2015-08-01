@@ -22,8 +22,8 @@ import javax.annotation.Resource;
  * through raw JDBC, which is the case when <sec:jdbc-user-service /> is used. We need the query to go through Hibernate
  * so that we are able to attach the necessary filters in certain circumstances.
  * 
- *Andre Azzolini (apazzolini)
- *Phillip Verheyden (phillipuniverse)
+ * 
+ *     
  */
 @Service("blUserDetailsService")
 public class UserDetailsServiceImpl implements UserDetailsService {

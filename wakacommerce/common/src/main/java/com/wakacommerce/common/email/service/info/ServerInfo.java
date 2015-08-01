@@ -1,12 +1,7 @@
-
 package com.wakacommerce.common.email.service.info;
 
 import java.io.Serializable;
 
-/**
- *jfischer
- *
- */
 public class ServerInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;

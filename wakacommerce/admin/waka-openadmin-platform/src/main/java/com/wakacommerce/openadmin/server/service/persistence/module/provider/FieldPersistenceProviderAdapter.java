@@ -4,7 +4,7 @@ package com.wakacommerce.openadmin.server.service.persistence.module.provider;
 import org.springframework.context.MessageSource;
 import org.springframework.core.Ordered;
 
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.openadmin.dto.FieldMetadata;
 import com.wakacommerce.openadmin.dto.Property;
 import com.wakacommerce.openadmin.server.service.persistence.module.criteria.FilterMapping;
@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class FieldPersistenceProviderAdapter extends AbstractFieldPersistenceProvider {
 
@@ -69,7 +69,7 @@ public class FieldPersistenceProviderAdapter extends AbstractFieldPersistencePro
     }
 
     protected void setNonDisplayableValues(PopulateValueRequest request) {
-        BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
         MessageSource messages = context.getMessageSource();
         String label = "(" + messages.getMessage("Workflow_not_displayable", null, "Not Displayable", context.getJavaLocale()) + ")";
         request.getProperty().setDisplayValue(label);

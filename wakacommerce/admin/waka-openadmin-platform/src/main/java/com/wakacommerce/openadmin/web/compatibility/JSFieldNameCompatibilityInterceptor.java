@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class JSFieldNameCompatibilityInterceptor extends HandlerInterceptorAdapter {
 

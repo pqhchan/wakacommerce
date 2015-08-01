@@ -76,7 +76,7 @@ import com.wakacommerce.profile.core.service.CustomerService;
  * <property name="repeatInterval" value="86400000" />
  * </bean>
  *}
- *Jeff Fischer
+ * 
  */
 @Service("blResourcePurgeService")
 public class ResourcePurgeServiceImpl implements ResourcePurgeService {

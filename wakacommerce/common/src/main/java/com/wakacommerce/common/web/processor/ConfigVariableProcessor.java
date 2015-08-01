@@ -20,7 +20,7 @@ import com.wakacommerce.common.web.expression.PropertiesVariableExpression;
  * @parameter name (required) the name of the system property to look up
  * @parameter resultVar (optional) what model variable the system property value is added to, defaults to <b>value</b>
  * 
- *bpolster
+ * 
  * @see {@link PropertiesVariableExpression}
  */
 public class ConfigVariableProcessor extends AbstractModelVariableModifierProcessor {

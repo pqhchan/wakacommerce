@@ -33,7 +33,7 @@ import javax.annotation.Resource;
  * This implementation validates each {@link Property} from the given {@link Entity} according to the
  * {@link ValidationConfiguration}s associated with it.
  * 
- *Phillip Verheyden
+ *  
  * @see {@link EntityValidatorService}
  * @see {@link ValidationConfiguration}
  */

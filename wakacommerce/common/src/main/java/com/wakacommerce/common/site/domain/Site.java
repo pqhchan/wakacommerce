@@ -9,7 +9,7 @@ import com.wakacommerce.common.persistence.Status;
 import com.wakacommerce.common.site.service.type.SiteResolutionType;
 
 /**
- * Created by bpolster.
+ *   
  */
 public interface Site extends Serializable, Status {
 

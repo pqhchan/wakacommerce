@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.web.expression;
 
 import org.springframework.web.context.request.RequestContextHolder;
@@ -18,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
  * <p>
  * This also includes properties that have been saved/overwritten in the database via {@link SystemProperty}.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  * @see {@link ConfigVariableProcessor}
  */
 public class PropertiesVariableExpression implements BroadleafVariableExpression {

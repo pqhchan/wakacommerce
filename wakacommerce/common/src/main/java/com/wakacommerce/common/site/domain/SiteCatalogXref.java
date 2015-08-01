@@ -6,7 +6,7 @@ import java.io.Serializable;
 /**
  * Defines the explicit join between a {@link Site} and {@link Catalog}
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  * @see {@link Site#getCatalogXrefs()}
  * @see {@link Catalog#getSiteXrefs()}
  */

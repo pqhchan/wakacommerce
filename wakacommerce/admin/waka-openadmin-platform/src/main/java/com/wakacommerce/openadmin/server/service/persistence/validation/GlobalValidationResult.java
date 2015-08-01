@@ -32,7 +32,7 @@ import java.util.List;
  * 
  * This is most suitable for global errors like those from {@link RowLevelSecurityService}
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  * @see {@link RowLevelSecurityService}
  * @see {@link PropertyValidationResult}
  */

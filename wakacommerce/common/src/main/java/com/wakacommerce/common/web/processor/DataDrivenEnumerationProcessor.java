@@ -28,7 +28,7 @@ import javax.annotation.Resource;
  * @param sort (optional) <i>ASCENDING</i> or <i>DESCENDING</i> if the resulting values should be sorted by not. The sort will be on
  *          {@link DataDrivenEnumerationValue#getDisplay()}
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 public class DataDrivenEnumerationProcessor extends AbstractModelVariableModifierProcessor {
 

@@ -19,7 +19,7 @@ import com.wakacommerce.core.workflow.state.RollbackHandler;
  *  2. Change the order number back to null
  *  3. Change the submit date back to null
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 @Component("blCompleteOrderRollbackHandler")
 public class CompleteOrderRollbackHandler implements RollbackHandler<CheckoutSeed> {

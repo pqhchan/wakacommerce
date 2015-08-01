@@ -19,7 +19,7 @@ import javax.annotation.Resource;
 /**
  * A Thymeleaf processor that will add the appropriate AdminUser to the model.
  *
- *elbertbautista
+ *  
  */
 @Component("blAdminUserProcessor")
 public class AdminUserProcessor extends AbstractModelVariableModifierProcessor {

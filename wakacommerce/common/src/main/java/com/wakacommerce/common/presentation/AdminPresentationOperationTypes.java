@@ -12,7 +12,7 @@ import com.wakacommerce.common.presentation.client.OperationType;
  * Annotation for defining how CRUD operations are performed on an advanced collection in Broadleaf Commerce.
  * This is an advanced configuration, as the default operation settings are appropriate in most cases.
  *
- *Jeff Fischer
+ * 
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD})

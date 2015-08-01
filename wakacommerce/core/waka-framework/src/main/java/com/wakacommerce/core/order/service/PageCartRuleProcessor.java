@@ -10,7 +10,7 @@ import com.wakacommerce.core.order.domain.Order;
 import com.wakacommerce.profile.core.domain.Customer;
 
 /**
- * Created by bpolster.
+ *   
  */
 public class PageCartRuleProcessor extends AbstractCartRuleProcessor<PageDTO> {
 

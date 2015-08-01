@@ -1,4 +1,3 @@
-
 package com.wakacommerce.admin.web.controller;
 
 import javax.annotation.PostConstruct;
@@ -15,9 +14,6 @@ import com.wakacommerce.openadmin.web.controller.AbstractAdminTranslationControl
 import com.wakacommerce.openadmin.web.controller.AdminTranslationControllerExtensionManager;
 import com.wakacommerce.openadmin.web.form.TranslationForm;
 
-/**
- *Andre Azzolini (apazzolini)
- */
 @Component("blAdminProductTranslationExtensionHandler")
 public class AdminProductTranslationExtensionHandler extends AbstractAdminTranslationControllerExtensionHandler {
     

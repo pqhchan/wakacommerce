@@ -8,7 +8,7 @@ import java.util.Comparator;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public class OrderItemPriceComparator implements Comparator<PromotableOrderItem> {

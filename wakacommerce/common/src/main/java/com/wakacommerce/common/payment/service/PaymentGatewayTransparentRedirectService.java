@@ -16,7 +16,7 @@ import com.wakacommerce.common.vendor.service.exception.PaymentException;
  * and your HTML should include these fields to be POSTed directly to the
  * implementing gateway for processing.</p>
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public interface PaymentGatewayTransparentRedirectService {
 

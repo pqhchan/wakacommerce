@@ -24,7 +24,7 @@ import org.thymeleaf.dom.Element;
 
 /**
  * Used to build a cacheKey for caching templates.
- *Brian Polster (bpolster)
+ *   ( )
  */
 public interface TemplateCacheKeyResolverService {
 

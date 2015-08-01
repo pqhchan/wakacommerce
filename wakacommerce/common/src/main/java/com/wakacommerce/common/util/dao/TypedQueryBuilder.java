@@ -16,7 +16,7 @@ import javax.persistence.TypedQuery;
  * Utility class to construct typed query-language queries. This has an advantage over CriteriaQuery in that it will
  * be automatically responsive to polymorphism thanks to Hibernate's handling of query-language strings.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  *
  * @param <T> the class that is being queried for
  */

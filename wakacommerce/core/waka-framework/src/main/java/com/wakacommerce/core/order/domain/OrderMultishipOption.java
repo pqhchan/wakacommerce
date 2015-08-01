@@ -10,7 +10,7 @@ import com.wakacommerce.profile.core.domain.Address;
  * FulfillmentGroupItems. It also can be used to re-create the multiship set
  * should the Order change
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface OrderMultishipOption {
 

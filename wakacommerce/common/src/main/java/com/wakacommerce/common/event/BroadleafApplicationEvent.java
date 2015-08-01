@@ -14,7 +14,7 @@ import java.util.Map;
  * @see <code>com.wakacommerce.common.event.BroadleafApplicationEventMultiCaster</code>
  * @see <code>com.wakacommerce.common.event.BroadleafApplicationListener</code>
  * 
- *Kelly Tisdell
+ *  
  *
  */
 public abstract class BroadleafApplicationEvent extends ApplicationEvent {

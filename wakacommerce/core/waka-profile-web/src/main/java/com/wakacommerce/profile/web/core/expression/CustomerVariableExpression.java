@@ -7,9 +7,9 @@ import com.wakacommerce.profile.web.core.CustomerState;
 
 
 /**
- * This Thymeleaf variable expression class serves to expose elements from the BroadleafRequestContext
+ * This Thymeleaf variable expression class serves to expose elements from the WakaRequestContext
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class CustomerVariableExpression implements BroadleafVariableExpression {
     

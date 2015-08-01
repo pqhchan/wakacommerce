@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * An extendible enumeration of target mode types.
  * 
- *jfischer
+ *  
  */
 public class TargetModeType implements Serializable {
 

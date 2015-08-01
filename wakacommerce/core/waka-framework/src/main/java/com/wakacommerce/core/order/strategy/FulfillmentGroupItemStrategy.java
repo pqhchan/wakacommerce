@@ -18,7 +18,7 @@ import com.wakacommerce.core.pricing.service.exception.PricingException;
  * Note that even the null strategy <b>WILL</b> remove FulfillmentGroupItems if their corresponding
  * OrderItem is removed to prevent orphaned records.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface FulfillmentGroupItemStrategy {
 

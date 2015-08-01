@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletRequest;
  * @GET, @POST, @PUT, and @DELETE are purposely not provided here to allow implementors finer control over 
  * the details of the endpoint.
  * <p/>
- * User: Kelly Tisdell
+ * User:   
  * Date: 4/10/12
  */
 public abstract class OrderHistoryEndpoint extends BaseEndpoint {

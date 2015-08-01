@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 import com.wakacommerce.common.presentation.client.LookupType;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD})

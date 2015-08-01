@@ -31,7 +31,7 @@ import java.util.Map;
  * @see {@link com.wakacommerce.common.payment.dto.CreditCardDTO}
  * @see {@link com.wakacommerce.common.payment.dto.AddressDTO}
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public class PaymentGatewayFieldVariableExpression implements BroadleafVariableExpression {
 

@@ -11,7 +11,7 @@ import org.springframework.core.Ordered;
  * usage information.
  *
  * @see AbstractMergeBeanPostProcessor
- *Jeff Fischer
+ * 
  */
 public class LateStageMergeBeanPostProcessor extends AbstractMergeBeanPostProcessor implements Ordered {
 

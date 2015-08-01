@@ -3,7 +3,7 @@ package com.wakacommerce.admin.web.rulebuilder.service.options;
 
 import org.springframework.stereotype.Component;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 import com.wakacommerce.common.time.DayOfMonthType;
 import com.wakacommerce.common.time.DayOfWeekType;
 import com.wakacommerce.common.time.HourOfDayType;
@@ -17,15 +17,15 @@ import java.util.Map;
 /**
  * Rule Builder enum options provider for {@link HourOfDayType}
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Component("blTimeOptionsExtensionListener")
 public class TimeEnumOptionsExtensionListener extends AbstractRuleBuilderEnumOptionsExtensionListener {
 
     @Override
-    protected Map<String, Class<? extends BroadleafEnumerationType>> getValuesToGenerate() {
-        Map<String, Class<? extends BroadleafEnumerationType>> map = 
-                new HashMap<String, Class<? extends BroadleafEnumerationType>>();
+    protected Map<String, Class<? extends WakaEnumType>> getValuesToGenerate() {
+        Map<String, Class<? extends WakaEnumType>> map = 
+                new HashMap<String, Class<? extends WakaEnumType>>();
         
         map.put("blcOptions_HourOfDay", HourOfDayType.class);
         map.put("blcOptions_DayOfWeek", DayOfWeekType.class);

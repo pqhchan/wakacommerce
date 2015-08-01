@@ -13,7 +13,7 @@ import com.wakacommerce.openadmin.web.rulebuilder.service.AbstractRuleBuilderFie
  * that constructs metadata necessary
  * to build the supported fields for a Customer entity
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Service("blCustomerFieldService")
 public class CustomerFieldServiceImpl extends AbstractRuleBuilderFieldService {

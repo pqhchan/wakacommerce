@@ -6,7 +6,7 @@ import com.wakacommerce.openadmin.dto.Entity;
 /**
  * Contains the {@link Entity} instance and unfiltered property list.
  *
- *Jeff Fischer
+ * 
  */
 public class AddFilterPropertiesRequest {
 

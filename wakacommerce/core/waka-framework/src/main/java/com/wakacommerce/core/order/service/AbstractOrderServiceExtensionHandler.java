@@ -10,7 +10,7 @@ import com.wakacommerce.profile.core.domain.Customer;
 
 
 /**
- *bpolster
+ * 
  */
 public abstract class AbstractOrderServiceExtensionHandler extends AbstractExtensionHandler implements
         OrderServiceExtensionHandler {

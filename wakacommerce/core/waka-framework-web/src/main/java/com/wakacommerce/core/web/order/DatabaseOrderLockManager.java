@@ -36,7 +36,7 @@ import javax.annotation.Resource;
  * for locks on {@link Order}s. This class leverages the {@link OrderLock} domain object to provide this
  * functionality.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class DatabaseOrderLockManager implements OrderLockManager {
 

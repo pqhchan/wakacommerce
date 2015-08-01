@@ -1,22 +1,4 @@
-/*
- * #%L
- * BroadleafCommerce CMS Module
- * %%
- * Copyright (C) 2009 - 2013 Broadleaf Commerce
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *       http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * #L%
- */
+ 
 package com.wakacommerce.cms.web;
 
 import java.io.IOException;
@@ -38,7 +20,7 @@ import com.wakacommerce.common.RequestDTO;
 import com.wakacommerce.common.TimeDTO;
 import com.wakacommerce.common.page.dto.PageDTO;
 import com.wakacommerce.common.time.SystemTime;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 
 /**
  * @deprecated.   Should now use PageHandlerMapping
@@ -49,7 +31,7 @@ import com.wakacommerce.common.web.BroadleafRequestContext;
  * should be invoked for a passed in URL.  If it is unable to find a matching processor in cache,
  * then it will call each processor in turn to provide an attempt to process the URL.
  *
- * Created by bpolster.
+ *   
  */
 @Component("blPageURLProcessor")
 public class PageURLProcessor implements URLProcessor {
@@ -74,17 +56,17 @@ public class PageURLProcessor implements URLProcessor {
      * Implementors of this interface will return true if they are able to process the
      * current in request.
      *
-     * Implementors of this method will need to rely on the BroadleafRequestContext class
+     * Implementors of this method will need to rely on the WakaRequestContext class
      * which provides access to the current sandbox, locale, request, and response via a
      * threadlocal context
      *
-     * @see BroadleafRequestContext
+     * @see WakaRequestContext
      *
      * @return true if this URLProcessor is able to process the passed in request
      */
     @Override
     public boolean canProcessURL(String key) {
-        BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
         PageDTO p = pageService.findPageByURI(context.getLocale(), key, buildMvelParameters(context.getRequest()), context.isSecure());
         context.getRequest().setAttribute(PAGE_ATTRIBUTE_NAME, p);
         return (p != null);
@@ -104,7 +86,7 @@ public class PageURLProcessor implements URLProcessor {
      * @throws javax.servlet.ServletException
      */
     public boolean processURL(String key) throws IOException, ServletException {
-        BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
         PageDTO p = (PageDTO) context.getRequest().getAttribute(PAGE_ATTRIBUTE_NAME);
         if (p == null) {
             p = pageService.findPageByURI(context.getLocale(), key, buildMvelParameters(context.getRequest()), context.isSecure());

@@ -7,7 +7,7 @@ import com.wakacommerce.common.money.Money;
 
 /**
  * DTO to represent pricing overrides returned from invocations to {@link DynamicSkuPricingService}
- *jfischer
+ *  
  * @see {@link DynamicSkuPricingService}
  */
 public class DynamicSkuPrices implements Serializable {

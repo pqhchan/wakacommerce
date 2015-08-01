@@ -53,7 +53,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Component("blBasicFieldPersistenceProvider")
 @Scope("prototype")

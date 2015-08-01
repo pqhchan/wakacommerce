@@ -15,7 +15,7 @@ import java.util.HashMap;
  * that provides additional, desirable members to the pricingConsiderations Map
  * that is generated from the getPricingConsiderations method.
  * 
- *jfischer
+ *  
  *
  */
 public class DefaultDynamicSkuPricingFilter extends AbstractDynamicSkuPricingFilter {

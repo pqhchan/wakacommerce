@@ -38,7 +38,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

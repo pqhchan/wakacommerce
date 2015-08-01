@@ -15,7 +15,7 @@ import com.wakacommerce.common.sitemap.domain.SiteMapGeneratorConfigurationImpl;
 /**
  * CategorySiteMapGenerator is controlled by this configuration.
  * 
- *Joshua Skorton (jskorton)
+ *  
  */
 @Entity
 @Table(name = "BLC_CAT_SITE_MAP_GEN_CFG")

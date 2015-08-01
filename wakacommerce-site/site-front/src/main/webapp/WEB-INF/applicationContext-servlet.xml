@@ -14,7 +14,6 @@
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
     
-    <!-- Scan Broadleaf defined web utility classes -->
     <!--  context:component-scan base-package="com.wakacommerce.cms.web"/ -->
     <context:component-scan base-package="com.wakacommerce.common.web"/>
     <context:component-scan base-package="com.wakacommerce.profile.web.controller"/>
@@ -23,7 +22,7 @@
     <!-- Scan DemoSite Sample Payment Gateway Implementation -->
     <context:component-scan base-package="com.mycompany.sample" />
 
-    <!-- Turn on AOP annotations (required by Broadleaf) -->
+    <!-- Turn on AOP annotations -->
     <aop:config/>
     
     <!--  Checks for a URL match to a product's SEO URL.   -->
@@ -61,7 +60,7 @@
     </mvc:interceptors>
 
     <!-- Default locale set -->
-    <bean id="localeResolver" class="com.wakacommerce.common.web.BroadleafCookieLocaleResolver" />
+    <bean id="localeResolver" class="com.wakacommerce.common.web.WakaCookieLocaleResolver" />
     
     <!-- Tell Spring to not try to map things in these directories to controllers -->
     <!-- Order must be set to supercede the handler configured by the mvc:annotation-driven annotation -->
@@ -81,7 +80,7 @@
     </bean>
     
     <!-- Set up the view resolver to be used by Spring -->
-    <bean class="com.wakacommerce.common.web.BroadleafThymeleafViewResolver">
+    <bean class="com.wakacommerce.common.web.WakaThymeleafViewResolver">
         <property name="templateEngine" ref="blWebTemplateEngine" />
         <property name="order" value="1" />
         <property name="cache" value="${thymeleaf.view.resolver.cache}" />

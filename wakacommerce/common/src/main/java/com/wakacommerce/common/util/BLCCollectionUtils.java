@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * Convenience methods for interacting with collections.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class BLCCollectionUtils {
     

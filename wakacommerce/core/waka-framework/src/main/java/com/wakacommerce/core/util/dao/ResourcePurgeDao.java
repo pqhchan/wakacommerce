@@ -29,7 +29,7 @@ import com.wakacommerce.profile.core.domain.Customer;
 /**
  * Adds capability to delete old or defunct entities from the persistence layer (e.g. Carts and anonymous Customers)
  *
- *Jeff Fischer
+ * 
  */
 public interface ResourcePurgeDao {
 

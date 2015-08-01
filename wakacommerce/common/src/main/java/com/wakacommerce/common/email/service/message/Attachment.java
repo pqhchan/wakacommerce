@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.email.service.message;
 
 import java.io.Serializable;

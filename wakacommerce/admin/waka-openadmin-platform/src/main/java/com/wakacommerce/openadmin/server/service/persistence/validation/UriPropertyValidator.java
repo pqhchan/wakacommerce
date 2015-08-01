@@ -43,7 +43,7 @@ import java.util.Map;
  * Replace if needed for your implementation.
  * 
  * 
- *Brian Polster
+ *  
  */
 @Component("blUriPropertyValidator")
 public class UriPropertyValidator extends ValidationConfigurationBasedPropertyValidator {

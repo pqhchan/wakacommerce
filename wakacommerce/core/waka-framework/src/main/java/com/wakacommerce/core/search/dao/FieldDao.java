@@ -9,7 +9,7 @@ import com.wakacommerce.core.search.domain.FieldEntity;
 /**
  * DAO to facilitate interaction with Broadleaf fields.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface FieldDao {
 

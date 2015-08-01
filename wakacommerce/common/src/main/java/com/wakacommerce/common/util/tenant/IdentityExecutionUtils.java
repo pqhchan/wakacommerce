@@ -13,7 +13,7 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
 import com.wakacommerce.common.site.domain.Catalog;
 import com.wakacommerce.common.site.domain.Site;
 import com.wakacommerce.common.util.TransactionUtils;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +25,7 @@ import javax.sql.DataSource;
  * The utility methods in this class provide a way to ignore the currently configured site/catalog contexts and instead
  * explicitly run operations in the specified context.
  * 
- *Jeff Fischer
+ * 
  */
 public class IdentityExecutionUtils {
 
@@ -37,8 +37,8 @@ public class IdentityExecutionUtils {
         context.setIdentifier(site);
         IdentityUtilContext.setUtilContext(context);
 
-        BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
-        Site previousSite = brc.getSite();
+        WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
+        Site previousSite = brc.getNonPersistentSite();
         Catalog previousCatalog = brc.getCurrentCatalog();
         Site previousProfile = brc.getCurrentProfile();
         
@@ -63,11 +63,11 @@ public class IdentityExecutionUtils {
             }
             IdentityUtilContext.setUtilContext(null);
             if (isNew) {
-                BroadleafRequestContext.setBroadleafRequestContext(null);
+                WakaRequestContext.setWakaRequestContext(null);
             }
-            BroadleafRequestContext.getBroadleafRequestContext().setSite(previousSite);
-            BroadleafRequestContext.getBroadleafRequestContext().setCurrentCatalog(previousCatalog);
-            BroadleafRequestContext.getBroadleafRequestContext().setCurrentProfile(previousProfile);
+            WakaRequestContext.getWakaRequestContext().setNonPersistentSite(previousSite);
+            WakaRequestContext.getWakaRequestContext().setCurrentCatalog(previousCatalog);
+            WakaRequestContext.getWakaRequestContext().setCurrentProfile(previousProfile);
         }
     }
 
@@ -93,14 +93,14 @@ public class IdentityExecutionUtils {
     
     public static <T, G extends Throwable> T runOperationAndIgnoreIdentifier(IdentityOperation<T, G> operation, 
             PlatformTransactionManager transactionManager) throws G {
-        BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
-        Site previousSite = brc.getSite();
+        WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
+        Site previousSite = brc.getNonPersistentSite();
         Catalog previousCatalog = brc.getCurrentCatalog();
         Site previousProfile = brc.getCurrentProfile();
     
         boolean isNew = initRequestContext(null, null, null);
-        boolean isIgnoringSite = BroadleafRequestContext.getBroadleafRequestContext().getIgnoreSite();
-        BroadleafRequestContext.getBroadleafRequestContext().setIgnoreSite(true);
+        boolean isIgnoringSite = WakaRequestContext.getWakaRequestContext().getIgnoreSite();
+        WakaRequestContext.getWakaRequestContext().setIgnoreSite(true);
 
         activateSession();
         
@@ -120,26 +120,26 @@ public class IdentityExecutionUtils {
             }
             
             if (isNew) {
-                BroadleafRequestContext.setBroadleafRequestContext(null);
+                WakaRequestContext.setWakaRequestContext(null);
             }
-            BroadleafRequestContext.getBroadleafRequestContext().setIgnoreSite(isIgnoringSite);
-            BroadleafRequestContext.getBroadleafRequestContext().setSite(previousSite);
-            BroadleafRequestContext.getBroadleafRequestContext().setCurrentCatalog(previousCatalog);
-            BroadleafRequestContext.getBroadleafRequestContext().setCurrentProfile(previousProfile);
+            WakaRequestContext.getWakaRequestContext().setIgnoreSite(isIgnoringSite);
+            WakaRequestContext.getWakaRequestContext().setNonPersistentSite(previousSite);
+            WakaRequestContext.getWakaRequestContext().setCurrentCatalog(previousCatalog);
+            WakaRequestContext.getWakaRequestContext().setCurrentProfile(previousProfile);
         }
     }
 
     private static boolean initRequestContext(Site site, Site profile, Catalog catalog) {
         boolean isNew = false;
-        BroadleafRequestContext requestContext = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext requestContext = WakaRequestContext.getWakaRequestContext();
 
         if (requestContext == null) {
-            requestContext = new BroadleafRequestContext();
-            BroadleafRequestContext.setBroadleafRequestContext(requestContext);
+            requestContext = new WakaRequestContext();
+            WakaRequestContext.setWakaRequestContext(requestContext);
             isNew = true;
         }
 
-        requestContext.setSite(site);
+        requestContext.setNonPersistentSite(site);
         requestContext.setCurrentCatalog(catalog);
         requestContext.setCurrentProfile(profile);
         

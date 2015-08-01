@@ -24,7 +24,7 @@ package com.wakacommerce.core.util.service.type;
  * ContextVariableNames can be added as a Job or Event detail in order to establish the context.
  * 
  * @see MultiTenantScheduledJobThreadInitializer in the BLC MultiTenant module.
- *bpolster
+ * 
  *
  */
 public class ContextVariableNames {

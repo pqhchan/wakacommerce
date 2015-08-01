@@ -27,7 +27,7 @@ import javax.annotation.Resource;
 /**
  * Saves an instance of OfferAudit for each offer in the passed in order.
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  * @see {@link RecordOfferUsageRollbackHandler}
  */
 public class RecordOfferUsageActivity extends BaseActivity<ProcessContext<CheckoutSeed>> {

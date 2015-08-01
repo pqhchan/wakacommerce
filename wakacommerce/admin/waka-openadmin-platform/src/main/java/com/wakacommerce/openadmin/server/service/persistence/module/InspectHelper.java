@@ -11,7 +11,7 @@ import java.util.Map;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public interface InspectHelper {

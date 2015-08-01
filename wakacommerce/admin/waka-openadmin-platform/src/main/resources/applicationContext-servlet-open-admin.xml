@@ -11,7 +11,6 @@
 
     <aop:config/>
 
-    <!-- Scan Broadleaf defined web utility classes -->
     <context:component-scan base-package="com.wakacommerce.openadmin.web.controller"/>
     
     <bean id="blAdminStructuredContentController" class="com.wakacommerce.cms.admin.web.controller.AdminStructuredContentController" />
@@ -81,8 +80,6 @@
         <property name="order" value="300"/> 
     </bean>  
 
-    <bean id="blAdminMessageResolver" class="com.wakacommerce.common.web.BroadleafThymeleafMessageResolver" />
-    
     <bean id="blAdminWebTemplateResolvers" class="org.springframework.beans.factory.config.SetFactoryBean">
         <property name="sourceSet">
             <set>
@@ -97,7 +94,6 @@
     <bean id="blAdminWebTemplateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine">
         <property name="messageResolvers">
             <set>
-                <ref bean="blAdminMessageResolver" />
                 <bean class="org.thymeleaf.spring4.messageresolver.SpringMessageResolver" />
             </set>
         </property>

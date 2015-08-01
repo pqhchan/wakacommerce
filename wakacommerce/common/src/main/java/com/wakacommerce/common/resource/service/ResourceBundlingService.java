@@ -11,8 +11,8 @@ import java.util.List;
  * This service is responsible for interaction with the {@link ResourceBundleProcessor} to generate
  * bundles for static resources.
  * 
- *Andre Azzolini (apazzolini)
- *Brian Polster (bpolster)
+ * 
+ *   ( )
  */
 public interface ResourceBundlingService {
 

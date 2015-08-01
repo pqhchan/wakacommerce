@@ -10,7 +10,7 @@ import com.wakacommerce.openadmin.dto.PersistencePackage;
 /**
  * Extension handler for {@link com.wakacommerce.admin.server.service.handler.CategoryCustomPersistenceHandler}
  *
- *Jeff Fischer
+ * 
  */
 public interface CategoryCustomPersistenceHandlerExtensionHandler extends ExtensionHandler {
 

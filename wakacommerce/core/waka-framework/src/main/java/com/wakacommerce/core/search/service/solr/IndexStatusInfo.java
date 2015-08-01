@@ -25,7 +25,7 @@ import java.util.Map;
 /**
  * General information about the current status of a (embedded) Solr instance's index
  *
- *Jeff Fischer
+ * 
  */
 public interface IndexStatusInfo {
 

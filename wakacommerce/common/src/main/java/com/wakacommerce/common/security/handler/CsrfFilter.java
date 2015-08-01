@@ -29,7 +29,7 @@ import java.util.List;
  *
  * @see org.springframework.security.web.util.AntPathRequestMatcher
  *
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class CsrfFilter extends GenericFilterBean {
     protected static final Log LOG = LogFactory.getLog(CsrfFilter.class);

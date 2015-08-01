@@ -4,7 +4,7 @@ package com.wakacommerce.common.extensibility.jpa;
 /**
  * Represents the columns that get weaved into entities that are marked as site-specific.
  * 
- *Jeff Fischer
+ * 
  */
 public interface SiteDiscriminator extends Discriminatable {
 

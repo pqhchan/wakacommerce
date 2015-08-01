@@ -13,7 +13,7 @@ import java.io.Reader;
  * import sql files, there are a number of value declarations that are incompatible with Sql Server. This
  * custom extractor takes care of transforming those values into something SQL Server understands.
  *
- *Jeff Fischer
+ * 
  */
 public class DemoSqlServerSingleLineSqlCommandExtractor extends SingleLineSqlCommandExtractor {
 

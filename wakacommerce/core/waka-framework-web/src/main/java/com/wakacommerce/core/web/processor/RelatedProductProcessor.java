@@ -42,7 +42,7 @@ import javax.annotation.Resource;
  *      relatedProduct.product 
  *      relatedProduct.promotionMessage.
  *      
- *bpolster
+ * 
  */
 public class RelatedProductProcessor extends AbstractModelVariableModifierProcessor {
     

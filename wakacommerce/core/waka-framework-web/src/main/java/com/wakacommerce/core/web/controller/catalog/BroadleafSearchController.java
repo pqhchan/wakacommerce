@@ -36,7 +36,7 @@ import javax.servlet.http.HttpServletResponse;
  * Handles searching the catalog for a given search term. Will apply product search criteria
  * such as filters, sorts, and pagination if applicable
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class BroadleafSearchController extends AbstractCatalogController {
 

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.wakacommerce.common.service.GenericResponse;
 import com.wakacommerce.common.util.BLCMessageUtils;
 import com.wakacommerce.common.web.JsonResponse;
-import com.wakacommerce.common.web.controller.BroadleafAbstractController;
+import com.wakacommerce.common.web.controller.WakaAbstractController;
 import com.wakacommerce.openadmin.server.security.domain.AdminMenu;
 import com.wakacommerce.openadmin.server.security.domain.AdminModule;
 import com.wakacommerce.openadmin.server.security.domain.AdminSection;
@@ -41,7 +41,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  */
 @Controller("blAdminLoginController")
-public class AdminLoginController extends BroadleafAbstractController {
+public class AdminLoginController extends WakaAbstractController {
 
     private static final String ANONYMOUS_USER_NAME = "anonymousUser";
 

@@ -6,7 +6,7 @@ import org.springframework.web.context.request.WebRequest;
 import com.wakacommerce.common.payment.PaymentGatewayType;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public interface PaymentGatewayResolver {
 

@@ -11,8 +11,8 @@ import com.wakacommerce.common.web.payment.processor.TRCreditCardExtensionHandle
  * at the same time, a list of these is managed via the {@link PaymentGatewayConfigurationServiceProvider}. This allows for proper
  * delegation to the right gateway to perform operations against via different order payments on an order.
  * 
- *Elbert Bautista (elbertbautista)
- *Phillip Verheyden (phillipuniverse)
+ *  
+ *     
  */
 public interface PaymentGatewayConfigurationService {
 

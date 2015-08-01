@@ -6,7 +6,7 @@ import java.io.Serializable;
 import com.wakacommerce.common.presentation.client.OperationType;
 
 /**
- *jfischer
+ *  
  */
 public class OperationTypes implements Serializable {
 

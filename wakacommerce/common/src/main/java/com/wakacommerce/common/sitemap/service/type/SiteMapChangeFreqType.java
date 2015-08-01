@@ -6,14 +6,14 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 /**
  * An enumeration of Sitemap change frequency values
  * 
- *Joshua Skorton (jskorton)
+ *  
  */
-public class SiteMapChangeFreqType implements Serializable, BroadleafEnumerationType {
+public class SiteMapChangeFreqType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 

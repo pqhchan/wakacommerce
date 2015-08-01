@@ -11,8 +11,8 @@ import com.wakacommerce.openadmin.web.form.entity.EntityForm;
  * Abstract class to provide convenience for determining how to handle form 
  * extensions in the admin
  * 
- *Kelly Tisdell
- *Phillip Verheyden (phillipuniverse)
+ *  
+ *     
  */
 public abstract class AbstractFormBuilderExtensionHandler extends AbstractExtensionHandler implements FormBuilderExtensionHandler {
 

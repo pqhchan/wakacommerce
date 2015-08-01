@@ -20,7 +20,7 @@ import com.wakacommerce.common.web.BroadleafSiteResolver;
  * Note also that when resolving sites (via the {@link BroadleafSiteResolver}) the usual case is to return a non-persistent
  * version not attached to a Hibernate session.
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 public interface SiteService {
 

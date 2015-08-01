@@ -3,7 +3,7 @@
 package com.mycompany.sample.vendor.nullPaymentGateway.service.payment;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public class NullPaymentGatewayConstants {
 

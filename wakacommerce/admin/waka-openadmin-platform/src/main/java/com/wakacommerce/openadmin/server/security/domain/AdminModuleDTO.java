@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  *
- *bpolster
+ * 
  *
  */
 public class AdminModuleDTO implements AdminModule {

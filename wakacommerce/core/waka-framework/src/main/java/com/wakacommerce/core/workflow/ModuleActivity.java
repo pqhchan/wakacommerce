@@ -13,7 +13,7 @@ package com.wakacommerce.core.workflow;
  * <p>When writing a module activity, the ordering should be configured in the 100 range (3100, 3200, etc) so that users
  * who use your module can configure custom activities in-between framework <b>and</b> module activities.</p>
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 public interface ModuleActivity {
 

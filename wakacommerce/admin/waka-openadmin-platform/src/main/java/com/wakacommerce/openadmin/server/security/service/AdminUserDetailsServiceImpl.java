@@ -19,7 +19,7 @@ import com.wakacommerce.openadmin.server.security.domain.AdminRole;
 import com.wakacommerce.openadmin.server.security.domain.AdminUser;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class AdminUserDetailsServiceImpl implements UserDetailsService {
 

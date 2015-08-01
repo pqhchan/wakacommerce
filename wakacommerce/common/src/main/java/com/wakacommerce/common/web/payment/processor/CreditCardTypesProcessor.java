@@ -34,7 +34,7 @@ import java.util.Map;
  *  </blc:credit_card_types>
  * </code></pre>
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Component("blCreditCardTypesProcessor")
 public class CreditCardTypesProcessor extends AbstractLocalVariableDefinitionElementProcessor {

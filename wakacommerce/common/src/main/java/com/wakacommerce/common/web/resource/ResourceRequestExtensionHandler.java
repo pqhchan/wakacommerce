@@ -10,7 +10,7 @@ import com.wakacommerce.common.extension.ExtensionResultStatusType;
 /**
  * Provides extension points for dealing with requests for resources
  * 
- *bpolster, apazzolini
+ * ,   
  */
 public interface ResourceRequestExtensionHandler extends ExtensionHandler {
     

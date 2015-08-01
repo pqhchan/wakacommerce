@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.web.dialect;
 
 import org.thymeleaf.Arguments;
@@ -13,7 +12,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- *apazzolini
+ *  
  * 
  * Wrapper class around Thymeleaf's AbstractElementProcessor that facilitates adding Objects
  * to the current evaluation context (model) for processing in the remainder of the page.

@@ -12,7 +12,7 @@ package com.wakacommerce.common.util.dao;
  * </pre>
  * </p>
  *
- *Jeff Fischer
+ * 
  */
 public class TQOrder {
 

@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  *
  * An example of the Serialized JSON:
  *

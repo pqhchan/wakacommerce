@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ViewResolver;
 import java.util.Locale;
 
 /**
- *jfischer
+ *  
  *
  */
 public class WrappingViewResolver implements ViewResolver {

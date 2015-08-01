@@ -3,14 +3,14 @@ package com.wakacommerce.common.i18n.service;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 
 import java.util.Locale;
 
 /**
  * Convenience class to provide dynamic field translations.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class DynamicTranslationProvider {
     
@@ -28,7 +28,7 @@ public class DynamicTranslationProvider {
         
         if (TranslationConsiderationContext.hasTranslation()) {
             TranslationService translationService = TranslationConsiderationContext.getTranslationService();
-            Locale locale = BroadleafRequestContext.getBroadleafRequestContext().getJavaLocale();
+            Locale locale = WakaRequestContext.getWakaRequestContext().getJavaLocale();
             String translatedValue = translationService.getTranslatedValue(obj, field, locale);
             
             if (StringUtils.isNotBlank(translatedValue)) {

@@ -7,7 +7,7 @@ import java.util.Collection;
  * Encapsulate some amount of work to perform whenever a change aware collection is modified.
  *
  * @see com.wakacommerce.common.util.BLCCollectionUtils#createChangeAwareCollection(WorkOnChange, java.util.Collection)
- *Jeff Fischer
+ * 
  */
 public interface WorkOnChange {
 

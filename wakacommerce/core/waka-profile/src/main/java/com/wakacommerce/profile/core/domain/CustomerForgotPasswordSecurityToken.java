@@ -6,7 +6,7 @@ import java.util.Date;
 
 /**
  * 
- *bpolster
+ * 
  *
  */
 public interface CustomerForgotPasswordSecurityToken extends Serializable {

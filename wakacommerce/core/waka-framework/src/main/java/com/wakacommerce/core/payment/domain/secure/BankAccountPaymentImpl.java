@@ -19,7 +19,7 @@ import javax.persistence.Transient;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 @Entity

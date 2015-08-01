@@ -3,7 +3,7 @@
  * Broadleaf Commerce Conditions Rule Builder
  * Javascript Conditions Builder that handles both simple targeting rules
  * and complex quantitative item rules.
- * @author: elbertbautista
+ * @author:   
  *
  * Based off the Javascript component "business-rules"
  * @author: chris j. powers

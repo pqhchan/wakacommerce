@@ -37,7 +37,7 @@ import javax.servlet.http.HttpServletRequest;
  * @deprecated NO LONGER REQUIRED AND SHOULD NOT BE USED. SEE BroadleafAdminLdapUserDetailsMapper.
  *
  * <p/>
- * User: Kelly Tisdell
+ * User:   
  * Date: 6/19/12
  */
 @Deprecated

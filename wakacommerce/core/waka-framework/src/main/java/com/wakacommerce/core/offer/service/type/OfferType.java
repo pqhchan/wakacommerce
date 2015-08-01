@@ -5,13 +5,13 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 /**
  * An extendible enumeration of offer types.
  *
  */
-public class OfferType implements Serializable, BroadleafEnumerationType, Comparable<OfferType> {
+public class OfferType implements Serializable, WakaEnumType, Comparable<OfferType> {
     
     private static final long serialVersionUID = 1L;
 

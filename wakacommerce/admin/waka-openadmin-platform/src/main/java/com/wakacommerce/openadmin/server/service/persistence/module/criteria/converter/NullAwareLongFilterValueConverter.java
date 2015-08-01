@@ -5,7 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Component("blNullAwareLongFilterValueConverter")
 public class NullAwareLongFilterValueConverter implements FilterValueConverter<Long> {

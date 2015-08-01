@@ -2,7 +2,7 @@
 package com.wakacommerce.common.copy;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class CreateResponse<G> {
 

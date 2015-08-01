@@ -13,7 +13,7 @@ import java.util.Collection;
  * 
  * @see {@link AdminSecurityService}
  * @see {@link AdminUserDetailsServiceImpl}
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 public class AdminUserDetails extends User {
     

@@ -1,14 +1,7 @@
-
 package com.wakacommerce.core.search.domain;
 
 import java.util.Map;
 
-
-/**
- * Container that holds additional criteria to consider when performing searches for Products
- * 
- *Andre Azzolini (apazzolini)
- */
 public class SearchCriteria {
     
     public static String PAGE_SIZE_STRING = "pageSize";

@@ -27,7 +27,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class ExceptionHelper {
 

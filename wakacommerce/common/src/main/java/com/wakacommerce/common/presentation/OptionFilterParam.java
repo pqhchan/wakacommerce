@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
  * Describes additional filter parameters used to refine the list of items returned from a query for
  * a DataDrivenEnumeration
  *
- *Jeff Fischer
+ * 
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD})

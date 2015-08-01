@@ -8,7 +8,7 @@ import java.io.File;
  * 
  * Used by the file-service as a reference point when managing files for a user.
  * 
- *bpolster
+ * 
  *
  */
 public class FileWorkArea {

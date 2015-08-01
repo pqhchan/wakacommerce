@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Component("blJSCompatibilityRequestFilter")
 public class JSCompatibilityRequestFilter extends OncePerRequestFilter {

@@ -35,7 +35,7 @@ import org.thymeleaf.standard.expression.IStandardExpressionParser;
 import org.thymeleaf.standard.expression.StandardExpressions;
 
 import com.wakacommerce.common.util.BLCSystemProperty;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.catalog.domain.Sku;
 import com.wakacommerce.core.order.domain.FulfillmentGroup;
 import com.wakacommerce.core.order.domain.FulfillmentGroupItem;
@@ -76,7 +76,7 @@ import javax.servlet.http.HttpServletRequest;
  * 
  * @param ordernumber the order number to look up for ecommerce tracking, such as on the confirmation page
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 public class GoogleUniversalAnalyticsProcessor extends AbstractElementProcessor {
 
@@ -154,7 +154,7 @@ public class GoogleUniversalAnalyticsProcessor extends AbstractElementProcessor 
                 sb.append("});");
 
                 if ("webProperty".equals(trackerName)) {
-                    HttpServletRequest request = BroadleafRequestContext.getBroadleafRequestContext().getRequest();
+                    HttpServletRequest request = WakaRequestContext.getWakaRequestContext().getRequest();
                     if (request != null) {
                         Map<String, String> setValuesMap = (Map<String, String>) request.getAttribute("blGAValuesMap");
                         if (setValuesMap != null) {

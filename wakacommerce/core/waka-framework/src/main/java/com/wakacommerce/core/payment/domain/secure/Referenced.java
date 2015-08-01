@@ -24,7 +24,7 @@ import javax.annotation.Nonnull;
  * @see {@link CreditCardPayment}
  * @see {@link GiftCardPayment}
  * @see {@link BankAccountPayment}
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 public interface Referenced extends Serializable {
 

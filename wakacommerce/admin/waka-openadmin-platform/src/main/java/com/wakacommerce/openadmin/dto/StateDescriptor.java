@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * The current state of an entity
  *
- *Jeff Fischer
+ * 
  */
 public interface StateDescriptor {
 

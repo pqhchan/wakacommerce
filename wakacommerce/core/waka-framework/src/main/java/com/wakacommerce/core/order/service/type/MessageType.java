@@ -1,7 +1,7 @@
 
 package com.wakacommerce.core.order.service.type;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 import com.wakacommerce.core.order.domain.Order;
 
 import java.io.Serializable;
@@ -13,9 +13,9 @@ import java.util.Map;
  *  <li><b>CART</b> - Represents a  wishlist</li>
  *  <li><b>PRODUCT_OPTION</b> - Represents a cart (non-submitted {@link Order}s)</li>
  * 
- *jfischer
+ *  
  */
-public class MessageType implements Serializable, BroadleafEnumerationType {
+public class MessageType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 

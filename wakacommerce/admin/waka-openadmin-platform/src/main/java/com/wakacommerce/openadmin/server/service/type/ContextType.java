@@ -5,16 +5,16 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 /**
  * An extensible enumeration for a Security Context Type.
  * @see com.wakacommerce.openadmin.server.security.domain.AdminSecurityContext
  *
- *elbertbautista
+ *  
  *
  */
-public class ContextType implements Serializable, BroadleafEnumerationType {
+public class ContextType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 

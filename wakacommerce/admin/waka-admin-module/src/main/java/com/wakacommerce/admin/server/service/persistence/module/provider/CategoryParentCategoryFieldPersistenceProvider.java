@@ -46,7 +46,7 @@ import javax.annotation.Resource;
  * This field persistence provider manages the default CategoryXref reference for a Category instance through
  * the "defaultParentCategory" pseudo field.
  *
- *Jeff Fischer
+ * 
  */
 @Component("blCategoryParentCategoryFieldPersistenceProvider")
 @Scope("prototype")

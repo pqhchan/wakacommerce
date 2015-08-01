@@ -39,7 +39,7 @@ import java.util.List;
  * Default Broadleaf-recommended configuration for REST APIs. Recommended use is to extend this class and annotate
  * your extension with {@code @Configuration} and {@link @EnableWebMvc}
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 public class BroadleafRestApiMvcConfiguration extends WebMvcConfigurerAdapter {
 

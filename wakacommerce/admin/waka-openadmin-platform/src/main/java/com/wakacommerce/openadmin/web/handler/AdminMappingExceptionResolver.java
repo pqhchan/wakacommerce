@@ -6,7 +6,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 
-import com.wakacommerce.common.web.controller.BroadleafControllerUtility;
+import com.wakacommerce.common.web.controller.WakaControllerUtility;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,7 +21,7 @@ public class AdminMappingExceptionResolver extends SimpleMappingExceptionResolve
     @Override
     public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, 
             Exception ex) {
-        if (BroadleafControllerUtility.isAjaxRequest(request)) {
+        if (WakaControllerUtility.isAjaxRequest(request)) {
             // Set up some basic response attributes
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             ModelAndView mav = new ModelAndView("utility/blcException");

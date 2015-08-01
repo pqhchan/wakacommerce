@@ -55,7 +55,7 @@ import javax.persistence.OneToMany;
  * is only compatible with quantity-based rules modeled using a Set and @OneToMany, and with simple rules modeled using
  * a Map and @OneToMany.
  *
- *Jeff Fischer
+ * 
  */
 @Component("blRuleFieldPersistenceProvider")
 @Scope("prototype")

@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.web.expression;
 
 import org.thymeleaf.context.IProcessingContext;
@@ -13,8 +12,6 @@ import javax.annotation.Resource;
 
 /**
  * Provides a skeleton to register multiple {@link BroadleafVariableExpression} implementors.
- * 
- *Andre Azzolini (apazzolini)
  */
 public class BroadleafVariableExpressionEvaluator extends SpelVariableExpressionEvaluator {
     

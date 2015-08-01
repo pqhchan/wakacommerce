@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 /**
  * This is a JAXB wrapper around HibuProduct.
@@ -15,7 +15,7 @@ import com.wakacommerce.common.BroadleafEnumerationType;
  */
 @XmlRootElement(name = "BroadleafEnumerationTypeWrapper")
 @XmlAccessorType(value = XmlAccessType.FIELD)
-public class BroadleafEnumerationTypeWrapper extends BaseWrapper implements APIWrapper<BroadleafEnumerationType> {
+public class BroadleafEnumerationTypeWrapper extends BaseWrapper implements APIWrapper<WakaEnumType> {
 
 
     @XmlElement
@@ -25,14 +25,14 @@ public class BroadleafEnumerationTypeWrapper extends BaseWrapper implements APIW
     protected String type;
 
     @Override
-    public void wrapDetails(BroadleafEnumerationType model, HttpServletRequest request) {
+    public void wrapDetails(WakaEnumType model, HttpServletRequest request) {
         if (model == null) return;
         this.friendlyName = model.getFriendlyType();
         this.type = model.getType();
     }
 
     @Override
-    public void wrapSummary(BroadleafEnumerationType model, HttpServletRequest request) {
+    public void wrapSummary(WakaEnumType model, HttpServletRequest request) {
         wrapDetails(model, request);
     }
 

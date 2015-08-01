@@ -10,7 +10,7 @@ import com.wakacommerce.core.order.domain.OrderItem;
  * This interface is used as a part of a template pattern in ItemOfferProcessor that allows reuse to other BLC modules.
  * 
  * Changes here likely affect Subscription and AdvancedOffer modules.
- *bpolster
+ * 
  *
  */
 public interface ItemOfferMarkTargets {

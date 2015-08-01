@@ -20,7 +20,7 @@ import com.wakacommerce.core.search.domain.SearchFacetResultDTO;
  * Search facets are typically returned from a catalog search as part of the result. 
  * You can use facets to narrow a search.
  * 
- *Kelly Tisdell
+ *  
  *
  */
 @XmlRootElement(name = "searchFacet")

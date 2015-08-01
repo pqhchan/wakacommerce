@@ -7,7 +7,7 @@ import java.util.List;
 import com.wakacommerce.openadmin.dto.Entity;
 
 /**
- *Jeff Fischer
+ * 
  */
 public interface DynamicEntityRetriever {
 

@@ -40,8 +40,8 @@ import javax.servlet.http.HttpServletResponse;
  * are marked as requiring a lock will execute strictly serially as defined by the configured {@link OrderLockManager}.
  * </p>
  *
- *bpolster
- *Andre Azzolini (apazzolini)
+ * 
+ * 
  */
 @Component("blCartStateFilter")
 public class CartStateFilter extends OncePerRequestFilter implements Ordered {

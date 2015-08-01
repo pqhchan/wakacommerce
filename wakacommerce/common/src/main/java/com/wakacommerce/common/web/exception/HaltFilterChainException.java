@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.web.exception;
 
 public class HaltFilterChainException extends RuntimeException {

@@ -10,7 +10,7 @@ import org.springframework.validation.Validator;
 import com.wakacommerce.core.web.checkout.model.CreditCardInfoForm;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Component("blCreditCardInfoFormValidator")
 public class CreditCardInfoFormValidator implements Validator {

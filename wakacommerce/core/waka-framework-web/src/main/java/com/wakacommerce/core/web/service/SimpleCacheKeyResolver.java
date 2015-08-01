@@ -31,7 +31,7 @@ import org.thymeleaf.standard.expression.StandardExpressions;
  * Default implementation of {@link TemplateCacheKeyResolverService} that returns a concatenation of a 
  * templateName and cacheKey.   If the cacheKey is set to none, null is returned resulting in no cache.
  * 
- *Brian Polster (bpolster)
+ *   ( )
  */
 @Service("blTemplateCacheKeyResolver")
 public class SimpleCacheKeyResolver implements TemplateCacheKeyResolverService {

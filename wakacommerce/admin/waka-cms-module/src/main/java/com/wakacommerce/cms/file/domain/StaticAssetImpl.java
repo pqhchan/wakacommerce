@@ -1,26 +1,19 @@
-/*
- * #%L
- * BroadleafCommerce CMS Module
- * %%
- * Copyright (C) 2009 - 2013 Broadleaf Commerce
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *       http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * #L%
- */
 package com.wakacommerce.cms.file.domain;
 
-import org.hibernate.annotations.*;
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
 import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Index;
 import org.hibernate.annotations.Parameter;
 
 import com.wakacommerce.cms.field.type.StorageType;
@@ -30,8 +23,10 @@ import com.wakacommerce.common.copy.MultiTenantCopyContext;
 import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransform;
 import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformMember;
 import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformTypes;
-import com.wakacommerce.common.locale.domain.LocaleImpl;
-import com.wakacommerce.common.presentation.*;
+import com.wakacommerce.common.presentation.AdminPresentation;
+import com.wakacommerce.common.presentation.AdminPresentationClass;
+import com.wakacommerce.common.presentation.PopulateToOneFieldsEnum;
+import com.wakacommerce.common.presentation.RequiredOverride;
 import com.wakacommerce.common.presentation.client.SupportedFieldType;
 import com.wakacommerce.common.presentation.client.VisibilityEnum;
 import com.wakacommerce.common.presentation.override.AdminPresentationOverride;
@@ -39,16 +34,6 @@ import com.wakacommerce.common.presentation.override.AdminPresentationOverrides;
 import com.wakacommerce.openadmin.audit.AdminAuditable;
 import com.wakacommerce.openadmin.audit.AdminAuditableListener;
 
-import javax.persistence.CascadeType;
-import javax.persistence.*;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import java.util.HashMap;
-import java.util.Map;
-
-/**
- * Created by bpolster.
- */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @EntityListeners(value = { AdminAuditableListener.class })
@@ -91,7 +76,7 @@ public class StaticAssetImpl implements StaticAsset, AdminMainEntity {
     protected AdminAuditable auditable = new AdminAuditable();
 
     @Column(name = "NAME", nullable = false)
-    @AdminPresentation(friendlyName = "StaticAssetImpl_Item_Name",
+    @AdminPresentation(friendlyName = "名称",
             order = Presentation.FieldOrder.NAME,
             requiredOverride = RequiredOverride.NOT_REQUIRED,
             gridOrder = Presentation.FieldOrder.NAME,
@@ -99,7 +84,7 @@ public class StaticAssetImpl implements StaticAsset, AdminMainEntity {
     protected String name;
 
     @Column(name ="FULL_URL", nullable = false)
-    @AdminPresentation(friendlyName = "StaticAssetImpl_Full_URL",
+    @AdminPresentation(friendlyName = "地址",
             order = Presentation.FieldOrder.URL,
             gridOrder = Presentation.FieldOrder.URL,
             requiredOverride = RequiredOverride.REQUIRED,
@@ -109,56 +94,35 @@ public class StaticAssetImpl implements StaticAsset, AdminMainEntity {
     protected String fullUrl;
 
     @Column(name = "TITLE", nullable = true)
-    @AdminPresentation(friendlyName = "StaticAssetImpl_Title",
-            order = Presentation.FieldOrder.TITLE,
-            translatable = true)
+    @AdminPresentation(friendlyName = "标题",
+            order = Presentation.FieldOrder.TITLE)
     protected String title;
 
     @Column(name = "ALT_TEXT", nullable = true)
-    @AdminPresentation(friendlyName = "StaticAssetImpl_Alt_Text",
-            order = Presentation.FieldOrder.ALT_TEXT,
-            translatable = true)
+    @AdminPresentation(friendlyName = "Alt文本",
+            order = Presentation.FieldOrder.ALT_TEXT)
     protected String altText;
 
     @Column(name = "MIME_TYPE")
-    @AdminPresentation(friendlyName = "StaticAssetImpl_Mime_Type",
+    @AdminPresentation(friendlyName = "Mime类型",
             order = Presentation.FieldOrder.MIME_TYPE,
             tab = Presentation.Tab.Name.File_Details, tabOrder = Presentation.Tab.Order.File_Details,
             readOnly = true)
     protected String mimeType;
 
     @Column(name = "FILE_SIZE")
-    @AdminPresentation(friendlyName = "StaticAssetImpl_File_Size_Bytes",
+    @AdminPresentation(friendlyName = "尺寸",
             order = Presentation.FieldOrder.FILE_SIZE,
             tab = Presentation.Tab.Name.File_Details, tabOrder = Presentation.Tab.Order.File_Details,
             readOnly = true)
     protected Long fileSize;
 
     @Column(name = "FILE_EXTENSION")
-    @AdminPresentation(friendlyName = "StaticAssetImpl_File_Extension",
+    @AdminPresentation(friendlyName = "扩展名",
             order = Presentation.FieldOrder.FILE_EXTENSION,
             tab = Presentation.Tab.Name.File_Details, tabOrder = Presentation.Tab.Order.File_Details,
             readOnly = true)
     protected String fileExtension;
-
-    @ManyToMany(targetEntity = StaticAssetDescriptionImpl.class, cascade = CascadeType.ALL)
-    @JoinTable(name = "BLC_ASSET_DESC_MAP", joinColumns = @JoinColumn(name = "STATIC_ASSET_ID"),
-            inverseJoinColumns = @JoinColumn(name = "STATIC_ASSET_DESC_ID"))
-    @MapKeyColumn(name = "MAP_KEY")
-    @Cascade(value={org.hibernate.annotations.CascadeType.ALL, org.hibernate.annotations.CascadeType.DELETE_ORPHAN})
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="blCMSElements")
-    @BatchSize(size = 20)
-    @AdminPresentationMap(
-        excluded = true,
-            tab = Presentation.Tab.Name.Advanced, tabOrder = Presentation.Tab.Order.Advanced,
-        friendlyName = "assetDescriptionTitle",
-        keyPropertyFriendlyName = "SkuImpl_Sku_Media_Key",
-        deleteEntityUponRemove = true,
-        mapKeyOptionEntityClass = LocaleImpl.class,
-        mapKeyOptionEntityDisplayField = "friendlyName",
-        mapKeyOptionEntityValueField = "localeCode"
-)
-    protected Map<String,StaticAssetDescription> contentMessageValues = new HashMap<String,StaticAssetDescription>();
 
     @Column(name = "STORAGE_TYPE")
     @AdminPresentation(excluded = true)
@@ -202,16 +166,6 @@ public class StaticAssetImpl implements StaticAsset, AdminMainEntity {
     @Override
     public void setFileSize(Long fileSize) {
         this.fileSize = fileSize;
-    }
-
-    @Override
-    public Map<String, StaticAssetDescription> getContentMessageValues() {
-        return contentMessageValues;
-    }
-
-    @Override
-    public void setContentMessageValues(Map<String, StaticAssetDescription> contentMessageValues) {
-        this.contentMessageValues = contentMessageValues;
     }
 
     @Override
@@ -294,10 +248,6 @@ public class StaticAssetImpl implements StaticAsset, AdminMainEntity {
         cloned.setMimeType(mimeType);
         cloned.setTitle(title);
         cloned.setStorageType(getStorageType());
-        for(Map.Entry<String, StaticAssetDescription> entry : contentMessageValues.entrySet()){
-            CreateResponse<StaticAssetDescription> clonedDescRsp = entry.getValue().createOrRetrieveCopyInstance(context);
-            cloned.getContentMessageValues().put(entry.getKey(),clonedDescRsp.getClone());
-        }
 
         return createResponse;
     }
@@ -308,8 +258,8 @@ public class StaticAssetImpl implements StaticAsset, AdminMainEntity {
 
             public static class Name {
 
-                public static final String File_Details = "StaticAssetImpl_FileDetails_Tab";
-                public static final String Advanced = "StaticAssetImpl_Advanced_Tab";
+                public static final String File_Details = "详细信息";
+                public static final String Advanced = "高级";
             }
 
             public static class Order {

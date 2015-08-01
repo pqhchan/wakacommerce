@@ -66,7 +66,7 @@ import javax.servlet.http.HttpServletRequest;
  * will override and extend the methods of this class, add new methods, and control the JAX-RS behavior 
  * using annotations according to the JAX-RS specification.
  *
- * User: Kelly Tisdell
+ * User:   
  */
 public abstract class CatalogEndpoint extends BaseEndpoint {
 

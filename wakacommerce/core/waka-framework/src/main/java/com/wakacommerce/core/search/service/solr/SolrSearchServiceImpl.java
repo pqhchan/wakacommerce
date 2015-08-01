@@ -23,7 +23,7 @@ import org.xml.sax.SAXException;
 
 import com.wakacommerce.common.exception.ServiceException;
 import com.wakacommerce.common.locale.domain.Locale;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.catalog.dao.ProductDao;
 import com.wakacommerce.core.catalog.dao.SkuDao;
 import com.wakacommerce.core.catalog.domain.Category;
@@ -70,7 +70,7 @@ import javax.xml.parsers.ParserConfigurationException;
  * Note that prior to 2.2.0, this class used to contain all of the logic for interaction with Solr. Since 2.2.0, this class
  * has been refactored and parts of it have been split into the other classes you can find in this package.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class SolrSearchServiceImpl implements SearchService, InitializingBean, DisposableBean {
     private static final Log LOG = LogFactory.getLog(SolrSearchServiceImpl.class);
@@ -488,8 +488,8 @@ public class SolrSearchServiceImpl implements SearchService, InitializingBean, D
     }
 
     public String getLocalePrefix() {
-        if (BroadleafRequestContext.getBroadleafRequestContext() != null) {
-            Locale locale = BroadleafRequestContext.getBroadleafRequestContext().getLocale();
+        if (WakaRequestContext.getWakaRequestContext() != null) {
+            Locale locale = WakaRequestContext.getWakaRequestContext().getLocale();
             if (locale != null) {
                 return locale.getLocaleCode() + "_";
             }

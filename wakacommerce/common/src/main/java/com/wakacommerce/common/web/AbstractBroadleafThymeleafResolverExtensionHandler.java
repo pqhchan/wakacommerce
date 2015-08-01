@@ -1,16 +1,11 @@
-
 package com.wakacommerce.common.web;
 
 import com.wakacommerce.common.extension.AbstractExtensionHandler;
 import com.wakacommerce.common.extension.ExtensionResultHolder;
 import com.wakacommerce.common.extension.ExtensionResultStatusType;
 
-
-/**
- *bpolster
- */
 public abstract class AbstractBroadleafThymeleafResolverExtensionHandler extends AbstractExtensionHandler 
-        implements BroadleafThymeleafViewResolverExtensionHandler {
+        implements WakaThymeleafViewResolverExtensionHandler {
 
     @Override
     public ExtensionResultStatusType overrideView(ExtensionResultHolder<String> erh, String originalViewName,

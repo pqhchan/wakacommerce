@@ -14,7 +14,7 @@ import javax.persistence.EntityManager;
  * in the commercial enterprise module.
  *
  * @see com.wakacommerce.common.sandbox.DefaultSandBoxHelper
- *Jeff Fischer
+ * 
  */
 public interface SandBoxHelper {
 

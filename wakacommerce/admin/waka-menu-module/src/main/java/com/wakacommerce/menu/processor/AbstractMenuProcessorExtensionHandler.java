@@ -8,7 +8,7 @@ import com.wakacommerce.common.extension.AbstractExtensionHandler;
 import com.wakacommerce.common.extension.ExtensionResultStatusType;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public abstract class AbstractMenuProcessorExtensionHandler extends AbstractExtensionHandler
         implements MenuProcessorExtensionHandler {

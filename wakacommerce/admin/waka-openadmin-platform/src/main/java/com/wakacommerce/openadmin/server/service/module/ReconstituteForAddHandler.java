@@ -26,7 +26,7 @@ import com.wakacommerce.openadmin.dto.PersistencePackage;
 /**
  * Useful in concert with the enterprise module. Keeps track of references for ADD operations across sandboxes.
  *
- *Jeff Fischer
+ * 
  */
 public interface ReconstituteForAddHandler {
 

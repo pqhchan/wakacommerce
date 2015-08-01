@@ -24,7 +24,7 @@ import java.io.Serializable;
 /**
  * Domain object used to synchronize {@link Order} operations.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface OrderLock extends Serializable {
 

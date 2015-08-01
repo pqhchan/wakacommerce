@@ -49,7 +49,7 @@ import javax.ws.rs.ext.Provider;
  * <p>
  * This also ensures that the {@link JaxbAnnotationModule} is registered with the {@link ObjectMapper}.
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  * @deprecated along with the other JAXRS components, this is deprecated in favor of using Spring MVC for REST services
  */
 @Provider

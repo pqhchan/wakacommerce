@@ -1,26 +1,22 @@
-/*
- * #%L
- * BroadleafCommerce CMS Module
- * %%
- * Copyright (C) 2009 - 2013 Broadleaf Commerce
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *       http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * #L%
- */
 package com.wakacommerce.cms.page.domain;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
 import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -43,27 +39,6 @@ import com.wakacommerce.common.presentation.AdminPresentationClass;
 import com.wakacommerce.common.presentation.PopulateToOneFieldsEnum;
 import com.wakacommerce.common.presentation.client.VisibilityEnum;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
-import javax.persistence.Table;
-import javax.persistence.Transient;
-
-/**
- * Created by bpolster.
- */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "BLC_PAGE_TMPLT")
@@ -75,7 +50,6 @@ import javax.persistence.Transient;
 })
 public class PageTemplateImpl implements PageTemplate, AdminMainEntity, ProfileEntity {
 
-    private static final Log LOG = LogFactory.getLog(PageTemplateImpl.class);
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -172,27 +146,6 @@ public class PageTemplateImpl implements PageTemplate, AdminMainEntity, ProfileE
     @Override
     public void setLocale(Locale locale) {
         this.locale = locale;
-    }
-
-    @Override
-    @Deprecated
-    public List<FieldGroup> getFieldGroups() {
-        if (legacyFieldGroups.isEmpty()) {
-            for (PageTemplateFieldGroupXref xref : getFieldGroupXrefs()) {
-                legacyFieldGroups.add(xref.getFieldGroup());
-            }
-        }
-        return Collections.unmodifiableList(legacyFieldGroups);
-    }
-
-    @Override
-    @Deprecated
-    public void setFieldGroups(List<FieldGroup> fieldGroups) {
-        this.legacyFieldGroups.clear();
-        this.fieldGroups.clear();
-        for (FieldGroup group : fieldGroups) {
-            this.fieldGroups.add(new PageTemplateFieldGroupXrefImpl(this, group));
-        }
     }
 
     @Override

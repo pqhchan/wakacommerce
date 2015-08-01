@@ -50,7 +50,7 @@ import javax.persistence.criteria.Predicate;
  * Adds {@link FilterMapping} to the {@link CriteriaTransferObject}'s {@link CriteriaTransferObject#getAdditionalFilterMappings()}
  * in order to exclude by default any entities that are archived.
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 @Component("blArchiveStatusPersistenceEventHandler")
 public class ArchiveStatusPersistenceEventHandler extends PersistenceManagerEventHandlerAdapter {

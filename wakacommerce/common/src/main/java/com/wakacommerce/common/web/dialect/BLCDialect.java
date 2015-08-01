@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.web.dialect;
 
 import org.thymeleaf.dialect.AbstractDialect;

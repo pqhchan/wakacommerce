@@ -8,7 +8,7 @@ import com.wakacommerce.common.site.domain.Site;
  * Class that provides guidance to modules that need to react when running in a multi-tenant mode.   Especially, 
  * when an entity is associated with a Profile or Catalog.
  * 
- *bpolster
+ * 
  *
  */
 public interface EntityInformationService {

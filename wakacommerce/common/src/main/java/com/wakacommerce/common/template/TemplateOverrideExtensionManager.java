@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.wakacommerce.common.extension.ExtensionManager;
 
 /**
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Service("blTemplateOverrideExtensionManager")
 public class TemplateOverrideExtensionManager extends ExtensionManager<TemplateOverrideExtensionHandler> {

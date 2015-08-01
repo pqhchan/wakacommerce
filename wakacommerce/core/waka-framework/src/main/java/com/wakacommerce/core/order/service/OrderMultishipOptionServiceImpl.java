@@ -21,7 +21,7 @@ import javax.annotation.Resource;
 
 /**
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Service("blOrderMultishipOptionService")
 public class OrderMultishipOptionServiceImpl implements OrderMultishipOptionService {

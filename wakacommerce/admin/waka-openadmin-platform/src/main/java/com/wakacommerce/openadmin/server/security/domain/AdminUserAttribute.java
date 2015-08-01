@@ -6,7 +6,7 @@ import com.wakacommerce.common.value.ValueAssignable;
 /**
  * Stores additional attributes for {@link AdminUser}s
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface AdminUserAttribute extends ValueAssignable<String> {
 

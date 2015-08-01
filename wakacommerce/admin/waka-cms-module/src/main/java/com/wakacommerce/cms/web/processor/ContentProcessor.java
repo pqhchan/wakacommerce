@@ -1,22 +1,3 @@
-/*
- * #%L
- * BroadleafCommerce CMS Module
- * %%
- * Copyright (C) 2009 - 2013 Broadleaf Commerce
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *       http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * #L%
- */
 package com.wakacommerce.cms.web.processor;
 
 import org.apache.commons.lang.ObjectUtils;
@@ -45,7 +26,7 @@ import com.wakacommerce.common.locale.domain.Locale;
 import com.wakacommerce.common.sandbox.domain.SandBox;
 import com.wakacommerce.common.structure.dto.StructuredContentDTO;
 import com.wakacommerce.common.time.SystemTime;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.common.web.deeplink.DeepLink;
 import com.wakacommerce.common.web.dialect.AbstractModelVariableModifierProcessor;
 
@@ -116,9 +97,6 @@ public class ContentProcessor extends AbstractModelVariableModifierProcessor {
     @Resource(name = "blContentDeepLinkService")
     protected ContentDeepLinkServiceImpl contentDeepLinkService;
     
-    /**
-     * Sets the name of this processor to be used in Thymeleaf template
-     */
     public ContentProcessor() {
         super("content");
     }
@@ -174,7 +152,7 @@ public class ContentProcessor extends AbstractModelVariableModifierProcessor {
 
         IWebContext context = (IWebContext) arguments.getContext();     
         HttpServletRequest request = context.getHttpServletRequest();   
-        BroadleafRequestContext blcContext = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext blcContext = WakaRequestContext.getWakaRequestContext();
         
         Map<String, Object> mvelParameters = buildMvelParameters(request, arguments, element);
         SandBox currentSandbox = blcContext.getSandBox();
@@ -304,7 +282,7 @@ public class ContentProcessor extends AbstractModelVariableModifierProcessor {
      * @return
      */
     protected Map<String, Object> buildMvelParameters(HttpServletRequest request, Arguments arguments, Element element) {
-        TimeZone timeZone = BroadleafRequestContext.getBroadleafRequestContext().getTimeZone();
+        TimeZone timeZone = WakaRequestContext.getWakaRequestContext().getTimeZone();
 
         final TimeDTO timeDto;
         if (timeZone != null) {

@@ -23,7 +23,7 @@ import org.apache.commons.collections4.MapUtils;
 
 import com.wakacommerce.common.exception.ServiceException;
 import com.wakacommerce.common.site.domain.Catalog;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.search.dao.CatalogStructure;
 
 import java.util.HashMap;
@@ -35,7 +35,7 @@ import java.util.Map;
  * This serves to boost performance while executing multiple calls to {@link com.wakacommerce.core.search.service.solr.SolrIndexService#buildIncrementalIndex(int, int, boolean)}.
  *
  * @see com.wakacommerce.core.search.service.solr.SolrIndexService
- *Jeff Fischer
+ * 
  */
 public class SolrIndexCachedOperation {
 
@@ -49,7 +49,7 @@ public class SolrIndexCachedOperation {
      * @return The cache for the current thread, or null if not set
      */
     public static CatalogStructure getCache() {
-        BroadleafRequestContext ctx = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext ctx = WakaRequestContext.getWakaRequestContext();
         Catalog currentCatalog = ctx == null ? null : ctx.getCurrentCatalog();
         if (currentCatalog != null) {
             return MapUtils.getObject(CACHE.get(), currentCatalog.getId());
@@ -64,7 +64,7 @@ public class SolrIndexCachedOperation {
      * @param cache the cache object (usually an empty map)
      */
     public static void setCache(CatalogStructure cache) {
-        BroadleafRequestContext ctx = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext ctx = WakaRequestContext.getWakaRequestContext();
         Catalog currentCatalog = ctx == null ? null : ctx.getCurrentCatalog();
         Map<Long, CatalogStructure> catalogCaches = CACHE.get();
         if (catalogCaches == null) {

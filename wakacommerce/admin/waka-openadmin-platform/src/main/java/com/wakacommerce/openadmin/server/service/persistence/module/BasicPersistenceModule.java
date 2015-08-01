@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.service.persistence.module;
 
 import org.apache.commons.beanutils.PropertyUtils;
@@ -35,7 +34,7 @@ import com.wakacommerce.common.util.dao.TQJoin;
 import com.wakacommerce.common.util.dao.TQOrder;
 import com.wakacommerce.common.util.dao.TQRestriction;
 import com.wakacommerce.common.util.dao.TypedQueryBuilder;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.openadmin.dto.BasicFieldMetadata;
 import com.wakacommerce.openadmin.dto.CriteriaTransferObject;
 import com.wakacommerce.openadmin.dto.DynamicResultSet;
@@ -102,9 +101,6 @@ import java.util.StringTokenizer;
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
-/**
- *jfischer
- */
 @Primary
 @Component("blBasicPersistenceModule")
 @Scope("prototype")
@@ -172,7 +168,7 @@ public class BasicPersistenceModule implements PersistenceModule, RecordHelper, 
     
     @Override
     public DecimalFormat getDecimalFormatter()  {
-        BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
         Locale locale = brc.getJavaLocale();
         DecimalFormat format = (DecimalFormat) NumberFormat.getInstance(locale);
         format.applyPattern("0.########");

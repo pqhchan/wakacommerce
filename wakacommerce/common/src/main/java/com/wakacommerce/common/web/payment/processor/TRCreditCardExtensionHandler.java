@@ -10,7 +10,7 @@ import com.wakacommerce.common.payment.dto.PaymentRequestDTO;
 import com.wakacommerce.common.vendor.service.exception.PaymentException;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public interface TRCreditCardExtensionHandler extends ExtensionHandler {
 

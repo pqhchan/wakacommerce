@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import com.wakacommerce.common.currency.domain.BroadleafCurrency;
 import com.wakacommerce.common.money.Money;
 import com.wakacommerce.common.presentation.client.SupportedFieldType;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.catalog.domain.Product;
 import com.wakacommerce.core.catalog.domain.Sku;
 import com.wakacommerce.core.catalog.domain.SkuImpl;
@@ -28,7 +28,7 @@ import java.util.Locale;
 /**
  * Persistence provider capable of extracting friendly display values for Sku prices, taking currency into consideration.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Scope("prototype")
 @Component("blSkuPricingPersistenceProvider")
@@ -103,7 +103,7 @@ public class SkuPricingPersistenceProvider extends AbstractMoneyFieldPersistence
     
     @Override
     protected Locale getLocale(ExtractValueRequest extractValueRequest, Property property) {
-        BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
         return brc.getJavaLocale();
     }
 
@@ -119,7 +119,7 @@ public class SkuPricingPersistenceProvider extends AbstractMoneyFieldPersistence
         }
         
         if (bc == null) {
-            BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+            WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
             return brc.getJavaCurrency();
         } else {
             return Currency.getInstance(bc.getCurrencyCode());

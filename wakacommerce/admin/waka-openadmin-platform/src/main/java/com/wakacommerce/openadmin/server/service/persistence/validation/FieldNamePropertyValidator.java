@@ -25,7 +25,7 @@ package com.wakacommerce.openadmin.server.service.persistence.validation;
  * AdminUserImpl declares a password match on the field passwordConfirm. However, if the AdminUserImpl instance
  * is associated to another entity, then the password match field should actually become [another entity].[admin user field].passwordConfirm.
  *
- *Jeff Fischer
+ * 
  */
 public interface FieldNamePropertyValidator {
 }

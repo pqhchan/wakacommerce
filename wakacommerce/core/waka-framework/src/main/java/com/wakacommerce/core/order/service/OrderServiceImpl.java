@@ -25,7 +25,7 @@ import com.wakacommerce.common.extension.ExtensionResultHolder;
 import com.wakacommerce.common.payment.PaymentType;
 import com.wakacommerce.common.util.TableCreator;
 import com.wakacommerce.common.util.TransactionUtils;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.catalog.domain.Product;
 import com.wakacommerce.core.catalog.domain.Sku;
 import com.wakacommerce.core.offer.dao.OfferDao;
@@ -69,7 +69,7 @@ import com.wakacommerce.profile.core.domain.Customer;
 
 
 /**
- *apazzolini
+ *  
  */
 @Service("blOrderService")
 @ManagedResource(objectName="com.wakacommerce:name=OrderService", description="Order Service", currencyTimeLimit=15)
@@ -162,8 +162,8 @@ public class OrderServiceImpl implements OrderService {
             extensionManager.getProxy().attachAdditionalDataToNewNamedCart(customer, namedOrder);
         }
         
-        if (BroadleafRequestContext.getBroadleafRequestContext() != null) {
-            namedOrder.setLocale(BroadleafRequestContext.getBroadleafRequestContext().getLocale());
+        if (WakaRequestContext.getWakaRequestContext() != null) {
+            namedOrder.setLocale(WakaRequestContext.getWakaRequestContext().getLocale());
         }
         
         return persist(namedOrder); // No need to price here

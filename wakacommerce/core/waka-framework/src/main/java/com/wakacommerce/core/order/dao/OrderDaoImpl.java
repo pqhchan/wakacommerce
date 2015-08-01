@@ -13,7 +13,7 @@ import com.wakacommerce.common.persistence.EntityConfiguration;
 import com.wakacommerce.common.util.BLCSystemProperty;
 import com.wakacommerce.common.util.StreamCapableTransactionalOperationAdapter;
 import com.wakacommerce.common.util.StreamingTransactionCapableUtil;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.order.domain.Order;
 import com.wakacommerce.core.order.domain.OrderImpl;
 import com.wakacommerce.core.order.domain.OrderLock;
@@ -204,9 +204,9 @@ public class OrderDaoImpl implements OrderDao {
         order.setEmailAddress(customer.getEmailAddress());
         order.setStatus(OrderStatus.IN_PROCESS);
 
-        if (BroadleafRequestContext.getBroadleafRequestContext() != null) {
-            order.setCurrency(BroadleafRequestContext.getBroadleafRequestContext().getBroadleafCurrency());
-            order.setLocale(BroadleafRequestContext.getBroadleafRequestContext().getLocale());
+        if (WakaRequestContext.getWakaRequestContext() != null) {
+            order.setCurrency(WakaRequestContext.getWakaRequestContext().getBroadleafCurrency());
+            order.setLocale(WakaRequestContext.getWakaRequestContext().getLocale());
         }
 
         if (extensionManager != null) {
@@ -245,10 +245,10 @@ public class OrderDaoImpl implements OrderDao {
         List<Order> orders = query.getResultList();
         
         // Filter out orders that don't match the current locale (if one is set)
-        if (BroadleafRequestContext.getBroadleafRequestContext() != null) {
+        if (WakaRequestContext.getWakaRequestContext() != null) {
             ListIterator<Order> iter = orders.listIterator();
             while (iter.hasNext()) {
-                Locale locale = BroadleafRequestContext.getBroadleafRequestContext().getLocale();
+                Locale locale = WakaRequestContext.getWakaRequestContext().getLocale();
                 Order order = iter.next();
                 if (locale != null && !locale.equals(order.getLocale())) {
                     iter.remove();

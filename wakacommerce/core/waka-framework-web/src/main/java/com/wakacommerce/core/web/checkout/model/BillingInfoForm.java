@@ -10,8 +10,8 @@ import com.wakacommerce.profile.core.domain.PhoneImpl;
 /**
  * <p>A form to model adding the Billing Address to the Order</p>
  *
- *Elbert Bautista (elbertbautista)
- *Brian Polster (bpolster)
+ *  
+ *   ( )
  */
 public class BillingInfoForm implements Serializable {
 

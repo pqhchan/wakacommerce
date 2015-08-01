@@ -19,7 +19,7 @@ import javax.annotation.Resource;
  * Used as a replacement to the HTML {@code <form>} element which adds a CSRF token input field to forms that are submitted
  * via anything but GET. This is required to properly bypass the {@link CsrfFilter}.
  * 
- *apazzolini
+ *  
  * @see {@link CsrfFilter}
  */
 @Component("blFormProcessor")

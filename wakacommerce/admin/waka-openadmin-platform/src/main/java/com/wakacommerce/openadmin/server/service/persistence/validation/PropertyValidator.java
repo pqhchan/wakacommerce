@@ -25,7 +25,7 @@ import java.util.Map;
  * to validate {@link PopulationRequests} (which will be invoked immediately prior to populating a particular field on an
  * entity) then instead look at {@link PopulateValueRequestValidator}.</p>
  * 
- *Phillip Verheyden
+ *  
  * @see {@link ValidationConfigurationBasedPropertyValidator}
  * @see {@link EntityValidatorService}
  * @see {@link GlobalPropertyValidator}

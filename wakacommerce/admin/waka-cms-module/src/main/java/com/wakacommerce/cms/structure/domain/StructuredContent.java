@@ -1,23 +1,4 @@
-/*
- * #%L
- * BroadleafCommerce CMS Module
- * %%
- * Copyright (C) 2009 - 2013 Broadleaf Commerce
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *       http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * #L%
- */
-package com.wakacommerce.cms.structure.domain;
+ package com.wakacommerce.cms.structure.domain;
 
 import com.wakacommerce.common.copy.MultiTenantCloneable;
 import com.wakacommerce.common.locale.domain.Locale;
@@ -35,8 +16,6 @@ import javax.annotation.Nullable;
  * item with a set of predefined fields.    The fields associated with an instance
  * of StructuredContent are defined by its associated {@link StructuredContentType}.
  * <br>
- * StructuredContent items are typically maintained via the Broadleaf Commerce admin.
- * <br>
  * Display structured content items is typically done using the
  * {@link com.wakacommerce.cms.web.structure.DisplayContentTag} taglib.
  * <br>
@@ -46,76 +25,31 @@ import javax.annotation.Nullable;
  * <code>StructuredContentMatchRules</code> and setting the <code>priority</code>,
  * different ads could be shown to different users.
  *
- * It would not be typical in a Broadleaf implementation to extend this interface
- * or to use any implementation other than {@link StructuredContentImpl}.
- *
  * @see {@link StructuredContentType}
  * @see {@link StructuredContentImpl}
  * @see {@link com.wakacommerce.cms.web.structure.DisplayContentTag}
- *Brian Polster
- *Jeff Fischer
- *
+ *  
  */
-public interface StructuredContent extends Serializable,MultiTenantCloneable<StructuredContent> {
+public interface StructuredContent extends Serializable, MultiTenantCloneable<StructuredContent> {
 
-    /**
-     * Gets the primary key.
-     *
-     * @return the primary key
-     */
     @Nullable
     public Long getId();
 
-
-    /**
-     * Sets the primary key.
-     *
-     * @param id the new primary key
-     */
     public void setId(@Nullable Long id);
 
-
-    /**
-     * Gets the name.
-     *
-     * @return the name
-     */
     @Nonnull
     public String getContentName();
 
-    /**
-     * Sets the name.
-     * @param contentName
-     */
     public void setContentName(@Nonnull String contentName);
 
-    /**
-     * Gets the {@link Locale} associated with this content item.
-     *
-     * @return
-     */
     @Nonnull
     public Locale getLocale();
 
-
-    /**
-     * Sets the locale associated with this content item.
-     * @param locale
-     */
     public void setLocale(@Nonnull Locale locale);
 
-    /**
-     * Gets the {@link StructuredContentType} associated with this content item.
-     *
-     * @return
-     */
     @Nonnull
     public StructuredContentType getStructuredContentType();
 
-    /**
-     * Sets the {@link StructuredContentType} associated with this content item.
-     *
-     */
     public void setStructuredContentType(@Nonnull StructuredContentType structuredContentType);
 
     /**

@@ -6,7 +6,7 @@ import com.wakacommerce.core.pricing.service.exception.PricingException;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public interface ShippingOfferService {

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class DefaultCustomPersistenceHandlerFilter implements CustomPersistenceHandlerFilter {
 

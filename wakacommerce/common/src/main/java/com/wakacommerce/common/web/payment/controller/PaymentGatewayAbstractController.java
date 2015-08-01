@@ -1,5 +1,3 @@
-
-
 package com.wakacommerce.common.web.payment.controller;
 
 import org.apache.commons.logging.Log;
@@ -15,7 +13,7 @@ import com.wakacommerce.common.payment.service.PaymentGatewayConfiguration;
 import com.wakacommerce.common.payment.service.PaymentGatewayWebResponsePrintService;
 import com.wakacommerce.common.payment.service.PaymentGatewayWebResponseService;
 import com.wakacommerce.common.vendor.service.exception.PaymentException;
-import com.wakacommerce.common.web.controller.BroadleafAbstractController;
+import com.wakacommerce.common.web.controller.WakaAbstractController;
 
 import java.util.Map;
 
@@ -31,9 +29,9 @@ import javax.servlet.http.HttpServletRequest;
  * implement the blPaymentGatewayCheckoutService yourself, or override the applyPaymentToOrder and
  * the markPaymentAsInvalid methods accordingly.</p>
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
-public abstract class PaymentGatewayAbstractController extends BroadleafAbstractController {
+public abstract class PaymentGatewayAbstractController extends WakaAbstractController {
 
     protected static final Log LOG = LogFactory.getLog(PaymentGatewayAbstractController.class);
     public static final String PAYMENT_PROCESSING_ERROR = "PAYMENT_PROCESSING_ERROR";

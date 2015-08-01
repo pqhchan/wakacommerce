@@ -6,7 +6,7 @@ import java.util.Map;
 
 /**
  * Provides a wrapper class that can be used to alter the priority of a structuredcontentdto.
- *bpolster
+ * 
  *
  */
 public class StructuredContentDTOWrapper extends StructuredContentDTO {

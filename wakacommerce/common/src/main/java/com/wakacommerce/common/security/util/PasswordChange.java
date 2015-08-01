@@ -4,7 +4,7 @@ package com.wakacommerce.common.security.util;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public class PasswordChange extends PasswordReset {

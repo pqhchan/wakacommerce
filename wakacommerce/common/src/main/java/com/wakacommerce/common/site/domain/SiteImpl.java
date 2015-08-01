@@ -41,7 +41,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
- * Created by bpolster.
+ *   
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

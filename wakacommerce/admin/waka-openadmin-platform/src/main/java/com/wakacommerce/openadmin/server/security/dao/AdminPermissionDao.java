@@ -9,7 +9,7 @@ import com.wakacommerce.openadmin.server.security.service.type.PermissionType;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public interface AdminPermissionDao {

@@ -22,7 +22,7 @@ package com.wakacommerce.core.web.checkout.model;
 import java.io.Serializable;
 
 /**
- *Jerry Ocanas (jocanas)
+ *   (jocanas)
  */
 public class GiftCardInfoForm implements Serializable {
 

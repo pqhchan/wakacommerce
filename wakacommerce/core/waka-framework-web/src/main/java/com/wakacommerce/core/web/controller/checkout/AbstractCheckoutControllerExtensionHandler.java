@@ -25,7 +25,7 @@ import com.wakacommerce.common.extension.AbstractExtensionHandler;
 import com.wakacommerce.common.extension.ExtensionResultStatusType;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public abstract class AbstractCheckoutControllerExtensionHandler extends AbstractExtensionHandler
         implements BroadleafCheckoutControllerExtensionHandler {

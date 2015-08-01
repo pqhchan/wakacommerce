@@ -27,7 +27,7 @@ import javax.annotation.Resource;
  * The 2.0 implementation of merge cart service. Instead of merging items directly from one cart to another, we will
  * convert the previous cart to a named order that the customer is able to interact with as they see fit.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Service("blMergeCartService")
 public class MergeCartServiceImpl implements MergeCartService {

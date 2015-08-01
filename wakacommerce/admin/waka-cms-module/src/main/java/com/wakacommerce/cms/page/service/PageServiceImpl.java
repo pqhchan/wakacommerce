@@ -1,22 +1,3 @@
-/*
- * #%L
- * BroadleafCommerce CMS Module
- * %%
- * Copyright (C) 2009 - 2013 Broadleaf Commerce
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *       http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * #L%
- */
 package com.wakacommerce.cms.page.service;
 
 import net.sf.ehcache.Cache;
@@ -46,7 +27,7 @@ import com.wakacommerce.common.page.dto.PageDTO;
 import com.wakacommerce.common.rule.RuleProcessor;
 import com.wakacommerce.common.sandbox.domain.SandBox;
 import com.wakacommerce.common.template.TemplateOverrideExtensionManager;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -56,9 +37,6 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-/**
- * Created by bpolster.
- */
 @Service("blPageService")
 public class PageServiceImpl implements PageService {
 
@@ -141,11 +119,11 @@ public class PageServiceImpl implements PageService {
         List<PageDTO> returnList = null;
         if (uri != null) {
             Locale languageOnlyLocale = findLanguageOnlyLocale(locale);
-            BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
+            WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
             //store the language only locale for cache since we have to use the lowest common denominator (i.e. the cache
             //locale and the pageTemplate locale used for cache invalidation can be different countries)
             Long sandBox = context.getSandBox() == null?null:context.getSandBox().getId();
-            Long site = context.getSite() == null?null:context.getSite().getId();
+            Long site = context.getNonPersistentSite() == null?null:context.getNonPersistentSite().getId();
             String key = buildKey(sandBox, site, languageOnlyLocale, uri);
             key = key + "-" + secure;
             if (context.isProductionSandBox()) {

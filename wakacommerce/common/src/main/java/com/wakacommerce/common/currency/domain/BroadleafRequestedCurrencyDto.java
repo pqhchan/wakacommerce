@@ -9,7 +9,7 @@ package com.wakacommerce.common.currency.domain;
  * By storing the desired currency, we have the opportunity for a later module (like PriceLists) to 
  * check the DesiredCurrency and possibly alter the currency for the request. 
  * 
- *bpolster
+ * 
  *
  */
 public class BroadleafRequestedCurrencyDto {

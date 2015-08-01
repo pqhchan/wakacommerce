@@ -3,7 +3,7 @@ package com.wakacommerce.common.site.domain;
 
 /**
  * Stores the path to the theme.
- * Created by bpolster.
+ *   
  */
 public class ThemeDTO implements Theme {
 

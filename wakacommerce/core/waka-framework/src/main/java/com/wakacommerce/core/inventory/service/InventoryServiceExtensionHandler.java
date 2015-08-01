@@ -37,7 +37,7 @@ import java.util.Set;
  * will want to only override the {@link ContextualInventoryService} methods rather than all of the methods included
  * in {@link InventoryService} and so you will extend from {@link AbstractInventoryServiceExtensionHandler}.
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  * @see {@link ContextualInventoryService}
  * @see {@link AbstractInventoryServiceExtensionHandler}
  */

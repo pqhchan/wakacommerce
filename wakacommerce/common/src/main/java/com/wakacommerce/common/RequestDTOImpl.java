@@ -36,25 +36,16 @@ public class RequestDTOImpl implements RequestDTO, Serializable {
         secure = request.isSecure();
     }
 
-    /**
-     * @return  returns the request not including the protocol, domain, or query string
-     */
     @Override
     public String getRequestURI() {
         return requestURI;
     }
 
-    /**
-     * @return Returns the URL and parameters.
-     */
     @Override
     public String getFullUrLWithQueryString() {
         return fullUrlWithQueryString;
     }
 
-    /**
-     * @return true if this request came in through HTTPS
-     */
     @Override
     public Boolean isSecure() {
         return secure;

@@ -4,7 +4,7 @@ package com.wakacommerce.openadmin.dto;
 import java.io.Serializable;
 
 /**
- *Jeff Fischer
+ * 
  */
 public interface iFieldMetadata extends Serializable {
 

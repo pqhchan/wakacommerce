@@ -37,7 +37,7 @@ import java.util.Set;
  * <p>
  * Note: For {@link BandedWeightFulfillmentOption}, this assumes that all of your weights have the same units
  * </p>
- *Phillip Verheyden
+ *  
  * @see {@link BandedPriceFulfillmentOption}, {@link FulfillmentPriceBand}
  */
 public class BandedFulfillmentPricingProvider implements FulfillmentPricingProvider {

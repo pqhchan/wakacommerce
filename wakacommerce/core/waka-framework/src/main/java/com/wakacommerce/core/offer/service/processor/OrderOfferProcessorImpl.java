@@ -43,7 +43,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- *jfischer, bpolster
+ *  ,  
  */
 @Service("blOrderOfferProcessor")
 public class OrderOfferProcessorImpl extends AbstractBaseProcessor implements OrderOfferProcessor {

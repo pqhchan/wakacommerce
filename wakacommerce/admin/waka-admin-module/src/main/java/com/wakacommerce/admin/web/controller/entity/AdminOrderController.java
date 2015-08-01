@@ -1,4 +1,3 @@
-
 package com.wakacommerce.admin.web.controller.entity;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -15,11 +14,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * Handles admin operations for the {@link Order} entity. 
- * 
- *Andre Azzolini (apazzolini)
- */
 @Controller("blAdminOrderController")
 @RequestMapping("/" + AdminOrderController.SECTION_KEY)
 public class AdminOrderController extends AdminBasicEntityController {

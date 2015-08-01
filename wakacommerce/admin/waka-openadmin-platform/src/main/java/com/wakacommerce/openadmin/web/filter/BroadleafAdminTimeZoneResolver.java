@@ -11,7 +11,7 @@ import java.util.TimeZone;
 
 /**
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 @Component("blAdminTimeZoneResolver")
 public class BroadleafAdminTimeZoneResolver extends BroadleafTimeZoneResolverImpl {

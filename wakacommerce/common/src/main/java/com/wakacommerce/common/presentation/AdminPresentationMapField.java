@@ -12,7 +12,7 @@ import com.wakacommerce.common.presentation.client.CustomFieldSearchableTypes;
  * This annotation is used to describe a member of a Map structure that should be
  * displayed as a regular field in the admin tool.
  *
- *Jeff Fischer
+ * 
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD})

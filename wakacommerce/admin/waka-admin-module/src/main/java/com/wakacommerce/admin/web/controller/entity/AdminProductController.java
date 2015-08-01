@@ -1,4 +1,3 @@
-
 package com.wakacommerce.admin.web.controller.entity;
 
 import org.apache.commons.lang3.StringUtils;
@@ -47,7 +46,6 @@ import javax.servlet.http.HttpServletResponse;
  * Handles admin operations for the {@link Product} entity. Editing a product requires custom criteria in order to properly
  * invoke the {@link ProductCustomPersistenceHandler}
  * 
- *Andre Azzolini (apazzolini)
  * @see {@link ProductCustomPersistenceHandler}
  */
 @Controller("blAdminProductController")

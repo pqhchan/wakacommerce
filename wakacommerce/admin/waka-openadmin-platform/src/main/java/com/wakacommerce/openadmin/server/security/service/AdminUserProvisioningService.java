@@ -6,7 +6,7 @@ import com.wakacommerce.common.security.BroadleafExternalAuthenticationUserDetai
 /**
  * Utility to add or update the AdminUser object in the database after authentication from an external system.
  * 
- *Kelly Tisdell
+ *  
  *
  */
 public interface AdminUserProvisioningService {

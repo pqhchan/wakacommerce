@@ -20,7 +20,7 @@ import java.util.Map;
  * Validator used at the controller level to ensure that an Entity has passed validation from the PersistenceModule or
  * CustomPersistenceHandler. This should be used as a final validation step after attempting the save
  * 
- *Phillip Verheyden
+ *  
  */
 @Component("blEntityFormValidator")
 public class EntityFormValidator {

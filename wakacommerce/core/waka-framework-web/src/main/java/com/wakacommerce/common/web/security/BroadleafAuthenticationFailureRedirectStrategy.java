@@ -5,7 +5,7 @@ import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.stereotype.Component;
 
-import com.wakacommerce.common.web.controller.BroadleafControllerUtility;
+import com.wakacommerce.common.web.controller.WakaControllerUtility;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +20,7 @@ import java.io.IOException;
  * resulting controller (e.g. LoginController) to treat the request as if it is coming from Ajax and 
  * return the related page fragment rather than returning the full view of the page.
  * 
- *bpolster
+ * 
  *
  */
 @Component("blAuthenticationFailureRedirectStrategy")
@@ -30,14 +30,14 @@ public class BroadleafAuthenticationFailureRedirectStrategy implements RedirectS
 
     @Override
     public void sendRedirect(HttpServletRequest request, HttpServletResponse response, String url) throws IOException {
-        if (BroadleafControllerUtility.isAjaxRequest(request)) {
+        if (WakaControllerUtility.isAjaxRequest(request)) {
              url = updateUrlForAjax(url);
         }
         redirectStrategy.sendRedirect(request, response, url);
     }
 
     public String updateUrlForAjax(String url) {
-        String blcAjax = BroadleafControllerUtility.BLC_AJAX_PARAMETER;
+        String blcAjax = WakaControllerUtility.WK_AJAX_PARAMETER;
         if (url != null && url.indexOf("?") > 0) {
             url = url + "&" + blcAjax + "=true";
         } else {

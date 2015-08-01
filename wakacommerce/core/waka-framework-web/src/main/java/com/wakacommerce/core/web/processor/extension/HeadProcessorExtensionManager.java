@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *Jerry Ocanas (jocanas)
+ *   (jocanas)
  */
 public class HeadProcessorExtensionManager implements HeadProcessorExtensionListener {
 

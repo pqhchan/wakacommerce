@@ -7,7 +7,7 @@ import java.util.List;
 import com.wakacommerce.common.persistence.Status;
 
 /**
- *Jeff Fischer
+ * 
  */
 public interface Catalog extends Status, Serializable {
 

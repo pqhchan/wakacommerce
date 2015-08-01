@@ -30,7 +30,7 @@ import javax.annotation.Resource;
  *  <li><b>metaRobot</b> - Optional, Content for the Meta-Robots tag</li>
  * </ul>
  * 
- *apazzolini
+ *  
  *
  * @deprecated
  *

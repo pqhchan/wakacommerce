@@ -24,7 +24,7 @@ import javax.persistence.Table;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 @Entity

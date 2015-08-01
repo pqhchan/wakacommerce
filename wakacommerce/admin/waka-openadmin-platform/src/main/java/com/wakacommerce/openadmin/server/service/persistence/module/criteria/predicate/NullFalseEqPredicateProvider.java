@@ -19,7 +19,7 @@ import com.wakacommerce.openadmin.server.service.persistence.module.criteria.Fie
  * nulls equal to false. This implementation will provide an equality clause for the character 'N' and
  * {@link Boolean#FALSE}.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Component("blNullFalseEqPredicateProvider")
 public class NullFalseEqPredicateProvider implements PredicateProvider<Serializable, Serializable> {

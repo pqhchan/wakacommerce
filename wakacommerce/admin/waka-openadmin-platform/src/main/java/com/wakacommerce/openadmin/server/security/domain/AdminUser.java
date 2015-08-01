@@ -8,7 +8,7 @@ import com.wakacommerce.common.sandbox.domain.SandBox;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public interface AdminUser extends AdminSecurityContext {

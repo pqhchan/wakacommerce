@@ -10,7 +10,7 @@ import com.wakacommerce.common.util.TypedClosure;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public class ClassMetadata implements Serializable {

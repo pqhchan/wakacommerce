@@ -8,7 +8,7 @@ import com.wakacommerce.common.i18n.domain.Translation;
 import com.wakacommerce.common.locale.domain.Locale;
 import com.wakacommerce.common.locale.service.LocaleService;
 import com.wakacommerce.common.presentation.client.SupportedFieldType;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.openadmin.web.form.TranslationForm;
 import com.wakacommerce.openadmin.web.form.component.DefaultListGridActions;
 import com.wakacommerce.openadmin.web.form.component.ListGrid;
@@ -160,7 +160,7 @@ public class TranslationFormBuilderServiceImpl implements TranslationFormBuilder
     }
     
     protected String getLocalizedEditToViewMessage() {
-        BroadleafRequestContext ctx = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext ctx = WakaRequestContext.getWakaRequestContext();
         if (ctx != null && ctx.getMessageSource() != null) {
             return ctx.getMessageSource().getMessage("i18n.editToView", null, ctx.getJavaLocale());
         }

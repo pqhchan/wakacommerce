@@ -26,7 +26,7 @@ import com.wakacommerce.common.payment.service.PaymentGatewayConfiguration;
 
 /**
  * A Default Configuration to handle Passthrough Payments, for example COD payments.
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Service("blPassthroughPaymentConfiguration")
 public class PassthroughPaymentConfigurationImpl implements PaymentGatewayConfiguration {

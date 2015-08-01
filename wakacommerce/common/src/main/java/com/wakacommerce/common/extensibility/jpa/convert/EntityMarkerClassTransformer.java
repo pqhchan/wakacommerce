@@ -36,7 +36,7 @@ import javax.persistence.MappedSuperclass;
  * <p>
  * This is a validation check to ensure that the class transformers are actually working properly
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class EntityMarkerClassTransformer extends AbstractClassTransformer implements BroadleafClassTransformer {
     protected static final Log LOG = LogFactory.getLog(EntityMarkerClassTransformer.class);

@@ -25,7 +25,7 @@ import com.wakacommerce.core.order.domain.dto.OrderItemHolder;
  * 
  * Changes here likely affect other modules including advanced offer and subscription.
  * 
- *bpolster
+ * 
  *
  */
 public interface OfferServiceUtilities {

@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  *
  * Many Hosted solutions, (e.g. PayPal Express/Sagepay Form) allow you to pass in the contents of your
  * cart to be displayed on their hosted pages.

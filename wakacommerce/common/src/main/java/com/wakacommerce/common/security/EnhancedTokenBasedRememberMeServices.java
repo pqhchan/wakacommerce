@@ -25,7 +25,7 @@ import java.util.Locale;
  * Note - this class does not add httpOnly protection for session cookies. Adding httpOnly
  * for session cookies is handled at the application container configuration level, if supported.
  * 
- *jfischer
+ *  
  *
  */
 public class EnhancedTokenBasedRememberMeServices extends TokenBasedRememberMeServices {

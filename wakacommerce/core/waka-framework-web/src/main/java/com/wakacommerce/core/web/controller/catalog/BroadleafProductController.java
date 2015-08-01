@@ -11,9 +11,9 @@ import com.wakacommerce.common.extension.ExtensionResultHolder;
 import com.wakacommerce.common.extension.ExtensionResultStatusType;
 import com.wakacommerce.common.template.TemplateOverrideExtensionManager;
 import com.wakacommerce.common.template.TemplateType;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.common.web.TemplateTypeAware;
-import com.wakacommerce.common.web.controller.BroadleafAbstractController;
+import com.wakacommerce.common.web.controller.WakaAbstractController;
 import com.wakacommerce.common.web.deeplink.DeepLinkService;
 import com.wakacommerce.core.catalog.domain.Product;
 import com.wakacommerce.core.web.catalog.ProductHandlerMapping;
@@ -29,9 +29,9 @@ import javax.servlet.http.HttpServletResponse;
  * This class works in combination with the ProductHandlerMapping which finds a product based upon
  * the passed in URL.
  *
- *bpolster
+ * 
  */
-public class BroadleafProductController extends BroadleafAbstractController implements Controller, TemplateTypeAware {
+public class BroadleafProductController extends WakaAbstractController implements Controller, TemplateTypeAware {
     
     protected String defaultProductView = "catalog/product";
     protected static String MODEL_ATTRIBUTE_NAME = "product";
@@ -89,7 +89,7 @@ public class BroadleafProductController extends BroadleafAbstractController impl
     
     @Override
     public String getExpectedTemplateName(HttpServletRequest request) {
-        BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
         if (context != null) {
             Product product = (Product) context.getRequest().getAttribute(ProductHandlerMapping.CURRENT_PRODUCT_ATTRIBUTE_NAME);
             if (product != null && product.getDisplayTemplate() != null) {

@@ -10,7 +10,7 @@ import java.io.Serializable;
  *
  * This DTO represents a compact version of StructuredContentItemCriteria
  *
- * Created by bpolster.
+ *   
  */
 public class ItemCriteriaDTO implements Serializable {
 

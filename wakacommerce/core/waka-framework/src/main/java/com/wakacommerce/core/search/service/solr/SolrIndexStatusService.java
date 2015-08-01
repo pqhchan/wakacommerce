@@ -24,7 +24,7 @@ package com.wakacommerce.core.search.service.solr;
  * instances. {@link #getSeedStatusInstance()} can be used to provide a custom {@link com.wakacommerce.core.search.service.solr.IndexStatusInfo}
  * implementation.
  *
- *Jeff Fischer
+ * 
  */
 public interface SolrIndexStatusService {
 

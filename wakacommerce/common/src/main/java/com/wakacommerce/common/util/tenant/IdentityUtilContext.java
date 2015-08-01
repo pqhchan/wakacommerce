@@ -9,7 +9,7 @@ import com.wakacommerce.common.site.domain.Site;
 /**
  * A thread local context to store the unique name for this request thread.
  *
- *Jeff Fischer
+ * 
  */
 public class IdentityUtilContext extends Stack<IdentityUtilContext> {
 

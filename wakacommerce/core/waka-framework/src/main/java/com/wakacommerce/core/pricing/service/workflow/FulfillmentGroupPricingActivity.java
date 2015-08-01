@@ -18,7 +18,7 @@ import javax.annotation.Resource;
  * for all of the FulfillmentGroups on an Order and updates Order with the
  * total price of all of the FufillmentGroups
  * 
- *Phillip Verheyden
+ *  
  * @see {@link FulfillmentGroup}, {@link Order}
  */
 public class FulfillmentGroupPricingActivity extends BaseActivity<ProcessContext<Order>> {

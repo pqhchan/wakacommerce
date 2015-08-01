@@ -6,7 +6,7 @@ import org.springframework.core.io.Resource;
 /**
  * Service responsible for interacting with YUI-compressor to minify JS/CSS resources.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface ResourceMinificationService {
 

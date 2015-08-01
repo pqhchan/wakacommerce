@@ -6,7 +6,7 @@ import com.wakacommerce.common.sitemap.domain.SiteMapGeneratorConfiguration;
 /**
  * CategorySiteMapGenerator is controlled by this configuration.
  * 
- *Joshua Skorton (jskorton)
+ *  
  */
 public interface CategorySiteMapGeneratorConfiguration extends SiteMapGeneratorConfiguration {
 

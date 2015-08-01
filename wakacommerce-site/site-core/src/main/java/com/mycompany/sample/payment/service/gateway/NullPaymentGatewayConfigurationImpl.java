@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
  * This should NOT be used in production, and is meant solely for demonstration
  * purposes only.
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Service("blNullPaymentGatewayConfiguration")
 public class NullPaymentGatewayConfigurationImpl implements NullPaymentGatewayConfiguration {

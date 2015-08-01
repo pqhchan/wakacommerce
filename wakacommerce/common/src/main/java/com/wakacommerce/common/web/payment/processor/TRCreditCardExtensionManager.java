@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.wakacommerce.common.extension.ExtensionManager;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Service("blTRCreditCardExtensionManager")
 public class TRCreditCardExtensionManager extends ExtensionManager<TRCreditCardExtensionHandler> {

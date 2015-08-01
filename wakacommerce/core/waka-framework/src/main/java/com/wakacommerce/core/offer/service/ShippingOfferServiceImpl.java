@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 @Service("blShippingOfferService")

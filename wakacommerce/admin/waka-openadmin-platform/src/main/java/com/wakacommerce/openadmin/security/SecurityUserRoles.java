@@ -3,7 +3,7 @@ package com.wakacommerce.openadmin.security;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public class SecurityUserRoles {

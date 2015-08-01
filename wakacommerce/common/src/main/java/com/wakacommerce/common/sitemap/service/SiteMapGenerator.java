@@ -10,7 +10,7 @@ import com.wakacommerce.common.sitemap.domain.SiteMapGeneratorConfiguration;
  * 
  * Each SiteMapGenerator can generate 
  * 
- *bpolster
+ * 
  *
  */
 public interface SiteMapGenerator {

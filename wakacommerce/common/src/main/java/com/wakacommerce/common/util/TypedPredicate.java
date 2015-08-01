@@ -9,7 +9,7 @@ import java.lang.reflect.ParameterizedType;
 /**
  * A class that provides for a typed predicat
  * 
- *Andre Azzolini (apazzolini)
+ * 
  *
  * @param <T> the type of object the predicate uses
  */

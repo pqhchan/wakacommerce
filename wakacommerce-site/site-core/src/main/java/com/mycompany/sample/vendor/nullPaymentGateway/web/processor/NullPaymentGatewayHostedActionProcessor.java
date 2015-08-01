@@ -1,4 +1,3 @@
-
 package com.mycompany.sample.vendor.nullPaymentGateway.web.processor;
 
 import com.mycompany.sample.vendor.nullPaymentGateway.service.payment.NullPaymentGatewayConstants;
@@ -31,8 +30,7 @@ import java.util.Map;
  *
  * This should NOT be used in production, and is meant solely for demonstration
  * purposes only.
- *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Component("blNullPaymentGatewayHostedActionProcessor")
 public class NullPaymentGatewayHostedActionProcessor extends AbstractAttributeModifierAttrProcessor {

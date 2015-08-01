@@ -18,7 +18,7 @@ import java.math.BigDecimal;
  * It must set the sum of the the taxes in the appropriate places as well as fulfillment
  * group subtotals / totals and order subtotals / totals.
  * 
- *aazzolini
+ *  
  *
  */
 public class TotalActivity extends BaseActivity<ProcessContext<Order>> {

@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.web;
 
 import org.thymeleaf.TemplateProcessingParameters;
@@ -7,10 +6,6 @@ import org.thymeleaf.templateresolver.TemplateResolution;
 
 /**
  * Placeholder component to support a custom TemplateResolver.
- * 
- * Utilized by the Broadleaf Commerce CustomTemplate extension to introduce themes at the DB level.
- *
- *bpolster
  */
 public class NullBroadleafTemplateResolver implements ITemplateResolver {
 

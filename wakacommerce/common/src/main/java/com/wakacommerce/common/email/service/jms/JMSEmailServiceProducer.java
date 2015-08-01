@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.email.service.jms;
 
 import org.springframework.jms.core.JmsTemplate;

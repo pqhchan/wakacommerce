@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.email.domain;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -16,10 +15,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-/**
- *jfischer
- *
- */
 @Entity
 @Table(name = "BLC_EMAIL_TRACKING")
 public class EmailTrackingImpl implements EmailTracking {

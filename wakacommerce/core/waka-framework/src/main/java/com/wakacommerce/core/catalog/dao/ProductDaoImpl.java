@@ -52,8 +52,8 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 /**
- *Jeff Fischer
- *Andre Azzolini (apazzolini)
+ * 
+ * 
  */
 @Repository("blProductDao")
 public class ProductDaoImpl implements ProductDao {

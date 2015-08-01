@@ -30,7 +30,7 @@ import java.util.zip.ZipOutputStream;
  * same thing after the JVM has already started.  Unfortunately, this is the only way we know of to attach an agent to
  * the JVM except by adding a "javaagent:..." flag on the command line.
  *
- *Kelly Tisdell
+ *  
  * @deprecated Because of classloader differences, this approach is not reliable for some containers. Use the javaagent jvm argument instead to set instrumentation.
  */
 @Deprecated

@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.email.service;
 
 import java.util.Map;
@@ -6,10 +5,6 @@ import java.util.Map;
 import com.wakacommerce.common.email.domain.EmailTarget;
 import com.wakacommerce.common.email.service.info.EmailInfo;
 
-/**
- *jfischer
- *
- */
 public interface EmailService {
 
     public boolean sendTemplateEmail(String emailAddress, EmailInfo emailInfo,  Map<String,Object> props);

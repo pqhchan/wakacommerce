@@ -18,7 +18,7 @@ import javax.persistence.TypedQuery;
 
 /**
  *
- *Jeff Fischer
+ * 
  */
 @Repository("blCategoryXrefDao")
 public class CategoryXrefDaoImpl implements CategoryXrefDao {

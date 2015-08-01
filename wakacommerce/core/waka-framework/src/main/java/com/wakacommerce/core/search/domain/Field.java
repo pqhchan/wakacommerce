@@ -10,7 +10,7 @@ import java.util.List;
  * Represents a String-based mapping of entities and properties. This is used in various places,
  * including search facets and report fields. 
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface Field extends MultiTenantCloneable<Field> {
     

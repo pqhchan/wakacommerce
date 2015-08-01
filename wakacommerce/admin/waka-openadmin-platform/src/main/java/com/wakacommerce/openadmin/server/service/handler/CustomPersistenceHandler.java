@@ -23,7 +23,7 @@ import com.wakacommerce.openadmin.server.service.persistence.module.RecordHelper
  * for converting domain object into the return type required by the admin. Helper
  * classes are passed in to assist with conversion operations.
  *
- *Jeff Fischer
+ * 
  */
 public interface CustomPersistenceHandler extends Ordered {
 

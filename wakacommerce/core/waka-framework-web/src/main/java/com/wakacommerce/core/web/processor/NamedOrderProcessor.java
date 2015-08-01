@@ -29,7 +29,7 @@ import javax.annotation.Resource;
  * @param orderName the name of the order, {@link Order#getName()}
  * 
  * @see {@link Order#getName()}
- *elbertbautista
+ *  
  */
 public class NamedOrderProcessor extends AbstractModelVariableModifierProcessor {
     

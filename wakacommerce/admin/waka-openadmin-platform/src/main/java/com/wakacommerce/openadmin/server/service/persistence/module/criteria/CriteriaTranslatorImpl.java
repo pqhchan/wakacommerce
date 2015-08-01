@@ -34,7 +34,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Service("blCriteriaTranslator")
 public class CriteriaTranslatorImpl implements CriteriaTranslator {

@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.security.domain;
 
 import org.hibernate.annotations.Cache;

@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Service("blNullPaymentGatewayHostedWebResponseService")
 public class NullPaymentGatewayHostedWebResponseServiceImpl implements PaymentGatewayWebResponseService {

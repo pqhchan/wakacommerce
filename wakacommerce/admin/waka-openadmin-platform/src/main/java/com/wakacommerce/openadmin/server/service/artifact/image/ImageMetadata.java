@@ -4,7 +4,7 @@ package com.wakacommerce.openadmin.server.service.artifact.image;
 /**
  * A bean designed to hold general information about an image
  * 
- *jfischer
+ *  
  *
  */
 public class ImageMetadata {

@@ -33,7 +33,7 @@ import com.wakacommerce.common.locale.domain.Locale;
 import com.wakacommerce.common.locale.service.LocaleService;
 import com.wakacommerce.common.util.BLCMapUtils;
 import com.wakacommerce.common.util.TypedClosure;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.catalog.domain.Category;
 import com.wakacommerce.core.catalog.domain.Product;
 import com.wakacommerce.core.catalog.domain.Sku;
@@ -65,7 +65,7 @@ import javax.jms.IllegalStateException;
 /**
  * Provides utility methods that are used by other Solr service classes
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Service("blSolrHelperService")
 public class SolrHelperServiceImpl implements SolrHelperService {
@@ -350,8 +350,8 @@ public class SolrHelperServiceImpl implements SolrHelperService {
 
     @Override
     public String getLocalePrefix() {
-        if (BroadleafRequestContext.getBroadleafRequestContext() != null) {
-            Locale locale = BroadleafRequestContext.getBroadleafRequestContext().getLocale();
+        if (WakaRequestContext.getWakaRequestContext() != null) {
+            Locale locale = WakaRequestContext.getWakaRequestContext().getLocale();
             if (locale != null) {
                 return locale.getLocaleCode() + "_";
             }
@@ -418,7 +418,7 @@ public class SolrHelperServiceImpl implements SolrHelperService {
     @Override
     public List<SearchFacetDTO> buildSearchFacetDTOs(List<SearchFacet> searchFacets) {
         List<SearchFacetDTO> facets = new ArrayList<SearchFacetDTO>();
-        Map<String, String[]> requestParameters = BroadleafRequestContext.getRequestParameterMap();
+        Map<String, String[]> requestParameters = WakaRequestContext.getRequestParameterMap();
 
         for (SearchFacet facet : searchFacets) {
             if (isFacetAvailable(facet, requestParameters)) {

@@ -11,7 +11,7 @@ import java.util.Enumeration;
  * <p>This default implementation produces the Request Attributes and Request Paremeters
  * in JSON notation.</p>
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Service("blPaymentGatewayWebResponsePrintService")
 public class PaymentGatewayWebResponsePrintServiceImpl implements PaymentGatewayWebResponsePrintService {

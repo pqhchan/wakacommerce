@@ -25,7 +25,7 @@ import java.util.List;
  * Provides some specialized catalog retrieval methods for {@link com.wakacommerce.core.search.service.solr.SolrIndexService} for maximum
  * efficiency of solr document creation during indexing.
  *
- *Jeff Fischer
+ * 
  */
 public interface SolrIndexDao {
 

@@ -22,7 +22,7 @@ import javax.annotation.Resource;
 /**
  * Responsible for generating site map entries for Product.
  * 
- *Joshua Skorton (jskorton)
+ *  
  */
 @Component("blProductSiteMapGenerator")
 public class ProductSiteMapGenerator implements SiteMapGenerator {

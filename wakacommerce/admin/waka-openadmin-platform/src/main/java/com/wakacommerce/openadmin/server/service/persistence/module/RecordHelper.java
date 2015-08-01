@@ -23,7 +23,7 @@ import java.util.Map;
  * Helper interface for serializing/deserializing the generic {@link Entity} DTO to/from its actual domain object
  * representation. 
  * 
- *jfischer
+ *  
  * @see {@link BasicPersistenceModule}
  * @see {@link MapStructurePersistenceModule}
  * @see {@link AdornedTargetListPersistenceModule}

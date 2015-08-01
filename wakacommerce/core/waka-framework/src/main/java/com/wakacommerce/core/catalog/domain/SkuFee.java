@@ -14,7 +14,7 @@ import java.util.List;
  * Used to represent Sku-specific surcharges when fulfilling this item. For instance there might be a disposal fee
  * when selling batteries or an environmental fee for tires.
  * 
- *Phillip Verheyden
+ *  
  * @see {@link FulfillmentGroupFee}, {@link FulfillmentGroup}
  *
  */

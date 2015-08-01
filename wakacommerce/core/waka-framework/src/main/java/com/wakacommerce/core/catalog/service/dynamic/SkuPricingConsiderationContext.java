@@ -11,7 +11,7 @@ import java.util.HashMap;
  * usually filled out by a {@link com.wakacommerce.core.web.catalog.DynamicSkuPricingFilter}. The default
  * implementation of this is {@link com.wakacommerce.core.web.catalog.DefaultDynamicSkuPricingFilter}.
  * 
- *jfischer
+ *  
  * @see {@link SkuImpl#getRetailPrice}
  * @see {@link SkuImpl#getSalePrice}
  * @see {@link com.wakacommerce.core.web.catalog.DynamicSkuPricingFilter}

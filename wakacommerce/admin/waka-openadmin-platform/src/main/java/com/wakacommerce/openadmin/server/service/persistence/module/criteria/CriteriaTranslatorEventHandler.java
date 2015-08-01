@@ -14,7 +14,7 @@ import com.wakacommerce.openadmin.server.service.persistence.module.provider.Fie
 /**
  * Event handler for adding restrictions to criteria created for admin fetch requests
  *
- *Jeff Fischer
+ * 
  */
 public interface CriteriaTranslatorEventHandler {
 

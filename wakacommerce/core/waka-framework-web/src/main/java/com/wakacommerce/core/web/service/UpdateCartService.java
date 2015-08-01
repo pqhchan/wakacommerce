@@ -28,7 +28,7 @@ public interface UpdateCartService {
     public BroadleafCurrency getSavedCurrency();
 
     /**
-     *  Compares the currency set in the BroadleafRequestContext with the savedCurrency.
+     *  Compares the currency set in the WakaRequestContext with the savedCurrency.
      *  If different, returns TRUE
      *
      * @return

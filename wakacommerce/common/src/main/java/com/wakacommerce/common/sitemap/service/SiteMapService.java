@@ -13,7 +13,7 @@ import com.wakacommerce.common.sitemap.exception.SiteMapException;
  * This service generates the structure of the SiteMap file.  It assumes the use of SiteMap indexes 
  * and follows the convention siteMap#.xml 
  *
- *bpolster
+ * 
  * 
  */
 public interface SiteMapService {

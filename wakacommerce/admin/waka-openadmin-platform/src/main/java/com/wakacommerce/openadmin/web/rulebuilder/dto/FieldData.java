@@ -4,7 +4,7 @@ package com.wakacommerce.openadmin.web.rulebuilder.dto;
 import com.wakacommerce.common.presentation.client.SupportedFieldType;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  *
  * A temporary container object used to load the data into a RuleBuilderFieldService
  * @see com.wakacommerce.openadmin.web.rulebuilder.service.RuleBuilderFieldService

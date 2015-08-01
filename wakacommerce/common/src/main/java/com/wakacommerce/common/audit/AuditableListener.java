@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.audit;
 
 import java.lang.reflect.Field;
@@ -10,7 +9,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 
 import com.wakacommerce.common.time.SystemTime;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.common.web.BroadleafRequestCustomerResolverImpl;
 
 public class AuditableListener {
@@ -62,7 +61,7 @@ public class AuditableListener {
     protected void setAuditValueAgent(Field field, Object entity) throws IllegalArgumentException, IllegalAccessException {
         Long customerId = 0L;
         try {
-            BroadleafRequestContext requestContext = BroadleafRequestContext.getBroadleafRequestContext();
+            WakaRequestContext requestContext = WakaRequestContext.getWakaRequestContext();
             if (requestContext != null && requestContext.getWebRequest() != null) {
                 Object customer = BroadleafRequestCustomerResolverImpl.getRequestCustomerResolver().getCustomer();
                 if (customer != null) {
@@ -89,7 +88,6 @@ public class AuditableListener {
         try {
             return clazz.getDeclaredField(fieldName);
         } catch (NoSuchFieldException nsf) {
-            // Try superclass
             if (clazz.getSuperclass() != null) {
                 return getSingleField(clazz.getSuperclass(), fieldName);
             }

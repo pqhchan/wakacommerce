@@ -26,7 +26,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 /**
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Service("blPersistencePackageFactory")
 public class PersistencePackageFactoryImpl implements PersistencePackageFactory {

@@ -9,7 +9,7 @@ import com.wakacommerce.core.order.domain.OrderMultishipOption;
  * Provides support for reading OrderMultishipOptions.
  * The default Broadleaf implementation uses Hibernate to perform the reading.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface OrderMultishipOptionDao {
 

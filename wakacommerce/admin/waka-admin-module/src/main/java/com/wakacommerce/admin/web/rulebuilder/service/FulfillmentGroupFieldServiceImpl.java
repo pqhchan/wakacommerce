@@ -13,7 +13,7 @@ import com.wakacommerce.openadmin.web.rulebuilder.service.AbstractRuleBuilderFie
  * that constructs metadata necessary
  * to build the supported fields for a Fulfillment Group entity
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Service("blFulfillmentGroupFieldService")
 public class FulfillmentGroupFieldServiceImpl  extends AbstractRuleBuilderFieldService {

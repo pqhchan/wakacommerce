@@ -15,7 +15,7 @@ import java.util.HashMap;
  * implements this interface, consider instead subclassing the {@link DefaultDynamicSkuPricingFilter} and overriding the
  * appropriate methods.
  * 
- *jfischer
+ *  
  * @see {@link DefaultDynamicSkuPricingFilter}
  * @see {@link AbstractDynamicSkuPricingFilter}
  * @see {@link DynamicSkuPricingService}

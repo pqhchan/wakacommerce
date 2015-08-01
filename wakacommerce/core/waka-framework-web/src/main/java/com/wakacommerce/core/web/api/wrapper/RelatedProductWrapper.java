@@ -14,7 +14,7 @@ import com.wakacommerce.core.catalog.domain.RelatedProduct;
 /**
  * This is a JAXB wrapper for RelatedProducts
  *
- * User: Kelly Tisdell
+ * User:   
  * Date: 4/10/12
  */
 @XmlRootElement(name = "relatedProduct")

@@ -21,7 +21,7 @@ import java.util.List;
  * a single way (shipping everything express; ie a single FulfillmentOption) then there will be
  * only 1 FulfillmentGroup for that Order.
  * 
- *Phillip Verheyden
+ *  
  * @see {@link Order}, {@link FulfillmentOption}, {@link Address}, {@link FulfillmentGroupItem}
  */
 public interface FulfillmentGroup extends Serializable {

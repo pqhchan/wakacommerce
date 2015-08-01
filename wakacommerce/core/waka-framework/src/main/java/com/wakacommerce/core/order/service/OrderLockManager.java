@@ -27,7 +27,7 @@ import com.wakacommerce.core.order.domain.Order;
  * 
  * Implementations of this interface are responsible for maintaining the lock status for the given order.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface OrderLockManager {
     
@@ -72,7 +72,7 @@ public interface OrderLockManager {
 
     /**
      * This method indicates if the lock manager is active.  It can return a static value or a dynamic one 
-     * based on values in the BroadleafRequestContext or other stateful mechanism.  A good example of when this might be 
+     * based on values in the WakaRequestContext or other stateful mechanism.  A good example of when this might be 
      * dynamic is when there is a session-based lock and the request indicates that it is not OK to use sessions.
      * @return
      */

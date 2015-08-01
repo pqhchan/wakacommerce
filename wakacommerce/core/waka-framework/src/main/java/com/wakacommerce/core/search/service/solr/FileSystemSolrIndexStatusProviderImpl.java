@@ -52,7 +52,7 @@ import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class FileSystemSolrIndexStatusProviderImpl implements SolrIndexStatusProvider {
 

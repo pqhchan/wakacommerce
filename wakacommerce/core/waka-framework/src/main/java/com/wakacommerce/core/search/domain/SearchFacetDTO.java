@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class SearchFacetDTO {
     

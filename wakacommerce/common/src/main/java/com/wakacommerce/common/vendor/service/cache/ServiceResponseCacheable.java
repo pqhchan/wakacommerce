@@ -5,7 +5,7 @@ import net.sf.ehcache.Cache;
 
 
 /**
- *jfischer
+ *  
  *
  */
 public interface ServiceResponseCacheable {

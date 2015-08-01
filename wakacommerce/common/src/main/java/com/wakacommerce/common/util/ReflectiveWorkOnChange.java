@@ -17,7 +17,7 @@ import java.util.Map;
  * the target object. This implementation also uses caching to optimize repeat searches for the same method and minimize
  * reflection time.
  *
- *Jeff Fischer
+ * 
  */
 public class ReflectiveWorkOnChange implements WorkOnChange {
 

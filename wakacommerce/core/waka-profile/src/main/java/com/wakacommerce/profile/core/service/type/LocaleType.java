@@ -6,15 +6,15 @@ import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 
 /**
  * An extendible enumeration of locale types.
  * 
- *jfischer
+ *  
  */
-public class LocaleType implements Serializable, BroadleafEnumerationType {
+public class LocaleType implements Serializable, WakaEnumType {
 
     public static void main(String[] items) {
         System.out.println(Locale.TAIWAN.toString());

@@ -9,7 +9,7 @@ import org.springframework.core.PriorityOrdered;
  * {@link com.wakacommerce.common.extensibility.context.merge.AbstractRemoveBeanPostProcessor} for usage information.
  *
  * @see com.wakacommerce.common.extensibility.context.merge.AbstractRemoveBeanPostProcessor
- *Jeff Fischer
+ * 
  */
 public class EarlyStageRemoveBeanPostProcessor extends AbstractRemoveBeanPostProcessor implements PriorityOrdered {
 

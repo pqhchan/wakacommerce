@@ -5,13 +5,13 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 /**
- *Phillip Verheyden
+ *  
  *
  */
-public class SkuFeeType implements Serializable, BroadleafEnumerationType {
+public class SkuFeeType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 

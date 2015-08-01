@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import com.wakacommerce.common.i18n.domain.TranslatedEntity;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Component("blMenuTranslatedEntity")
 public class MenuTranslatedEntity extends TranslatedEntity {

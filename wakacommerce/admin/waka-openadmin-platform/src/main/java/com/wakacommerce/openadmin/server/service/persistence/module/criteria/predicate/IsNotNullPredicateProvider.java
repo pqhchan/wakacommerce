@@ -13,7 +13,7 @@ import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Component("blIsNotNullPredicateProvider")
 public class IsNotNullPredicateProvider implements PredicateProvider {

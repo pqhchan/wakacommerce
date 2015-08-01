@@ -13,7 +13,7 @@ import java.util.List;
  * This handler implementation provides behavior where a list of elements from the
  * patch document are appended to the same parent element in the source document.
  * 
- *jfischer
+ *  
  *
  */
 public class InsertItems extends BaseHandler {

@@ -37,7 +37,7 @@ import javax.annotation.Resource;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 @Component("blCategoryCustomPersistenceHandler")

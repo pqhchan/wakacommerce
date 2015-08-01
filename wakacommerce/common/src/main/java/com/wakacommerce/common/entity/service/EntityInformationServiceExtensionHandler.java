@@ -20,7 +20,7 @@ import com.wakacommerce.common.site.domain.Site;
  * modules can have easy access to this information w/out a formal dependency on the multi-tenant or
  * enterprise modules.
  * 
- *bpolster
+ * 
  * @see {@link AbstractEntityInformationServiceExtensionHandler}
  */
 public interface EntityInformationServiceExtensionHandler extends ExtensionHandler {

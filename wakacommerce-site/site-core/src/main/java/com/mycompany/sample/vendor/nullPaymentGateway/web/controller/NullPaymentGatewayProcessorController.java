@@ -1,5 +1,3 @@
-
-
 package com.mycompany.sample.vendor.nullPaymentGateway.web.controller;
 
 import com.mycompany.sample.payment.service.gateway.NullPaymentGatewayConfiguration;
@@ -31,7 +29,7 @@ import java.util.UUID;
  * This should NOT be used in production, and is meant solely for demonstration
  * purposes only.
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Controller("blNullPaymentGatewayProcessorController")
 public class NullPaymentGatewayProcessorController {

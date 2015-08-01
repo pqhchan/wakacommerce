@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  *
  * @see {@link CategoryImpl}
  *btaylor
- *Jeff Fischer
+ * 
  * 
  */
 public interface Category extends Serializable, MultiTenantCloneable<Category> {

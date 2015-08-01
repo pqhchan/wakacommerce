@@ -55,7 +55,7 @@ import javax.persistence.criteria.Root;
  * (i.e. the International Standards Organization has officially assigned the 2 character alpha code to a country or region)
  * @see {@link http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2}
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Component("blISOCountryPersistenceHandler")
 public class ISOCountryPersistenceHandler extends CustomPersistenceHandlerAdapter {

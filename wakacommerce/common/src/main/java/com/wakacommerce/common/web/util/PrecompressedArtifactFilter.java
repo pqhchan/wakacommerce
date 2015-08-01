@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.web.util;
 
 import org.springframework.web.filter.GenericFilterBean;
@@ -20,9 +19,6 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.Enumeration;
 
-/**
- *Jeff Fischer
- */
 public class PrecompressedArtifactFilter extends GenericFilterBean {
 
     private boolean useWhileInDefaultEnvironment = true;

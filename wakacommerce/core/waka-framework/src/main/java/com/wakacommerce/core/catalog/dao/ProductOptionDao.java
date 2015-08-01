@@ -8,7 +8,7 @@ import com.wakacommerce.core.catalog.domain.ProductOptionValue;
 
 /**
  * 
- *Phillip Verheyden
+ *  
  *
  */
 public interface ProductOptionDao {

@@ -7,7 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.wakacommerce.common.exception.ServiceException;
-import com.wakacommerce.common.web.controller.BroadleafAbstractController;
+import com.wakacommerce.common.web.controller.WakaAbstractController;
 import com.wakacommerce.core.web.controller.account.validator.UpdateAccountValidator;
 import com.wakacommerce.profile.core.domain.Customer;
 import com.wakacommerce.profile.core.service.CustomerService;
@@ -16,7 +16,7 @@ import com.wakacommerce.profile.web.core.CustomerState;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-public class BroadleafUpdateAccountController extends BroadleafAbstractController {
+public class BroadleafUpdateAccountController extends WakaAbstractController {
 
     @Value("${use.email.for.site.login:true}")
     protected boolean useEmailForLogin;

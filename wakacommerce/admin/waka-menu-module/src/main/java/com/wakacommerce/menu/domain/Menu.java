@@ -1,4 +1,3 @@
-
 package com.wakacommerce.menu.domain;
 
 import java.io.Serializable;
@@ -8,12 +7,6 @@ import javax.annotation.Nonnull;
 
 import com.wakacommerce.common.copy.MultiTenantCloneable;
 
-/**
- * Represents a menu, typically to drive the display of navigation on a website.
- *  
- *bpolster
- *
- */
 public interface Menu extends Serializable, MultiTenantCloneable<Menu> {
 
     /**

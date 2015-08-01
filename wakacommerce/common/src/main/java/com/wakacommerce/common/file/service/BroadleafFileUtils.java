@@ -5,8 +5,8 @@ package com.wakacommerce.common.file.service;
 
 /**
  * 
- *bpolster
- *Phillip Verheyden (phillipuniverse)
+ * 
+ *     
  */
 public class BroadleafFileUtils {
 

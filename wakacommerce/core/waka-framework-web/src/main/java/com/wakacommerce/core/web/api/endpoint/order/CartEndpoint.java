@@ -43,7 +43,7 @@ import javax.servlet.http.HttpServletRequest;
  * the details of the endpoint.
  *
  * <p/>
- * User: Kelly Tisdell
+ * User:   
  * Date: 4/10/12
  */
 public abstract class CartEndpoint extends BaseEndpoint {

@@ -3,7 +3,7 @@ package com.wakacommerce.openadmin.server.security.remote;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public enum EntityOperationType {

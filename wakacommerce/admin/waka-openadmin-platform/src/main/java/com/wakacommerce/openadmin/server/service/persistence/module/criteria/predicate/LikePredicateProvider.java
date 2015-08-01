@@ -12,7 +12,7 @@ import javax.persistence.criteria.Predicate;
 import java.util.List;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Component("blLikePredicateProvider")
 public class LikePredicateProvider implements PredicateProvider<String, String> {

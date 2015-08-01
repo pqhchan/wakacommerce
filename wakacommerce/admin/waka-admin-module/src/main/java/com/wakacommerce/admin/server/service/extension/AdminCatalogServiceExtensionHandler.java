@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Extension handler for {@link com.wakacommerce.admin.server.service.AdminCatalogService}
  *
- *Jeff Fischer
+ * 
  */
 public interface AdminCatalogServiceExtensionHandler extends ExtensionHandler {
 

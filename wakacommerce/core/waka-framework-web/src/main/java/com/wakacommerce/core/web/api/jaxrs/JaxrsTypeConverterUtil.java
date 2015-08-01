@@ -30,7 +30,7 @@ import javax.ws.rs.core.UriInfo;
 /**
  * Utility to convert from JAXRS types into something Spring-MVC compatible
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  * @deprecated along with the other JAXRS components, this is deprecated in favor of using Spring MVC for REST services
  */
 @Deprecated

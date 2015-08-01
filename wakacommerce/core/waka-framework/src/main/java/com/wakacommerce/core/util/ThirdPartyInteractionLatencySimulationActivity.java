@@ -8,7 +8,7 @@ import com.wakacommerce.core.workflow.ProcessContext;
  * Simple workflow activity to simulate an amount of latency introduced by communicating
  * with a third party provider (e.g. credit card processing). Useful for load testing.
  *
- *Jeff Fischer
+ * 
  */
 public class ThirdPartyInteractionLatencySimulationActivity extends BaseActivity<ProcessContext<Object>> {
 

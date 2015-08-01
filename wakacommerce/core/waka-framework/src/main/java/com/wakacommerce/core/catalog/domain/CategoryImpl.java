@@ -84,7 +84,7 @@ import javax.persistence.Transient;
 
 /**
  *bTaylor
- *Jeff Fischer
+ * 
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -1270,8 +1270,8 @@ public class CategoryImpl implements Category, Status, AdminMainEntity, Locatabl
 
                 public static final String Marketing = "CategoryImpl_Marketing_Tab";
                 public static final String Media = "CategoryImpl_Media_Tab";
-                public static final String Advanced = "CategoryImpl_Advanced_Tab";
-                public static final String Products = "CategoryImpl_Products_Tab";
+                public static final String Advanced = "高级";
+                public static final String Products = "货品";
                 public static final String SearchFacets = "CategoryImpl_categoryFacetsTab";
             }
 
@@ -1289,9 +1289,9 @@ public class CategoryImpl implements Category, Status, AdminMainEntity, Locatabl
 
             public static class Name {
 
-                public static final String General = "CategoryImpl_Category_Description";
-                public static final String ActiveDateRange = "CategoryImpl_Active_Date_Range";
-                public static final String Advanced = "CategoryImpl_Advanced";
+                public static final String General = "一般";
+                public static final String ActiveDateRange = "有效日期范围";
+                public static final String Advanced = "高级";
             }
 
             public static class Order {

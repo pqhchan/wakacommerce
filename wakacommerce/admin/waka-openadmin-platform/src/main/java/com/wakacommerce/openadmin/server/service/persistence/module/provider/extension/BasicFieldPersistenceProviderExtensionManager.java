@@ -26,7 +26,7 @@ import com.wakacommerce.common.extension.ExtensionManager;
 /**
  * For internal usage. Allows extension of entity API calls without subclassing the entity.
  *
- *Jeff Fischer
+ * 
  */
 @Service("blBasicFieldPersistenceProviderExtensionManager")
 public class BasicFieldPersistenceProviderExtensionManager extends ExtensionManager<BasicFieldPersistenceProviderExtensionHandler> {

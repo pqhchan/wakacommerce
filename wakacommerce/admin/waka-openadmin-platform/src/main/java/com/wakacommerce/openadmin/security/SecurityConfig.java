@@ -8,7 +8,7 @@ import com.wakacommerce.openadmin.server.security.remote.EntityOperationType;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public class SecurityConfig {

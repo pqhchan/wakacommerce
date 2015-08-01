@@ -10,7 +10,7 @@ import com.wakacommerce.common.site.domain.Catalog;
 import com.wakacommerce.common.site.domain.Site;
 
 /**
- *Jeff Fischer
+ * 
  */
 public interface AdminRequestProcessorExtensionHandler extends ExtensionHandler {
 

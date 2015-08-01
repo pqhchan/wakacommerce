@@ -14,7 +14,7 @@ import com.wakacommerce.openadmin.web.form.entity.DefaultMainActions;
  * section (for instance, a list of Products in the 'Product' section). Assuming that the user has proper permissions,
  * the mainActions list would have {@link DefaultMainActions#ADD}
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  * @see 
  */
 @Deprecated

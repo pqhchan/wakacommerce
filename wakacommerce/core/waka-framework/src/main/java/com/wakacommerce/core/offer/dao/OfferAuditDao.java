@@ -9,7 +9,7 @@ import com.wakacommerce.core.offer.service.workflow.VerifyCustomerMaxOfferUsesAc
 /**
  * DAO for auditing what went on with offers being added to an order
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  * @see {@link VerifyCustomerMaxOfferUsesActivity}, {@link RecordOfferUsageActivity},
  * {@link OfferService#verifyMaxCustomerUsageThreshold(com.wakacommerce.profile.core.domain.Customer, com.wakacommerce.core.offer.domain.OfferCode)}
  */

@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.audit;
 
 import java.io.Serializable;

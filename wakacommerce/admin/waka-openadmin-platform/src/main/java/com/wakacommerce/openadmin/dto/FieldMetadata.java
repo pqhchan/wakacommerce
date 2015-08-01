@@ -10,7 +10,7 @@ import com.wakacommerce.openadmin.dto.visitor.MetadataVisitor;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public abstract class FieldMetadata implements Serializable {

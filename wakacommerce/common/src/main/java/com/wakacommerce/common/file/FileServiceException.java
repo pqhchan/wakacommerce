@@ -5,7 +5,7 @@ import com.wakacommerce.common.file.service.BroadleafFileService;
 
 /**
  * Marker exception that just extends RuntimeException to be used by the {@link BroadleafFileService}
- *bpolster
+ * 
  *
  */
 public class FileServiceException extends RuntimeException {

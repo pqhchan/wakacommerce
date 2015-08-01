@@ -8,7 +8,7 @@ import com.wakacommerce.common.site.domain.Site;
 /**
  * Default implementation of {@link SiteServiceExtensionHandler}
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 public class AbstractSiteServiceExtensionHandler extends AbstractExtensionHandler implements SiteServiceExtensionHandler {
 

@@ -9,7 +9,7 @@ import org.springframework.core.PriorityOrdered;
  * {@link AbstractMergeBeanPostProcessor} for usage information.
  *
  * @see AbstractMergeBeanPostProcessor
- *Jeff Fischer
+ * 
  */
 public class EarlyStageMergeBeanPostProcessor extends AbstractMergeBeanPostProcessor implements PriorityOrdered {
 

@@ -9,7 +9,7 @@ import com.wakacommerce.common.extension.ExtensionManager;
 /**
  * Extension manager for merge cart.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Service("blMergeCartServiceExtensionManager")
 public class MergeCartServiceExtensionManager extends ExtensionManager<MergeCartServiceExtensionHandler> {

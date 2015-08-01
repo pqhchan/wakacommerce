@@ -40,7 +40,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Component("blMapFieldMetadataProvider")
 @Scope("prototype")

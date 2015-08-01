@@ -39,7 +39,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

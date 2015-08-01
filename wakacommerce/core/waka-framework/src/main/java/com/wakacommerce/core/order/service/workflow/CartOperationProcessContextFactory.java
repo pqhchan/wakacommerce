@@ -11,7 +11,7 @@ import com.wakacommerce.core.workflow.WorkflowException;
  * operation. The same seed object is used for add item, update item, and remove
  * item cart operations.
  * 
- *apazzolini
+ *  
  */
 public class CartOperationProcessContextFactory implements ProcessContextFactory<CartOperationRequest, CartOperationRequest> {
 

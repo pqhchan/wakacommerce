@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
  * A Thymeleaf processor that will generate the HREF of a given Admin Section.
  * This is useful in constructing the left navigation menu for the admin console.
  *
- *elbertbautista
+ *  
  */
 @Component("blAdminSectionHrefProcessor")
 public class AdminSectionHrefProcessor extends AbstractAttributeModifierAttrProcessor {

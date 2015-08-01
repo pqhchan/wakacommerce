@@ -9,7 +9,7 @@ import com.wakacommerce.common.i18n.service.TranslationService;
 import com.wakacommerce.common.locale.domain.Locale;
 import com.wakacommerce.common.locale.service.LocaleService;
 import com.wakacommerce.common.util.BLCSystemProperty;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.catalog.domain.Product;
 import com.wakacommerce.core.catalog.domain.Sku;
 import com.wakacommerce.core.search.domain.Field;
@@ -27,7 +27,7 @@ import javax.annotation.Resource;
 /**
  * If the field is translatable, then this method prefixes the field with supported locales.
  * 
- *bpolster
+ * 
  */
 @Service("blI18nSolrSearchServiceExtensionHandler")
 public class I18nSolrSearchServiceExtensionHandler extends AbstractSolrSearchServiceExtensionHandler
@@ -101,10 +101,10 @@ public class I18nSolrSearchServiceExtensionHandler extends AbstractSolrSearchSer
 
             TranslationConsiderationContext.setTranslationConsiderationContext(getTranslationEnabled());
             TranslationConsiderationContext.setTranslationService(translationService);
-            BroadleafRequestContext tempContext = BroadleafRequestContext.getBroadleafRequestContext();
+            WakaRequestContext tempContext = WakaRequestContext.getWakaRequestContext();
             if (tempContext == null) {
-                tempContext = new BroadleafRequestContext();
-                BroadleafRequestContext.setBroadleafRequestContext(tempContext);
+                tempContext = new WakaRequestContext();
+                WakaRequestContext.setWakaRequestContext(tempContext);
             }
 
             Locale originalLocale = tempContext.getLocale();
@@ -153,8 +153,8 @@ public class I18nSolrSearchServiceExtensionHandler extends AbstractSolrSearchSer
      */
     protected ExtensionResultStatusType getLocalePrefix(Field field, List<String> prefixList) {
         if (field.getTranslatable()) {
-            if (BroadleafRequestContext.getBroadleafRequestContext() != null) {
-                Locale locale = BroadleafRequestContext.getBroadleafRequestContext().getLocale();
+            if (WakaRequestContext.getWakaRequestContext() != null) {
+                Locale locale = WakaRequestContext.getWakaRequestContext().getLocale();
                 if (locale != null) {
                     String localeCode = locale.getLocaleCode();
                     if (!Boolean.TRUE.equals(locale.getUseCountryInSearchIndex())) {

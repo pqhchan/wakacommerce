@@ -16,7 +16,7 @@ import com.wakacommerce.common.util.FormatUtil;
 /**
  * Representation of SiteMapURLEntry that can be used to generate an XML element.
  * 
- *bpolster
+ * 
  */
 @XmlRootElement(name = "url")
 @XmlType(propOrder = { "loc", "lastmod", "changefreq", "priority" })

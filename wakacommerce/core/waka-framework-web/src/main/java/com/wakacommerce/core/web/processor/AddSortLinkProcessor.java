@@ -5,9 +5,9 @@ import org.thymeleaf.Arguments;
 import org.thymeleaf.dom.Element;
 import org.thymeleaf.processor.attr.AbstractAttributeModifierAttrProcessor;
 
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.search.domain.SearchCriteria;
-import com.wakacommerce.core.web.controller.catalog.BroadleafCategoryController;
+import com.wakacommerce.core.web.controller.catalog.WakaCategoryController;
 import com.wakacommerce.core.web.util.ProcessorUtils;
 
 import java.util.ArrayList;
@@ -41,11 +41,11 @@ import javax.servlet.http.HttpServletRequest;
  * </pre>
  * 
  * <p>
- * This sort link can then be picked up by the {@link BroadleafCategoryController} to actually translate search queries based
+ * This sort link can then be picked up by the {@link WakaCategoryController} to actually translate search queries based
  * on that query parameter. If there is no sort active on the request then this will print out a link to sort ascending.
  * Otherwise the link will output the non-active sort (so that you can switch between them).
  * 
- *apazzolini
+ *  
  */
 public class AddSortLinkProcessor extends AbstractAttributeModifierAttrProcessor {
     
@@ -68,7 +68,7 @@ public class AddSortLinkProcessor extends AbstractAttributeModifierAttrProcessor
     protected Map<String, String> getModifiedAttributeValues(Arguments arguments, Element element, String attributeName) {
         Map<String, String> attrs = new HashMap<String, String>();
         
-        BroadleafRequestContext blcContext = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext blcContext = WakaRequestContext.getWakaRequestContext();
         HttpServletRequest request = blcContext.getRequest();
         
         String baseUrl = request.getRequestURL().toString();

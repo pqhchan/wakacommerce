@@ -2,7 +2,7 @@
 package com.wakacommerce.common.extension;
 
 import com.wakacommerce.common.site.domain.SiteImpl;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 
 /**
  * <p>
@@ -30,13 +30,13 @@ import com.wakacommerce.common.web.BroadleafRequestContext;
  * </pre>
  * 
  * <p>
- * These {@link blEntityExtensionManagers} are added onto the {@link BroadleafRequestContext} with
- * {@link BroadleafRequestContext#getAdditionalProperties()}. Native methods can use that to pull it off
+ * These {@link blEntityExtensionManagers} are added onto the {@link WakaRequestContext} with
+ * {@link WakaRequestContext#getAdditionalProperties()}. Native methods can use that to pull it off
  * 
  * <p>
  * Example use case is in {@link SiteImpl#clone} as well as {@link CategoryImpl#getAllChildCategoryXrefs()}
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 public interface NativeMethodEntityExtensionHandler<T> extends ExtensionHandler {
 

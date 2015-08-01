@@ -14,7 +14,7 @@ import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Component("blBetweenDatePredicateProvider")
 public class BetweenDatePredicateProvider implements PredicateProvider<Comparable, Comparable> {

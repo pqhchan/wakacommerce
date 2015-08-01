@@ -5,15 +5,15 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 /**
  * An extensible enumeration of tax detail types
  * 
- *aazzolini
+ *  
  *
  */
-public class TaxType implements Serializable, BroadleafEnumerationType {
+public class TaxType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 

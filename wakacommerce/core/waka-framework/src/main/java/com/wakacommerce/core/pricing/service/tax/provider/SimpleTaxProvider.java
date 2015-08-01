@@ -37,8 +37,8 @@ import javax.annotation.Resource;
  * <p>
  * Useful for those with very simple tax needs that want to configure rates programmatically.
  * 
- *jfischer, brian polster
- *Phillip Verheyden (phillipuniverse)
+ *  ,   
+ *     
  */
 public class SimpleTaxProvider implements TaxProvider {
 

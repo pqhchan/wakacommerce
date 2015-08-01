@@ -12,7 +12,7 @@ import org.springframework.web.bind.ServletRequestDataBinder;
 import com.wakacommerce.common.i18n.domain.ISOCountry;
 import com.wakacommerce.common.i18n.service.ISOService;
 import com.wakacommerce.common.payment.service.PaymentGatewayCheckoutService;
-import com.wakacommerce.common.web.controller.BroadleafAbstractController;
+import com.wakacommerce.common.web.controller.WakaAbstractController;
 import com.wakacommerce.core.checkout.service.CheckoutService;
 import com.wakacommerce.core.order.service.FulfillmentGroupService;
 import com.wakacommerce.core.order.service.FulfillmentOptionService;
@@ -35,11 +35,11 @@ import java.beans.PropertyEditorSupport;
  * An abstract controller that provides convenience methods and resource declarations for its
  * children. Operations that are shared between controllers that deal with checkout belong here.
  *
- *Andre Azzolini (apazzolini)
- *Elbert Bautista (elbertbautista)
- *Joshua Skorton (jskorton)
+ * 
+ *  
+ *  
  */
-public abstract class AbstractCheckoutController extends BroadleafAbstractController {
+public abstract class AbstractCheckoutController extends WakaAbstractController {
 
     private static final Log LOG = LogFactory.getLog(AbstractCheckoutController.class);
 

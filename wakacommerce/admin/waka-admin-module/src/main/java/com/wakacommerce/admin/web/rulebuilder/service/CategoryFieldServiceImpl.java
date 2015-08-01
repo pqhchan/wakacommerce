@@ -13,7 +13,7 @@ import com.wakacommerce.openadmin.web.rulebuilder.service.AbstractRuleBuilderFie
  * that constructs metadata necessary
  * to build the supported fields for a Category entity
  *
- *@author Andre Azzolini (apazzolini)
+ *@author  
  */
 @Service("blCategoryFieldService")
 public class CategoryFieldServiceImpl extends AbstractRuleBuilderFieldService {

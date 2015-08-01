@@ -16,8 +16,8 @@ import com.wakacommerce.common.web.payment.controller.PaymentGatewayAbstractCont
  * 
  * @see {@link PaymentGatewayAbstractController}
  *
- *Elbert Bautista (elbertbautista)
- *Phillip Verheyden (phillipuniverse)
+ *  
+ *     
  */
 public interface PaymentGatewayCheckoutService {
 

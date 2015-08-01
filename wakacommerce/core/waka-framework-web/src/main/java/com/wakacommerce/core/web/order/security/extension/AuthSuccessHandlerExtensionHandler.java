@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Extension handler for actions that should take place after a user has authenticated on the front-end site.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface AuthSuccessHandlerExtensionHandler extends ExtensionHandler {
     

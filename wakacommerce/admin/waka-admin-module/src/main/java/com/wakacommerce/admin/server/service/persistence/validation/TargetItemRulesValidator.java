@@ -20,7 +20,7 @@ import java.util.Map;
 /**
  * Validator that ensures that an offer of type {@link OfferType#ORDER_ITEM} has at least one rule for the target criteria
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 @Component("blTargetItemRulesValidator")
 public class TargetItemRulesValidator implements PropertyValidator {

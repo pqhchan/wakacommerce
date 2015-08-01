@@ -24,7 +24,7 @@ import java.util.Map;
 /**
  * Service capable of deleting old or defunct entities from the persistence layer (e.g. Carts and anonymous Customers)
  *
- *Jeff Fischer
+ * 
  */
 public interface ResourcePurgeService {
 

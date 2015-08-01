@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * @see com.wakacommerce.core.order.domain.NullOrderFactory
- *apazzolini
+ *  
  */
 @Service("blNullOrderFactory")
 public class NullOrderFactoryImpl implements NullOrderFactory {

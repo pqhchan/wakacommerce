@@ -14,7 +14,7 @@ import java.io.Serializable;
  * A form to model adding a shipping address with shipping options.
  * 
  *Elbert Bautista (ebautista)
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class ShippingInfoForm implements Serializable {
 

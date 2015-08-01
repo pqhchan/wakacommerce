@@ -3,7 +3,7 @@ package com.wakacommerce.common.extensibility.jpa;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public class EntityClassNotFoundException extends RuntimeException {

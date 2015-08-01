@@ -32,7 +32,7 @@ import java.util.Map;
 /**
  * For internal usage. Allows extending API calls without subclassing the entity.
  *
- *Jeff Fischer
+ * 
  */
 public interface BasicPersistenceModuleExtensionHandler extends ExtensionHandler {
 

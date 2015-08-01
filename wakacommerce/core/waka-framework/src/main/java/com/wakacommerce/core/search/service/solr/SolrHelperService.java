@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface SolrHelperService {
 

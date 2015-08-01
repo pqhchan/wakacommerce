@@ -7,7 +7,7 @@ import java.util.Map;
 
 /**
  * The purpose of this is to allow REST endpoints to build an exception with 
- *Kelly Tisdell
+ *  
  *
  */
 public class BroadleafWebServicesException extends RuntimeException {

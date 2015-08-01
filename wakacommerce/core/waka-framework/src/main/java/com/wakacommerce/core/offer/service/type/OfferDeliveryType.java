@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 /**
  * An extendible enumeration of delivery types.
@@ -16,7 +16,7 @@ import com.wakacommerce.common.BroadleafEnumerationType;
  * CODE - a offer code must be supplied in order to receive this offer
  *
  */
-public class OfferDeliveryType implements Serializable, BroadleafEnumerationType, Comparable<OfferDeliveryType> {
+public class OfferDeliveryType implements Serializable, WakaEnumType, Comparable<OfferDeliveryType> {
     
     private static final long serialVersionUID = 1L;
 

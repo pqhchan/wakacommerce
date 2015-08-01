@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 /**
  * Marker annotation for fields that should not undergo enterprise sandbox config validation (if applicable)
  *
- *jfischer
+ *  
  *
  */
 @Retention(RetentionPolicy.RUNTIME)

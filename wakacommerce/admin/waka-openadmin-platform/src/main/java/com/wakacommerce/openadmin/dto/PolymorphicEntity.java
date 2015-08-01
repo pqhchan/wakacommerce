@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public class PolymorphicEntity implements Serializable {

@@ -33,7 +33,7 @@ import javax.persistence.EntityManager;
  * This implementation has the added benefit of breaking up large IN clauses into smaller chunks to avoid maximum
  * IN clause lengths enforced by some database platforms.
  *
- *Jeff Fischer
+ * 
  */
 public class UpdateExecutor {
 

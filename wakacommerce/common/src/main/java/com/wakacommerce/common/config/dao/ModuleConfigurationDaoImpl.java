@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.config.dao;
 
 import org.hibernate.ejb.QueryHints;

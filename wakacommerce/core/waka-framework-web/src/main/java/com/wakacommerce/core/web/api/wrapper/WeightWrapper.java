@@ -14,7 +14,7 @@ import com.wakacommerce.core.catalog.domain.Weight;
 /**
  * This is a JAXB wrapper around Weight
  * <p/>
- * User: Kelly Tisdell
+ * User:   
  * Date: 4/10/12
  */
 @XmlRootElement(name = "weight")

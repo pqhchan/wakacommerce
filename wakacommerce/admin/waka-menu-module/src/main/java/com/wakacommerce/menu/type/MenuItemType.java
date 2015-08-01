@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Menu Item Types
  *
- *bpolster
+ * 
  *
  */
 public class MenuItemType implements Serializable {

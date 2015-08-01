@@ -1,10 +1,9 @@
-
 package com.wakacommerce.common.web.util;
 
 import org.springframework.web.context.request.ServletWebRequest;
 
 import com.wakacommerce.common.util.BLCRequestUtils;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,9 +32,9 @@ public class RepeatSubmitProtectionFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         boolean useSession = true;
-        if (BroadleafRequestContext.getBroadleafRequestContext() != null
-                && BroadleafRequestContext.getBroadleafRequestContext().getWebRequest() != null) {
-            if (!BLCRequestUtils.isOKtoUseSession(BroadleafRequestContext.getBroadleafRequestContext().getWebRequest())) {
+        if (WakaRequestContext.getWakaRequestContext() != null
+                && WakaRequestContext.getWakaRequestContext().getWebRequest() != null) {
+            if (!BLCRequestUtils.isOKtoUseSession(WakaRequestContext.getWakaRequestContext().getWebRequest())) {
                 useSession = false;
             }
         } else if (!BLCRequestUtils.isOKtoUseSession(new ServletWebRequest((HttpServletRequest) request))) {

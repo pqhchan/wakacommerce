@@ -12,7 +12,7 @@ import com.wakacommerce.common.value.ValueAssignable;
  * relying on custom attributes as the extension mechanism is more performant under load.
  *
  * @see {@link CustomerAttributeImpl}, {@link Customer}
- *bpolster
+ * 
  *
  */
 public interface CustomerAttribute extends ValueAssignable<String>, MultiTenantCloneable<CustomerAttribute> {

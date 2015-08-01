@@ -9,7 +9,7 @@ import com.wakacommerce.core.pricing.service.exception.TaxException;
 /**
  * 
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 public interface TaxProvider extends ModuleProvider {
 

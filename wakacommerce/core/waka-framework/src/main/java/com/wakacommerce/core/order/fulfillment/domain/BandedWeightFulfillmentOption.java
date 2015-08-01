@@ -7,7 +7,7 @@ import com.wakacommerce.core.order.domain.FulfillmentOption;
 
 /**
  * 
- *Phillip Verheyden
+ *  
  */
 public interface BandedWeightFulfillmentOption extends FulfillmentOption {
 

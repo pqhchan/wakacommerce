@@ -41,7 +41,7 @@ import javax.annotation.Resource;
 import javax.persistence.OneToMany;
 
 /**
- *Brian Polster
+ *  
  */
 @Component("blMediaFieldPersistenceProvider")
 @Scope("prototype")

@@ -1,11 +1,11 @@
 <div class="breadcrumb-container">
     <ul class="breadcrumbs" th:if="${currentAdminModule}">
         <li>
-            <span th:text="#{${currentAdminModule.moduleKey}}" />
+            <span th:text="${currentAdminModule.name}" />
         </li>
         <li>
             <a blc_admin:admin_section_href="${currentAdminSection}" th:inline="text">
-                [[#{${currentAdminSection.sectionKey}}]]
+                [[#{${currentAdminSection.name}}]]
             </a>
         </li>
         <li th:if="${entityForm}">
@@ -15,7 +15,7 @@
 
     <ul class="breadcrumbs" th:unless="${currentAdminModule}">
         <li>
-            <span th:text="#{breadcrumb.unavailable}" />
+            <span></span>
         </li>
     </ul>
 
@@ -26,7 +26,7 @@
                      data-action=${action.urlPostfix}"
             th:type="${action.buttonType}"
             th:classappend="${action.buttonClass}">
-            <i th:class="${action.iconClass}"></i>&nbsp;<span th:text="#{${action.displayText}}" th:remove="tag" />
+            <i th:class="${action.iconClass}"></i>&nbsp;<span th:text="${action.displayText}" th:remove="tag" />
         </button>   
         <img th:src="@{/img/admin/ajax-loader.gif}" class="ajax-loader" />                 
     </div>

@@ -10,7 +10,7 @@ import java.io.Serializable;
  * 
  * This object returns both properties.
  * 
- *bpolster
+ * 
  * 
  * @see {@link Entity}
  * @see {@link Property}

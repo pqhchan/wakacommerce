@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
  * Configuration items to be used in conjunction with {@link ValidationConfiguration} and used by an instace of
  * com.wakacommerce.openadmin.server.service.persistence.validation.PropertyValidator
  * 
- *jfischer
+ *  
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD})

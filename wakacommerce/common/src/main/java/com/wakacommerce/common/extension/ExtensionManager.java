@@ -21,7 +21,7 @@ import java.util.List;
  * The default extension manager pattern loops through all handlers and examines their {@link ExtensionResultStatusType} 
  * to determine whether or not to continue with other handlers.
  * 
- *bpolster
+ * 
  *
  * @param <T>
  */

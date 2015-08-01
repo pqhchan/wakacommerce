@@ -8,16 +8,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 /**
  * This extensible enumeration controls the field types that are available for users to choose from when creating
  * FieldDefinitions in the admin tool. This list should be a strict subset of {@link SupportedFieldType} and will
  * throw an exception if a non-matching type is added.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
-public class DynamicSupportedFieldType implements Serializable, BroadleafEnumerationType {
+public class DynamicSupportedFieldType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 

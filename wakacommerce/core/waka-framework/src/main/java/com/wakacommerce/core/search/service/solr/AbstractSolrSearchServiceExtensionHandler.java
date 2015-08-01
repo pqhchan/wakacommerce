@@ -27,7 +27,7 @@ import java.util.Map;
  * additional extension points are added which they don't care about, their code will not need to be
  * modified.
  * 
- *bpolster
+ * 
  */                                      
 public abstract class AbstractSolrSearchServiceExtensionHandler extends AbstractExtensionHandler
         implements SolrSearchServiceExtensionHandler {

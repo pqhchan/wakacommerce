@@ -69,7 +69,7 @@ import java.math.BigDecimal;
  * - Gift Card - [Unconfirmed] $10
  * - Customer Credit - [Unconfirmed] $10
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public class AdjustOrderPaymentsActivity extends BaseActivity<ProcessContext<Order>> {
 

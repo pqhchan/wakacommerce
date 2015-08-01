@@ -12,11 +12,8 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 /**
  * Controller to generate and retrieve site map files.
- * 
- *Joshua Skorton (jskorton)
  */
 @Controller
 public class SiteMapController extends BroadleafSiteMapController {

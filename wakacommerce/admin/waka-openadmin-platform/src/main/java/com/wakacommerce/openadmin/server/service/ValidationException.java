@@ -11,7 +11,7 @@ import com.wakacommerce.openadmin.server.service.persistence.module.RecordHelper
  * representation
  *
  * @see {@link RecordHelper#createPopulatedInstance(java.io.Serializable, Entity, java.util.Map, Boolean)}
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 public class ValidationException extends ServiceException {
 

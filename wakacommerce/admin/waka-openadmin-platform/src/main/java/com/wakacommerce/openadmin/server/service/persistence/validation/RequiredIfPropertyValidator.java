@@ -7,7 +7,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.openadmin.dto.BasicFieldMetadata;
 import com.wakacommerce.openadmin.dto.Entity;
 import com.wakacommerce.openadmin.dto.FieldMetadata;
@@ -28,7 +28,7 @@ import java.util.Map;
  * 
  * To compare against a specific fieldName, also provide a "compareFieldName" attribute 
  * 
- *Brian Polster
+ *  
  */
 @Component("blRequiredIfPropertyValidator")
 public class RequiredIfPropertyValidator extends ValidationConfigurationBasedPropertyValidator {
@@ -66,7 +66,7 @@ public class RequiredIfPropertyValidator extends ValidationConfigurationBasedPro
         }
 
         if (!valid) {
-            BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
+            WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
             MessageSource messages = context.getMessageSource();
 
             FieldMetadata fmd = entityFieldMetadata.get(compareFieldName);

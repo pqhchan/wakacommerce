@@ -1,13 +1,8 @@
-
 package com.wakacommerce.common.email.domain;
 
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- *jfischer
- *
- */
 public interface EmailTrackingOpens extends Serializable {
 
     /**

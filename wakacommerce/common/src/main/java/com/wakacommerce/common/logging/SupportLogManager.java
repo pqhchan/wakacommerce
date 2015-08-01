@@ -7,8 +7,8 @@ package com.wakacommerce.common.logging;
  * Logger instance (SupportLogger). SupportLogger provides support for the
  * SUPPORT log level.</p>
  *
- *Jeff Fischer
- *elbertbautista
+ * 
+ *  
  */
 public class SupportLogManager {
 

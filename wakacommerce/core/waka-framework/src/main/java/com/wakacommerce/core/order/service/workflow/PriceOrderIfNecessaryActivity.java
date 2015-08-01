@@ -33,7 +33,7 @@ import javax.annotation.Resource;
  * instead only requires it around this particular activity. This is only recommended if there are long running steps in
  * the workflow, such as an external service call to check availability.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class PriceOrderIfNecessaryActivity extends BaseActivity<ProcessContext<CartOperationRequest>> {
     

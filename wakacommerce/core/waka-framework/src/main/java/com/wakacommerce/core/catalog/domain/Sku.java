@@ -5,7 +5,7 @@ import com.wakacommerce.common.copy.MultiTenantCloneable;
 import com.wakacommerce.common.currency.domain.BroadleafCurrency;
 import com.wakacommerce.common.media.domain.Media;
 import com.wakacommerce.common.money.Money;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.catalog.service.dynamic.DynamicSkuPrices;
 import com.wakacommerce.core.catalog.service.dynamic.SkuPricingConsiderationContext;
 import com.wakacommerce.core.inventory.service.InventoryService;
@@ -608,7 +608,7 @@ public interface Sku extends Serializable, MultiTenantCloneable<Sku> {
 
     /**
      * <b>Note: When using dynamic pricing, this method is unreliable and should not be called outside of the 
-     * Broadleaf admin</b>  Instead, you should rely on the {@link BroadleafRequestContext#getBroadleafCurrency()} 
+     * Broadleaf admin</b>  Instead, you should rely on the {@link WakaRequestContext#getBroadleafCurrency()} 
      * instead of storing at the SKU level.
      * 
      * As such, for supported, enterprise installations, this method should always return null.

@@ -1,4 +1,3 @@
-
 package com.mycompany.sample.vendor.nullPaymentGateway.web.controller;
 
 import org.apache.commons.logging.Log;
@@ -21,9 +20,6 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-/**
- *Elbert Bautista (elbertbautista)
- */
 @Controller("blNullPaymentGatewayHostedController")
 @RequestMapping("/" + NullPaymentGatewayHostedController.GATEWAY_CONTEXT_KEY)
 public class NullPaymentGatewayHostedController extends PaymentGatewayAbstractController {

@@ -9,7 +9,7 @@ import com.wakacommerce.common.extension.ExtensionResultStatusType;
 /**
  * Extension handler for the checkout controller
  *
- *Joshua Skorton (jskorton)
+ *  
  */
 public interface BroadleafCheckoutControllerExtensionHandler extends ExtensionHandler {
 

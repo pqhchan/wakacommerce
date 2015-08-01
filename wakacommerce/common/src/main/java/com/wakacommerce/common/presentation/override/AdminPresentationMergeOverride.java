@@ -16,7 +16,7 @@ import java.lang.annotation.Target;
  * @see com.wakacommerce.common.presentation.AdminPresentationCollection
  * @see com.wakacommerce.common.presentation.AdminPresentationAdornedTargetCollection
  * @see com.wakacommerce.common.presentation.AdminPresentationMap
- *Jeff Fischer
+ * 
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)

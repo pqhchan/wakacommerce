@@ -8,7 +8,7 @@ import com.wakacommerce.core.pricing.service.exception.TaxException;
  * Generic service to calculate taxes. Those implementing tax calculation logic should, more likely, 
  * use the default Broadleaf TaxService implementation, and implement TaxProvider.
  * 
- *Kelly Tisdell
+ *  
  *
  */
 public interface TaxService {

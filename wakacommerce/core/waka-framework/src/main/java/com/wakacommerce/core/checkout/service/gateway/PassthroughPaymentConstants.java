@@ -20,7 +20,7 @@
 package com.wakacommerce.core.checkout.service.gateway;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public class PassthroughPaymentConstants {
 

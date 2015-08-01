@@ -9,8 +9,8 @@ import com.wakacommerce.openadmin.web.rulebuilder.MVELTranslationException;
 import com.wakacommerce.openadmin.web.rulebuilder.RuleBuilderFormatUtil;
 
 /**
- *jfischer
- *Elbert Bautista (elbertbautista)
+ *  
+ *  
  */
 public class PhraseTranslator {
 

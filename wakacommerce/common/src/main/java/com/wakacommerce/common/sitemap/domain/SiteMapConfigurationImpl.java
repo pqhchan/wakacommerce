@@ -22,7 +22,7 @@ import javax.persistence.Table;
 
 /**
  * 
- *Joshua Skorton (jskorton)
+ *  
  */
 @Entity
 @Table(name = "BLC_SITE_MAP_CFG")

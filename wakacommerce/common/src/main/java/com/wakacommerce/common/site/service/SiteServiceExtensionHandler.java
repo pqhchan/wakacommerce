@@ -14,7 +14,7 @@ import com.wakacommerce.common.site.domain.SiteImpl;
  * Rather than implementing this interface directly you should extend your implementation from
  * {@link AbstractSiteServiceExtensionHandler}.
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  * @see {@link AbstractSiteServiceExtensionHandler}
  */
 public interface SiteServiceExtensionHandler extends ExtensionHandler {

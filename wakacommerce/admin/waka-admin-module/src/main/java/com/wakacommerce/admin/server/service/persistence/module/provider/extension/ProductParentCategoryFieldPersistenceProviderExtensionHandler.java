@@ -9,7 +9,7 @@ import com.wakacommerce.openadmin.dto.Property;
 /**
  * Extension handler for {@link com.wakacommerce.admin.server.service.persistence.module.provider.ProductParentCategoryFieldPersistenceProvider}
  *
- *Jeff Fischer
+ * 
  */
 public interface ProductParentCategoryFieldPersistenceProviderExtensionHandler extends ExtensionHandler {
 

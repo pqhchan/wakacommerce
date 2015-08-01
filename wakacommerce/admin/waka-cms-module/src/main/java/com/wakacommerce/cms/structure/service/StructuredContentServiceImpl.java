@@ -1,22 +1,4 @@
-/*
- * #%L
- * BroadleafCommerce CMS Module
- * %%
- * Copyright (C) 2009 - 2013 Broadleaf Commerce
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *       http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * #L%
- */
+ 
 package com.wakacommerce.cms.structure.service;
 
 import net.sf.ehcache.Cache;
@@ -54,7 +36,7 @@ import com.wakacommerce.common.sandbox.domain.SandBox;
 import com.wakacommerce.common.structure.dto.ItemCriteriaDTO;
 import com.wakacommerce.common.structure.dto.StructuredContentDTO;
 import com.wakacommerce.common.util.FormatUtil;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -67,7 +49,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- *bpolster
+ * 
  */
 @Service("blStructuredContentService")
 public class StructuredContentServiceImpl implements StructuredContentService {
@@ -237,8 +219,8 @@ public class StructuredContentServiceImpl implements StructuredContentService {
                                                              Integer count, Map<String, Object> ruleDTOs, boolean secure) {
         List<StructuredContentDTO> contentDTOList = null;
         Locale languageOnlyLocale = findLanguageOnlyLocale(locale);
-        BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
-        Long site = context.getSite() == null?null:context.getSite().getId();
+        WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
+        Long site = context.getNonPersistentSite() == null?null:context.getNonPersistentSite().getId();
         String cacheKey = buildTypeKey(context.getSandBox(), site, languageOnlyLocale, contentType.getName());
         cacheKey = cacheKey+"-"+secure;
         if (context.isProductionSandBox()) {
@@ -262,8 +244,8 @@ public class StructuredContentServiceImpl implements StructuredContentService {
                                                             Integer count, Map<String, Object> ruleDTOs, boolean secure) {
         List<StructuredContentDTO> contentDTOList = null;
         Locale languageOnlyLocale = findLanguageOnlyLocale(locale);
-        BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
-        Long site = context.getSite() == null?null:context.getSite().getId();
+        WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
+        Long site = context.getNonPersistentSite() == null?null:context.getNonPersistentSite().getId();
         String cacheKey = buildNameKey(context.getSandBox(), site, languageOnlyLocale, contentType.getName(), contentName);
         cacheKey = cacheKey+"-"+secure;
         if (context.isProductionSandBox()) {
@@ -288,7 +270,7 @@ public class StructuredContentServiceImpl implements StructuredContentService {
         for (StructuredContent sc : scs) {
             String cacheKey = "SC|" + sc.getId();
             StructuredContentDTO dto = null;
-            BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
+            WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
 
             if (context.isProductionSandBox()) {
                 dto = getSingleStructuredContentFromCache(cacheKey);
@@ -312,8 +294,8 @@ public class StructuredContentServiceImpl implements StructuredContentService {
                                                              Integer count, Map<String, Object> ruleDTOs, boolean secure) {
         List<StructuredContentDTO> contentDTOList = null;
         Locale languageOnlyLocale = findLanguageOnlyLocale(locale);
-        BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
-        Long site = context.getSite() == null?null:context.getSite().getId();
+        WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
+        Long site = context.getNonPersistentSite() == null?null:context.getNonPersistentSite().getId();
         String cacheKey = buildNameKey(context.getSandBox(), site, languageOnlyLocale, "any", contentName);
         cacheKey = cacheKey+"-"+secure;
         if (context.isProductionSandBox()) {

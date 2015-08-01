@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  * This is a JAXB wrapper around ISOCountry.
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @XmlRootElement(name = "isoCountry")
 @XmlAccessorType(value = XmlAccessType.FIELD)

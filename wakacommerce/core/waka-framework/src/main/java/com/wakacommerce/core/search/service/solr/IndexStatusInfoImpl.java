@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class IndexStatusInfoImpl implements IndexStatusInfo {
 

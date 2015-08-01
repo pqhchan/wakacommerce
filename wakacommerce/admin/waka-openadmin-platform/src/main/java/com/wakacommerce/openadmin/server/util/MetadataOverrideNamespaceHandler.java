@@ -4,7 +4,7 @@ package com.wakacommerce.openadmin.server.util;
 import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class MetadataOverrideNamespaceHandler extends NamespaceHandlerSupport {
 

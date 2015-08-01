@@ -6,14 +6,14 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 /**
  * Extensible enumeration indicating types of product relations such as upsell, crosssell, or featured.
  * 
- * Created by bpolster.
+ *   
  */
-public class RelatedProductTypeEnum implements Serializable, BroadleafEnumerationType {
+public class RelatedProductTypeEnum implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 

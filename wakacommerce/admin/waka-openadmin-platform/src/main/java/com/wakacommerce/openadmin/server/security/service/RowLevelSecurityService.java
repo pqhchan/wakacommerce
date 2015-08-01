@@ -43,8 +43,8 @@ import java.util.List;
  *  </bean>
  * }
  * 
- *Phillip Verheyden (phillipuniverse)
- *Brian Polster (bpolster)
+ *     
+ *   ( )
  */
 public interface RowLevelSecurityService extends RowLevelSecurityProvider {
 

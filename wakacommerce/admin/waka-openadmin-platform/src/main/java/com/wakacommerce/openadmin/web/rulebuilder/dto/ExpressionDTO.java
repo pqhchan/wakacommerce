@@ -6,7 +6,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import java.io.Serializable;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public class ExpressionDTO extends DataDTO implements Serializable {
 

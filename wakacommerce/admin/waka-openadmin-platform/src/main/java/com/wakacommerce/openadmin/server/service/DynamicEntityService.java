@@ -13,7 +13,7 @@ import com.wakacommerce.openadmin.server.service.persistence.PersistenceResponse
  * methods in this class will not attempt to recover from things like validation problems whereas {@link AdminEntityService}
  * will.
  * 
- *jfischer
+ *  
  */
 public interface DynamicEntityService {
     

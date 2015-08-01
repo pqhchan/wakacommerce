@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.util;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -32,7 +31,7 @@ import javax.annotation.Resource;
  * <p>The {@link BroadleafMergeResourceExtensionManager} will get invoked first and return any
  * resolved message from an implementing module.</p>
  * 
- *Phillip Verheyden
+ *  
  * @see {@link ReloadableResourceBundleMessageSource}
  * @see {@link ResourceLoader#getResource(String)}
  * @see {@link #setBasenames(String...)}

@@ -20,7 +20,7 @@
 package com.wakacommerce.core.util.service.type;
 
 /**
- *Jeff Fischer
+ * 
  */
 public enum PurgeCartVariableNames {
     STATUS //looking for order with this status(es)

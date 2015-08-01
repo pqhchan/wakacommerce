@@ -15,7 +15,7 @@ import javax.persistence.PostUpdate;
  * The main function of this entity listener is to publish a Spring event that the customer has been persisted. This is
  * necessary in order to update the current order in the application
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  * 
  * @see {@link ApplicationEventPublisher#publishEvent(org.springframework.context.ApplicationEvent)}
  * @see {@link OrderPersistedEvent}

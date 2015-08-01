@@ -6,7 +6,7 @@ import com.wakacommerce.common.extension.ExtensionResultStatusType;
 import com.wakacommerce.openadmin.web.form.TranslationForm;
 
 /**
- *Jeff Fischer
+ * 
  */
 public interface AdminTranslationControllerExtensionHandler extends ExtensionHandler {
 

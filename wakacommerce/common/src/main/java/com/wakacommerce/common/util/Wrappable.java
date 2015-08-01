@@ -4,7 +4,7 @@ package com.wakacommerce.common.util;
 /**
  * Utility interface for items that wrap an internal, delegate item
  *
- *Jeff Fischer
+ * 
  */
 public interface Wrappable {
 

@@ -7,7 +7,7 @@ import com.wakacommerce.common.event.BroadleafApplicationEvent;
 /**
  * An event for whenever an {@link OrderImpl} has been persisted
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  * 
  * @see {@link OrderPersistedEntityListener}
  */

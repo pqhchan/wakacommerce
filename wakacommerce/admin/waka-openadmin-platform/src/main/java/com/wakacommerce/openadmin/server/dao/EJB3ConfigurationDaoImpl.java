@@ -9,7 +9,7 @@ import javax.persistence.spi.PersistenceUnitInfo;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public class EJB3ConfigurationDaoImpl implements EJB3ConfigurationDao {

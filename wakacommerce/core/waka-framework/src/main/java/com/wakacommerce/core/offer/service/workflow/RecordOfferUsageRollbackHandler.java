@@ -20,7 +20,7 @@ import com.wakacommerce.core.workflow.state.RollbackHandler;
 /**
  * Rolls back audits that were saved in the database from {@link RecordOfferUsageActivity}.
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  * @see {@link RecordOfferUsageActivity}
  */
 @Component("blRecordOfferUsageRollbackHandler")

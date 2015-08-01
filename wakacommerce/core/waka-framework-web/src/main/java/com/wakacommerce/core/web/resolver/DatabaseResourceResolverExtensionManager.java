@@ -7,7 +7,7 @@ import com.wakacommerce.common.extension.ExtensionManager;
 
 
 /**
- *Andre Azzolini (apazzolini), bpolster
+ * ,  
  */
 @Service("blDatabaseResourceResolverExtensionManager")
 public class DatabaseResourceResolverExtensionManager extends ExtensionManager<DatabaseResourceResolverExtensionHandler> {

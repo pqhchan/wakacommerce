@@ -26,7 +26,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Service("blSolrIndexStatusService")
 public class SolrIndexStatusServiceImpl implements SolrIndexStatusService {

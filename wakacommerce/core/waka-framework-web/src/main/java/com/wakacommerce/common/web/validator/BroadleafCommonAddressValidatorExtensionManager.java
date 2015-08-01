@@ -24,7 +24,7 @@ import org.springframework.stereotype.Service;
 import com.wakacommerce.common.extension.ExtensionManager;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 @Service("blBroadleafCommonAddressValidatorExtensionManager")
 public class BroadleafCommonAddressValidatorExtensionManager extends ExtensionManager<BroadleafCommonAddressValidatorExtensionHandler> {

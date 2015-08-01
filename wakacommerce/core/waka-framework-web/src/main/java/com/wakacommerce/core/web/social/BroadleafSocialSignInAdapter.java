@@ -30,7 +30,7 @@ import javax.annotation.Resource;
  * <context:component-scan base-package="com.wakacommerce.core.web"/>
  *
  * @see org.springframework.social.connect.web.ProviderSignInController
- *elbertbautista
+ *  
  *
  */
 @Component("blSocialSignInAdapter")

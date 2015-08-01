@@ -6,7 +6,7 @@ import com.wakacommerce.openadmin.server.dao.DynamicEntityDao;
 /**
  * Contains the requested field, metadata and support classes.
  *
- *Jeff Fischer
+ * 
  */
 public class LateStageAddMetadataRequest {
 

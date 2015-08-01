@@ -11,7 +11,7 @@ import com.wakacommerce.common.money.Money;
  * about the relationship itself like how many items should be included in the
  * bundle
  *
- *Phillip Verheyden
+ *  
  * @see ProductBundle, Product
  */
 public interface SkuBundleItem extends Serializable, MultiTenantCloneable<SkuBundleItem> {

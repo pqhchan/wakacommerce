@@ -26,7 +26,7 @@ import com.wakacommerce.common.vendor.service.exception.PaymentException;
  * @see {@link PaymentGatewayRollbackService}
  * @see {@link PaymentGatewayConfiguration}
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public interface PaymentGatewayTransactionConfirmationService {
 

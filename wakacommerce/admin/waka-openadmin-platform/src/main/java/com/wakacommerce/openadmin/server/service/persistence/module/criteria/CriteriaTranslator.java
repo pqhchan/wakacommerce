@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- *Jeff Fischer
+ * 
  */
 public interface CriteriaTranslator {
 

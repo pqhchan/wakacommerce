@@ -7,8 +7,8 @@ import com.wakacommerce.openadmin.web.rulebuilder.BLCOperator;
 import com.wakacommerce.openadmin.web.rulebuilder.MVELTranslationException;
 
 /**
- *jfischer
- *Elbert Bautista (elbertbautista)
+ *  
+ *  
  */
 public class GroupingTranslator {
     public static final String GROUPSTARTCHAR = "(";

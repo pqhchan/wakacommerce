@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class BasicFieldMetadata extends FieldMetadata {
 

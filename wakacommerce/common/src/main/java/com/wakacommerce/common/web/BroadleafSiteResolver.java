@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
  * Responsible for returning the site used by Broadleaf Commerce for the current request.
  * For a single site installation, this will typically return null.
  *
- *bpolster
+ * 
  */
 public interface BroadleafSiteResolver  {
 

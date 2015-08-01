@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Component("blNullAwareDateFilterValueConverter")
 public class NullAwareDateFilterValueConverter implements FilterValueConverter<Date> {

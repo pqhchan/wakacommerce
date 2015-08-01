@@ -26,7 +26,7 @@ import java.math.BigDecimal;
  * Container object for the results of a lightweight query that retrieves the product ids
  * for a category along with their display order.
  *
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class ProductsByCategoryWithOrder {
 

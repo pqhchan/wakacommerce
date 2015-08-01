@@ -19,7 +19,7 @@ import com.wakacommerce.common.payment.PaymentGatewayType;
  * <p>Once you obtain the correct gateway configuration bean, you can then obtain links to each service to perform individual
  * operations like {@link PaymentGatewayTransactionService} or {@link PaymentGatewayFraudService}.</p>
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 public interface PaymentGatewayConfigurationServiceProvider {
     

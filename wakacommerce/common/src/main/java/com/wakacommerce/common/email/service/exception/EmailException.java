@@ -1,10 +1,5 @@
-
 package com.wakacommerce.common.email.service.exception;
 
-/**
- *jfischer
- *
- */
 public class EmailException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;

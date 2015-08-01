@@ -17,7 +17,7 @@ import java.util.Set;
  * also be injected in a controller to provide estimations for various {@link FulfillmentOption}s to display to the user
  * before an option is actually selected.
  * 
- *Phillip Verheyden
+ *  
  */
 public interface FulfillmentPricingService {
 

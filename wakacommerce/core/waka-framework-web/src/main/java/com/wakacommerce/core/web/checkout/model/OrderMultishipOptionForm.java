@@ -13,7 +13,7 @@ import com.wakacommerce.core.order.service.call.OrderMultishipOptionDTO;
  * 
  * @see OrderMultishipOptionDTO
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class OrderMultishipOptionForm implements Serializable {
 

@@ -14,7 +14,7 @@ import com.wakacommerce.common.TimeDTO;
 import com.wakacommerce.common.money.Money;
 import com.wakacommerce.common.rule.MvelHelper;
 import com.wakacommerce.common.time.SystemTime;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.offer.domain.Offer;
 import com.wakacommerce.core.offer.domain.OfferItemCriteria;
 import com.wakacommerce.core.offer.domain.OfferOfferRuleXref;
@@ -45,7 +45,7 @@ import javax.annotation.Resource;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public abstract class AbstractBaseProcessor implements BaseProcessor {
@@ -301,8 +301,8 @@ public abstract class AbstractBaseProcessor implements BaseProcessor {
 
     protected List<Offer> removeInvalidRequestOffers(List<Offer> offers) {
         RequestDTO requestDTO = null;
-        if (BroadleafRequestContext.getBroadleafRequestContext() != null) {
-            requestDTO = BroadleafRequestContext.getBroadleafRequestContext().getRequestDTO();
+        if (WakaRequestContext.getWakaRequestContext() != null) {
+            requestDTO = WakaRequestContext.getWakaRequestContext().getRequestDTO();
         }
 
         List<Offer> offersToRemove = new ArrayList<Offer>();

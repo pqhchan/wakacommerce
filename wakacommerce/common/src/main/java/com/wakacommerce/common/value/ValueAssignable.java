@@ -6,7 +6,7 @@ import java.io.Serializable;
 /**
  * Describes simple classes that can be assigned a name and value
  *
- *Jeff Fischer
+ * 
  */
 public interface ValueAssignable<T extends Serializable> extends Serializable {
 

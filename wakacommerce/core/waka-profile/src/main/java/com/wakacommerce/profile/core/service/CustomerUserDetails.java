@@ -28,7 +28,7 @@ import java.util.Collection;
  * Created in order to utilize the Customer's primary key to salt passwords with. This allows username changes without
  * requiring a password reset since the primary key should never change.
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  * @see {@link UserDetailsServiceImpl}
  * @see {@link CustomerServiceImpl#getSalt(com.wakacommerce.profile.core.domain.Customer)}
  */

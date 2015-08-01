@@ -7,7 +7,7 @@ import com.wakacommerce.common.extension.ExtensionManager;
 
 
 /**
- *Andre Azzolini (apazzolini), bpolster
+ * ,  
  */
 @Service("blPageServiceExtensionManager")
 public class PageServiceExtensionManager extends ExtensionManager<PageServiceExtensionHandler> {

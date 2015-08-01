@@ -11,7 +11,7 @@ import java.util.List;
  * This handler implementation provides behavior where the child nodes from an
  * element in the patch document are added to the same node in the source
  * document.
- *jfischer
+ *  
  */
 public class InsertChildrenOf extends BaseHandler {
 

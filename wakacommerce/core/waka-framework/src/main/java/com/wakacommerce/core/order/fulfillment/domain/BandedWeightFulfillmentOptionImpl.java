@@ -19,7 +19,7 @@ import java.util.List;
 
 /**
  * 
- *Phillip Verheyden
+ *  
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

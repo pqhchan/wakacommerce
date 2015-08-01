@@ -11,7 +11,7 @@ import org.apache.commons.logging.Log;
 import org.springframework.util.ClassUtils;
 
 import com.wakacommerce.common.sandbox.domain.SandBox;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationHandler;
@@ -27,7 +27,7 @@ import javax.annotation.Resource;
  * NOTE, special cache invalidation support must be added to address this cache if a change is made to one or more of
  * the cached missed items.
  *
- *Jeff Fischer
+ * 
  */
 public abstract class AbstractCacheMissAware {
     
@@ -46,7 +46,7 @@ public abstract class AbstractCacheMissAware {
      * @return the completed key
      */
     protected String buildKey(String... params) {
-        BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
         SandBox sandBox = context.getSandBox();
         String key = StringUtils.join(params, '_');
         if (sandBox != null) {
@@ -154,7 +154,7 @@ public abstract class AbstractCacheMissAware {
      */
     protected <T> T getCachedObject(Class<T> responseClass, String cacheName, String statisticsName, PersistentRetrieval<T> retrieval, String... params) {
         T nullResponse = getNullObject(responseClass);
-        BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
         String key = buildKey(params);
         T response = null;
         if (context.isProductionSandBox() || (context.getAdditionalProperties().containsKey("allowLevel2Cache") && (Boolean) context.getAdditionalProperties().get("allowLevel2Cache"))) {

@@ -10,7 +10,7 @@ import org.slf4j.MarkerFactory;
  * <p>An SLF4J implementation of SupportLoggerAdapter that will delegate to the
  * configured SLF4J logging framework.</p>
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public class SLF4JSupportLoggerAdapter extends AbstractSupportLoggerAdapter implements SupportLoggerAdapter {
 

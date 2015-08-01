@@ -10,7 +10,7 @@ import com.wakacommerce.core.offer.service.discount.domain.PromotableOrder;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public interface ItemOfferProcessor extends OrderOfferProcessor {

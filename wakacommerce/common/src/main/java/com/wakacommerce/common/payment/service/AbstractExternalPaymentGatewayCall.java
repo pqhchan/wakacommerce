@@ -22,7 +22,7 @@ import com.wakacommerce.common.vendor.service.type.ServiceStatusType;
  * @see com.wakacommerce.common.vendor.service.monitor.StatusHandler
  * @see ServiceStatusDetectable
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public abstract class AbstractExternalPaymentGatewayCall<T,R> implements ServiceStatusDetectable<T> {
 

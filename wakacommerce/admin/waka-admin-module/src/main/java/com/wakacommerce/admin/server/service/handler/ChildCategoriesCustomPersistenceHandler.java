@@ -20,7 +20,7 @@ import com.wakacommerce.openadmin.server.service.handler.CustomPersistenceHandle
 import com.wakacommerce.openadmin.server.service.persistence.module.RecordHelper;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Component("blChildCategoriesCustomPersistenceHandler")
 public class ChildCategoriesCustomPersistenceHandler extends CustomPersistenceHandlerAdapter {

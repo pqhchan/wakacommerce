@@ -36,7 +36,7 @@
     </bean>
     
     <!-- Set up the view resolver to be used by Spring -->
-    <bean class="com.wakacommerce.common.web.BroadleafThymeleafViewResolver">
+    <bean class="com.wakacommerce.common.web.WakaThymeleafViewResolver">
         <property name="templateEngine" ref="blAdminWebTemplateEngine" />
         <property name="order" value="1" />
         <property name="cache" value="${thymeleaf.view.resolver.cache}" />
@@ -59,7 +59,7 @@
     </mvc:interceptors>
 
     <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
-        <property name="defaultLocale" value="en"/>
+        <property name="defaultLocale" value="zh_cn"/>
     </bean>
 
     <mvc:default-servlet-handler/>

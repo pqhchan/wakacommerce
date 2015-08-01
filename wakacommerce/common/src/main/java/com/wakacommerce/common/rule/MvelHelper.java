@@ -12,7 +12,7 @@ import com.wakacommerce.common.presentation.client.SupportedFieldType;
 import com.wakacommerce.common.time.SystemTime;
 import com.wakacommerce.common.util.EfficientLRUMap;
 import com.wakacommerce.common.util.FormatUtil;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -32,7 +32,7 @@ import javax.servlet.http.HttpServletRequest;
  *    convertField(type, fieldValue)
  *    toUpperCase(value)
  *
- *Jeff Fischer
+ * 
  */
 public class MvelHelper {
 
@@ -164,7 +164,7 @@ public class MvelHelper {
      */
     public static Map<String, Object> buildMvelParameters() {
         Map<String, Object> mvelParameters = new HashMap<String, Object>();
-       BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+       WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
         if (brc != null && brc.getRequest() != null) {
            TimeDTO timeDto = new TimeDTO(SystemTime.asCalendar());
             HttpServletRequest request = brc.getRequest();

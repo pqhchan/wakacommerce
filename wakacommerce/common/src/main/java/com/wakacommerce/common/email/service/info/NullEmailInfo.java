@@ -11,8 +11,6 @@ import java.io.IOException;
  * The email send functionality will not send an email if the passed in EmailInfo is an instance
  * of this class.
  *
- *vjain
- *
  */
 public class NullEmailInfo extends EmailInfo {
     private static final long serialVersionUID = 1L;

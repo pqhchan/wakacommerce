@@ -7,7 +7,7 @@ import com.wakacommerce.common.classloader.release.ThreadLocalManager;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public class CurrencyConsiderationContext {

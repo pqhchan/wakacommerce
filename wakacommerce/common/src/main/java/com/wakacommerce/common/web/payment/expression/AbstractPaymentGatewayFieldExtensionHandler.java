@@ -11,7 +11,7 @@ import com.wakacommerce.common.payment.PaymentGatewayType;
 import com.wakacommerce.common.payment.service.PaymentGatewayResolver;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  *
  */
 public abstract class AbstractPaymentGatewayFieldExtensionHandler extends AbstractExtensionHandler

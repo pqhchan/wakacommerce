@@ -18,7 +18,7 @@ import java.util.HashMap;
  * <p>This should be configured in your Spring context, but not the root one. So if you are running in a Portlet
  * environment, then you should configure the interceptor in each individual portlet's context.</p>
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  * @see {@link DynamicSkuPricingFilter}
  */
 public abstract class DynamicSkuPricingInterceptor implements WebRequestInterceptor {

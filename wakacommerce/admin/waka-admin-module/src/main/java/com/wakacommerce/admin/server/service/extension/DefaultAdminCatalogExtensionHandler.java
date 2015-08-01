@@ -38,7 +38,7 @@ import javax.annotation.Resource;
  * Default implementation used by the core framework.
  *
  * @see com.wakacommerce.admin.server.service.extension.AdminCatalogServiceExtensionHandler
- *Jeff Fischer
+ * 
  */
 @Component("blDefaultAdminCatalogExtensionHandler")
 public class DefaultAdminCatalogExtensionHandler extends AbstractExtensionHandler implements AdminCatalogServiceExtensionHandler {

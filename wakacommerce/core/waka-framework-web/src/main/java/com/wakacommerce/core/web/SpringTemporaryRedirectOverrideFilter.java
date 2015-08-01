@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
  * This filter should appear before the Spring Dispatch Servlet in the mapping configuration
  * in web.xml
  * 
- *jfischer
+ *  
  *
  */
 public class SpringTemporaryRedirectOverrideFilter implements Filter {

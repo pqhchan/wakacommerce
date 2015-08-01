@@ -35,7 +35,7 @@ import javax.servlet.http.HttpServletRequest;
  * If a request is being served with a SandBox parameter, it indicates that the user
  * wants to see the site as if their changes were applied.
  *
- *bpolster
+ * 
  */
 @Component("blSandBoxResolver")
 public class BroadleafSandBoxResolverImpl implements BroadleafSandBoxResolver  {
@@ -125,7 +125,7 @@ public class BroadleafSandBoxResolverImpl implements BroadleafSandBoxResolver  {
             }
             if (sandboxId != null) {
                 if (previousSandBoxId != null && !previousSandBoxId.equals(sandboxId)) {
-                    request.setAttribute(BroadleafRequestProcessor.REPROCESS_PARAM_NAME, true, WebRequest.SCOPE_REQUEST);
+                    request.setAttribute(WakaRequestProcessor.REPROCESS_PARAM_NAME, true, WebRequest.SCOPE_REQUEST);
                 }
 
                 currentSandbox = sandBoxDao.retrieve(sandboxId);

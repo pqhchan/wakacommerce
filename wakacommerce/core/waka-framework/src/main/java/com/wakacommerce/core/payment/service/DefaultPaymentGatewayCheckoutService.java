@@ -51,7 +51,7 @@ import javax.annotation.Resource;
  * Core framework implementation of the {@link PaymentGatewayCheckoutService}.
  * 
  * @see {@link PaymentGatewayAbstractController}
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 @Service("blPaymentGatewayCheckoutService")
 public class DefaultPaymentGatewayCheckoutService implements PaymentGatewayCheckoutService {

@@ -30,7 +30,7 @@ import javassist.bytecode.annotation.Annotation;
  * This class transformer will copy fields, methods, and interface definitions from a source class to a target class,
  * based on the xformTemplates map. It will fail if it encouters any duplicate definitions.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  * @deprecated do not use this class, use {@link DirectCopyClassTransformer} instead
  */
 @Deprecated

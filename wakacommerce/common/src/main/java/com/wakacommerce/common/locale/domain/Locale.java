@@ -5,9 +5,7 @@ import java.io.Serializable;
 
 import com.wakacommerce.common.currency.domain.BroadleafCurrency;
 
-/**
- * Created by jfischer
- */
+  
 public interface Locale extends Serializable {
 
     String getLocaleCode();

@@ -40,7 +40,7 @@ import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Component("blStreamingTransactionCapableUtil")
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)

@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Controller to generate and retrieve site map files.
  * 
- *Joshua Skorton (jskorton)
+ *  
  */
 public class BroadleafSiteMapController {
 

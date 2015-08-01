@@ -24,7 +24,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- *Jeff Fischer
+ * 
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

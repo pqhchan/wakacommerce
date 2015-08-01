@@ -23,7 +23,7 @@ package com.wakacommerce.openadmin.server.service.persistence;
  * Specific class of PersistenceException used in FieldPersistenceProviders that attempt to perform their own persistence
  * operations in addition to the normal entity field population duties.
  *
- *Jeff Fischer
+ * 
  */
 public class ParentEntityPersistenceException extends PersistenceException {
 

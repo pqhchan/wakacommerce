@@ -23,7 +23,7 @@ import java.security.NoSuchAlgorithmException;
  * On any web response from a gateway that has plain-text Order ID and Customer ID parameters returned, the
  * verifySeal() method should be called to check if the values have been tampered with.</p>
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public interface PaymentGatewayTamperProofSealService {
 

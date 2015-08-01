@@ -13,7 +13,7 @@ import com.wakacommerce.core.order.dao.OrderItemDao;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public interface OrderOfferProcessor extends BaseProcessor {

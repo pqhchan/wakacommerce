@@ -23,7 +23,7 @@ import com.wakacommerce.common.extensibility.context.merge.exceptions.MergeExcep
  * could result in an override of the class definition for the bean, or additional or changed
  * property elements within the bean definition.</p>
  * 
- *jfischer
+ *  
  *
  */
 public class MergeClassPathXMLApplicationContext extends AbstractMergeXMLApplicationContext {

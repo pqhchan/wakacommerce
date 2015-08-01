@@ -28,7 +28,7 @@ import java.io.FileNotFoundException;
  * could result in an override of the class definition for the bean, or additional or changed
  * property elements within the bean definition.</p>
  * 
- *jfischer
+ *  
  *
  */
 public class MergeFileSystemXMLApplicationContext extends AbstractMergeXMLApplicationContext {

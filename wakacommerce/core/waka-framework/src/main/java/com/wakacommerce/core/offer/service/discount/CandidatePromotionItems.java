@@ -12,7 +12,7 @@ import com.wakacommerce.core.offer.service.discount.domain.PromotableOrderItem;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public class CandidatePromotionItems {

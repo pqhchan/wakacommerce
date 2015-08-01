@@ -13,7 +13,7 @@ import com.wakacommerce.common.file.domain.FileWorkArea;
  * 
  * This service provides a pluggable way to provide those services.
  * 
- *bpolster
+ * 
  *
  */
 public interface BroadleafFileService {

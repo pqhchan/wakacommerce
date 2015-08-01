@@ -27,7 +27,7 @@ import com.wakacommerce.common.media.domain.Media;
 /**
  * For internal usage. Allows extending API calls without subclassing the entity.
  *
- *Jeff Fischer
+ * 
  */
 public interface MediaFieldPersistenceProviderExtensionHandler extends ExtensionHandler {
 

@@ -26,7 +26,7 @@ import com.wakacommerce.common.exception.ServiceException;
  * Resolves which field of an entity should be used for searching when targeting
  * an entity directly and not a specific field on that entity.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface SearchFieldResolver {
 

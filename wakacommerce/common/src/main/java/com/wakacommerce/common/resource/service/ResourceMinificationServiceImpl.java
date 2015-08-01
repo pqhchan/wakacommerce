@@ -24,7 +24,7 @@ import java.io.OutputStreamWriter;
 
 /**
  * @see ResourceMinificationService 
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Service("blResourceMinificationService")
 public class ResourceMinificationServiceImpl implements ResourceMinificationService {

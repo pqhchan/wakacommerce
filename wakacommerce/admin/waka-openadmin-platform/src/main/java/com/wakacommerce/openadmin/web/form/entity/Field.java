@@ -12,7 +12,7 @@ import java.util.Map;
 
 
 /**
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class Field {
 

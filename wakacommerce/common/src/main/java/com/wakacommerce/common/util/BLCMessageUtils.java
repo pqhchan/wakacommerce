@@ -7,7 +7,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 
 /**
  * Convenience class to faciliate getting internationalized messages. 
@@ -15,7 +15,7 @@ import com.wakacommerce.common.web.BroadleafRequestContext;
  * Note that this class is scanned as a bean to pick up the applicationContext, but the methods
  * this class provides should be invoked statically.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Service("blBLCMessageUtils")
 public class BLCMessageUtils implements ApplicationContextAware {
@@ -24,7 +24,7 @@ public class BLCMessageUtils implements ApplicationContextAware {
     
     /**
      * Returns the message requested by the code with no arguments and the currently set Java Locale on 
-     * the {@link BroadleafRequestContext} as returned by {@link BroadleafRequestContext#getJavaLocale()}
+     * the {@link WakaRequestContext} as returned by {@link WakaRequestContext#getJavaLocale()}
      * 
      * @param code
      * @return the message
@@ -35,13 +35,13 @@ public class BLCMessageUtils implements ApplicationContextAware {
     
     /**
      * Returns the message requested by the code with the specified arguments and the currently set Java Locale on 
-     * the {@link BroadleafRequestContext} as returned by {@link BroadleafRequestContext#getJavaLocale()}
+     * the {@link WakaRequestContext} as returned by {@link WakaRequestContext#getJavaLocale()}
      * 
      * @param code
      * @return the message
      */
     public static String getMessage(String code, Object... args) {
-        BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
         return getMessageSource().getMessage(code, args, brc.getJavaLocale());
     }
     

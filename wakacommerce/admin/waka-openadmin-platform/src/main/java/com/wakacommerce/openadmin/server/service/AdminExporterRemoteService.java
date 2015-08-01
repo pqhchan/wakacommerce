@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  * 
- *Phillip Verheyden
+ *  
  */
 @Service("blAdminExporterRemoteService")
 public class AdminExporterRemoteService implements AdminExporterService, ApplicationContextAware {

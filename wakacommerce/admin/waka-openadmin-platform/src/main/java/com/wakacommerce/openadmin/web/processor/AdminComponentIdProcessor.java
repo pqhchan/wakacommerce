@@ -18,7 +18,7 @@ import java.util.Map;
 /**
  * A Thymeleaf processor that will generate the appropriate ID for a given admin component.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Component("blAdminComponentIdProcessor")
 public class AdminComponentIdProcessor extends AbstractAttributeModifierAttrProcessor {

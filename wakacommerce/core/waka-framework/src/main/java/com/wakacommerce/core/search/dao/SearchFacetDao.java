@@ -9,7 +9,7 @@ import com.wakacommerce.core.search.domain.SearchFacet;
 /**
  * DAO used to interact with the database search facets
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface SearchFacetDao {
 

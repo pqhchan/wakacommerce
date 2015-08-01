@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Deprecated - Use {@link com.wakacommerce.openadmin.web.controller.AdminAbstractControllerExtensionHandler}
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 @Deprecated
 public interface MainEntityActionsExtensionHandler extends ExtensionHandler {

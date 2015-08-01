@@ -9,7 +9,7 @@ import com.wakacommerce.common.extension.ExtensionManager;
 /**
  * Extension manager for {@link com.wakacommerce.admin.server.service.persistence.module.provider.ProductParentCategoryFieldPersistenceProvider}
  *
- *Jeff Fischer
+ * 
  */
 @Service("blProductParentCategoryFieldPersistenceProviderExtensionManager")
 public class ProductParentCategoryFieldPersistenceProviderExtensionManager extends ExtensionManager<ProductParentCategoryFieldPersistenceProviderExtensionHandler> {

@@ -5,7 +5,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.WebRequest;
 
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.order.domain.NullOrderImpl;
 import com.wakacommerce.core.order.domain.Order;
 import com.wakacommerce.core.order.domain.OrderPersistedEntityListener;
@@ -18,7 +18,7 @@ import com.wakacommerce.profile.web.core.CustomerState;
 /**
  * {@link ApplicationListener} responsible for updating {@link CartState} with a new version that was persisted.
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  * 
  * @see {@link OrderPersistedEntityListener}
  * @see {@link OrderPersistedEvent}
@@ -37,7 +37,7 @@ public class CartStateRefresher implements ApplicationListener<OrderPersistedEve
      */
     @Override
     public void onApplicationEvent(final OrderPersistedEvent event) {
-        WebRequest request = BroadleafRequestContext.getBroadleafRequestContext().getWebRequest();
+        WebRequest request = WakaRequestContext.getWakaRequestContext().getWebRequest();
         if (request != null) {
              Order dbOrder = event.getOrder();
             //Update the cart state ONLY IF the IDs of the newly persisted order and whatever is already in CartState match

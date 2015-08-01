@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.email.service.info;
 
 import java.io.Serializable;
@@ -7,10 +6,6 @@ import java.util.List;
 
 import com.wakacommerce.common.email.service.message.Attachment;
 
-/**
- *jfischer
- *
- */
 public class EmailInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;

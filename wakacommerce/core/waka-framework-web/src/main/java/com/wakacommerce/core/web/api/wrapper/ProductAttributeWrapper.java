@@ -12,7 +12,7 @@ import com.wakacommerce.core.catalog.domain.ProductAttribute;
 /**
  * To change this template use File | Settings | File Templates.
  * <p/>
- * User: Kelly Tisdell
+ * User:   
  * Date: 4/10/12
  */
 @XmlRootElement(name = "productAttribute")

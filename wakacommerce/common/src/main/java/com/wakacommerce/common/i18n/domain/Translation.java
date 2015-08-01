@@ -7,7 +7,7 @@ import com.wakacommerce.common.copy.MultiTenantCloneable;
 /**
  * This domain object represents a translated value for a given property on an entity for a specific locale.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  * @see TranslatedEntity
  */
 public interface Translation extends MultiTenantCloneable<Translation> {

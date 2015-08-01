@@ -11,7 +11,7 @@ import com.wakacommerce.common.vendor.service.exception.PaymentException;
  * you to create a transaction from the tokenized customer or payment method at a later date.
  * Note: These are usually extra features you need to pay for when you sign up with the Gateway</p>
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public interface PaymentGatewayCustomerService {
 

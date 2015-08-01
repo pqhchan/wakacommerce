@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 /**
  * 
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 @Service("blPaymentGatewayConfigurationServiceProvider")
 public class PaymentGatewayConfigurationServiceProviderImpl implements PaymentGatewayConfigurationServiceProvider {

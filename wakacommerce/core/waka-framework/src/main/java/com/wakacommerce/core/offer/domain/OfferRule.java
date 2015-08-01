@@ -6,7 +6,7 @@ import com.wakacommerce.common.rule.SimpleRule;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public interface OfferRule extends SimpleRule, MultiTenantCloneable<OfferRule> {

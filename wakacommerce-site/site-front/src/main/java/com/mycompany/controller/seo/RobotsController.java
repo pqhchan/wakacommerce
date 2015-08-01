@@ -4,20 +4,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.wakacommerce.cms.web.controller.BroadleafRobotsController;
+import com.wakacommerce.cms.web.controller.WakaRobotsController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 /**
  * Controller to retrieve robots.txt file.   
- * 
- *bpolster
- * @see BroadleafRobotsController
  */
 @Controller
-public class RobotsController extends BroadleafRobotsController {
+public class RobotsController extends WakaRobotsController {
 
     /**
      * Retrieves the robots.txt file     

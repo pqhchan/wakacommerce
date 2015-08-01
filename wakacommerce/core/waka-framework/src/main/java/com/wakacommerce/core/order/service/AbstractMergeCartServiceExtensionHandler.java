@@ -7,7 +7,7 @@ import com.wakacommerce.core.order.domain.Order;
 import com.wakacommerce.profile.core.domain.Customer;
 
 /**
- *Andre Azzolini (apazzolini)
+ * 
  */
 public abstract class AbstractMergeCartServiceExtensionHandler extends AbstractExtensionHandler implements
         MergeCartServiceExtensionHandler {

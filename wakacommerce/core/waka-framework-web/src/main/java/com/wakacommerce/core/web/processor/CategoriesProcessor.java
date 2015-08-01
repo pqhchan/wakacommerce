@@ -27,7 +27,7 @@ import javax.annotation.Resource;
  * @param resultVar (required) the model variable that the resulting list of categories should be set to
  * @param maxResults (optional) the maximum number of categories to return
  * 
- *apazzolini
+ *  
  */
 public class CategoriesProcessor extends AbstractModelVariableModifierProcessor {
     

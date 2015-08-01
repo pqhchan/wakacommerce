@@ -8,7 +8,7 @@ import com.wakacommerce.openadmin.server.security.domain.AdminUser;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public interface AdminUserDao {

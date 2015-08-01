@@ -5,14 +5,14 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 /**
  * An extendible enumeration of template types
  * 
- *bpolster
+ * 
  */
-public class TemplateType implements Serializable, BroadleafEnumerationType, Comparable<TemplateType> {
+public class TemplateType implements Serializable, WakaEnumType, Comparable<TemplateType> {
 
     private static final long serialVersionUID = 1L;
 

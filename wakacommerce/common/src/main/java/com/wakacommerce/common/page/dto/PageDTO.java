@@ -15,7 +15,7 @@ import java.util.Map;
  * This DTO allows us to process the PageFields once and then cache
  * the results.
  *
- * Created by bpolster.
+ *   
  */
 public class PageDTO implements Serializable {
     private static final long serialVersionUID = 1L;

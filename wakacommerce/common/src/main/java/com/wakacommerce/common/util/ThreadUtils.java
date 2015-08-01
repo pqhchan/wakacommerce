@@ -6,7 +6,7 @@ import java.util.Calendar;
 /**
  * This utility class provides methods that simplify thread operations.
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class ThreadUtils {
     

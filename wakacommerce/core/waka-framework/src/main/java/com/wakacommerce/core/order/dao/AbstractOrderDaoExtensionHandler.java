@@ -10,7 +10,7 @@ import java.util.List;
 
 
 /**
- *Andre Azzolini (apazzolini), bpolster
+ * ,  
  */
 public class AbstractOrderDaoExtensionHandler extends AbstractExtensionHandler implements OrderDaoExtensionHandler {
     

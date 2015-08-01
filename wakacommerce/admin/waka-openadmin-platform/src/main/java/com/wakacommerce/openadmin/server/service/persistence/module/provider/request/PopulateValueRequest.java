@@ -10,7 +10,7 @@ import com.wakacommerce.openadmin.server.service.persistence.module.FieldManager
 /**
  * Contains the requested value, instance and support classes.
  *
- *Jeff Fischer
+ * 
  */
 public class PopulateValueRequest {
 

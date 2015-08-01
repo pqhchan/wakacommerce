@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.web.form.component;
 
 
@@ -12,41 +11,39 @@ package com.wakacommerce.openadmin.web.form.component;
  *  ListGridAction newAddAction = DefaultListGridActions.ADD.clone().withDisplayText("New Add Text");
  *  }
  * </pre>
- *
- *Andre Azzolini
+ *  
  * @see {@link ListGridAction#clone()}
  */
 public class DefaultListGridActions {
     
-    // Actions for the main list grid toolbar
     public static final ListGridAction ADD = new ListGridAction(ListGridAction.ADD)
         .withButtonClass("sub-list-grid-add")
         .withUrlPostfix("/add")
         .withIconClass("icon-plus")
-        .withDisplayText("Add");
+        .withDisplayText("添加");
     
     public static final ListGridAction REORDER = new ListGridAction(ListGridAction.REORDER)
         .withButtonClass("sub-list-grid-reorder")
         .withUrlPostfix("/update")
         .withIconClass("icon-move")
-        .withDisplayText("Reorder");
+        .withDisplayText("重排");
 
     // Actions for row-level
     public static final ListGridAction REMOVE = new ListGridAction(ListGridAction.REMOVE)
         .withButtonClass("sub-list-grid-remove")
         .withUrlPostfix("/delete")
         .withIconClass("icon-remove")
-        .withDisplayText("Delete");
+        .withDisplayText("删除");
     
     public static final ListGridAction UPDATE = new ListGridAction(ListGridAction.UPDATE)
         .withButtonClass("sub-list-grid-update")
         .withIconClass("icon-pencil")
-        .withDisplayText("Edit");
+        .withDisplayText("编辑");
 
     public static final ListGridAction VIEW = new ListGridAction(ListGridAction.VIEW)
         .withButtonClass("sub-list-grid-view")
         .withIconClass("icon-book")
-        .withDisplayText("View")
+        .withDisplayText("查看")
         .withUrlPostfix("/view")
         .withForListGridReadOnly(true);
 

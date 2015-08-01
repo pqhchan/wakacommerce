@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import com.wakacommerce.common.copy.MultiTenantCloneable;
 
 /**
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface SearchFacetRange extends MultiTenantCloneable<SearchFacetRange> {
 

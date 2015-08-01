@@ -4,7 +4,7 @@ package com.wakacommerce.openadmin.web.form.entity;
 
 
 /**
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class CodeField extends Field {
 

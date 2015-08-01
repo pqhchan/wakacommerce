@@ -24,7 +24,7 @@ import javax.annotation.Resource;
  *
  * This is useful in constructing the left navigation menu for the admin console.
  *
- *elbertbautista
+ *  
  */
 @Component("blAdminModuleProcessor")
 public class AdminModuleProcessor extends AbstractModelVariableModifierProcessor {

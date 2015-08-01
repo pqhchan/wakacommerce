@@ -21,7 +21,7 @@ import com.wakacommerce.common.payment.PaymentType;
  * <p>Note: the success and validity flags are set to true by default, unless otherwise overridden by specific
  * gateway implementations</p>
  *
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public class PaymentResponseDTO {
 

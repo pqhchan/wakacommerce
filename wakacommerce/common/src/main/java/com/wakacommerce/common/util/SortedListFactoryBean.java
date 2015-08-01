@@ -9,7 +9,7 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- *Jeff Fischer
+ * 
  */
 public class SortedListFactoryBean extends ListFactoryBean {
 

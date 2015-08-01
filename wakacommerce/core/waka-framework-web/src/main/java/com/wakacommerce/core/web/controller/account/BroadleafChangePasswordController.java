@@ -7,7 +7,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.wakacommerce.common.exception.ServiceException;
 import com.wakacommerce.common.security.util.PasswordChange;
-import com.wakacommerce.common.web.controller.BroadleafAbstractController;
+import com.wakacommerce.common.web.controller.WakaAbstractController;
 import com.wakacommerce.core.web.controller.account.validator.ChangePasswordValidator;
 import com.wakacommerce.profile.core.service.CustomerService;
 import com.wakacommerce.profile.web.core.CustomerState;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * This controller handles password changes for a customer's account
  */
-public class BroadleafChangePasswordController extends BroadleafAbstractController {
+public class BroadleafChangePasswordController extends WakaAbstractController {
 
     @Resource(name = "blCustomerService")
     protected CustomerService customerService;

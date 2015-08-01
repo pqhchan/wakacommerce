@@ -20,7 +20,7 @@
 package com.wakacommerce.core.util.service.type;
 
 /**
- *Jeff Fischer
+ * 
  */
 public enum PurgeCustomerVariableNames {
     IS_REGISTERED //looking for registered or anonymous customers

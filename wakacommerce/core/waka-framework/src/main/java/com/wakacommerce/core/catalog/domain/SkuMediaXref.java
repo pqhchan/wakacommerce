@@ -24,7 +24,7 @@ import java.io.Serializable;
 import com.wakacommerce.common.media.domain.Media;
 
 /**
- *Jeff Fischer
+ * 
  */
 public interface SkuMediaXref extends Serializable{
 

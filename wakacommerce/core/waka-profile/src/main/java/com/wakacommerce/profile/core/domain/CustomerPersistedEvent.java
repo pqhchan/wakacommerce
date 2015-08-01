@@ -7,7 +7,7 @@ import org.springframework.context.ApplicationEvent;
 /**
  * An event for whenever a {@link CustomerImpl} has been persisted
  *
- *Phillip Verheyden (phillipuniverse)
+ *     
  * @see {@link CustomerPersistedEntityListener}
  */
 public class CustomerPersistedEvent extends ApplicationEvent {

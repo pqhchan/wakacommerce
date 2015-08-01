@@ -8,7 +8,7 @@ import com.wakacommerce.core.offer.domain.OfferItemCriteria;
 /**
  * Wraps the promotion qualifier.   Serves as a useful starting point for extension.
  * 
- *bpolster
+ * 
  */
 public class PromotionQualifierWrapper extends PromotionQualifier {
 

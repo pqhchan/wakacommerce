@@ -22,7 +22,7 @@ package com.wakacommerce.core.search.service.solr;
 /**
  * Responsible for reading and writing the index status to some persistent store (e.g. the file system).
  *
- *Jeff Fischer
+ * 
  */
 public interface SolrIndexStatusProvider {
 

@@ -7,7 +7,7 @@ import com.wakacommerce.common.extension.ExtensionManager;
 
 
 /**
- *Andre Azzolini (apazzolini), bpolster
+ * ,  
  */
 @Service("blOrderServiceExtensionManager")
 public class OrderServiceExtensionManager extends ExtensionManager<OrderServiceExtensionHandler> {

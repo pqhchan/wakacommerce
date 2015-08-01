@@ -6,7 +6,7 @@ import java.util.Map;
 import com.wakacommerce.openadmin.dto.FieldMetadata;
 
 /**
- *Jeff Fischer
+ * 
  */
 public interface PropertyBuilder {
 

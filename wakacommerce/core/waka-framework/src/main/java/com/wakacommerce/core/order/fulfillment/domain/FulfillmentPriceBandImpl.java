@@ -19,7 +19,7 @@ import java.math.BigDecimal;
 
 /**
  * 
- *Phillip Verheyden
+ *  
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

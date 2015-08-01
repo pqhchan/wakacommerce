@@ -6,7 +6,7 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
 import com.wakacommerce.common.email.service.info.EmailInfo;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -22,7 +22,7 @@ public class ThymeleafMessageCreator extends MessageCreator {
 
     @Override
     public String buildMessageBody(EmailInfo info, Map<String,Object> props) {
-        BroadleafRequestContext blcContext = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext blcContext = WakaRequestContext.getWakaRequestContext();
         
         final Context thymeleafContext = new Context();
         if (blcContext != null && blcContext.getJavaLocale() != null) {

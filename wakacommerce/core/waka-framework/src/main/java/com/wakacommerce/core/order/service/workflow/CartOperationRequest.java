@@ -13,7 +13,7 @@ import com.wakacommerce.core.order.service.call.OrderItemRequestDTO;
  * This class represents the basic context necessary for the execution
  * of a particular order process workflow operation.
  * 
- *apazzolini
+ *  
  */
 public class CartOperationRequest {
 

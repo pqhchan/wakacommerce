@@ -1,10 +1,8 @@
-
 package com.wakacommerce.common.web;
 
 import javax.servlet.http.HttpServletRequest;
 
 import com.wakacommerce.common.template.TemplateType;
-
 
 public interface TemplateTypeAware {
 

@@ -28,7 +28,7 @@ import javax.annotation.Resource;
 
 /**
  * 
- *Phillip Verheyden
+ *  
  */
 public class ConsolidateFulfillmentFeesActivity extends BaseActivity<ProcessContext<Order>> {
     

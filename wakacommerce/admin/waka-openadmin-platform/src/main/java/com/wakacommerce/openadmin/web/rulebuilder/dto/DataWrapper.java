@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  *
  * An example of the Serialized JSON:
  * (This is an example of a complex Item Rule)

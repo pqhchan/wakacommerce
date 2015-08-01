@@ -1,16 +1,15 @@
-
 package com.wakacommerce.common.web.form;
 
 import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
-public class BroadleafFormType implements Serializable, BroadleafEnumerationType {
+public class BroadleafFormType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 

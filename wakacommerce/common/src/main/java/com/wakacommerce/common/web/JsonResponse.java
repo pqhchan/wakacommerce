@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *     .with("shouldRefresh", true)
  *     .done();
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public class JsonResponse {
     

@@ -1,7 +1,4 @@
-
 package com.wakacommerce.openadmin.web.form.entity;
-
-
 
 public class DefaultMainActions {
     
@@ -9,6 +6,6 @@ public class DefaultMainActions {
         .withButtonClass("add-main-entity")
         .withUrlPostfix("/add")
         .withIconClass("icon-plus")
-        .withDisplayText("Add");
+        .withDisplayText("添加");
 
 }

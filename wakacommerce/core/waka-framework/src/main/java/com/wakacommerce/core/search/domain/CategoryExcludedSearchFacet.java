@@ -7,7 +7,7 @@ import com.wakacommerce.core.catalog.domain.Category;
 import java.math.BigDecimal;
 
 /**
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface CategoryExcludedSearchFacet extends MultiTenantCloneable<CategoryExcludedSearchFacet>{
 

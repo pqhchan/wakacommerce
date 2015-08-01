@@ -13,7 +13,7 @@ import java.util.TimeZone;
  * the Apache Tomcat source. This class allows Broadleaf to properly construct
  * cookies for different browsers and include the httpOnly protection as well.
  * 
- *jfischer
+ *  
  *
  */
 public class ServerCookie {

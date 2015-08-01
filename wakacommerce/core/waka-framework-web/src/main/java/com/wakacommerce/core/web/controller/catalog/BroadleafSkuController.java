@@ -8,9 +8,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
 import com.wakacommerce.common.template.TemplateType;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.common.web.TemplateTypeAware;
-import com.wakacommerce.common.web.controller.BroadleafAbstractController;
+import com.wakacommerce.common.web.controller.WakaAbstractController;
 import com.wakacommerce.common.web.deeplink.DeepLinkService;
 import com.wakacommerce.core.catalog.domain.Sku;
 import com.wakacommerce.core.web.catalog.SkuHandlerMapping;
@@ -25,9 +25,9 @@ import javax.servlet.http.HttpServletResponse;
  * This class works in combination with the SkuHandlerMapping which finds a category based upon
  * the passed in URL.
  *
- *Joshua Skorton (jskorton)
+ *  
  */
-public class BroadleafSkuController extends BroadleafAbstractController implements Controller, TemplateTypeAware {
+public class BroadleafSkuController extends WakaAbstractController implements Controller, TemplateTypeAware {
     
     protected String defaultSkuView = "catalog/sku";
     protected static String MODEL_ATTRIBUTE_NAME = "sku";
@@ -68,7 +68,7 @@ public class BroadleafSkuController extends BroadleafAbstractController implemen
     
     @Override
     public String getExpectedTemplateName(HttpServletRequest request) {
-        BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
         if (context != null) {
             Sku sku = (Sku) context.getRequest().getAttribute(SkuHandlerMapping.CURRENT_SKU_ATTRIBUTE_NAME);
             if (sku != null && sku.getDisplayTemplate() != null) {

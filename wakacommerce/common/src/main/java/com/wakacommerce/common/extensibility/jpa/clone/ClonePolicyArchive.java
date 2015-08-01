@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
  * to archive records appropriately during enterprise operations. Note, this annotation should only be applied to sandbox
  * aware fields.
  *
- *Jeff Fischer
+ * 
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD})

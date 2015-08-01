@@ -29,9 +29,9 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * In charge of performing the various checkout operations
  *
- *Andre Azzolini (apazzolini)
- *Elbert Bautista (elbertbautista)
- *Joshua Skorton (jskorton)
+ * 
+ *  
+ *  
  */
 public class BroadleafShippingInfoController extends AbstractCheckoutController {
 

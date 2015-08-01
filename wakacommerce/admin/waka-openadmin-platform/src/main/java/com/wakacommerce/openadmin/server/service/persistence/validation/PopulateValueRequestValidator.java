@@ -21,7 +21,7 @@ import java.io.Serializable;
  * values come in as Strings by default
  * </p>
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  * @see {@link FieldPersistenceProvider}
  * @see {@link PopulateValueRequest}
  * @see {@link BasicPersistenceModule#createPopulatedInstance(Serializable, Entity, java.util.Map, Boolean)}

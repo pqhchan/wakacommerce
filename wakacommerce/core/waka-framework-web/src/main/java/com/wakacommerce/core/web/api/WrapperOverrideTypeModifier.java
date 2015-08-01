@@ -39,7 +39,7 @@ import java.lang.reflect.Type;
  * Provides an implementation of a {@link TypeModifier} that looks up types in the application context for wrapper overrides.
  * This allows for correct instantiation to occur when wrappers have been overridden and a client is actually sending JSON
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 @Component("blWrapperOverrideTypeModifier")
 public class WrapperOverrideTypeModifier extends TypeModifier implements ApplicationContextAware {

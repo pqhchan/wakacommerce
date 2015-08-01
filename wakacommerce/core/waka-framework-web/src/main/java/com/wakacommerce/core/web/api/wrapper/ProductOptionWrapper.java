@@ -17,7 +17,7 @@ import com.wakacommerce.core.catalog.domain.ProductOptionValue;
 /**
  * This is a JAXB wrapper around Product.
  *
- * User: Kelly Tisdell
+ * User:   
  * Date: 4/10/12
  */
 @XmlRootElement(name = "productOption")

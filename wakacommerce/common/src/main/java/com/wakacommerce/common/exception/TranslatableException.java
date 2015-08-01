@@ -3,12 +3,12 @@ package com.wakacommerce.common.exception;
 
 import org.springframework.context.NoSuchMessageException;
 
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 
 /**
  * An exception whose message can be translated into a message suitable for a user.
  *
- *Jeff Fischer
+ * 
  */
 public abstract class TranslatableException extends Exception {
 
@@ -83,7 +83,7 @@ public abstract class TranslatableException extends Exception {
         String response = getMessage();
         try {
             String exCode = getMessageKey();
-            BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
+            WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
             if (context != null && context.getMessageSource() != null) {
                 response = context.getMessageSource().getMessage(exCode, this.messageParams, getMessage(), context.getJavaLocale());
                 if (response.equals(exCode)) {

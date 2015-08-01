@@ -8,7 +8,7 @@ import com.wakacommerce.core.order.domain.Order;
 
 
 /**
- *Andre Azzolini (apazzolini), bpolster
+ * ,  
  */
 public abstract class AbstractUpdateCartServiceExtensionHandler extends AbstractExtensionHandler
         implements UpdateCartServiceExtensionHandler {

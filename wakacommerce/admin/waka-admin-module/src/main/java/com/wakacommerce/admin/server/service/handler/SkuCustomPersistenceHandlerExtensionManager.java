@@ -26,7 +26,7 @@ import com.wakacommerce.common.extension.ExtensionManager;
 /**
  * For internal usage. Allows extension of entity API calls without subclassing the entity.
  *
- *Jeff Fischer
+ * 
  */
 @Service("blSkuCustomPersistenceHandlerExtensionManager")
 public class SkuCustomPersistenceHandlerExtensionManager extends ExtensionManager<SkuCustomPersistenceHandlerExtensionHandler> {

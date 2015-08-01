@@ -7,7 +7,7 @@ import org.thymeleaf.processor.attr.AbstractAttributeModifierAttrProcessor;
 import org.thymeleaf.standard.expression.Expression;
 import org.thymeleaf.standard.expression.StandardExpressions;
 
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.search.domain.SearchCriteria;
 import com.wakacommerce.core.web.util.ProcessorUtils;
 
@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletRequest;
  * processor.
  * 
  * 
- *apazzolini
+ *  
  */
 public class PaginationPageLinkProcessor extends AbstractAttributeModifierAttrProcessor {
 
@@ -44,7 +44,7 @@ public class PaginationPageLinkProcessor extends AbstractAttributeModifierAttrPr
     protected Map<String, String> getModifiedAttributeValues(Arguments arguments, Element element, String attributeName) {
         Map<String, String> attrs = new HashMap<String, String>();
         
-        BroadleafRequestContext blcContext = BroadleafRequestContext.getBroadleafRequestContext();
+        WakaRequestContext blcContext = WakaRequestContext.getWakaRequestContext();
         HttpServletRequest request = blcContext.getRequest();
         
         String baseUrl = request.getRequestURL().toString();

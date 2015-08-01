@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 
 /**
@@ -31,9 +31,9 @@ import com.wakacommerce.common.BroadleafEnumerationType;
  * <p>This is especially useful in auditing scenarios so that, at a glance, you can easily see what gateway a particular
  * order payment was processed by.</p>
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
-public class PaymentGatewayType implements Serializable, BroadleafEnumerationType {
+public class PaymentGatewayType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 

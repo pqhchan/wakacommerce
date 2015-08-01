@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.wakacommerce.common.extension.ExtensionResultHolder;
 import com.wakacommerce.common.extension.ExtensionResultStatusType;
 import com.wakacommerce.common.util.BLCSystemProperty;
-import com.wakacommerce.common.web.BroadleafRequestContext;
+import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.core.catalog.domain.ProductOptionValue;
 import com.wakacommerce.core.catalog.domain.Sku;
 import com.wakacommerce.core.catalog.service.CatalogService;
@@ -23,7 +23,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 /**
- *bpolster
+ * 
  */
 @Service("bli18nUpdateCartServiceExtensionHandler")
 public class i18nUpdateCartServiceExtensionHandler extends AbstractUpdateCartServiceExtensionHandler
@@ -60,8 +60,8 @@ public class i18nUpdateCartServiceExtensionHandler extends AbstractUpdateCartSer
      * @return
      */
     public ExtensionResultStatusType updateAndValidateCart(Order cart, ExtensionResultHolder resultHolder) {
-        if (BroadleafRequestContext.hasLocale()) {
-            BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
+        if (WakaRequestContext.hasLocale()) {
+            WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
             if (!brc.getLocale().getLocaleCode().matches(cart.getLocale().getLocaleCode())) {
                 if (LOG.isDebugEnabled()) {
                     LOG.debug("The cart Locale [" + cart.getLocale().getLocaleCode() +

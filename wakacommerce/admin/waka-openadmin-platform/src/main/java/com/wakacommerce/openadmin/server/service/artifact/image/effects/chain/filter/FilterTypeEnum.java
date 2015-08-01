@@ -3,7 +3,7 @@ package com.wakacommerce.openadmin.server.service.artifact.image.effects.chain.f
 
 /**
  * Created by IntelliJ IDEA.
- * User: jfischer
+ * User:   
  * Date: 9/10/11
  * Time: 1:08 PM
  * To change this template use File | Settings | File Templates.

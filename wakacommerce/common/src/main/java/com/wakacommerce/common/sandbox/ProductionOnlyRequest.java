@@ -8,7 +8,7 @@ import com.wakacommerce.common.presentation.AdminPresentationToOneLookup;
 /**
  * Holder for the {@link #CRITERIA} constant 
  * 
- *Phillip Verheyden (phillipuniverse)
+ *     
  */
 public interface ProductionOnlyRequest {
     

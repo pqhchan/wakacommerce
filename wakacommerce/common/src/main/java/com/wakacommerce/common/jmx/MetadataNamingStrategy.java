@@ -14,7 +14,7 @@ import javax.management.ObjectName;
  * This class enhances the behavior of the Spring implementation to retrieve the rootId object inside the proxy for the sake of
  * metadata retrieval, thereby working around these shortcomings.
  * 
- *jfischer
+ *  
  *
  */
 public class MetadataNamingStrategy extends org.springframework.jmx.export.naming.MetadataNamingStrategy {

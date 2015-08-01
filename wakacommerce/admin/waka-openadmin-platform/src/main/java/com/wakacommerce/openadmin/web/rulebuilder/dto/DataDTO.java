@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- *Elbert Bautista (elbertbautista)
+ *  
  */
 public class DataDTO implements Serializable {
 

@@ -19,7 +19,7 @@ import java.io.IOException;
 /**
  * Responsible for setting the necessary attributes on the {@link TranslationConsiderationContext}.
  * 
- *Andre Azzolini (apazzolini), bpolster
+ * ,  
  */
 @Component("blTranslationFilter")
 public class TranslationFilter extends GenericFilterBean {

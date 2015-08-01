@@ -12,7 +12,7 @@ import com.wakacommerce.common.page.dto.PageDTO;
 /**
  * Extension handler for {@link PageService}
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 public interface PageServiceExtensionHandler extends ExtensionHandler {
     

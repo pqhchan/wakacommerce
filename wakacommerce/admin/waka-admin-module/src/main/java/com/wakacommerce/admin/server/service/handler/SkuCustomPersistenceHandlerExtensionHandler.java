@@ -26,7 +26,7 @@ import com.wakacommerce.core.catalog.domain.Sku;
 /**
  * Allows special behavior to be defined when a sku is updated via the admin.
  *
- *Jeff Fischer
+ * 
  */
 public interface SkuCustomPersistenceHandlerExtensionHandler extends ExtensionHandler {
 

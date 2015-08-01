@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.wakacommerce.common.BroadleafEnumerationType;
+import com.wakacommerce.common.WakaEnumType;
 
 /**
  * Any module within the BLC framework that needs to store and retrieve files from a remote storage such as
@@ -22,9 +22,9 @@ import com.wakacommerce.common.BroadleafEnumerationType;
  * arbitrary examples, but the intent is to give an implementation the ability to alter the storage paradigm based
  * on cost/reliability/performance needs that might vary by file type.
  * 
- *bpolster
+ * 
  */
-public class FileApplicationType implements Serializable, BroadleafEnumerationType {
+public class FileApplicationType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 

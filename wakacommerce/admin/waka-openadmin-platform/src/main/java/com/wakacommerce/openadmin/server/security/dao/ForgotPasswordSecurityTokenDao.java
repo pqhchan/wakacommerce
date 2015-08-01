@@ -7,7 +7,7 @@ import com.wakacommerce.openadmin.server.security.domain.ForgotPasswordSecurityT
 
 /**
  * 
- *bpolster
+ * 
  *
  */
 public interface ForgotPasswordSecurityTokenDao {

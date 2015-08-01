@@ -8,7 +8,7 @@ import com.wakacommerce.common.extension.ExtensionManager;
 /**
  * Manager for the {@link AdminAbstractControllerExtensionHandler}
  * 
- *Andre Azzolini (apazzolini)
+ * 
  */
 @Component("blAdminAbstractControllerExtensionManager")
 public class AdminAbstractControllerExtensionManager extends ExtensionManager<AdminAbstractControllerExtensionHandler> {

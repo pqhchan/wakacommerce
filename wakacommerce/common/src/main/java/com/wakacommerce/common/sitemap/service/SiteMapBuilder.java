@@ -30,7 +30,7 @@ import javax.xml.bind.Marshaller;
 /**
  * Handles creating the various sitemap files. 
  * 
- *bpolster
+ * 
  */
 public class SiteMapBuilder {
 

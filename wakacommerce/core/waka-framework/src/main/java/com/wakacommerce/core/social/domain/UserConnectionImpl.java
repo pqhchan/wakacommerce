@@ -37,7 +37,7 @@ import javax.persistence.Table;
  * The prefix is injected into JdbcUsersConnectionRepository
  * @see org.springframework.social.connect.jdbc.JdbcUsersConnectionRepository
  *
- *elbertbautista
+ *  
  *
  */
 @Entity

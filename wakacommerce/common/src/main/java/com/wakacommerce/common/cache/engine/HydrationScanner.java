@@ -22,7 +22,7 @@ import java.util.Map;
 
 /**
  * 
- *jfischer
+ *  
  *
  */
 public class HydrationScanner implements ClassVisitor, FieldVisitor, AnnotationVisitor {
