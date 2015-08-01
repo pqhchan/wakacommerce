@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.structure.domain;
 
 import javax.annotation.Nonnull;
@@ -17,29 +16,13 @@ import com.wakacommerce.common.rule.QuantityBasedRule;
  * @see com.wakacommerce.core.order.service.StructuredContentCartRuleProcessor
  * 
  */
-public interface StructuredContentItemCriteria extends QuantityBasedRule,MultiTenantCloneable<StructuredContentItemCriteria> {
+public interface StructuredContentItemCriteria extends QuantityBasedRule, MultiTenantCloneable<StructuredContentItemCriteria> {
 
-    /**
-     * Returns the parent <code>StructuredContent</code> item to which this
-     * field belongs.
-     *
-     * @return
-     */
     @Nonnull
     public StructuredContent getStructuredContent();
 
-    /**
-     * Sets the parent <code>StructuredContent</code> item.
-     * @param structuredContent
-     */
     public void setStructuredContent(@Nonnull StructuredContent structuredContent);
 
-    /**
-     * Builds a copy of this item.   Used by the content management system when an
-     * item is edited.
-     *
-     * @return a copy of this item
-     */
     @Nonnull
     public StructuredContentItemCriteria cloneEntity();
     

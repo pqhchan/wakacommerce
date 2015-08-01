@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.structure.domain;
 
 import org.hibernate.annotations.Cache;
@@ -23,12 +22,6 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 
-
-/**
- * 
- *  
- *
- */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "BLC_SC_RULE")

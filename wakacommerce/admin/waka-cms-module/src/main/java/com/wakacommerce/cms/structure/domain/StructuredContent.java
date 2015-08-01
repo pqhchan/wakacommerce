@@ -13,7 +13,8 @@ import javax.annotation.Nullable;
 
 /**
  * StructuredContent implementations provide a representation of a generic content
- * item with a set of predefined fields.    The fields associated with an instance
+ * item with a set of predefined fields.    
+ * The fields associated with an instance
  * of StructuredContent are defined by its associated {@link StructuredContentType}.
  * <br>
  * Display structured content items is typically done using the
@@ -51,22 +52,6 @@ public interface StructuredContent extends Serializable, MultiTenantCloneable<St
     public StructuredContentType getStructuredContentType();
 
     public void setStructuredContentType(@Nonnull StructuredContentType structuredContentType);
-
-    /**
-     * @deprecated - use {@link #getStructuredContentFieldXrefs()}
-     * @return
-     */
-    @Nullable
-    @Deprecated
-    public Map<String, StructuredContentField> getStructuredContentFields();
-
-    /**
-     * @deprecated - Use {@link #setStructuredContentFieldXrefs(Map)}
-     *
-     * @param structuredContentFields
-     */
-    @Deprecated
-    public void setStructuredContentFields(@Nullable Map<String, StructuredContentField> structuredContentFields);
 
     /**
      * <b>NOTE: This method is typically only used when wanting to persist new {@link StructuredContentField}s.

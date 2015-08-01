@@ -1,4 +1,3 @@
-  
 package com.wakacommerce.cms.structure.domain;
 
 

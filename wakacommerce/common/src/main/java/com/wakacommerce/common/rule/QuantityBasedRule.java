@@ -1,12 +1,9 @@
-
 package com.wakacommerce.common.rule;
 
 import java.io.Serializable;
 
 /**
  * Represents a class containing an MVEL rule and an associated quantity.
- *
- * 
  */
 public interface QuantityBasedRule extends Serializable {
 

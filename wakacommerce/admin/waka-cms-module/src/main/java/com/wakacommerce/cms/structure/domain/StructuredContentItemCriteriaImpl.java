@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.structure.domain;
 
 import org.hibernate.annotations.Cache;
@@ -28,11 +27,6 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-/**
- * 
- *  
- *
- */
 @Entity
 @Table(name = "BLC_SC_ITEM_CRITERIA")
 @Inheritance(strategy=InheritanceType.JOINED)
@@ -174,4 +168,5 @@ public class StructuredContentItemCriteriaImpl implements StructuredContentItemC
         cloned.setQuantity(quantity);
         return createResponse;
     }
+    
 }

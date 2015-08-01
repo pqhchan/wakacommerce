@@ -110,12 +110,6 @@ public class ContentProcessor extends AbstractModelVariableModifierProcessor {
         return 10000;
     }
     
-    /**
-     * Returns a default name
-     * @param element
-     * @param valueName
-     * @return
-     */
     protected String getAttributeValue(Element element, String valueName, String defaultValue) {
         String returnValue = element.getAttributeValue(valueName);
         if (returnValue == null) {
@@ -253,12 +247,18 @@ public class ContentProcessor extends AbstractModelVariableModifierProcessor {
      * @param element element context that this Thymeleaf processor is being executed in
      * @return
      */
-    protected List<StructuredContentDTO> getContentItems(String contentName, Integer maxResults, HttpServletRequest request,
+    protected List<StructuredContentDTO> getContentItems(
+    		String contentName, 
+    		Integer maxResults, 
+    		HttpServletRequest request,
             Map<String, Object> mvelParameters,
             SandBox currentSandbox,
             StructuredContentType structuredContentType,
-            Locale locale, Arguments arguments, Element element) {
-        List<StructuredContentDTO> contentItems;
+            Locale locale, 
+            Arguments arguments, 
+            Element element) {
+        
+    	List<StructuredContentDTO> contentItems;
         if (structuredContentType == null) {
             contentItems = structuredContentService.lookupStructuredContentItemsByName(contentName, locale, maxResults, mvelParameters, isSecure(request));
         } else {

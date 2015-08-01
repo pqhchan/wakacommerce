@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.web.structure;
 
 import org.springframework.web.context.WebApplicationContext;

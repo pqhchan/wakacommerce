@@ -211,26 +211,6 @@ public class StructuredContentImpl implements StructuredContent, AdminMainEntity
     }
 
     @Override
-    @Deprecated
-    public Map<String, StructuredContentField> getStructuredContentFields() {
-        if (legacyStructuredContentFields.isEmpty()) {
-            for (Map.Entry<String, StructuredContentFieldXref> entry : getStructuredContentFieldXrefs().entrySet()) {
-                legacyStructuredContentFields.put(entry.getKey(), entry.getValue().getStructuredContentField());
-            }
-        }
-        return Collections.unmodifiableMap(legacyStructuredContentFields);
-    }
-    
-    @Override
-    public void setStructuredContentFields(Map<String, StructuredContentField> structuredContentFields) {
-        this.structuredContentFields.clear();
-        this.legacyStructuredContentFields.clear();
-        for (Map.Entry<String, StructuredContentField> entry : structuredContentFields.entrySet()) {
-            this.structuredContentFields.put(entry.getKey(), new StructuredContentFieldXrefImpl(this, entry.getValue(), entry.getKey()));
-        }
-    }
-    
-    @Override
     public Map<String, StructuredContentFieldXref> getStructuredContentFieldXrefs() {
         return structuredContentFields;
     }

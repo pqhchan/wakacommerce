@@ -373,7 +373,7 @@ public class StructuredContentServiceImpl implements StructuredContentService {
 
     protected String buildRuleExpression(StructuredContent sc) {
        StringBuffer ruleExpression = null;
-        Map<String, StructuredContentRule> ruleMap = sc.getStructuredContentMatchRules();
+       Map<String, StructuredContentRule> ruleMap = sc.getStructuredContentMatchRules();
        if (ruleMap != null) {
            for (String ruleKey : ruleMap.keySet()) {
                 if (ruleMap.get(ruleKey).getMatchRule() == null) {

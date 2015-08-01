@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.structure.service;
 
 import org.apache.commons.logging.Log;
@@ -14,9 +13,6 @@ import java.util.Map;
  * By default, this rule processor combines all of the rules from
  * {@link com.wakacommerce.cms.structure.domain.StructuredContent#getStructuredContentMatchRules()}
  * into a single MVEL expression.
- *
- * .
- *
  */
 @Service("blContentDefaultRuleProcessor")
 public class StructuredContentDefaultRuleProcessor extends AbstractRuleProcessor<StructuredContentDTO> {

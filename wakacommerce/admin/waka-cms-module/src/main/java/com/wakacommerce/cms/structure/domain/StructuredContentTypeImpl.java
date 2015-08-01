@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.structure.domain;
 
 import org.hibernate.annotations.Cache;
@@ -20,9 +19,6 @@ import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-/**
- *   
- */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "BLC_SC_TYPE")

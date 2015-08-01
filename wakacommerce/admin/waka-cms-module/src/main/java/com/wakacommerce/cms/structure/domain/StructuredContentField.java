@@ -17,10 +17,9 @@ import javax.annotation.Nullable;
  *
  * @see StructuredContentType
  * @see com.wakacommerce.cms.field.domain.FieldDefinition
- * 
  *
  */
-public interface StructuredContentField extends Serializable, Cloneable,MultiTenantCloneable<StructuredContentField> {
+public interface StructuredContentField extends Serializable, Cloneable, MultiTenantCloneable<StructuredContentField> {
 
     @Nullable
     public Long getId();
@@ -42,47 +41,18 @@ public interface StructuredContentField extends Serializable, Cloneable,MultiTen
     @Nonnull
     public String getFieldKey();
 
-    /**
-     * Sets the fieldKey.
-     * @param fieldKey
-     * @see com.wakacommerce.cms.field.domain.FieldDefinition
-     */
     public void setFieldKey(@Nonnull String fieldKey);
 
-    /**
-     * Returns the value for this custom field.
-     *
-     * @param value
-     */
     public void setValue(@Nonnull String value);
 
-    /**
-     * Sets the value of this custom field.
-     * @return
-     */
     @Nonnull
     public String getValue();
 
-    /**
-     * Returns audit information for this content item.
-     *
-     * @return
-     */
     @Nullable
     public AdminAuditable getAuditable();
 
-    /**
-     * Sets audit information for this content item.   Default implementations automatically
-     * populate this data during persistence.
-     *
-     * @param auditable
-     */
     public void setAuditable(@Nullable AdminAuditable auditable);
 
-    /**
-     * @return a deep copy of this object. By default, clones the fieldKey and value fields and ignores the auditable
-     * and id fields.
-     */
     public StructuredContentField clone();
 
 }

@@ -1,29 +1,16 @@
-
 package com.wakacommerce.common.rule;
 
 import javax.annotation.Nonnull;
 import java.io.Serializable;
 
 /**
- * Represents a class containing an MVEL rule
- *
- * 
+ * 用MVEL表达式来表示的规则
  */
 public interface SimpleRule extends Serializable {
 
-    /**
-     * The rule in the form of an MVEL expression
-     *
-     * @return the rule as an MVEL string
-     */
     @Nonnull
     public String getMatchRule();
 
-    /**
-     * Sets the match rule used to test this item.
-     *
-     * @param matchRule the rule as an MVEL string
-     */
     public void setMatchRule(@Nonnull String matchRule);
 
 }

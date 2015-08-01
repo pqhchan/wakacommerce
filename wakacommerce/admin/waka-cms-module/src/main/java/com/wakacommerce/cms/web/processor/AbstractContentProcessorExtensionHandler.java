@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.web.processor;
 
 import org.thymeleaf.Arguments;
@@ -12,8 +11,6 @@ import java.util.List;
 
 /**
  * Abstract implementation of {@link ContentProcessorExtensionHandler}
- * 
- * 
  */
 public abstract class AbstractContentProcessorExtensionHandler extends AbstractExtensionHandler 
         implements ContentProcessorExtensionHandler {
