@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.presentation;
 
 import java.lang.annotation.ElementType;
@@ -14,8 +13,6 @@ import com.wakacommerce.common.presentation.client.UnspecifiedBooleanType;
 /**
  * This annotation is used to describe a persisted map structure for use in the
  * admin tool
- *
- * 
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD})

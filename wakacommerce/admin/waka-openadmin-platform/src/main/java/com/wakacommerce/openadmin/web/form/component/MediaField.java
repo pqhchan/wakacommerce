@@ -1,12 +1,8 @@
-
 package com.wakacommerce.openadmin.web.form.component;
 
 import com.wakacommerce.common.media.domain.Media;
 import com.wakacommerce.openadmin.web.form.entity.Field;
 
-/**
- * 
- */
 public class MediaField extends Field {
 
     protected Media media;

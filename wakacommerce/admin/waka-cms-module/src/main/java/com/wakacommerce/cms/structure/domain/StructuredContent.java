@@ -44,11 +44,6 @@ public interface StructuredContent extends Serializable, MultiTenantCloneable<St
     public void setContentName(@Nonnull String contentName);
 
     @Nonnull
-    public Locale getLocale();
-
-    public void setLocale(@Nonnull Locale locale);
-
-    @Nonnull
     public StructuredContentType getStructuredContentType();
 
     public void setStructuredContentType(@Nonnull StructuredContentType structuredContentType);

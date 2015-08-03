@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.structure.service;
 
 import net.sf.ehcache.Cache;
@@ -15,45 +14,14 @@ import com.wakacommerce.common.structure.dto.StructuredContentDTO;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Provides services to manage <code>StructuredContent</code> items.
- *
- * 
- */
 public interface StructuredContentService {
 
-
-    /**
-     * Returns the StructuredContent item associated with the passed in id.
-     *
-     * @param contentId - The id of the content item.
-     * @return The associated structured content item.
-     */
     StructuredContent findStructuredContentById(Long contentId);
 
-
-    /**
-     * Returns the <code>StructuredContentType</code> associated with the passed in id.
-     *
-     * @param id - The id of the content type.
-     * @return The associated <code>StructuredContentType</code>.
-     */
     StructuredContentType findStructuredContentTypeById(Long id);
 
-
-    /**
-     * Returns the <code>StructuredContentType</code> associated with the passed in
-     * String value.
-     *
-     * @param name - The name of the content type.
-     * @return The associated <code>StructuredContentType</code>.
-     */
     StructuredContentType findStructuredContentTypeByName(String name);
 
-    /**
-     *
-     * @return a list of all <code>StructuredContentType</code>s
-     */
     List<StructuredContentType> retrieveAllStructuredContentTypes();
 
     /**
@@ -97,26 +65,8 @@ public interface StructuredContentService {
     StructuredContentType saveStructuredContentType(StructuredContentType type);
 
     /**
-     * This method returns content
-     * <br>
-     * Returns active content items for the passed in sandbox that match the passed in type.
-     * <br>
-     * The SandBox parameter impacts the results as follows.  If a <code>SandBoxType</code> of
-     * production is passed in, only those items in that SandBox are returned.
-     * <br>
-     * If a non-production SandBox is passed in, then the method will return the items associatd
-     * with the related production SandBox and then merge in the results of the passed in SandBox.
-     * <br>
-     * The secure item is used in cases where the structured content item contains an image path that needs
-     * to be rewritten to use https.
-     *
-     * @param sandBox - the sandbox to find structured content items (null indicates items that are in production for
-     *                  sites that are single tenant.
-     * @param contentType - the type of content to return
-     * @param count - the max number of content items to return
-     * @param ruleDTOs - a Map of objects that will be used in MVEL processing.
-     * @param secure - set to true if the request is being served over https
-     * @return - The matching items
+     * This method returns active content items for the passed in sandbox that match the passed in type.
+
      * @see com.wakacommerce.cms.web.structure.DisplayContentTag
      */
     List<StructuredContentDTO> lookupStructuredContentItemsByType(StructuredContentType contentType, Locale locale, Integer count, Map<String,Object> ruleDTOs, boolean secure);
@@ -195,7 +145,7 @@ public interface StructuredContentService {
     public void addStructuredContentListToCache(String key, List<StructuredContentDTO> scDTOList);
 
 
-    public String buildTypeKey(SandBox currentSandbox, Long site, Locale locale, String contentType);
+    public String buildTypeKey(SandBox currentSandbox, Long site, String contentType);
 
 
     public List<StructuredContentDTO> getStructuredContentListFromCache(String key);

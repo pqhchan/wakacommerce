@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.structure.dto;
 
 import org.apache.commons.beanutils.BeanUtils;
@@ -10,10 +9,6 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Scoped as a prototype bean via bl-cms-applicationContext-entity. This bean is used to wrap an {@link StructuredContentImpl}
- * so that modifications and additional properties can be used without worrying about Hibernate's persistence.
- * 
- * .
  * @see {@link StructuredContentServiceImpl#buildStructuredContentDTO};
  * @see {@link StructuredContentServiceImpl#buildFieldValues};
  */
@@ -30,13 +25,6 @@ public class StructuredContentDTO implements Serializable {
     protected String ruleExpression;
     protected List<ItemCriteriaDTO> itemCriteriaDTOList;
 
-    /**
-     * Attempts to obtain the given property value from the dynamic property map first, and then an actual bean property
-     * via a getter
-     * 
-     * @param propertyName
-     * @return
-     */
     public Object getPropertyValue(String propertyName) {
         try {
             return getValues().containsKey(propertyName) ? getValues().get(propertyName) : BeanUtils.getProperty(this, propertyName);

@@ -1,5 +1,11 @@
-
 package com.wakacommerce.openadmin.server.dao.provider.metadata;
+
+import java.io.Serializable;
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
@@ -23,13 +29,9 @@ import com.wakacommerce.common.presentation.ValidationConfiguration;
 import com.wakacommerce.common.presentation.client.LookupType;
 import com.wakacommerce.common.presentation.client.SupportedFieldType;
 import com.wakacommerce.common.presentation.client.VisibilityEnum;
-import com.wakacommerce.common.presentation.override.AdminPresentationDataDrivenEnumerationOverride;
 import com.wakacommerce.common.presentation.override.AdminPresentationMergeEntry;
 import com.wakacommerce.common.presentation.override.AdminPresentationMergeOverride;
 import com.wakacommerce.common.presentation.override.AdminPresentationMergeOverrides;
-import com.wakacommerce.common.presentation.override.AdminPresentationOverride;
-import com.wakacommerce.common.presentation.override.AdminPresentationOverrides;
-import com.wakacommerce.common.presentation.override.AdminPresentationToOneLookupOverride;
 import com.wakacommerce.common.presentation.override.PropertyType;
 import com.wakacommerce.openadmin.dto.BasicFieldMetadata;
 import com.wakacommerce.openadmin.dto.FieldMetadata;
@@ -41,16 +43,6 @@ import com.wakacommerce.openadmin.server.dao.provider.metadata.request.OverrideV
 import com.wakacommerce.openadmin.server.dao.provider.metadata.request.OverrideViaXmlRequest;
 import com.wakacommerce.openadmin.server.service.type.FieldProviderResponse;
 
-import java.io.Serializable;
-import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
-/**
- * 
- */
 @Component("blBasicFieldMetadataProvider")
 @Scope("prototype")
 public class BasicFieldMetadataProvider extends FieldMetadataProviderAdapter {
@@ -63,11 +55,8 @@ public class BasicFieldMetadataProvider extends FieldMetadataProviderAdapter {
     }
 
     protected boolean canHandleAnnotationOverride(OverrideViaAnnotationRequest overrideViaAnnotationRequest, Map<String, FieldMetadata> metadata) {
-        AdminPresentationOverrides myOverrides = overrideViaAnnotationRequest.getRequestedEntity().getAnnotation(AdminPresentationOverrides.class);
         AdminPresentationMergeOverrides myMergeOverrides = overrideViaAnnotationRequest.getRequestedEntity().getAnnotation(AdminPresentationMergeOverrides.class);
-        return (myOverrides != null && (!ArrayUtils.isEmpty(myOverrides.value()) || !ArrayUtils.isEmpty(myOverrides
-                .toOneLookups()) || !ArrayUtils.isEmpty(myOverrides.dataDrivenEnums()))) ||
-                myMergeOverrides != null;
+        return myMergeOverrides != null;
     }
 
     @Override
@@ -88,45 +77,6 @@ public class BasicFieldMetadataProvider extends FieldMetadataProviderAdapter {
     public FieldProviderResponse overrideViaAnnotation(OverrideViaAnnotationRequest overrideViaAnnotationRequest, Map<String, FieldMetadata> metadata) {
         if (!canHandleAnnotationOverride(overrideViaAnnotationRequest, metadata)) {
             return FieldProviderResponse.NOT_HANDLED;
-        }
-        Map<String, AdminPresentationOverride> presentationOverrides = new LinkedHashMap<String, AdminPresentationOverride>();
-        Map<String, AdminPresentationToOneLookupOverride> presentationToOneLookupOverrides = new LinkedHashMap<String, AdminPresentationToOneLookupOverride>();
-        Map<String, AdminPresentationDataDrivenEnumerationOverride> presentationDataDrivenEnumerationOverrides = new LinkedHashMap<String, AdminPresentationDataDrivenEnumerationOverride>();
-
-        AdminPresentationOverrides myOverrides = overrideViaAnnotationRequest.getRequestedEntity().getAnnotation(AdminPresentationOverrides.class);
-        if (myOverrides != null) {
-            for (AdminPresentationOverride myOverride : myOverrides.value()) {
-                presentationOverrides.put(myOverride.name(), myOverride);
-            }
-            for (AdminPresentationToOneLookupOverride myOverride : myOverrides.toOneLookups()) {
-                presentationToOneLookupOverrides.put(myOverride.name(), myOverride);
-            }
-            for (AdminPresentationDataDrivenEnumerationOverride myOverride : myOverrides.dataDrivenEnums()) {
-                presentationDataDrivenEnumerationOverrides.put(myOverride.name(), myOverride);
-            }
-        }
-
-        for (String propertyName : presentationOverrides.keySet()) {
-            for (String key : metadata.keySet()) {
-                if (StringUtils.isEmpty(propertyName) || key.startsWith(propertyName)) {
-                    buildAdminPresentationOverride(overrideViaAnnotationRequest.getPrefix(), overrideViaAnnotationRequest.getParentExcluded(), metadata, presentationOverrides, propertyName, key, overrideViaAnnotationRequest.getDynamicEntityDao());
-                }
-            }
-        }
-        for (String propertyName : presentationToOneLookupOverrides.keySet()) {
-            for (String key : metadata.keySet()) {
-                if (key.startsWith(propertyName)) {
-                    buildAdminPresentationToOneLookupOverride(metadata, presentationToOneLookupOverrides, propertyName, key);
-                }
-            }
-        }
-        for (String propertyName : presentationDataDrivenEnumerationOverrides.keySet()) {
-            for (String key : metadata.keySet()) {
-                if (key.startsWith(propertyName)) {
-                    buildAdminPresentationDataDrivenEnumerationOverride(metadata, presentationDataDrivenEnumerationOverrides, propertyName, key,
-                            overrideViaAnnotationRequest.getDynamicEntityDao());
-                }
-            }
         }
 
         AdminPresentationMergeOverrides myMergeOverrides = overrideViaAnnotationRequest.getRequestedEntity().
@@ -224,138 +174,6 @@ public class BasicFieldMetadataProvider extends FieldMetadataProviderAdapter {
             }
         }
         return FieldProviderResponse.HANDLED;
-    }
-
-    protected void buildAdminPresentationToOneLookupOverride(Map<String, FieldMetadata> mergedProperties, Map<String, AdminPresentationToOneLookupOverride> presentationOverrides, String propertyName, String key) {
-        AdminPresentationToOneLookupOverride override = presentationOverrides.get(propertyName);
-        if (override != null) {
-            AdminPresentationToOneLookup annot = override.value();
-            if (annot != null) {
-                if (!(mergedProperties.get(key) instanceof BasicFieldMetadata)) {
-                    return;
-                }
-                BasicFieldMetadata metadata = (BasicFieldMetadata) mergedProperties.get(key);
-                metadata.setFieldType(SupportedFieldType.ADDITIONAL_FOREIGN_KEY);
-                metadata.setExplicitFieldType(SupportedFieldType.ADDITIONAL_FOREIGN_KEY);
-                metadata.setLookupDisplayProperty(annot.lookupDisplayProperty());
-                metadata.setForcePopulateChildProperties(annot.forcePopulateChildProperties());
-                metadata.setEnableTypeaheadLookup(annot.enableTypeaheadLookup());
-                if (!StringUtils.isEmpty(annot.lookupDisplayProperty())) {
-                    metadata.setForeignKeyDisplayValueProperty(annot.lookupDisplayProperty());
-                }
-                metadata.setCustomCriteria(annot.customCriteria());
-                metadata.setUseServerSideInspectionCache(annot.useServerSideInspectionCache());
-            }
-        }
-    }
-
-    protected void buildAdminPresentationDataDrivenEnumerationOverride(Map<String, FieldMetadata> mergedProperties, Map<String, AdminPresentationDataDrivenEnumerationOverride> presentationOverrides, String propertyName, String key, DynamicEntityDao dynamicEntityDao) {
-        AdminPresentationDataDrivenEnumerationOverride override = presentationOverrides.get(propertyName);
-        if (override != null) {
-            AdminPresentationDataDrivenEnumeration annot = override.value();
-            if (annot != null) {
-                if (!(mergedProperties.get(key) instanceof BasicFieldMetadata)) {
-                    return;
-                }
-                BasicFieldMetadata metadata = (BasicFieldMetadata) mergedProperties.get(key);
-                metadata.setFieldType(SupportedFieldType.DATA_DRIVEN_ENUMERATION);
-                metadata.setExplicitFieldType(SupportedFieldType.DATA_DRIVEN_ENUMERATION);
-                metadata.setOptionListEntity(annot.optionListEntity().getName());
-                if (metadata.getOptionListEntity().equals(DataDrivenEnumerationValueImpl.class.getName())) {
-                    metadata.setOptionValueFieldName("key");
-                    metadata.setOptionDisplayFieldName("display");
-                } else if (metadata.getOptionListEntity() == null && (StringUtils.isEmpty(metadata.getOptionValueFieldName()) || StringUtils.isEmpty(metadata.getOptionDisplayFieldName()))) {
-                    throw new IllegalArgumentException("Problem setting up data driven enumeration for ("+propertyName+"). The optionListEntity, optionValueFieldName and optionDisplayFieldName properties must all be included if not using DataDrivenEnumerationValueImpl as the optionListEntity.");
-                } else {
-                    metadata.setOptionValueFieldName(annot.optionValueFieldName());
-                    metadata.setOptionDisplayFieldName(annot.optionDisplayFieldName());
-                }
-                if (!ArrayUtils.isEmpty(annot.optionFilterParams())) {
-                    String[][] params = new String[annot.optionFilterParams().length][3];
-                    for (int j=0;j<params.length;j++) {
-                        params[j][0] = annot.optionFilterParams()[j].param();
-                        params[j][1] = annot.optionFilterParams()[j].value();
-                        params[j][2] = String.valueOf(annot.optionFilterParams()[j].paramType());
-                    }
-                    metadata.setOptionFilterParams(params);
-                } else {
-                    metadata.setOptionFilterParams(new String[][]{});
-                }
-                if (!StringUtils.isEmpty(metadata.getOptionListEntity())) {
-                    buildDataDrivenList(metadata, dynamicEntityDao);
-                }
-            }
-        }
-    }
-
-    protected void buildAdminPresentationOverride(String prefix, Boolean isParentExcluded, Map<String, FieldMetadata> mergedProperties, Map<String, AdminPresentationOverride> presentationOverrides, String propertyName, String key, DynamicEntityDao dynamicEntityDao) {
-        AdminPresentationOverride override = presentationOverrides.get(propertyName);
-        if (override != null) {
-            AdminPresentation annot = override.value();
-            if (annot != null) {
-                String testKey = prefix + key;
-                if ((testKey.startsWith(propertyName + ".") || testKey.equals(propertyName)) && annot.excluded()) {
-                    FieldMetadata metadata = mergedProperties.get(key);
-                    if (LOG.isDebugEnabled()) {
-                        LOG.debug("buildAdminPresentationOverride:Excluding " + key + "because an override annotation declared "+ testKey + " to be excluded");
-                    }
-                    metadata.setExcluded(true);
-                    return;
-                }
-                if ((testKey.startsWith(propertyName + ".") || testKey.equals(propertyName)) && !annot.excluded()) {
-                    FieldMetadata metadata = mergedProperties.get(key);
-                    if (!isParentExcluded) {
-                        if (LOG.isDebugEnabled()) {
-                            LOG.debug("buildAdminPresentationOverride:Showing " + key + "because an override annotation declared " + testKey + " to not be excluded");
-                        }
-                        metadata.setExcluded(false);
-                    }
-                }
-                if (!(mergedProperties.get(key) instanceof BasicFieldMetadata)) {
-                    return;
-                }
-                BasicFieldMetadata serverMetadata = (BasicFieldMetadata) mergedProperties.get(key);
-                if (serverMetadata.getTargetClass() != null) {
-                    try {
-                        Class<?> targetClass = Class.forName(serverMetadata.getTargetClass());
-                        Class<?> parentClass = null;
-                        if (serverMetadata.getOwningClass() != null) {
-                            parentClass = Class.forName(serverMetadata.getOwningClass());
-                        }
-                        String fieldName = serverMetadata.getFieldName();
-                        Field field = dynamicEntityDao.getFieldManager().getField(targetClass, fieldName);
-                        FieldMetadataOverride localMetadata = constructBasicMetadataOverride(annot, null, null);
-                        //do not include the previous metadata - we want to construct a fresh metadata from the override annotation
-                        Map<String, FieldMetadata> temp = new HashMap<String, FieldMetadata>(1);
-                        FieldInfo info = buildFieldInfo(field);
-                        buildBasicMetadata(parentClass, targetClass, temp, info, localMetadata, dynamicEntityDao);
-                        BasicFieldMetadata result = (BasicFieldMetadata) temp.get(field.getName());
-                        result.setInheritedFromType(serverMetadata.getInheritedFromType());
-                        result.setAvailableToTypes(serverMetadata.getAvailableToTypes());
-
-                        result.setFieldType(serverMetadata.getFieldType());
-                        result.setSecondaryType(serverMetadata.getSecondaryType());
-                        result.setLength(serverMetadata.getLength());
-                        result.setScale(serverMetadata.getScale());
-                        result.setPrecision(serverMetadata.getPrecision());
-                        result.setRequired(serverMetadata.getRequired());
-                        result.setUnique(serverMetadata.getUnique());
-                        result.setForeignKeyCollection(serverMetadata.getForeignKeyCollection());
-                        result.setMutable(serverMetadata.getMutable());
-                        result.setMergedPropertyType(serverMetadata.getMergedPropertyType());
-                        mergedProperties.put(key, result);
-                        if (isParentExcluded) {
-                            if (LOG.isDebugEnabled()) {
-                                LOG.debug("buildAdminPresentationOverride:Excluding " + key + "because the parent was excluded");
-                            }
-                            serverMetadata.setExcluded(true);
-                        }
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-            }
-        }
     }
 
     protected FieldMetadataOverride overrideMergeMetadata(AdminPresentationMergeOverride merge) {
@@ -474,12 +292,11 @@ public class BasicFieldMetadataProvider extends FieldMetadataProviderAdapter {
                                                                    AdminPresentationDataDrivenEnumeration dataDrivenEnumeration) {
         if (annot != null) {
             FieldMetadataOverride override = new FieldMetadataOverride();
-            override.setBroadleafEnumeration(annot.broadleafEnumeration());
+            override.setBroadleafEnumeration(annot.wakaEnumeration());
             override.setColumnWidth(annot.columnWidth());
             override.setExplicitFieldType(annot.fieldType());
             override.setFieldType(annot.fieldType());
             override.setGroup(annot.group());
-            override.setGroupCollapsed(annot.groupCollapsed());
             override.setGroupOrder(annot.groupOrder());
             override.setTab(annot.tab());
             override.setRuleIdentifier(annot.ruleIdentifier());
@@ -488,16 +305,13 @@ public class BasicFieldMetadataProvider extends FieldMetadataProviderAdapter {
             override.setHint(annot.hint());
             override.setLargeEntry(annot.largeEntry());
             override.setFriendlyName(annot.friendlyName());
-            override.setSecurityLevel(annot.securityLevel());
             override.setOrder(annot.order());
             override.setGridOrder(annot.gridOrder());
             override.setVisibility(annot.visibility());
             override.setProminent(annot.prominent());
             override.setReadOnly(annot.readOnly());
             override.setShowIfProperty(annot.showIfProperty());
-            override.setCurrencyCodeField(annot.currencyCodeField());
             override.setRuleIdentifier(annot.ruleIdentifier());
-            override.setTranslatable(annot.translatable());
             override.setDefaultValue(annot.defaultValue());
 
             if (annot.validationConfigurations().length != 0) {
@@ -642,7 +456,7 @@ public class BasicFieldMetadataProvider extends FieldMetadataProviderAdapter {
         if (basicFieldMetadata.getBroadleafEnumeration()!=null) {
             metadata.setBroadleafEnumeration(basicFieldMetadata.getBroadleafEnumeration());
         }
-        if (!StringUtils.isEmpty(metadata.getBroadleafEnumeration()) && metadata.getFieldType()==SupportedFieldType.BROADLEAF_ENUMERATION) {
+        if (!StringUtils.isEmpty(metadata.getBroadleafEnumeration()) && metadata.getFieldType()==SupportedFieldType.WAKA_ENUMERATION) {
             try {
                 setupBroadleafEnumeration(metadata.getBroadleafEnumeration(), metadata, dynamicEntityDao);
             } catch (Exception e) {

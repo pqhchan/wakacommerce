@@ -37,18 +37,6 @@
                 <span th:remove="tag" th:unless="${#strings.isEmpty(collectionProperty.metadata.friendlyName)}" th:text="#{${collectionProperty.metadata.friendlyName}}" />
             </span>
             
-            <span th:case="'translation'" th:remove="tag">
-                [[#{modal.title.fieldTranslations}]]
-            </span>
-            
-            <span th:case="'addTranslation'" th:remove="tag">
-                [[#{modal.title.addTranslation}]]
-            </span>
-            
-            <span th:case="'updateTranslation'" th:remove="tag">
-                [[#{modal.title.editTranslation}]]
-            </span>
-            
             <span th:case="'selectAsset'" th:remove="tag">
                 [[#{modal.title.selectAsset}]]
             </span>

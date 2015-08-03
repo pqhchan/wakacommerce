@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.locale.service;
 
 import org.apache.commons.logging.Log;
@@ -12,9 +11,6 @@ import com.wakacommerce.common.locale.domain.Locale;
 import javax.annotation.Resource;
 import java.util.List;
 
-/**
- *   
- */
 @Service("blLocaleService")
 public class LocaleServiceImpl implements LocaleService {
     private static final Log LOG = LogFactory.getLog(LocaleServiceImpl.class);

@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.security.service;
 
 import org.apache.commons.lang.StringUtils;
@@ -23,9 +22,6 @@ import javax.annotation.Resource;
 /**
  * This component allows for the default provisioning of an AdminUser and roles in the Broadleaf database, based on the 
  * external authentication of a user (e.g. LDAP or custom external authentication provider).
- * 
- *  
- *
  */
 @Service("blAdminUserProvisioningService")
 public class AdminUserProvisioningServiceImpl implements AdminUserProvisioningService {
@@ -143,7 +139,7 @@ public class AdminUserProvisioningServiceImpl implements AdminUserProvisioningSe
      * For example, if you have a role specified in LDAP under "memberOf" with a DN of "Marketing Administrator", you might want to
      * map that to the role "ADMIN".  By default the prefix "ROLE_" will be pre-pended to this name. So to configure this, you would specify:
      *
-     * <bean class="org.broadleaf.loadtest.web.security.ActiveDirectoryUserDetailsContextMapper">
+     * <bean class="com.wakacommerce.loadtest.web.security.ActiveDirectoryUserDetailsContextMapper">
      *     <property name="roleMappings">
      *         <map>
      *             <entry key="Marketing_Administrator" value="ROLE_CATALOG_ADMIN"/>

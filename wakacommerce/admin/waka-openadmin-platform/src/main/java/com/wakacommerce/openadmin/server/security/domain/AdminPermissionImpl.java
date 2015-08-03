@@ -77,8 +77,8 @@ public class AdminPermissionImpl implements AdminPermission {
     @AdminPresentation(friendlyName = "权限类型", order = 3000,
             group = "一般",
             prominent = true, gridOrder = 2000,
-            fieldType = SupportedFieldType.BROADLEAF_ENUMERATION,
-            broadleafEnumeration = "com.wakacommerce.openadmin.server.security.service.type.PermissionType")
+            fieldType = SupportedFieldType.WAKA_ENUMERATION,
+            wakaEnumeration = "com.wakacommerce.openadmin.server.security.service.type.PermissionType")
     protected String type;
 
     @Column(name = "DESCRIPTION", nullable=false)

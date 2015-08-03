@@ -144,7 +144,7 @@ public class DefaultFieldMetadataProvider extends BasicFieldMetadataProvider {
         }
         fieldMetadata.setMutable(true);
         fieldMetadata.setMergedPropertyType(addMetadataFromMappingDataRequest.getMergedPropertyType());
-        if (SupportedFieldType.BROADLEAF_ENUMERATION.equals(addMetadataFromMappingDataRequest.getType())) {
+        if (SupportedFieldType.WAKA_ENUMERATION.equals(addMetadataFromMappingDataRequest.getType())) {
             try {
                 setupBroadleafEnumeration(fieldMetadata.getBroadleafEnumeration(), fieldMetadata,
                         addMetadataFromMappingDataRequest.getDynamicEntityDao());

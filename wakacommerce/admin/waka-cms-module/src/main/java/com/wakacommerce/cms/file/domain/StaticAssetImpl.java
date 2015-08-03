@@ -28,9 +28,10 @@ import com.wakacommerce.common.presentation.AdminPresentationClass;
 import com.wakacommerce.common.presentation.PopulateToOneFieldsEnum;
 import com.wakacommerce.common.presentation.RequiredOverride;
 import com.wakacommerce.common.presentation.client.SupportedFieldType;
-import com.wakacommerce.common.presentation.client.VisibilityEnum;
-import com.wakacommerce.common.presentation.override.AdminPresentationOverride;
-import com.wakacommerce.common.presentation.override.AdminPresentationOverrides;
+import com.wakacommerce.common.presentation.override.AdminPresentationMergeEntry;
+import com.wakacommerce.common.presentation.override.AdminPresentationMergeOverride;
+import com.wakacommerce.common.presentation.override.AdminPresentationMergeOverrides;
+import com.wakacommerce.common.presentation.override.PropertyType;
 import com.wakacommerce.openadmin.audit.AdminAuditable;
 import com.wakacommerce.openadmin.audit.AdminAuditableListener;
 
@@ -39,16 +40,37 @@ import com.wakacommerce.openadmin.audit.AdminAuditableListener;
 @EntityListeners(value = { AdminAuditableListener.class })
 @Table(name = "BLC_STATIC_ASSET")
 @Cache(usage= CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region="blCMSElements")
-@AdminPresentationOverrides(
-        {
-            @AdminPresentationOverride(name="auditable.createdBy.id", value=@AdminPresentation(readOnly = true, visibility = VisibilityEnum.HIDDEN_ALL)),
-            @AdminPresentationOverride(name="auditable.updatedBy.id", value=@AdminPresentation(readOnly = true, visibility = VisibilityEnum.HIDDEN_ALL)),
-            @AdminPresentationOverride(name="auditable.createdBy.name", value=@AdminPresentation(readOnly = true, visibility = VisibilityEnum.HIDDEN_ALL)),
-            @AdminPresentationOverride(name="auditable.updatedBy.name", value=@AdminPresentation(readOnly = true, visibility = VisibilityEnum.HIDDEN_ALL)),
-            @AdminPresentationOverride(name="auditable.dateCreated", value=@AdminPresentation(readOnly = true, visibility = VisibilityEnum.HIDDEN_ALL)),
-            @AdminPresentationOverride(name="auditable.dateUpdated", value=@AdminPresentation(readOnly = true, visibility = VisibilityEnum.HIDDEN_ALL)),
-            @AdminPresentationOverride(name="sandbox", value=@AdminPresentation(excluded = true))
-        }
+@AdminPresentationMergeOverrides(
+    {
+        @AdminPresentationMergeOverride(name = "auditable.createdBy.id", mergeEntries = {
+            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.READONLY, booleanOverrideValue = true),
+            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.VISIBILITY, overrideValue = "HIDDEN_ALL")
+        }),
+        @AdminPresentationMergeOverride(name = "auditable.updatedBy.id", mergeEntries = {
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.READONLY, booleanOverrideValue = true),
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.VISIBILITY, overrideValue = "HIDDEN_ALL")
+        }),
+        @AdminPresentationMergeOverride(name = "auditable.createdBy.name", mergeEntries = {
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.READONLY, booleanOverrideValue = true),
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.VISIBILITY, overrideValue = "HIDDEN_ALL")
+	    }),
+        
+        @AdminPresentationMergeOverride(name = "auditable.updatedBy.name", mergeEntries = {
+            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.READONLY, booleanOverrideValue = true),
+            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.VISIBILITY, overrideValue = "HIDDEN_ALL")
+        }),
+        @AdminPresentationMergeOverride(name = "auditable.dateCreated", mergeEntries = {
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.READONLY, booleanOverrideValue = true),
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.VISIBILITY, overrideValue = "HIDDEN_ALL")
+        }),
+        @AdminPresentationMergeOverride(name = "auditable.dateUpdated", mergeEntries = {
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.READONLY, booleanOverrideValue = true),
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.VISIBILITY, overrideValue = "HIDDEN_ALL")
+		}),
+        @AdminPresentationMergeOverride(name = "sandbox", mergeEntries = {
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.EXCLUDED, booleanOverrideValue = true)
+		})
+    }
 )
 @AdminPresentationClass(populateToOneFields = PopulateToOneFieldsEnum.TRUE)
 @DirectCopyTransform({

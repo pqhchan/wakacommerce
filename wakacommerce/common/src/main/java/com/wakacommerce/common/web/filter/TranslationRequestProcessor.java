@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.web.filter;
 
 import org.springframework.stereotype.Component;
@@ -15,8 +14,6 @@ import javax.annotation.Resource;
  * This processor is responsible for setting up the translation context.   It is intended to be used
  * by both typical Web applications and called from a ServletFilter (such as "TranslationFilter") or 
  * from a portletFilter (such as "TranslationInterceptor")
- * 
- * 
  */
 @Component("blTranslationRequestProcessor")
 public class TranslationRequestProcessor extends AbstractWakaWebRequestProcessor {

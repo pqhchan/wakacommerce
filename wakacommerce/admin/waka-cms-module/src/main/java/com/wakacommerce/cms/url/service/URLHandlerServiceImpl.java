@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.url.service;
 
 import org.apache.commons.logging.Log;
@@ -19,10 +18,6 @@ import java.util.regex.Pattern;
 
 import javax.annotation.Resource;
 
-
-/**
- *   
- */
 @Service("blURLHandlerService")
 public class URLHandlerServiceImpl implements URLHandlerService {
 

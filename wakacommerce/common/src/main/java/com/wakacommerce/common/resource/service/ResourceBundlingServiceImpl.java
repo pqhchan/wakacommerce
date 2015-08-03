@@ -18,7 +18,7 @@ import org.springframework.web.servlet.resource.ResourceResolverChain;
 
 import com.wakacommerce.common.cache.StatisticsService;
 import com.wakacommerce.common.file.domain.FileWorkArea;
-import com.wakacommerce.common.file.service.BroadleafFileService;
+import com.wakacommerce.common.file.service.WakaFileService;
 import com.wakacommerce.common.resource.GeneratedResource;
 import com.wakacommerce.common.web.WakaRequestContext;
 import com.wakacommerce.common.web.resource.BroadleafDefaultResourceResolverChain;
@@ -58,7 +58,7 @@ public class ResourceBundlingServiceImpl implements ResourceBundlingService {
     protected Map<String, List<String>> additionalBundleFiles = new HashMap<String, List<String>>();
             
     @javax.annotation.Resource(name = "blFileService")
-    protected BroadleafFileService fileService;
+    protected WakaFileService fileService;
 
     @Autowired(required = false)
     @Qualifier("blJsResources")

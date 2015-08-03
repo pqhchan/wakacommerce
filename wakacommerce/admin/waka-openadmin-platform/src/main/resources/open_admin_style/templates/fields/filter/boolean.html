@@ -7,7 +7,7 @@
                th:name="${fieldName}" 
                th:value="${true}" 
                class="radio-input" />
-        <span>是</span>
+        <span th:text="#{'是'}" />
     </label>
         
     <label th:inline="text" style="font-weight: 400; display: inline-block;">
@@ -16,6 +16,6 @@
                th:name="${fieldName}" 
                th:value="${false}" 
                class="radio-input" /> 
-        <span style="margin-right: 10px;">否</span>
+        <span style="margin-right: 10px;" th:text="#{'否'}" />
     </label>
 </div>

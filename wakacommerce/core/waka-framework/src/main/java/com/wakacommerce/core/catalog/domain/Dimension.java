@@ -46,24 +46,24 @@ public class Dimension implements Serializable {
     @AdminPresentation(friendlyName = "ProductDimension_Product_Container_Size", order = 6000,
         tab = ProductImpl.Presentation.Tab.Name.Shipping, tabOrder = ProductImpl.Presentation.Tab.Order.Shipping,
         group = ProductImpl.Presentation.Group.Name.Shipping, groupOrder = ProductImpl.Presentation.Group.Order.Shipping,
-        fieldType = SupportedFieldType.BROADLEAF_ENUMERATION, 
-        broadleafEnumeration = "com.wakacommerce.common.vendor.service.type.ContainerSizeType")
+        fieldType = SupportedFieldType.WAKA_ENUMERATION, 
+        wakaEnumeration = "com.wakacommerce.common.vendor.service.type.ContainerSizeType")
     protected String size;
 
     @Column(name = "CONTAINER_SHAPE")
     @AdminPresentation(friendlyName = "ProductDimension_Product_Container_Shape", order = 7000,
         tab = ProductImpl.Presentation.Tab.Name.Shipping, tabOrder = ProductImpl.Presentation.Tab.Order.Shipping,
         group = ProductImpl.Presentation.Group.Name.Shipping, groupOrder = ProductImpl.Presentation.Group.Order.Shipping,
-        fieldType = SupportedFieldType.BROADLEAF_ENUMERATION,
-        broadleafEnumeration = "com.wakacommerce.common.vendor.service.type.ContainerShapeType")
+        fieldType = SupportedFieldType.WAKA_ENUMERATION,
+        wakaEnumeration = "com.wakacommerce.common.vendor.service.type.ContainerShapeType")
     protected String container;
 
     @Column(name = "DIMENSION_UNIT_OF_MEASURE")
     @AdminPresentation(friendlyName = "ProductDimension_Product_Dimension_Units", order = 8000,
         tab = ProductImpl.Presentation.Tab.Name.Shipping, tabOrder = ProductImpl.Presentation.Tab.Order.Shipping,
         group = ProductImpl.Presentation.Group.Name.Shipping, groupOrder = ProductImpl.Presentation.Group.Order.Shipping,
-        fieldType = SupportedFieldType.BROADLEAF_ENUMERATION, 
-        broadleafEnumeration = "com.wakacommerce.common.util.DimensionUnitOfMeasureType")
+        fieldType = SupportedFieldType.WAKA_ENUMERATION, 
+        wakaEnumeration = "com.wakacommerce.common.util.DimensionUnitOfMeasureType")
     protected String dimensionUnitOfMeasure;
 
     public BigDecimal getWidth() {

@@ -12,14 +12,14 @@
         <label th:text="#{password.email}" />
         <input type="email" id="emailAddress" name="emailAddress" autofocus="autofocus" class="twelve" />
 
-        <input type="submit" class="button radius right" value="发送账户名到邮箱"/>
+        <input type="submit" class="button radius right" value="发送"/>
     </blc:form>
 
     <div th:fragment="options">
         <ul class="inline-list">
-            <li><a href="#" th:href="@{/forgotPassword}">忘记密码</a></li>
+            <li><a href="#" th:href="@{/forgotPassword}" th:text="#{password.forgotPassword}" /></li>
             <li class="divider">&nbsp;</li>
-            <li><a href="#" th:href="@{/login}">登录</a></li>
+            <li><a href="#" th:href="@{/login}" th:text="#{password.login}" /></li>
         </ul>
     </div>
 </div>

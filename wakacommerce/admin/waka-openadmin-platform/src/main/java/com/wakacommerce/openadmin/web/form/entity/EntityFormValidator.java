@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.web.form.entity;
 
 import org.apache.commons.collections.CollectionUtils;

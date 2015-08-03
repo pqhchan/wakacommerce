@@ -1,5 +1,3 @@
-
-
 package com.wakacommerce.openadmin.web.form.entity;
 
 import org.apache.commons.lang3.builder.CompareToBuilder;
@@ -16,6 +14,7 @@ public class FieldGroup {
 
     protected String title;
     protected Integer order;
+    /* 替换排好顺序的字段，这里的字段的order属性直接表示最终位置，即希望被插入的位置 */
     protected Set<Field> alternateOrderedFields = new HashSet<Field>();
     protected Set<Field> fields = new HashSet<Field>();
     protected Boolean isVisible;
@@ -103,10 +102,7 @@ public class FieldGroup {
                         .toComparison();
                 }
             });
-            /*
-            alternate ordered fields whose order is less or equal to zero appear first and are
-            prepended to the response list in order
-             */
+            /* order属性小于等于零的alternate ordered fields会直接按顺序插到表头处 */
             List<Field> smallOrderFields = new ArrayList<Field>();
             for (Field mapField : mapFieldsList) {
                 if (mapField.getOrder() <= 0) {
@@ -114,12 +110,7 @@ public class FieldGroup {
                 }
             }
             myFields.addAll(0, smallOrderFields);
-            /*
-            Alternate ordered fields (specifically custom fields) have a different ordering rule than regular fields. For example,
-            if a user enters 3 for the field order value for a custom field, that custom field should be the third
-            on the form. Regular BLC AdminPresentation fields tends to have orders like 1000, 2000, etc..., so this
-            distinction is necessary.
-             */
+            /* order属性大于零的alternate ordered fields会插入到表的 order-1 位置处 */
             for (Field mapField : mapFieldsList) {
                 if (mapField.getOrder() <= 0) {
                     continue;
@@ -132,7 +123,7 @@ public class FieldGroup {
             }
         }
 
-        //don't allow any modification of the fields
+        //排好顺序后，不允许对列表进行修改
         return Collections.unmodifiableSet(new LinkedHashSet<Field>(myFields));
     }
 

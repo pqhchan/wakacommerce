@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.service.artifact.image.effects.chain.filter;
 
 import java.awt.*;
@@ -68,9 +67,6 @@ public class AlterHSB extends BaseFilter {
         return operation;
     }
 
-    /* (non-Javadoc)
-     * @see java.awt.image.BufferedImageOp#filter(java.awt.image.BufferedImage, java.awt.image.BufferedImage)
-     */
     public BufferedImage filter(BufferedImage src, BufferedImage dst) {
         if (src == null) {
             throw new NullPointerException("src image is null");

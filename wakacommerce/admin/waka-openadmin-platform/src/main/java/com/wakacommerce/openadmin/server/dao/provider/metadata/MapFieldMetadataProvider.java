@@ -1,5 +1,9 @@
-
 package com.wakacommerce.openadmin.server.dao.provider.metadata;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
@@ -13,11 +17,9 @@ import com.wakacommerce.common.presentation.AdminPresentationOperationTypes;
 import com.wakacommerce.common.presentation.client.OperationType;
 import com.wakacommerce.common.presentation.client.PersistencePerspectiveItemType;
 import com.wakacommerce.common.presentation.client.UnspecifiedBooleanType;
-import com.wakacommerce.common.presentation.override.AdminPresentationMapOverride;
 import com.wakacommerce.common.presentation.override.AdminPresentationMergeEntry;
 import com.wakacommerce.common.presentation.override.AdminPresentationMergeOverride;
 import com.wakacommerce.common.presentation.override.AdminPresentationMergeOverrides;
-import com.wakacommerce.common.presentation.override.AdminPresentationOverrides;
 import com.wakacommerce.common.presentation.override.PropertyType;
 import com.wakacommerce.openadmin.dto.FieldMetadata;
 import com.wakacommerce.openadmin.dto.ForeignKey;
@@ -34,14 +36,6 @@ import com.wakacommerce.openadmin.server.dao.provider.metadata.request.OverrideV
 import com.wakacommerce.openadmin.server.dao.provider.metadata.request.OverrideViaXmlRequest;
 import com.wakacommerce.openadmin.server.service.type.FieldProviderResponse;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.ParameterizedType;
-import java.util.HashMap;
-import java.util.Map;
-
-/**
- * 
- */
 @Component("blMapFieldMetadataProvider")
 @Scope("prototype")
 public class MapFieldMetadataProvider extends AdvancedCollectionFieldMetadataProvider {
@@ -54,9 +48,8 @@ public class MapFieldMetadataProvider extends AdvancedCollectionFieldMetadataPro
     }
 
     protected boolean canHandleAnnotationOverride(OverrideViaAnnotationRequest overrideViaAnnotationRequest, Map<String, FieldMetadata> metadata) {
-        AdminPresentationOverrides myOverrides = overrideViaAnnotationRequest.getRequestedEntity().getAnnotation(AdminPresentationOverrides.class);
         AdminPresentationMergeOverrides myMergeOverrides = overrideViaAnnotationRequest.getRequestedEntity().getAnnotation(AdminPresentationMergeOverrides.class);
-        return (myOverrides != null && !ArrayUtils.isEmpty(myOverrides.maps())) || myMergeOverrides != null;
+        return myMergeOverrides != null;
     }
 
     @Override
@@ -78,24 +71,7 @@ public class MapFieldMetadataProvider extends AdvancedCollectionFieldMetadataPro
         if (!canHandleAnnotationOverride(overrideViaAnnotationRequest, metadata)) {
             return FieldProviderResponse.NOT_HANDLED;
         }
-        Map<String, AdminPresentationMapOverride> presentationMapOverrides = new HashMap<String, AdminPresentationMapOverride>();
-
-        AdminPresentationOverrides myOverrides = overrideViaAnnotationRequest.getRequestedEntity().getAnnotation(AdminPresentationOverrides.class);
-        if (myOverrides != null) {
-            for (AdminPresentationMapOverride myOverride : myOverrides.maps()) {
-                presentationMapOverrides.put(myOverride.name(), myOverride);
-            }
-        }
-
-        for (String propertyName : presentationMapOverrides.keySet()) {
-            for (String key : metadata.keySet()) {
-                if (key.startsWith(propertyName)) {
-                    buildAdminPresentationMapOverride(overrideViaAnnotationRequest.getPrefix(), overrideViaAnnotationRequest.getParentExcluded(), metadata, presentationMapOverrides,
-                            propertyName, key, overrideViaAnnotationRequest.getDynamicEntityDao());
-                }
-            }
-        }
-
+        
         AdminPresentationMergeOverrides myMergeOverrides = overrideViaAnnotationRequest.getRequestedEntity().getAnnotation(AdminPresentationMergeOverrides.class);
         if (myMergeOverrides != null) {
             for (AdminPresentationMergeOverride override : myMergeOverrides.value()) {
@@ -193,66 +169,6 @@ public class MapFieldMetadataProvider extends AdvancedCollectionFieldMetadataPro
         //do nothing but add the property without manipulation
         metadata.put(addMetadataFromFieldTypeRequest.getRequestedPropertyName(), addMetadataFromFieldTypeRequest.getPresentationAttribute());
         return FieldProviderResponse.HANDLED;
-    }
-
-    protected void buildAdminPresentationMapOverride(String prefix, Boolean isParentExcluded, Map<String, FieldMetadata> mergedProperties,
-             Map<String, AdminPresentationMapOverride> presentationMapOverrides, String propertyName, String key, DynamicEntityDao dynamicEntityDao) {
-        AdminPresentationMapOverride override = presentationMapOverrides.get(propertyName);
-        if (override != null) {
-            AdminPresentationMap annot = override.value();
-            if (annot != null) {
-                String testKey = prefix + key;
-                if ((testKey.startsWith(propertyName + ".") || testKey.equals(propertyName)) && annot.excluded()) {
-                    FieldMetadata metadata = mergedProperties.get(key);
-                    if (LOG.isDebugEnabled()) {
-                        LOG.debug("buildAdminPresentationMapOverride:Excluding " + key + "because an override annotation declared " + testKey + "to be excluded");
-                    }
-                    metadata.setExcluded(true);
-                    return;
-                }
-                if ((testKey.startsWith(propertyName + ".") || testKey.equals(propertyName)) && !annot.excluded()) {
-                    FieldMetadata metadata = mergedProperties.get(key);
-                    if (!isParentExcluded) {
-                        if (LOG.isDebugEnabled()) {
-                            LOG.debug("buildAdminPresentationMapOverride:Showing " + key + "because an override annotation declared " + testKey + " to not be excluded");
-                        }
-                        metadata.setExcluded(false);
-                    }
-                }
-                if (!(mergedProperties.get(key) instanceof MapMetadata)) {
-                    return;
-                }
-                MapMetadata serverMetadata = (MapMetadata) mergedProperties.get(key);
-                if (serverMetadata.getTargetClass() != null) {
-                    try {
-                        Class<?> targetClass = Class.forName(serverMetadata.getTargetClass());
-                        Class<?> parentClass = null;
-                        if (serverMetadata.getOwningClass() != null) {
-                            parentClass = Class.forName(serverMetadata.getOwningClass());
-                        }
-                        String fieldName = serverMetadata.getFieldName();
-                        Field field = dynamicEntityDao.getFieldManager().getField(targetClass, fieldName);
-                        FieldMetadataOverride localMetadata = constructMapMetadataOverride(annot);
-                        //do not include the previous metadata - we want to construct a fresh metadata from the override annotation
-                        Map<String, FieldMetadata> temp = new HashMap<String, FieldMetadata>(1);
-                        FieldInfo info = buildFieldInfo(field);
-                        buildMapMetadata(parentClass, targetClass, temp, info, localMetadata, dynamicEntityDao, serverMetadata.getPrefix());
-                        MapMetadata result = (MapMetadata) temp.get(field.getName());
-                        result.setInheritedFromType(serverMetadata.getInheritedFromType());
-                        result.setAvailableToTypes(serverMetadata.getAvailableToTypes());
-                        mergedProperties.put(key, result);
-                        if (isParentExcluded) {
-                            if (LOG.isDebugEnabled()) {
-                                LOG.debug("buildAdminPresentationMapOverride:Excluding " + key + "because the parent was excluded");
-                            }
-                            serverMetadata.setExcluded(true);
-                        }
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-            }
-        }
     }
 
     protected FieldMetadataOverride overrideMapMergeMetadata(AdminPresentationMergeOverride merge) {
@@ -436,7 +352,8 @@ public class MapFieldMetadataProvider extends AdvancedCollectionFieldMetadataPro
         }
 
         String parentObjectClass = resolvedClass.getName();
-        Map idMetadata;
+        @SuppressWarnings("rawtypes")
+		Map idMetadata;
         if(parentClass!=null) {
             idMetadata=dynamicEntityDao.getIdMetadata(parentClass);
         } else {

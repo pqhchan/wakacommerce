@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.web.processor;
 
 import org.thymeleaf.Arguments;
@@ -14,7 +13,6 @@ import javax.annotation.Resource;
 /**
  * Similar to {@link UrlRewriteProcessor} but handles href tags.   
  * Mainly those that have a useCdn=true attribute or those that are inside a script tag.
- * 
  * 
  */
 public class HrefUrlRewriteProcessor extends UrlRewriteProcessor {

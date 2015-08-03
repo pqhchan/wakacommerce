@@ -42,7 +42,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Processor used to display structured content that is maintained with the Broadleaf CMS.
+ * Processor used to display structured content that is maintained with the Waka CMS.
  *
  * Usage based on the following attributes:<br>
  * <ul>
@@ -159,7 +159,17 @@ public class ContentProcessor extends AbstractModelVariableModifierProcessor {
 
         Locale locale = blcContext.getLocale();
             
-        contentItems = getContentItems(contentName, maxResults, request, mvelParameters, currentSandbox, structuredContentType, locale, arguments, element);
+        contentItems = getContentItems(
+        		contentName, 
+        		maxResults, 
+        		request, 
+        		mvelParameters, 
+        		currentSandbox, 
+        		structuredContentType, 
+        		locale, 
+        		arguments, 
+        		element
+        );
         
         if (contentItems.size() > 0) {
             

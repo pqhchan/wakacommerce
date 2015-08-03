@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.service.artifact.image.effects.chain.conversion;
 
 import org.springframework.stereotype.Service;
@@ -32,16 +31,10 @@ public class ConversionManager {
         return converter.convert(value, factor, applyFactor);
     }
     
-    /**
-     * @return the converters
-     */
     public Map<String, ParameterConverter> getConverters() {
         return converters;
     }
 
-    /**
-     * @param converters the converters to set
-     */
     public void setConverters(Map<String, ParameterConverter> converters) {
         this.converters = converters;
     }

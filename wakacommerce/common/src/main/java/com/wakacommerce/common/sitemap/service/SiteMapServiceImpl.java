@@ -11,7 +11,7 @@ import com.wakacommerce.common.config.domain.ModuleConfiguration;
 import com.wakacommerce.common.config.service.ModuleConfigurationService;
 import com.wakacommerce.common.config.service.type.ModuleConfigurationType;
 import com.wakacommerce.common.file.domain.FileWorkArea;
-import com.wakacommerce.common.file.service.BroadleafFileService;
+import com.wakacommerce.common.file.service.WakaFileService;
 import com.wakacommerce.common.sitemap.domain.SiteMapConfiguration;
 import com.wakacommerce.common.sitemap.domain.SiteMapGeneratorConfiguration;
 import com.wakacommerce.common.sitemap.exception.SiteMapException;
@@ -53,7 +53,7 @@ public class SiteMapServiceImpl implements SiteMapService {
     protected List<SiteMapGenerator> siteMapGenerators = new ArrayList<SiteMapGenerator>();
 
     @Resource(name = "blFileService")
-    protected BroadleafFileService broadleafFileService;
+    protected WakaFileService broadleafFileService;
 
     @Resource(name = "blBaseUrlResolver")
     protected BaseUrlResolver baseUrlResolver;
@@ -109,7 +109,7 @@ public class SiteMapServiceImpl implements SiteMapService {
 
 
         // Move the generated files to their permanent location
-        broadleafFileService.addOrUpdateResources(fileWorkArea, true);
+        broadleafFileService.addOrUpdateResourcesForPaths(fileWorkArea, true);
         broadleafFileService.closeWorkArea(fileWorkArea);
 
         return smgr;

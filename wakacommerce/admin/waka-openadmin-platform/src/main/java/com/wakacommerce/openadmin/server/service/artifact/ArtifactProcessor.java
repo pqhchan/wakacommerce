@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.service.artifact;
 
 import java.io.InputStream;
@@ -7,11 +6,9 @@ import java.util.Map;
 import com.wakacommerce.openadmin.server.service.artifact.image.Operation;
 
 /**
- * Created by IntelliJ IDEA.
- * User:   
- * Date: 9/10/11
- * Time: 12:23 PM
- * To change this template use File | Settings | File Templates.
+ * 物件处理器(物件表示的是系统资源，这里主要指上传到系统中的图片)
+ * 
+ * @author hui
  */
 public interface ArtifactProcessor {
 

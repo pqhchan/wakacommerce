@@ -1,5 +1,3 @@
-
-/* Utility methods provided by Broadleaf Commerce for admin */
 var BLCAdmin = (function($) {
     
 	// This will keep track of our current active modals so that we are able to overlay them

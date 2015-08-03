@@ -1,9 +1,5 @@
-
 package com.wakacommerce.common.presentation.override;
 
-/**
- * 
- */
 public class PropertyType {
 
     public static class AdminPresentation {

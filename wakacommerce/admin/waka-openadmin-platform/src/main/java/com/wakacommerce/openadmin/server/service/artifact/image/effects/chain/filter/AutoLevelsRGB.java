@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.service.artifact.image.effects.chain.filter;
 
 import javax.imageio.ImageIO;
@@ -21,8 +20,6 @@ import java.util.Map;
  * The filter automatically adjusts tonal range for problem photographs, making sure the tones are
  * equally distributed from black to white. Note, a marginal clipping does occur at the highs and lows to account
  * for aberrant pixels in those quadrants that might erroneously effect the calculation.
- * 
- *  
  *
  */
 public class AutoLevelsRGB extends BaseFilter {

@@ -90,7 +90,7 @@ public class SkuAvailabilityImpl implements SkuAvailability {
     /** The description. */
     @Column(name = "AVAILABILITY_STATUS")
     @Index(name="SKUAVAIL_STATUS_INDEX", columnNames={"AVAILABILITY_STATUS"})
-    @AdminPresentation(friendlyName = "SkuAvailabilityImpl_Availability_Status", group = "SkuAvailabilityImpl_Description", fieldType= SupportedFieldType.BROADLEAF_ENUMERATION, broadleafEnumeration="com.wakacommerce.core.inventory.service.type.AvailabilityStatusType")
+    @AdminPresentation(friendlyName = "SkuAvailabilityImpl_Availability_Status", group = "SkuAvailabilityImpl_Description", fieldType= SupportedFieldType.WAKA_ENUMERATION, wakaEnumeration="com.wakacommerce.core.inventory.service.type.AvailabilityStatusType")
     protected String availabilityStatus;
 
     /** The date this product will be available. */

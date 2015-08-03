@@ -1,16 +1,9 @@
-  
 package com.wakacommerce.cms.url.domain;
 
 import com.wakacommerce.cms.url.type.URLRedirectType;
 import com.wakacommerce.common.copy.CreateResponse;
 import com.wakacommerce.common.copy.MultiTenantCopyContext;
 
-
-/**
- * A bean representation of a URLHandler
- * 
- *
- */
 public class URLHandlerDTO implements URLHandler {
 
     private static final long serialVersionUID = 1L;

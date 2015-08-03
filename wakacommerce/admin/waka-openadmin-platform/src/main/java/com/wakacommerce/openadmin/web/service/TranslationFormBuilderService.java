@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.web.service;
 
 import com.wakacommerce.common.i18n.domain.Translation;

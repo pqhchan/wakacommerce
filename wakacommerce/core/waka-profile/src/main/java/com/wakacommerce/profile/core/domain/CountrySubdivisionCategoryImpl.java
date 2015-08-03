@@ -63,7 +63,7 @@ public class CountrySubdivisionCategoryImpl implements CountrySubdivisionCategor
     protected Long id;
 
     @Column(name = "NAME", nullable=false)
-    @AdminPresentation(friendlyName = "CountrySubdivisionCategoryImpl_Name", order=1, prominent = true, translatable = true)
+    @AdminPresentation(friendlyName = "CountrySubdivisionCategoryImpl_Name", order=1, prominent = true)
     protected String name;
 
     @Override

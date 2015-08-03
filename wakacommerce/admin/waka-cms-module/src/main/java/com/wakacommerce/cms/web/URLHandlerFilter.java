@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.web;
 
 import org.apache.commons.lang3.StringUtils;
@@ -30,8 +29,6 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Responsible for setting up the site and locale used by Broadleaf Commerce components.
- *
- * 
  */
 @Component("blURLHandlerFilter")
 public class URLHandlerFilter extends OncePerRequestFilter {

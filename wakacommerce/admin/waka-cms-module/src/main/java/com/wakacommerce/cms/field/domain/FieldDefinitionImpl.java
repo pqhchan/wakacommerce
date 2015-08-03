@@ -64,8 +64,8 @@ public class FieldDefinitionImpl implements FieldDefinition, ProfileEntity {
     protected String friendlyName;
 
     @Column (name = "FLD_TYPE")
-    @AdminPresentation(fieldType = SupportedFieldType.BROADLEAF_ENUMERATION, 
-        broadleafEnumeration = "com.wakacommerce.common.presentation.client.DynamicSupportedFieldType",
+    @AdminPresentation(fieldType = SupportedFieldType.WAKA_ENUMERATION, 
+        wakaEnumeration = "com.wakacommerce.common.presentation.client.DynamicSupportedFieldType",
         prominent = true, gridOrder = 3000, order = 1000,
         requiredOverride = RequiredOverride.REQUIRED,
         friendlyName = "FieldDefinitionImpl_fieldType")

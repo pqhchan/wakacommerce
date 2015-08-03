@@ -97,6 +97,7 @@ public class RuntimeEnvironmentPropertiesConfigurer extends PropertyPlaceholderC
 
     public RuntimeEnvironmentPropertiesConfigurer() {
         super();
+        setFileEncoding("utf-8");
         setIgnoreUnresolvablePlaceholders(true); // This default will get overriden by user options if present
         setNullValue("@null");
     }

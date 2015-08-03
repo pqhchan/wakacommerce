@@ -1,17 +1,9 @@
  
 package com.wakacommerce.cms.url.service;
-
-import net.sf.ehcache.Cache;
-
 import java.util.List;
 
 import com.wakacommerce.cms.url.domain.URLHandler;
-import com.wakacommerce.common.sandbox.domain.SandBox;
 
-
-/**
- *   
- */
 public interface URLHandlerService {
 
     /**

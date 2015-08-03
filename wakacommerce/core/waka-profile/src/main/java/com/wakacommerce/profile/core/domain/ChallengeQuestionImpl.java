@@ -41,7 +41,7 @@ public class ChallengeQuestionImpl implements ChallengeQuestion {
     protected Long id;
 
     @Column(name = "QUESTION", nullable=false)
-    @AdminPresentation(friendlyName = "ChallengeQuestionImpl_Challenge_Question", translatable = true, group = "ChallengeQuestionImpl_Customer")
+    @AdminPresentation(friendlyName = "ChallengeQuestionImpl_Challenge_Question", group = "ChallengeQuestionImpl_Customer")
     protected String question;
 
     @Override

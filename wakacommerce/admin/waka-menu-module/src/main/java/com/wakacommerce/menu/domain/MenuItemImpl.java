@@ -68,8 +68,7 @@ public class MenuItemImpl implements MenuItem, ProfileEntity {
     @AdminPresentation(friendlyName = "MenuItemImpl_Label",
             order = Presentation.FieldOrder.LABEL,
             gridOrder = Presentation.FieldOrder.LABEL,
-            prominent = true,
-            translatable = true)
+            prominent = true)
     protected String label;
 
     @Column(name = "MENU_ITEM_TYPE")
@@ -77,8 +76,8 @@ public class MenuItemImpl implements MenuItem, ProfileEntity {
             order = Presentation.FieldOrder.MENU_ITEM_TYPE,
             prominent = true,
             gridOrder = Presentation.FieldOrder.MENU_ITEM_TYPE,
-            fieldType = SupportedFieldType.BROADLEAF_ENUMERATION,
-            broadleafEnumeration = "com.wakacommerce.menu.type.MenuItemType")
+            fieldType = SupportedFieldType.WAKA_ENUMERATION,
+            wakaEnumeration = "com.wakacommerce.menu.type.MenuItemType")
     protected String type;
 
     @Column(name = "SEQUENCE", precision = 10, scale = 6)
@@ -125,8 +124,7 @@ public class MenuItemImpl implements MenuItem, ProfileEntity {
     @Column(name = "CUSTOM_HTML", length = Integer.MAX_VALUE - 1)
     @AdminPresentation(friendlyName = "MenuItemImpl_CustomHtml", order = Presentation.FieldOrder.CUSTOM_HTML,
             largeEntry = true,
-            fieldType = SupportedFieldType.HTML_BASIC,
-            translatable = true)
+            fieldType = SupportedFieldType.HTML_BASIC)
     protected String customHtml;
 
     @Override

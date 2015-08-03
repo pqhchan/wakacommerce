@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.web.processor;
 
 import org.thymeleaf.Arguments;
@@ -10,11 +9,6 @@ import com.wakacommerce.common.web.deeplink.DeepLink;
 
 import java.util.List;
 
-/**
- * Extension handler for the {@link ContentProcessor}
- *
- *  
- */
 public interface ContentProcessorExtensionHandler extends ExtensionHandler {
 
     /**

@@ -68,8 +68,7 @@ public class MenuImpl implements Menu, AdminMainEntity, ProfileEntity {
     @AdminPresentation(friendlyName = "MenuImpl_Name",
             order = Presentation.FieldOrder.NAME,
             gridOrder = Presentation.FieldOrder.NAME,
-            prominent = true,
-            translatable = true)
+            prominent = true)
     protected String name;
 
     @OneToMany(mappedBy = "parentMenu", targetEntity = MenuItemImpl.class, cascade = { CascadeType.ALL }, orphanRemoval = true)

@@ -125,14 +125,14 @@ public class OrderPaymentImpl implements OrderPayment, CurrencyCodeIdentifiable 
     @Column(name = "PAYMENT_TYPE", nullable = false)
     @Index(name="ORDERPAYMENT_TYPE_INDEX", columnNames={"PAYMENT_TYPE"})
     @AdminPresentation(friendlyName = "OrderPaymentImpl_Payment_Type", order=3000, gridOrder = 3000, prominent=true,
-            fieldType= SupportedFieldType.BROADLEAF_ENUMERATION,
-            broadleafEnumeration="com.wakacommerce.common.payment.PaymentType")
+            fieldType= SupportedFieldType.WAKA_ENUMERATION,
+            wakaEnumeration="com.wakacommerce.common.payment.PaymentType")
     protected String type;
     
     @Column(name = "GATEWAY_TYPE")
     @AdminPresentation(friendlyName = "OrderPaymentImpl_Gateway_Type", order=1000, gridOrder = 1000, prominent=true,
-            fieldType = SupportedFieldType.BROADLEAF_ENUMERATION,
-            broadleafEnumeration="com.wakacommerce.common.payment.PaymentGatewayType")
+            fieldType = SupportedFieldType.WAKA_ENUMERATION,
+            wakaEnumeration="com.wakacommerce.common.payment.PaymentGatewayType")
     protected String gatewayType;
     
     //TODO: add a filter for archived transactions

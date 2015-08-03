@@ -46,7 +46,12 @@ public class StructuredContentTypeImpl implements StructuredContentType, AdminMa
     protected Long id;
 
     @Column (name = "NAME")
-    @AdminPresentation(friendlyName = "StructuredContentTypeImpl_Name", order = 1, gridOrder = 1, group = "StructuredContentTypeImpl_Details", prominent = true)
+    @AdminPresentation(
+    		friendlyName = "StructuredContentTypeImpl_Name", 
+    		order = 1, 
+    		gridOrder = 1, 
+    		group = "StructuredContentTypeImpl_Details", 
+    		prominent = true)
     @Index(name="SC_TYPE_NAME_INDEX", columnNames={"NAME"})
     protected String name;
 

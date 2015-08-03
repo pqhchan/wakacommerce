@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.structure.service;
 
 import com.wakacommerce.cms.structure.domain.StructuredContent;
@@ -9,11 +8,6 @@ import com.wakacommerce.common.structure.dto.StructuredContentDTO;
 
 import java.util.List;
 
-/**
- * Extension handler for the {@link StructuredContentService}
- *
- * 
- */
 public class AbstractStructuredContentServiceExtensionHandler extends AbstractExtensionHandler
         implements StructuredContentServiceExtensionHandler {
 

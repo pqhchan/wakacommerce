@@ -1,5 +1,3 @@
-
-
 package com.wakacommerce.openadmin.web.form.component;
 
 import org.apache.commons.lang3.StringUtils;

@@ -57,7 +57,7 @@
             th:inline="text">
             
             <fieldset th:each="group : ${tab.fieldGroups}" th:classappend="${!group.isVisible}? 'hidden'">
-                <legend th:text="${group.title}" />
+                <legend th:text="#{${group.title}}" />
 
                 <comment th:remove="all">
                 <!-- *** IMPORTANT *** -->
@@ -108,7 +108,7 @@
             th:attr="data-url=@{${(#strings.isEmpty(action.urlOverride)) ? ('/' + sectionKey + action.urlPostfix) : action.urlOverride}},
                      data-action=${action.urlPostfix}"
             th:classappend="${action.buttonClass}" th:unless="${hideActions}">
-            <i th:class="${action.iconClass}"></i>&nbsp;<span th:text="#{${action.displayText}}" th:remove="tag" />
+            <i th:class="${action.iconClass}"></i>&nbsp;<span th:text="${action.displayText}" th:remove="tag" />
         </button>
         <img th:src="@{/img/admin/ajax-loader.gif}" class="ajax-loader" />
     </div>

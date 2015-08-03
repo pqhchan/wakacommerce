@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.structure.domain;
 
 import java.util.ArrayList;
@@ -32,9 +31,6 @@ import com.wakacommerce.common.presentation.AdminPresentation;
 import com.wakacommerce.common.presentation.AdminPresentationClass;
 import com.wakacommerce.common.presentation.PopulateToOneFieldsEnum;
 
-/**
- *   
- */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "BLC_SC_FLD_TMPLT")
@@ -57,8 +53,14 @@ public class StructuredContentFieldTemplateImpl implements StructuredContentFiel
     @Column(name = "SC_FLD_TMPLT_ID")
     protected Long id;
 
+    @AdminPresentation(
+		friendlyName = "StructuredContentFieldTemplateImpl_Field_Template_Name", 
+		order = 1, 
+		gridOrder = 2, 
+		group = "StructuredContentFieldTemplateImpl_Details", 
+		prominent = true
+    )
     @Column (name = "NAME")
-    @AdminPresentation(friendlyName = "StructuredContentFieldTemplateImpl_Field_Template_Name", order = 1, gridOrder = 2, group = "StructuredContentFieldTemplateImpl_Details", prominent = true)
     protected String name;
 
     @ManyToMany(targetEntity = FieldGroupImpl.class, cascade = {CascadeType.ALL})

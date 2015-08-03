@@ -159,8 +159,7 @@ public class CategoryImpl implements Category, Status, AdminMainEntity, Locatabl
     @Index(name="CATEGORY_NAME_INDEX", columnNames={"NAME"})
     @AdminPresentation(friendlyName = "CategoryImpl_Category_Name", order = 1000,
             group = Presentation.Group.Name.General, groupOrder = Presentation.Group.Order.General,
-            prominent = true, gridOrder = 1, columnWidth = "300px",
-            translatable = true)
+            prominent = true, gridOrder = 1, columnWidth = "300px")
     protected String name;
 
     @Column(name = "URL")
@@ -195,8 +194,7 @@ public class CategoryImpl implements Category, Status, AdminMainEntity, Locatabl
     @AdminPresentation(friendlyName = "CategoryImpl_Category_Description",
             group = Presentation.Group.Name.General, groupOrder = Presentation.Group.Order.General,
             largeEntry = true,
-            excluded = true,
-            translatable = true)
+            excluded = true)
     protected String description;
 
     @Column(name = "TAX_CODE")
@@ -229,8 +227,7 @@ public class CategoryImpl implements Category, Status, AdminMainEntity, Locatabl
     @AdminPresentation(friendlyName = "CategoryImpl_Category_Long_Description", order = 3000,
             group = Presentation.Group.Name.General, groupOrder = Presentation.Group.Order.General,
             largeEntry = true,
-            fieldType = SupportedFieldType.HTML_BASIC,
-            translatable = true)
+            fieldType = SupportedFieldType.HTML_BASIC)
     protected String longDescription;
 
     @ManyToOne(targetEntity = CategoryImpl.class)
@@ -412,16 +409,16 @@ public class CategoryImpl implements Category, Status, AdminMainEntity, Locatabl
             helpText = "categoryInventoryTypeHelpText",
             tab = Presentation.Tab.Name.Advanced, tabOrder = Presentation.Tab.Order.Advanced,
             group = Presentation.Group.Name.Advanced, groupOrder = Presentation.Group.Order.Advanced,
-            fieldType = SupportedFieldType.BROADLEAF_ENUMERATION,
-            broadleafEnumeration = "com.wakacommerce.core.inventory.service.type.InventoryType")
+            fieldType = SupportedFieldType.WAKA_ENUMERATION,
+            wakaEnumeration = "com.wakacommerce.core.inventory.service.type.InventoryType")
     protected String inventoryType;
     
     @Column(name = "FULFILLMENT_TYPE")
     @AdminPresentation(friendlyName = "CategoryImpl_Category_FulfillmentType", order = 3000,
             tab = Presentation.Tab.Name.Advanced, tabOrder = Presentation.Tab.Order.Advanced,
             group = Presentation.Group.Name.Advanced, groupOrder = Presentation.Group.Order.Advanced,
-            fieldType = SupportedFieldType.BROADLEAF_ENUMERATION,
-            broadleafEnumeration = "com.wakacommerce.core.order.service.type.FulfillmentType")
+            fieldType = SupportedFieldType.WAKA_ENUMERATION,
+            wakaEnumeration = "com.wakacommerce.core.order.service.type.FulfillmentType")
     protected String fulfillmentType;
 
     @Embedded

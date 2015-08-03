@@ -69,8 +69,8 @@ public class SystemPropertyImpl implements SystemProperty, AdminMainEntity {
     @Column(name = "PROPERTY_TYPE")
     @AdminPresentation(friendlyName = "SystemPropertyImpl_propertyType", order = 2000, 
         group = "SystemPropertyImpl_general", groupOrder = 1000, prominent = true, gridOrder = 2000,
-        fieldType = SupportedFieldType.BROADLEAF_ENUMERATION, 
-        broadleafEnumeration = "com.wakacommerce.common.config.service.type.SystemPropertyFieldType",
+        fieldType = SupportedFieldType.WAKA_ENUMERATION, 
+        wakaEnumeration = "com.wakacommerce.common.config.service.type.SystemPropertyFieldType",
         requiredOverride = RequiredOverride.REQUIRED)
     protected String propertyType;
 

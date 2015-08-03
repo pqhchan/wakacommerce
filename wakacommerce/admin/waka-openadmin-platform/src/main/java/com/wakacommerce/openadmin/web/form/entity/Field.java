@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.web.form.entity;
 
 import org.apache.commons.lang3.ArrayUtils;
@@ -9,36 +8,41 @@ import com.wakacommerce.common.presentation.client.SupportedFieldType;
 import java.util.HashMap;
 import java.util.Map;
 
-
-
-/**
- * 
- */
 public class Field {
 
     public static final String ALTERNATE_ORDERING = "AlternateOrdering";
 
     protected String name;
-    protected String friendlyName;
+    protected String friendlyName; // 显示在页面上的名字
     protected String fieldType;
     protected String value;
     protected String displayValue;
     protected String foreignKeyDisplayValueProperty;
-    protected String foreignKeyClass;
+    
+    /* 
+     * ListGrid: 字段类型等于SupportedFieldType.ADDITIONAL_FOREIGN_KEY时,
+     * foreignKeyClass + '/' + value 可以链到关系实体
+     */
+    protected String foreignKeyClass;  
+    
+    /*
+     * ListGrid: 为true时, 可以通过单击该列跳转到该行记录对应的实体表单（比如id列）
+     */
+    protected Boolean isMainEntityLink;     
+   
     protected String owningEntityClass;
     protected String idOverride;
     protected Integer order;
     protected String onChangeTrigger;
     protected Boolean required = false;
     protected String columnWidth;
-    protected Boolean isVisible;
+    protected Boolean isVisible; 	// 是否可见
     protected Boolean isAlternateOrdering;
     protected Boolean isReadOnly;
     protected Boolean isDisabled;
-    protected Boolean isTranslatable;
-    protected Boolean isMainEntityLink;
-    protected Boolean isFilterSortDisabled;
-    protected Boolean isResizeDisabled;
+   
+    protected Boolean isFilterSortDisabled; // 不能在该列上过滤或排序
+    protected Boolean isResizeDisabled; 	 // 不能改变尺寸
     protected Boolean isDerived;
     protected Boolean isLargeEntry;
     protected Boolean isDirty;
@@ -46,7 +50,6 @@ public class Field {
     protected String hint;
     protected String tooltip;
     protected String help;
-    protected String translationFieldName;
     protected Map<String, Object> attributes = new HashMap<String, Object>();
 
     /* ************ */
@@ -128,11 +131,6 @@ public class Field {
         return this;
     }
     
-    public Field withTranslatable(Boolean isTranslatable) {
-        setTranslatable(isTranslatable);
-        return this;
-    }
-    
     public Field withMainEntityLink(Boolean isMainEntityLink) {
         setMainEntityLink(isMainEntityLink);
         return this;
@@ -178,11 +176,6 @@ public class Field {
         return this;
     }
     
-    public Field withTranslationFieldName(String translationFieldName) {
-        setTranslationFieldName(translationFieldName);
-        return this;
-    }
-
     /* ************************ */
     /* CUSTOM GETTERS / SETTERS */
     /* ************************ */
@@ -220,9 +213,6 @@ public class Field {
         return getForeignKeyClass() + "/" + getValue();
     }
     
-    /**
-     * Used for linking in toOneLookup fields as well as linking to the entity via a 'name' field
-     */
     public boolean getCanLinkToExternalEntity() {
         return SupportedFieldType.ADDITIONAL_FOREIGN_KEY.toString().equals(fieldType);
     }
@@ -237,10 +227,6 @@ public class Field {
     
     public Boolean getAlternateOrdering() {
         return isAlternateOrdering == null ? false : isAlternateOrdering;
-    }
-    
-    public Boolean getTranslatable() {
-        return isTranslatable == null ? false : isTranslatable;
     }
     
     public Boolean getMainEntityLink() {
@@ -261,10 +247,6 @@ public class Field {
     
     public Boolean getIsTypeaheadEnabled() {
         return isTypeaheadEnabled == null ? false : isTypeaheadEnabled;
-    }
-    
-    public String getTranslationFieldName() {
-        return translationFieldName == null ? name : translationFieldName;
     }
     
     /* ************************** */
@@ -367,10 +349,6 @@ public class Field {
         this.isDisabled = isDisabled;
     }
     
-    public void setTranslatable(Boolean translatable) {
-        this.isTranslatable = translatable;
-    }
-
     public String getForeignKeyClass() {
         return foreignKeyClass;
     }
@@ -459,8 +437,4 @@ public class Field {
         this.isTypeaheadEnabled = isTypeaheadEnabled;
     }
 
-    public void setTranslationFieldName(String translationFieldName) {
-        this.translationFieldName = translationFieldName;
-    }
-    
 }

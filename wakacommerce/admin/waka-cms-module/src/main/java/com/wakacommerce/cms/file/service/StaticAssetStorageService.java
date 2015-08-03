@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.file.service;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -11,10 +10,6 @@ import java.io.InputStream;
 import java.sql.Blob;
 import java.util.Map;
 
-/**
- * 
- *
- */
 public interface StaticAssetStorageService {
 
     /**

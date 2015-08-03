@@ -76,8 +76,8 @@ public class SandBoxImpl implements SandBox, AdminMainEntity {
     @Column(name = "SANDBOX_TYPE")
     @AdminPresentation(friendlyName = "SandBoxImpl_SandBox_Type", group = "SandBoxImpl_Description",
         visibility = VisibilityEnum.HIDDEN_ALL, readOnly = true,
-        fieldType = SupportedFieldType.BROADLEAF_ENUMERATION,
-        broadleafEnumeration="com.wakacommerce.common.sandbox.domain.SandBoxType")
+        fieldType = SupportedFieldType.WAKA_ENUMERATION,
+        wakaEnumeration="com.wakacommerce.common.sandbox.domain.SandBoxType")
     //need to set a default value so that add sandbox works correctly in the admin
     protected String sandboxType = SandBoxType.APPROVAL.getType();
 

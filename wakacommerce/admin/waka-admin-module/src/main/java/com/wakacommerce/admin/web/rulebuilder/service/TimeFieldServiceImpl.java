@@ -25,7 +25,7 @@ public class TimeFieldServiceImpl extends AbstractRuleBuilderFieldService {
                 .name("hour")
                 .operators("blcOperators_Enumeration")
                 .options("blcOptions_HourOfDay")
-                .type(SupportedFieldType.BROADLEAF_ENUMERATION)
+                .type(SupportedFieldType.WAKA_ENUMERATION)
                 .build());
         
         fields.add(new FieldData.Builder()
@@ -33,7 +33,7 @@ public class TimeFieldServiceImpl extends AbstractRuleBuilderFieldService {
                 .name("dayOfWeek")
                 .operators("blcOperators_Enumeration")
                 .options("blcOptions_DayOfWeek")
-                .type(SupportedFieldType.BROADLEAF_ENUMERATION)
+                .type(SupportedFieldType.WAKA_ENUMERATION)
                 .build());
         
         fields.add(new FieldData.Builder()
@@ -41,7 +41,7 @@ public class TimeFieldServiceImpl extends AbstractRuleBuilderFieldService {
                 .name("month")
                 .operators("blcOperators_Enumeration")
                 .options("blcOptions_Month")
-                .type(SupportedFieldType.BROADLEAF_ENUMERATION)
+                .type(SupportedFieldType.WAKA_ENUMERATION)
                 .build());
         
         fields.add(new FieldData.Builder()
@@ -49,7 +49,7 @@ public class TimeFieldServiceImpl extends AbstractRuleBuilderFieldService {
                 .name("dayOfMonth")
                 .operators("blcOperators_Enumeration")
                 .options("blcOptions_DayOfMonth")
-                .type(SupportedFieldType.BROADLEAF_ENUMERATION)
+                .type(SupportedFieldType.WAKA_ENUMERATION)
                 .build());
         
         fields.add(new FieldData.Builder()
@@ -57,7 +57,7 @@ public class TimeFieldServiceImpl extends AbstractRuleBuilderFieldService {
                 .name("minute")
                 .operators("blcOperators_Enumeration")
                 .options("blcOptions_Minute")
-                .type(SupportedFieldType.BROADLEAF_ENUMERATION)
+                .type(SupportedFieldType.WAKA_ENUMERATION)
                 .build());
         
         fields.add(new FieldData.Builder()

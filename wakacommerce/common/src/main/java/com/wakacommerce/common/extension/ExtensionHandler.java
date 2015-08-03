@@ -1,7 +1,4 @@
-
 package com.wakacommerce.common.extension;
-
-
 
 /**
  * <p>An extension handler represents a generic pattern used in BroadleafCommerce when an out-of-box service

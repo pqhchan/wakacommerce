@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.file.service;
 
 import org.apache.commons.io.FileExistsException;
@@ -21,7 +20,7 @@ import com.wakacommerce.cms.file.service.operation.NamedOperationManager;
 import com.wakacommerce.common.extension.ExtensionResultHolder;
 import com.wakacommerce.common.extension.ExtensionResultStatusType;
 import com.wakacommerce.common.file.domain.FileWorkArea;
-import com.wakacommerce.common.file.service.BroadleafFileService;
+import com.wakacommerce.common.file.service.WakaFileService;
 import com.wakacommerce.common.file.service.GloballySharedInputStream;
 import com.wakacommerce.openadmin.server.service.artifact.ArtifactService;
 import com.wakacommerce.openadmin.server.service.artifact.image.Operation;
@@ -44,9 +43,6 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-/**
- * ,   
- */
 @Service("blStaticAssetStorageService")
 public class StaticAssetStorageServiceImpl implements StaticAssetStorageService {
 
@@ -64,7 +60,7 @@ public class StaticAssetStorageServiceImpl implements StaticAssetStorageService 
     protected StaticAssetService staticAssetService;
 
     @Resource(name = "blFileService")
-    protected BroadleafFileService broadleafFileService;
+    protected WakaFileService wakaFileService;
 
     @Resource(name="blArtifactService")
     protected ArtifactService artifactService;
@@ -80,7 +76,6 @@ public class StaticAssetStorageServiceImpl implements StaticAssetStorageService 
 
     protected StaticAsset findStaticAsset(String fullUrl) {
         StaticAsset staticAsset = staticAssetService.findStaticAssetByFullUrl(fullUrl);
-
         return staticAsset;
     }
 
@@ -99,23 +94,23 @@ public class StaticAssetStorageServiceImpl implements StaticAssetStorageService 
             }
         }
         if (cacheFile == null) {
-            cacheFile = broadleafFileService.getSharedLocalResource(cachedFileName);
+            cacheFile = wakaFileService.getSharedLocalResource(cachedFileName);
         }
         if (cacheFile.exists()) {
             return cacheFile;
         } else {
-            return broadleafFileService.getLocalResource(cachedFileName);
+            return wakaFileService.getLocalResource(cachedFileName);
         }
     }
     
     protected File lookupAssetAndCreateLocalFile(StaticAsset staticAsset, File baseLocalFile)
             throws IOException, SQLException {
         if (StorageType.FILESYSTEM.equals(staticAsset.getStorageType())) {
-            File returnFile = broadleafFileService.getResource(staticAsset.getFullUrl());
+            File returnFile = wakaFileService.getResource(staticAsset.getFullUrl());
             if (!returnFile.getAbsolutePath().equals(baseLocalFile.getAbsolutePath())) {
                 createLocalFileFromInputStream(new FileInputStream(returnFile), baseLocalFile);
             }
-            return broadleafFileService.getResource(staticAsset.getFullUrl());            
+            return wakaFileService.getResource(staticAsset.getFullUrl());            
         } else {
             StaticAssetStorage storage = readStaticAssetStorageByStaticAssetId(staticAsset.getId());
             if (storage != null) {
@@ -127,7 +122,7 @@ public class StaticAssetStorageServiceImpl implements StaticAssetStorageService 
     }   
 
     protected void createLocalFileFromClassPathResource(StaticAsset staticAsset, File baseLocalFile) throws IOException {
-        InputStream is = broadleafFileService.getClasspathResource(staticAsset.getFullUrl());
+        InputStream is = wakaFileService.getClasspathResource(staticAsset.getFullUrl());
         createLocalFileFromInputStream(is, baseLocalFile);
     }
     
@@ -150,7 +145,7 @@ public class StaticAssetStorageServiceImpl implements StaticAssetStorageService 
                 }
             }
             
-            workArea = broadleafFileService.initializeWorkArea();
+            workArea = wakaFileService.initializeWorkArea();
             File tmpFile = new File(FilenameUtils.concat(workArea.getFilePathLocation(), baseLocalFile.getName()));
             
             tos = new FileOutputStream(tmpFile);
@@ -178,7 +173,7 @@ public class StaticAssetStorageServiceImpl implements StaticAssetStorageService 
             IOUtils.closeQuietly(tos);
             
             if (workArea != null) {
-                broadleafFileService.closeWorkArea(workArea);
+                wakaFileService.closeWorkArea(workArea);
             }
         }
     }    
@@ -207,9 +202,9 @@ public class StaticAssetStorageServiceImpl implements StaticAssetStorageService 
         File baseLocalFile = getFileFromLocalRepository(baseCachedFileName);
         
         if (! baseLocalFile.exists()) {
-            if (broadleafFileService.checkForResourceOnClassPath(staticAsset.getFullUrl())) {
-                cacheFile = broadleafFileService.getSharedLocalResource(cachedFileName);
-                baseLocalFile = broadleafFileService.getSharedLocalResource(baseCachedFileName);
+            if (wakaFileService.checkForResourceOnClassPath(staticAsset.getFullUrl())) {
+                cacheFile = wakaFileService.getSharedLocalResource(cachedFileName);
+                baseLocalFile = wakaFileService.getSharedLocalResource(baseCachedFileName);
                 createLocalFileFromClassPathResource(staticAsset, baseLocalFile);
             } else {
                 baseLocalFile = lookupAssetAndCreateLocalFile(staticAsset, baseLocalFile);
@@ -348,8 +343,7 @@ public class StaticAssetStorageServiceImpl implements StaticAssetStorageService 
             storage.setFileData(uploadBlob);
             staticAssetStorageDao.save(storage);
         } else if (StorageType.FILESYSTEM.equals(staticAsset.getStorageType())) {
-            FileWorkArea tempWorkArea = broadleafFileService.initializeWorkArea();
-            // Convert the given URL from the asset to a system-specific suitable file path
+            FileWorkArea tempWorkArea = wakaFileService.initializeWorkArea();
             String destFileName = FilenameUtils.normalize(tempWorkArea.getFilePathLocation() + File.separator + FilenameUtils.separatorsToSystem(staticAsset.getFullUrl()));
 
             InputStream input = fileInputStream;
@@ -381,10 +375,10 @@ public class StaticAssetStorageServiceImpl implements StaticAssetStorageService 
                 // close the output file stream prior to moving files around
                 
                 output.close();
-                broadleafFileService.addOrUpdateResource(tempWorkArea, destFile, deleteFile);
+                wakaFileService.addOrUpdateResourceForPath(tempWorkArea, destFile, deleteFile);
             } finally {
                 IOUtils.closeQuietly(output);
-                broadleafFileService.closeWorkArea(tempWorkArea);
+                wakaFileService.closeWorkArea(tempWorkArea);
             }
         }
     }

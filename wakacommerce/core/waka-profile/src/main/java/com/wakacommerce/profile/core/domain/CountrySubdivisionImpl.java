@@ -56,7 +56,7 @@ public class CountrySubdivisionImpl implements CountrySubdivision, AdminMainEnti
 
     @Column(name = "NAME", nullable = false)
     @Index(name="COUNTRY_SUB_NAME_IDX", columnNames={"NAME"})
-    @AdminPresentation(friendlyName = "CountrySubdivisionImpl_Name", order=9, group = "CountrySubdivisionImpl_Address", prominent = true, translatable = true)
+    @AdminPresentation(friendlyName = "CountrySubdivisionImpl_Name", order=9, group = "CountrySubdivisionImpl_Address", prominent = true)
     protected String name;
 
     @Column(name = "ALT_ABBREVIATION")

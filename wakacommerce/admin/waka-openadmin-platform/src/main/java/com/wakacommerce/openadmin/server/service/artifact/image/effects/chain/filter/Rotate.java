@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.service.artifact.image.effects.chain.filter;
 
 import java.awt.*;

@@ -5,7 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import com.wakacommerce.common.file.service.BroadleafFileUtils;
+import com.wakacommerce.common.file.service.WakaFileUtils;
 import com.wakacommerce.common.sitemap.domain.SiteMapGeneratorConfiguration;
 import com.wakacommerce.common.sitemap.service.SiteMapBuilder;
 import com.wakacommerce.common.sitemap.service.SiteMapGenerator;
@@ -72,7 +72,7 @@ public class ProductSiteMapGenerator implements SiteMapGenerator {
     }
 
     protected String generateUri(SiteMapBuilder smb, Product product) {
-        return BroadleafFileUtils.appendUnixPaths(smb.getBaseUrl(), product.getUrl());
+        return WakaFileUtils.appendUnixPaths(smb.getBaseUrl(), product.getUrl());
     }
 
     protected Date generateDate(Product product) {

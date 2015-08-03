@@ -1,42 +1,5 @@
 package com.wakacommerce.cms.structure.domain;
 
-import org.hibernate.annotations.BatchSize;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Index;
-import org.hibernate.annotations.Parameter;
-
-import com.wakacommerce.common.admin.domain.AdminMainEntity;
-import com.wakacommerce.common.copy.CreateResponse;
-import com.wakacommerce.common.copy.MultiTenantCopyContext;
-import com.wakacommerce.common.extensibility.jpa.clone.ClonePolicyArchive;
-import com.wakacommerce.common.extensibility.jpa.clone.ClonePolicyMapOverride;
-import com.wakacommerce.common.extensibility.jpa.clone.IgnoreEnterpriseBehavior;
-import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransform;
-import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformMember;
-import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformTypes;
-import com.wakacommerce.common.extensibility.jpa.copy.ProfileEntity;
-import com.wakacommerce.common.locale.domain.Locale;
-import com.wakacommerce.common.locale.domain.LocaleImpl;
-import com.wakacommerce.common.presentation.AdminPresentation;
-import com.wakacommerce.common.presentation.AdminPresentationClass;
-import com.wakacommerce.common.presentation.AdminPresentationMapField;
-import com.wakacommerce.common.presentation.AdminPresentationMapFields;
-import com.wakacommerce.common.presentation.AdminPresentationToOneLookup;
-import com.wakacommerce.common.presentation.PopulateToOneFieldsEnum;
-import com.wakacommerce.common.presentation.RequiredOverride;
-import com.wakacommerce.common.presentation.RuleIdentifier;
-import com.wakacommerce.common.presentation.client.LookupType;
-import com.wakacommerce.common.presentation.client.SupportedFieldType;
-import com.wakacommerce.common.presentation.client.VisibilityEnum;
-import com.wakacommerce.common.presentation.override.AdminPresentationOverride;
-import com.wakacommerce.common.presentation.override.AdminPresentationOverrides;
-import com.wakacommerce.openadmin.audit.AdminAuditable;
-import com.wakacommerce.openadmin.audit.AdminAuditableListener;
-
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -64,20 +27,75 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Index;
+import org.hibernate.annotations.Parameter;
+
+import com.wakacommerce.common.admin.domain.AdminMainEntity;
+import com.wakacommerce.common.copy.CreateResponse;
+import com.wakacommerce.common.copy.MultiTenantCopyContext;
+import com.wakacommerce.common.extensibility.jpa.clone.ClonePolicyArchive;
+import com.wakacommerce.common.extensibility.jpa.clone.ClonePolicyMapOverride;
+import com.wakacommerce.common.extensibility.jpa.clone.IgnoreEnterpriseBehavior;
+import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransform;
+import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformMember;
+import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformTypes;
+import com.wakacommerce.common.extensibility.jpa.copy.ProfileEntity;
+import com.wakacommerce.common.presentation.AdminPresentation;
+import com.wakacommerce.common.presentation.AdminPresentationClass;
+import com.wakacommerce.common.presentation.AdminPresentationToOneLookup;
+import com.wakacommerce.common.presentation.PopulateToOneFieldsEnum;
+import com.wakacommerce.common.presentation.RequiredOverride;
+import com.wakacommerce.common.presentation.override.AdminPresentationMergeEntry;
+import com.wakacommerce.common.presentation.override.AdminPresentationMergeOverride;
+import com.wakacommerce.common.presentation.override.AdminPresentationMergeOverrides;
+import com.wakacommerce.common.presentation.override.PropertyType;
+import com.wakacommerce.openadmin.audit.AdminAuditable;
+import com.wakacommerce.openadmin.audit.AdminAuditableListener;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "BLC_SC")
 @EntityListeners(value = { AdminAuditableListener.class })
-@AdminPresentationOverrides(
+@AdminPresentationMergeOverrides(
     {
-        @AdminPresentationOverride(name = "auditable.createdBy.id", value = @AdminPresentation(readOnly = true, visibility = VisibilityEnum.HIDDEN_ALL)),
-        @AdminPresentationOverride(name = "auditable.updatedBy.id", value = @AdminPresentation(readOnly = true, visibility = VisibilityEnum.HIDDEN_ALL)),
-        @AdminPresentationOverride(name = "auditable.createdBy.name", value = @AdminPresentation(readOnly = true, visibility = VisibilityEnum.HIDDEN_ALL)),
-        @AdminPresentationOverride(name = "auditable.updatedBy.name", value = @AdminPresentation(readOnly = true, visibility = VisibilityEnum.HIDDEN_ALL)),
-        @AdminPresentationOverride(name = "auditable.dateCreated", value = @AdminPresentation(readOnly = true, visibility = VisibilityEnum.HIDDEN_ALL)),
-        @AdminPresentationOverride(name = "auditable.dateUpdated", value = @AdminPresentation(readOnly = true, visibility = VisibilityEnum.HIDDEN_ALL)),
-        @AdminPresentationOverride(name = "structuredContentType.name", value = @AdminPresentation(readOnly = true, visibility = VisibilityEnum.HIDDEN_ALL)),
-        @AdminPresentationOverride(name = "structuredContentType.structuredContentFieldTemplate.name", value = @AdminPresentation(readOnly = true, visibility = VisibilityEnum.HIDDEN_ALL))
+        @AdminPresentationMergeOverride(name = "auditable.createdBy.id", mergeEntries = {
+            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.READONLY, booleanOverrideValue = true),
+            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.VISIBILITY, overrideValue = "HIDDEN_ALL")
+        }),
+        @AdminPresentationMergeOverride(name = "auditable.updatedBy.id", mergeEntries = {
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.READONLY, booleanOverrideValue = true),
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.VISIBILITY, overrideValue = "HIDDEN_ALL")
+        }),
+        @AdminPresentationMergeOverride(name = "auditable.createdBy.name", mergeEntries = {
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.READONLY, booleanOverrideValue = true),
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.VISIBILITY, overrideValue = "HIDDEN_ALL")
+	    }),
+        
+        @AdminPresentationMergeOverride(name = "auditable.updatedBy.name", mergeEntries = {
+            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.READONLY, booleanOverrideValue = true),
+            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.VISIBILITY, overrideValue = "HIDDEN_ALL")
+        }),
+        @AdminPresentationMergeOverride(name = "auditable.dateCreated", mergeEntries = {
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.READONLY, booleanOverrideValue = true),
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.VISIBILITY, overrideValue = "HIDDEN_ALL")
+        }),
+        @AdminPresentationMergeOverride(name = "auditable.dateUpdated", mergeEntries = {
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.READONLY, booleanOverrideValue = true),
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.VISIBILITY, overrideValue = "HIDDEN_ALL")
+		}),
+        @AdminPresentationMergeOverride(name = "structuredContentType.name", mergeEntries = {
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.READONLY, booleanOverrideValue = true),
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.VISIBILITY, overrideValue = "HIDDEN_ALL")
+        }),
+        @AdminPresentationMergeOverride(name = "structuredContentType.structuredContentFieldTemplate.name", mergeEntries = {
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.READONLY, booleanOverrideValue = true),
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.VISIBILITY, overrideValue = "HIDDEN_ALL")
+		})
     }
 )
 @AdminPresentationClass(populateToOneFields = PopulateToOneFieldsEnum.TRUE, friendlyName = "StructuredContentImpl_baseStructuredContent")
@@ -114,14 +132,6 @@ public class StructuredContentImpl implements StructuredContent, AdminMainEntity
     @Index(name="CONTENT_NAME_INDEX", columnNames={"CONTENT_NAME", "ARCHIVED_FLAG", "SC_TYPE_ID"})
     protected String contentName;
 
-    @ManyToOne(targetEntity = LocaleImpl.class, optional = false)
-    @JoinColumn(name = "LOCALE_CODE")
-    @AdminPresentation(friendlyName = "StructuredContentImpl_Locale", order = 2,
-        group = Presentation.Group.Name.Description, groupOrder = Presentation.Group.Order.Description,
-        prominent = true, gridOrder = 2)
-    @AdminPresentationToOneLookup(lookupDisplayProperty = "friendlyName", lookupType = LookupType.DROPDOWN)
-    protected Locale locale;
-
     @Column(name = "PRIORITY", nullable = false)
     @AdminPresentation(friendlyName = "StructuredContentImpl_Priority", order = 3,
         group = Presentation.Group.Name.Description, groupOrder = Presentation.Group.Order.Description)
@@ -130,15 +140,15 @@ public class StructuredContentImpl implements StructuredContent, AdminMainEntity
 
     @ManyToMany(targetEntity = StructuredContentRuleImpl.class, cascade = {CascadeType.ALL})
     @JoinTable(name = "BLC_SC_RULE_MAP", inverseJoinColumns = @JoinColumn(name = "SC_RULE_ID", referencedColumnName = "SC_RULE_ID"))
-    @Cascade(value={org.hibernate.annotations.CascadeType.ALL, org.hibernate.annotations.CascadeType.DELETE_ORPHAN})
+    @Cascade(value={org.hibernate.annotations.CascadeType.ALL})
     @MapKeyColumn(name = "MAP_KEY", nullable = false)
     @Cache(usage= CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region="blCMSElements")
     @IgnoreEnterpriseBehavior
     Map<String, StructuredContentRule> structuredContentMatchRules = new HashMap<String, StructuredContentRule>();
 
-    @OneToMany(fetch = FetchType.LAZY, targetEntity = StructuredContentItemCriteriaImpl.class, cascade={CascadeType.ALL})
+    @OneToMany(orphanRemoval=true, fetch = FetchType.LAZY, targetEntity = StructuredContentItemCriteriaImpl.class, cascade={CascadeType.ALL})
     @JoinTable(name = "BLC_QUAL_CRIT_SC_XREF", joinColumns = @JoinColumn(name = "SC_ID"), inverseJoinColumns = @JoinColumn(name = "SC_ITEM_CRITERIA_ID"))
-    @Cascade(value={org.hibernate.annotations.CascadeType.ALL, org.hibernate.annotations.CascadeType.DELETE_ORPHAN})
+    @Cascade(value={org.hibernate.annotations.CascadeType.ALL})
     @Cache(usage= CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region="blCMSElements")
     @IgnoreEnterpriseBehavior
     protected Set<StructuredContentItemCriteria> qualifyingItemCriteria = new HashSet<StructuredContentItemCriteria>();
@@ -188,16 +198,6 @@ public class StructuredContentImpl implements StructuredContent, AdminMainEntity
     @Override
     public void setContentName(String contentName) {
         this.contentName = contentName;
-    }
-
-    @Override
-    public Locale getLocale() {
-        return locale;
-    }
-
-    @Override
-    public void setLocale(Locale locale) {
-        this.locale = locale;
     }
 
     @Override
@@ -311,7 +311,6 @@ public class StructuredContentImpl implements StructuredContent, AdminMainEntity
         }
         StructuredContent cloned = createResponse.getClone();
         cloned.setContentName(contentName);
-        cloned.setLocale(locale);
         cloned.setOfflineFlag(offlineFlag);
         cloned.setPriority(priority);
         if (structuredContentType != null) {

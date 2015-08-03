@@ -108,13 +108,6 @@
         <!--<property name="cacheManager"><null/></property>-->
     </bean>
 
-    <bean id="blAdminTranslationControllerExtensionListeners" class="org.springframework.beans.factory.config.ListFactoryBean">
-        <property name="sourceList">
-            <list>
-            </list>
-        </property>
-    </bean>
-
     <mvc:interceptors>
       <bean class="com.wakacommerce.openadmin.web.compatibility.JSFieldNameCompatibilityInterceptor" />
     </mvc:interceptors>

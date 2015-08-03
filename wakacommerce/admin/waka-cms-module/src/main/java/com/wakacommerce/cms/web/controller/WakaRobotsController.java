@@ -3,7 +3,7 @@ package com.wakacommerce.cms.web.controller;
 import com.wakacommerce.cms.page.service.PageService;
 import com.wakacommerce.common.RequestDTO;
 import com.wakacommerce.common.TimeDTO;
-import com.wakacommerce.common.file.service.BroadleafFileUtils;
+import com.wakacommerce.common.file.service.WakaFileUtils;
 import com.wakacommerce.common.page.dto.PageDTO;
 import com.wakacommerce.common.time.SystemTime;
 import com.wakacommerce.common.web.BaseUrlResolver;
@@ -69,7 +69,7 @@ public class WakaRobotsController {
         sb.append("# Using default Broadleaf Commerce robots.txt file").append("\n");
         sb.append("User-agent: *").append("\n");
         sb.append("Disallow:").append("\n");
-        String fileLoc = BroadleafFileUtils.appendUnixPaths(baseUrlResolver.getSiteBaseUrl(), "/sitemap.xml.gz");
+        String fileLoc = WakaFileUtils.appendUnixPaths(baseUrlResolver.getSiteBaseUrl(), "/sitemap.xml.gz");
 
         sb.append("Sitemap:").append(fileLoc);
         return sb.toString();

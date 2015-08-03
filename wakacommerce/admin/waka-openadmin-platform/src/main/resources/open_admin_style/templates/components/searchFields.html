@@ -4,14 +4,14 @@
             <div class="row">
                 <div class="six columns">
                     <input style="height: 28px; width: 100%" type="search" 
-                        th:placeholder="${listGrid.headerFields[0].friendlyName}" />
+                        th:placeholder="#{Search_Placeholder( #{${listGrid.headerFields[0].friendlyName}} )}" />
                 </div>
                 <div class="six columns">
                     <a href="#" class="button small dark radius search-button" th:inline="text">
-                        <i class="icon-search"></i>&nbsp;搜索
+                        <i class="icon-search"></i>&nbsp;[[#{Search}]]
                     </a>
                     <a th:href="@{${'/' + sectionKey}}" class="button small dark radius" th:inline="text">
-                        <i class="icon-remove"></i>&nbsp;清空
+                        <i class="icon-remove"></i>&nbsp;[[#{Clear_Search}]]
                     </a>
                 </div>
                 <div class="two columns">&nbsp;</div>
@@ -30,7 +30,7 @@
                     <i th:class="${action.iconClass}"></i>&nbsp;
                 </div>
                 [[${action.displayText}]]
-                <span th:if="${action.displayText == '添加'}" th:text="${entityFriendlyName}" th:remove="tag" />
+                <span th:if="${action.displayText == '添加'}" th:text="#{${entityFriendlyName}}" th:remove="tag" />
             </button>
         </div>
     </div>

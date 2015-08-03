@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.persistence;
 
 import org.apache.commons.lang.StringUtils;
@@ -21,12 +20,6 @@ import javax.persistence.TableGenerator;
 import java.lang.reflect.Field;
 import java.util.List;
 
-/**
- * Detect inconsistencies between the values in the SEQUENCE_GENERATOR and the primary
- * keys of the managed tables.
- *
- * 
- */
 @Repository("blSequenceGeneratorCorruptionDetection")
 public class SequenceGeneratorCorruptionDetection implements ApplicationListener<ContextRefreshedEvent> {
 
@@ -67,7 +60,6 @@ public class SequenceGeneratorCorruptionDetection implements ApplicationListener
                 String segmentColumnName = null;
                 String valueColumnName = null;
                 if (genericAnnot != null && genericAnnot.strategy().equals("com.wakacommerce.common.persistence.IdOverrideTableGenerator")) {
-                    //This is a BLC style ID generator
                     for (Parameter param : genericAnnot.parameters()) {
                         if (param.name().equals("segment_value")) {
                             segmentValue = param.value();
@@ -105,7 +97,7 @@ public class SequenceGeneratorCorruptionDetection implements ApplicationListener
                     sb2.append(segmentValue);
                     sb2.append("'");
 
-                    List results2 = em.createNativeQuery(sb2.toString()).getResultList();
+                    List<?> results2 = em.createNativeQuery(sb2.toString()).getResultList();
                     if (results2 != null && !results2.isEmpty() && results2.get(0) != null) {
                         Long maxSequenceId = ((Number) results2.get(0)).longValue();
 
@@ -117,7 +109,7 @@ public class SequenceGeneratorCorruptionDetection implements ApplicationListener
                         sb.append(") from ");
                         sb.append(mappedClass.getName());
                         sb.append(" entity");
-                        List results = em.createQuery(sb.toString()).getResultList();
+                        List<?> results = em.createQuery(sb.toString()).getResultList();
                         if (results != null && !results.isEmpty() && results.get(0) != null) {
                             Long maxEntityId = (Long) results.get(0);
                             if (maxEntityId > maxSequenceId) {

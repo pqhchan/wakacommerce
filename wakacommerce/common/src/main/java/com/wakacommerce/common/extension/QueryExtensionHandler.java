@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.extension;
 
 import java.util.List;
@@ -9,11 +8,6 @@ import javax.persistence.criteria.Order;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-/**
- * Extension handler (generally for DAO usage) that allows contribution to a query (presumably from another module).
- *
- * 
- */
 public interface QueryExtensionHandler extends ExtensionHandler {
 
     /**

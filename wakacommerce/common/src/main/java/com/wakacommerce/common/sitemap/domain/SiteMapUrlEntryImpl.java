@@ -54,13 +54,13 @@ public class SiteMapUrlEntryImpl implements SiteMapUrlEntry {
     protected Date lastModified = new Date();
     
     @Column(name = "CHANGE_FREQ", nullable = false)
-    @AdminPresentation(friendlyName = "SiteMapURLEntryImpl_Change_Freq", fieldType = SupportedFieldType.BROADLEAF_ENUMERATION,
-            broadleafEnumeration = "com.wakacommerce.common.sitemap.service.type.SiteMapChangeFreqType", gridOrder = 3, prominent = true)
+    @AdminPresentation(friendlyName = "SiteMapURLEntryImpl_Change_Freq", fieldType = SupportedFieldType.WAKA_ENUMERATION,
+            wakaEnumeration = "com.wakacommerce.common.sitemap.service.type.SiteMapChangeFreqType", gridOrder = 3, prominent = true)
     protected String changeFreq;
 
     @Column(name = "PRIORITY", nullable = false)
-    @AdminPresentation(friendlyName = "SiteMapURLEntryImpl_Priority", fieldType = SupportedFieldType.BROADLEAF_ENUMERATION,
-            broadleafEnumeration = "com.wakacommerce.common.sitemap.service.type.SiteMapPriorityType", gridOrder = 4, prominent = true)
+    @AdminPresentation(friendlyName = "SiteMapURLEntryImpl_Priority", fieldType = SupportedFieldType.WAKA_ENUMERATION,
+            wakaEnumeration = "com.wakacommerce.common.sitemap.service.type.SiteMapPriorityType", gridOrder = 4, prominent = true)
     protected String priority;
     
     @ManyToOne(targetEntity = CustomUrlSiteMapGeneratorConfigurationImpl.class, optional = false)

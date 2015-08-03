@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.file.service;
 
 import org.apache.commons.codec.digest.DigestUtils;
@@ -25,16 +24,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-/**
- * Default implementation of FileServiceProvider that uses the local file system to store files created by Broadleaf
- * components.
- * 
- * This Provider can only be used in production systems that run on a single server or those that have a shared filesystem
- * mounted to the application servers.
- * 
- * 
- *
- */
 @Service("blDefaultFileServiceProvider")
 public class FileSystemFileServiceProvider implements FileServiceProvider {
 
@@ -44,8 +33,8 @@ public class FileSystemFileServiceProvider implements FileServiceProvider {
     @Value("${asset.server.max.generated.file.system.directories}")
     protected int maxGeneratedDirectoryDepth;
 
-    @Resource(name = "blBroadleafFileServiceExtensionManager")
-    protected BroadleafFileServiceExtensionManager extensionManager;
+    @Resource(name = "blWakaFileServiceExtensionManager")
+    protected WakaFileServiceExtensionManager extensionManager;
 
     private static final String DEFAULT_STORAGE_DIRECTORY = System.getProperty("java.io.tmpdir");
 
@@ -74,12 +63,6 @@ public class FileSystemFileServiceProvider implements FileServiceProvider {
         return new File(filePath);
     }
     
-    @Override
-    @Deprecated
-    public void addOrUpdateResources(FileWorkArea workArea, List<File> files, boolean removeFilesFromWorkArea) {
-        addOrUpdateResourcesForPaths(workArea, files, removeFilesFromWorkArea);
-    }
-
     @Override
     public List<String> addOrUpdateResourcesForPaths(FileWorkArea workArea, List<File> files, boolean removeFilesFromWorkArea) {
         List<String> result = new ArrayList<String>();
@@ -126,36 +109,8 @@ public class FileSystemFileServiceProvider implements FileServiceProvider {
         return fileToRemove.delete();
     }
 
-    /**
-     * Stores the file on the file-system by performing an MD5 hash of the 
-     * the passed in fileName
-     * 
-     * To ensure that files can be stored and accessed in an efficient manner, the 
-     * system creates directories based on the characters in the hash.   
-     * 
-     * For example, if the URL is /product/myproductimage.jpg, then the MD5 would be
-     * 35ec52a8dbd8cf3e2c650495001fe55f resulting in the following file on the filesystem
-     * {assetFileSystemPath}/35/ec/myproductimage.jpg.  
-     * 
-     * The hash for the filename will include a beginning slash before performing the MD5.   This
-     * is done largely for backward compatibility with similar functionality in BLC 3.0.0.
-     * 
-     * This algorithm has the following benefits:
-     * - Efficient file-system storage with
-     * - Balanced tree of files that supports 10 million files
-     * 
-     * If support for more files is needed, implementors should consider one of the following approaches:
-     * 1.  Overriding the maxGeneratedFileSystemDirectories property from its default of 2 to 3
-     * 2.  Overriding this method to introduce an alternate approach
-     * 
-     * @param url The URL used to represent an asset for which a name on the fileSystem is desired.
-     * 
-     * @return
-     */
     protected String buildResourceName(String url) {
-        // Create directories based on hash
         String fileHash = null;
-        // Intentionally not using File.separator here since URLs should always end with /
         if (!url.startsWith("/")) {
             fileHash = DigestUtils.md5Hex("/" + url);
         } else {
@@ -172,14 +127,9 @@ public class FileSystemFileServiceProvider implements FileServiceProvider {
             resourceName = FilenameUtils.concat(resourceName, fileHash.substring(i * 2, (i + 1) * 2));
         }
 
-        // use the filename from the URL which is everything after the last slash
         return FilenameUtils.concat(resourceName, FilenameUtils.getName(url));
     }
 
-    /**
-     * Returns a base directory (unique for each tenant in a multi-tenant installation.
-     * Creates the directory if it does not already exist.
-     */
     protected String getBaseDirectory(boolean skipSite) {
         if (baseDirectory == null) {
             if (StringUtils.isNotBlank(fileSystemBaseDirectory)) {
@@ -195,14 +145,6 @@ public class FileSystemFileServiceProvider implements FileServiceProvider {
         }
     }
 
-    /**
-     * Creates a unique directory on the file system for each site.
-     * Each site may be in one of 255 base directories.   This model efficiently supports up to 65,000 sites
-     * served from a single file system based on most OS systems ability to quickly access files as long
-     * as there are not more than 255 directories.
-     * 
-     * @param The starting directory for local files which must end with a '/';
-     */
     protected String getSiteDirectory(String baseDirectory) {
         WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
         if (brc != null) {

@@ -1,23 +1,16 @@
-
 package com.wakacommerce.common.file.domain;
 
 import java.io.File;
 
 /**
- * Represents a temporary location on the fileSystem.
- * 
- * Used by the file-service as a reference point when managing files for a user.
- * 
- * 
- *
+ * 文件系统上的一个临时工作区域
  */
 public class FileWorkArea {
 
     protected String filePathLocation;
     
     /**
-     * Gets the file path location representing this work area ending with an appropriate system-specific separator
-     * @return
+     * 该工作区域在系统中的位置，位置以特定系统上的路径分隔符结束
      */
     public String getFilePathLocation() {
         if (!filePathLocation.endsWith(File.separator)) {

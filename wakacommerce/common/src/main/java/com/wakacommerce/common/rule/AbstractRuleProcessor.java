@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.rule;
 
 import org.apache.commons.logging.Log;
@@ -13,19 +12,14 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public abstract class AbstractRuleProcessor<T> implements RuleProcessor<T> {
     
     protected final Log LOG = LogFactory.getLog(this.getClass());
 
-    @SuppressWarnings("unchecked")
     protected Map<String, Serializable> expressionCache = new EfficientLRUMap<String, Serializable>(1000);
     protected ParserContext parserContext;
     protected Map<String, String> contextClassNames = new HashMap<String, String> ();
 
-    /**
-     * Having a parser context that imports the classes speeds MVEL by up to 60%.
-     */
     protected ParserContext getParserContext() {
         if (parserContext == null) {
             parserContext = new ParserContext();
@@ -35,14 +29,6 @@ public abstract class AbstractRuleProcessor<T> implements RuleProcessor<T> {
         return parserContext;
     }
 
-    /**
-     * Helpful method for processing a boolean MVEL expression and associated arguments.
-     *
-     * Caches the expression in an LRUCache.
-     * @param expression
-     * @param vars
-     * @return the result of the expression
-     */
     protected Boolean executeExpression(String expression, Map<String, Object> vars) {
         Serializable exp = (Serializable) expressionCache.get(expression);
         vars.put("MVEL", MVEL.class);
@@ -51,7 +37,7 @@ public abstract class AbstractRuleProcessor<T> implements RuleProcessor<T> {
             try {
                 exp = MVEL.compileExpression(expression, getParserContext());
             } catch (CompileException ce) {
-                LOG.warn("Compile exception processing phrase: " + expression,ce);
+                LOG.warn("Compile exception processing phrase: " + expression, ce);
                 return Boolean.FALSE;
             }
             expressionCache.put(expression, exp);
@@ -66,18 +52,10 @@ public abstract class AbstractRuleProcessor<T> implements RuleProcessor<T> {
         return false;
     }
 
-    /**
-     * List of class names to add to the MVEL ParserContext.
-     * @see {@link ParserContext}
-     */
     public Map<String, String> getContextClassNames() {
         return contextClassNames;
     }
 
-    /**
-     * List of class names to add to the MVEL ParserContext.
-     * @see {@link ParserContext}
-     */
     public void setContextClassNames(Map<String, String> contextClassNames) {
         this.contextClassNames = contextClassNames;
     }

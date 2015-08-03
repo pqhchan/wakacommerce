@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.service.artifact;
 
 import org.springframework.stereotype.Service;
@@ -8,13 +7,6 @@ import com.wakacommerce.openadmin.server.service.artifact.image.Operation;
 import java.io.InputStream;
 import java.util.Map;
 
-/**
- * Created by IntelliJ IDEA.
- * User:   
- * Date: 9/10/11
- * Time: 2:24 PM
- * To change this template use File | Settings | File Templates.
- */
 @Service("blArtifactService")
 public class ArtifactServiceImpl implements ArtifactService {
 

@@ -1,36 +1,4 @@
- 
 package com.wakacommerce.cms.page.domain;
-
-import org.hibernate.annotations.BatchSize;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Index;
-import org.hibernate.annotations.Parameter;
-
-import com.wakacommerce.common.admin.domain.AdminMainEntity;
-import com.wakacommerce.common.copy.CreateResponse;
-import com.wakacommerce.common.copy.MultiTenantCopyContext;
-import com.wakacommerce.common.extensibility.jpa.clone.ClonePolicyArchive;
-import com.wakacommerce.common.extensibility.jpa.clone.ClonePolicyMapOverride;
-import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransform;
-import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformMember;
-import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformTypes;
-import com.wakacommerce.common.extensibility.jpa.copy.ProfileEntity;
-import com.wakacommerce.common.presentation.AdminPresentation;
-import com.wakacommerce.common.presentation.AdminPresentationClass;
-import com.wakacommerce.common.presentation.AdminPresentationMap;
-import com.wakacommerce.common.presentation.AdminPresentationToOneLookup;
-import com.wakacommerce.common.presentation.PopulateToOneFieldsEnum;
-import com.wakacommerce.common.presentation.RequiredOverride;
-import com.wakacommerce.common.presentation.ValidationConfiguration;
-import com.wakacommerce.common.presentation.client.VisibilityEnum;
-import com.wakacommerce.common.presentation.override.AdminPresentationOverride;
-import com.wakacommerce.common.presentation.override.AdminPresentationOverrides;
-import com.wakacommerce.common.web.Locatable;
-import com.wakacommerce.openadmin.audit.AdminAuditable;
-import com.wakacommerce.openadmin.audit.AdminAuditableListener;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -57,24 +25,78 @@ import javax.persistence.MapKeyColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-/**
- *   
- */
+import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Index;
+import org.hibernate.annotations.Parameter;
+
+import com.wakacommerce.common.admin.domain.AdminMainEntity;
+import com.wakacommerce.common.copy.CreateResponse;
+import com.wakacommerce.common.copy.MultiTenantCopyContext;
+import com.wakacommerce.common.extensibility.jpa.clone.ClonePolicyArchive;
+import com.wakacommerce.common.extensibility.jpa.clone.ClonePolicyMapOverride;
+import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransform;
+import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformMember;
+import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformTypes;
+import com.wakacommerce.common.extensibility.jpa.copy.ProfileEntity;
+import com.wakacommerce.common.presentation.AdminPresentation;
+import com.wakacommerce.common.presentation.AdminPresentationClass;
+import com.wakacommerce.common.presentation.AdminPresentationMap;
+import com.wakacommerce.common.presentation.AdminPresentationToOneLookup;
+import com.wakacommerce.common.presentation.PopulateToOneFieldsEnum;
+import com.wakacommerce.common.presentation.RequiredOverride;
+import com.wakacommerce.common.presentation.ValidationConfiguration;
+import com.wakacommerce.common.presentation.override.AdminPresentationMergeEntry;
+import com.wakacommerce.common.presentation.override.AdminPresentationMergeOverride;
+import com.wakacommerce.common.presentation.override.AdminPresentationMergeOverrides;
+import com.wakacommerce.common.presentation.override.PropertyType;
+import com.wakacommerce.common.web.Locatable;
+import com.wakacommerce.openadmin.audit.AdminAuditable;
+import com.wakacommerce.openadmin.audit.AdminAuditableListener;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "BLC_PAGE")
 @EntityListeners(value = { AdminAuditableListener.class })
-@AdminPresentationOverrides(
+@AdminPresentationMergeOverrides(
     {
-        @AdminPresentationOverride(name="auditable.createdBy.id", value=@AdminPresentation(readOnly = true, visibility = VisibilityEnum.HIDDEN_ALL)),
-        @AdminPresentationOverride(name="auditable.updatedBy.id", value=@AdminPresentation(readOnly = true, visibility = VisibilityEnum.HIDDEN_ALL)),
-        @AdminPresentationOverride(name="auditable.createdBy.name", value=@AdminPresentation(readOnly = true, visibility = VisibilityEnum.HIDDEN_ALL)),
-        @AdminPresentationOverride(name="auditable.updatedBy.name", value=@AdminPresentation(readOnly = true, visibility = VisibilityEnum.HIDDEN_ALL)),
-        @AdminPresentationOverride(name="auditable.dateCreated", value=@AdminPresentation(readOnly = true, visibility = VisibilityEnum.HIDDEN_ALL)),
-        @AdminPresentationOverride(name="auditable.dateUpdated", value=@AdminPresentation(readOnly = true, visibility = VisibilityEnum.HIDDEN_ALL)),
-        @AdminPresentationOverride(name="pageTemplate.templateDescription", value=@AdminPresentation(excluded = true)),
-        @AdminPresentationOverride(name="pageTemplate.templateName", value=@AdminPresentation(excluded = true)),
-        @AdminPresentationOverride(name="pageTemplate.locale", value=@AdminPresentation(excluded = true))
+        @AdminPresentationMergeOverride(name = "auditable.createdBy.id", mergeEntries = {
+            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.READONLY, booleanOverrideValue = true),
+            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.VISIBILITY, overrideValue = "HIDDEN_ALL")
+        }),
+        @AdminPresentationMergeOverride(name = "auditable.updatedBy.id", mergeEntries = {
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.READONLY, booleanOverrideValue = true),
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.VISIBILITY, overrideValue = "HIDDEN_ALL")
+        }),
+        @AdminPresentationMergeOverride(name = "auditable.createdBy.name", mergeEntries = {
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.READONLY, booleanOverrideValue = true),
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.VISIBILITY, overrideValue = "HIDDEN_ALL")
+	    }),
+        
+        @AdminPresentationMergeOverride(name = "auditable.updatedBy.name", mergeEntries = {
+            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.READONLY, booleanOverrideValue = true),
+            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.VISIBILITY, overrideValue = "HIDDEN_ALL")
+        }),
+        @AdminPresentationMergeOverride(name = "auditable.dateCreated", mergeEntries = {
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.READONLY, booleanOverrideValue = true),
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.VISIBILITY, overrideValue = "HIDDEN_ALL")
+        }),
+        @AdminPresentationMergeOverride(name = "auditable.dateUpdated", mergeEntries = {
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.READONLY, booleanOverrideValue = true),
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.VISIBILITY, overrideValue = "HIDDEN_ALL")
+		}),
+        @AdminPresentationMergeOverride(name = "pageTemplate.templateDescription", mergeEntries = {
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.EXCLUDED, booleanOverrideValue = true),
+        }),
+        @AdminPresentationMergeOverride(name = "pageTemplate.templateName", mergeEntries = {
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.EXCLUDED, booleanOverrideValue = true),
+        }),
+        @AdminPresentationMergeOverride(name = "pageTemplate.locale", mergeEntries = {
+	            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.EXCLUDED, booleanOverrideValue = true),
+        })
     }
 )
 @AdminPresentationClass(populateToOneFields = PopulateToOneFieldsEnum.TRUE, friendlyName = "PageImpl_basePage")

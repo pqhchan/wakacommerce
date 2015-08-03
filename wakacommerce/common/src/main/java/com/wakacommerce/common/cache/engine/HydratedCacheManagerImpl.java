@@ -81,7 +81,7 @@ public class HydratedCacheManagerImpl implements CacheEventListener, HydratedCac
     public Class<?> getTopEntityClass(Object entity) {
         Class<?> myClass = entity.getClass();
         Class<?> superClass = entity.getClass().getSuperclass();
-        while (superClass != null && superClass.getName().startsWith("org.broadleaf")) {
+        while (superClass != null && superClass.getName().startsWith("com.wakacommerce")) {
             myClass = superClass;
             superClass = superClass.getSuperclass();
         }

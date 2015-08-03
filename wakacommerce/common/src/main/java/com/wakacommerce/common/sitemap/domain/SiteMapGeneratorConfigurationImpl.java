@@ -52,18 +52,18 @@ public class SiteMapGeneratorConfigurationImpl implements SiteMapGeneratorConfig
     protected Boolean disabled = false;
     
     @Column(name = "CHANGE_FREQ", nullable = false)
-    @AdminPresentation(friendlyName = "SiteMapGeneratorConfigurationImpl_Change_Freq", fieldType = SupportedFieldType.BROADLEAF_ENUMERATION,
-            broadleafEnumeration = "com.wakacommerce.common.sitemap.service.type.SiteMapChangeFreqType", gridOrder = 3, prominent = true)
+    @AdminPresentation(friendlyName = "SiteMapGeneratorConfigurationImpl_Change_Freq", fieldType = SupportedFieldType.WAKA_ENUMERATION,
+            wakaEnumeration = "com.wakacommerce.common.sitemap.service.type.SiteMapChangeFreqType", gridOrder = 3, prominent = true)
     protected String changeFreq;
 
     @Column(name = "PRIORITY", nullable = true)
-    @AdminPresentation(friendlyName = "SiteMapGeneratorConfigurationImpl_Priority", fieldType = SupportedFieldType.BROADLEAF_ENUMERATION,
-            broadleafEnumeration = "com.wakacommerce.common.sitemap.service.type.SiteMapPriorityType", gridOrder = 4, prominent = true)
+    @AdminPresentation(friendlyName = "SiteMapGeneratorConfigurationImpl_Priority", fieldType = SupportedFieldType.WAKA_ENUMERATION,
+            wakaEnumeration = "com.wakacommerce.common.sitemap.service.type.SiteMapPriorityType", gridOrder = 4, prominent = true)
     protected String priority;
 
     @Column(name = "GENERATOR_TYPE", nullable = false)
-    @AdminPresentation(friendlyName = "SiteMapGeneratorConfigurationImpl_Generator_Type", fieldType = SupportedFieldType.BROADLEAF_ENUMERATION,
-            broadleafEnumeration = "com.wakacommerce.common.sitemap.service.type.SiteMapGeneratorType", gridOrder = 1, prominent = true)
+    @AdminPresentation(friendlyName = "SiteMapGeneratorConfigurationImpl_Generator_Type", fieldType = SupportedFieldType.WAKA_ENUMERATION,
+            wakaEnumeration = "com.wakacommerce.common.sitemap.service.type.SiteMapGeneratorType", gridOrder = 1, prominent = true)
     protected String generatorType;
     
     @ManyToOne(targetEntity = SiteMapConfigurationImpl.class, optional = false)

@@ -1,14 +1,8 @@
-
 package com.wakacommerce.openadmin.server.security.domain;
 
 import java.io.Serializable;
 import java.util.List;
 
-/**
- *
- *  
- *
- */
 public interface AdminModule extends Serializable {
 
     public Long getId();

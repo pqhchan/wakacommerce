@@ -104,7 +104,7 @@ public class BasicFieldPersistenceProvider extends FieldPersistenceProviderAdapt
             return false;
         }
         BasicFieldMetadata metadata = (BasicFieldMetadata) md;
-        return (metadata.getFieldType() == SupportedFieldType.BROADLEAF_ENUMERATION ||
+        return (metadata.getFieldType() == SupportedFieldType.WAKA_ENUMERATION ||
                 metadata.getFieldType() == SupportedFieldType.EXPLICIT_ENUMERATION ||
                 metadata.getFieldType() == SupportedFieldType.DATA_DRIVEN_ENUMERATION) &&
                 (property == null || !property.getName().contains(FieldManager.MAPFIELDSEPARATOR));
@@ -570,7 +570,7 @@ public class BasicFieldPersistenceProvider extends FieldPersistenceProviderAdapt
                         filterMapping.setRestriction(addSearchMappingRequest.getRestrictionFactory().getRestriction
                                 (RestrictionType.LONG.getType(), addSearchMappingRequest.getPropertyName()));
                         break;
-                    case BROADLEAF_ENUMERATION:
+                    case WAKA_ENUMERATION:
                         filterMapping.setRestriction(addSearchMappingRequest.getRestrictionFactory().getRestriction(RestrictionType.STRING_EQUAL.getType(), addSearchMappingRequest.getPropertyName()));
                         break;
                     default:

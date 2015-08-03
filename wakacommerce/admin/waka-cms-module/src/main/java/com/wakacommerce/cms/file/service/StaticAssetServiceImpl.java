@@ -1,5 +1,21 @@
 package com.wakacommerce.cms.file.service;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+
+import javax.annotation.Resource;
+import javax.imageio.ImageIO;
+import javax.imageio.ImageReader;
+import javax.imageio.stream.ImageInputStream;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,7 +31,6 @@ import com.wakacommerce.cms.file.domain.StaticAsset;
 import com.wakacommerce.cms.file.domain.StaticAssetImpl;
 import com.wakacommerce.common.file.service.StaticAssetPathService;
 import com.wakacommerce.common.util.TransactionUtils;
-import com.wakacommerce.openadmin.server.service.artifact.image.ImageArtifactProcessor;
 import com.wakacommerce.openadmin.server.service.artifact.image.ImageMetadata;
 
 import eu.medsea.mimeutil.MimeType;
@@ -23,25 +38,10 @@ import eu.medsea.mimeutil.MimeUtil;
 import eu.medsea.mimeutil.detector.ExtensionMimeDetector;
 import eu.medsea.mimeutil.detector.MagicMimeMimeDetector;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-
-import javax.annotation.Resource;
-
 @Service("blStaticAssetService")
 public class StaticAssetServiceImpl implements StaticAssetService {
 
     private static final Log LOG = LogFactory.getLog(StaticAssetServiceImpl.class);
-
-    @Resource(name = "blImageArtifactProcessor")
-    protected ImageArtifactProcessor imageArtifactProcessor;
 
     @Value("${asset.use.filesystem.storage}")
     protected boolean storeAssetsOnFileSystem = false;
@@ -49,9 +49,6 @@ public class StaticAssetServiceImpl implements StaticAssetService {
     @Resource(name="blStaticAssetDao")
     protected StaticAssetDao staticAssetDao;
 
-    @Resource(name="blStaticAssetStorageService")
-    protected StaticAssetStorageService staticAssetStorageService;
-    
     @Resource(name = "blStaticAssetPathService")
     protected StaticAssetPathService staticAssetPathService;
 
@@ -84,9 +81,9 @@ public class StaticAssetServiceImpl implements StaticAssetService {
     }
 
     /**
-     * Generates a filename as a set of Hex digits.
-     * @param size
-     * @return
+     * 随机生成文件名
+     * 
+     * @param size 文件名大小
      */
     protected String generateFileName(int size) {
         StringBuilder sb = new StringBuilder();
@@ -98,16 +95,12 @@ public class StaticAssetServiceImpl implements StaticAssetService {
     }
 
     /**
-     * Will assemble the url from the passed in properties as 
-     *     /{entityType}/{fileName}
-     *     /product/7001-ab12
-     * 
-     * If the properties above are not set, it will generate the fileName randomly.
-     *     
-     * @param url
-     * @param asset
-     * @param assetProperties
-     * @return
+     * 为资源构建URL，格式:<br> 
+     * <pre>
+     *     /{entityType}/{entityId}/{fileName}
+     *     /product/1/7001ab127001ab12
+     * </pre>
+     * entityType和entityId都可以为空，此时URL为 /7001ab127001ab12
      */
     protected String buildAssetURL(Map<String, String> assetProperties, String originalFilename) {
         StringBuilder path = new StringBuilder("/");
@@ -139,6 +132,10 @@ public class StaticAssetServiceImpl implements StaticAssetService {
         } else {
             fileName = originalFilename;
         }
+        
+        if(fileName == null) {
+        	fileName = generateFileName(16);
+        }
 
         return path.append(fileName).toString();
     }
@@ -165,8 +162,6 @@ public class StaticAssetServiceImpl implements StaticAssetService {
         int count = 0;
         while (newAsset != null) {
             count++;
-            
-            //try the new format first, then the old
             newAsset = staticAssetDao.readStaticAssetByFullUrl(getCountUrl(fullUrl, count, false));
             if (newAsset == null) {
                 newAsset = staticAssetDao.readStaticAssetByFullUrl(getCountUrl(fullUrl, count, true));
@@ -178,7 +173,7 @@ public class StaticAssetServiceImpl implements StaticAssetService {
         }
 
         try {
-            ImageMetadata metadata = imageArtifactProcessor.getImageMetadata(inputStream);
+            ImageMetadata metadata = getImageMetadata(inputStream);
             newAsset = new ImageStaticAssetImpl();
             ((ImageStaticAsset) newAsset).setWidth(metadata.getWidth());
             ((ImageStaticAsset) newAsset).setHeight(metadata.getHeight());
@@ -186,6 +181,7 @@ public class StaticAssetServiceImpl implements StaticAssetService {
             //must not be an image stream
             newAsset = new StaticAssetImpl();
         }
+        
         if (storeAssetsOnFileSystem) {
             newAsset.setStorageType(StorageType.FILESYSTEM);
         } else {
@@ -193,12 +189,28 @@ public class StaticAssetServiceImpl implements StaticAssetService {
         }
 
         newAsset.setName(fileName);
-        getMimeType(inputStream, fileName, newAsset);
+        newAsset.setMimeType(getMimeType(inputStream, fileName));
         newAsset.setFileExtension(getFileExtension(fileName));
         newAsset.setFileSize(fileSize);
         newAsset.setFullUrl(fullUrl);
 
         return staticAssetDao.addOrUpdateStaticAsset(newAsset, false);
+    }
+    
+    protected ImageMetadata getImageMetadata(InputStream artifactStream) throws Exception {
+        ImageMetadata imageMetadata = new ImageMetadata();
+        ImageInputStream iis = ImageIO.createImageInputStream(artifactStream);
+        Iterator<ImageReader> readers = ImageIO.getImageReaders(iis);
+        if (readers.hasNext()) {
+            ImageReader reader = readers.next();
+            reader.setInput(iis, true);
+            imageMetadata.setWidth(reader.getWidth(0));
+            imageMetadata.setHeight(reader.getHeight(0));
+        } else {
+            throw new Exception("Unable to retrieve image metadata from stream. Are you sure the stream provided is a valid input stream for an image source?");
+        }
+
+        return imageMetadata;
     }
     
     /**
@@ -207,7 +219,7 @@ public class StaticAssetServiceImpl implements StaticAssetService {
      *  /path/to/image.jpg-1
      *  /path/to/image.jpg-2
      *  
-     * Whereas if this is in non-lagacy format (<b>legacy</b> == false):
+     * Whereas if this is in non-legacy format (<b>legacy</b> == false):
      * 
      *  /path/to/image-1.jpg
      *  /path/to/image-2.jpg
@@ -225,17 +237,19 @@ public class StaticAssetServiceImpl implements StaticAssetService {
         return countUrl;
     }
 
-    protected void getMimeType(InputStream inputStream, String fileName, StaticAsset newAsset) {
-        Collection mimeTypes = MimeUtil.getMimeTypes(fileName);
+    protected String getMimeType(InputStream inputStream, String fileName) {
+        @SuppressWarnings("rawtypes")
+		Collection mimeTypes = MimeUtil.getMimeTypes(fileName);
         if (!mimeTypes.isEmpty()) {
             MimeType mimeType = (MimeType) mimeTypes.iterator().next();
-            newAsset.setMimeType(mimeType.toString());
+            return mimeType.toString();
         } else {
             mimeTypes = MimeUtil.getMimeTypes(inputStream);
             if (!mimeTypes.isEmpty()) {
                 MimeType mimeType = (MimeType) mimeTypes.iterator().next();
-                newAsset.setMimeType(mimeType.toString());
+                return mimeType.toString();
             }
+            return "";
         }
     }
 

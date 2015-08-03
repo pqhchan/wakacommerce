@@ -6,7 +6,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.wakacommerce.common.file.domain.FileWorkArea;
-import com.wakacommerce.common.file.service.BroadleafFileUtils;
+import com.wakacommerce.common.file.service.WakaFileUtils;
 import com.wakacommerce.common.sitemap.domain.SiteMapConfiguration;
 import com.wakacommerce.common.sitemap.wrapper.SiteMapIndexWrapper;
 import com.wakacommerce.common.sitemap.wrapper.SiteMapURLSetWrapper;
@@ -136,9 +136,9 @@ public class SiteMapBuilder {
             SiteMapWrapper siteMapWrapper = new SiteMapWrapper();
             String fileLoc = null;
             if (gzipSiteMapFiles) {
-                fileLoc = BroadleafFileUtils.appendUnixPaths(baseUrl, fileName + ".gz");
+                fileLoc = WakaFileUtils.appendUnixPaths(baseUrl, fileName + ".gz");
             } else {
-                fileLoc = BroadleafFileUtils.appendUnixPaths(baseUrl, fileName);
+                fileLoc = WakaFileUtils.appendUnixPaths(baseUrl, fileName);
             }
             siteMapWrapper.setLoc(fileLoc)   ;         
             siteMapWrapper.setLastmod(now);

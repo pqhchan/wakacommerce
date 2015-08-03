@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.structure.service;
 
 import net.sf.ehcache.Cache;
@@ -48,9 +47,6 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-/**
- * 
- */
 @Service("blStructuredContentService")
 public class StructuredContentServiceImpl implements StructuredContentService {
 
@@ -215,13 +211,15 @@ public class StructuredContentServiceImpl implements StructuredContentService {
     }
 
     @Override
-    public List<StructuredContentDTO> lookupStructuredContentItemsByType(StructuredContentType contentType, Locale locale,
-                                                             Integer count, Map<String, Object> ruleDTOs, boolean secure) {
+    public List<StructuredContentDTO> lookupStructuredContentItemsByType(
+    		StructuredContentType contentType, Locale locale,
+            Integer count, Map<String, Object> ruleDTOs, boolean secure) {
+    	
         List<StructuredContentDTO> contentDTOList = null;
         Locale languageOnlyLocale = findLanguageOnlyLocale(locale);
         WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
         Long site = context.getNonPersistentSite() == null?null:context.getNonPersistentSite().getId();
-        String cacheKey = buildTypeKey(context.getSandBox(), site, languageOnlyLocale, contentType.getName());
+        String cacheKey = buildTypeKey(context.getSandBox(), site, contentType.getName());
         cacheKey = cacheKey+"-"+secure;
         if (context.isProductionSandBox()) {
             contentDTOList = getStructuredContentListFromCache(cacheKey);
@@ -246,7 +244,7 @@ public class StructuredContentServiceImpl implements StructuredContentService {
         Locale languageOnlyLocale = findLanguageOnlyLocale(locale);
         WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
         Long site = context.getNonPersistentSite() == null?null:context.getNonPersistentSite().getId();
-        String cacheKey = buildNameKey(context.getSandBox(), site, languageOnlyLocale, contentType.getName(), contentName);
+        String cacheKey = buildNameKey(context.getSandBox(), site, contentType.getName(), contentName);
         cacheKey = cacheKey+"-"+secure;
         if (context.isProductionSandBox()) {
             contentDTOList = getStructuredContentListFromCache(cacheKey);
@@ -296,7 +294,7 @@ public class StructuredContentServiceImpl implements StructuredContentService {
         Locale languageOnlyLocale = findLanguageOnlyLocale(locale);
         WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
         Long site = context.getNonPersistentSite() == null?null:context.getNonPersistentSite().getId();
-        String cacheKey = buildNameKey(context.getSandBox(), site, languageOnlyLocale, "any", contentName);
+        String cacheKey = buildNameKey(context.getSandBox(), site, "any", contentName);
         cacheKey = cacheKey+"-"+secure;
         if (context.isProductionSandBox()) {
             contentDTOList = getStructuredContentListFromCache(cacheKey);
@@ -514,10 +512,6 @@ public class StructuredContentServiceImpl implements StructuredContentService {
         scDTO.setId(sc.getId());
         scDTO.setPriority(sc.getPriority());
         
-        if (sc.getLocale() != null) {
-            scDTO.setLocaleCode(sc.getLocale().getLocaleCode());
-        }
-
         scDTO.setRuleExpression(buildRuleExpression(sc));
         buildFieldValues(sc, scDTO, secure);
         
@@ -541,11 +535,8 @@ public class StructuredContentServiceImpl implements StructuredContentService {
     }
 
     @Override
-    public String buildTypeKey(SandBox currentSandbox, Long site, Locale locale, String contentType) {
+    public String buildTypeKey(SandBox currentSandbox, Long site, String contentType) {
         StringBuilder key = new StringBuilder(contentType);
-        if (locale != null) {
-            key.append("-").append(locale.getLocaleCode());
-        }
 
         if (currentSandbox != null) {
             key.append("-").append(currentSandbox.getId());
@@ -558,22 +549,18 @@ public class StructuredContentServiceImpl implements StructuredContentService {
         return key.toString();
     }
 
-    protected String buildNameKey(SandBox sandBox, StructuredContent sc) {
-        Long site = (sc instanceof SiteDiscriminator)?((SiteDiscriminator) sc).getSiteDiscriminator():null;
-        return buildNameKey(sandBox, site, findLanguageOnlyLocale(sc.getLocale()), sc.getStructuredContentType().getName(), sc.getContentName());
-    }
-
     protected String buildTypeKey(SandBox sandBox, StructuredContent sc) {
         Long site = (sc instanceof SiteDiscriminator)?((SiteDiscriminator) sc).getSiteDiscriminator():null;
-        return buildTypeKey(sandBox, site, findLanguageOnlyLocale(sc.getLocale()), sc.getStructuredContentType().getName());
+        return buildTypeKey(sandBox, site, sc.getStructuredContentType().getName());
+    }
+    
+    protected String buildNameKey(SandBox sandBox, StructuredContent sc) {
+        Long site = (sc instanceof SiteDiscriminator)?((SiteDiscriminator) sc).getSiteDiscriminator():null;
+        return buildNameKey(sandBox, site, sc.getStructuredContentType().getName(), sc.getContentName());
     }
 
-
-    protected String buildNameKey(SandBox currentSandbox, Long site, Locale locale, String contentType, String contentName) {
+    protected String buildNameKey(SandBox currentSandbox, Long site, String contentType, String contentName) {
         StringBuffer key = new StringBuffer(contentType).append("-").append(contentName);
-        if (locale != null) {
-            key.append("-").append(locale.getLocaleCode());
-        }
 
         if (currentSandbox != null) {
             key.append("-").append(currentSandbox.getId());

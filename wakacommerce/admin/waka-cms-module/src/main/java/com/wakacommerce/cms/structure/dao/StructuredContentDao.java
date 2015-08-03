@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.structure.dao;
 
 import com.wakacommerce.cms.structure.domain.StructuredContent;
@@ -7,65 +6,60 @@ import com.wakacommerce.common.locale.domain.Locale;
 
 import java.util.List;
 
-/**
- * Responsible for querying and updating {@link StructuredContent} items
- * 
- */
 public interface StructuredContentDao {
 
-    /**
-     * Returns the <code>StructuredContent</code> item that matches
-     * the passed in Id.
-     * @param contentId
-     * @return the found item or null if it does not exist
-     */
+	/**
+	 * @param contentId StructuredContent的Id值
+	 * @return id值等于contentId的StructuredContent或null, 如果不存在的话
+	 */
     public StructuredContent findStructuredContentById(Long contentId);
 
     /**
-     * Returns the <code>StructuredContentType</code> that matches
-     * the passed in contentTypeId.
-     * @param contentTypeId
-     * @return the found item or null if it does not exist
-     */
-    public StructuredContentType findStructuredContentTypeById(Long contentTypeId);
-
-    /**
-     * Returns the list of all <code>StructuredContentType</code>s.
-     *
-     * @return the list of found items
-     */
-    public List<StructuredContentType> retrieveAllStructuredContentTypes();
-    
-    /**
-     * Finds all content regardless of the {@link Sandbox} they are a member of
-     * @return the list of {@link StructuredContent}, an empty list of none are found
+     * 不考虑StructuredContent所属的Sandbox
+     * 
+     * @return 系统中所有的StructuredContent; 特定于具体的持久化组件, 
+     * 如果没有数据的话, 返回的可能是null, 也可能是空列表. 
      */
     public List<StructuredContent> findAllContentItems();
 
     /**
-     * Persists the changes or saves a new content item.
+     * 可以是对已经持久化了的StructuredContent地更新(update), 也可以是进行第一次持久化(create)
      *
      * @param content
-     * @return the newly saved or persisted item
+     * @return 更新或持久化后的StructuredContent
      */
     public StructuredContent addOrUpdateContentItem(StructuredContent content);
 
     /**
-     * Removes the passed in item from the underlying storage.
+     * 从持久化存储中删去StructuredContent
      *
      * @param content
      */
     public void delete(StructuredContent content);
     
     /**
-     * Saves the given <b>type</b> and returns the merged instance
+     * @param contentTypeId StructuredContentType的Id值
+     * @return id值等于contentTypeId的StructuredContentType或null, 如果不存在的话
+     */
+    public StructuredContentType findStructuredContentTypeById(Long contentTypeId);
+    
+    /**
+     * @return 系统中所有的StructuredContentType; 特定于具体的持久化组件, 
+     * 如果没有数据的话, 返回的可能是null, 也可能是空列表. 
+     */
+    public List<StructuredContentType> retrieveAllStructuredContentTypes();
+    
+    /**
+     * 对已经持久化了的StructuredContentType更新(update)
+     * 
+     * @param type
+     * @return 更新后的StructuredContent
      */
     public StructuredContentType saveStructuredContentType(StructuredContentType type);
 
     /**
      * Pass through function for backwards compatibility to get a list of structured content.
      *
-     * @param sandBox to search for the content
      * @param type of content to search for
      * @param locale to restrict the search to
      * @return a list of all matching content
@@ -77,7 +71,6 @@ public interface StructuredContentDao {
      * Called by the <code>DisplayContentTag</code> to locate content based
      * on the current SandBox, StructuredContentType, fullLocale and/or languageOnlyLocale.
      *
-     * @param sandBox to search for the content
      * @param type of content to search for
      * @param fullLocale to restrict the search to
      * @param languageOnlyLocale locale based only on a language specified

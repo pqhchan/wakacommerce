@@ -5,7 +5,7 @@ package com.wakacommerce.common.sitemap.service;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
-import com.wakacommerce.common.file.service.BroadleafFileUtils;
+import com.wakacommerce.common.file.service.WakaFileUtils;
 import com.wakacommerce.common.sitemap.domain.CustomUrlSiteMapGeneratorConfiguration;
 import com.wakacommerce.common.sitemap.domain.SiteMapGeneratorConfiguration;
 import com.wakacommerce.common.sitemap.domain.SiteMapUrlEntry;
@@ -72,7 +72,7 @@ public class CustomUrlSiteMapGenerator implements SiteMapGenerator {
         if (url.contains("://")) {
             return url;
         } else {
-            return BroadleafFileUtils.appendUnixPaths(smb.getBaseUrl(), url);
+            return WakaFileUtils.appendUnixPaths(smb.getBaseUrl(), url);
         }
     }
 

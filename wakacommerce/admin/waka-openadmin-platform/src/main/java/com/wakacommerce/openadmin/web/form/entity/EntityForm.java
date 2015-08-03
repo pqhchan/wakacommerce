@@ -30,7 +30,7 @@ public class EntityForm {
     public static final String MAP_KEY_GROUP = "keyGroup";
     public static final String DEFAULT_GROUP_NAME = "Default";
     public static final Integer DEFAULT_GROUP_ORDER = 99999;
-    public static final String DEFAULT_TAB_NAME = "一般";
+    public static final String DEFAULT_TAB_NAME = "General";
     public static final Integer DEFAULT_TAB_ORDER = 100;
 
     protected String id;

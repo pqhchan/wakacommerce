@@ -1,5 +1,3 @@
-
-
 package com.wakacommerce.openadmin.web.form.entity;
 
 /**

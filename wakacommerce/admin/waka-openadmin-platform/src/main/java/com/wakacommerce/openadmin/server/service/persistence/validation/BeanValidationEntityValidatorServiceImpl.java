@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.service.persistence.validation;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +32,7 @@ import javax.validation.Validator;
  * <code>
  * <pre>
  * &lt;bean id=&quotblEntityValidatorService&quot 
- *        class=&quotorg.broadleafcommerce.openadmin.server.service.persistence.validation.BeanValidationEntityValidatorServiceImpl&quot/&gt;
+ *        class=&quotcom.wakacommerce.openadmin.server.service.persistence.validation.BeanValidationEntityValidatorServiceImpl&quot/&gt;
  * </pre>
  * </code>
  * 

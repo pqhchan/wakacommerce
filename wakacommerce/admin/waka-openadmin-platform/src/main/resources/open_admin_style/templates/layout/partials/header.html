@@ -1,5 +1,11 @@
 <header class="top-bar">
+
+    
+	
     <div class="attached">
+    
+        
+        
         <div class="brand">
             <span><a th:href="@{/}"></a></span>
         </div>
@@ -13,12 +19,12 @@
                 <blc_admin:admin_user resultVar="adminUser" />
                 <a href="#">[[${adminUser.name}]]</a>
                 <ul class="dropdown">
-                    <li><a href="#" class="change-password" th:href="@{/changePassword}">更改密码 ...</a></li>                   
+                    <li><a href="#" class="change-password" th:href="@{/changePassword}" th:text="#{header.password.change}" /></li>                   
                 </ul>
             </li>
 
             <li class="logout">
-                <a class="small button radius dark" th:href="@{/adminLogout.htm}">退出</a>
+                <a class="small button radius dark" th:href="@{/adminLogout.htm}" th:text="#{header.logout}" />
             </li>
         </ul>
         
@@ -26,11 +32,11 @@
         
             <div id="expire-message" class="modal in">
                 <div id="expire-header" class="brand">
-                <div id="expire-header-message">会话即将过期 ...</div>
+                <div id="expire-header-message" th:text="#{header.session.expire}"></div>
                 </div>
                 <div id="expire-content">
-                    <a id="stay-logged-in" class="expire-button button medium dark radius" href="#">保持登录状态</a>
-                    <a id="session-logout" class="expire-button button medium dark radius" th:href="@{/adminLogout.htm}">退出</a>
+                    <a id="stay-logged-in" class="expire-button button medium dark radius" href="#" th:text="#{header.stay.logged.in}"></a>
+                    <a id="session-logout" class="expire-button button medium dark radius" th:href="@{/adminLogout.htm}" th:text="#{header.logout}"></a>
                     <div id="expire-text">
                 
                     </div>

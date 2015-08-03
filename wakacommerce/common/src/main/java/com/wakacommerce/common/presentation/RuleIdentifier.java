@@ -1,12 +1,8 @@
-
 package com.wakacommerce.common.presentation;
 
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * 
- */
 public class RuleIdentifier {
 
     public static final String CUSTOMER  = "CUSTOMER_FIELDS";

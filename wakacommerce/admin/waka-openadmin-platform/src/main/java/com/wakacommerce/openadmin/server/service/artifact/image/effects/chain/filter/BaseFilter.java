@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.service.artifact.image.effects.chain.filter;
 
 import java.awt.*;
@@ -16,9 +15,6 @@ public abstract class BaseFilter implements BufferedImageOp, OperationBuilder {
     
     protected RenderingHints hints;
 
-    /* (non-Javadoc)
-     * @see java.awt.image.BufferedImageOp#createCompatibleDestImage(java.awt.image.BufferedImage, java.awt.image.ColorModel)
-     */
     public BufferedImage createCompatibleDestImage(BufferedImage src,
             ColorModel destCM) {
         BufferedImage image;
@@ -56,16 +52,10 @@ public abstract class BaseFilter implements BufferedImageOp, OperationBuilder {
         return image;
     }
 
-    /* (non-Javadoc)
-     * @see java.awt.image.BufferedImageOp#getBounds2D(java.awt.image.BufferedImage)
-     */
     public Rectangle2D getBounds2D(BufferedImage src) {
         return src.getRaster().getBounds();
     }
 
-    /* (non-Javadoc)
-     * @see java.awt.image.BufferedImageOp#getPoint2D(java.awt.geom.Point2D, java.awt.geom.Point2D)
-     */
     public Point2D getPoint2D(Point2D srcPt, Point2D dstPt) {
         if (dstPt == null) {
             dstPt = new Point2D.Float();
@@ -75,9 +65,6 @@ public abstract class BaseFilter implements BufferedImageOp, OperationBuilder {
         return dstPt;
     }
 
-    /* (non-Javadoc)
-     * @see java.awt.image.BufferedImageOp#getRenderingHints()
-     */
     public RenderingHints getRenderingHints() {
         return hints;
     }

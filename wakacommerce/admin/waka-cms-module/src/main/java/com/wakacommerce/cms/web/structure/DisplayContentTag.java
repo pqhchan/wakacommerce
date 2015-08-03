@@ -1,18 +1,5 @@
 package com.wakacommerce.cms.web.structure;
 
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
-
-import com.wakacommerce.cms.file.service.StaticAssetService;
-import com.wakacommerce.cms.structure.domain.StructuredContentType;
-import com.wakacommerce.cms.structure.service.StructuredContentService;
-import com.wakacommerce.cms.web.BroadleafProcessURLFilter;
-import com.wakacommerce.common.RequestDTO;
-import com.wakacommerce.common.TimeDTO;
-import com.wakacommerce.common.locale.domain.Locale;
-import com.wakacommerce.common.structure.dto.StructuredContentDTO;
-import com.wakacommerce.common.time.SystemTime;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,6 +8,18 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.BodyTagSupport;
+
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
+import com.wakacommerce.cms.file.service.StaticAssetService;
+import com.wakacommerce.cms.structure.domain.StructuredContentType;
+import com.wakacommerce.cms.structure.service.StructuredContentService;
+import com.wakacommerce.common.RequestDTO;
+import com.wakacommerce.common.TimeDTO;
+import com.wakacommerce.common.locale.domain.Locale;
+import com.wakacommerce.common.structure.dto.StructuredContentDTO;
+import com.wakacommerce.common.time.SystemTime;
 
 /**
  * Tag used to display structured content that is maintained with the Broadleaf CMS.
@@ -128,7 +127,7 @@ public class DisplayContentTag extends BodyTagSupport {
         assert(contentName != null && !"".equals(contentName) && structuredContentType != null);
 
         if (locale == null) {
-            locale = (Locale) request.getAttribute(BroadleafProcessURLFilter.LOCALE_VAR);
+            locale = (Locale) request.getAttribute("blLocale");
         }
 
         int cnt = (count == null) ? Integer.MAX_VALUE : count;

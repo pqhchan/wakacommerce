@@ -32,8 +32,8 @@ public class Weight implements Serializable {
     @AdminPresentation(friendlyName = "ProductWeight_Product_Weight_Units", order = 10000,
         tab = ProductImpl.Presentation.Tab.Name.Shipping, tabOrder = ProductImpl.Presentation.Tab.Order.Shipping,
         group = ProductImpl.Presentation.Group.Name.Shipping, groupOrder = ProductImpl.Presentation.Group.Order.Shipping,
-        fieldType= SupportedFieldType.BROADLEAF_ENUMERATION, 
-        broadleafEnumeration="com.wakacommerce.common.util.WeightUnitOfMeasureType")
+        fieldType= SupportedFieldType.WAKA_ENUMERATION, 
+        wakaEnumeration="com.wakacommerce.common.util.WeightUnitOfMeasureType")
     protected String weightUnitOfMeasure;
 
     public WeightUnitOfMeasureType getWeightUnitOfMeasure() {

@@ -1,5 +1,5 @@
 <div th:if="${field instanceof T(com.wakacommerce.openadmin.web.form.entity.ComboField)}">
-    <div class="field-label inline" th:text="${field.friendlyName}" th:classappend="${field.required ? 'required' : ''}" />
+    <div class="field-label inline" th:text="#{${field.friendlyName}}" th:classappend="${field.required ? 'required' : ''}" />
     <div th:substituteby="components/fieldTooltip" />
     
     <select class="six" th:field="*{fields['__${field.name}__'].value}" th:if="${! #maps.isEmpty(field.options)}">
@@ -10,7 +10,7 @@
     </select>
                 
     <span th:if="${#maps.isEmpty(field.options)}" class="indented-form-value" th:inline="text">
-        &lt;该枚举类型还没有任何值&gt;
+        &lt;[[#{'没有找到该枚举的任何枚举项'}]]&gt;
     </span>
     
     <span class="error" th:errors="*{fields['__${field.name}__'].value}" />
@@ -23,7 +23,7 @@
     <input type="hidden" class="value" th:field="*{fields['__${field.name}__'].value}" th:attr="data-onchangetrigger=${field.onChangeTrigger}" />
     <input type="hidden" class="hidden-display-value" th:field="*{fields['__${field.name}__'].displayValue}" />
 
-    <div class="field-label inline" th:text="${field.friendlyName}" th:classappend="${field.required ? 'required' : ''}" />
+    <div class="field-label inline" th:text="#{${field.friendlyName}}" th:classappend="${field.required ? 'required' : ''}" />
     <div th:substituteby="components/fieldTooltip" />
 
     <div class="foreign-key-value-container">
@@ -37,14 +37,14 @@
                 type="button" th:inline="text"
                 th:unless="${field.required}"
                 th:style="*{#strings.isEmpty(fields['__${field.name}__'].value) ? 'display:none' : ''}">
-                <i class="icon-remove"></i>&nbsp;[[#{Clear}]]
+                <i class="icon-remove"></i>&nbsp;[[#{'清空'}]]
             </button>
             
             <button class="to-one-lookup tiny radius secondary button hover-cursor"
                 type="button" th:inline="text"
                 th:attr="data-select-url=@{${'/' + field.owningEntityClass + '/' + field.name + '/select'}(requestingEntityId=${entityForm.id}, sectionCrumbs=${entityForm.sectionCrumbs})},
                          data-dynamic-field=${field.attributes['dynamicField']}">
-                <i class="icon-search"></i>&nbsp;[[#{Lookup}]]
+                <i class="icon-search"></i>&nbsp;[[#{'查找'}]]
             </button>
 
             <span class="external-link-container" th:style="${!field.canLinkToExternalEntity or #strings.isEmpty(field.value)}? 'display: none;'">

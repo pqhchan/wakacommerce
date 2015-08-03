@@ -55,7 +55,7 @@ public class ProductOptionImpl implements ProductOption, AdminMainEntity {
     protected Long id;
     
     @Column(name = "OPTION_TYPE")
-    @AdminPresentation(friendlyName = "productOption_Type", fieldType = SupportedFieldType.BROADLEAF_ENUMERATION, broadleafEnumeration = "com.wakacommerce.core.catalog.service.type.ProductOptionType")
+    @AdminPresentation(friendlyName = "productOption_Type", fieldType = SupportedFieldType.WAKA_ENUMERATION, wakaEnumeration = "com.wakacommerce.core.catalog.service.type.ProductOptionType")
     protected String type;
     
     @Column(name = "ATTRIBUTE_NAME")
@@ -63,9 +63,10 @@ public class ProductOptionImpl implements ProductOption, AdminMainEntity {
     protected String attributeName;
     
     @Column(name = "LABEL")
-    @AdminPresentation(friendlyName = "productOption_Label", helpText = "productOption_labelHelp", 
-        prominent = true,
-        translatable = true)
+    @AdminPresentation(
+    		friendlyName = "productOption_Label", 
+    		helpText = "productOption_labelHelp", 
+    		prominent = true)
     protected String label;
 
     @Column(name = "REQUIRED")
@@ -81,11 +82,11 @@ public class ProductOptionImpl implements ProductOption, AdminMainEntity {
     protected Integer displayOrder;
 
     @Column(name = "VALIDATION_STRATEGY_TYPE")
-    @AdminPresentation(friendlyName = "productOption_validationStrategyType", group = "productOption_validation", fieldType = SupportedFieldType.BROADLEAF_ENUMERATION, broadleafEnumeration = "com.wakacommerce.core.catalog.service.type.ProductOptionValidationStrategyType")
+    @AdminPresentation(friendlyName = "productOption_validationStrategyType", group = "productOption_validation", fieldType = SupportedFieldType.WAKA_ENUMERATION, wakaEnumeration = "com.wakacommerce.core.catalog.service.type.ProductOptionValidationStrategyType")
     private String productOptionValidationStrategyType;
 
     @Column(name = "VALIDATION_TYPE")
-    @AdminPresentation(friendlyName = "productOption_validationType", group = "productOption_validation", fieldType = SupportedFieldType.BROADLEAF_ENUMERATION, broadleafEnumeration = "com.wakacommerce.core.catalog.service.type.ProductOptionValidationType")
+    @AdminPresentation(friendlyName = "productOption_validationType", group = "productOption_validation", fieldType = SupportedFieldType.WAKA_ENUMERATION, wakaEnumeration = "com.wakacommerce.core.catalog.service.type.ProductOptionValidationType")
     private String productOptionValidationType;
 
     @Column(name = "VALIDATION_STRING")
@@ -97,7 +98,7 @@ public class ProductOptionImpl implements ProductOption, AdminMainEntity {
     protected String errorCode;
 
     @Column(name = "ERROR_MESSAGE")
-    @AdminPresentation(friendlyName = "productOption_errorMessage", group = "productOption_validation", translatable = true)
+    @AdminPresentation(friendlyName = "productOption_errorMessage", group = "productOption_validation")
     protected String errorMessage;
 
     @OneToMany(mappedBy = "productOption", targetEntity = ProductOptionValueImpl.class, cascade = {CascadeType.ALL})

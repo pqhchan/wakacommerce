@@ -4,7 +4,7 @@
 
 <select class="six" th:field="*{fields['__${field.name}__'].value}" 
         th:if="${!#maps.isEmpty(field.options) and #maps.size(field.options) ge #props.getAsInt('admin.enum.minCountForDropDown')}">
-    <option value="" th:text="#{Default_Select}" />
+    <option value="" th:text="#{'--- 请选择 ---'}" />
     <option th:each="entry : *{fields['__${field.name}__'].options}"
             th:value="${entry.key}"
             th:text="${entry.value}" />
@@ -23,5 +23,5 @@
 </div>
             
 <span th:if="${#maps.isEmpty(field.options)}" class="indented-form-value" th:inline="text">
-    &lt;[[#{No_Records_Found_Enum}]]&gt;
+    &lt;[[#{'没有找到该枚举的任何枚举项'}]]&gt;
 </span>

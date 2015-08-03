@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.presentation;
 
 import java.lang.annotation.ElementType;

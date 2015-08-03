@@ -1,5 +1,3 @@
-
-
 package com.wakacommerce.openadmin.web.form.component;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -25,7 +23,6 @@ public class ListGrid {
     protected int order;
     
     protected Set<Field> headerFields = new TreeSet<Field>(new Comparator<Field>() {
-
         @Override
         public int compare(Field o1, Field o2) {
             return new CompareToBuilder()

@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.structure.dao;
 
 import org.hibernate.ejb.QueryHints;
@@ -26,9 +25,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-/**
- *   
- */
 @Repository("blStructuredContentDao")
 public class StructuredContentDaoImpl implements StructuredContentDao {
 
@@ -53,7 +49,8 @@ public class StructuredContentDaoImpl implements StructuredContentDao {
         return em.find(StructuredContentTypeImpl.class, contentTypeId);
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public List<StructuredContentType> retrieveAllStructuredContentTypes() {
         Query query = em.createNamedQuery("BC_READ_ALL_STRUCTURED_CONTENT_TYPES");
         query.setHint(QueryHints.HINT_CACHEABLE, true);
@@ -65,21 +62,16 @@ public class StructuredContentDaoImpl implements StructuredContentDao {
         CriteriaBuilder builder = em.getCriteriaBuilder();
         CriteriaQuery<StructuredContent> criteria = builder.createQuery(StructuredContent.class);
         Root<StructuredContentImpl> sc = criteria.from(StructuredContentImpl.class);
-
         criteria.select(sc);
-
-        try {
-            TypedQuery<StructuredContent> query = em.createQuery(criteria);
-            query.setHint(QueryHints.HINT_CACHEABLE, true);
-            return query.getResultList();
-        } catch (NoResultException e) {
-            return new ArrayList<StructuredContent>();
-        }
+        TypedQuery<StructuredContent> query = em.createQuery(criteria);
+        query.setHint(QueryHints.HINT_CACHEABLE, true);
+        return query.getResultList();
     }
 
     @Override
     public StructuredContent addOrUpdateContentItem(StructuredContent content) {
-        return em.merge(content);
+    	// 实现的貌似有问题！！ 后面有时间记得改下
+    	return em.merge(content);
     }
 
     @Override

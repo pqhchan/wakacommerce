@@ -1,12 +1,11 @@
-
 (function($, BLCAdmin) {
     
     BLCAdmin.messages = {
         // List grid messages
-        saved : 'Saved',
-        reorder : 'Reorder',
-        done : 'Done',
-        updated : 'Updated',
+        saved : '已保存',
+        reorder : '重排',
+        done : '完成',
+        updated : '已更新',
         
         // Rule builder messages
         rule : 'Rule',
@@ -16,17 +15,17 @@
         booleanFalse : 'False',
         
         // Asset messages
-        selectUploadAsset : 'Select / Upload Asset',
+        selectUploadAsset : '选择或上传资源',
         
         // Modal messages
-        error : 'Error',
-        forbidden403 : '403 Forbidden',
-        errorOccurred : 'An error occurred',
-        loading : 'Loading',
+        error : '错误',
+        forbidden403 : '403 禁止',
+        errorOccurred : '发生错误',
+        loading : '正在载入',
         
         // Session timer messages
-        sessionCountdown: 'Your session expires in <span>',
-        sessionCountdownEnd: '</span> seconds',
+        sessionCountdown: '您的连接将在 <span>',
+        sessionCountdownEnd: '</span> 秒后过期',
 
         problemSaving : 'There was a problem saving. See errors below',
         problemDeleting : 'There was a problem deleting this record. See errors below',

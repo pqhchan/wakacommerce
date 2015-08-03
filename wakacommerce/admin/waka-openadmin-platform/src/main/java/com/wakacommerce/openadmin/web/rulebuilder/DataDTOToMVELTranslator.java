@@ -461,7 +461,7 @@ public class DataDTOToMVELTranslator {
             }
         } else {
             switch(type) {
-                case BROADLEAF_ENUMERATION:
+                case WAKA_ENUMERATION:
                     if (isMapField) {
                         throw new UnsupportedOperationException("Enumerations are not supported for map fields in the rule builder.");
                     } else {

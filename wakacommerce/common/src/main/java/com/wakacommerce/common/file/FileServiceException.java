@@ -1,13 +1,5 @@
-
 package com.wakacommerce.common.file;
 
-import com.wakacommerce.common.file.service.BroadleafFileService;
-
-/**
- * Marker exception that just extends RuntimeException to be used by the {@link BroadleafFileService}
- * 
- *
- */
 public class FileServiceException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;

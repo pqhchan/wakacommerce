@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.url.domain;
 
 import com.wakacommerce.cms.url.type.URLRedirectType;

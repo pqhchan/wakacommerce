@@ -50,7 +50,7 @@ public class ProductOptionValueImpl implements ProductOptionValue {
     @Column(name = "ATTRIBUTE_VALUE")
     @AdminPresentation(friendlyName = "productOptionValue_attributeValue", 
             prominent = true, order = Presentation.FieldOrder.ATTRIBUTE_VALUE,
-            translatable = true, gridOrder = Presentation.FieldOrder.ATTRIBUTE_VALUE)
+            gridOrder = Presentation.FieldOrder.ATTRIBUTE_VALUE)
     protected String attributeValue;
 
     @Column(name = "DISPLAY_ORDER")

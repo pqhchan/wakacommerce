@@ -5,7 +5,7 @@
         </li>
         <li>
             <a blc_admin:admin_section_href="${currentAdminSection}" th:inline="text">
-                [[#{${currentAdminSection.name}}]]
+                [[${currentAdminSection.name}]]
             </a>
         </li>
         <li th:if="${entityForm}">
@@ -15,7 +15,7 @@
 
     <ul class="breadcrumbs" th:unless="${currentAdminModule}">
         <li>
-            <span></span>
+            <span th:text="#{breadcrumb.unavailable}" />
         </li>
     </ul>
 

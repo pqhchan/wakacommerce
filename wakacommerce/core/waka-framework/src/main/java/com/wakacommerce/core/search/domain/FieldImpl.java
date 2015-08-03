@@ -58,7 +58,7 @@ public class FieldImpl implements Field, Serializable, AdminMainEntity {
     protected String entityType;
     
     @Column(name = "FRIENDLY_NAME")
-    @AdminPresentation(friendlyName = "FieldImpl_friendlyName", group = "FieldImpl_descrpition", order = 1, prominent = true, translatable = true)
+    @AdminPresentation(friendlyName = "FieldImpl_friendlyName", group = "FieldImpl_descrpition", order = 1, prominent = true)
     protected String friendlyName;
 
     @Column(name = "PROPERTY_NAME", nullable = false)

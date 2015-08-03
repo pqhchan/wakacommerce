@@ -67,14 +67,14 @@ public class FulfillmentOptionImpl implements FulfillmentOption {
     
     @Column(name = "NAME")
     @AdminPresentation(friendlyName = "FulfillmentOptionImpl_name",
-            order = Presentation.FieldOrder.NAME, prominent = true, gridOrder = 1000, translatable = true)
+            order = Presentation.FieldOrder.NAME, prominent = true, gridOrder = 1000)
     protected String name;
 
     @Lob
     @Type(type = "org.hibernate.type.StringClobType")
     @Column(name = "LONG_DESCRIPTION", length = Integer.MAX_VALUE - 1)
     @AdminPresentation(friendlyName = "FulfillmentOptionImpl_longDescription",
-            order = Presentation.FieldOrder.DESCRIPTION, translatable = true)
+            order = Presentation.FieldOrder.DESCRIPTION)
     protected String longDescription;
 
     @Column(name = "USE_FLAT_RATES")

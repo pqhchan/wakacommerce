@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.url.type;
 
 import java.io.Serializable;

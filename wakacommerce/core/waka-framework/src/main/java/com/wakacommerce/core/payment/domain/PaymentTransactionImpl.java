@@ -74,8 +74,8 @@ public class PaymentTransactionImpl implements PaymentTransaction {
 
     @Column(name = "TRANSACTION_TYPE")
     @AdminPresentation(friendlyName = "PaymentTransactionImpl_Type",
-            fieldType = SupportedFieldType.BROADLEAF_ENUMERATION,
-            broadleafEnumeration = "com.wakacommerce.common.payment.PaymentTransactionType",
+            fieldType = SupportedFieldType.WAKA_ENUMERATION,
+            wakaEnumeration = "com.wakacommerce.common.payment.PaymentTransactionType",
             prominent = true, gridOrder = 1000)
     protected String type;
 

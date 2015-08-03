@@ -15,7 +15,6 @@ import com.wakacommerce.common.WakaEnumType;
  * FieldDefinitions in the admin tool. This list should be a strict subset of {@link SupportedFieldType} and will
  * throw an exception if a non-matching type is added.
  * 
- * 
  */
 public class DynamicSupportedFieldType implements Serializable, WakaEnumType {
 

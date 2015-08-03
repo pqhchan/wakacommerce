@@ -18,7 +18,7 @@
                     th:attr="data-actionurl=@{${#strings.isEmpty(action.actionUrlOverride) ? (listGrid.path + action.urlPostfix) : action.actionUrlOverride} + ${listGrid.sectionCrumbRepresentation}},
                              data-urlpostfix=${action.urlPostfix},
                              data-queryparams=${listGrid.sectionCrumbRepresentation}">
-                    <i th:class="${action.iconClass}"></i>&nbsp;<span th:text="#{${action.displayText}}" th:remove="tag" />
+                    <i th:class="${action.iconClass}"></i>&nbsp;<span th:text="${action.displayText}" th:remove="tag" />
                 </button>
             </li>
             
@@ -34,7 +34,7 @@
                     th:attr="data-urlpostfix=${action.urlPostfix},
                              data-actionurl=@{${#strings.isEmpty(action.actionUrlOverride) ? (listGrid.path + action.urlPostfix) : action.actionUrlOverride} + ${listGrid.sectionCrumbRepresentation}},
                              data-queryparams=${listGrid.sectionCrumbRepresentation}">
-                    <i th:class="${action.iconClass}"></i>&nbsp;<span th:text="#{${action.displayText}}" th:remove="tag" />
+                    <i th:class="${action.iconClass}"></i>&nbsp;<span th:text="${action.displayText}" th:remove="tag" />
                 </button>
             </li>
 

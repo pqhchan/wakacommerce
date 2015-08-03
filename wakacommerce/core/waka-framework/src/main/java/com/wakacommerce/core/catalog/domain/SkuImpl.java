@@ -194,16 +194,14 @@ public class SkuImpl implements Sku {
     @Index(name = "SKU_NAME_INDEX", columnNames = {"NAME"})
     @AdminPresentation(friendlyName = "SkuImpl_Sku_Name", order = ProductImpl.Presentation.FieldOrder.NAME,
         group = ProductImpl.Presentation.Group.Name.General, groupOrder = ProductImpl.Presentation.Group.Order.General,
-        prominent = true, gridOrder = 1, columnWidth = "260px",
-        translatable = true)
+        prominent = true, gridOrder = 1, columnWidth = "260px")
     protected String name;
 
     @Column(name = "DESCRIPTION")
     @AdminPresentation(friendlyName = "SkuImpl_Sku_Description", order = ProductImpl.Presentation.FieldOrder.SHORT_DESCRIPTION, 
         group = ProductImpl.Presentation.Group.Name.General, groupOrder = ProductImpl.Presentation.Group.Order.General,
         largeEntry = true, 
-        excluded = true,
-        translatable = true)
+        excluded = true)
     protected String description;
 
     @Lob
@@ -212,8 +210,7 @@ public class SkuImpl implements Sku {
     @AdminPresentation(friendlyName = "SkuImpl_Sku_Large_Description", order = ProductImpl.Presentation.FieldOrder.LONG_DESCRIPTION,
         group = ProductImpl.Presentation.Group.Name.General, groupOrder = ProductImpl.Presentation.Group.Order.General,
         largeEntry = true, 
-        fieldType = SupportedFieldType.HTML_BASIC,
-        translatable = true)
+        fieldType = SupportedFieldType.HTML_BASIC)
     protected String longDescription;
 
     @Column(name = "TAX_CODE")
@@ -373,8 +370,8 @@ public class SkuImpl implements Sku {
         order = 1000,
         tab = ProductImpl.Presentation.Tab.Name.Inventory, tabOrder = ProductImpl.Presentation.Tab.Order.Inventory,
         group = ProductImpl.Presentation.Group.Name.Inventory, groupOrder = ProductImpl.Presentation.Group.Order.Inventory,
-        fieldType = SupportedFieldType.BROADLEAF_ENUMERATION, 
-        broadleafEnumeration = "com.wakacommerce.core.inventory.service.type.InventoryType")
+        fieldType = SupportedFieldType.WAKA_ENUMERATION, 
+        wakaEnumeration = "com.wakacommerce.core.inventory.service.type.InventoryType")
     protected String inventoryType;
     
     @Column(name = "QUANTITY_AVAILABLE")
@@ -390,8 +387,8 @@ public class SkuImpl implements Sku {
     @AdminPresentation(friendlyName = "SkuImpl_Sku_FulfillmentType", order = 1000,
         tab = ProductImpl.Presentation.Tab.Name.Shipping, tabOrder = ProductImpl.Presentation.Tab.Order.Shipping,
         group = ProductImpl.Presentation.Group.Name.Shipping, groupOrder = ProductImpl.Presentation.Group.Order.Shipping,
-        fieldType = SupportedFieldType.BROADLEAF_ENUMERATION, 
-        broadleafEnumeration = "com.wakacommerce.core.order.service.type.FulfillmentType")
+        fieldType = SupportedFieldType.WAKA_ENUMERATION, 
+        wakaEnumeration = "com.wakacommerce.core.order.service.type.FulfillmentType")
     protected String fulfillmentType;
     
     /**

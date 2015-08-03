@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.service.artifact.image.effects.chain;
 
 import org.springframework.stereotype.Service;
@@ -94,30 +93,18 @@ public class EffectsManager {
         return (BufferedImage) result;
     }
 
-    /**
-     * @return the filters
-     */
     public Map<String, OperationBuilder> getFilters() {
         return filters;
     }
 
-    /**
-     * @param filters the filters to set
-     */
     public void setFilters(Map<String, OperationBuilder> filters) {
         this.filters.putAll(filters);
     }
 
-    /**
-     * @return the parameterConverter
-     */
     public ConversionManager getConversionManager() {
         return conversionManager;
     }
 
-    /**
-     * @param parameterConverter the parameterConverter to set
-     */
     public void setConversionManager(ConversionManager conversionManager) {
         this.conversionManager = conversionManager;
     }

@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.web.form.component;
 
 
@@ -6,7 +5,6 @@ package com.wakacommerce.openadmin.web.form.component;
  * Buttons to display on the frontend for a list grid. These will be displayed at the top of the {@link ListGrid} that they
  * are related to.
  * 
- *   (  )
  * @see {@link ListGrid#addRowAction(ListGridAction)}
  * @see {@link ListGrid#addToolbarAction(ListGridAction)}
  */

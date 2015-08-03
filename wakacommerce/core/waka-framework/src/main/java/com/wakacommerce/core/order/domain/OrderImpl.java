@@ -103,8 +103,8 @@ public class OrderImpl implements Order, AdminMainEntity, CurrencyCodeIdentifiab
     @Column(name = "ORDER_STATUS")
     @Index(name="ORDER_STATUS_INDEX", columnNames={"ORDER_STATUS"})
     @AdminPresentation(friendlyName = "OrderImpl_Order_Status", group = Presentation.Group.Name.General,
-            order=Presentation.FieldOrder.STATUS, prominent=true, fieldType=SupportedFieldType.BROADLEAF_ENUMERATION,
-            broadleafEnumeration="com.wakacommerce.core.order.service.type.OrderStatus",
+            order=Presentation.FieldOrder.STATUS, prominent=true, fieldType=SupportedFieldType.WAKA_ENUMERATION,
+            wakaEnumeration="com.wakacommerce.core.order.service.type.OrderStatus",
             groupOrder = Presentation.Group.Order.General, gridOrder = 3000)
     protected String status;
 

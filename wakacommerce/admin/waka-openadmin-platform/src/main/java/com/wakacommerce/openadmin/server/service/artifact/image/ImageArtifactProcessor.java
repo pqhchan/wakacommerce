@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.service.artifact.image;
 
 import org.springframework.stereotype.Service;
@@ -24,13 +23,6 @@ import javax.imageio.ImageWriter;
 import javax.imageio.stream.ImageInputStream;
 import javax.imageio.stream.MemoryCacheImageOutputStream;
 
-/**
- * Created by IntelliJ IDEA.
- * User:   
- * Date: 9/10/11
- * Time: 11:58 AM
- * To change this template use File | Settings | File Templates.
- */
 @Service("blImageArtifactProcessor")
 public class ImageArtifactProcessor implements ArtifactProcessor {
 

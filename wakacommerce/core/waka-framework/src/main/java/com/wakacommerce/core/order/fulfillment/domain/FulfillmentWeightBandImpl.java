@@ -51,7 +51,7 @@ public class FulfillmentWeightBandImpl extends FulfillmentBandImpl implements Fu
     protected BigDecimal minimumWeight;
     
     @Column(name = "WEIGHT_UNIT_OF_MEASURE")
-    @AdminPresentation(friendlyName = "FulfillmentWeightBandImpl_Weight_Units", fieldType= SupportedFieldType.BROADLEAF_ENUMERATION, broadleafEnumeration="com.wakacommerce.common.util.WeightUnitOfMeasureType")
+    @AdminPresentation(friendlyName = "FulfillmentWeightBandImpl_Weight_Units", fieldType= SupportedFieldType.WAKA_ENUMERATION, wakaEnumeration="com.wakacommerce.common.util.WeightUnitOfMeasureType")
     protected String weightUnitOfMeasure;
     
     @ManyToOne(targetEntity=BandedWeightFulfillmentOptionImpl.class)

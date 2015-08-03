@@ -165,7 +165,7 @@ public class FormBuilderServiceImpl implements FormBuilderService {
     protected Field createHeaderField(Property p, BasicFieldMetadata fmd) {
         Field hf;
         if (fmd.getFieldType().equals(SupportedFieldType.EXPLICIT_ENUMERATION) ||
-                fmd.getFieldType().equals(SupportedFieldType.BROADLEAF_ENUMERATION) ||
+                fmd.getFieldType().equals(SupportedFieldType.WAKA_ENUMERATION) ||
                 fmd.getFieldType().equals(SupportedFieldType.DATA_DRIVEN_ENUMERATION) ||
                 fmd.getFieldType().equals(SupportedFieldType.EMPTY_ENUMERATION)) {
             hf = new ComboField();
@@ -490,7 +490,7 @@ public class FormBuilderServiceImpl implements FormBuilderService {
                     // Create the field and set some basic attributes
                     Field f;
                     
-                    if (fieldType.equals(SupportedFieldType.BROADLEAF_ENUMERATION.toString())
+                    if (fieldType.equals(SupportedFieldType.WAKA_ENUMERATION.toString())
                             || fieldType.equals(SupportedFieldType.EXPLICIT_ENUMERATION.toString())
                             || fieldType.equals(SupportedFieldType.DATA_DRIVEN_ENUMERATION.toString())
                             || fieldType.equals(SupportedFieldType.EMPTY_ENUMERATION.toString())) {
@@ -545,7 +545,6 @@ public class FormBuilderServiceImpl implements FormBuilderService {
                          .withOwningEntityClass(fmd.getOwningClass()!=null?fmd.getOwningClass():fmd.getInheritedFromType())
                          .withRequired(required)
                          .withReadOnly(fmd.getReadOnly())
-                         .withTranslatable(fmd.getTranslatable())
                          .withAlternateOrdering((Boolean) fmd.getAdditionalMetadata().get(Field.ALTERNATE_ORDERING))
                          .withLargeEntry(fmd.isLargeEntry())
                          .withHint(fmd.getHint())

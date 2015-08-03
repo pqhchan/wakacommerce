@@ -121,8 +121,7 @@ public class OfferImpl implements Offer, AdminMainEntity {
     @Column(name = "MARKETING_MESSASGE")
     @Index(name = "OFFER_MARKETING_MESSAGE_INDEX", columnNames = { "MARKETING_MESSASGE" })
     @AdminPresentation(friendlyName = "OfferImpl_marketingMessage", order = 6000,
-            group = Presentation.Group.Name.Description, groupOrder = Presentation.Group.Order.Description,
-            translatable = true)
+            group = Presentation.Group.Name.Description, groupOrder = Presentation.Group.Order.Description)
     protected String marketingMessage;
 
     @Column(name = "OFFER_TYPE", nullable=false)
@@ -130,8 +129,8 @@ public class OfferImpl implements Offer, AdminMainEntity {
     @AdminPresentation(friendlyName = "OfferImpl_Offer_Type", order = 3000, 
         group = Presentation.Group.Name.Description, groupOrder = Presentation.Group.Order.Description,
         prominent =  true, gridOrder = 3,
-        fieldType=SupportedFieldType.BROADLEAF_ENUMERATION, 
-        broadleafEnumeration="com.wakacommerce.core.offer.service.type.OfferType")
+        fieldType=SupportedFieldType.WAKA_ENUMERATION, 
+        wakaEnumeration="com.wakacommerce.core.offer.service.type.OfferType")
     protected String type;
 
     @Column(name = "OFFER_DISCOUNT_TYPE")
@@ -139,8 +138,8 @@ public class OfferImpl implements Offer, AdminMainEntity {
     @AdminPresentation(friendlyName = "OfferImpl_Offer_Discount_Type", order = 1000, 
         group = Presentation.Group.Name.Amount, groupOrder = Presentation.Group.Order.Amount,
         requiredOverride = RequiredOverride.REQUIRED,
-        fieldType=SupportedFieldType.BROADLEAF_ENUMERATION,
-        broadleafEnumeration="com.wakacommerce.core.offer.service.type.OfferDiscountType")
+        fieldType=SupportedFieldType.WAKA_ENUMERATION,
+        wakaEnumeration="com.wakacommerce.core.offer.service.type.OfferDiscountType")
     protected String discountType;
 
     @Column(name = "OFFER_VALUE", nullable=false, precision=19, scale=5)
@@ -242,16 +241,16 @@ public class OfferImpl implements Offer, AdminMainEntity {
     @AdminPresentation(friendlyName = "OfferImpl_Item_Qualifier_Rule", 
         tab = Presentation.Tab.Name.Advanced, tabOrder = Presentation.Tab.Order.Advanced,
         group = Presentation.Group.Name.Advanced, groupOrder = Presentation.Group.Order.Advanced,
-        fieldType = SupportedFieldType.BROADLEAF_ENUMERATION, tooltip = "OfferItemRestrictionRuleType_tooltip",
-        broadleafEnumeration = "com.wakacommerce.core.offer.service.type.OfferItemRestrictionRuleType")
+        fieldType = SupportedFieldType.WAKA_ENUMERATION, tooltip = "OfferItemRestrictionRuleType_tooltip",
+        wakaEnumeration = "com.wakacommerce.core.offer.service.type.OfferItemRestrictionRuleType")
     protected String offerItemQualifierRuleType;
     
     @Column(name = "OFFER_ITEM_TARGET_RULE")
     @AdminPresentation(friendlyName = "OfferImpl_Item_Target_Rule", 
         tab = Presentation.Tab.Name.Advanced, tabOrder = Presentation.Tab.Order.Advanced,
         group = Presentation.Group.Name.Advanced, groupOrder = Presentation.Group.Order.Advanced,
-        fieldType = SupportedFieldType.BROADLEAF_ENUMERATION, tooltip = "OfferItemRestrictionRuleType_tooltip",
-        broadleafEnumeration = "com.wakacommerce.core.offer.service.type.OfferItemRestrictionRuleType")
+        fieldType = SupportedFieldType.WAKA_ENUMERATION, tooltip = "OfferItemRestrictionRuleType_tooltip",
+        wakaEnumeration = "com.wakacommerce.core.offer.service.type.OfferItemRestrictionRuleType")
     protected String offerItemTargetRuleType;
     
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "offer", targetEntity = OfferQualifyingCriteriaXrefImpl.class, cascade = CascadeType.ALL)

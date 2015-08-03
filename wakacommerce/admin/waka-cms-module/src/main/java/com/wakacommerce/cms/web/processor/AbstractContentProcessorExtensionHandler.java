@@ -9,9 +9,6 @@ import com.wakacommerce.common.web.deeplink.DeepLink;
 
 import java.util.List;
 
-/**
- * Abstract implementation of {@link ContentProcessorExtensionHandler}
- */
 public abstract class AbstractContentProcessorExtensionHandler extends AbstractExtensionHandler 
         implements ContentProcessorExtensionHandler {
 

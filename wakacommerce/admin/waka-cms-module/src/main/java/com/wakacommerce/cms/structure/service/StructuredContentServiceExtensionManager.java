@@ -1,16 +1,9 @@
- 
 package com.wakacommerce.cms.structure.service;
 
 import org.springframework.stereotype.Service;
 
 import com.wakacommerce.common.extension.ExtensionManager;
 
-
-/**
- * 
- *
- *     
- */
 @Service("blStructuredContentServiceExtensionManager")
 public class StructuredContentServiceExtensionManager extends ExtensionManager<StructuredContentServiceExtensionHandler> {
 

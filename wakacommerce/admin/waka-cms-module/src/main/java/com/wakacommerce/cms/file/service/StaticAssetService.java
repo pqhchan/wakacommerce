@@ -1,17 +1,15 @@
 package com.wakacommerce.cms.file.service;
 
+import java.io.InputStream;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import com.wakacommerce.cms.file.domain.StaticAsset;
 import com.wakacommerce.common.file.service.StaticAssetPathService;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
-import java.util.Map;
-
 public interface StaticAssetService {
-
 
     public StaticAsset findStaticAssetById(Long id);
     
@@ -21,46 +19,33 @@ public interface StaticAssetService {
 
     /**
      * <p>
-     * Used when uploading a file to Broadleaf.    This method will create the corresponding 
-     * asset.   
+     * 根据上传的文件创建StaticAsset对象. 依赖于具体的实现，该资源既可能存放在数据库中，也可能
+     * 存在文件系统中. 默认的实现 {@link StaticAssetServiceImpl} 会根据系统属性<code>asset.use.filesystem.storage</code>
+     * 来判断
      * 
      * <p>
-     * Depending on the the implementation, the actual asset may be saved to the DB or to 
-     * the file system.    The default implementation {@link StaticAssetServiceImpl} has a 
-     * environment properties that determine this behavior <code>asset.use.filesystem.storage</code>
+     * properties参数可以让实现在上传文件的同时更新Asset的其它一些属性，比如指定URL
      * 
      * <p>
-     * The properties Map allows for implementors to update other Asset properties at the
-     * same time they are uploading a file.  The default implementation uses this for an optional URL to 
-     * be specified.
-     * 
-     * <p>
-     * To actually create the physical file that this asset represents see
+     * 要真正地创建一个该asset表示的物理文件可以参考
      * {@link StaticAssetStorageService#createStaticAssetStorageFromFile(MultipartFile, StaticAsset)}
      * 
      * @see StaticAssetServiceImpl
      * 
-     * @param file - the file being uploaded
-     * @param properties - additional meta-data properties
-     * @return
-     * @throws IOException
+     * @param file
+     * @param properties
      */
     public StaticAsset createStaticAssetFromFile(MultipartFile file, Map<String, String> properties);
     
     /**
      * <p>
-     * Similar to {@link #createStaticAssetFromFile(MultipartFile, Map)} except not dependent upon an uploaded file from a
-     * controller
+     * 和 {@link #createStaticAssetFromFile(MultipartFile, Map)} 类似、
      * 
-     * <p>
-     * To actually create the physical file that this asset represents see
-     * {@link StaticAssetStorageService#createStaticAssetStorage(InputStream, StaticAsset)}
+     * @param inputStream
+     * @param fileName
+     * @param fileSize
+     * @param properties
      * 
-     * @param inputStream the input stream of a file to create the asset from
-     * @param fileName the name of the file
-     * @param fileSize the size of the file, in bytes
-     * @param properties additional metadata properties
-     * @return
      */
     public StaticAsset createStaticAsset(InputStream inputStream, String fileName, long fileSize, Map<String, String> properties);
 
@@ -92,28 +77,10 @@ public interface StaticAssetService {
     @Deprecated
     public String convertAssetPath(String assetPath, String contextPath, boolean secureRequest);
 
-    /**
-     * Add an asset outside of Broadleaf Admin.  
-     * 
-     * @param staticAsset
-     * @return
-     */
     public StaticAsset addStaticAsset(StaticAsset staticAsset);
 
-    /**
-     * Update an asset outside of Broadleaf Admin.  
-     * 
-     * @param staticAsset
-     * @return
-     */
     public StaticAsset updateStaticAsset(StaticAsset staticAsset);
 
-    /**
-     * Delete an asset outside of Broadleaf Admin.  
-     * 
-     * @param staticAsset
-     * @return
-     */
     public void deleteStaticAsset(StaticAsset staticAsset);
 
 }

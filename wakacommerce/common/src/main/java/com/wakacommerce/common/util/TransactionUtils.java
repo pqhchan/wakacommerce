@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.util;
 
 import org.apache.commons.logging.Log;
@@ -8,9 +7,6 @@ import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
-/**
- * 
- */
 public class TransactionUtils {
 
     /**

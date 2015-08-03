@@ -1,18 +1,10 @@
-
-
 package com.wakacommerce.common.file.service;
 
 import java.io.IOException;
 import java.io.InputStream;
 
-
 /**
- * This class serves as a marker interface to indicate that the resource comes from a shared area of the 
- * filesystem.    It allows multi-site implementations to only generate one copy of assets that are being
- * resized.
- * 
- * 
- *
+ * 标记接口，表示资源来自于文件系统的共享区域. 允许multi-site实现在resize的时候只产生一份复本
  */
 public class GloballySharedInputStream extends InputStream {
 

@@ -93,8 +93,8 @@ public abstract class AbstractModuleConfiguration implements ModuleConfiguration
      */
     @Column(name = "CONFIG_TYPE", nullable = false)
     @AdminPresentation(friendlyName = "AbstractModuleConfiguration_Config_Type", order = 1000, gridOrder = 1,
-            prominent = true, fieldType = SupportedFieldType.BROADLEAF_ENUMERATION,
-            broadleafEnumeration = "com.wakacommerce.common.config.service.type.ModuleConfigurationType",
+            prominent = true, fieldType = SupportedFieldType.WAKA_ENUMERATION,
+            wakaEnumeration = "com.wakacommerce.common.config.service.type.ModuleConfigurationType",
             requiredOverride = RequiredOverride.NOT_REQUIRED, readOnly = true, visibility = VisibilityEnum.FORM_HIDDEN)
     protected String configType;
 

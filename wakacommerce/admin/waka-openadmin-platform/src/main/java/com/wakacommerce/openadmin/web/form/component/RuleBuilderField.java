@@ -1,12 +1,8 @@
-
 package com.wakacommerce.openadmin.web.form.component;
 
 import com.wakacommerce.openadmin.web.form.entity.Field;
 import com.wakacommerce.openadmin.web.rulebuilder.dto.DataWrapper;
 
-/**
- *  
- */
 public class RuleBuilderField extends Field {
 
     protected String fieldBuilder;

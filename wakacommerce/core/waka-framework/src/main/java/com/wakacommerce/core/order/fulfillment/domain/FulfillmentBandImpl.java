@@ -23,7 +23,7 @@ public abstract class FulfillmentBandImpl implements FulfillmentBand {
     protected BigDecimal resultAmount;
     
     @Column(name="RESULT_AMOUNT_TYPE", nullable = false)
-    @AdminPresentation(friendlyName="Result Type", fieldType=SupportedFieldType.BROADLEAF_ENUMERATION, broadleafEnumeration="com.wakacommerce.core.order.service.type.FulfillmentBandResultAmountType")
+    @AdminPresentation(friendlyName="Result Type", fieldType=SupportedFieldType.WAKA_ENUMERATION, wakaEnumeration="com.wakacommerce.core.order.service.type.FulfillmentBandResultAmountType")
     protected String resultAmountType = FulfillmentBandResultAmountType.RATE.getType();
 
     @Override

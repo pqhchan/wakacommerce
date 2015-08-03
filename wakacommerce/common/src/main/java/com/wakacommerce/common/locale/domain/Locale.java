@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.locale.domain;
 
 import java.io.Serializable;

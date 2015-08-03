@@ -1,13 +1,9 @@
-
 package com.wakacommerce.common.locale.service;
 
 import java.util.List;
 
 import com.wakacommerce.common.locale.domain.Locale;
 
-/**
- *   
- */
 public interface LocaleService {
 
     /**

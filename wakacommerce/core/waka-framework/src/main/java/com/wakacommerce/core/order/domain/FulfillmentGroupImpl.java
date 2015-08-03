@@ -166,8 +166,8 @@ public class FulfillmentGroupImpl implements FulfillmentGroup, CurrencyCodeIdent
 
     @Column(name = "TYPE")
     @AdminPresentation(friendlyName = "FulfillmentGroupImpl_FG_Type", order=Presentation.FieldOrder.TYPE,
-            fieldType=SupportedFieldType.BROADLEAF_ENUMERATION,
-            broadleafEnumeration="com.wakacommerce.core.order.service.type.FulfillmentType",
+            fieldType=SupportedFieldType.WAKA_ENUMERATION,
+            wakaEnumeration="com.wakacommerce.core.order.service.type.FulfillmentType",
             prominent = true, gridOrder = 3000)
     protected String type;
 
@@ -225,8 +225,8 @@ public class FulfillmentGroupImpl implements FulfillmentGroup, CurrencyCodeIdent
     @Column(name = "STATUS")
     @Index(name="FG_STATUS_INDEX", columnNames={"STATUS"})
     @AdminPresentation(friendlyName = "FulfillmentGroupImpl_FG_Status", order=Presentation.FieldOrder.STATUS,
-            fieldType=SupportedFieldType.BROADLEAF_ENUMERATION,
-            broadleafEnumeration="com.wakacommerce.core.order.service.type.FulfillmentGroupStatusType",
+            fieldType=SupportedFieldType.WAKA_ENUMERATION,
+            wakaEnumeration="com.wakacommerce.core.order.service.type.FulfillmentGroupStatusType",
             prominent = true, gridOrder = 4000)
     protected String status;
     

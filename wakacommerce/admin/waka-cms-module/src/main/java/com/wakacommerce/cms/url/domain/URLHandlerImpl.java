@@ -1,4 +1,3 @@
-  
 package com.wakacommerce.cms.url.domain;
 
 import org.hibernate.annotations.Cache;
@@ -22,8 +21,6 @@ import com.wakacommerce.common.presentation.client.SupportedFieldType;
 import com.wakacommerce.common.presentation.client.VisibilityEnum;
 import com.wakacommerce.common.web.Locatable;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,15 +29,11 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
-
-/**
- *priyeshpatel
- */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "BLC_URL_HANDLER")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "blStandardElements")
-@AdminPresentationClass(populateToOneFields = PopulateToOneFieldsEnum.TRUE, friendlyName = "URLHandlerImpl_friendyName")
+@AdminPresentationClass(populateToOneFields = PopulateToOneFieldsEnum.TRUE, friendlyName = "URLHandlerImpl_friendlyName")
 @DirectCopyTransform({
         @DirectCopyTransformMember(templateTokens = DirectCopyTransformTypes.SANDBOX, skipOverlaps=true),
         @DirectCopyTransformMember(templateTokens = DirectCopyTransformTypes.MULTITENANT_SITE)
@@ -60,22 +53,44 @@ public class URLHandlerImpl implements URLHandler, Locatable, AdminMainEntity, P
         }
     )
     @Column(name = "URL_HANDLER_ID")
-    @AdminPresentation(friendlyName = "URLHandlerImpl_ID", order = 1, group = "URLHandlerImpl_friendyName", groupOrder = 1, visibility = VisibilityEnum.HIDDEN_ALL)
+    @AdminPresentation(
+    		friendlyName = "URLHandlerImpl_ID", 
+    		order = 1, 
+    		group = "URLHandlerImpl_friendlyName", 
+    		groupOrder = 1, 
+    		visibility = VisibilityEnum.HIDDEN_ALL)
     protected Long id;
 
-    @AdminPresentation(friendlyName = "URLHandlerImpl_incomingURL", order = 1, group = "URLHandlerImpl_friendyName", prominent = true, groupOrder = 1,
-            helpText = "urlHandlerIncoming_help")
     @Column(name = "INCOMING_URL", nullable = false)
     @Index(name="INCOMING_URL_INDEX", columnNames={"INCOMING_URL"})
+    @AdminPresentation(
+    		friendlyName = "URLHandlerImpl_incomingURL", 
+    		order = 1, 
+    		group = "URLHandlerImpl_friendlyName", 
+    		prominent = true, 
+    		groupOrder = 1,
+    		helpText = "URLHandlerImpl_incomingURL_help")
     protected String incomingURL;
 
     @Column(name = "NEW_URL", nullable = false)
-    @AdminPresentation(friendlyName = "URLHandlerImpl_newURL", order = 1, group = "URLHandlerImpl_friendyName", prominent = true, groupOrder = 1,
-            helpText = "urlHandlerNew_help")
+    @AdminPresentation(
+    		friendlyName = "URLHandlerImpl_newURL", 
+    		order = 1, 
+    		group = "URLHandlerImpl_friendlyName", 
+    		prominent = true, 
+    		groupOrder = 1,
+            helpText = "URLHandlerImpl_newURL_help")
     protected String newURL;
 
     @Column(name = "URL_REDIRECT_TYPE")
-    @AdminPresentation(friendlyName = "URLHandlerImpl_redirectType", order = 4, group = "URLHandlerImpl_friendyName", fieldType = SupportedFieldType.BROADLEAF_ENUMERATION, broadleafEnumeration = "com.wakacommerce.cms.url.type.URLRedirectType", groupOrder = 2, prominent = true)
+    @AdminPresentation(
+    		friendlyName = "URLHandlerImpl_redirectType", 
+    		order = 4, 
+    		group = "URLHandlerImpl_friendlyName", 
+    		fieldType = SupportedFieldType.WAKA_ENUMERATION, 
+    		wakaEnumeration = "com.wakacommerce.cms.url.type.URLRedirectType", 
+    		groupOrder = 2, 
+    		prominent = true)
     protected String urlRedirectType;
 
     @Override

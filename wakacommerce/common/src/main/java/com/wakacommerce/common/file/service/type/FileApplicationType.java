@@ -1,5 +1,3 @@
-
-
 package com.wakacommerce.common.file.service.type;
 
 import java.io.Serializable;
@@ -8,22 +6,6 @@ import java.util.Map;
 
 import com.wakacommerce.common.WakaEnumType;
 
-/**
- * Any module within the BLC framework that needs to store and retrieve files from a remote storage such as
- * Rackspace CloudFiles or AmazonS3 should declare an application file type.
- * 
- * Many (or perhaps even most) implementations will just configure a provider for ALL.   Implementations that deploy to
- * a single file system may use the default FileSystemProvider and not configure anything.  
- * 
- * This enumeration is intended to provide a deployment team with the ability to make granular decisions on how files are 
- * accessed and stored.  
- * 
- * For example, Images might be stored on S3 whereas SiteMap creation might be stored on CloudFiles.   These are just
- * arbitrary examples, but the intent is to give an implementation the ability to alter the storage paradigm based
- * on cost/reliability/performance needs that might vary by file type.
- * 
- * 
- */
 public class FileApplicationType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;

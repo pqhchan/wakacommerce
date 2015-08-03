@@ -161,7 +161,7 @@ public class AddressImpl implements Address {
     @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, targetEntity = CountryImpl.class)
     @JoinColumn(name = "COUNTRY")
     @Index(name="ADDRESS_COUNTRY_INDEX", columnNames={"COUNTRY"})
-    @AdminPresentation(friendlyName = "CountryImpl_Country", order=100, group = "AddressImpl_Address", prominent = true, translatable = true)
+    @AdminPresentation(friendlyName = "CountryImpl_Country", order=100, group = "AddressImpl_Address", prominent = true)
     @Deprecated
     protected Country country;
 

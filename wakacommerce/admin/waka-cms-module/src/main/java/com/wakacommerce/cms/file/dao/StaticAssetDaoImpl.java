@@ -20,16 +20,9 @@ import org.springframework.stereotype.Repository;
 import com.wakacommerce.cms.file.domain.StaticAsset;
 import com.wakacommerce.cms.file.domain.StaticAssetImpl;
 import com.wakacommerce.common.persistence.EntityConfiguration;
-import com.wakacommerce.common.sandbox.domain.SandBox;
-import com.wakacommerce.common.sandbox.domain.SandBoxImpl;
 
 @Repository("blStaticAssetDao")
 public class StaticAssetDaoImpl implements StaticAssetDao {
-
-    private static SandBox DUMMY_SANDBOX = new SandBoxImpl();
-    {
-        DUMMY_SANDBOX.setId(-1l);
-    }
 
     @PersistenceContext(unitName = "blPU")
     protected EntityManager em;

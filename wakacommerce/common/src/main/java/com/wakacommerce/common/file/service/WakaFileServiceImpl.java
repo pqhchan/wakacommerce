@@ -1,5 +1,15 @@
-
 package com.wakacommerce.common.file.service;
+
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Random;
+
+import javax.annotation.Resource;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.FileUtils;
@@ -15,44 +25,12 @@ import com.wakacommerce.common.extension.ExtensionResultHolder;
 import com.wakacommerce.common.extension.ExtensionResultStatusType;
 import com.wakacommerce.common.file.FileServiceException;
 import com.wakacommerce.common.file.domain.FileWorkArea;
-import com.wakacommerce.common.file.service.type.FileApplicationType;
-import com.wakacommerce.common.sitemap.service.SiteMapGenerator;
 import com.wakacommerce.common.web.WakaRequestContext;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Random;
-
-import javax.annotation.Resource;
-/**
- * Many components in the Broadleaf Framework can benefit from creating and manipulating temporary files as well
- * as storing and accessing files in a remote repository (such as AmazonS3).
- * 
- * This service provides a pluggable way to provide those services via {@link FileServiceProvider} implementations.
- * 
- * This service can be used by any component that needs to write files to an area shared by multiple application servers.
- * 
- * For example usage, see {@link SiteMapGenerator}.  The Broadleaf CMS module also uses this component to load, store, and 
- * manipulate images for the file-system.   
- * 
- * Generally, the process to create a new asset in the shared file system is ...
- * 1.  Call initializeWorkArea() to get a temporary directory
- * 2.  Create files, directories, etc. using the {@link FileWorkArea#filePathLocation} as the root directory.
- * 3.  Once your file processing is complete, call {@link #addOrUpdateResources(FileWorkArea, FileApplicationType)} to
- * 4.  Call {@link #closeWorkArea()} to clear out the temporary files
- * 
- * 
- *
- */
 @Service("blFileService")
-public class BroadleafFileServiceImpl implements BroadleafFileService {
+public class WakaFileServiceImpl implements WakaFileService {
     
-    private static final Log LOG = LogFactory.getLog(BroadleafFileServiceImpl.class);
+    private static final Log LOG = LogFactory.getLog(WakaFileServiceImpl.class);
 
     @Resource(name = "blFileServiceProviders")
     protected List<FileServiceProvider> fileServiceProviders = new ArrayList<FileServiceProvider>();
@@ -71,13 +49,9 @@ public class BroadleafFileServiceImpl implements BroadleafFileService {
     @Value("${asset.server.file.classpath.directory}")
     protected String fileServiceClasspathDirectory;
 
-    @Resource(name = "blBroadleafFileServiceExtensionManager")
-    protected BroadleafFileServiceExtensionManager extensionManager;
+    @Resource(name = "blWakaFileServiceExtensionManager")
+    protected WakaFileServiceExtensionManager extensionManager;
 
-    /**
-     * Create a file work area that can be used for further operations. 
-     * @return
-     */
     @Override
     public FileWorkArea initializeWorkArea() {
         String baseDirectory = getBaseDirectory(false);
@@ -230,18 +204,6 @@ public class BroadleafFileServiceImpl implements BroadleafFileService {
         return selectFileServiceProvider().removeResource(resourceName);
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void addOrUpdateResource(FileWorkArea workArea, File file, boolean removeFilesFromWorkArea) {
-        addOrUpdateResourcesForPaths(workArea, removeFilesFromWorkArea);
-        
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public String addOrUpdateResourceForPath(FileWorkArea workArea, File file, boolean removeFilesFromWorkArea) {
         List<File> files = new ArrayList<File>();
@@ -249,14 +211,6 @@ public class BroadleafFileServiceImpl implements BroadleafFileService {
         return addOrUpdateResourcesForPaths(workArea, files, removeFilesFromWorkArea).get(0);
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void addOrUpdateResources(FileWorkArea workArea, boolean removeFilesFromWorkArea) {
-        addOrUpdateResourcesForPaths(workArea, removeFilesFromWorkArea);
-    }
-    
     @Override
     public List<String> addOrUpdateResourcesForPaths(FileWorkArea workArea, boolean removeFilesFromWorkArea) {
         File folder = new File(workArea.getFilePathLocation());
@@ -265,11 +219,6 @@ public class BroadleafFileServiceImpl implements BroadleafFileService {
         return addOrUpdateResourcesForPaths(workArea, fileList, removeFilesFromWorkArea);
     }
     
-    @Override
-    public void addOrUpdateResources(FileWorkArea workArea, List<File> files, boolean removeFilesFromWorkArea) {
-        addOrUpdateResourcesForPaths(workArea, files, removeFilesFromWorkArea);
-    }
-
     @Override
     public List<String> addOrUpdateResourcesForPaths(FileWorkArea workArea, List<File> files, boolean removeFilesFromWorkArea) {
         checkFiles(workArea, files);
@@ -280,9 +229,6 @@ public class BroadleafFileServiceImpl implements BroadleafFileService {
      * Returns the FileServiceProvider that can handle the passed in application type.
      * 
      * By default, this method returns the component configured at blFileServiceProvider
-     * 
-     * @param applicationType
-     * @return
      */
     protected FileServiceProvider selectFileServiceProvider() {
         return defaultFileServiceProvider;

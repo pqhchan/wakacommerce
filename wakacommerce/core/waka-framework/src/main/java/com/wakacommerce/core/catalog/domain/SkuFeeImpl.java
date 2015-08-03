@@ -81,7 +81,7 @@ public class SkuFeeImpl implements SkuFee {
     protected String expression;
 
     @Column(name = "FEE_TYPE")
-    @AdminPresentation(fieldType=SupportedFieldType.BROADLEAF_ENUMERATION, broadleafEnumeration="com.wakacommerce.core.catalog.service.type.SkuFeeType")
+    @AdminPresentation(fieldType=SupportedFieldType.WAKA_ENUMERATION, wakaEnumeration="com.wakacommerce.core.catalog.service.type.SkuFeeType")
     protected String feeType = SkuFeeType.FULFILLMENT.getType();
     
     @ManyToMany(fetch = FetchType.LAZY, targetEntity = SkuImpl.class)

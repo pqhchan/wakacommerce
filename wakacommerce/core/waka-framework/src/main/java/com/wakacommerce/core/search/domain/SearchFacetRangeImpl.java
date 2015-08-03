@@ -1,8 +1,23 @@
-
 package com.wakacommerce.core.search.domain;
 
+import java.io.Serializable;
+import java.math.BigDecimal;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.*;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Index;
 import org.hibernate.annotations.Parameter;
 
 import com.wakacommerce.common.copy.CreateResponse;
@@ -14,24 +29,28 @@ import com.wakacommerce.common.presentation.AdminPresentation;
 import com.wakacommerce.common.presentation.AdminPresentationClass;
 import com.wakacommerce.common.presentation.PopulateToOneFieldsEnum;
 import com.wakacommerce.common.presentation.client.VisibilityEnum;
-import com.wakacommerce.common.presentation.override.AdminPresentationOverride;
-import com.wakacommerce.common.presentation.override.AdminPresentationOverrides;
-
-import javax.persistence.CascadeType;
-import javax.persistence.*;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import java.io.Serializable;
-import java.math.BigDecimal;
+import com.wakacommerce.common.presentation.override.AdminPresentationMergeEntry;
+import com.wakacommerce.common.presentation.override.AdminPresentationMergeOverride;
+import com.wakacommerce.common.presentation.override.AdminPresentationMergeOverrides;
+import com.wakacommerce.common.presentation.override.PropertyType;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "BLC_SEARCH_FACET_RANGE")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "blStandardElements")
 @AdminPresentationClass(populateToOneFields = PopulateToOneFieldsEnum.TRUE)
-@AdminPresentationOverrides({
-        @AdminPresentationOverride(name = "priceList.friendlyName", value = @AdminPresentation(excluded = false, friendlyName = "PriceListImpl_Friendly_Name", order=1, group = "SearchFacetRangeImpl_Description", prominent=true, visibility = VisibilityEnum.FORM_HIDDEN))
-})
+@AdminPresentationMergeOverrides(
+    {
+        @AdminPresentationMergeOverride(name = "priceList.friendlyName", mergeEntries = {
+            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.EXCLUDED, booleanOverrideValue = false),
+            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.FRIENDLYNAME, overrideValue="PriceListImpl_Friendly_Name"),
+            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.ORDER, intOverrideValue=1),
+            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.GROUP, overrideValue="SearchFacetRangeImpl_Description"),
+            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.PROMINENT, booleanOverrideValue=true),
+            @AdminPresentationMergeEntry(propertyType = PropertyType.AdminPresentation.VISIBILITY, overrideValue="FORM_HIDDEN"),
+        })
+    }
+)
 @DirectCopyTransform({
         @DirectCopyTransformMember(templateTokens = DirectCopyTransformTypes.SANDBOX, skipOverlaps=true),
         @DirectCopyTransformMember(templateTokens = DirectCopyTransformTypes.MULTITENANT_CATALOG)

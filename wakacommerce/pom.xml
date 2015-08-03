@@ -748,7 +748,7 @@
                         <!-- problem by excluding the jdk.tools dependency. -->
 
                         <!-- Relevant output from mvn dependency:tree follows -->
-                        <!-- +- org.broadleafcommerce:broadleaf-framework:jar:{version}:compile -->
+                        <!-- +- com.wakacommerce:waka-framework:jar:{version}:compile -->
                         <!--    +- org.apache.solr:solr-core:jar:4.4.0:compile -->
                         <!--        +- org.apache.hadoop:hadoop-annotations:jar:2.0.5-alpha:compile -->
                         <!--            \- jdk.tools:jdk.tools:jar:1.6:system -->

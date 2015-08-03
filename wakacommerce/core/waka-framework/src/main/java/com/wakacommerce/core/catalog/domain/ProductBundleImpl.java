@@ -33,8 +33,8 @@ public class ProductBundleImpl extends ProductImpl implements ProductBundle {
             group = ProductImpl.Presentation.Group.Name.Price,
             order = 1,
         helpText = "productBundlePricingModelHelp", 
-        fieldType = SupportedFieldType.BROADLEAF_ENUMERATION, 
-        broadleafEnumeration = "com.wakacommerce.core.catalog.service.type.ProductBundlePricingModelType",
+        fieldType = SupportedFieldType.WAKA_ENUMERATION, 
+        wakaEnumeration = "com.wakacommerce.core.catalog.service.type.ProductBundlePricingModelType",
         requiredOverride = RequiredOverride.REQUIRED)
     protected String pricingModel;
 

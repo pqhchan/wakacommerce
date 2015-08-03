@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common;
 
 import java.util.Calendar;
@@ -18,19 +17,19 @@ public class TimeDTO {
     @AdminPresentation(excluded = true)
     private Calendar cal;
 
-    @AdminPresentation(friendlyName = "TimeDTO_Hour_Of_Day", fieldType = SupportedFieldType.BROADLEAF_ENUMERATION, broadleafEnumeration = "com.wakacommerce.common.time.HourOfDayType")
+    @AdminPresentation(friendlyName = "TimeDTO_Hour_Of_Day", fieldType = SupportedFieldType.WAKA_ENUMERATION, wakaEnumeration = "com.wakacommerce.common.time.HourOfDayType")
     private Integer hour;
 
-    @AdminPresentation(friendlyName = "TimeDTO_Day_Of_Week", fieldType = SupportedFieldType.BROADLEAF_ENUMERATION, broadleafEnumeration = "com.wakacommerce.common.time.DayOfWeekType")
+    @AdminPresentation(friendlyName = "TimeDTO_Day_Of_Week", fieldType = SupportedFieldType.WAKA_ENUMERATION, wakaEnumeration = "com.wakacommerce.common.time.DayOfWeekType")
     private Integer dayOfWeek;
 
-    @AdminPresentation(friendlyName = "TimeDTO_Month", fieldType = SupportedFieldType.BROADLEAF_ENUMERATION, broadleafEnumeration = "com.wakacommerce.common.time.MonthType")
+    @AdminPresentation(friendlyName = "TimeDTO_Month", fieldType = SupportedFieldType.WAKA_ENUMERATION, wakaEnumeration = "com.wakacommerce.common.time.MonthType")
     private Integer month;
 
-    @AdminPresentation(friendlyName = "TimeDTO_Day_Of_Month", fieldType = SupportedFieldType.BROADLEAF_ENUMERATION, broadleafEnumeration = "com.wakacommerce.common.time.DayOfMonthType")
+    @AdminPresentation(friendlyName = "TimeDTO_Day_Of_Month", fieldType = SupportedFieldType.WAKA_ENUMERATION, wakaEnumeration = "com.wakacommerce.common.time.DayOfMonthType")
     private Integer dayOfMonth;
 
-    @AdminPresentation(friendlyName = "TimeDTO_Minute", fieldType = SupportedFieldType.BROADLEAF_ENUMERATION, broadleafEnumeration = "com.wakacommerce.common.time.MinuteType")
+    @AdminPresentation(friendlyName = "TimeDTO_Minute", fieldType = SupportedFieldType.WAKA_ENUMERATION, wakaEnumeration = "com.wakacommerce.common.time.MinuteType")
     private Integer minute;
 
     @AdminPresentation(friendlyName = "TimeDTO_Date")

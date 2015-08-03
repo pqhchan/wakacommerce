@@ -1,4 +1,3 @@
-  
 package com.wakacommerce.openadmin.server.dao.provider.metadata;
 
 import org.springframework.stereotype.Component;
@@ -18,11 +17,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-/**
- * 
- *
- *     
- */
 @Component("blBroadleafEnumerationUtility")
 public class BroadleafEnumerationUtility {
 

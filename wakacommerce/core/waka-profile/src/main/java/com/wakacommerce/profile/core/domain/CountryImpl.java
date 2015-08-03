@@ -30,7 +30,7 @@ public class CountryImpl implements Country, AdminMainEntity {
     protected String abbreviation;
 
     @Column(name = "NAME", nullable=false)
-    @AdminPresentation(friendlyName = "CountryImpl_Country", order=12, group = "CountryImpl_Address", prominent = true, translatable = true)
+    @AdminPresentation(friendlyName = "CountryImpl_Country", order=12, group = "CountryImpl_Address", prominent = true)
     protected String name;
 
     public String getAbbreviation() {

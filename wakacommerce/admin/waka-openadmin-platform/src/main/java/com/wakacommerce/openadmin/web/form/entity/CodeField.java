@@ -1,11 +1,5 @@
-
 package com.wakacommerce.openadmin.web.form.entity;
 
-
-
-/**
- * 
- */
 public class CodeField extends Field {
 
     protected String fileType;

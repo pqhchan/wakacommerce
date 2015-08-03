@@ -137,7 +137,7 @@ public class FulfillmentGroupFieldServiceImpl  extends AbstractRuleBuilderFieldS
                 .name("type")
                 .operators("blcOperators_Enumeration")
                 .options("blcOptions_FulfillmentType")
-                .type(SupportedFieldType.BROADLEAF_ENUMERATION)
+                .type(SupportedFieldType.WAKA_ENUMERATION)
                 .build());
         fields.add(new FieldData.Builder()
                 .label("rule_fulfillmentGroupMerchandiseTotal")

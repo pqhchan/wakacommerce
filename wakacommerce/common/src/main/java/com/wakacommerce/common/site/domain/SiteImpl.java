@@ -78,8 +78,8 @@ public class SiteImpl implements Site, AdminMainEntity {
     @Column (name = "SITE_IDENTIFIER_TYPE")
     @AdminPresentation(friendlyName = "SiteImpl_Site_Identifier_Type", order = 2000,
             gridOrder = 2, prominent = true,
-            broadleafEnumeration = "com.wakacommerce.common.site.service.type.SiteResolutionType", requiredOverride=RequiredOverride.REQUIRED,
-            fieldType = SupportedFieldType.BROADLEAF_ENUMERATION)
+            wakaEnumeration = "com.wakacommerce.common.site.service.type.SiteResolutionType", requiredOverride=RequiredOverride.REQUIRED,
+            fieldType = SupportedFieldType.WAKA_ENUMERATION)
     protected String siteIdentifierType;
 
     @Column (name = "SITE_IDENTIFIER_VALUE")
