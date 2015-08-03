@@ -69,7 +69,7 @@ public interface StructuredContentService {
 
      * @see com.wakacommerce.cms.web.structure.DisplayContentTag
      */
-    List<StructuredContentDTO> lookupStructuredContentItemsByType(StructuredContentType contentType, Locale locale, Integer count, Map<String,Object> ruleDTOs, boolean secure);
+    List<StructuredContentDTO> lookupStructuredContentItemsByType(StructuredContentType contentType, Integer count, Map<String,Object> ruleDTOs, boolean secure);
 
     /**
      * This method returns content by name only.
@@ -91,7 +91,7 @@ public interface StructuredContentService {
      * @return - The matching items
      * @see com.wakacommerce.cms.web.structure.DisplayContentTag
      */
-    List<StructuredContentDTO> lookupStructuredContentItemsByName(String contentName, Locale locale, Integer count, Map<String,Object> ruleDTOs, boolean secure);
+    List<StructuredContentDTO> lookupStructuredContentItemsByName(String contentName, Integer count, Map<String,Object> ruleDTOs, boolean secure);
 
 
 
@@ -116,7 +116,7 @@ public interface StructuredContentService {
      * @return - The matching items
      * @see com.wakacommerce.cms.web.structure.DisplayContentTag
      */
-    List<StructuredContentDTO> lookupStructuredContentItemsByName(StructuredContentType contentType, String contentName, Locale locale, Integer count, Map<String,Object> ruleDTOs, boolean secure);
+    List<StructuredContentDTO> lookupStructuredContentItemsByName(StructuredContentType contentType, String contentName, Integer count, Map<String,Object> ruleDTOs, boolean secure);
 
     Locale findLanguageOnlyLocale(Locale locale);
 

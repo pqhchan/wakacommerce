@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 
 import com.wakacommerce.common.extension.ExtensionResultHolder;
 import com.wakacommerce.common.extension.ExtensionResultStatusType;
-import com.wakacommerce.common.file.FileServiceException;
 import com.wakacommerce.common.file.domain.FileWorkArea;
+import com.wakacommerce.common.file.exception.FileServiceException;
 import com.wakacommerce.common.file.service.type.FileApplicationType;
 import com.wakacommerce.common.site.domain.Site;
 import com.wakacommerce.common.web.WakaRequestContext;

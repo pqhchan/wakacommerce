@@ -1,10 +1,9 @@
 package com.wakacommerce.cms.structure.dao;
 
+import java.util.List;
+
 import com.wakacommerce.cms.structure.domain.StructuredContent;
 import com.wakacommerce.cms.structure.domain.StructuredContentType;
-import com.wakacommerce.common.locale.domain.Locale;
-
-import java.util.List;
 
 public interface StructuredContentDao {
 
@@ -58,16 +57,6 @@ public interface StructuredContentDao {
     public StructuredContentType saveStructuredContentType(StructuredContentType type);
 
     /**
-     * Pass through function for backwards compatibility to get a list of structured content.
-     *
-     * @param type of content to search for
-     * @param locale to restrict the search to
-     * @return a list of all matching content
-     * @see com.wakacommerce.cms.web.structure.DisplayContentTag
-     */
-    public List<StructuredContent> findActiveStructuredContentByType(StructuredContentType type, Locale locale);
-
-    /**
      * Called by the <code>DisplayContentTag</code> to locate content based
      * on the current SandBox, StructuredContentType, fullLocale and/or languageOnlyLocale.
      *
@@ -77,18 +66,7 @@ public interface StructuredContentDao {
      * @return a list of all matching content
      * @see com.wakacommerce.cms.web.structure.DisplayContentTag
      */
-    public List<StructuredContent> findActiveStructuredContentByType(StructuredContentType type, Locale fullLocale, Locale languageOnlyLocale);
-
-    /**
-     * Pass through function for backwards compatibility to get a list of structured content.
-     *
-     * @param sandBox
-     * @param type
-     * @param name
-     * @param locale
-     * @return
-     */
-    public List<StructuredContent> findActiveStructuredContentByNameAndType(StructuredContentType type, String name, Locale locale);
+    public List<StructuredContent> findActiveStructuredContentByType(StructuredContentType type);
 
     /**
      * Called by the <code>DisplayContentTag</code> to locate content based
@@ -97,21 +75,9 @@ public interface StructuredContentDao {
      * @param sandBox
      * @param type
      * @param name
-     * @param fullLocale
-     * @param languageOnlyLocale
      * @return
      */
-    public List<StructuredContent> findActiveStructuredContentByNameAndType(StructuredContentType type, String name, Locale fullLocale, Locale languageOnlyLocale);
-
-    /**
-     * Pass through function for backwards compatibility to get a list of structured content.
-     *
-     * @param sandBox
-     * @param name
-     * @param locale
-     * @return
-     */
-    public List<StructuredContent> findActiveStructuredContentByName(String name, Locale locale);
+    public List<StructuredContent> findActiveStructuredContentByNameAndType(StructuredContentType type, String name);
 
     /**
      * Called by the <code>DisplayContentTag</code> to locate content based
@@ -119,11 +85,9 @@ public interface StructuredContentDao {
      *
      * @param sandBox
      * @param name
-     * @param fullLocale
-     * @param languageOnlyLocale
      * @return
      */
-    public List<StructuredContent> findActiveStructuredContentByName(String name, Locale fullLocale, Locale languageOnlyLocale);
+    public List<StructuredContent> findActiveStructuredContentByName(String name);
 
 
     /**

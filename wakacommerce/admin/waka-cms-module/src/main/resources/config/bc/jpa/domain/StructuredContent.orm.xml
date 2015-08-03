@@ -20,7 +20,6 @@
         <query>SELECT structuredContent
                FROM com.wakacommerce.cms.structure.domain.StructuredContent structuredContent
                WHERE structuredContent.structuredContentType = :contentType AND
-                     (structuredContent.locale = :fullLocale OR structuredContent.locale = :languageOnlyLocale ) AND
                      structuredContent.contentName = :contentName AND
                      structuredContent.offlineFlag = false
                ORDER BY structuredContent.priority
@@ -31,7 +30,6 @@
         <query>SELECT structuredContent
                FROM com.wakacommerce.cms.structure.domain.StructuredContent structuredContent
                WHERE structuredContent.structuredContentType = :contentType AND
-                     (structuredContent.locale = :fullLocale OR structuredContent.locale = :languageOnlyLocale ) AND
                      structuredContent.offlineFlag = false
                ORDER BY structuredContent.priority
         </query>
@@ -40,8 +38,7 @@
     <named-query name="BC_ACTIVE_STRUCTURED_CONTENT_BY_NAME" >
         <query>SELECT structuredContent
                   FROM com.wakacommerce.cms.structure.domain.StructuredContent structuredContent
-                  WHERE (structuredContent.locale = :fullLocale OR structuredContent.locale = :languageOnlyLocale ) AND
-                        structuredContent.contentName = :contentName AND
+                  WHERE structuredContent.contentName = :contentName AND
                         structuredContent.offlineFlag = false
                   ORDER BY structuredContent.priority
         </query>

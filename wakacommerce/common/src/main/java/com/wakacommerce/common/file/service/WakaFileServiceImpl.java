@@ -23,8 +23,8 @@ import org.springframework.stereotype.Service;
 
 import com.wakacommerce.common.extension.ExtensionResultHolder;
 import com.wakacommerce.common.extension.ExtensionResultStatusType;
-import com.wakacommerce.common.file.FileServiceException;
 import com.wakacommerce.common.file.domain.FileWorkArea;
+import com.wakacommerce.common.file.exception.FileServiceException;
 import com.wakacommerce.common.web.WakaRequestContext;
 
 @Service("blFileService")
@@ -73,11 +73,6 @@ public class WakaFileServiceImpl implements WakaFileService {
         return fw;
     }
 
-    /**
-     * Closes the passed in work area.   This method will delete the work area (typically a directory on the file
-     * system and all items it encloses).
-     * @param Work Area
-     */
     @Override
     public void closeWorkArea(FileWorkArea fwArea) {
         File tempDirectory = new File(fwArea.getFilePathLocation());
@@ -104,7 +99,8 @@ public class WakaFileServiceImpl implements WakaFileService {
     }
 
     protected File getLocalResource(String resourceName, boolean skipSite) {
-        if (skipSite) {
+    	//TODO 实现逻辑貌似有问题，回头修正
+    	if (skipSite) {
             String baseDirectory = getBaseDirectory(skipSite);
             // convert the separators to the system this is currently run on
             String systemResourcePath = FilenameUtils.separatorsToSystem(resourceName);
@@ -196,9 +192,6 @@ public class WakaFileServiceImpl implements WakaFileService {
         return null;
     }
 
-    /**
-     * Removes the resource matching the passed in file name from the FileProvider
-     */
     @Override
     public boolean removeResource(String resourceName) {
         return selectFileServiceProvider().removeResource(resourceName);
@@ -247,11 +240,6 @@ public class WakaFileServiceImpl implements WakaFileService {
         }
     }
 
-    /**
-     * Returns the baseDirectory for writing and reading files as the property assetFileSystemPath if it
-     * exists or java.tmp.io if that property has not been set.   
-     * 
-     */
     protected String getBaseDirectory(boolean skipSite) {
         String path = "";
         if (StringUtils.isBlank(tempFileSystemBaseDirectory)) {
@@ -274,15 +262,10 @@ public class WakaFileServiceImpl implements WakaFileService {
         return path;
     }
 
-    /**
-     * Returns a directory that is unique for this work area. 
-     *   
-     */
     protected String getTempDirectory(String baseDirectory) {
         assert baseDirectory != null;
 
         Random random = new Random();
-
         // This code is used to ensure that we don't have thousands of sub-directories in a single parent directory.
         for (int i = 0; i < maxGeneratedDirectoryDepth; i++) {
             if (i == 4) {
@@ -290,7 +273,6 @@ public class WakaFileServiceImpl implements WakaFileService {
                         maxGeneratedDirectoryDepth);
                 break;
             }
-            // check next int value
             int num = random.nextInt(256);
             baseDirectory = FilenameUtils.concat(baseDirectory, Integer.toHexString(num));
         }

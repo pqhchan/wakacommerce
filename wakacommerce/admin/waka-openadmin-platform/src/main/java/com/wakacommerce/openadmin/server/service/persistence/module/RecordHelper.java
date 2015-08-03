@@ -93,7 +93,7 @@ public interface RecordHelper extends DataFormatProvider {
      * @param entity the instance that is attempted to be saved from. Implementers should set {@link Entity#isValidationFailure()}
      * accordingly as a result of the validation
      * @param populatedInstance
-     * @param mergedProperties TODO
+     * @param mergedProperties
      * @param validateUnsubmittedProperties if set to true, will ignore validation for properties that weren't submitted
      *                                      along with the entity
      * @return whether or not the entity passed validation. This yields the same result as calling !{@link Entity#isValidationFailure()}

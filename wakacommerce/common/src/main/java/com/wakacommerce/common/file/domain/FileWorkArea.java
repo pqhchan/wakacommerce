@@ -3,7 +3,7 @@ package com.wakacommerce.common.file.domain;
 import java.io.File;
 
 /**
- * 文件系统上的一个临时工作区域
+ * 临时工作区域
  */
 public class FileWorkArea {
 

@@ -1,5 +1,15 @@
 package com.wakacommerce.cms.structure.service;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Element;
@@ -36,16 +46,6 @@ import com.wakacommerce.common.structure.dto.ItemCriteriaDTO;
 import com.wakacommerce.common.structure.dto.StructuredContentDTO;
 import com.wakacommerce.common.util.FormatUtil;
 import com.wakacommerce.common.web.WakaRequestContext;
-
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.Resource;
 
 @Service("blStructuredContentService")
 public class StructuredContentServiceImpl implements StructuredContentService {
@@ -212,11 +212,9 @@ public class StructuredContentServiceImpl implements StructuredContentService {
 
     @Override
     public List<StructuredContentDTO> lookupStructuredContentItemsByType(
-    		StructuredContentType contentType, Locale locale,
-            Integer count, Map<String, Object> ruleDTOs, boolean secure) {
+    		StructuredContentType contentType, Integer count, Map<String, Object> ruleDTOs, boolean secure) {
     	
         List<StructuredContentDTO> contentDTOList = null;
-        Locale languageOnlyLocale = findLanguageOnlyLocale(locale);
         WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
         Long site = context.getNonPersistentSite() == null?null:context.getNonPersistentSite().getId();
         String cacheKey = buildTypeKey(context.getSandBox(), site, contentType.getName());
@@ -225,8 +223,7 @@ public class StructuredContentServiceImpl implements StructuredContentService {
             contentDTOList = getStructuredContentListFromCache(cacheKey);
         }
         if (contentDTOList == null) {
-            List<StructuredContent> contentList = structuredContentDao.findActiveStructuredContentByType(contentType,
-                    locale, languageOnlyLocale);
+            List<StructuredContent> contentList = structuredContentDao.findActiveStructuredContentByType(contentType);
             contentDTOList = buildStructuredContentDTOList(contentList, secure);
             if (context.isProductionSandBox()) {
                 addStructuredContentListToCache(cacheKey, contentDTOList);
@@ -237,11 +234,10 @@ public class StructuredContentServiceImpl implements StructuredContentService {
     }
 
     @Override
-    public List<StructuredContentDTO> lookupStructuredContentItemsByName(StructuredContentType contentType,
-                                                            String contentName, com.wakacommerce.common.locale.domain.Locale locale,
-                                                            Integer count, Map<String, Object> ruleDTOs, boolean secure) {
-        List<StructuredContentDTO> contentDTOList = null;
-        Locale languageOnlyLocale = findLanguageOnlyLocale(locale);
+    public List<StructuredContentDTO> lookupStructuredContentItemsByName(
+    		StructuredContentType contentType, String contentName, Integer count, Map<String, Object> ruleDTOs, boolean secure) {
+        
+    	List<StructuredContentDTO> contentDTOList = null;
         WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
         Long site = context.getNonPersistentSite() == null?null:context.getNonPersistentSite().getId();
         String cacheKey = buildNameKey(context.getSandBox(), site, contentType.getName(), contentName);
@@ -251,7 +247,7 @@ public class StructuredContentServiceImpl implements StructuredContentService {
         }
         if (contentDTOList == null) {
             List<StructuredContent> productionContentList = structuredContentDao.findActiveStructuredContentByNameAndType(
-                    contentType, contentName, locale, languageOnlyLocale);
+                    contentType, contentName);
             contentDTOList = buildStructuredContentDTOList(productionContentList, secure);
             if (context.isProductionSandBox()) {
                 addStructuredContentListToCache(cacheKey, contentDTOList);
@@ -287,11 +283,10 @@ public class StructuredContentServiceImpl implements StructuredContentService {
     }
 
     @Override
-    public List<StructuredContentDTO> lookupStructuredContentItemsByName(String contentName,
-                                                             com.wakacommerce.common.locale.domain.Locale locale,
-                                                             Integer count, Map<String, Object> ruleDTOs, boolean secure) {
+    public List<StructuredContentDTO> lookupStructuredContentItemsByName(
+    		String contentName, Integer count, Map<String, Object> ruleDTOs, boolean secure) {
+    	
         List<StructuredContentDTO> contentDTOList = null;
-        Locale languageOnlyLocale = findLanguageOnlyLocale(locale);
         WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
         Long site = context.getNonPersistentSite() == null?null:context.getNonPersistentSite().getId();
         String cacheKey = buildNameKey(context.getSandBox(), site, "any", contentName);
@@ -300,7 +295,7 @@ public class StructuredContentServiceImpl implements StructuredContentService {
             contentDTOList = getStructuredContentListFromCache(cacheKey);
         }
         if (contentDTOList == null) {
-            List<StructuredContent> productionContentList = structuredContentDao.findActiveStructuredContentByName(contentName, locale, languageOnlyLocale);
+            List<StructuredContent> productionContentList = structuredContentDao.findActiveStructuredContentByName(contentName);
             contentDTOList = buildStructuredContentDTOList(productionContentList, secure);
             if (context.isProductionSandBox()) {
                 addStructuredContentListToCache(cacheKey, contentDTOList);

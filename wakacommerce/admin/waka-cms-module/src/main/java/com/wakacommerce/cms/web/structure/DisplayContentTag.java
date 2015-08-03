@@ -133,12 +133,12 @@ public class DisplayContentTag extends BodyTagSupport {
         int cnt = (count == null) ? Integer.MAX_VALUE : count;
 
         if (structuredContentType == null) {
-            contentItems = structuredContentService.lookupStructuredContentItemsByName(contentName, locale, cnt, mvelParameters, isSecure(request));
+            contentItems = structuredContentService.lookupStructuredContentItemsByName(contentName, cnt, mvelParameters, isSecure(request));
         } else {
             if (contentName == null || "".equals(contentName)) {
-                contentItems = structuredContentService.lookupStructuredContentItemsByType(structuredContentType, locale, cnt, mvelParameters, isSecure(request));
+                contentItems = structuredContentService.lookupStructuredContentItemsByType(structuredContentType, cnt, mvelParameters, isSecure(request));
             } else {
-                contentItems = structuredContentService.lookupStructuredContentItemsByName(structuredContentType, contentName, locale, cnt, mvelParameters, isSecure(request));
+                contentItems = structuredContentService.lookupStructuredContentItemsByName(structuredContentType, contentName, cnt, mvelParameters, isSecure(request));
             }
         }
                 

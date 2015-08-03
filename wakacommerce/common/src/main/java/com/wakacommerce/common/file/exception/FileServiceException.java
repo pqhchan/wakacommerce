@@ -1,4 +1,4 @@
-package com.wakacommerce.common.file;
+package com.wakacommerce.common.file.exception;
 
 public class FileServiceException extends RuntimeException {
 

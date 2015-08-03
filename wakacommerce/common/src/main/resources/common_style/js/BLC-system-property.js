@@ -1,4 +1,3 @@
-
 (function($, BLC) {
     
     BLC.systemProperty = {

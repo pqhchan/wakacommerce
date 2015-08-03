@@ -1,23 +1,9 @@
 package com.wakacommerce.cms.structure.dao;
 
-import org.hibernate.ejb.QueryHints;
-import org.springframework.stereotype.Repository;
-
-import com.wakacommerce.cms.structure.domain.StructuredContent;
-import com.wakacommerce.cms.structure.domain.StructuredContentImpl;
-import com.wakacommerce.cms.structure.domain.StructuredContentType;
-import com.wakacommerce.cms.structure.domain.StructuredContentTypeImpl;
-import com.wakacommerce.common.locale.domain.Locale;
-import com.wakacommerce.common.persistence.EntityConfiguration;
-import com.wakacommerce.common.sandbox.domain.SandBox;
-import com.wakacommerce.common.sandbox.domain.SandBoxImpl;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
@@ -25,13 +11,17 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+import org.hibernate.ejb.QueryHints;
+import org.springframework.stereotype.Repository;
+
+import com.wakacommerce.cms.structure.domain.StructuredContent;
+import com.wakacommerce.cms.structure.domain.StructuredContentImpl;
+import com.wakacommerce.cms.structure.domain.StructuredContentType;
+import com.wakacommerce.cms.structure.domain.StructuredContentTypeImpl;
+import com.wakacommerce.common.persistence.EntityConfiguration;
+
 @Repository("blStructuredContentDao")
 public class StructuredContentDaoImpl implements StructuredContentDao {
-
-    private static SandBox DUMMY_SANDBOX = new SandBoxImpl();
-    {
-        DUMMY_SANDBOX.setId(-1l);
-    }
 
     @PersistenceContext(unitName = "blPU")
     protected EntityManager em;
@@ -87,63 +77,32 @@ public class StructuredContentDaoImpl implements StructuredContentDao {
         return em.merge(type);
     }
 
-    @Override
-    public List<StructuredContent> findActiveStructuredContentByType(StructuredContentType type, Locale locale) {
-        return findActiveStructuredContentByType(type, locale, null);
-    }
-
-    @Override
-    public List<StructuredContent> findActiveStructuredContentByType(StructuredContentType type, Locale fullLocale, Locale languageOnlyLocale) {
-        String queryName = "BC_ACTIVE_STRUCTURED_CONTENT_BY_TYPE";
-        if (languageOnlyLocale == null)  {
-            languageOnlyLocale = fullLocale;
-        }
-
-        Query query = em.createNamedQuery(queryName);
+    @SuppressWarnings("unchecked")
+	@Override
+    public List<StructuredContent> findActiveStructuredContentByType(StructuredContentType type) {
+        Query query = em.createNamedQuery("BC_ACTIVE_STRUCTURED_CONTENT_BY_TYPE");
         query.setParameter("contentType", type);
-        query.setParameter("fullLocale", fullLocale);
-        query.setParameter("languageOnlyLocale", languageOnlyLocale);
         query.setHint(QueryHints.HINT_CACHEABLE, true);
 
         return query.getResultList();
     }
 
-    @Override
-    public List<StructuredContent> findActiveStructuredContentByNameAndType(StructuredContentType type, String name, Locale locale) {
-        return findActiveStructuredContentByNameAndType(type, name, locale, null);
-    }
-
-    @Override
-    public List<StructuredContent> findActiveStructuredContentByNameAndType(StructuredContentType type, String name, Locale fullLocale, Locale languageOnlyLocale) {
-        if (languageOnlyLocale == null)  {
-            languageOnlyLocale = fullLocale;
-        }
+    @SuppressWarnings("unchecked")
+	@Override
+    public List<StructuredContent> findActiveStructuredContentByNameAndType(StructuredContentType type, String name) {
         final Query query = em.createNamedQuery("BC_ACTIVE_STRUCTURED_CONTENT_BY_TYPE_AND_NAME");
         query.setParameter("contentType", type);
         query.setParameter("contentName", name);
-        query.setParameter("fullLocale", fullLocale);
-        query.setParameter("languageOnlyLocale", languageOnlyLocale);
         query.setHint(QueryHints.HINT_CACHEABLE, true);
 
         return query.getResultList();
     }
 
-    @Override
-    public List<StructuredContent> findActiveStructuredContentByName(String name, Locale locale) {
-        return findActiveStructuredContentByName(name, locale, null);
-    }
-
-    @Override
-    public List<StructuredContent> findActiveStructuredContentByName(String name, Locale fullLocale, Locale languageOnlyLocale) {
-        String queryName = "BC_ACTIVE_STRUCTURED_CONTENT_BY_NAME";
-        if (languageOnlyLocale == null)  {
-            languageOnlyLocale = fullLocale;
-        }
-
-        Query query = em.createNamedQuery(queryName);
+    @SuppressWarnings("unchecked")
+	@Override
+    public List<StructuredContent> findActiveStructuredContentByName(String name) {
+        Query query = em.createNamedQuery("BC_ACTIVE_STRUCTURED_CONTENT_BY_NAME");
         query.setParameter("contentName", name);
-        query.setParameter("fullLocale", fullLocale);
-        query.setParameter("languageOnlyLocale", languageOnlyLocale);
         query.setHint(QueryHints.HINT_CACHEABLE, true);
 
         return query.getResultList();
@@ -155,7 +114,8 @@ public class StructuredContentDaoImpl implements StructuredContentDao {
         query.setParameter("name",name);
         query.setHint(QueryHints.HINT_CACHEABLE, true);
 
-        List<StructuredContentType> results = query.getResultList();
+        @SuppressWarnings("unchecked")
+		List<StructuredContentType> results = query.getResultList();
         if (results.size() > 0) {
             return results.get(0);
         } else {

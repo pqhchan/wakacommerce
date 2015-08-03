@@ -1,6 +1,5 @@
 package com.wakacommerce.common.web.resource.resolver;
 
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.core.Ordered;
@@ -26,7 +25,6 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * A {@link ResourceResolver} that replaces system properties in BLC-system-property.js 
- * 
  */
 @Component("blSystemPropertyJSResolver")
 public class BLCSystemPropertyResourceResolver extends AbstractResourceResolver implements Ordered {

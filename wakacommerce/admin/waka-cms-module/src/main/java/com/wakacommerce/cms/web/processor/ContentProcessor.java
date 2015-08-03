@@ -157,8 +157,6 @@ public class ContentProcessor extends AbstractModelVariableModifierProcessor {
             structuredContentType = structuredContentService.findStructuredContentTypeByName(contentType);
         }
 
-        Locale locale = blcContext.getLocale();
-            
         contentItems = getContentItems(
         		contentName, 
         		maxResults, 
@@ -166,7 +164,6 @@ public class ContentProcessor extends AbstractModelVariableModifierProcessor {
         		mvelParameters, 
         		currentSandbox, 
         		structuredContentType, 
-        		locale, 
         		arguments, 
         		element
         );
@@ -252,7 +249,6 @@ public class ContentProcessor extends AbstractModelVariableModifierProcessor {
      * @param request servlet request
      * @param mvelParameters values that should be considered when filtering the content list by rules
      * @param structuredContentType the type of content that should be returned
-     * @param locale current locale
      * @param arguments Thymeleaf Arguments passed into the tag
      * @param element element context that this Thymeleaf processor is being executed in
      * @return
@@ -264,18 +260,17 @@ public class ContentProcessor extends AbstractModelVariableModifierProcessor {
             Map<String, Object> mvelParameters,
             SandBox currentSandbox,
             StructuredContentType structuredContentType,
-            Locale locale, 
             Arguments arguments, 
             Element element) {
         
     	List<StructuredContentDTO> contentItems;
         if (structuredContentType == null) {
-            contentItems = structuredContentService.lookupStructuredContentItemsByName(contentName, locale, maxResults, mvelParameters, isSecure(request));
+            contentItems = structuredContentService.lookupStructuredContentItemsByName(contentName, maxResults, mvelParameters, isSecure(request));
         } else {
             if (contentName == null || "".equals(contentName)) {
-                contentItems = structuredContentService.lookupStructuredContentItemsByType(structuredContentType, locale, maxResults, mvelParameters, isSecure(request));
+                contentItems = structuredContentService.lookupStructuredContentItemsByType(structuredContentType, maxResults, mvelParameters, isSecure(request));
             } else {
-                contentItems = structuredContentService.lookupStructuredContentItemsByName(structuredContentType, contentName, locale, maxResults, mvelParameters, isSecure(request));
+                contentItems = structuredContentService.lookupStructuredContentItemsByName(structuredContentType, contentName, maxResults, mvelParameters, isSecure(request));
             }
         }
 

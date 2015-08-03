@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.resource.service;
 
 import org.apache.commons.collections4.CollectionUtils;
@@ -45,8 +44,6 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * @see ResourceBundlingService
- * 
- *   ( )
  */
 @Service("blResourceBundlingService")
 public class ResourceBundlingServiceImpl implements ResourceBundlingService {

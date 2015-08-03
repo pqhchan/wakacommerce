@@ -1,11 +1,8 @@
-
-
 package com.wakacommerce.common.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.wakacommerce.common.config.RuntimeEnvironmentPropertiesManager;
-
 
 public class BaseUrlResolverImpl implements BaseUrlResolver {
 
