@@ -54,13 +54,13 @@ import com.wakacommerce.common.presentation.override.AdminPresentationMergeEntry
 import com.wakacommerce.common.presentation.override.AdminPresentationMergeOverride;
 import com.wakacommerce.common.presentation.override.AdminPresentationMergeOverrides;
 import com.wakacommerce.common.presentation.override.PropertyType;
-import com.wakacommerce.openadmin.audit.AdminAuditable;
-import com.wakacommerce.openadmin.audit.AdminAuditableListener;
+import com.wakacommerce.openadmin.audit.AdminAuditImpl;
+import com.wakacommerce.openadmin.audit.AdminAuditListener;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "BLC_SC")
-@EntityListeners(value = { AdminAuditableListener.class })
+@EntityListeners(value = { AdminAuditListener.class })
 @AdminPresentationMergeOverrides(
     {
         @AdminPresentationMergeOverride(name = "auditable.createdBy.id", mergeEntries = {
@@ -123,7 +123,7 @@ public class StructuredContentImpl implements StructuredContent, AdminMainEntity
 
     @Embedded
     @AdminPresentation(excluded = true)
-    protected AdminAuditable auditable = new AdminAuditable();
+    protected AdminAuditImpl auditable = new AdminAuditImpl();
 
     @AdminPresentation(friendlyName = "StructuredContentImpl_Content_Name", order = 1, 
         group = Presentation.Group.Name.Description, groupOrder = Presentation.Group.Order.Description,
@@ -269,12 +269,12 @@ public class StructuredContentImpl implements StructuredContent, AdminMainEntity
     }
 
     @Override
-    public AdminAuditable getAuditable() {
+    public AdminAuditImpl getAuditable() {
         return auditable;
     }
 
     @Override
-    public void setAuditable(AdminAuditable auditable) {
+    public void setAuditable(AdminAuditImpl auditable) {
         this.auditable = auditable;
     }
 

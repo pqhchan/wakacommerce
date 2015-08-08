@@ -27,7 +27,7 @@ import com.wakacommerce.openadmin.dto.FieldMetadata;
 import com.wakacommerce.openadmin.dto.ForeignKey;
 import com.wakacommerce.openadmin.dto.PersistencePerspective;
 import com.wakacommerce.openadmin.dto.override.FieldMetadataOverride;
-import com.wakacommerce.openadmin.server.dao.FieldInfo;
+import com.wakacommerce.openadmin.server.dao.FieldMappingInfo;
 import com.wakacommerce.openadmin.server.dao.provider.metadata.request.AddMetadataRequest;
 import com.wakacommerce.openadmin.server.dao.provider.metadata.request.OverrideViaAnnotationRequest;
 import com.wakacommerce.openadmin.server.dao.provider.metadata.request.OverrideViaXmlRequest;
@@ -56,7 +56,7 @@ public class CollectionFieldMetadataProvider extends AdvancedCollectionFieldMeta
         }
         AdminPresentationCollection annot = addMetadataRequest.getRequestedField().getAnnotation(AdminPresentationCollection
                 .class);
-        FieldInfo info = buildFieldInfo(addMetadataRequest.getRequestedField());
+        FieldMappingInfo info = buildFieldMappingInfo(addMetadataRequest.getRequestedField());
         FieldMetadataOverride override = constructBasicCollectionMetadataOverride(annot);
         buildCollectionMetadata(addMetadataRequest.getParentClass(), addMetadataRequest.getTargetClass(),
                 metadata, info, override, addMetadataRequest.getPrefix());
@@ -93,7 +93,7 @@ public class CollectionFieldMetadataProvider extends AdvancedCollectionFieldMeta
                                                 .getField(targetClass, fieldName);
                                     Map<String, FieldMetadata> temp = new HashMap<String, FieldMetadata>(1);
                                     temp.put(field.getName(), serverMetadata);
-                                    FieldInfo info = buildFieldInfo(field);
+                                    FieldMappingInfo info = buildFieldMappingInfo(field);
                                     FieldMetadataOverride fieldMetadataOverride = overrideCollectionMergeMetadata(override);
                                     if (serverMetadata.getExcluded() != null && serverMetadata.getExcluded() &&
                                             (fieldMetadataOverride.getExcluded() == null || fieldMetadataOverride.getExcluded())) {
@@ -136,7 +136,7 @@ public class CollectionFieldMetadataProvider extends AdvancedCollectionFieldMeta
                                     Field field = overrideViaXmlRequest.getDynamicEntityDao().getFieldManager().getField(targetClass, fieldName);
                                     Map<String, FieldMetadata> temp = new HashMap<String, FieldMetadata>(1);
                                     temp.put(field.getName(), serverMetadata);
-                                    FieldInfo info = buildFieldInfo(field);
+                                    FieldMappingInfo info = buildFieldMappingInfo(field);
                                     buildCollectionMetadata(parentClass, targetClass, temp, info, localMetadata, overrideViaXmlRequest.getPrefix());
                                     serverMetadata = (BasicCollectionMetadata) temp.get(field.getName());
                                     metadata.put(key, serverMetadata);
@@ -195,8 +195,6 @@ public class CollectionFieldMetadataProvider extends AdvancedCollectionFieldMeta
                         Boolean.parseBoolean(stringValue));
             } else if (entry.getKey().equals(PropertyType.AdminPresentationCollection.SECURITYLEVEL)) {
                 fieldMetadataOverride.setSecurityLevel(stringValue);
-            } else if (entry.getKey().equals(PropertyType.AdminPresentationCollection.SHOWIFPROPERTY)) {
-                fieldMetadataOverride.setShowIfProperty(stringValue);
             } else if (entry.getKey().equals(PropertyType.AdminPresentationCollection.SORTASCENDING)) {
                 fieldMetadataOverride.setSortAscending(StringUtils.isEmpty(stringValue) ? entry.getValue()
                             .booleanOverrideValue() :
@@ -244,7 +242,6 @@ public class CollectionFieldMetadataProvider extends AdvancedCollectionFieldMeta
             override.setRemoveType(annotColl.operationTypes().removeType());
             override.setUpdateType(annotColl.operationTypes().updateType());
             override.setInspectType(annotColl.operationTypes().inspectType());
-            override.setShowIfProperty(annotColl.showIfProperty());
             override.setCurrencyCodeField(annotColl.currencyCodeField());
             return override;
         }
@@ -254,7 +251,7 @@ public class CollectionFieldMetadataProvider extends AdvancedCollectionFieldMeta
     protected void buildCollectionMetadata(Class<?> parentClass, 
             Class<?> targetClass,
             Map<String, FieldMetadata> attributes,
-            FieldInfo field,
+            FieldMappingInfo field,
             FieldMetadataOverride collectionMetadata,
             String prefix) {
         BasicCollectionMetadata serverMetadata = (BasicCollectionMetadata) attributes.get(field.getName());
@@ -274,10 +271,6 @@ public class CollectionFieldMetadataProvider extends AdvancedCollectionFieldMeta
         if (collectionMetadata.getAddMethodType() != null) {
             metadata.setAddMethodType(collectionMetadata.getAddMethodType());
         }
-        if (collectionMetadata.getShowIfProperty()!=null) {
-            metadata.setShowIfProperty(collectionMetadata.getShowIfProperty());
-        }
-
         com.wakacommerce.openadmin.dto.OperationTypes dtoOperationTypes = new com.wakacommerce.openadmin.dto.OperationTypes(OperationType.BASIC, OperationType.BASIC, OperationType.BASIC, OperationType.BASIC, OperationType.BASIC);
         if (collectionMetadata.getAddType() != null) {
             dtoOperationTypes.setAddType(collectionMetadata.getAddType());

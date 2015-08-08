@@ -1,42 +1,21 @@
-
 package com.wakacommerce.core.order.domain;
 
-import com.wakacommerce.common.copy.MultiTenantCloneable;
+import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
+
 import com.wakacommerce.common.money.Money;
 import com.wakacommerce.core.catalog.domain.Category;
 import com.wakacommerce.core.offer.domain.CandidateItemOffer;
 import com.wakacommerce.core.offer.domain.OrderItemAdjustment;
 import com.wakacommerce.core.order.service.type.OrderItemType;
 
-import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
-
 public interface OrderItem extends Serializable, Cloneable {
 
-    /**
-     * The unique identifier of this OrderItem
-     * @return
-     */
     Long getId();
-
-    /**
-     * Sets the unique id of the OrderItem.   Typically left null for new items and Broadleaf will
-     * set using the next sequence number.
-     * @param id
-     */
     void setId(Long id);
 
-    /**
-     * Reference back to the containing order.
-     * @return
-     */
     Order getOrder();
-
-    /**
-     * Sets the order for this orderItem.
-     * @param order
-     */
     void setOrder(Order order);
 
     /**

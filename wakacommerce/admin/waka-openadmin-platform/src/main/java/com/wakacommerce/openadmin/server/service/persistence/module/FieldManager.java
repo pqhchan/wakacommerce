@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.service.persistence.module;
 
 import org.apache.commons.lang.ArrayUtils;
@@ -24,11 +23,6 @@ import java.util.StringTokenizer;
 
 import javax.persistence.EntityManager;
 
-/**
- * 
- *  
- *
- */
 public class FieldManager {
     
     private static final Log LOG = LogFactory.getLog(FieldManager.class);

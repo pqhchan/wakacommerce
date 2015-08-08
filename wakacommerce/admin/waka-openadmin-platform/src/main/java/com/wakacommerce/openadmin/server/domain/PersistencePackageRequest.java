@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.domain;
 
 import org.apache.commons.lang.ArrayUtils;
@@ -27,11 +26,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * A DTO class used to seed a persistence package.
- * 
- * 
- */
 public class PersistencePackageRequest {
 
     protected Type type;

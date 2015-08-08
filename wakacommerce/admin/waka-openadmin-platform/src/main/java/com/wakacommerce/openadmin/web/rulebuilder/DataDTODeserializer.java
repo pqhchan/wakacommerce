@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.web.rulebuilder;
 
 import com.fasterxml.jackson.core.JsonParser;
@@ -17,9 +16,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 
-/**
- *  
- */
 public class DataDTODeserializer extends StdDeserializer<DataDTO> {
 
     public DataDTODeserializer() {

@@ -1,4 +1,3 @@
-
 package com.wakacommerce.admin.server.service.persistence.module.provider;
 
 import org.apache.commons.lang3.StringUtils;
@@ -12,7 +11,6 @@ import com.wakacommerce.openadmin.dto.Property;
 import com.wakacommerce.openadmin.server.service.persistence.module.provider.FieldPersistenceProviderAdapter;
 import com.wakacommerce.openadmin.server.service.persistence.module.provider.request.ExtractValueRequest;
 import com.wakacommerce.openadmin.server.service.type.FieldProviderResponse;
-
 
 @Scope("prototype")
 @Component("blForeignSkuFieldPersistenceProvider")

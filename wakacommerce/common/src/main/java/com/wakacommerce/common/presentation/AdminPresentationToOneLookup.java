@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.presentation;
 
 import java.lang.annotation.ElementType;
@@ -8,20 +7,16 @@ import java.lang.annotation.Target;
 
 import com.wakacommerce.common.presentation.client.LookupType;
 
-/**
- * 
- */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD})
 public @interface AdminPresentationToOneLookup {
 
     /**
-     * <p>Optional - only required if the display property is other than "name"</p>
+     * <p>Optional - 只有当要显示的属性不是"name"的时候，才需要指定</p>
      *
-     * <p>Specify the property on a lookup class that should be used as the value to display to the user in
-     * a form in the admin tool UI</p>
+     * <p>指定关联实体的一个属性，这个属性会在前端展示主实体的时候，作为关联实体的代表显示在表单上
      *
-     * @return the property on the lookup class containing the displayable value
+     * @return 关联实体的某个属性
      */
     String lookupDisplayProperty() default "";
 
@@ -50,14 +45,9 @@ public @interface AdminPresentationToOneLookup {
     boolean useServerSideInspectionCache() default true;
     
     /**
-     * <p>Optional - only required if you want to configure the lookup
-     * to be driven by a prepopulated dropdown instead of the standard
-     * lookup type, which is modal based.</p>
+     * <p>Optional - 只有当你想要用下拉框而不是标准的模式对话框的时候，才需要指定</p>
      *
-     * <p>Define whether or not the lookup type for this field should be
-     * handled through a modal or through a dropdown</p>
-     *
-     * @return the item is looked up via a modal or dropdown
+     * @return
      */
     LookupType lookupType() default LookupType.STANDARD;
     

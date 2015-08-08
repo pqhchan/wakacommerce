@@ -60,7 +60,7 @@ public class AddOrderItemActivity extends BaseActivity<ProcessContext<CartOperat
         } 
 
         if (category == null && product != null) {
-            category = product.getDefaultCategory();
+            category = product.getCategory();
         }
 
         OrderItem item;

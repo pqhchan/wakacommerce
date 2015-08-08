@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.media.domain;
 
 import org.hibernate.annotations.Cache;
@@ -52,21 +51,27 @@ public class MediaImpl implements Media, MultiTenantCloneable<MediaImpl> {
 
     @Column(name = "URL", nullable = false)
     @Index(name="MEDIA_URL_INDEX", columnNames={"URL"})
-    @AdminPresentation(friendlyName = "MediaImpl_Media_Url", order = 1, prominent = true,
+    @AdminPresentation(
+    		friendlyName = "MediaImpl_url", 
+    		order = 1, 
+    		prominent = true,
             fieldType = SupportedFieldType.ASSET_LOOKUP)
     protected String url;
     
     @Column(name = "TITLE")
     @Index(name="MEDIA_TITLE_INDEX", columnNames={"TITLE"})
-    @AdminPresentation(friendlyName = "MediaImpl_Media_Title", order=2, prominent=true)
+    @AdminPresentation(
+    		friendlyName = "MediaImpl_title", 
+    		order=2, 
+    		prominent=true)
     protected String title;
     
     @Column(name = "ALT_TEXT")
-    @AdminPresentation(friendlyName = "MediaImpl_Media_Alt_Text", order=3, prominent=true)
+    @AdminPresentation(friendlyName = "MediaImpl_altText", order=3, prominent=true)
     protected String altText;
     
     @Column(name = "TAGS")
-    @AdminPresentation(friendlyName = "MediaImpl_Media_Tags")
+    @AdminPresentation(friendlyName = "MediaImpl_tags")
     protected String tags;
 
     @Override

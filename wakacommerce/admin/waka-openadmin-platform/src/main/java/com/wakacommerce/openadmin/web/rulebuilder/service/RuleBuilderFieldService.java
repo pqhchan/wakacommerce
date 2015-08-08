@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.web.rulebuilder.service;
 
 import com.wakacommerce.common.presentation.client.SupportedFieldType;
@@ -8,9 +7,6 @@ import com.wakacommerce.openadmin.web.rulebuilder.dto.FieldWrapper;
 
 import java.util.List;
 
-/**
- *  
- */
 public interface RuleBuilderFieldService extends Cloneable {
 
     public String getName();

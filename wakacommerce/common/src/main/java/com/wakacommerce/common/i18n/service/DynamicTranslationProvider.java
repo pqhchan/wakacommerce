@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.i18n.service;
 
 import org.apache.commons.lang3.StringUtils;
@@ -9,8 +8,6 @@ import java.util.Locale;
 
 /**
  * Convenience class to provide dynamic field translations.
- * 
- * 
  */
 public class DynamicTranslationProvider {
     

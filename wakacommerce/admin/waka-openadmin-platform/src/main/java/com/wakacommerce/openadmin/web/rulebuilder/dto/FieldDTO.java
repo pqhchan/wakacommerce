@@ -1,11 +1,7 @@
-
 package com.wakacommerce.openadmin.web.rulebuilder.dto;
 
 import java.io.Serializable;
 
-/**
- *  
- */
 public class FieldDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;

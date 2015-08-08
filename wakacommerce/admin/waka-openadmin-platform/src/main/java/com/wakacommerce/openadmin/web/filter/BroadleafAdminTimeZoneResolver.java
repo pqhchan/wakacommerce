@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.web.filter;
 
 import org.springframework.stereotype.Component;
@@ -8,11 +7,6 @@ import com.wakacommerce.common.web.BroadleafTimeZoneResolverImpl;
 
 import java.util.TimeZone;
 
-
-/**
- * 
- *     
- */
 @Component("blAdminTimeZoneResolver")
 public class BroadleafAdminTimeZoneResolver extends BroadleafTimeZoneResolverImpl {
 

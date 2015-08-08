@@ -1,8 +1,12 @@
 package com.wakacommerce.cms.page.service;
 
-import net.sf.ehcache.Cache;
-import net.sf.ehcache.CacheManager;
-import net.sf.ehcache.Element;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
 
 import org.apache.commons.beanutils.BeanComparator;
 import org.apache.commons.logging.Log;
@@ -19,9 +23,7 @@ import com.wakacommerce.common.cache.CacheStatType;
 import com.wakacommerce.common.cache.StatisticsService;
 import com.wakacommerce.common.extensibility.jpa.SiteDiscriminator;
 import com.wakacommerce.common.extension.ExtensionResultHolder;
-import com.wakacommerce.common.locale.domain.Locale;
 import com.wakacommerce.common.locale.service.LocaleService;
-import com.wakacommerce.common.locale.util.LocaleUtil;
 import com.wakacommerce.common.page.dto.NullPageDTO;
 import com.wakacommerce.common.page.dto.PageDTO;
 import com.wakacommerce.common.rule.RuleProcessor;
@@ -29,13 +31,9 @@ import com.wakacommerce.common.sandbox.domain.SandBox;
 import com.wakacommerce.common.template.TemplateOverrideExtensionManager;
 import com.wakacommerce.common.web.WakaRequestContext;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.Resource;
+import net.sf.ehcache.Cache;
+import net.sf.ehcache.CacheManager;
+import net.sf.ehcache.Element;
 
 @Service("blPageService")
 public class PageServiceImpl implements PageService {
@@ -115,16 +113,15 @@ public class PageServiceImpl implements PageService {
      * Retrieve the page if one is available for the passed in uri.
      */
     @Override
-    public PageDTO findPageByURI(Locale locale, String uri, Map<String,Object> ruleDTOs, boolean secure) {
+    public PageDTO findPageByURI(String uri, Map<String,Object> ruleDTOs, boolean secure) {
         List<PageDTO> returnList = null;
         if (uri != null) {
-            Locale languageOnlyLocale = findLanguageOnlyLocale(locale);
             WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
             //store the language only locale for cache since we have to use the lowest common denominator (i.e. the cache
             //locale and the pageTemplate locale used for cache invalidation can be different countries)
             Long sandBox = context.getSandBox() == null?null:context.getSandBox().getId();
             Long site = context.getNonPersistentSite() == null?null:context.getNonPersistentSite().getId();
-            String key = buildKey(sandBox, site, languageOnlyLocale, uri);
+            String key = buildKey(sandBox, site, uri);
             key = key + "-" + secure;
             if (context.isProductionSandBox()) {
                 returnList = getPageListFromCache(key);
@@ -140,7 +137,7 @@ public class PageServiceImpl implements PageService {
             }
         }
         
-        PageDTO dto = evaluatePageRules(returnList, locale, ruleDTOs);
+        PageDTO dto = evaluatePageRules(returnList, ruleDTOs);
         
         if (dto.getId() != null) {
             Page page = findPageById(dto.getId());
@@ -202,23 +199,11 @@ public class PageServiceImpl implements PageService {
         return dtoList;
     }
 
-    protected PageDTO evaluatePageRules(List<PageDTO> pageDTOList, Locale locale, Map<String, Object> ruleDTOs) {
+    protected PageDTO evaluatePageRules(List<PageDTO> pageDTOList, Map<String, Object> ruleDTOs) {
         if (pageDTOList == null) {
             return NULL_PAGE;
         }
 
-        // First check to see if we have a page that matches on the full locale.
-        for (PageDTO page : pageDTOList) {
-            if (locale != null && locale.getLocaleCode() != null) {
-                if (locale.getLocaleCode().equals(page.getLocaleCode())) {
-                    if (passesPageRules(page, ruleDTOs)) {
-                        return page;
-                    }
-                }
-            }
-        }
-
-        // Otherwise, we look for a match using just the language.
         for (PageDTO page : pageDTOList) {
             if (passesPageRules(page, ruleDTOs)) {
                 return page;
@@ -241,22 +226,8 @@ public class PageServiceImpl implements PageService {
         return true;
     }
 
-    protected Locale findLanguageOnlyLocale(Locale locale) {
-        if (locale != null ) {
-            Locale languageOnlyLocale = localeService.findLocaleByCode(LocaleUtil.findLanguageCode(locale));
-            if (languageOnlyLocale != null) {
-                return languageOnlyLocale;
-            }
-        }
-        return locale;
-    }
-
-    protected String buildKey(Long currentSandBox, Long site, Locale locale, String uri) {
+    protected String buildKey(Long currentSandBox, Long site, String uri) {
         StringBuilder key = new StringBuilder(uri);
-        if (locale != null) {
-            key.append("-").append(locale.getLocaleCode());
-        }
-
         if (currentSandBox != null) {
             key.append("-").append(currentSandBox);
         }
@@ -285,10 +256,9 @@ public class PageServiceImpl implements PageService {
     }
 
     protected String buildKey(SandBox sandBox, Page page) {
-        Locale locale = page.getPageTemplate() == null ? null : page.getPageTemplate().getLocale();
         Long sandBoxId = sandBox==null?null:sandBox.getId();
         Long siteId = (page instanceof SiteDiscriminator)?((SiteDiscriminator) page).getSiteDiscriminator():null;        
-        return buildKey(sandBoxId, siteId, findLanguageOnlyLocale(locale), page.getFullUrl());
+        return buildKey(sandBoxId, siteId, page.getFullUrl());
     }
 
     protected void addPageListToCache(List<PageDTO> pageList, String key, String uri, Long sandBox, Long site) {

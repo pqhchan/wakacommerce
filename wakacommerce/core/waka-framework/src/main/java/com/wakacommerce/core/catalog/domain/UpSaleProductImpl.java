@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.domain;
 
 import org.hibernate.annotations.Cache;
@@ -46,7 +45,7 @@ public class UpSaleProductImpl implements RelatedProduct, MultiTenantCloneable<U
     private Long id;
     
     @Column(name = "PROMOTION_MESSAGE")
-    @AdminPresentation(friendlyName = "UpSaleProductImpl_Upsale_Promotion_Message", largeEntry=true)
+    @AdminPresentation(friendlyName = "UpSaleProductImpl_promotionMessage", largeEntry=true)
     private String promotionMessage;
 
     @Column(name = "SEQUENCE", precision = 10, scale = 6)

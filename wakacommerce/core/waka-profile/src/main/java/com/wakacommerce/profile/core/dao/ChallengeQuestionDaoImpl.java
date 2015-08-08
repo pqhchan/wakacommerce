@@ -1,4 +1,3 @@
-
 package com.wakacommerce.profile.core.dao;
 
 import org.hibernate.ejb.QueryHints;
@@ -31,7 +30,8 @@ public class ChallengeQuestionDaoImpl implements ChallengeQuestionDao {
     public ChallengeQuestion readChallengeQuestionById(long challengeQuestionId) {
         Query query = em.createNamedQuery("BC_READ_CHALLENGE_QUESTION_BY_ID");
         query.setParameter("question_id", challengeQuestionId);
-        List<ChallengeQuestion> challengeQuestions = query.getResultList();
+        @SuppressWarnings("unchecked")
+		List<ChallengeQuestion> challengeQuestions = query.getResultList();
         return challengeQuestions == null || challengeQuestions.isEmpty() ? null : challengeQuestions.get(0);
     }
     

@@ -1,7 +1,7 @@
 package com.wakacommerce.cms.page.domain;
 
 import com.wakacommerce.common.copy.MultiTenantCloneable;
-import com.wakacommerce.openadmin.audit.AdminAuditable;
+import com.wakacommerce.openadmin.audit.AdminAuditImpl;
 
 import java.io.Serializable;
 
@@ -19,9 +19,9 @@ public interface PageField extends Serializable,MultiTenantCloneable<PageField> 
 
     public void setValue(String value);
 
-    public AdminAuditable getAuditable();
+    public AdminAuditImpl getAuditable();
 
-    public void setAuditable(AdminAuditable auditable);
+    public void setAuditable(AdminAuditImpl auditable);
 
     public Page getPage();
 

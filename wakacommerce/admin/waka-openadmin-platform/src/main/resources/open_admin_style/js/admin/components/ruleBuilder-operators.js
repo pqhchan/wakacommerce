@@ -1,4 +1,3 @@
-
 var blcOperators_Boolean = [
     {label: "is equal to", name: "EQUALS", fieldType: "BOOLEAN"}
 ];

@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.service.type;
 
 import java.io.Serializable;
@@ -7,19 +6,13 @@ import java.util.Map;
 
 import com.wakacommerce.common.WakaEnumType;
 
-/**
- * An extendible enumeration of product option validation types.
- * 
- *ppatel
- *
- */
 public class ProductOptionValidationType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 
     private static final Map<String, ProductOptionValidationType> TYPES = new LinkedHashMap<String, ProductOptionValidationType>();
 
-    public static final ProductOptionValidationType REGEX = new ProductOptionValidationType("REGEX", "Regular Expression");
+    public static final ProductOptionValidationType REGEX = new ProductOptionValidationType("REGEX", "正则表达式");
 
     public static ProductOptionValidationType getInstance(final String type) {
         return TYPES.get(type);

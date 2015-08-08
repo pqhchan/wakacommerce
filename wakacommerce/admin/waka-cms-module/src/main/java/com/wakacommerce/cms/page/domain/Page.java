@@ -1,7 +1,7 @@
 package com.wakacommerce.cms.page.domain;
 
 import com.wakacommerce.common.copy.MultiTenantCloneable;
-import com.wakacommerce.openadmin.audit.AdminAuditable;
+import com.wakacommerce.openadmin.audit.AdminAuditImpl;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -10,7 +10,7 @@ import java.util.Set;
 
 import javax.annotation.Nullable;
 
-public interface Page extends Serializable,MultiTenantCloneable<Page> {
+public interface Page extends Serializable, MultiTenantCloneable<Page> {
 
     public Long getId();
 
@@ -32,43 +32,14 @@ public interface Page extends Serializable,MultiTenantCloneable<Page> {
 
     public void setPageFields(Map<String, PageField> pageFields);
 
-    public AdminAuditable getAuditable();
+    public AdminAuditImpl getAuditable();
 
-    public void setAuditable(AdminAuditable auditable);
+    public void setAuditable(AdminAuditImpl auditable);
     
-    /**
-     * Returns the offlineFlag.   True indicates that the page should no longer appear on the site.
-     * The item will still appear within the content administration program but no longer
-     * be returned as part of the client facing APIs.
-     *
-     * @return true if this item is offline
-     */
     @Nullable
     public Boolean getOfflineFlag();
 
-    /**
-     * Sets the offline flag.
-     *
-     * @param offlineFlag
-     */
     public void setOfflineFlag(@Nullable Boolean offlineFlag);
-    
-    
-    /**
-     * Gets the integer priority of this content item.   Items with a lower priority should
-     * be displayed before items with a higher priority.
-     *
-     * @return the priority as a numeric value
-     */
-    @Nullable
-    public Integer getPriority();
-
-    /**
-     * Sets the display priority of this item.   Lower priorities should be displayed first.
-     *
-     * @param priority
-     */
-    public void setPriority(@Nullable Integer priority);
     
     /**
      * Returns a map of the targeting rules associated with this page.
@@ -103,19 +74,9 @@ public interface Page extends Serializable,MultiTenantCloneable<Page> {
      */
     public void setQualifyingItemCriteria(@Nullable Set<PageItemCriteria> qualifyingItemCriteria);
 
-    /**
-     * Returns the excludeFromSiteMap flag.  True indicates that the page should be excluded from the site map.
-     *
-     * @return true if this page is excluded from the site map
-     */
     @Nullable
     public boolean getExcludeFromSiteMap();
 
-    /**
-     * Sets the excludeFromSiteMap flag.
-     * 
-     * @param excludeFromSiteMap
-     */
     public void setExcludeFromSiteMap(boolean excludeFromSiteMap);
 
     public Map<String, PageAttribute> getAdditionalAttributes();

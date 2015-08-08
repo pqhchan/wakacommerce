@@ -1,10 +1,9 @@
 package com.wakacommerce.cms.page.domain;
 
-import com.wakacommerce.common.copy.MultiTenantCloneable;
-import com.wakacommerce.common.locale.domain.Locale;
-
 import java.io.Serializable;
 import java.util.List;
+
+import com.wakacommerce.common.copy.MultiTenantCloneable;
 
 public interface PageTemplate extends Serializable, MultiTenantCloneable<PageTemplate> {
 
@@ -23,18 +22,6 @@ public interface PageTemplate extends Serializable, MultiTenantCloneable<PageTem
     public String getTemplatePath();
 
     public void setTemplatePath(String templatePath);
-
-    /**
-     * @deprecated in favor of translating individual fields
-     * @return
-     */
-    public Locale getLocale();
-
-    /**
-     * @deprecated in favor of translating individual fields
-     * @return
-     */
-    public void setLocale(Locale locale);
 
     public List<PageTemplateFieldGroupXref> getFieldGroupXrefs();
 

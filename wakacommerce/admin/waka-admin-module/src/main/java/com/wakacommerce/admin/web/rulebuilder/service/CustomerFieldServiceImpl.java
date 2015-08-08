@@ -1,4 +1,3 @@
-
 package com.wakacommerce.admin.web.rulebuilder.service;
 
 import org.springframework.stereotype.Service;
@@ -8,13 +7,6 @@ import com.wakacommerce.common.presentation.client.SupportedFieldType;
 import com.wakacommerce.openadmin.web.rulebuilder.dto.FieldData;
 import com.wakacommerce.openadmin.web.rulebuilder.service.AbstractRuleBuilderFieldService;
 
-/**
- * An implementation of a RuleBuilderFieldService
- * that constructs metadata necessary
- * to build the supported fields for a Customer entity
- *
- *  
- */
 @Service("blCustomerFieldService")
 public class CustomerFieldServiceImpl extends AbstractRuleBuilderFieldService {
 
@@ -64,14 +56,7 @@ public class CustomerFieldServiceImpl extends AbstractRuleBuilderFieldService {
                 .build());
         fields.add(new FieldData.Builder()
                 .label("rule_customerFirstName")
-                .name("firstName")
-                .operators("blcOperators_Text")
-                .options("[]")
-                .type(SupportedFieldType.STRING)
-                .build());
-        fields.add(new FieldData.Builder()
-                .label("rule_customerLastName")
-                .name("lastName")
+                .name("realName")
                 .operators("blcOperators_Text")
                 .options("[]")
                 .type(SupportedFieldType.STRING)

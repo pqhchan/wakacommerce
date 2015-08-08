@@ -1,17 +1,9 @@
-
-
 package com.wakacommerce.menu.dto;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A Generic DTO object that represents the information to display a Menu Item.
- * Can be used on the front end as a way to easily iterate and display menu items of different types.
- *
- *  
- */
 public class MenuItemDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;

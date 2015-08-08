@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.order.domain;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -342,7 +341,7 @@ public class OrderItemImpl implements OrderItem, Cloneable, AdminMainEntity, Cur
             if (currentCategory.getName().equals(categoryName)) {
                 return true;
             }
-            while ((currentCategory = currentCategory.getDefaultParentCategory()) != null) {
+            while ((currentCategory = currentCategory.getParentCategory()) != null) {
                 if (currentCategory.getName().equals(categoryName)) {
                     return true;
                 }
@@ -853,7 +852,6 @@ public class OrderItemImpl implements OrderItem, Cloneable, AdminMainEntity, Cur
         cloned.setName(name);
         cloned.setOrderItemType(getOrderItemType());
         cloned.setDiscountingAllowed(discountsAllowed);
-        cloned.setTaxable(isTaxable());
         cloned.setSalePriceOverride(salePriceOverride);
         cloned.setSalePrice(getSalePrice());
         cloned.setRetailPrice(getRetailPrice());

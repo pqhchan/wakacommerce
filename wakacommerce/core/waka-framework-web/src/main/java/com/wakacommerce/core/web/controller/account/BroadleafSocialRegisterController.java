@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.web.controller.account;
 
 import org.apache.commons.lang.StringUtils;
@@ -40,8 +39,7 @@ public class BroadleafSocialRegisterController extends WakaRegisterController {
         if (connection != null) {
             UserProfile userProfile = connection.fetchUserProfile();
             Customer customer = registerCustomerForm.getCustomer();
-            customer.setFirstName(userProfile.getFirstName());
-            customer.setLastName(userProfile.getLastName());
+            customer.setRealName(userProfile.getFirstName() + userProfile.getLastName());
             customer.setEmailAddress(userProfile.getEmail());
             if (isUseEmailForLogin()){
                 customer.setUsername(userProfile.getEmail());

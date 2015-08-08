@@ -1,20 +1,16 @@
-
 package com.wakacommerce.openadmin.server.dao;
 
 import java.lang.reflect.Type;
 
-/**
- * 
- */
-public class FieldInfo {
+public class FieldMappingInfo {
 
-    protected String name;
-    protected Type genericType;
-    protected String manyToManyMappedBy;
-    protected String manyToManyTargetEntity;
-    protected String oneToManyMappedBy;
-    protected String oneToManyTargetEntity;
-    protected String mapKey;
+    protected String name; 					// 字段名称
+    protected Type genericType; 				// 字段的java类型
+    protected String manyToManyMappedBy; 		// 多对多映射时关系维护者的映射字段
+    protected String manyToManyTargetEntity; 	// 多对多映射时关系维护者的类名-Class.getName()
+    protected String oneToManyMappedBy; 		// 一对多映射时关系维护者的映射字段
+    protected String oneToManyTargetEntity;	// 一对多映射时关系维护者的类名-Class.getName()
+    protected String mapKey;					// Map集合映射时作为Map的Key的字段名
 
     public String getName() {
         return name;

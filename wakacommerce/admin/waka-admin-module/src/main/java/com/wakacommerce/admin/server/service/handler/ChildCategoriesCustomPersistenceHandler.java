@@ -1,4 +1,3 @@
-
 package com.wakacommerce.admin.server.service.handler;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -19,9 +18,6 @@ import com.wakacommerce.openadmin.server.dao.DynamicEntityDao;
 import com.wakacommerce.openadmin.server.service.handler.CustomPersistenceHandlerAdapter;
 import com.wakacommerce.openadmin.server.service.persistence.module.RecordHelper;
 
-/**
- * 
- */
 @Component("blChildCategoriesCustomPersistenceHandler")
 public class ChildCategoriesCustomPersistenceHandler extends CustomPersistenceHandlerAdapter {
 

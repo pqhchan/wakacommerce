@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.order.service;
 
 import java.util.ArrayList;
@@ -67,10 +66,6 @@ import com.wakacommerce.core.workflow.Processor;
 import com.wakacommerce.core.workflow.WorkflowException;
 import com.wakacommerce.profile.core.domain.Customer;
 
-
-/**
- *  
- */
 @Service("blOrderService")
 @ManagedResource(objectName="com.wakacommerce:name=OrderService", description="Order Service", currencyTimeLimit=15)
 public class OrderServiceImpl implements OrderService {

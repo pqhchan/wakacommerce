@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.i18n.domain;
 
 import java.io.Serializable;
@@ -8,12 +7,6 @@ import java.util.Map.Entry;
 
 import com.wakacommerce.common.WakaEnumType;
 
-/**
- * An extensible enumeration of entities that have translatable fields. Any entity that wishes to have a translatable
- * field must register itself in this TYPES map.
- * 
- * 
- */
 public class TranslatedEntity implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;

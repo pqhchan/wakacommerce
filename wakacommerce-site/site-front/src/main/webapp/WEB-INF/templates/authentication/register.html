@@ -16,14 +16,9 @@
                 <input type="email" th:field="*{customer.emailAddress}" class="field50" th:classappend="${#fields.hasErrors('customer.emailAddress')}? 'fieldError'" />
             </div>
             <div class="form50">
-                <label for="customer.firstName"><span th:utext="#{register.firstName}">First Name</span></label>
-                <span class="error" th:if="${#fields.hasErrors('customer.firstName')}" th:errors="*{customer.firstName}"></span>
-                <input type="text" th:field="*{customer.firstName}" class="field50" th:classappend="${#fields.hasErrors('customer.firstName')}? 'fieldError'" />
-            </div>
-            <div class="form50">
-                <label for="customer.lastName"><span th:utext="#{register.lastName}">Last Name</span></label>
-                <span class="error" th:if="${#fields.hasErrors('customer.lastName')}" th:errors="*{customer.lastName}"></span>
-                <input type="text" th:field="*{customer.lastName}" class="field50" th:classappend="${#fields.hasErrors('customer.lastName')}? 'fieldError'" />
+                <label for="firstName">Real Name:</label>
+                <span class="error" th:if="${#fields.hasErrors('realName')}" th:errors="*{realName}"></span>
+                <input type="text" name="realName" id="realName" th:field="*{realName}" class="field50" th:classappend="${#fields.hasErrors('realName')}? 'fieldError'"/>
             </div>          
             <div class="form50">
                 <label for="password"><span th:utext="#{register.password}">Password</span></label>

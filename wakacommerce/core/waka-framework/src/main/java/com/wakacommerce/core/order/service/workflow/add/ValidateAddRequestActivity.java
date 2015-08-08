@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import com.wakacommerce.core.catalog.domain.Product;
 import com.wakacommerce.core.catalog.domain.ProductOption;
 import com.wakacommerce.core.catalog.domain.ProductOptionValue;
+import com.wakacommerce.core.catalog.domain.ProductOptionXref;
 import com.wakacommerce.core.catalog.domain.Sku;
 import com.wakacommerce.core.catalog.service.CatalogService;
 import com.wakacommerce.core.catalog.service.type.ProductOptionValidationStrategyType;
@@ -153,8 +154,9 @@ public class ValidateAddRequestActivity extends BaseActivity<ProcessContext<Cart
         Map<String, String> attributeValuesForSku = new HashMap<String,String>();
         // Verify that required product-option values were set.
 
-        if (product != null && product.getProductOptions() != null && product.getProductOptions().size() > 0) {
-            for (ProductOption productOption : product.getProductOptions()) {
+        if (product != null && product.getProductOptionXrefs() != null && product.getProductOptionXrefs().size() > 0) {
+            for (ProductOptionXref productOptionXref : product.getProductOptionXrefs()) {
+            	ProductOption productOption = productOptionXref.getProductOption();
                 if (productOption.getRequired() && (productOption.getProductOptionValidationStrategyType() == null ||
                         productOption.getProductOptionValidationStrategyType().getRank() <= ProductOptionValidationStrategyType.ADD_ITEM.getRank())) {
                     if (StringUtils.isEmpty(attributeValues.get(productOption.getAttributeName()))) {
@@ -183,8 +185,8 @@ public class ValidateAddRequestActivity extends BaseActivity<ProcessContext<Cart
             }
             
 
-            if (product !=null && product.getSkus() != null) {
-                for (Sku sku : product.getSkus()) {
+            if (product !=null && product.getAdditionalSkus() != null) {
+                for (Sku sku : product.getAdditionalSkus()) {
                    if (checkSkuForMatch(sku, attributeValuesForSku)) {
                        return sku;
                    }

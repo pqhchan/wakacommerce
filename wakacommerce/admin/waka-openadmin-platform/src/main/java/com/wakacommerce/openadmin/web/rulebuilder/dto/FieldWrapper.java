@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.web.rulebuilder.dto;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
@@ -10,8 +9,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- *  
- *
  * An example of the Serialized JSON:
  *
  * {'fields': [
@@ -55,4 +52,5 @@ public class FieldWrapper implements Serializable {
     public String serialize() throws JsonGenerationException, JsonMappingException, IOException {
         return new ObjectMapper().writeValueAsString(this);
     }
+    
 }

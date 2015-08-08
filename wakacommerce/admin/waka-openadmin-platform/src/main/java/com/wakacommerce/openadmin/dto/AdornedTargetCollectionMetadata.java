@@ -1,16 +1,13 @@
-
 package com.wakacommerce.openadmin.dto;
 
 import java.util.Arrays;
 
 import com.wakacommerce.openadmin.dto.visitor.MetadataVisitor;
 
-/**
- * 
- */
 public class AdornedTargetCollectionMetadata extends CollectionMetadata {
 
-    private boolean ignoreAdornedProperties;
+	private static final long serialVersionUID = 1L;
+	private boolean ignoreAdornedProperties;
     private String parentObjectClass;
     private String[] maintainedAdornedTargetFields = {};
     private String[] gridVisibleFields = {};

@@ -53,14 +53,6 @@ public class CustomerPhoneController {
     private String viewPhoneErrorView = prefix;
     private String viewPhoneSuccessView = prefix;
 
-    /**
-     * Completely deletes the customerPhone with the given customerPhoneId from the database.
-     * 
-     * @param customerPhoneId
-     * @param request
-     *
-     * @return
-     */
     @RequestMapping(value="deletePhone", method =  {
             RequestMethod.GET, RequestMethod.POST}
     )
@@ -73,15 +65,6 @@ public class CustomerPhoneController {
         return deletePhoneSuccessView + customerPhoneId;
     }
 
-    /**
-     * Called before each and every request comes into the controller, and is placed on the request for use by those methods.
-     * 
-     *
-     * @param request
-     * @param model
-     *
-     * @return
-     */
     @ModelAttribute("phoneNameForm")
     public PhoneNameForm initPhoneNameForm(HttpServletRequest request, Model model) {
         PhoneNameForm form = new PhoneNameForm();
@@ -90,14 +73,6 @@ public class CustomerPhoneController {
         return form;
     }
 
-    /**
-     * Sets the passed in customerPhoneId as the default phone for the user.
-     *
-     * @param customerPhoneId
-     * @param request
-     *
-     * @return
-     */
     @RequestMapping(value="makePhoneDefault", method =  {
             RequestMethod.GET, RequestMethod.POST}
     )
@@ -111,18 +86,6 @@ public class CustomerPhoneController {
         return makePhoneDefaultSuccessView;
     }
 
-    /**
-     * Creates a new phone if no customerPhoneId & phoneId are passed in; otherwise, it creates a new customerPhone object otherwise.  If they are passed in,
-     *  it is assumed that there is an update.
-     *
-     * @param phoneNameForm
-     * @param errors
-     * @param request
-     * @param customerPhoneId DOCUMENT ME!
-     * @param phoneId DOCUMENT ME!
-     *
-     * @return
-     */
     @RequestMapping(value="savePhone", method =  {
             RequestMethod.GET, RequestMethod.POST}
     )
@@ -215,17 +178,6 @@ public class CustomerPhoneController {
         this.viewPhoneSuccessView = viewPhoneSuccessView;
     }
 
-    /**
-     * Provides a blank template for a new Customer Phone to be created if no customerPhoneId is provided.
-     *  Otherwise, when a customerPhoneId is provided, the associated customerPhone object is retrieved,
-     *  and placed on the request.
-     * 
-     * @param customerPhoneId
-     * @param request
-     * @param phoneNameForm
-     * @param errors
-     * @return
-     */
     @RequestMapping(value="viewPhone", method =  {
             RequestMethod.GET, RequestMethod.POST}
     )

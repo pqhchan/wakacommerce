@@ -1,13 +1,9 @@
-
 package com.wakacommerce.menu.domain;
 
 import org.springframework.stereotype.Component;
 
 import com.wakacommerce.common.i18n.domain.TranslatedEntity;
 
-/**
- *  
- */
 @Component("blMenuTranslatedEntity")
 public class MenuTranslatedEntity extends TranslatedEntity {
 

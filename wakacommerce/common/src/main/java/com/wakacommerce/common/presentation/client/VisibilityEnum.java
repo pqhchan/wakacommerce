@@ -1,10 +1,15 @@
 package com.wakacommerce.common.presentation.client;
 
 public enum VisibilityEnum {
+	
     HIDDEN_ALL,
+    
     VISIBLE_ALL,
+    
     FORM_HIDDEN,
+    
     GRID_HIDDEN,
+    
     NOT_SPECIFIED,
     /**
      * This will ensure that the field is shown on the the entity form regardless of whether or not this field is

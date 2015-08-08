@@ -5,8 +5,6 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 
 /**
- * 
- * 
  * @see {@link BasicPersistenceModule}
  */
 public interface DataFormatProvider {

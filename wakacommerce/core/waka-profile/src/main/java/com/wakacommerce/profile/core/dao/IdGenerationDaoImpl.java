@@ -1,4 +1,3 @@
-
 package com.wakacommerce.profile.core.dao;
 
 import org.apache.commons.logging.Log;

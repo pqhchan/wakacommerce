@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.inventory.service.type;
 
 import java.io.Serializable;
@@ -7,11 +6,6 @@ import java.util.Map;
 
 import com.wakacommerce.common.WakaEnumType;
 
-/**
- * Enumeration to specify whether inventory should be checked or not.
- * 
- *  
- */
 public class InventoryType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
@@ -23,9 +17,9 @@ public class InventoryType implements Serializable, WakaEnumType {
     @Deprecated
     public static final InventoryType BASIC = new InventoryType("BASIC", "Basic");
     
-    public static final InventoryType ALWAYS_AVAILABLE  = new InventoryType("ALWAYS_AVAILABLE", "Always Available");
-    public static final InventoryType UNAVAILABLE  = new InventoryType("UNAVAILABLE", "Unavailable");
-    public static final InventoryType CHECK_QUANTITY = new InventoryType("CHECK_QUANTITY", "Check Quantity");
+    public static final InventoryType ALWAYS_AVAILABLE  = new InventoryType("ALWAYS_AVAILABLE", "永远可用");
+    public static final InventoryType UNAVAILABLE  = new InventoryType("UNAVAILABLE", "不可用");
+    public static final InventoryType CHECK_QUANTITY = new InventoryType("CHECK_QUANTITY", "检查数量");
 
     public static InventoryType getInstance(final String type) {
         return TYPES.get(type);

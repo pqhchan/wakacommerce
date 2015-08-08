@@ -10,8 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
@@ -32,8 +30,6 @@ import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransform;
 import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformMember;
 import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformTypes;
 import com.wakacommerce.common.extensibility.jpa.copy.ProfileEntity;
-import com.wakacommerce.common.locale.domain.Locale;
-import com.wakacommerce.common.locale.domain.LocaleImpl;
 import com.wakacommerce.common.presentation.AdminPresentation;
 import com.wakacommerce.common.presentation.AdminPresentationClass;
 import com.wakacommerce.common.presentation.PopulateToOneFieldsEnum;
@@ -81,12 +77,6 @@ public class PageTemplateImpl implements PageTemplate, AdminMainEntity, ProfileE
         visibility = VisibilityEnum.HIDDEN_ALL, 
         readOnly = true)
     protected String templatePath;
-
-    @ManyToOne(targetEntity = LocaleImpl.class)
-    @JoinColumn(name = "LOCALE_CODE")
-    @AdminPresentation(excluded = true)
-    @Deprecated
-    protected Locale locale;
 
     @OneToMany(targetEntity = PageTemplateFieldGroupXrefImpl.class, cascade = { CascadeType.ALL }, orphanRemoval = true, mappedBy = "pageTemplate")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="blCMSElements")
@@ -139,16 +129,6 @@ public class PageTemplateImpl implements PageTemplate, AdminMainEntity, ProfileE
     }
 
     @Override
-    public Locale getLocale() {
-        return locale;
-    }
-
-    @Override
-    public void setLocale(Locale locale) {
-        this.locale = locale;
-    }
-
-    @Override
     public List<PageTemplateFieldGroupXref> getFieldGroupXrefs() {
         return fieldGroups;
     }
@@ -173,7 +153,6 @@ public class PageTemplateImpl implements PageTemplate, AdminMainEntity, ProfileE
         cloned.setTemplateName(templateName);
         cloned.setTemplateDescription(templateDescription);
         cloned.setTemplatePath(templatePath);
-        cloned.setLocale(locale);
         for (PageTemplateFieldGroupXref fieldGroup : fieldGroups) {
             CreateResponse<PageTemplateFieldGroupXref> clonedGroupResponse = fieldGroup.createOrRetrieveCopyInstance(context);
             PageTemplateFieldGroupXref clonedGroup = clonedGroupResponse.getClone();

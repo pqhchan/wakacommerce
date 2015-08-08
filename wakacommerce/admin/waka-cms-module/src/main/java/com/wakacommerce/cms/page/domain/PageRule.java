@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.page.domain;
 
 import javax.annotation.Nonnull;
@@ -20,7 +19,7 @@ import com.wakacommerce.common.rule.SimpleRule;
  * 
  *
  */
-public interface PageRule extends SimpleRule,MultiTenantCloneable<PageRule> {
+public interface PageRule extends SimpleRule, MultiTenantCloneable<PageRule> {
 
     /**
      * Gets the primary key.

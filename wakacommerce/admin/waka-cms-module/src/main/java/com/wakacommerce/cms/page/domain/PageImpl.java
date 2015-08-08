@@ -54,13 +54,13 @@ import com.wakacommerce.common.presentation.override.AdminPresentationMergeOverr
 import com.wakacommerce.common.presentation.override.AdminPresentationMergeOverrides;
 import com.wakacommerce.common.presentation.override.PropertyType;
 import com.wakacommerce.common.web.Locatable;
-import com.wakacommerce.openadmin.audit.AdminAuditable;
-import com.wakacommerce.openadmin.audit.AdminAuditableListener;
+import com.wakacommerce.openadmin.audit.AdminAuditImpl;
+import com.wakacommerce.openadmin.audit.AdminAuditListener;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "BLC_PAGE")
-@EntityListeners(value = { AdminAuditableListener.class })
+@EntityListeners(value = { AdminAuditListener.class })
 @AdminPresentationMergeOverrides(
     {
         @AdminPresentationMergeOverride(name = "auditable.createdBy.id", mergeEntries = {
@@ -109,8 +109,6 @@ public class PageImpl implements Page, AdminMainEntity, Locatable, ProfileEntity
 
     private static final long serialVersionUID = 1L;
     
-    private static final Integer ZERO = new Integer(0);
-
     @Id
     @GeneratedValue(generator = "PageId")
     @GenericGenerator(
@@ -153,10 +151,6 @@ public class PageImpl implements Page, AdminMainEntity, Locatable, ProfileEntity
     @ClonePolicyMapOverride
     @ClonePolicyArchive
     protected Map<String,PageField> pageFields = new HashMap<String,PageField>();
-    
-    @Column(name = "PRIORITY")
-    @Deprecated
-    protected Integer priority;
     
     @Column(name = "OFFLINE_FLAG")
     @AdminPresentation(friendlyName = "PageImpl_Offline", order = 3500,
@@ -224,7 +218,7 @@ public class PageImpl implements Page, AdminMainEntity, Locatable, ProfileEntity
 
     @Embedded
     @AdminPresentation(excluded = true)
-    protected AdminAuditable auditable = new AdminAuditable();
+    protected AdminAuditImpl auditable = new AdminAuditImpl();
 
     @Override
     public Long getId() {
@@ -277,12 +271,12 @@ public class PageImpl implements Page, AdminMainEntity, Locatable, ProfileEntity
     }
 
     @Override
-    public AdminAuditable getAuditable() {
+    public AdminAuditImpl getAuditable() {
         return auditable;
     }
 
     @Override
-    public void setAuditable(AdminAuditable auditable) {
+    public void setAuditable(AdminAuditImpl auditable) {
         this.auditable = auditable;
     }
     
@@ -296,19 +290,6 @@ public class PageImpl implements Page, AdminMainEntity, Locatable, ProfileEntity
         this.offlineFlag = offlineFlag == null ? false : offlineFlag;
     }
 
-    @Override
-    public Integer getPriority() {
-        if (priority == null) {
-            return ZERO;
-        }
-        return priority;
-    }
-
-    @Override
-    public void setPriority(Integer priority) {
-        this.priority = priority;
-    }
-    
     @Override
     public Map<String, PageRule> getPageMatchRules() {
         return pageMatchRules;
@@ -350,7 +331,6 @@ public class PageImpl implements Page, AdminMainEntity, Locatable, ProfileEntity
         }
 
         Page cloned = createResponse.getClone();
-        cloned.setPriority(priority);
         cloned.setActiveEndDate(activeEndDate);
         cloned.setActiveStartDate(activeStartDate);
         cloned.setDescription(description);

@@ -1,20 +1,4 @@
- 
 package com.wakacommerce.cms.admin.server.handler;
-
-import org.apache.commons.collections.CollectionUtils;
-import org.springframework.stereotype.Component;
-
-import com.wakacommerce.cms.field.domain.FieldDefinition;
-import com.wakacommerce.cms.field.domain.FieldGroup;
-import com.wakacommerce.cms.structure.domain.StructuredContentType;
-import com.wakacommerce.common.enumeration.domain.DataDrivenEnumerationValue;
-import com.wakacommerce.common.presentation.ConfigurationItem;
-import com.wakacommerce.common.presentation.client.SupportedFieldType;
-import com.wakacommerce.common.presentation.client.VisibilityEnum;
-import com.wakacommerce.openadmin.dto.BasicFieldMetadata;
-import com.wakacommerce.openadmin.dto.FieldMetadata;
-import com.wakacommerce.openadmin.dto.MergedPropertyType;
-import com.wakacommerce.openadmin.dto.Property;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,11 +7,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.collections.CollectionUtils;
+import org.springframework.stereotype.Component;
 
-/**
- * Commonalities between {@link PageTemplateCustomPersistenceHandler} and {@link StructuredContentTypeCustomPersistenceHandler}
- * since they share similar issues in regards to dynamic fields
- */
+import com.wakacommerce.cms.field.domain.FieldDefinition;
+import com.wakacommerce.cms.field.domain.FieldGroup;
+import com.wakacommerce.common.enumeration.domain.DataDrivenEnumerationValue;
+import com.wakacommerce.common.presentation.ConfigurationItem;
+import com.wakacommerce.common.presentation.client.SupportedFieldType;
+import com.wakacommerce.common.presentation.client.VisibilityEnum;
+import com.wakacommerce.openadmin.dto.BasicFieldMetadata;
+import com.wakacommerce.openadmin.dto.MergedPropertyType;
+import com.wakacommerce.openadmin.dto.Property;
+
+
 @Component("blDynamicFieldPersistenceHandlerHelper")
 public class DynamicFieldPersistenceHandlerHelper {
     
@@ -56,21 +49,19 @@ public class DynamicFieldPersistenceHandlerHelper {
         }
         fieldMetadata.setName(definition.getName());
         fieldMetadata.setFriendlyName(definition.getFriendlyName());
-        fieldMetadata.setSecurityLevel(definition.getSecurityLevel()==null?"":definition.getSecurityLevel());
         fieldMetadata.setVisibility(definition.getHiddenFlag()?VisibilityEnum.HIDDEN_ALL:VisibilityEnum.VISIBLE_ALL);
-        fieldMetadata.setTab("基本信息");
+        fieldMetadata.setTab("General");
         fieldMetadata.setTabOrder(100);
         fieldMetadata.setExplicitFieldType(SupportedFieldType.UNKNOWN);
         fieldMetadata.setLargeEntry(definition.getTextAreaFlag());
         fieldMetadata.setProminent(false);
         fieldMetadata.setColumnWidth(String.valueOf(definition.getColumnWidth()));
-        fieldMetadata.setBroadleafEnumeration("");
+        fieldMetadata.setWakaEnumType("");
         fieldMetadata.setReadOnly(false);
         fieldMetadata.setRequiredOverride(definition.getRequiredFlag());
         fieldMetadata.setHint(definition.getHint());
         fieldMetadata.setHelpText(definition.getHelpText());
         fieldMetadata.setTooltip(definition.getTooltip());
-        fieldMetadata.setTranslatable(true);
         if (definition.getValidationRegEx() != null) {
             Map<String, String> itemMap = new HashMap<String, String>();
             itemMap.put("regularExpression", definition.getValidationRegEx());
@@ -88,15 +79,6 @@ public class DynamicFieldPersistenceHandlerHelper {
         return property;
     }
 
-    /**
-     * Builds all of the metadata for all of the dynamic properties within a {@link StructuredContentType}, gleaned from
-     * the {@link FieldGroup}s and {@link FieldDefinition}s.
-     * 
-     * @param fieldGroups groups that the {@link Property}s are built from
-     * @param inheritedType the value that each built {@link FieldMetadata} for each property will use to notate where the
-     * dynamic field actually came from (meaning {@link FieldMetadata#setAvailableToTypes(String[])} and {@link FieldMetadata#setInheritedFromType(String)}
-     * @return
-     */
     public Property[] buildDynamicPropertyList(List<FieldGroup> fieldGroups, Class<?> inheritedType) {
         List<Property> propertiesList = new ArrayList<Property>();
         int groupCount = 1;
@@ -134,7 +116,7 @@ public class DynamicFieldPersistenceHandlerHelper {
         fieldMetadata.setLargeEntry(false);
         fieldMetadata.setProminent(false);
         fieldMetadata.setColumnWidth("*");
-        fieldMetadata.setBroadleafEnumeration("");
+        fieldMetadata.setWakaEnumType("");
         fieldMetadata.setReadOnly(true);
         propertiesList.add(property);
 

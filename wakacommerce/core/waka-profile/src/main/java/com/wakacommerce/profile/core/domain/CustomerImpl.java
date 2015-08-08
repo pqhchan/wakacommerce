@@ -1,10 +1,30 @@
-
 package com.wakacommerce.profile.core.domain;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.hibernate.annotations.*;
+import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Index;
+import org.hibernate.annotations.Where;
 
 import com.wakacommerce.common.admin.domain.AdminMainEntity;
 import com.wakacommerce.common.audit.Auditable;
@@ -14,22 +34,14 @@ import com.wakacommerce.common.copy.MultiTenantCopyContext;
 import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransform;
 import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformMember;
 import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformTypes;
-import com.wakacommerce.common.locale.domain.Locale;
-import com.wakacommerce.common.locale.domain.LocaleImpl;
 import com.wakacommerce.common.persistence.PreviewStatus;
 import com.wakacommerce.common.persistence.Previewable;
-import com.wakacommerce.common.presentation.*;
+import com.wakacommerce.common.presentation.AdminPresentation;
+import com.wakacommerce.common.presentation.AdminPresentationClass;
+import com.wakacommerce.common.presentation.AdminPresentationCollection;
+import com.wakacommerce.common.presentation.PopulateToOneFieldsEnum;
 import com.wakacommerce.common.presentation.client.AddMethodType;
 import com.wakacommerce.common.presentation.client.VisibilityEnum;
-
-import javax.persistence.CascadeType;
-import javax.persistence.*;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @Entity
 @EntityListeners(value = { AuditableListener.class, CustomerPersistedEntityListener.class })
@@ -72,15 +84,10 @@ public class CustomerImpl implements Customer, AdminMainEntity, Previewable {
             prominent = true, gridOrder = 1000)
     protected String emailAddress;
 
-    @Column(name = "FIRST_NAME")
-    @AdminPresentation(friendlyName = "CustomerImpl_First_Name", order = 2000, group = "CustomerImpl_Customer", 
-            prominent = true, gridOrder = 2000)
-    protected String firstName;
-
-    @Column(name = "LAST_NAME")
-    @AdminPresentation(friendlyName = "CustomerImpl_Last_Name", order = 3000, group = "CustomerImpl_Customer", 
-            prominent = true, gridOrder = 3000)
-    protected String lastName;
+    @Column(name = "REAL_NAME")
+    @AdminPresentation(friendlyName = "CustomerImpl_Real_Name", order = 3000, group = "CustomerImpl_Customer", 
+            prominent = true, gridOrder = 3500)
+    protected String realName;
 
     @ManyToOne(targetEntity = ChallengeQuestionImpl.class)
     @JoinColumn(name = "CHALLENGE_QUESTION_ID")
@@ -115,23 +122,6 @@ public class CustomerImpl implements Customer, AdminMainEntity, Previewable {
         tab = Presentation.Tab.Name.Advanced, tabOrder = Presentation.Tab.Order.Advanced)
     protected Boolean deactivated = false;
 
-    @ManyToOne(targetEntity = LocaleImpl.class)
-    @JoinColumn(name = "LOCALE_CODE")
-    @AdminPresentation(friendlyName = "CustomerImpl_Customer_Locale",order=4000,             
-            tab = Presentation.Tab.Name.Advanced, tabOrder = Presentation.Tab.Order.Advanced,
-        excluded = true, visibility = VisibilityEnum.GRID_HIDDEN)
-    protected Locale customerLocale;
-    
-    @OneToMany(mappedBy = "customer", targetEntity = CustomerAttributeImpl.class, cascade = { CascadeType.ALL }, orphanRemoval = true)
-    @Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region="blStandardElements")
-    @MapKey(name="name")
-    @BatchSize(size = 50)
-    @AdminPresentationMap(friendlyName = "CustomerAttributeImpl_Attribute_Name",
-            deleteEntityUponRemove = true, forceFreeFormKeys = true, keyPropertyFriendlyName = "ProductAttributeImpl_Attribute_Name",
-            tab = Presentation.Tab.Name.Advanced, tabOrder = Presentation.Tab.Order.Advanced
-    )
-    protected Map<String, CustomerAttribute> customerAttributes = new HashMap<String, CustomerAttribute>();
-
     @OneToMany(mappedBy = "customer", targetEntity = CustomerAddressImpl.class, cascade = {CascadeType.ALL})
     @Cascade(value={org.hibernate.annotations.CascadeType.ALL, org.hibernate.annotations.CascadeType.DELETE_ORPHAN})
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="blStandardElements")
@@ -159,12 +149,6 @@ public class CustomerImpl implements Customer, AdminMainEntity, Previewable {
             tab = Presentation.Tab.Name.Contact, tabOrder = Presentation.Tab.Order.Contact)
     protected List<CustomerPayment> customerPayments  = new ArrayList<CustomerPayment>();
 
-    @Column(name = "TAX_EXEMPTION_CODE")
-    @AdminPresentation(friendlyName = "CustomerImpl_Customer_TaxExemptCode", order = 5000,
-            tab = Presentation.Tab.Name.Advanced, tabOrder = Presentation.Tab.Order.Advanced,
-            visibility = VisibilityEnum.GRID_HIDDEN)
-    protected String taxExemptionCode;
-
     @Transient
     protected String unencodedPassword;
 
@@ -179,9 +163,6 @@ public class CustomerImpl implements Customer, AdminMainEntity, Previewable {
 
     @Transient
     protected boolean loggedIn;
-
-    @Transient
-    protected Map<String, Object> transientProperties = new HashMap<String, Object>();
 
     @Override
     public Long getId() {
@@ -224,23 +205,13 @@ public class CustomerImpl implements Customer, AdminMainEntity, Previewable {
     }
 
     @Override
-    public String getFirstName() {
-        return firstName;
+    public String getRealName() {
+        return realName;
     }
 
     @Override
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    @Override
-    public String getLastName() {
-        return lastName;
-    }
-
-    @Override
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setRealName(String realName) {
+        this.realName = realName;
     }
 
     @Override
@@ -366,26 +337,6 @@ public class CustomerImpl implements Customer, AdminMainEntity, Previewable {
     }
 
     @Override
-    public Locale getCustomerLocale() {
-        return customerLocale;
-    }
-
-    @Override
-    public void setCustomerLocale(Locale customerLocale) {
-        this.customerLocale = customerLocale;
-    }
-
-    @Override
-    public Map<String, CustomerAttribute> getCustomerAttributes() {
-        return customerAttributes;
-    }
-
-    @Override
-    public void setCustomerAttributes(Map<String, CustomerAttribute> customerAttributes) {
-        this.customerAttributes = customerAttributes;
-    }
-
-    @Override
     public boolean isDeactivated() {
         return BooleanUtils.toBoolean(deactivated);
     }
@@ -427,8 +378,8 @@ public class CustomerImpl implements Customer, AdminMainEntity, Previewable {
 
     @Override
     public String getMainEntityName() {
-        if (!StringUtils.isEmpty(getFirstName()) && !StringUtils.isEmpty(getLastName())) {
-            return getFirstName() + " " + getLastName();
+        if (!StringUtils.isEmpty(getRealName())) {
+            return getRealName();
         }
         return String.valueOf(getId());
     }
@@ -447,11 +398,6 @@ public class CustomerImpl implements Customer, AdminMainEntity, Previewable {
             previewable = new PreviewStatus();
         }
         previewable.setPreview(preview);
-    }
-
-    @Override
-    public Map<String, Object> getTransientProperties() {
-        return transientProperties;
     }
 
     @Override
@@ -506,22 +452,15 @@ public class CustomerImpl implements Customer, AdminMainEntity, Previewable {
             cloned.getCustomerAddresses().add(clonedEntry);
 
         }
-        for(Map.Entry<String, CustomerAttribute> entry : customerAttributes.entrySet()){
-            CustomerAttribute clonedEntry = entry.getValue().createOrRetrieveCopyInstance(context).getClone();
-            clonedEntry.setCustomer(cloned);
-            cloned.getCustomerAttributes().put(entry.getKey(),clonedEntry);
-        }
         cloned.setLoggedIn(loggedIn);
         cloned.setUsername(username);
         cloned.setUnencodedPassword(unencodedPassword);
-        cloned.setTaxExemptionCode(taxExemptionCode);
         cloned.setUnencodedChallengeAnswer(unencodedChallengeAnswer);
         cloned.setRegistered(registered);
         cloned.setReceiveEmail(receiveEmail);
         cloned.setPasswordChangeRequired(passwordChangeRequired);
         cloned.setPassword(password);
-        cloned.setLastName(lastName);
-        cloned.setFirstName(firstName);
+        cloned.setRealName(realName);
         cloned.setEmailAddress(emailAddress);
         cloned.setDeactivated(deactivated);
         for(CustomerPayment entry : customerPayments){
@@ -555,19 +494,4 @@ public class CustomerImpl implements Customer, AdminMainEntity, Previewable {
         }
     }
 
-    @Override
-    public String getTaxExemptionCode() {
-        return this.taxExemptionCode;
-    }
-
-    @Override
-    public void setTaxExemptionCode(String exemption) {
-        this.taxExemptionCode = exemption;
-    }
-    
-    @Override
-    public boolean isTaxExempt() {
-        return StringUtils.isNotEmpty(taxExemptionCode);
-    }
-    
 }

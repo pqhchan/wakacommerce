@@ -1,4 +1,3 @@
-
 package com.wakacommerce.profile.core.service;
 
 import org.springframework.dao.DataAccessException;
@@ -21,9 +20,6 @@ import javax.annotation.Resource;
  * This class is being un-deprecated because we want the query for the customer to happen through Hibernate instead of
  * through raw JDBC, which is the case when <sec:jdbc-user-service /> is used. We need the query to go through Hibernate
  * so that we are able to attach the necessary filters in certain circumstances.
- * 
- * 
- *     
  */
 @Service("blUserDetailsService")
 public class UserDetailsServiceImpl implements UserDetailsService {

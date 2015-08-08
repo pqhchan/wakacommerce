@@ -29,7 +29,7 @@ import com.wakacommerce.openadmin.dto.ForeignKey;
 import com.wakacommerce.openadmin.dto.PersistencePerspective;
 import com.wakacommerce.openadmin.dto.override.FieldMetadataOverride;
 import com.wakacommerce.openadmin.server.dao.DynamicEntityDao;
-import com.wakacommerce.openadmin.server.dao.FieldInfo;
+import com.wakacommerce.openadmin.server.dao.FieldMappingInfo;
 import com.wakacommerce.openadmin.server.dao.provider.metadata.request.AddMetadataFromFieldTypeRequest;
 import com.wakacommerce.openadmin.server.dao.provider.metadata.request.AddMetadataRequest;
 import com.wakacommerce.openadmin.server.dao.provider.metadata.request.OverrideViaAnnotationRequest;
@@ -47,7 +47,7 @@ public class AdornedTargetCollectionFieldMetadataProvider extends AdvancedCollec
         return annot != null;
     }
 
-    protected boolean canHandleFieldForTypeMetadata(AddMetadataFromFieldTypeRequest addMetadataFromFieldTypeRequest, Map<String, FieldMetadata> metadata) {
+    protected boolean canHandle(AddMetadataFromFieldTypeRequest addMetadataFromFieldTypeRequest, Map<String, FieldMetadata> metadata) {
         AdminPresentationAdornedTargetCollection annot = addMetadataFromFieldTypeRequest.getRequestedField().getAnnotation(AdminPresentationAdornedTargetCollection.class);
         return annot != null;
     }
@@ -63,7 +63,7 @@ public class AdornedTargetCollectionFieldMetadataProvider extends AdvancedCollec
             return FieldProviderResponse.NOT_HANDLED;
         }
         AdminPresentationAdornedTargetCollection annot = addMetadataRequest.getRequestedField().getAnnotation(AdminPresentationAdornedTargetCollection.class);
-        FieldInfo info = buildFieldInfo(addMetadataRequest.getRequestedField());
+        FieldMappingInfo info = buildFieldMappingInfo(addMetadataRequest.getRequestedField());
         FieldMetadataOverride override = constructAdornedTargetCollectionMetadataOverride(annot);
         buildAdornedTargetCollectionMetadata(addMetadataRequest.getParentClass(), addMetadataRequest.getTargetClass(), metadata, info, override, addMetadataRequest.getDynamicEntityDao());
         setClassOwnership(addMetadataRequest.getParentClass(), addMetadataRequest.getTargetClass(), metadata, info);
@@ -99,7 +99,7 @@ public class AdornedTargetCollectionFieldMetadataProvider extends AdvancedCollec
                                                 .getField(targetClass, fieldName);
                                     Map<String, FieldMetadata> temp = new HashMap<String, FieldMetadata>(1);
                                     temp.put(field.getName(), serverMetadata);
-                                    FieldInfo info = buildFieldInfo(field);
+                                    FieldMappingInfo info = buildFieldMappingInfo(field);
                                     FieldMetadataOverride fieldMetadataOverride = overrideAdornedTargetMergeMetadata(override);
                                     if (serverMetadata.getExcluded() != null && serverMetadata.getExcluded() &&
                                             (fieldMetadataOverride.getExcluded() == null || fieldMetadataOverride.getExcluded())) {
@@ -144,7 +144,7 @@ public class AdornedTargetCollectionFieldMetadataProvider extends AdvancedCollec
                                     Field field = overrideViaXmlRequest.getDynamicEntityDao().getFieldManager().getField(targetClass, fieldName);
                                     Map<String, FieldMetadata> temp = new HashMap<String, FieldMetadata>(1);
                                     temp.put(field.getName(), serverMetadata);
-                                    FieldInfo info = buildFieldInfo(field);
+                                    FieldMappingInfo info = buildFieldMappingInfo(field);
                                     buildAdornedTargetCollectionMetadata(parentClass, targetClass, temp, info, localMetadata, overrideViaXmlRequest.getDynamicEntityDao());
                                     serverMetadata = (AdornedTargetCollectionMetadata) temp.get(field.getName());
                                     metadata.put(key, serverMetadata);
@@ -168,7 +168,7 @@ public class AdornedTargetCollectionFieldMetadataProvider extends AdvancedCollec
 
     @Override
     public FieldProviderResponse addMetadataFromFieldType(AddMetadataFromFieldTypeRequest addMetadataFromFieldTypeRequest, Map<String, FieldMetadata> metadata) {
-        if (!canHandleFieldForTypeMetadata(addMetadataFromFieldTypeRequest, metadata)) {
+        if (!canHandle(addMetadataFromFieldTypeRequest, metadata)) {
             return FieldProviderResponse.NOT_HANDLED;
         }
         super.addMetadataFromFieldType(addMetadataFromFieldTypeRequest, metadata);
@@ -226,8 +226,6 @@ public class AdornedTargetCollectionFieldMetadataProvider extends AdvancedCollec
                         Boolean.parseBoolean(stringValue));
             } else if (entry.getKey().equals(PropertyType.AdminPresentationAdornedTargetCollection.SECURITYLEVEL)) {
                 fieldMetadataOverride.setSecurityLevel(stringValue);
-            } else if (entry.getKey().equals(PropertyType.AdminPresentationAdornedTargetCollection.SHOWIFPROPERTY)) {
-                fieldMetadataOverride.setShowIfProperty(stringValue);
             } else if (entry.getKey().equals(PropertyType.AdminPresentationAdornedTargetCollection.SORTASCENDING)) {
                 fieldMetadataOverride.setSortAscending(StringUtils.isEmpty(stringValue) ? entry.getValue()
                         .booleanOverrideValue() :
@@ -285,14 +283,13 @@ public class AdornedTargetCollectionFieldMetadataProvider extends AdvancedCollec
             override.setRemoveType(adornedTargetCollection.operationTypes().removeType());
             override.setUpdateType(adornedTargetCollection.operationTypes().updateType());
             override.setInspectType(adornedTargetCollection.operationTypes().inspectType());
-            override.setShowIfProperty(adornedTargetCollection.showIfProperty());
             override.setCurrencyCodeField(adornedTargetCollection.currencyCodeField());
             return override;
         }
         throw new IllegalArgumentException("AdminPresentationAdornedTargetCollection annotation not found on field.");
     }
 
-    protected void buildAdornedTargetCollectionMetadata(Class<?> parentClass, Class<?> targetClass, Map<String, FieldMetadata> attributes, FieldInfo field, FieldMetadataOverride adornedTargetCollectionMetadata, DynamicEntityDao dynamicEntityDao) {
+    protected void buildAdornedTargetCollectionMetadata(Class<?> parentClass, Class<?> targetClass, Map<String, FieldMetadata> attributes, FieldMappingInfo field, FieldMetadataOverride adornedTargetCollectionMetadata, DynamicEntityDao dynamicEntityDao) {
         AdornedTargetCollectionMetadata serverMetadata = (AdornedTargetCollectionMetadata) attributes.get(field.getName());
 
         Class<?> resolvedClass = parentClass==null?targetClass:parentClass;
@@ -308,10 +305,6 @@ public class AdornedTargetCollectionFieldMetadataProvider extends AdvancedCollec
         if (adornedTargetCollectionMetadata.getReadOnly() != null) {
             metadata.setMutable(!adornedTargetCollectionMetadata.getReadOnly());
         }
-        if (adornedTargetCollectionMetadata.getShowIfProperty()!=null) {
-            metadata.setShowIfProperty(adornedTargetCollectionMetadata.getShowIfProperty());
-        }
-
         com.wakacommerce.openadmin.dto.OperationTypes dtoOperationTypes = new com.wakacommerce.openadmin.dto.OperationTypes(OperationType.ADORNEDTARGETLIST, OperationType.ADORNEDTARGETLIST, OperationType.ADORNEDTARGETLIST, OperationType.ADORNEDTARGETLIST, OperationType.BASIC);
         if (adornedTargetCollectionMetadata.getAddType() != null) {
             dtoOperationTypes.setAddType(adornedTargetCollectionMetadata.getAddType());

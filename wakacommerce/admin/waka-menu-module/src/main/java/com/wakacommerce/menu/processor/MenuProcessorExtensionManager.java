@@ -1,13 +1,9 @@
-
 package com.wakacommerce.menu.processor;
 
 import org.springframework.stereotype.Service;
 
 import com.wakacommerce.common.extension.ExtensionManager;
 
-/**
- *  
- */
 @Service("blMenuProcessorExtensionManager")
 public class MenuProcessorExtensionManager  extends ExtensionManager<MenuProcessorExtensionHandler> {
 

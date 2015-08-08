@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.domain;
 
 import org.hibernate.annotations.Cache;
@@ -28,22 +27,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-/**
- * The Class CategoryProductXrefImpl is the default implmentation of {@link Category}.
- * This entity is only used for executing a named query.
- *
- * If you want to add fields specific to your implementation of BroadLeafCommerce you should extend
- * this class and add your fields.  If you need to make significant changes to the class then you
- * should implement your own version of {@link Category}.
- * <br>
- * <br>
- * This implementation uses a Hibernate implementation of JPA configured through annotations.
- * The Entity references the following tables:
- * BLC_CATEGORY_PRODUCT_XREF,
- *
- * @see {@link Category}, {@link ProductImpl}
- *btaylor
- */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "BLC_CATEGORY_PRODUCT_XREF")
@@ -55,7 +38,6 @@ import javax.persistence.Table;
 })
 public class CategoryProductXrefImpl implements CategoryProductXref {
 
-    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -75,12 +57,10 @@ public class CategoryProductXrefImpl implements CategoryProductXref {
     @JoinColumn(name = "CATEGORY_ID")
     protected Category category = new CategoryImpl();
 
-    /** The product. */
     @ManyToOne(targetEntity = ProductImpl.class, optional=false, cascade = CascadeType.REFRESH)
     @JoinColumn(name = "PRODUCT_ID")
     protected Product product = new ProductImpl();
 
-    /** The display order. */
     @Column(name = "DISPLAY_ORDER", precision = 10, scale = 6)
     @AdminPresentation(visibility = VisibilityEnum.HIDDEN_ALL)
     protected BigDecimal displayOrder;

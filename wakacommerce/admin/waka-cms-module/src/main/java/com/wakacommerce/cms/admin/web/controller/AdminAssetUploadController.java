@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.admin.web.controller;
 
 import org.springframework.http.HttpHeaders;
@@ -33,14 +32,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * AdminAssetUploadController handles uploading or selecting assets.
- *     
- * Used with entities like {@link SkuImpl} and {@link CategoryImpl} that have {@link CustomPersistenceHandler} 
- * configurations that provide support for adding maps of Media objects.
- * 
- *   ( )
- */
 @Controller("blAdminAssetUploadController")
 @RequestMapping("/{sectionKey}")
 public class AdminAssetUploadController extends AdminAbstractController {

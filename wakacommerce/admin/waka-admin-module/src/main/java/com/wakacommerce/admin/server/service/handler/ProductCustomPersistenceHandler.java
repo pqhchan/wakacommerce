@@ -1,5 +1,15 @@
-
 package com.wakacommerce.admin.server.service.handler;
+
+import java.lang.reflect.Field;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.From;
+import javax.persistence.criteria.JoinType;
+import javax.persistence.criteria.Path;
+import javax.persistence.criteria.Predicate;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.ArrayUtils;
@@ -32,7 +42,6 @@ import com.wakacommerce.openadmin.dto.FieldMetadata;
 import com.wakacommerce.openadmin.dto.PersistencePackage;
 import com.wakacommerce.openadmin.dto.PersistencePerspective;
 import com.wakacommerce.openadmin.server.dao.DynamicEntityDao;
-import com.wakacommerce.openadmin.server.service.ValidationException;
 import com.wakacommerce.openadmin.server.service.handler.CustomPersistenceHandlerAdapter;
 import com.wakacommerce.openadmin.server.service.persistence.module.EmptyFilterValues;
 import com.wakacommerce.openadmin.server.service.persistence.module.InspectHelper;
@@ -42,23 +51,6 @@ import com.wakacommerce.openadmin.server.service.persistence.module.criteria.Fil
 import com.wakacommerce.openadmin.server.service.persistence.module.criteria.Restriction;
 import com.wakacommerce.openadmin.server.service.persistence.module.criteria.predicate.PredicateProvider;
 
-import java.io.Serializable;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.Resource;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.From;
-import javax.persistence.criteria.JoinType;
-import javax.persistence.criteria.Path;
-import javax.persistence.criteria.Predicate;
-
-/**
- * 
- */
 @Component("blProductCustomPersistenceHandler")
 public class ProductCustomPersistenceHandler extends CustomPersistenceHandlerAdapter {
     

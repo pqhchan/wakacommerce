@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.web.rulebuilder.enums;
 
 import org.apache.commons.lang3.reflect.FieldUtils;

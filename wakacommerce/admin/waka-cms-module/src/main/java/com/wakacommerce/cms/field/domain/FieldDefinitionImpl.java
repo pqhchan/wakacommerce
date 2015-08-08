@@ -71,9 +71,6 @@ public class FieldDefinitionImpl implements FieldDefinition, ProfileEntity {
         friendlyName = "FieldDefinitionImpl_fieldType")
     protected String fieldType;
 
-    @Column (name = "SECURITY_LEVEL")
-    protected String securityLevel;
-
     @Column (name = "HIDDEN_FLAG")
     protected Boolean hiddenFlag = false;
 
@@ -174,16 +171,6 @@ public class FieldDefinitionImpl implements FieldDefinition, ProfileEntity {
     @Override
     public void setFieldType(SupportedFieldType fieldType) {
         this.fieldType = fieldType!=null?fieldType.toString():null;
-    }
-
-    @Override
-    public String getSecurityLevel() {
-        return securityLevel;
-    }
-
-    @Override
-    public void setSecurityLevel(String securityLevel) {
-        this.securityLevel = securityLevel;
     }
 
     @Override
@@ -350,7 +337,6 @@ public class FieldDefinitionImpl implements FieldDefinition, ProfileEntity {
         cloned.setName(name);
         cloned.setFriendlyName(friendlyName);
         cloned.setFieldType(getFieldType());
-        cloned.setSecurityLevel(securityLevel);
         cloned.setHiddenFlag(hiddenFlag);
         cloned.setValidationRegEx(validationRegEx);
         cloned.setValidationErrorMesageKey(validationErrorMesageKey);

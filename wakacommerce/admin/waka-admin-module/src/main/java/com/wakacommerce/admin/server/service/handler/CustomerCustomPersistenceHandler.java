@@ -1,4 +1,3 @@
-
 package com.wakacommerce.admin.server.service.handler;
 
 import org.apache.commons.logging.Log;
@@ -23,9 +22,6 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-/**
- *  
- */
 @Component("blCustomerCustomPersistenceHandler")
 public class CustomerCustomPersistenceHandler extends CustomPersistenceHandlerAdapter {
 

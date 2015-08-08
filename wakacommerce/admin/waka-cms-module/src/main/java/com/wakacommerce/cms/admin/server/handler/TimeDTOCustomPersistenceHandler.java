@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.admin.server.handler;
 
 import org.apache.commons.logging.Log;
@@ -19,13 +18,6 @@ import com.wakacommerce.openadmin.server.service.persistence.module.InspectHelpe
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by IntelliJ IDEA.
- * User:   
- * Date: 8/23/11
- * Time: 1:56 PM
- * To change this template use File | Settings | File Templates.
- */
 @Component("blTimeDTOCustomPersistenceHandler")
 public class TimeDTOCustomPersistenceHandler extends CustomPersistenceHandlerAdapter {
 

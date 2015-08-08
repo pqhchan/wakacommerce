@@ -1,4 +1,3 @@
-
 package com.wakacommerce.menu.domain;
 
 import org.hibernate.annotations.BatchSize;

@@ -278,16 +278,6 @@ public class CatalogServiceImpl implements CatalogService {
     }
 
     @Override
-    @Deprecated
-    public Map<String, List<Long>> getChildCategoryURLMapByCategoryId(Long categoryId) {
-        Category category = findCategoryById(categoryId);
-        if (category != null) {
-            return category.getChildCategoryURLMap();
-        }
-        return null;
-    }
-    
-    @Override
     public Category createCategory() {
         return categoryDao.create();
     }

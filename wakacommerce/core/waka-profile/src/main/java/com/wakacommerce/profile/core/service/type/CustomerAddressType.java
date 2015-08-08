@@ -1,4 +1,3 @@
-
 package com.wakacommerce.profile.core.service.type;
 
 import java.io.Serializable;
@@ -7,12 +6,6 @@ import java.util.Map;
 
 import com.wakacommerce.common.WakaEnumType;
 
-
-/**
- * An extendible enumeration of customer address types.
- * 
- *  
- */
 public class CustomerAddressType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;

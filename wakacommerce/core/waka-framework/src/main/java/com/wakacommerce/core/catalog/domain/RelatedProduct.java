@@ -1,6 +1,4 @@
-
 package com.wakacommerce.core.catalog.domain;
-
 
 import java.math.BigDecimal;
 

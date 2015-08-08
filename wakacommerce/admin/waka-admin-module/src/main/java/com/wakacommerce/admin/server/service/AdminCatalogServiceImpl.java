@@ -1,4 +1,3 @@
-
 package com.wakacommerce.admin.server.service;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -15,6 +14,7 @@ import com.wakacommerce.core.catalog.dao.SkuDao;
 import com.wakacommerce.core.catalog.domain.Product;
 import com.wakacommerce.core.catalog.domain.ProductOption;
 import com.wakacommerce.core.catalog.domain.ProductOptionValue;
+import com.wakacommerce.core.catalog.domain.ProductOptionXref;
 import com.wakacommerce.core.catalog.domain.Sku;
 import com.wakacommerce.core.catalog.service.CatalogService;
 
@@ -26,11 +26,6 @@ import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-/**
- * 
- *  
- *
- */
 @Service("blAdminCatalogService")
 public class AdminCatalogServiceImpl implements AdminCatalogService {
     
@@ -52,11 +47,16 @@ public class AdminCatalogServiceImpl implements AdminCatalogService {
     public Integer generateSkusFromProduct(Long productId) {
         Product product = catalogService.findProductById(productId);
         
-        if (CollectionUtils.isEmpty(product.getProductOptions())) {
+        if (CollectionUtils.isEmpty(product.getProductOptionXrefs())) {
             return -1;
         }
         
-        List<List<ProductOptionValue>> allPermutations = generatePermutations(0, new ArrayList<ProductOptionValue>(), product.getProductOptions());
+        List<ProductOption> options = new ArrayList<ProductOption>();
+        for(ProductOptionXref optionXref : product.getProductOptionXrefs()) {
+        	options.add( optionXref.getProductOption() );
+        }
+        
+        List<List<ProductOptionValue>> allPermutations = generatePermutations(0, new ArrayList<ProductOptionValue>(), options);
         LOG.info("Total number of permutations: " + allPermutations.size());
         LOG.info(allPermutations);
         
@@ -157,8 +157,10 @@ public class AdminCatalogServiceImpl implements AdminCatalogService {
     public Boolean cloneProduct(Long productId) {
         Product cloneProduct = catalogService.findProductById(productId);
         //initialize the many-to-many to save off
-        cloneProduct.getProductOptions().size();
-        cloneProduct.getAllParentCategories().size();
+        cloneProduct.getProductOptionXrefs().size();
+        cloneProduct.getAllParentCategoryXrefs().size();
+        //cloneProduct.getProductOptions().size();
+        //cloneProduct.getAllParentCategories().size();
 
         //Detach and save a cloned Sku
         Sku cloneSku = cloneProduct.getDefaultSku();

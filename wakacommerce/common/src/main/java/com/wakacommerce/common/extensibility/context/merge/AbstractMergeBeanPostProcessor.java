@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.extensibility.context.merge;
 
 import org.apache.commons.logging.Log;
@@ -20,37 +19,6 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * <p>
- * Contains useful processing code for merge bean post processors. The BeanPostProcessor instances can
- * be used to merge additional collection members into collections declared elsewhere. In effect, this allows
- * an implementer to only declare the collection members they're currently interested in cause those members
- * to be merged into a larger, pre-existing list. This is more desirable than a traditional, comprehensive
- * override that would require re-declaring the original bean and all of its members in addition to the current
- * members being considered.
- * </p>
- * <p>
- * This code demonstrates using one of the concrete implementations, {@link LateStageMergeBeanPostProcessor}. The
- * basic usage pattern is to specify the id of the collection you want to merge (collectionRef) and the id
- * of the pre-existing, target collection (targetRef) that should receive the merge collection. The collection
- * can be represented using ListFactoryBean, SetFactoryBean or MapFactoryBean.
- * </p>
- * <pre>
- * {@code
- * <bean class="com.wakacommerce.common.extensibility.context.merge.LateStageMergeBeanPostProcessor">
- *  <property name="collectionRef" value="blPriceListRuleBuilderFieldServices"/>
- *  <property name="targetRef" value="blRuleBuilderFieldServices"/>
- * </bean>
- *
- * <bean id="blPriceListRuleBuilderFieldServices" class="org.springframework.beans.factory.config.ListFactoryBean">
- *  <property name="sourceList">
- *      <list>
- *          <ref bean="blPricingContextFieldService"/>
- *      </list>
- *  </property>
- * </bean>
- * }
- * </pre>
- *
  * @see LateStageMergeBeanPostProcessor
  * @see EarlyStageMergeBeanPostProcessor
  */

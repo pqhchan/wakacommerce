@@ -23,7 +23,6 @@ public class PropertyType {
         public static final String TOOLTIP = "tooltip";
         public static final String HELPTEXT = "helpText";
         public static final String HINT = "hint";
-        public static final String SHOWIFPROPERTY = "showIfProperty";
         public static final String CURRENCYCODEFIELD = "currencyCodeField";
         public static final String RULEIDENTIFIER = "ruleIdentifier";
         public static final String READONLY = "readOnly";

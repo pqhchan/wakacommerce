@@ -6,14 +6,9 @@
             <input type="email" name="emailAddress" id="emailAddress" th:field="*{emailAddress}" class="field50" th:classappend="${#fields.hasErrors('emailAddress')}? 'fieldError'"/>
         </div>
         <div class="form50">
-            <label for="firstName">First Name:</label>
-            <span class="error" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
-            <input type="text" name="firstName" id="firstName" th:field="*{firstName}" class="field50" th:classappend="${#fields.hasErrors('firstName')}? 'fieldError'"/>
-        </div>
-        <div class="form50">
-            <label for="lastName">Last Name:</label>
-            <span class="error" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
-            <input type="text" name="lastName" id="lastName" th:field="*{lastName}" class="field50" th:classappend="${#fields.hasErrors('lastName')}? 'fieldError'"/>
+            <label for="firstName">Real Name:</label>
+                <span class="error" th:if="${#fields.hasErrors('realName')}" th:errors="*{realName}"></span>
+                <input type="text" name="realName" id="realName" th:field="*{realName}" class="field50" th:classappend="${#fields.hasErrors('realName')}? 'fieldError'"/>
         </div>
         <input type="submit" class="submitFormButton" value="Update Account" />
     </blc:form>

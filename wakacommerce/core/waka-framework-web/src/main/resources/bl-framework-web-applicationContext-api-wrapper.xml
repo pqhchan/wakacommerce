@@ -8,10 +8,8 @@
     <bean id="com.wakacommerce.core.web.api.wrapper.AddressWrapper" class="com.wakacommerce.core.web.api.wrapper.AddressWrapper" scope="prototype"/>
     <bean id="com.wakacommerce.core.web.api.wrapper.CategoriesWrapper" class="com.wakacommerce.core.web.api.wrapper.CategoriesWrapper" scope="prototype"/>
     <bean id="com.wakacommerce.core.web.api.wrapper.CategoryWrapper" class="com.wakacommerce.core.web.api.wrapper.CategoryWrapper" scope="prototype"/>
-    <bean id="com.wakacommerce.core.web.api.wrapper.CategoryAttributeWrapper" class="com.wakacommerce.core.web.api.wrapper.CategoryAttributeWrapper" scope="prototype"/>
     <bean id="com.wakacommerce.core.web.api.wrapper.CountryWrapper" class="com.wakacommerce.core.web.api.wrapper.CountryWrapper" scope="prototype"/>
     <bean id="com.wakacommerce.core.web.api.wrapper.CustomerWrapper" class="com.wakacommerce.core.web.api.wrapper.CustomerWrapper" scope="prototype"/>
-    <bean id="com.wakacommerce.core.web.api.wrapper.CustomerAttributeWrapper" class="com.wakacommerce.core.web.api.wrapper.CustomerAttributeWrapper" scope="prototype"/>
     <bean id="com.wakacommerce.core.web.api.wrapper.ErrorWrapper" class="com.wakacommerce.core.web.api.wrapper.ErrorWrapper" scope="prototype"/>
     <bean id="com.wakacommerce.core.web.api.wrapper.ErrorMessageWrapper" class="com.wakacommerce.core.web.api.wrapper.ErrorMessageWrapper" scope="prototype"/>
     <bean id="com.wakacommerce.core.web.api.wrapper.FulfillmentGroupItemWrapper" class="com.wakacommerce.core.web.api.wrapper.FulfillmentGroupItemWrapper" scope="prototype"/>
@@ -27,7 +25,6 @@
     <bean id="com.wakacommerce.core.web.api.wrapper.OrderPaymentWrapper" class="com.wakacommerce.core.web.api.wrapper.OrderPaymentWrapper" scope="prototype"/>
     <bean id="com.wakacommerce.core.web.api.wrapper.PaymentTransactionWrapper" class="com.wakacommerce.core.web.api.wrapper.PaymentTransactionWrapper" scope="prototype"/>
     <bean id="com.wakacommerce.core.web.api.wrapper.PhoneWrapper" class="com.wakacommerce.core.web.api.wrapper.PhoneWrapper" scope="prototype"/>
-    <bean id="com.wakacommerce.core.web.api.wrapper.ProductAttributeWrapper" class="com.wakacommerce.core.web.api.wrapper.ProductAttributeWrapper" scope="prototype"/>
     <bean id="com.wakacommerce.core.web.api.wrapper.DimensionWrapper" class="com.wakacommerce.core.web.api.wrapper.DimensionWrapper" scope="prototype"/>
     <bean id="com.wakacommerce.core.web.api.wrapper.WeightWrapper" class="com.wakacommerce.core.web.api.wrapper.WeightWrapper" scope="prototype"/>
     <bean id="com.wakacommerce.core.web.api.wrapper.ProductWrapper" class="com.wakacommerce.core.web.api.wrapper.ProductWrapper" scope="prototype"/>

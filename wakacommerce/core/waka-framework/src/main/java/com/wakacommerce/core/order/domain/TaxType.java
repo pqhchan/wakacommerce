@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.order.domain;
 
 import java.io.Serializable;
@@ -7,12 +6,6 @@ import java.util.Map;
 
 import com.wakacommerce.common.WakaEnumType;
 
-/**
- * An extensible enumeration of tax detail types
- * 
- *  
- *
- */
 public class TaxType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;

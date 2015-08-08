@@ -29,7 +29,7 @@ import com.wakacommerce.openadmin.dto.PersistencePerspective;
 import com.wakacommerce.openadmin.dto.SimpleValueMapStructure;
 import com.wakacommerce.openadmin.dto.override.FieldMetadataOverride;
 import com.wakacommerce.openadmin.server.dao.DynamicEntityDao;
-import com.wakacommerce.openadmin.server.dao.FieldInfo;
+import com.wakacommerce.openadmin.server.dao.FieldMappingInfo;
 import com.wakacommerce.openadmin.server.dao.provider.metadata.request.AddMetadataFromFieldTypeRequest;
 import com.wakacommerce.openadmin.server.dao.provider.metadata.request.AddMetadataRequest;
 import com.wakacommerce.openadmin.server.dao.provider.metadata.request.OverrideViaAnnotationRequest;
@@ -58,7 +58,7 @@ public class MapFieldMetadataProvider extends AdvancedCollectionFieldMetadataPro
             return FieldProviderResponse.NOT_HANDLED;
         }
         AdminPresentationMap annot = addMetadataRequest.getRequestedField().getAnnotation(AdminPresentationMap.class);
-        FieldInfo info = buildFieldInfo(addMetadataRequest.getRequestedField());
+        FieldMappingInfo info = buildFieldMappingInfo(addMetadataRequest.getRequestedField());
         FieldMetadataOverride override = constructMapMetadataOverride(annot);
         buildMapMetadata(addMetadataRequest.getParentClass(), addMetadataRequest.getTargetClass(),
         metadata, info, override, addMetadataRequest.getDynamicEntityDao(), addMetadataRequest.getPrefix());
@@ -95,7 +95,7 @@ public class MapFieldMetadataProvider extends AdvancedCollectionFieldMetadataPro
                                                 .getField(targetClass, fieldName);
                                     Map<String, FieldMetadata> temp = new HashMap<String, FieldMetadata>(1);
                                     temp.put(field.getName(), serverMetadata);
-                                    FieldInfo info = buildFieldInfo(field);
+                                    FieldMappingInfo info = buildFieldMappingInfo(field);
                                     FieldMetadataOverride fieldMetadataOverride = overrideMapMergeMetadata(override);
                                     if (serverMetadata.getExcluded() != null && serverMetadata.getExcluded() &&
                                             (fieldMetadataOverride.getExcluded() == null || fieldMetadataOverride.getExcluded())) {
@@ -139,7 +139,7 @@ public class MapFieldMetadataProvider extends AdvancedCollectionFieldMetadataPro
                                     Field field = overrideViaXmlRequest.getDynamicEntityDao().getFieldManager().getField(targetClass, fieldName);
                                     Map<String, FieldMetadata> temp = new HashMap<String, FieldMetadata>(1);
                                     temp.put(field.getName(), serverMetadata);
-                                    FieldInfo info = buildFieldInfo(field);
+                                    FieldMappingInfo info = buildFieldMappingInfo(field);
                                     buildMapMetadata(parentClass, targetClass, temp, info, localMetadata, overrideViaXmlRequest.getDynamicEntityDao(), serverMetadata.getPrefix());
                                     serverMetadata = (MapMetadata) temp.get(field.getName());
                                     metadata.put(key, serverMetadata);
@@ -163,7 +163,7 @@ public class MapFieldMetadataProvider extends AdvancedCollectionFieldMetadataPro
 
     @Override
     public FieldProviderResponse addMetadataFromFieldType(AddMetadataFromFieldTypeRequest addMetadataFromFieldTypeRequest, Map<String, FieldMetadata> metadata) {
-        if (!canHandleFieldForTypeMetadata(addMetadataFromFieldTypeRequest, metadata)) {
+        if (!canHandle(addMetadataFromFieldTypeRequest, metadata)) {
             return FieldProviderResponse.NOT_HANDLED;
         }
         //do nothing but add the property without manipulation
@@ -233,8 +233,6 @@ public class MapFieldMetadataProvider extends AdvancedCollectionFieldMetadataPro
                         .booleanOverrideValue() : Boolean.parseBoolean(stringValue));
             } else if (entry.getKey().equals(PropertyType.AdminPresentationMap.SECURITYLEVEL)) {
                 fieldMetadataOverride.setSecurityLevel(stringValue);
-            } else if (entry.getKey().equals(PropertyType.AdminPresentationMap.SHOWIFPROPERTY)) {
-                fieldMetadataOverride.setShowIfProperty(stringValue);
             } else if (entry.getKey().equals(PropertyType.AdminPresentationMap.TAB)) {
                 fieldMetadataOverride.setTab(stringValue);
             } else if (entry.getKey().equals(PropertyType.AdminPresentationMap.TABORDER)) {
@@ -294,7 +292,6 @@ public class MapFieldMetadataProvider extends AdvancedCollectionFieldMetadataPro
             override.setRemoveType(map.operationTypes().removeType());
             override.setUpdateType(map.operationTypes().updateType());
             override.setInspectType(map.operationTypes().inspectType());
-            override.setShowIfProperty(map.showIfProperty());
             override.setCurrencyCodeField(map.currencyCodeField());
             override.setForceFreeFormKeys(map.forceFreeFormKeys());
             override.setManyToField(map.manyToField());
@@ -304,7 +301,7 @@ public class MapFieldMetadataProvider extends AdvancedCollectionFieldMetadataPro
     }
 
     protected void buildMapMetadata(Class<?> parentClass, Class<?> targetClass, Map<String, FieldMetadata> attributes,
-                                    FieldInfo field, FieldMetadataOverride map, DynamicEntityDao dynamicEntityDao, String prefix) {
+                                    FieldMappingInfo field, FieldMetadataOverride map, DynamicEntityDao dynamicEntityDao, String prefix) {
         MapMetadata serverMetadata = (MapMetadata) attributes.get(field.getName());
 
         Class<?> resolvedClass = parentClass==null?targetClass:parentClass;
@@ -316,9 +313,6 @@ public class MapFieldMetadataProvider extends AdvancedCollectionFieldMetadataPro
         }
         if (map.getReadOnly() != null) {
             metadata.setMutable(!map.getReadOnly());
-        }
-        if (map.getShowIfProperty()!=null) {
-            metadata.setShowIfProperty(map.getShowIfProperty());
         }
         metadata.setPrefix(prefix);
 

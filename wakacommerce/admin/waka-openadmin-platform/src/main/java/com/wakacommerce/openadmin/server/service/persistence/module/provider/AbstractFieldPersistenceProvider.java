@@ -4,7 +4,7 @@ package com.wakacommerce.openadmin.server.service.persistence.module.provider;
 import org.apache.commons.lang.ArrayUtils;
 
 import com.wakacommerce.openadmin.dto.Property;
-import com.wakacommerce.openadmin.server.dao.FieldInfo;
+import com.wakacommerce.openadmin.server.dao.FieldMappingInfo;
 import com.wakacommerce.openadmin.server.service.persistence.PersistenceManager;
 import com.wakacommerce.openadmin.server.service.persistence.module.FieldManager;
 
@@ -50,8 +50,8 @@ public abstract class AbstractFieldPersistenceProvider implements FieldPersisten
         return returnType;
     }
 
-    protected FieldInfo buildFieldInfo(Field field) {
-        FieldInfo info = new FieldInfo();
+    protected FieldMappingInfo buildFieldInfo(Field field) {
+        FieldMappingInfo info = new FieldMappingInfo();
         info.setName(field.getName());
         info.setGenericType(field.getGenericType());
         ManyToMany manyToMany = field.getAnnotation(ManyToMany.class);

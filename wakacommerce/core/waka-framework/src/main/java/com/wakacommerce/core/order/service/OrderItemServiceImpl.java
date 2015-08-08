@@ -7,6 +7,7 @@ import com.wakacommerce.core.catalog.domain.Category;
 import com.wakacommerce.core.catalog.domain.Product;
 import com.wakacommerce.core.catalog.domain.ProductBundle;
 import com.wakacommerce.core.catalog.domain.ProductOption;
+import com.wakacommerce.core.catalog.domain.ProductOptionXref;
 import com.wakacommerce.core.catalog.domain.Sku;
 import com.wakacommerce.core.catalog.domain.SkuBundleItem;
 import com.wakacommerce.core.catalog.service.dynamic.DynamicSkuPrices;
@@ -117,19 +118,20 @@ public class OrderItemServiceImpl implements OrderItemService {
 
     @Override
     public OrderItem updateDiscreteOrderItem(OrderItem item, final DiscreteOrderItemRequest itemRequest) {
-        List<ProductOption> productOptions = null;
+        List<ProductOptionXref> productOptionXrefs = null;
         if (item instanceof DiscreteOrderItem) {
-            productOptions = ((DiscreteOrderItem) item).getProduct().getProductOptions();
+        	productOptionXrefs = ((DiscreteOrderItem) item).getProduct().getProductOptionXrefs();
         } else if (item instanceof BundleOrderItem) {
-            productOptions = ((BundleOrderItem) item).getProduct().getProductOptions();
+        	productOptionXrefs = ((BundleOrderItem) item).getProduct().getProductOptionXrefs();
         }
         List<String> removeKeys = new ArrayList<String>();
-        if (productOptions != null && itemRequest.getItemAttributes() != null) {
+        if (productOptionXrefs != null && itemRequest.getItemAttributes() != null) {
             for (String name : itemRequest.getItemAttributes().keySet()) {
                 //we do not let them update all product options. 
                 //Only allow them to update those options that can have validation to take place at later time
                 //if  option.getProductOptionValidationType()  is null then it might change the sku, so we dont allow those
-                for (ProductOption option : productOptions) {
+                for (ProductOptionXref optionXref : productOptionXrefs) {
+                	ProductOption option = optionXref.getProductOption();
                     if (option.getAttributeName().equals(name) && option.getProductOptionValidationStrategyType() == null) {
 
                         removeKeys.add(name);
@@ -329,7 +331,7 @@ public class OrderItemServiceImpl implements OrderItemService {
             } 
     
             if (bundleCategory == null && bundleProduct != null) {
-                bundleCategory = bundleProduct.getDefaultCategory();
+                bundleCategory = bundleProduct.getCategory();
             }
 
             DiscreteOrderItemRequest bundleItemRequest = new DiscreteOrderItemRequest();

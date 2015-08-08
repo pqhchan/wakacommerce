@@ -17,20 +17,20 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-@Component("blBroadleafEnumerationUtility")
-public class BroadleafEnumerationUtility {
+@Component("wkWakaEnumTypeUtility")
+public class WakaEnumTypeUtility {
 
     @SuppressWarnings("rawtypes")
-    public List<Tuple<String, String>> getEnumerationValues(String broadleafEnumerationClass, DynamicEntityDao dynamicEntityDao) {
+    public List<Tuple<String, String>> getEnumerationValues(String wakaEnumClazz, DynamicEntityDao dynamicEntityDao) {
         try {
             Map<String, String> enumVals;
-            Class<?> broadleafEnumeration = Class.forName(broadleafEnumerationClass);  
+            Class<?> wakaEnum = Class.forName(wakaEnumClazz);  
     
-            Method typeMethod = broadleafEnumeration.getMethod("getType");
-            Method friendlyTypeMethod = broadleafEnumeration.getMethod("getFriendlyType");
-            Field types = dynamicEntityDao.getFieldManager().getField(broadleafEnumeration, "TYPES");
+            Method typeMethod = wakaEnum.getMethod("getType");
+            Method friendlyTypeMethod = wakaEnum.getMethod("getFriendlyType");
+            Field types = dynamicEntityDao.getFieldManager().getField(wakaEnum, "TYPES");
             
-            if (Comparable.class.isAssignableFrom(broadleafEnumeration)) {
+            if (Comparable.class.isAssignableFrom(wakaEnum)) {
                 enumVals = new LinkedHashMap<String, String>();
                 Set<WakaEnumType> blcEnumSet = new TreeSet<WakaEnumType>();
                 if (types != null) {
@@ -51,10 +51,10 @@ public class BroadleafEnumerationUtility {
                         enumVals.put((String) friendlyTypeMethod.invoke(value), (String) typeMethod.invoke(value));
                     }
                 } else {
-                    Field[] fields = dynamicEntityDao.getAllFields(broadleafEnumeration);
+                    Field[] fields = dynamicEntityDao.getAllFields(wakaEnum);
                     for (Field field : fields) {
                         boolean isStatic = Modifier.isStatic(field.getModifiers());
-                        if (isStatic && field.getType().isAssignableFrom(broadleafEnumeration)){
+                        if (isStatic && field.getType().isAssignableFrom(wakaEnum)){
                             enumVals.put((String) friendlyTypeMethod.invoke(field.get(null)), (String) typeMethod.invoke(field.get(null)));
                         }
                     }

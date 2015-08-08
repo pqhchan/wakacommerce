@@ -1,5 +1,12 @@
 package com.wakacommerce.cms.web.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import com.wakacommerce.cms.page.service.PageService;
 import com.wakacommerce.common.RequestDTO;
 import com.wakacommerce.common.TimeDTO;
@@ -8,13 +15,6 @@ import com.wakacommerce.common.page.dto.PageDTO;
 import com.wakacommerce.common.time.SystemTime;
 import com.wakacommerce.common.web.BaseUrlResolver;
 import com.wakacommerce.common.web.WakaRequestContext;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * This class serves up the Robots.txt file. The default contents can be overridden by 
@@ -38,8 +38,7 @@ public class WakaRobotsController {
         response.setContentType("text/plain");
         response.setCharacterEncoding("UTF-8");
 
-        PageDTO page = pageService.findPageByURI(null,
-                "/robots.txt", buildMvelParameters(request), isSecure(request));
+        PageDTO page = pageService.findPageByURI("/robots.txt", buildMvelParameters(request), isSecure(request));
 
         if (page != null && page.getPageFields().containsKey("body")) {
             String body = (String) page.getPageFields().get("body");

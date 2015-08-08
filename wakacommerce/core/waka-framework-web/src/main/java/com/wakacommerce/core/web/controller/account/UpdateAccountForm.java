@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.web.controller.account;
 
 import java.io.Serializable;
@@ -8,8 +7,7 @@ public class UpdateAccountForm implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String emailAddress;
-    private String firstName;
-    private String lastName;
+    private String realName;
 
     public String getEmailAddress() {
         return emailAddress;
@@ -19,20 +17,12 @@ public class UpdateAccountForm implements Serializable {
         this.emailAddress = emailAddress;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getRealName() {
+        return realName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setRealName(String realName) {
+        this.realName = realName;
     }
 
 }

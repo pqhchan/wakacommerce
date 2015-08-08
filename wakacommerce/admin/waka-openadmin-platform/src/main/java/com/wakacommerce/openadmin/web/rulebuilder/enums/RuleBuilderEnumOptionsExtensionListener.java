@@ -1,13 +1,9 @@
-
 package com.wakacommerce.openadmin.web.rulebuilder.enums;
 
 import com.wakacommerce.common.WakaEnumType;
 
-
 /**
- * Extension Listener interface to provide option values for {@link WakaEnumType} for admin rule builders.
- * 
- * 
+ * 为{@link WakaEnumType}提供选项
  */
 public interface RuleBuilderEnumOptionsExtensionListener {
     

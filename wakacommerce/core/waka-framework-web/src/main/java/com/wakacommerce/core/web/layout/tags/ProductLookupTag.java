@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.web.layout.tags;
 
 import org.springframework.web.context.WebApplicationContext;

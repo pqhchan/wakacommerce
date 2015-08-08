@@ -1,4 +1,3 @@
-
 package com.wakacommerce.admin.web.rulebuilder.service;
 
 import org.springframework.stereotype.Service;
@@ -8,13 +7,6 @@ import com.wakacommerce.common.presentation.client.SupportedFieldType;
 import com.wakacommerce.openadmin.web.rulebuilder.dto.FieldData;
 import com.wakacommerce.openadmin.web.rulebuilder.service.AbstractRuleBuilderFieldService;
 
-/**
- * An implementation of a RuleBuilderFieldService
- * that constructs metadata necessary
- * to build the supported fields for a Request entity
- *
- * 
- */
 @Service("blRequestFieldService")
 public class RequestFieldServiceImpl extends AbstractRuleBuilderFieldService {
 

@@ -1,4 +1,3 @@
-
 package com.wakacommerce.admin.server.service.handler;
 
 import org.apache.commons.lang3.StringUtils;
@@ -16,11 +15,6 @@ import com.wakacommerce.profile.core.service.CustomerService;
 
 import javax.annotation.Resource;
 
-/**
- * 
- *  
- *
- */
 @Component("blCustomerPasswordCustomPersistenceHandler")
 public class CustomerPasswordCustomPersistenceHandler extends CustomPersistenceHandlerAdapter {
     

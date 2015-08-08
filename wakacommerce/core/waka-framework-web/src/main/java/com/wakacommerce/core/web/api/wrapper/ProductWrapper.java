@@ -1,16 +1,4 @@
-
 package com.wakacommerce.core.web.api.wrapper;
-
-import com.wakacommerce.common.file.service.StaticAssetPathService;
-import com.wakacommerce.common.media.domain.Media;
-import com.wakacommerce.common.money.Money;
-import com.wakacommerce.common.util.xml.ISO8601DateAdapter;
-import com.wakacommerce.core.catalog.domain.Product;
-import com.wakacommerce.core.catalog.domain.ProductAttribute;
-import com.wakacommerce.core.catalog.domain.ProductBundle;
-import com.wakacommerce.core.catalog.domain.ProductOption;
-import com.wakacommerce.core.catalog.domain.RelatedProduct;
-import com.wakacommerce.core.catalog.domain.SkuBundleItem;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,12 +13,16 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-/**
- * This is a JAXB wrapper around Product.
- *
- * User:   
- * Date: 4/10/12
- */
+import com.wakacommerce.common.file.service.StaticAssetPathService;
+import com.wakacommerce.common.media.domain.Media;
+import com.wakacommerce.common.money.Money;
+import com.wakacommerce.common.util.xml.ISO8601DateAdapter;
+import com.wakacommerce.core.catalog.domain.Product;
+import com.wakacommerce.core.catalog.domain.ProductBundle;
+import com.wakacommerce.core.catalog.domain.ProductOptionXref;
+import com.wakacommerce.core.catalog.domain.RelatedProduct;
+import com.wakacommerce.core.catalog.domain.SkuBundleItem;
+
 @XmlRootElement(name = "product")
 @XmlAccessorType(value = XmlAccessType.FIELD)
 public class ProductWrapper extends BaseWrapper implements APIWrapper<Product> {
@@ -103,10 +95,6 @@ public class ProductWrapper extends BaseWrapper implements APIWrapper<Product> {
     @XmlElementWrapper(name = "crossSaleProducts")
     protected List<RelatedProductWrapper> crossSaleProducts;
 
-    @XmlElement(name = "productAttribute")
-    @XmlElementWrapper(name = "productAttributes")
-    protected List<ProductAttributeWrapper> productAttributes;
-
     @XmlElement(name = "media")
     @XmlElementWrapper(name = "mediaItems")
     protected List<MediaWrapper> media;
@@ -149,17 +137,19 @@ public class ProductWrapper extends BaseWrapper implements APIWrapper<Product> {
             this.retailPrice = model.getDefaultSku().getRetailPrice();
             this.salePrice = model.getDefaultSku().getSalePrice();
         }
-
-        if (model.getProductOptions() != null && !model.getProductOptions().isEmpty()) {
-            this.productOptions = new ArrayList<ProductOptionWrapper>();
-            List<ProductOption> options = model.getProductOptions();
-            for (ProductOption option : options) {
+        
+        if(model.getProductOptionXrefs() != null && !model.getProductOptionXrefs().isEmpty()) {
+        	
+        	this.productOptions = new ArrayList<ProductOptionWrapper>();
+            List<ProductOptionXref> optionXrefs = model.getProductOptionXrefs();
+            for (ProductOptionXref optionXref : optionXrefs) {
                 ProductOptionWrapper optionWrapper = (ProductOptionWrapper) context.getBean(ProductOptionWrapper.class.getName());
-                optionWrapper.wrapSummary(option, request);
+                optionWrapper.wrapSummary(optionXref.getProductOption(), request);
                 this.productOptions.add(optionWrapper);
             }
+        	
         }
-
+        
         if (model.getMedia() != null && !model.getMedia().isEmpty()) {
             Media media = model.getMedia().get("primary");
             if (media != null) {
@@ -172,8 +162,8 @@ public class ProductWrapper extends BaseWrapper implements APIWrapper<Product> {
             }
         }
         
-        if (model.getDefaultCategory() != null) {
-            this.defaultCategoryId = model.getDefaultCategory().getId();
+        if (model.getCategory() != null) {
+            this.defaultCategoryId = model.getCategory().getId();
         }
 
         if (model.getUpSaleProducts() != null && !model.getUpSaleProducts().isEmpty()) {
@@ -193,17 +183,6 @@ public class ProductWrapper extends BaseWrapper implements APIWrapper<Product> {
                         (RelatedProductWrapper) context.getBean(RelatedProductWrapper.class.getName());
                 crossSaleProductWrapper.wrapSummary(p, request);
                 crossSaleProducts.add(crossSaleProductWrapper);
-            }
-        }
-
-        if (model.getProductAttributes() != null && !model.getProductAttributes().isEmpty()) {
-            productAttributes = new ArrayList<ProductAttributeWrapper>();
-            if (model.getProductAttributes() != null) {
-                for (Map.Entry<String, ProductAttribute> entry : model.getProductAttributes().entrySet()) {
-                    ProductAttributeWrapper wrapper = (ProductAttributeWrapper) context.getBean(ProductAttributeWrapper.class.getName());
-                    wrapper.wrapSummary(entry.getValue(), request);
-                    productAttributes.add(wrapper);
-                }
             }
         }
 
@@ -241,12 +220,11 @@ public class ProductWrapper extends BaseWrapper implements APIWrapper<Product> {
             this.salePrice = model.getDefaultSku().getSalePrice();
         }
 
-        if (model.getProductOptions() != null && !model.getProductOptions().isEmpty()) {
+        if (model.getProductOptionXrefs() != null && !model.getProductOptionXrefs().isEmpty()) {
             this.productOptions = new ArrayList<ProductOptionWrapper>();
-            List<ProductOption> options = model.getProductOptions();
-            for (ProductOption option : options) {
+            for (ProductOptionXref optionXref : model.getProductOptionXrefs()) {
                 ProductOptionWrapper optionWrapper = (ProductOptionWrapper) context.getBean(ProductOptionWrapper.class.getName());
-                optionWrapper.wrapSummary(option, request);
+                optionWrapper.wrapSummary(optionXref.getProductOption(), request);
                 this.productOptions.add(optionWrapper);
             }
         }
@@ -584,23 +562,6 @@ public class ProductWrapper extends BaseWrapper implements APIWrapper<Product> {
         this.crossSaleProducts = crossSaleProducts;
     }
 
-    
-    /**
-     * @return the productAttributes
-     */
-    public List<ProductAttributeWrapper> getProductAttributes() {
-        return productAttributes;
-    }
-
-    
-    /**
-     * @param productAttributes the productAttributes to set
-     */
-    public void setProductAttributes(List<ProductAttributeWrapper> productAttributes) {
-        this.productAttributes = productAttributes;
-    }
-
-    
     /**
      * @return the media
      */

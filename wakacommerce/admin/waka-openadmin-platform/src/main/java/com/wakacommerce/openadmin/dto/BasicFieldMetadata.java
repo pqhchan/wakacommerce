@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.dto;
 
 import com.wakacommerce.common.presentation.client.LookupType;
@@ -10,9 +9,6 @@ import com.wakacommerce.openadmin.server.service.persistence.validation.Property
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * 
- */
 public class BasicFieldMetadata extends FieldMetadata {
 
     private static final long serialVersionUID = 1L;
@@ -45,7 +41,7 @@ public class BasicFieldMetadata extends FieldMetadata {
     protected Boolean prominent;
     protected Integer gridOrder;
     protected String columnWidth;
-    protected String broadleafEnumeration;
+    protected String wakaEnumType;
     protected Boolean readOnly;
     protected Map<String, Map<String, String>> validationConfigurations = new HashMap<String, Map<String, String>>(5);
     protected Boolean requiredOverride;
@@ -65,7 +61,6 @@ public class BasicFieldMetadata extends FieldMetadata {
     protected Boolean toOneLookupCreatedViaAnnotation;
     protected String ruleIdentifier;
     protected LookupType lookupType;
-    protected Boolean translatable;
     protected String defaultValue;
 
     //for MapFields
@@ -255,12 +250,12 @@ public class BasicFieldMetadata extends FieldMetadata {
         this.columnWidth = columnWidth;
     }
 
-    public String getBroadleafEnumeration() {
-        return broadleafEnumeration;
+    public String getWakaEnumType() {
+        return wakaEnumType;
     }
 
-    public void setBroadleafEnumeration(String broadleafEnumeration) {
-        this.broadleafEnumeration = broadleafEnumeration;
+    public void setWakaEnumType(String wakaEnumType) {
+        this.wakaEnumType = wakaEnumType;
     }
 
     public Boolean getReadOnly() {
@@ -498,14 +493,6 @@ public class BasicFieldMetadata extends FieldMetadata {
         this.lookupType = lookupType;
     }
     
-    public Boolean getTranslatable() {
-        return translatable;
-    }
-    
-    public void setTranslatable(Boolean translatable) {
-        this.translatable = translatable;
-    }
-
     public String getDefaultValue() {
         return defaultValue;
     }
@@ -551,7 +538,7 @@ public class BasicFieldMetadata extends FieldMetadata {
         metadata.prominent = prominent;
         metadata.gridOrder = gridOrder;        
         metadata.columnWidth = columnWidth;
-        metadata.broadleafEnumeration = broadleafEnumeration;
+        metadata.wakaEnumType = wakaEnumType;
         metadata.readOnly = readOnly;
         metadata.requiredOverride = requiredOverride;
         metadata.tooltip = tooltip;
@@ -589,7 +576,6 @@ public class BasicFieldMetadata extends FieldMetadata {
         metadata.toOneParentProperty = toOneParentProperty;
         metadata.mapKeyValueProperty = mapKeyValueProperty;
         metadata.lookupType = lookupType;
-        metadata.translatable = translatable;
         metadata.isDerived = isDerived;
         metadata.defaultValue = defaultValue;
 
@@ -620,7 +606,7 @@ public class BasicFieldMetadata extends FieldMetadata {
 
         BasicFieldMetadata metadata = (BasicFieldMetadata) o;
 
-        if (broadleafEnumeration != null ? !broadleafEnumeration.equals(metadata.broadleafEnumeration) : metadata.broadleafEnumeration != null) {
+        if (wakaEnumType != null ? !wakaEnumType.equals(metadata.wakaEnumType) : metadata.wakaEnumType != null) {
             return false;
         }
         if (columnWidth != null ? !columnWidth.equals(metadata.columnWidth) : metadata.columnWidth != null) {
@@ -792,7 +778,7 @@ public class BasicFieldMetadata extends FieldMetadata {
         result = 31 * result + (prominent != null ? prominent.hashCode() : 0);
         result = 31 * result + (gridOrder != null ? gridOrder.hashCode() : 0);
         result = 31 * result + (columnWidth != null ? columnWidth.hashCode() : 0);
-        result = 31 * result + (broadleafEnumeration != null ? broadleafEnumeration.hashCode() : 0);
+        result = 31 * result + (wakaEnumType != null ? wakaEnumType.hashCode() : 0);
         result = 31 * result + (readOnly != null ? readOnly.hashCode() : 0);
         result = 31 * result + (validationConfigurations != null ? validationConfigurations.hashCode() : 0);
         result = 31 * result + (requiredOverride != null ? requiredOverride.hashCode() : 0);

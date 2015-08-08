@@ -1,5 +1,3 @@
-
-
 package com.wakacommerce.common.util.dao;
 
 import org.hibernate.Session;
@@ -14,11 +12,6 @@ import java.util.Map;
 
 import javax.persistence.EntityManager;
 
-/**
- * Provides utility methods for interacting with dynamic entities
- * 
- * 
- */
 public interface DynamicDaoHelper {
 
     public Map<String, Object> getIdMetadata(Class<?> entityClass, HibernateEntityManager entityManager);

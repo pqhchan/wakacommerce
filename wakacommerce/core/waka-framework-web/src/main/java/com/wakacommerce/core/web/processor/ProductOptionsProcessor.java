@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.web.processor;
 
 import org.apache.commons.collections4.map.LRUMap;
@@ -17,6 +16,7 @@ import com.wakacommerce.common.web.dialect.AbstractModelVariableModifierProcesso
 import com.wakacommerce.core.catalog.domain.Product;
 import com.wakacommerce.core.catalog.domain.ProductOption;
 import com.wakacommerce.core.catalog.domain.ProductOptionValue;
+import com.wakacommerce.core.catalog.domain.ProductOptionXref;
 import com.wakacommerce.core.catalog.domain.Sku;
 import com.wakacommerce.core.catalog.service.CatalogService;
 
@@ -36,8 +36,6 @@ import javax.annotation.Resource;
  * -pricing for a sku based on the product option values selected
  * -the complete set of product options and values for a given product
  *  
- *jfridye
- *
  */
 public class ProductOptionsProcessor extends AbstractModelVariableModifierProcessor {
     
@@ -69,7 +67,7 @@ public class ProductOptionsProcessor extends AbstractModelVariableModifierProces
     }
     
     private void addProductOptionPricingToModel(Arguments arguments, Product product) {
-        List<Sku> skus = product.getSkus();
+        List<Sku> skus = product.getAdditionalSkus();
         List<ProductOptionPricingDTO> skuPricing = new ArrayList<ProductOptionPricingDTO>();
         for (Sku sku : skus) {
             
@@ -98,9 +96,9 @@ public class ProductOptionsProcessor extends AbstractModelVariableModifierProces
     }
     
     private void addAllProductOptionsToModel(Arguments arguments, Product product) {
-        List<ProductOption> productOptions = product.getProductOptions();
         List<ProductOptionDTO> dtos = new ArrayList<ProductOptionDTO>();
-        for (ProductOption option : productOptions) {
+        for (ProductOptionXref optionXref : product.getProductOptionXrefs()) {
+        	ProductOption option = optionXref.getProductOption();
             ProductOptionDTO dto = new ProductOptionDTO();
             dto.setId(option.getId());
             dto.setType(option.getType().getType());

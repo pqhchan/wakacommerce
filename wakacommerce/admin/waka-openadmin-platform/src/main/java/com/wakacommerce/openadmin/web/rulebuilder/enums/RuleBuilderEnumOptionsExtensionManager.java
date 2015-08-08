@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.web.rulebuilder.enums;
 
 import org.springframework.stereotype.Component;
@@ -8,12 +7,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-
-/**
- * Extension Manager used to aggregate option values for all registered {@link RuleBuilderEnumOptionsExtensionListener}
- * 
- * 
- */
 @Component("blRuleBuilderEnumOptionsExtensionManager")
 public class RuleBuilderEnumOptionsExtensionManager implements RuleBuilderEnumOptionsExtensionListener {
     

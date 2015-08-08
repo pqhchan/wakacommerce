@@ -1,8 +1,13 @@
-
 package com.wakacommerce.openadmin.server.dao;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
 import org.hibernate.mapping.Property;
 import org.hibernate.type.Type;
 import org.springframework.context.annotation.Scope;
@@ -21,21 +26,9 @@ import com.wakacommerce.openadmin.server.dao.provider.metadata.request.OverrideV
 import com.wakacommerce.openadmin.server.dao.provider.metadata.request.OverrideViaXmlRequest;
 import com.wakacommerce.openadmin.server.service.type.FieldProviderResponse;
 
-import javax.annotation.Resource;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-/**
- * 
- */
 @Component("blMetadata")
 @Scope("prototype")
 public class Metadata {
-
-    private static final Log LOG = LogFactory.getLog(Metadata.class);
 
     @Resource(name="blMetadataProviders")
     protected List<FieldMetadataProvider> fieldMetadataProviders = new ArrayList<FieldMetadataProvider>();
@@ -47,26 +40,36 @@ public class Metadata {
         Map<String, FieldMetadata> attributes = new HashMap<String, FieldMetadata>();
         Field[] fields = dynamicEntityDao.getAllFields(targetClass);
         for (Field field : fields) {
-            boolean foundOneOrMoreHandlers = false;
+            boolean isHandled = false;
             for (FieldMetadataProvider fieldMetadataProvider : fieldMetadataProviders) {
-                FieldProviderResponse response = fieldMetadataProvider.addMetadata(new AddMetadataRequest(field, parentClass, targetClass,
-                        dynamicEntityDao, prefix), attributes);
+                FieldProviderResponse response = fieldMetadataProvider.addMetadata(
+                		new AddMetadataRequest(field, parentClass, targetClass, dynamicEntityDao, prefix), 
+                		attributes);
                 if (FieldProviderResponse.NOT_HANDLED != response) {
-                    foundOneOrMoreHandlers = true;
+                    isHandled = true;
                 }
                 if (FieldProviderResponse.HANDLED_BREAK == response) {
                     break;
                 }
             }
-            if (!foundOneOrMoreHandlers) {
-                defaultFieldMetadataProvider.addMetadata(new AddMetadataRequest(field, parentClass, targetClass,
-                        dynamicEntityDao, prefix), attributes);
+            if (!isHandled) {
+                defaultFieldMetadataProvider.addMetadata(
+                		new AddMetadataRequest(field, parentClass, targetClass, dynamicEntityDao, prefix), 
+                		attributes);
             }
         }
         return attributes;
     }
 
-    public Map<String, FieldMetadata> overrideMetadata(Class<?>[] entities, PropertyBuilder propertyBuilder, String prefix, Boolean isParentExcluded, String ceilingEntityFullyQualifiedClassname, String configurationKey, DynamicEntityDao dynamicEntityDao) {
+    public Map<String, FieldMetadata> overrideMetadata(
+    		Class<?>[] entities, 
+    		PropertyBuilder propertyBuilder, 
+    		String prefix, 
+    		Boolean isParentExcluded, 
+    		String ceilingEntityFullyQualifiedClassname, 
+    		String configurationKey, 
+    		DynamicEntityDao dynamicEntityDao) {
+    	
         Boolean classAnnotatedPopulateManyToOneFields = null;
         //go in reverse order since I want the lowest subclass override to come last to guarantee that it takes effect
         for (int i = entities.length-1;i >= 0; i--) {
@@ -128,9 +131,18 @@ public class Metadata {
         Class<?> targetClass,
         FieldMetadata presentationAttribute,
         MergedPropertyType mergedPropertyType,
-        DynamicEntityDao dynamicEntityDao
-    ) {
-        return getFieldMetadata(prefix, propertyName, componentProperties, type, null, entityType, targetClass, presentationAttribute, mergedPropertyType, dynamicEntityDao);
+        DynamicEntityDao dynamicEntityDao ) {
+        return getFieldMetadata(
+        		prefix, 
+        		propertyName, 
+        		componentProperties, 
+        		type, 
+        		null, 
+        		entityType, 
+        		targetClass, 
+        		presentationAttribute, 
+        		mergedPropertyType, 
+        		dynamicEntityDao);
     }
 
     public FieldMetadata getFieldMetadata(
@@ -143,8 +155,8 @@ public class Metadata {
         Class<?> targetClass,
         final FieldMetadata presentationAttribute,
         final MergedPropertyType mergedPropertyType,
-        final DynamicEntityDao dynamicEntityDao
-    ) {
+        final DynamicEntityDao dynamicEntityDao ) {
+    	
         if (presentationAttribute.getTargetClass() == null) {
             presentationAttribute.setTargetClass(targetClass.getName());
             presentationAttribute.setFieldName(propertyName);
@@ -153,8 +165,9 @@ public class Metadata {
         presentationAttribute.setAvailableToTypes(new String[]{targetClass.getName()});
         boolean handled = false;
         for (FieldMetadataProvider fieldMetadataProvider : fieldMetadataProviders) {
-            FieldProviderResponse response = fieldMetadataProvider.addMetadataFromMappingData(new AddMetadataFromMappingDataRequest(
-                componentProperties, type, secondaryType, entityType, propertyName, mergedPropertyType, dynamicEntityDao), presentationAttribute);
+            FieldProviderResponse response = fieldMetadataProvider.addMetadataFromMappingData(
+            		new AddMetadataFromMappingDataRequest(componentProperties, type, secondaryType, entityType, propertyName, mergedPropertyType, dynamicEntityDao), 
+            		presentationAttribute);
             if (FieldProviderResponse.NOT_HANDLED != response) {
                 handled = true;
             }

@@ -1,22 +1,16 @@
- 
 package com.wakacommerce.cms.page.service;
-
-import net.sf.ehcache.Cache;
-
-import com.wakacommerce.cms.page.domain.Page;
-import com.wakacommerce.cms.page.domain.PageField;
-import com.wakacommerce.cms.page.domain.PageTemplate;
-import com.wakacommerce.common.locale.domain.Locale;
-import com.wakacommerce.common.page.dto.PageDTO;
 
 import java.util.List;
 import java.util.Map;
 
-/**
- *   
- */
-public interface PageService {
+import com.wakacommerce.cms.page.domain.Page;
+import com.wakacommerce.cms.page.domain.PageField;
+import com.wakacommerce.cms.page.domain.PageTemplate;
+import com.wakacommerce.common.page.dto.PageDTO;
 
+import net.sf.ehcache.Cache;
+
+public interface PageService {
 
     /**
      * Returns the page with the passed in id.
@@ -54,14 +48,12 @@ public interface PageService {
      * fix the URL if the site has overridden the URL for images.   If secure is true
      * and images are being overridden, the system will use https.
      *
-     * @param currentSandbox - current sandbox
-     * @param locale - current locale
      * @param uri - the URI to return a page for
      * @param ruleDTOs - ruleDTOs that are used as the data to process page rules
      * @param secure - set to true if current request is over HTTPS
      * @return
      */
-    public PageDTO findPageByURI(Locale locale, String uri, Map<String,Object> ruleDTOs, boolean secure);
+    public PageDTO findPageByURI(String uri, Map<String,Object> ruleDTOs, boolean secure);
     
     /**
      * Returns all pages, regardless of any sandbox they are apart of

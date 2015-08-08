@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.dto;
 
 import java.io.Serializable;
@@ -8,11 +7,6 @@ import java.util.Map;
 
 import com.wakacommerce.openadmin.dto.visitor.MetadataVisitor;
 
-/**
- * 
- *  
- *
- */
 public abstract class FieldMetadata implements Serializable {
     
     private static final long serialVersionUID = 1L;
@@ -34,7 +28,6 @@ public abstract class FieldMetadata implements Serializable {
     private String owningClass;
     private String prefix;
     private String fieldName;
-    private String showIfProperty;
     private String currencyCodeField;
 
     //Additional metadata not supported as first class
@@ -89,20 +82,11 @@ public abstract class FieldMetadata implements Serializable {
         metadata.prefix = prefix;
         metadata.childrenExcluded = childrenExcluded;
         metadata.fieldName = fieldName;
-        metadata.showIfProperty = showIfProperty;
         metadata.currencyCodeField = currencyCodeField;
         for (Map.Entry<String, Object> entry : additionalMetadata.entrySet()) {
             metadata.additionalMetadata.put(entry.getKey(), entry.getValue());
         }
         return metadata;
-    }
-
-    public String getShowIfProperty() {
-        return showIfProperty;
-    }
-
-    public void setShowIfProperty(String showIfProperty) {
-        this.showIfProperty = showIfProperty;
     }
 
     public String getCurrencyCodeField() {
@@ -236,8 +220,6 @@ public abstract class FieldMetadata implements Serializable {
         if (prefix != null ? !prefix.equals(that.prefix) : that.prefix != null) return false;
         if (securityLevel != null ? !securityLevel.equals(that.securityLevel) : that.securityLevel != null)
             return false;
-        if (showIfProperty != null ? !showIfProperty.equals(that.showIfProperty) : that.showIfProperty != null)
-            return false;
         if (tab != null ? !tab.equals(that.tab) : that.tab != null) return false;
         if (tabOrder != null ? !tabOrder.equals(that.tabOrder) : that.tabOrder != null) return false;
         if (targetClass != null ? !targetClass.equals(that.targetClass) : that.targetClass != null) return false;
@@ -261,7 +243,6 @@ public abstract class FieldMetadata implements Serializable {
         result = 31 * result + (owningClass != null ? owningClass.hashCode() : 0);
         result = 31 * result + (prefix != null ? prefix.hashCode() : 0);
         result = 31 * result + (fieldName != null ? fieldName.hashCode() : 0);
-        result = 31 * result + (showIfProperty != null ? showIfProperty.hashCode() : 0);
         result = 31 * result + (currencyCodeField != null ? currencyCodeField.hashCode() : 0);
         result = 31 * result + (additionalMetadata != null ? additionalMetadata.hashCode() : 0);
         return result;

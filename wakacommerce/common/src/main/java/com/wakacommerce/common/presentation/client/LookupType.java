@@ -1,10 +1,10 @@
 package com.wakacommerce.common.presentation.client;
 
 /**
- * Defines whether or not a to-one lookup should be rendered in a modal to be selected or 
- * through a pre-populated dropdown.
+ * 标准的模式对话框还是下拉框
  */
 public enum LookupType {
     STANDARD,
+    
     DROPDOWN
 }

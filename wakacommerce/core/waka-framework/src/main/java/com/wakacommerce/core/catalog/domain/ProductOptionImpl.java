@@ -1,8 +1,24 @@
 
 package com.wakacommerce.core.catalog.domain;
 
-import org.hibernate.annotations.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import com.wakacommerce.common.admin.domain.AdminMainEntity;
@@ -12,21 +28,16 @@ import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransform;
 import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformMember;
 import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformTypes;
 import com.wakacommerce.common.i18n.service.DynamicTranslationProvider;
-import com.wakacommerce.common.presentation.*;
+import com.wakacommerce.common.presentation.AdminPresentation;
+import com.wakacommerce.common.presentation.AdminPresentationClass;
+import com.wakacommerce.common.presentation.AdminPresentationCollection;
+import com.wakacommerce.common.presentation.PopulateToOneFieldsEnum;
+import com.wakacommerce.common.presentation.RequiredOverride;
 import com.wakacommerce.common.presentation.client.AddMethodType;
 import com.wakacommerce.common.presentation.client.SupportedFieldType;
 import com.wakacommerce.core.catalog.service.type.ProductOptionType;
 import com.wakacommerce.core.catalog.service.type.ProductOptionValidationStrategyType;
 import com.wakacommerce.core.catalog.service.type.ProductOptionValidationType;
-
-import javax.persistence.CascadeType;
-import javax.persistence.*;
-import javax.persistence.Entity;
-import javax.persistence.OrderBy;
-import javax.persistence.Table;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -180,20 +191,6 @@ public class ProductOptionImpl implements ProductOption, AdminMainEntity {
     @Override
     public void setProductXrefs(List<ProductOptionXref> xrefs) {
         this.products = xrefs;
-    }
-
-    @Override
-    public List<Product> getProducts() {
-        List<Product> response = new ArrayList<Product>();
-        for (ProductOptionXref xref : products) {
-            response.add(xref.getProduct());
-        }
-        return Collections.unmodifiableList(response);
-    }
-
-    @Override
-    public void setProducts(List<Product> products){
-        throw new UnsupportedOperationException("Use setProductOptionXrefs(..) instead");
     }
 
     @Override

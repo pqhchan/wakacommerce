@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.domain;
 
 import org.hibernate.annotations.Cache;
@@ -43,7 +42,6 @@ import javax.persistence.Table;
 })
 public class CategoryMediaXrefImpl implements CategoryMediaXref, Media, MultiTenantCloneable<CategoryMediaXrefImpl> {
 
-    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
     public CategoryMediaXrefImpl(Category category, Media media, String key) {
@@ -69,7 +67,6 @@ public class CategoryMediaXrefImpl implements CategoryMediaXref, Media, MultiTen
     @Column(name = "CATEGORY_MEDIA_ID")
     protected Long id;
 
-    //for the basic collection join entity - don't pre-instantiate the reference (i.e. don't do myField = new MyFieldImpl())
     @ManyToOne(targetEntity = CategoryImpl.class, optional=false, cascade = CascadeType.REFRESH)
     @JoinColumn(name = "BLC_CATEGORY_CATEGORY_ID")
     @AdminPresentation(excluded = true)
@@ -212,4 +209,5 @@ public class CategoryMediaXrefImpl implements CategoryMediaXref, Media, MultiTen
         cloned.setTitle(getTitle());
         return createResponse;
     }
+    
 }

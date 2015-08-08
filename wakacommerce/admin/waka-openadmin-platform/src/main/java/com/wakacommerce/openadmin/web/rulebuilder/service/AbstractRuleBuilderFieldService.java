@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.web.rulebuilder.service;
 
 import org.apache.commons.lang.ArrayUtils;
@@ -30,9 +29,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-/**
- *  
- */
 public abstract class AbstractRuleBuilderFieldService implements RuleBuilderFieldService, ApplicationContextAware, InitializingBean {
 
     protected DynamicEntityDao dynamicEntityDao;

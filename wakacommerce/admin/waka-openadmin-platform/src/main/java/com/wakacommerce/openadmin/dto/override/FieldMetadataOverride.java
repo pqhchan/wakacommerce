@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.dto.override;
 
 import com.wakacommerce.common.presentation.client.AddMethodType;
@@ -12,9 +11,6 @@ import com.wakacommerce.openadmin.dto.MergedPropertyType;
 import java.io.Serializable;
 import java.util.Map;
 
-/**
- * 
- */
 public class FieldMetadataOverride {
 
     //fields everyone depends on
@@ -85,7 +81,7 @@ public class FieldMetadataOverride {
     private Boolean largeEntry;
     private Boolean prominent;
     private String columnWidth;
-    private String broadleafEnumeration;
+    private String wakaEnumType;
     private Boolean readOnly;
     private Map<String, Map<String, String>> validationConfigurations;
     private Boolean requiredOverride;
@@ -100,9 +96,7 @@ public class FieldMetadataOverride {
     private String optionDisplayFieldName;
     private Boolean optionCanEditValues;
     private Serializable[][] optionFilterValues;
-    private String showIfProperty;
     private String ruleIdentifier;
-    private Boolean translatable;
     private LookupType lookupType;
     private String defaultValue;
 
@@ -110,17 +104,16 @@ public class FieldMetadataOverride {
     private Boolean searchable;
     private String mapFieldValueClass;
 
-    //Not a user definable field
+    
     private Boolean toOneLookupCreatedViaAnnotation;
-
     public Boolean getToOneLookupCreatedViaAnnotation() {
         return toOneLookupCreatedViaAnnotation;
     }
-
     public void setToOneLookupCreatedViaAnnotation(Boolean toOneLookupCreatedViaAnnotation) {
         this.toOneLookupCreatedViaAnnotation = toOneLookupCreatedViaAnnotation;
     }
 
+    
     public SupportedFieldType getFieldType() {
         return fieldType;
     }
@@ -289,26 +282,18 @@ public class FieldMetadataOverride {
         this.columnWidth = columnWidth;
     }
 
-    public String getBroadleafEnumeration() {
-        return broadleafEnumeration;
+    public String getWakaEnumType() {
+        return wakaEnumType;
     }
 
-    public void setBroadleafEnumeration(String broadleafEnumeration) {
-        this.broadleafEnumeration = broadleafEnumeration;
+    public void setWakaEnumType(String wakaEnumType) {
+        this.wakaEnumType = wakaEnumType;
     }
 
     public Boolean getReadOnly() {
         return readOnly;
     }
     
-    public Boolean getTranslatable() {
-        return translatable;
-    }
-    
-    public void setTranslatable(Boolean translatable) {
-        this.translatable = translatable;
-    }
-
     public String getDefaultValue() {
         return defaultValue;
     }
@@ -795,14 +780,6 @@ public class FieldMetadataOverride {
 
     public void setValuePropertyFriendlyName(String valuePropertyFriendlyName) {
         this.valuePropertyFriendlyName = valuePropertyFriendlyName;
-    }
-
-    public String getShowIfProperty() {
-        return showIfProperty;
-    }
-
-    public void setShowIfProperty(String showIfProperty) {
-        this.showIfProperty = showIfProperty;
     }
 
     public String getCurrencyCodeField() {

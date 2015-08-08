@@ -1,4 +1,3 @@
-
 package com.wakacommerce.profile.core.service.validator;
 
 import org.springframework.validation.BindException;

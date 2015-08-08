@@ -1,13 +1,9 @@
-
 package com.wakacommerce.core.catalog.domain;
 
 import java.io.Serializable;
 
 import com.wakacommerce.common.copy.MultiTenantCloneable;
 
-/**
- * 
- */
 public interface ProductOptionXref extends Serializable, MultiTenantCloneable<ProductOptionXref> {
 
     Long getId();

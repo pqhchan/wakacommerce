@@ -32,12 +32,12 @@ import com.wakacommerce.common.presentation.override.AdminPresentationMergeEntry
 import com.wakacommerce.common.presentation.override.AdminPresentationMergeOverride;
 import com.wakacommerce.common.presentation.override.AdminPresentationMergeOverrides;
 import com.wakacommerce.common.presentation.override.PropertyType;
-import com.wakacommerce.openadmin.audit.AdminAuditable;
-import com.wakacommerce.openadmin.audit.AdminAuditableListener;
+import com.wakacommerce.openadmin.audit.AdminAuditImpl;
+import com.wakacommerce.openadmin.audit.AdminAuditListener;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@EntityListeners(value = { AdminAuditableListener.class })
+@EntityListeners(value = { AdminAuditListener.class })
 @Table(name = "BLC_STATIC_ASSET")
 @Cache(usage= CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region="blCMSElements")
 @AdminPresentationMergeOverrides(
@@ -95,7 +95,7 @@ public class StaticAssetImpl implements StaticAsset, AdminMainEntity {
 
     @Embedded
     @AdminPresentation(excluded = true)
-    protected AdminAuditable auditable = new AdminAuditable();
+    protected AdminAuditImpl auditable = new AdminAuditImpl();
 
     @Column(name = "NAME", nullable = false)
     @AdminPresentation(friendlyName = "名称",
@@ -211,12 +211,12 @@ public class StaticAssetImpl implements StaticAsset, AdminMainEntity {
     }
 
     @Override
-    public AdminAuditable getAuditable() {
+    public AdminAuditImpl getAuditable() {
         return auditable;
     }
 
     @Override
-    public void setAuditable(AdminAuditable auditable) {
+    public void setAuditable(AdminAuditImpl auditable) {
         this.auditable = auditable;
     }
 

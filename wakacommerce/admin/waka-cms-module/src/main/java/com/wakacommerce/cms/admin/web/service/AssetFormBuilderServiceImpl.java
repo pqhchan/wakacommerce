@@ -33,7 +33,7 @@ public class AssetFormBuilderServiceImpl implements AssetFormBuilderService {
             .withFriendlyName("缩略图")
             .withFieldType(SupportedFieldType.STRING.toString())
             .withOrder(Integer.MIN_VALUE)
-            .withColumnWidth("50px")
+            .withColumnWidth("100px")
             .withFilterSortDisabled(true));
         
         for (ListGridRecord record : listGrid.getRecords()) {

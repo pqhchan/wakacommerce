@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.domain;
 
 import org.hibernate.annotations.Cache;
@@ -31,7 +30,6 @@ public class FeaturedProductImpl implements FeaturedProduct {
 
     private static final long serialVersionUID = 1L;
 
-    /** The id. */
     @Id
     @GeneratedValue(generator= "FeaturedProductId")
     @GenericGenerator(
@@ -50,7 +48,9 @@ public class FeaturedProductImpl implements FeaturedProduct {
     protected BigDecimal sequence;
 
     @Column(name = "PROMOTION_MESSAGE")
-    @AdminPresentation(friendlyName = "FeaturedProductImpl_Featured_Product_Promotion_Message", largeEntry=true)
+    @AdminPresentation(
+    		friendlyName = "FeaturedProductImpl_promotionMessage", 
+    		largeEntry=true)
     protected String promotionMessage;
     
     @ManyToOne(targetEntity = CategoryImpl.class, cascade = CascadeType.REFRESH)

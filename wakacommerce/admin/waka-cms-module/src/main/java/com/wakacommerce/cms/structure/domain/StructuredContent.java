@@ -1,15 +1,14 @@
  package com.wakacommerce.cms.structure.domain;
 
-import com.wakacommerce.common.copy.MultiTenantCloneable;
-import com.wakacommerce.common.locale.domain.Locale;
-import com.wakacommerce.openadmin.audit.AdminAuditable;
-
 import java.io.Serializable;
 import java.util.Map;
 import java.util.Set;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+
+import com.wakacommerce.common.copy.MultiTenantCloneable;
+import com.wakacommerce.openadmin.audit.AdminAuditImpl;
 
 /**
  * StructuredContent implementations provide a representation of a generic content
@@ -109,7 +108,7 @@ public interface StructuredContent extends Serializable, MultiTenantCloneable<St
      * @return
      */
     @Nullable
-    public AdminAuditable getAuditable();
+    public AdminAuditImpl getAuditable();
 
     /**
      * Sets audit information for this content item.   Default implementations automatically
@@ -117,7 +116,7 @@ public interface StructuredContent extends Serializable, MultiTenantCloneable<St
      *
      * @param auditable
      */
-    public void setAuditable(@Nullable AdminAuditable auditable);
+    public void setAuditable(@Nullable AdminAuditImpl auditable);
 
     /**
      * @deprecated - Not supported - simplifying interface

@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.dao.provider.metadata.request;
 
 import org.hibernate.mapping.Property;
@@ -14,11 +13,6 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Contains the requested field, property name and support classes.
- *
- * 
- */
 public class AddMetadataFromFieldTypeRequest {
 
     private final Field requestedField;

@@ -1,10 +1,9 @@
-
 (function($, BLC) {
     
     var defaultFormats = {
         blcDateFormat : "yy.mm.dd",
         blcTimeFormat : "HH:mm:ss",
-        displayDateFormat : 'mm/dd/yy',
+        displayDateFormat : 'yy-mm-dd',
         displayTimeFormat : 'HH:mm'
     }
         

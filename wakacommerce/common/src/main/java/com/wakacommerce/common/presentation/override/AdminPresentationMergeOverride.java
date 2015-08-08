@@ -6,9 +6,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Allows a non-comprehensive override of admin presentation annotation
- * property values for a target entity field.
- *
  * @see com.wakacommerce.common.presentation.AdminPresentation
  * @see com.wakacommerce.common.presentation.AdminPresentationToOneLookup
  * @see com.wakacommerce.common.presentation.AdminPresentationDataDrivenEnumeration
@@ -22,9 +19,7 @@ import java.lang.annotation.Target;
 public @interface AdminPresentationMergeOverride {
 
     /**
-     * The name of the property whose admin presentation annotation should be overwritten
-     *
-     * @return the name of the property that should be overwritten
+     * 要覆盖的属性
      */
     String name();
 
@@ -36,8 +31,6 @@ public @interface AdminPresentationMergeOverride {
      * {@link com.wakacommerce.common.presentation.AdminPresentationAdornedTargetCollection},
      * {@link com.wakacommerce.common.presentation.AdminPresentationCollection} or
      * {@link com.wakacommerce.common.presentation.AdminPresentationMap}
-     *
-     * @return The array of override configuration values.
      */
     AdminPresentationMergeEntry[] mergeEntries();
 }

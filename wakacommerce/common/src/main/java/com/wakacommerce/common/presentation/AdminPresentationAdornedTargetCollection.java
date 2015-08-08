@@ -15,7 +15,6 @@ import com.wakacommerce.common.presentation.client.OperationType;
  * promotional message fields as well. We want the admin user to choose the desired product for the association
  * and also specify the order and promotional message information to complete the interaction.
  * The Adorned target concept embodied in this annotation makes this possible.
- *
  * 
  */
 @Retention(RetentionPolicy.RUNTIME)
@@ -53,16 +52,6 @@ public @interface AdminPresentationAdornedTargetCollection {
      * @return whether or not the field should be excluded
      */
     boolean excluded() default false;
-    
-    /**
-     * <p>Optional - propertyName , only required if you want hide the field based on this property's value</p>
-     *
-     * <p>If the property is defined and found to be set to false, in the AppConfiguraionService, then this field will be excluded in the
-     * admin presentation layer</p>
-     *
-     * @return name of the property 
-     */
-    String showIfProperty() default "";
     
     /**
      * Optional - only required if you want to make the field immutable

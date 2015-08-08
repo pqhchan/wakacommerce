@@ -1,11 +1,7 @@
-
 package com.wakacommerce.openadmin.audit;
 
 import java.util.Date;
 
-/**
- * 
- */
 public interface AdminAudit {
 
     Date getDateCreated();

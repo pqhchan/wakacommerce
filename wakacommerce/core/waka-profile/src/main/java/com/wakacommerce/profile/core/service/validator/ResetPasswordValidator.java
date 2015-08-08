@@ -1,4 +1,3 @@
-
 package com.wakacommerce.profile.core.service.validator;
 
 import org.apache.commons.lang3.StringUtils;

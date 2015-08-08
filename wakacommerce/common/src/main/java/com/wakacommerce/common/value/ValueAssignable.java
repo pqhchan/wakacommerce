@@ -1,12 +1,9 @@
-
 package com.wakacommerce.common.value;
 
 import java.io.Serializable;
 
 /**
  * Describes simple classes that can be assigned a name and value
- *
- * 
  */
 public interface ValueAssignable<T extends Serializable> extends Serializable {
 

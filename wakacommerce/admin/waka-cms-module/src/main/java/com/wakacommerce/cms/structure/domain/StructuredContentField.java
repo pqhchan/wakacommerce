@@ -1,7 +1,7 @@
 package com.wakacommerce.cms.structure.domain;
 
 import com.wakacommerce.common.copy.MultiTenantCloneable;
-import com.wakacommerce.openadmin.audit.AdminAuditable;
+import com.wakacommerce.openadmin.audit.AdminAuditImpl;
 
 import java.io.Serializable;
 
@@ -49,9 +49,9 @@ public interface StructuredContentField extends Serializable, Cloneable, MultiTe
     public String getValue();
 
     @Nullable
-    public AdminAuditable getAuditable();
+    public AdminAuditImpl getAuditable();
 
-    public void setAuditable(@Nullable AdminAuditable auditable);
+    public void setAuditable(@Nullable AdminAuditImpl auditable);
 
     public StructuredContentField clone();
 

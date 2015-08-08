@@ -14,8 +14,6 @@ import java.util.Map;
  * Page fields must be pre-processed (for example to fix image paths).
  * This DTO allows us to process the PageFields once and then cache
  * the results.
- *
- *   
  */
 public class PageDTO implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -25,7 +23,6 @@ public class PageDTO implements Serializable {
     protected String localeCode;
     protected String templatePath;
     protected String url;
-    protected Integer priority;
     protected Map<String, Object> pageFields = new HashMap<String, Object>();
     protected String ruleExpression;
     protected List<ItemCriteriaDTO> itemCriteriaDTOList;
@@ -117,14 +114,6 @@ public class PageDTO implements Serializable {
         this.itemCriteriaDTOList = itemCriteriaDTOList;
     }
 
-    public Integer getPriority() {
-        return priority;
-    }
-
-    public void setPriority(Integer priority) {
-        this.priority = priority;
-    }
-    
     public Map<String, String> getPageAttributes() {
         return pageAttributes;
     }
@@ -147,7 +136,6 @@ public class PageDTO implements Serializable {
         localeCode = original.localeCode;
         templatePath = original.templatePath;
         url = original.url;
-        priority = original.priority;
         
         // Extension Handlers Might Modify This
         pageFields = new HashMap<String, Object>(original.pageFields);

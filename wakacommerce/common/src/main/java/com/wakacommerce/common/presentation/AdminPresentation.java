@@ -13,102 +13,58 @@ import com.wakacommerce.common.presentation.client.VisibilityEnum;
 public @interface AdminPresentation {
     
     /**
-     * <p>Optional - only required if you want to display a friendly name to the user</p>
-     * 
-     * <p>The friendly name to present to a user for this field in a GUI. If supporting i18N,
-     * the friendly name may be a key to retrieve a localized friendly name using
-     * the GWT support for i18N.</p>
-     *
-     * @return the friendly name
+     * <p>Optional - 需要给用户显示更友好的名称时可以指定该值
      */
     String friendlyName() default "";
     
     /**
-     * <p>Optional - only required if you want to order the appearance of this field in the UI</p>
-     *
-     * <p>The order in which this field will appear in a GUI relative to other fields from the same class</p>
-     * 
-     * @return the display order
+     * <p>Optional - 需要指定该字段在表单的分组里的顺序时可以指定该值
      */
     int order() default 99999;
     
     /**
-     * <p>Optional - required only if you want to order the appearance of this field as it relates to other fields in a grid.
+     * <p>Optional - 需要指定该字段在表格里的顺序时可以指定该值
      * 
-     * <p>Note that this field will only be relevant if {@link #prominent()} is also set to true.
-     * 
-     * @return
+     * <p>只有当{@link #prominent()}设置成true的时候，该值才会被参考
      */
     int gridOrder() default 9999;
 
     /**
-     * <p>Optional - only required if you want to restrict the visibility of this field in the admin tool
-     *
-     * <p>Describes how the field is shown in admin GUI.
-     *
-     * @return whether or not to hide the form field.
+     * <p>Optional - 只有当你想要限制该段的可显示性的时候才需要指定该值
      */
     VisibilityEnum visibility() default VisibilityEnum.VISIBLE_ALL;
     
     /**
-     * <p>Optional - only required if you want to explicitly specify the field type. This
-     * value is normally inferred by the system based on the field type in the entity class.
-     *
-     * <p>Explicity specify the type the GUI should consider this field
-     * Specifying UNKNOWN will cause the system to make its best guess
+     * <p>Optional - 只有当你想显式的指定该字段的类型的时候，才需要设置该值。
      * 
-     * @return the field type
+     * <p>默认的UNKNOWN，会让系统自行分析
+     * 
+     * @return
      */
     SupportedFieldType fieldType() default SupportedFieldType.UNKNOWN;
     
     /**
-     * <p>Optional - only required if you want to specify a grouping for this field
-     *
-     * <p>Specify a GUI grouping for this field. Fields in the same group 
-     * will be visually grouped together in the GUI. If supporting I18N, this 
-     * can also be a key to retrieve a localized String
-     * 
-     * @return the group for this field
+     * <p>Optional - 分组名
      */
     String group() default "General";
     
     /**
-     * <p>Optional - only required if you want to order the appearance of groups in the UI
-     *
-     * <p>Specify an order for this group. Groups will be sorted in the resulting
-     * form in ascending order based on this parameter.
-     * 
-     * @return the order for this group
+     * <p>Optional - 分组排序
      */
     int groupOrder() default 99999;
 
     /**
-     * <p>Optional - only required if you want the field to appear under a different tab
-     * 
-     * <p>Specify a GUI tab for this field
-     * 
-     * @return the tab for this field
+     * <p>Optional - 标签页名称
      */
     String tab() default "General";
 
     /**
-     * <p>Optional - only required if you want to order the appearance of the tabs in the UI
-     * 
-     * <p>Specify an order for this tab. Tabs will be sorted in 
-     * ascending order based on this parameter.
-     * 
-     * @return the order for this tab
+     * <p>Optional - 标签页顺序
      */
     int tabOrder() default 100;
 
     /**
-     * <p>Optional - only required if you want to give the user extra room to enter a value
-     * for this field in the UI
-     *
-     * <p>If the field is a string, specify that the GUI
-     * provide a text area
-     * 
-     * @return is a text area field
+     * <p>Optional - 需要给用户更大的输入空间时，可以指定该值
      */
     boolean largeEntry() default false;
     
@@ -125,115 +81,69 @@ public @interface AdminPresentation {
     boolean prominent() default false;
     
     /**
-     * <p>Optional - only required if you want to explicitly control column width
-     * for this field in a grid in the admin tool
+     * <p>Optional - 只有当你想显式的控制列宽的时候，才需要指定
      *
-     * <p>Specify the column space this field will occupy in grid widgets.
-     * This value can be an absolute integer or a percentage. A value
-     * of "*" will make this field use up equally distributed space.
+     * <p>可以是整数或百分比, "*"表示对表格等分
      * 
-     * @return the space utilized in grids for this field
+     * @return
      */
     String columnWidth() default "*";
     
     /**
-     * <p>Optional - only required for WAKA_ENUMERATION field types
+     * <p>Optional - 只有当字段类型是WAKA_ENUMERATION时，才需要指定
      *
-     * <p>For fields with a SupportedFieldType of WAKA_ENUMERATION,
-     * you must specify the fully qualified class name of the Waka Enumeration here.
+     * <p>对于类型WAKA_ENUMERATION的字段, 必须在这里指定枚举类的完全限定名
      * 
-     * @return waka enumeration class name
+     * @return
      */
     String wakaEnumeration() default "";
     
     /**
-     * <p>Optional - only required if you want to make the field immutable
-     *
-     * <p>Explicityly specify whether or not this field is mutable.
-     * 
-     * @return whether or not this field is read only
+     * <p>Optional - 是否是只读字段（不可修改）
      */
     boolean readOnly() default false;
     
     /**
-     * <p>Optional - only required if you want to provide validation for this field
-     *
-     * <p>Specify the validation to use for this field in the admin
-     * 
-     * @return the configuration for the validation
+     * <p>Optional - 对该字段的验证
      */
     ValidationConfiguration[] validationConfigurations() default {};
 
     /**
-     * <p>Optional - only required if you want to explicitly make a field required. This
-     * setting is normally inferred by the JPA annotations on the field.
-     *
-     * <p>Specify whether you would like the admin to require this field,
-     * even if it is not required by the ORM.
-     *
-     * @return the required override enumeration
+     * <p>Optional - 显式地指定该字段是必须的，通常系统可以根据JPA来推导
      */
     RequiredOverride requiredOverride() default RequiredOverride.IGNORED;
 
     /**
-     * <p>Optional - only required if you want to explicitly exclude this field from
-     * dynamic management by the admin tool
-     *
-     * <p>Specify if this field should be excluded from inclusion in the
-     * admin presentation layer
-     *
-     * @return whether or not the field should be excluded
+     * <p>Optional - 是否排除该字段
      */
     boolean excluded() default false;
     
     /**
-     * <p>Optional - only required if you want to provide a tooltip for the field
+     * <p>Optional - 只有当你想为该字段提供tooltip的时候，才需要指定
      *
-     * <p>Helpful tooltip to be displayed when the admin user hovers over the field.
-     * This can be localized by providing a key which will use the GWT
-     * support for i18N.
+     * <p>如果设置了该值，那么当鼠标经过表单字段时，这里设置的文本就会显示出来
      * 
      */
     String tooltip() default "";
     
     /**
-     * <p>Optional - only required if you want to provide help text for this field
+     * <p>Optional - 只有当你想为该字段提供help的时候，才需要指定
      *
-     * <p>On the form for this entity, this will show a question
-     * mark icon next to the field. When the user clicks on the icon, whatever
-     * HTML that is specified in this helpText is shown in a popup.
-     * <p>
-     * For i18n support, this can also be a key to a localized version of the text
-     * <p>
-     * Reference implementation: http://www.smartclient.com/smartgwt/showcase/#form_details_hints
-     * 
+     * <p>如果设置了该值，那么在表单字段的旁边就会显示一个问号。当用户点击该问号时，这里设置的文本就会显示出来，支持html
      */
     String helpText() default "";
     
     /**
-     * <p>Optional - only required if you want to provide a hint for this field
+     * <p>Optional - 只有当你想为该字段提供hint的时候，才需要指定
      *
-     * <p>Text to display immediately to the right of a form field. For instance, if the user needs
-     * to put in a date, the hint could be the format the date needs to be in like 'MM/YYYY'.
+     * <p>hint文本会直接显示在表单字段的右边。例如，假设某个字段需要用户输入一个日期, 那么就可以在该
+     * 字段的旁边放上一个格式文本，比方说'MM/YYYY'，来提示用户输入正确的值，这个提示文本就是hint
      * 
-     * <p>For i18n support, this can also be a key to a localized version of the text
-     * 
-     * <p>Reference implementation: http://www.smartclient.com/smartgwt/showcase/#form_details_hints
      */
     String hint() default "";
 
     /**
-     * <p>Optional - propertyName , only required if you want hide the field based on this property's value</p>
-     *
-     * <p>If the property is defined and found to be set to false, in the AppConfiguraionService, 
-     * then this field will be excluded in the admin presentation layer</p>
-     *
-     * @return name of the property 
-     */
-    String showIfProperty() default "";
-    
-    /**
-     * <p>Optional - only required if the fieldType is SupportedFieldType.RULE_SIMPLE or SupportedFieldType.RULE_COMPLEX</p>
+     * <p>Optional - 只有当字段类型是RULE_SIMPLE或RULE_COMPLEX时，才需要指定该值</p>
      *
      * <p>Identifies the type for which this rule builder is targeted. See <tt>RuleIdentifier</tt> for a list of
      * identifier types supported out-of-the-box.
@@ -246,10 +156,8 @@ public @interface AdminPresentation {
     String ruleIdentifier() default "";
     
     /**
-     * <p>Optional - only required if you want to display a default value to the user when adding a new entity</p>
-     *
-     * <p>The default value to present to a user for this field when adding a new entity.</p>
-     *
+     * <p>Optional - 新建记录时，如果想要给该字段显示一个默认值，可以指定该值
+     * 
      * <p>Default values on <code>Boolean</code> require {@code "true"} or {@code "false"}.</p>
      * <p>Default values on <code>Date</code> support the string {@code "today"} and strings with the
      * format of <b>{@code yyyy.MM.dd HH:mm:ss}</b> (e.g. {@code "2020.02.05 22:11:05"}).</p>

@@ -33,7 +33,7 @@ public class ProductLinkTag extends CategoryLinkTag {
         sb.append("<a class=\"noTextUnderline\"  href=\"");
         sb.append(request.getContextPath());
         sb.append("/");
-        sb.append(getCategory() == null ? product.getDefaultCategory().getGeneratedUrl() : getCategory().getGeneratedUrl());
+        sb.append(getCategory() == null ? product.getCategory().getGeneratedUrl() : getCategory().getGeneratedUrl());
         sb.append("?productId=" + product.getId());
         sb.append("\">");
         sb.append(product.getName());

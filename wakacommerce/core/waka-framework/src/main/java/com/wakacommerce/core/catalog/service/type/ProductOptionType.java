@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.service.type;
 
 import java.io.Serializable;
@@ -7,28 +6,23 @@ import java.util.Map;
 
 import com.wakacommerce.common.WakaEnumType;
 
-/**
- * An extendible enumeration of product option types.
- * 
- *  
- */
 public class ProductOptionType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 
     private static final Map<String, ProductOptionType> TYPES = new LinkedHashMap<String, ProductOptionType>();
 
-    public static final ProductOptionType COLOR  = new ProductOptionType("COLOR","Color");
-    public static final ProductOptionType SIZE  = new ProductOptionType("SIZE","Size");
-    public static final ProductOptionType DATE  = new ProductOptionType("DATE","Date");
-    public static final ProductOptionType TEXT  = new ProductOptionType("TEXT","Text");
-    public static final ProductOptionType TEXTAREA = new ProductOptionType("TEXTAREA", "Textarea");
-    public static final ProductOptionType BOOLEAN  = new ProductOptionType("BOOLEAN","Boolean");
-    public static final ProductOptionType DECIMAL  = new ProductOptionType("DECIMAL","Decimal");
-    public static final ProductOptionType INTEGER  = new ProductOptionType("INTEGER","Integer");
-    public static final ProductOptionType INPUT  = new ProductOptionType("INPUT","Input");
-    public static final ProductOptionType PRODUCT  = new ProductOptionType("PRODUCT","Product");
-    public static final ProductOptionType SELECT = new ProductOptionType("SELECT", "Select");
+    public static final ProductOptionType COLOR  = new ProductOptionType("COLOR","颜色");
+    public static final ProductOptionType SIZE  = new ProductOptionType("SIZE","尺寸");
+    public static final ProductOptionType DATE  = new ProductOptionType("DATE","日期");
+    public static final ProductOptionType TEXT  = new ProductOptionType("TEXT","文本");
+    public static final ProductOptionType TEXTAREA = new ProductOptionType("TEXTAREA", "文本块");
+    public static final ProductOptionType BOOLEAN  = new ProductOptionType("BOOLEAN","布尔");
+    public static final ProductOptionType DECIMAL  = new ProductOptionType("DECIMAL","数值");
+    public static final ProductOptionType INTEGER  = new ProductOptionType("INTEGER","整数");
+    public static final ProductOptionType INPUT  = new ProductOptionType("INPUT","输入");
+    public static final ProductOptionType PRODUCT  = new ProductOptionType("PRODUCT","商品");
+    public static final ProductOptionType SELECT = new ProductOptionType("SELECT", "选择");
 
     public static ProductOptionType getInstance(final String type) {
         return TYPES.get(type);

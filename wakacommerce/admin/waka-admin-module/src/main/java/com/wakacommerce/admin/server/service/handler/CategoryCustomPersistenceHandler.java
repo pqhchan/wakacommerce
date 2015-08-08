@@ -1,11 +1,14 @@
-
 package com.wakacommerce.admin.server.service.handler;
+
+import java.lang.reflect.Field;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Component;
 
 import com.wakacommerce.admin.server.service.extension.CategoryCustomPersistenceHandlerExtensionManager;
@@ -29,22 +32,9 @@ import com.wakacommerce.openadmin.server.service.handler.CustomPersistenceHandle
 import com.wakacommerce.openadmin.server.service.persistence.module.InspectHelper;
 import com.wakacommerce.openadmin.server.service.persistence.module.RecordHelper;
 
-import java.lang.reflect.Field;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.Resource;
-
-/**
- * 
- *  
- *
- */
 @Component("blCategoryCustomPersistenceHandler")
 public class CategoryCustomPersistenceHandler extends CustomPersistenceHandlerAdapter {
     
-    private static final Log LOG = LogFactory.getLog(CategoryCustomPersistenceHandler.class);
-
     @Resource(name = "blCategoryCustomPersistenceHandlerExtensionManager")
     protected CategoryCustomPersistenceHandlerExtensionManager extensionManager;
 
@@ -72,8 +62,8 @@ public class CategoryCustomPersistenceHandler extends CustomPersistenceHandlerAd
         if (!isDefaultCategoryLegacyMode()) {
             md.remove("allParentCategoryXrefs");
 
-            BasicFieldMetadata defaultCategory = ((BasicFieldMetadata) md.get("defaultParentCategory"));
-            defaultCategory.setFriendlyName("CategoryImpl_ParentCategory");
+           // BasicFieldMetadata defaultCategory = ((BasicFieldMetadata) md.get("defaultParentCategory"));
+           // defaultCategory.setFriendlyName("CategoryImpl_ParentCategory");
         }
 
         return getResultSet(persistencePackage, helper, md);
@@ -140,7 +130,6 @@ public class CategoryCustomPersistenceHandler extends CustomPersistenceHandlerAd
     }
 
     protected Category getExistingDefaultCategory(Category category) {
-        //Make sure we get the actual field value - not something manipulated in the getter
         Category parentCategory;
         try {
             Field defaultCategory = CategoryImpl.class.getDeclaredField("defaultParentCategory");

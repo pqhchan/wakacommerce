@@ -21,13 +21,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Handles admin operations for the {@link StructuredContent} entity. This entity has fields that are 
- * dependent on the value of the {@link StructuredContent#getStructuredContentType()} field, and as such,
- * it deviates from the typical {@link AdminAbstractEntityController}.
- * 
- * 
- */
 @RequestMapping("/" + AdminStructuredContentController.SECTION_KEY)
 public class AdminStructuredContentController extends AdminBasicEntityController {
     

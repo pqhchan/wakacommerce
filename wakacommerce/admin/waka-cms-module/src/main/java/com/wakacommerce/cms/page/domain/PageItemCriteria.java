@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.page.domain;
 
 import javax.annotation.Nonnull;
@@ -17,7 +16,7 @@ import com.wakacommerce.common.rule.QuantityBasedRule;
  * @see com.wakacommerce.core.order.service.PageCartRuleProcessor
  * 
  */
-public interface PageItemCriteria extends QuantityBasedRule,MultiTenantCloneable<PageItemCriteria> {
+public interface PageItemCriteria extends QuantityBasedRule, MultiTenantCloneable<PageItemCriteria> {
 
     /**
      * Returns the parent <code>Page</code> to which this

@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.dao.provider.metadata;
 
 import org.springframework.core.Ordered;
@@ -15,7 +14,11 @@ import com.wakacommerce.openadmin.server.service.type.FieldProviderResponse;
 import java.util.Map;
 
 /**
+ * {@link FieldMetadataProvider}的适配器，继承自{@link AbstractFieldMetadataProvider}。提供了
+ * 一些公共方法，{@link FieldMetadataProvider}的实现类应该从该适配器扩展
  * 
+ * @author hui
+ *
  */
 public class FieldMetadataProviderAdapter extends AbstractFieldMetadataProvider {
 
@@ -53,4 +56,5 @@ public class FieldMetadataProviderAdapter extends AbstractFieldMetadataProvider 
     public int getOrder() {
         return Ordered.LOWEST_PRECEDENCE;
     }
+    
 }

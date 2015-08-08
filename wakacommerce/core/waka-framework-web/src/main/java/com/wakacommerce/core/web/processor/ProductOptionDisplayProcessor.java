@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.web.processor;
 
 import org.apache.commons.lang3.StringUtils;
@@ -9,19 +8,14 @@ import org.thymeleaf.standard.expression.Expression;
 import org.thymeleaf.standard.expression.StandardExpressions;
 
 import com.wakacommerce.core.catalog.domain.ProductOption;
+import com.wakacommerce.core.catalog.domain.ProductOptionXref;
 import com.wakacommerce.core.order.domain.DiscreteOrderItem;
 
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- *Priyesh Patel
- */
 public class ProductOptionDisplayProcessor extends AbstractLocalVariableDefinitionElementProcessor {
 
-    /**
-     * Sets the name of this processor to be used in Thymeleaf template
-     */
     public ProductOptionDisplayProcessor() {
         super("product_option_display");
     }
@@ -47,7 +41,8 @@ public class ProductOptionDisplayProcessor extends AbstractLocalVariableDefiniti
             DiscreteOrderItem orderItem = (DiscreteOrderItem) item;
 
             for (String i : orderItem.getOrderItemAttributes().keySet()) {
-                for (ProductOption option : orderItem.getProduct().getProductOptions()) {
+                for (ProductOptionXref optionXref : orderItem.getProduct().getProductOptionXrefs()) {
+                	ProductOption option = optionXref.getProductOption();
                     if (option.getAttributeName().equals(i) && !StringUtils.isEmpty(orderItem.getOrderItemAttributes().get(i).toString())) {
                         productOptionDisplayValues.put(option.getLabel(), orderItem.getOrderItemAttributes().get(i).toString());
                     }

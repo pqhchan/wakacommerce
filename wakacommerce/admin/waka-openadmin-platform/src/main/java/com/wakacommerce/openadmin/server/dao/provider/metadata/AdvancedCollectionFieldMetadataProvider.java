@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.dao.provider.metadata;
 
 import org.apache.commons.lang.ArrayUtils;
@@ -10,7 +9,7 @@ import com.wakacommerce.common.presentation.client.VisibilityEnum;
 import com.wakacommerce.openadmin.dto.BasicFieldMetadata;
 import com.wakacommerce.openadmin.dto.CollectionMetadata;
 import com.wakacommerce.openadmin.dto.FieldMetadata;
-import com.wakacommerce.openadmin.server.dao.FieldInfo;
+import com.wakacommerce.openadmin.server.dao.FieldMappingInfo;
 import com.wakacommerce.openadmin.server.dao.provider.metadata.request.AddMetadataFromFieldTypeRequest;
 import com.wakacommerce.openadmin.server.service.type.FieldProviderResponse;
 
@@ -20,9 +19,6 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-/**
- * 
- */
 public class AdvancedCollectionFieldMetadataProvider extends FieldMetadataProviderAdapter {
 
     public static String FOREIGN_KEY_ADDITIONAL_METADATA_KEY = "foreign_key";
@@ -30,15 +26,18 @@ public class AdvancedCollectionFieldMetadataProvider extends FieldMetadataProvid
     @Resource(name = "blDefaultFieldMetadataProvider")
     protected DefaultFieldMetadataProvider defaultMetadataProvider;
     
-    protected boolean canHandleFieldForTypeMetadata(AddMetadataFromFieldTypeRequest addMetadataFromFieldTypeRequest, Map<String, FieldMetadata> metadata) {
+    protected boolean canHandle(AddMetadataFromFieldTypeRequest addMetadataFromFieldTypeRequest, Map<String, FieldMetadata> metadata) {
         AdminPresentationMap map = addMetadataFromFieldTypeRequest.getRequestedField().getAnnotation(AdminPresentationMap.class);
         AdminPresentationCollection collection = addMetadataFromFieldTypeRequest.getRequestedField().getAnnotation(AdminPresentationCollection.class);
         return map != null || collection != null;
     }
 
     @Override
-    public FieldProviderResponse addMetadataFromFieldType(AddMetadataFromFieldTypeRequest addMetadataFromFieldTypeRequest, Map<String, FieldMetadata> metadata) {
-        if (!canHandleFieldForTypeMetadata(addMetadataFromFieldTypeRequest, metadata)) {
+    public FieldProviderResponse addMetadataFromFieldType(
+    		AddMetadataFromFieldTypeRequest addMetadataFromFieldTypeRequest, 
+    		Map<String, FieldMetadata> metadata) {
+    	
+        if (!canHandle(addMetadataFromFieldTypeRequest, metadata)) {
             return FieldProviderResponse.NOT_HANDLED;
         }
         CollectionMetadata fieldMetadata = (CollectionMetadata) addMetadataFromFieldTypeRequest.getPresentationAttribute();
@@ -61,7 +60,7 @@ public class AdvancedCollectionFieldMetadataProvider extends FieldMetadataProvid
         // the {@link FieldMetadata#getAdditionalMetadata()} field. This is then pulled out within
         // {@link BasicPersistenceModule#filterOutCollectionMetadata}
         if (addMetadataFromFieldTypeRequest.getForeignField() != null && addMetadataFromFieldTypeRequest.isPropertyForeignKey()) {
-            FieldInfo info = buildFieldInfo(addMetadataFromFieldTypeRequest.getRequestedField());
+            FieldMappingInfo info = buildFieldMappingInfo(addMetadataFromFieldTypeRequest.getRequestedField());
             BasicFieldMetadata basicMetadata = new BasicFieldMetadata();
             basicMetadata.setName(info.getName());
             basicMetadata.setExcluded(false);

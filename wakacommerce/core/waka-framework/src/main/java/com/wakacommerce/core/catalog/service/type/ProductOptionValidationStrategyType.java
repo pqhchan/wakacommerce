@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.service.type;
 
 import java.io.Serializable;
@@ -7,20 +6,14 @@ import java.util.Map;
 
 import com.wakacommerce.common.WakaEnumType;
 
-/**
- * An extendible enumeration of product option validation strategy types.
- * 
- *ppatel
- *
- */
 public class ProductOptionValidationStrategyType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 
     private static final Map<String, ProductOptionValidationStrategyType> TYPES = new LinkedHashMap<String, ProductOptionValidationStrategyType>();
 
-    public static final ProductOptionValidationStrategyType ADD_ITEM = new ProductOptionValidationStrategyType("ADD_ITEM", 1000, "Validate On Add Item");
-    public static final ProductOptionValidationStrategyType SUBMIT_ORDER = new ProductOptionValidationStrategyType("SUBMIT_ORDER", 2000, "Validate On Submit");
+    public static final ProductOptionValidationStrategyType ADD_ITEM = new ProductOptionValidationStrategyType("ADD_ITEM", 1000, "添加项目时验证");
+    public static final ProductOptionValidationStrategyType SUBMIT_ORDER = new ProductOptionValidationStrategyType("SUBMIT_ORDER", 2000, "提交时验证");
 
     public static ProductOptionValidationStrategyType getInstance(final String type) {
         return TYPES.get(type);

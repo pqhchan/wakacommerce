@@ -12,13 +12,16 @@ import com.wakacommerce.common.presentation.AdminPresentation;
 import com.wakacommerce.common.sandbox.SandBoxNonProductionSkip;
 
 @Embeddable
-public class AdminAuditable implements Serializable, SandBoxNonProductionSkip, AdminAudit {
+public class AdminAuditImpl implements Serializable, SandBoxNonProductionSkip, AdminAudit {
 
     private static final long serialVersionUID = 1L;
 
     @Column(name = "DATE_CREATED", updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
-    @AdminPresentation(friendlyName = "创建时间", group = "审计", readOnly = true)
+    @AdminPresentation(
+    		friendlyName = "AdminAuditImpl_dateCreated", 
+    		group = "AdminAuditImpl_grp1", 
+    		readOnly = true)
     protected Date dateCreated;
 
     @Column(name = "CREATED_BY", updatable = false)
@@ -26,7 +29,10 @@ public class AdminAuditable implements Serializable, SandBoxNonProductionSkip, A
 
     @Column(name = "DATE_UPDATED")
     @Temporal(TemporalType.TIMESTAMP)
-    @AdminPresentation(friendlyName = "更新时间", group = "审计", readOnly = true)
+    @AdminPresentation(
+    		friendlyName = "AdminAuditImpl_dateUpdated", 
+    		group = "AdminAuditImpl_grp1", 
+    		readOnly = true)
     protected Date dateUpdated;
 
     @Column(name = "UPDATED_BY")
@@ -78,7 +84,7 @@ public class AdminAuditable implements Serializable, SandBoxNonProductionSkip, A
         if (o == null) return false;
         if (!getClass().isAssignableFrom(o.getClass())) return false;
 
-        AdminAuditable that = (AdminAuditable) o;
+        AdminAuditImpl that = (AdminAuditImpl) o;
 
         if (createdBy != null ? !createdBy.equals(that.createdBy) : that.createdBy != null) return false;
         if (dateCreated != null ? !dateCreated.equals(that.dateCreated) : that.dateCreated != null) return false;

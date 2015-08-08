@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.web.service;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -80,10 +79,6 @@ import javax.annotation.Resource;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
-
-/**
- * 
- */
 @Service("blFormBuilderService")
 public class FormBuilderServiceImpl implements FormBuilderService {
 

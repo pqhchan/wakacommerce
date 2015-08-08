@@ -1,24 +1,4 @@
-  
 package com.wakacommerce.cms.page.domain;
-
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
-import org.hibernate.annotations.Polymorphism;
-import org.hibernate.annotations.PolymorphismType;
-
-import com.wakacommerce.cms.field.domain.FieldGroup;
-import com.wakacommerce.cms.field.domain.FieldGroupImpl;
-import com.wakacommerce.common.copy.CreateResponse;
-import com.wakacommerce.common.copy.MultiTenantCopyContext;
-import com.wakacommerce.common.extensibility.jpa.clone.ClonePolicy;
-import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransform;
-import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformMember;
-import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformTypes;
-import com.wakacommerce.common.extensibility.jpa.copy.ProfileEntity;
-import com.wakacommerce.common.presentation.AdminPresentation;
-import com.wakacommerce.common.presentation.client.VisibilityEnum;
 
 import java.math.BigDecimal;
 
@@ -32,6 +12,23 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
+import com.wakacommerce.cms.field.domain.FieldGroup;
+import com.wakacommerce.cms.field.domain.FieldGroupImpl;
+import com.wakacommerce.common.copy.CreateResponse;
+import com.wakacommerce.common.copy.MultiTenantCopyContext;
+import com.wakacommerce.common.extensibility.jpa.clone.ClonePolicy;
+import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransform;
+import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformMember;
+import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformTypes;
+import com.wakacommerce.common.extensibility.jpa.copy.ProfileEntity;
+import com.wakacommerce.common.presentation.AdminPresentation;
+import com.wakacommerce.common.presentation.client.VisibilityEnum;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

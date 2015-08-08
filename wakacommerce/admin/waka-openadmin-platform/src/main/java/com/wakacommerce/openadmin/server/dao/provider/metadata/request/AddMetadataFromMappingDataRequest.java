@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.dao.provider.metadata.request;
 
 import org.hibernate.mapping.Property;
@@ -10,11 +9,6 @@ import com.wakacommerce.openadmin.server.dao.DynamicEntityDao;
 
 import java.util.List;
 
-/**
- * Contains the requested Hibernate type, metadata and support classes.
- *
- * 
- */
 public class AddMetadataFromMappingDataRequest {
 
     private final List<Property> componentProperties;

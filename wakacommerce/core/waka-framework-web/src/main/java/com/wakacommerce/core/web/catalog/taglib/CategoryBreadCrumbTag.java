@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.web.catalog.taglib;
 
 import org.apache.commons.logging.Log;
@@ -36,7 +35,7 @@ public class CategoryBreadCrumbTag extends CategoryLinkTag {
 
             while (category != null) {
                 categoryList.add(category);
-                category = category.getDefaultParentCategory();
+                category = category.getParentCategory();
             }
 
             Collections.reverse(categoryList);

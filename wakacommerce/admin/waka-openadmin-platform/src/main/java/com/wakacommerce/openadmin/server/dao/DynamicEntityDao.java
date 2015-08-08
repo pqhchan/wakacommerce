@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.dao;
 
 import org.hibernate.Criteria;
@@ -23,11 +22,6 @@ import java.util.Map;
 import javax.annotation.Nonnull;
 import javax.persistence.EntityManager;
 
-/**
- * 
- *  
- *
- */
 public interface DynamicEntityDao {
 
     public abstract Class<?>[] getAllPolymorphicEntitiesFromCeiling(Class<?> ceilingClass);

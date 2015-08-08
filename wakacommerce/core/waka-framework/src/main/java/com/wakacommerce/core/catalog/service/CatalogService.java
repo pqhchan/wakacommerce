@@ -185,16 +185,6 @@ public interface CatalogService {
      */
     public Sku findSkuByUpc(String upc);
 
-    /**
-     * Get a hierarchical map of all child categories keyed on the url
-     *
-     * @param categoryId the parent category to which the children belong
-     * @return hierarchical map of all child categories
-     * @deprecated this approach is inherently inefficient - don't use.
-     */
-    @Deprecated
-    public Map<String, List<Long>> getChildCategoryURLMapByCategoryId(Long categoryId);
-
     public Category createCategory();
     
     public Sku createSku();

@@ -5,27 +5,15 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import javax.persistence.MapKey;
-
 import com.wakacommerce.common.presentation.client.OperationType;
 import com.wakacommerce.common.presentation.client.UnspecifiedBooleanType;
 
-/**
- * This annotation is used to describe a persisted map structure for use in the
- * admin tool
- */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD})
 public @interface AdminPresentationMap {
 
     /**
-     * <p>Optional - field name will be used if not specified</p>
-     *
-     * <p>The friendly name to present to a user for this field in a GUI. If supporting i18N,
-     * the friendly name may be a key to retrieve a localized friendly name using
-     * the GWT support for i18N.</p>
-     *
-     * @return the friendly name
+     * <p>Optional - 需要给用户显示更友好的名称时可以指定该值
      */
     String friendlyName() default "";
 
@@ -41,93 +29,47 @@ public @interface AdminPresentationMap {
     String securityLevel() default "";
 
     /**
-     * <p>Optional - fields are not excluded by default</p>
-     *
-     * <p>Specify if this field should be excluded from inclusion in the
-     * admin presentation layer</p>
-     *
-     * @return whether or not the field should be excluded
+     * <p>Optional - 是否排除该字段
      */
     boolean excluded() default false;
 
     /**
-     * Optional - only required if you want to make the field immutable
-     *
-     * Explicityly specify whether or not this field is mutable.
-     *
-     * @return whether or not this field is read only
+     * <p>Optional - 是否是只读字段（不可修改）
      */
     boolean readOnly() default false;
 
     /**
-     * <p>Optional - only required if you want to make the field ignore caching</p>
-     *
-     * <p>Explicitly specify whether or not this field will use server-side
-     * caching during inspection</p>
-     *
-     * @return whether or not this field uses caching
+     * <p>Optional - 是否使用服务器端缓存
      */
     boolean useServerSideInspectionCache() default true;
 
     /**
-     * <p>Optional - only required if you want to specify ordering for this field</p>
-     *
-     * <p>The order in which this field will appear in a GUI relative to other collections from the same class</p>
-     *
-     * @return the display order
+     * <p>Optional - 需要指定该字段在表单的分组里的顺序时可以指定该值
      */
     int order() default 99999;
 
     /**
-     * Optional - only required if you want the field to appear under a different tab
-     * 
-     * Specify a GUI tab for this field
-     * 
-     * @return the tab for this field
+     * <p>Optional - 标签页名称
      */
     String tab() default "General";
 
     /**
-     * Optional - only required if you want to order the appearance of the tabs in the UI
-     * 
-     * Specify an order for this tab. Tabs will be sorted int he resulting form in 
-     * ascending order based on this parameter.
-     * 
-     * The default tab will render with an order of 100.
-     * 
-     * @return the order for this tab
+     * <p>Optional - 标签页顺序
      */
     int tabOrder() default 100;
 
     /**
-     * <p>Optional - only required if the type for the key of this map
-     * is other than java.lang.String, or if the map is not a generic
-     * type from which the key type can be derived</p>
-     *
-     * <p>The type for the key of this map</p>
-     *
-     * @return The type for the key of this map
+     * <p>Optional - 只有当Map映射的key不是String类型时才需指定该值
      */
     Class<?> keyClass() default void.class;
     
     /**
-     * <p>Optional - only required if you wish to specify a key different from the one on the
-     * {@link MapKey} annotation for the same field.
-     * 
-     * @return the property for the key
+     * <p>Optional - 想要指定不同于mapKey注解的值的key时
      */
     String mapKeyValueProperty() default "";
 
     /**
-     * <p>Optional - only required if the key field title for this
-     * map should be translated to another lang, or should be
-     * something other than the constant "Key"</p>
-     *
-     * <p>The friendly name to present to a user for this key field title in a GUI. If supporting i18N,
-     * the friendly name may be a key to retrieve a localized friendly name using
-     * the GWT support for i18N.</p>
-     *
-     * @return the friendly name
+     * <p>Optional
      */
     String keyPropertyFriendlyName() default "Key";
 
@@ -184,7 +126,7 @@ public @interface AdminPresentationMap {
 
     /**
      * <p>Optional - if the intended map value is actually buried inside of a modelled join entity, specify the
-     * the path to that value here. For example, SkuImpl.skuMedia uses SkuMediaXrefImpl, but the intended value
+     * path to that value here. For example, SkuImpl.skuMedia uses SkuMediaXrefImpl, but the intended value
      * is Media, so the toOneTargetProperty annotation param is "media"</p>
      *
      * @return the path to the intended map value field in the join entity
@@ -193,7 +135,7 @@ public @interface AdminPresentationMap {
 
     /**
      * <p>Optional - if the intended map value is actually buried inside of a modelled join entity, specify the
-     * the path to that parent here. For example, SkuImpl.skuMedia uses SkuMediaXrefImpl, and the parent reference
+     * path to that parent here. For example, SkuImpl.skuMedia uses SkuMediaXrefImpl, and the parent reference
      * inside SkuMediaXrefImpl is to Sku, so the toOneParentProperty annotation param is "sku"</p>
      *
      * @return the path to the parent in the join entity
@@ -213,7 +155,7 @@ public @interface AdminPresentationMap {
     /**
      * <p>Optional - only required when the user should select from a list of pre-defined
      * keys when adding/editing this map. Either this value, or the mapKeyOptionEntityClass
-     * should be user - not both.</p>
+     * should be used - not both.</p>
      *
      * <p>Specify the keys available for the user to select from</p>
      *
@@ -302,17 +244,7 @@ public @interface AdminPresentationMap {
     AdminPresentationOperationTypes operationTypes() default @AdminPresentationOperationTypes(addType = OperationType.MAP, fetchType = OperationType.MAP, inspectType = OperationType.MAP, removeType = OperationType.MAP, updateType = OperationType.MAP);
 
     /**
-     * <p>Optional - propertyName , only required if you want hide the field based on this property's value</p>
-     *
-     * <p>If the property is defined and found to be set to false, in the AppConfiguraionService, then this field will be excluded in the
-     * admin presentation layer</p>
-     *
-     * @return name of the property 
-     */
-    String showIfProperty() default "";
-
-    /**
-     * Optional - If you have FieldType set to SupportedFieldType.MONEY,      *
+     * Optional - If you have FieldType set to SupportedFieldType.MONEY
      * then you can specify a money currency property field.
      *
      * @return the currency property field

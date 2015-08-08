@@ -1,4 +1,3 @@
-
 package com.wakacommerce.profile.core.service.listener;
 
 import com.wakacommerce.profile.core.domain.Customer;

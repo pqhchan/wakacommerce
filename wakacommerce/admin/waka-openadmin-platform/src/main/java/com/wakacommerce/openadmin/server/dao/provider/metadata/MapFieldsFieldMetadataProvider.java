@@ -19,7 +19,7 @@ import com.wakacommerce.common.presentation.client.SupportedFieldType;
 import com.wakacommerce.openadmin.dto.BasicFieldMetadata;
 import com.wakacommerce.openadmin.dto.FieldMetadata;
 import com.wakacommerce.openadmin.dto.override.FieldMetadataOverride;
-import com.wakacommerce.openadmin.server.dao.FieldInfo;
+import com.wakacommerce.openadmin.server.dao.FieldMappingInfo;
 import com.wakacommerce.openadmin.server.dao.provider.metadata.request.AddMetadataFromFieldTypeRequest;
 import com.wakacommerce.openadmin.server.dao.provider.metadata.request.AddMetadataRequest;
 import com.wakacommerce.openadmin.server.dao.provider.metadata.request.OverrideViaAnnotationRequest;
@@ -39,7 +39,7 @@ public class MapFieldsFieldMetadataProvider extends DefaultFieldMetadataProvider
 
     private static final Log LOG = LogFactory.getLog(MapFieldsFieldMetadataProvider.class);
 
-    protected boolean canHandleFieldForConfiguredMetadata(AddMetadataRequest addMetadataRequest, Map<String, FieldMetadata> metadata) {
+    protected boolean canHandleAdminPresentation(AddMetadataRequest addMetadataRequest, Map<String, FieldMetadata> metadata) {
         AdminPresentationMapFields annot = addMetadataRequest.getRequestedField().getAnnotation(AdminPresentationMapFields.class);
         return annot != null;
     }
@@ -51,7 +51,7 @@ public class MapFieldsFieldMetadataProvider extends DefaultFieldMetadataProvider
 
     @Override
     public FieldProviderResponse addMetadata(AddMetadataRequest addMetadataRequest, Map<String, FieldMetadata> metadata) {
-        if (!canHandleFieldForConfiguredMetadata(addMetadataRequest, metadata)) {
+        if (!canHandleAdminPresentation(addMetadataRequest, metadata)) {
             return FieldProviderResponse.NOT_HANDLED;
         }
         AdminPresentationMapFields annot = addMetadataRequest.getRequestedField().getAnnotation(AdminPresentationMapFields.class);
@@ -61,7 +61,7 @@ public class MapFieldsFieldMetadataProvider extends DefaultFieldMetadataProvider
             }
             FieldMetadataOverride override = constructBasicMetadataOverride(mapField.fieldPresentation(), null, null);
             override.setFriendlyName(mapField.fieldPresentation().friendlyName());
-            FieldInfo myInfo = new FieldInfo();
+            FieldMappingInfo myInfo = new FieldMappingInfo();
             myInfo.setName(addMetadataRequest.getRequestedField().getName() + FieldManager.MAPFIELDSEPARATOR + mapField.fieldName());
             buildBasicMetadata(addMetadataRequest.getParentClass(), addMetadataRequest.getTargetClass(), metadata, myInfo, override, addMetadataRequest.getDynamicEntityDao());
             setClassOwnership(addMetadataRequest.getParentClass(), addMetadataRequest.getTargetClass(), metadata, myInfo);

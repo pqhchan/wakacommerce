@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.web.rulebuilder.enums;
 
 import org.springframework.core.io.Resource;
@@ -13,8 +12,6 @@ import java.util.List;
  * Generated resource handler for blc-rulebuilder-options.js.
  * 
  * Delegates to all registered {@link RuleBuilderEnumOptionsExtensionListener} to create the resource
- * 
- * 
  */
 @Component("blRuleBuilderEnumOptionsResourceHandler")
 public class RuleBuilderEnumOptionsResourceHandler extends AbstractGeneratedResourceHandler {

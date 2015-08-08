@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.domain;
 
 import java.io.Serializable;
@@ -19,31 +18,33 @@ public class Dimension implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Column(name = "WIDTH")
-    @AdminPresentation(friendlyName = "ProductDimension_Product_Width", order = 2000,
+    @AdminPresentation(
+    	friendlyName = "Dimension_width", 
+    	order = 2000,
         tab = ProductImpl.Presentation.Tab.Name.Shipping, tabOrder = ProductImpl.Presentation.Tab.Order.Shipping,
         group = ProductImpl.Presentation.Group.Name.Shipping, groupOrder = ProductImpl.Presentation.Group.Order.Shipping)
     protected BigDecimal width;
 
     @Column(name = "HEIGHT")
-    @AdminPresentation(friendlyName = "ProductDimension_Product_Height", order = 3000,
+    @AdminPresentation(friendlyName = "Dimension_height", order = 3000,
         tab = ProductImpl.Presentation.Tab.Name.Shipping, tabOrder = ProductImpl.Presentation.Tab.Order.Shipping,
         group = ProductImpl.Presentation.Group.Name.Shipping, groupOrder = ProductImpl.Presentation.Group.Order.Shipping)
     protected BigDecimal height;
 
     @Column(name = "DEPTH")
-    @AdminPresentation(friendlyName = "ProductDimension_Product_Depth", order = 4000,
+    @AdminPresentation(friendlyName = "Dimension_depth", order = 4000,
         tab = ProductImpl.Presentation.Tab.Name.Shipping, tabOrder = ProductImpl.Presentation.Tab.Order.Shipping,
         group = ProductImpl.Presentation.Group.Name.Shipping, groupOrder = ProductImpl.Presentation.Group.Order.Shipping)
     protected BigDecimal depth;
 
     @Column(name = "GIRTH")
-    @AdminPresentation(friendlyName = "ProductDimension_Product_Girth", order = 5000,
+    @AdminPresentation(friendlyName = "Dimension_girth", order = 5000,
         tab = ProductImpl.Presentation.Tab.Name.Shipping, tabOrder = ProductImpl.Presentation.Tab.Order.Shipping,
         group = ProductImpl.Presentation.Group.Name.Shipping, groupOrder = ProductImpl.Presentation.Group.Order.Shipping)
     protected BigDecimal girth;
 
     @Column(name = "CONTAINER_SIZE")
-    @AdminPresentation(friendlyName = "ProductDimension_Product_Container_Size", order = 6000,
+    @AdminPresentation(friendlyName = "Dimension_containerSize", order = 6000,
         tab = ProductImpl.Presentation.Tab.Name.Shipping, tabOrder = ProductImpl.Presentation.Tab.Order.Shipping,
         group = ProductImpl.Presentation.Group.Name.Shipping, groupOrder = ProductImpl.Presentation.Group.Order.Shipping,
         fieldType = SupportedFieldType.WAKA_ENUMERATION, 
@@ -51,17 +52,25 @@ public class Dimension implements Serializable {
     protected String size;
 
     @Column(name = "CONTAINER_SHAPE")
-    @AdminPresentation(friendlyName = "ProductDimension_Product_Container_Shape", order = 7000,
-        tab = ProductImpl.Presentation.Tab.Name.Shipping, tabOrder = ProductImpl.Presentation.Tab.Order.Shipping,
-        group = ProductImpl.Presentation.Group.Name.Shipping, groupOrder = ProductImpl.Presentation.Group.Order.Shipping,
+    @AdminPresentation(
+    	friendlyName = "Dimension_containerShape",
+    	order = 7000,
+        tab = ProductImpl.Presentation.Tab.Name.Shipping, 
+        tabOrder = ProductImpl.Presentation.Tab.Order.Shipping,
+        group = ProductImpl.Presentation.Group.Name.Shipping, 
+        groupOrder = ProductImpl.Presentation.Group.Order.Shipping,
         fieldType = SupportedFieldType.WAKA_ENUMERATION,
         wakaEnumeration = "com.wakacommerce.common.vendor.service.type.ContainerShapeType")
     protected String container;
 
     @Column(name = "DIMENSION_UNIT_OF_MEASURE")
-    @AdminPresentation(friendlyName = "ProductDimension_Product_Dimension_Units", order = 8000,
-        tab = ProductImpl.Presentation.Tab.Name.Shipping, tabOrder = ProductImpl.Presentation.Tab.Order.Shipping,
-        group = ProductImpl.Presentation.Group.Name.Shipping, groupOrder = ProductImpl.Presentation.Group.Order.Shipping,
+    @AdminPresentation(
+    	friendlyName = "Dimension_dimensionUnitOfMeasure", 
+    	order = 8000,
+        tab = ProductImpl.Presentation.Tab.Name.Shipping, 
+        tabOrder = ProductImpl.Presentation.Tab.Order.Shipping,
+        group = ProductImpl.Presentation.Group.Name.Shipping, 
+        groupOrder = ProductImpl.Presentation.Group.Order.Shipping,
         fieldType = SupportedFieldType.WAKA_ENUMERATION, 
         wakaEnumeration = "com.wakacommerce.common.util.DimensionUnitOfMeasureType")
     protected String dimensionUnitOfMeasure;
@@ -90,11 +99,6 @@ public class Dimension implements Serializable {
         this.depth = depth;
     }
 
-    /**
-     * Returns the product dimensions as a String (assumes measurements are in
-     * inches)
-     * @return a String value of the product dimensions
-     */
     public String getDimensionString() {
         return height + "Hx" + width + "Wx" + depth + "D\"";
     }

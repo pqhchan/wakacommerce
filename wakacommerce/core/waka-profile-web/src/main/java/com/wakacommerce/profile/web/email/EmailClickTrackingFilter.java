@@ -24,16 +24,10 @@ public class EmailClickTrackingFilter implements Filter {
     @Resource(name="blCustomerState")
     protected CustomerState customerState;
 
-    /* (non-Javadoc)
-     * @see javax.servlet.Filter#destroy()
-     */
     public void destroy() {
         //do nothing
     }
 
-    /* (non-Javadoc)
-     * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)
-     */
     @SuppressWarnings("unchecked")
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain) throws IOException, ServletException {
@@ -70,23 +64,14 @@ public class EmailClickTrackingFilter implements Filter {
         chain.doFilter(request, response);
     }
 
-    /* (non-Javadoc)
-     * @see javax.servlet.Filter#init(javax.servlet.FilterConfig)
-     */
     public void init(FilterConfig arg0) throws ServletException {
         //do nothing
     }
 
-    /**
-     * @return the emailTrackingManager
-     */
     public EmailTrackingManager getEmailTrackingManager() {
         return emailTrackingManager;
     }
 
-    /**
-     * @param emailTrackingManager the emailTrackingManager to set
-     */
     public void setEmailTrackingManager(EmailTrackingManager emailTrackingManager) {
         this.emailTrackingManager = emailTrackingManager;
     }

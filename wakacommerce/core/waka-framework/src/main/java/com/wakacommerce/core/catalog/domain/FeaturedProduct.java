@@ -1,6 +1,4 @@
-
 package com.wakacommerce.core.catalog.domain;
-
 
 import java.math.BigDecimal;
 
@@ -28,10 +26,6 @@ public interface FeaturedProduct extends PromotableProduct, MultiTenantCloneable
 
     void setPromotionMessage(String promotionMessage);
 
-    /**
-     * Pass through to getProduct() to meet the contract for promotable product.
-     * @return
-     */
     Product getRelatedProduct();
 
 }

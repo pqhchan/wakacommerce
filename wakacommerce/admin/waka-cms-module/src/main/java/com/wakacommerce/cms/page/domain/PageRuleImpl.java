@@ -1,17 +1,4 @@
- 
 package com.wakacommerce.cms.page.domain;
-
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
-import org.hibernate.annotations.Type;
-import org.springframework.context.annotation.Profile;
-
-import com.wakacommerce.common.copy.CreateResponse;
-import com.wakacommerce.common.copy.MultiTenantCopyContext;
-import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransform;
-import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformMember;
-import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformTypes;
-import com.wakacommerce.common.extensibility.jpa.copy.ProfileEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,12 +9,17 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+import org.hibernate.annotations.Type;
 
-/**
- * 
- * 
- *
- */
+import com.wakacommerce.common.copy.CreateResponse;
+import com.wakacommerce.common.copy.MultiTenantCopyContext;
+import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransform;
+import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformMember;
+import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformTypes;
+import com.wakacommerce.common.extensibility.jpa.copy.ProfileEntity;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "BLC_PAGE_RULE")

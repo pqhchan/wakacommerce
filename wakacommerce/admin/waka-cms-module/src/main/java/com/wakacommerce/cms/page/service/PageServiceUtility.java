@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.page.service;
 
 import org.apache.commons.lang.StringUtils;
@@ -30,10 +29,6 @@ import java.util.Map.Entry;
 
 import javax.annotation.Resource;
 
-/**
- * This method is able to convert a fieldKey 
- *   
- */
 @Service("blPageServiceUtility")
 public class PageServiceUtility {
 
@@ -62,13 +57,9 @@ public class PageServiceUtility {
         pageDTO.setId(page.getId());
         pageDTO.setDescription(page.getDescription());
         pageDTO.setUrl(page.getFullUrl());
-        pageDTO.setPriority(page.getPriority());
 
         if (page.getPageTemplate() != null) {
             pageDTO.setTemplatePath(page.getPageTemplate().getTemplatePath());
-            if (page.getPageTemplate().getLocale() != null) {
-                pageDTO.setLocaleCode(page.getPageTemplate().getLocale().getLocaleCode());
-            }
         }
 
         for (String fieldKey : page.getPageFields().keySet()) {

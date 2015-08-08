@@ -1,4 +1,3 @@
-  
 package com.wakacommerce.cms.page.domain;
 
 import com.wakacommerce.cms.field.domain.FieldGroup;
@@ -7,11 +6,6 @@ import com.wakacommerce.common.copy.MultiTenantCloneable;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-/**
- * 
- *  
- *
- */
 public interface PageTemplateFieldGroupXref extends Serializable, MultiTenantCloneable<PageTemplateFieldGroupXref> {
 
     public void setId(Long id);

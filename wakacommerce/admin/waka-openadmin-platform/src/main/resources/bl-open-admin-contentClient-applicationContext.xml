@@ -51,22 +51,6 @@
         </property>
     </bean>
     
-    <!--<bean id="blSandBoxEntityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" depends-on="blCacheManager">
-        <property name="jpaVendorAdapter" ref="blJpaVendorAdapter"/>
-        <property name="persistenceUnitManager" ref="blPersistenceUnitManager"/>
-        <property name="persistenceUnitName" value="blSandboxPU"/>
-    </bean>
-    
-    <bean id="blTransactionManagerSandBox" class="org.springframework.orm.jpa.JpaTransactionManager">
-        <property name="entityManagerFactory" ref="blSandBoxEntityManagerFactory" />
-    </bean>
-
-    <tx:advice id="blTxAdviceSandBox" transaction-manager="blTransactionManagerSandBox">
-        <tx:attributes>
-          <tx:method name="*" propagation="REQUIRED"/>
-        </tx:attributes>
-    </tx:advice>-->
-
     <bean id="blSendAdminUsernameEmailInfo" class="com.wakacommerce.common.email.service.info.EmailInfo">
         <property name="fromAddress" value="${adminUserNameEmail.fromAddress}"/>
         <property name="emailTemplate" value="${adminUserNameEmail.emailTemplate}"/>

@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.util.dao;
 
 import javassist.util.proxy.ProxyFactory;
@@ -28,7 +27,6 @@ import java.util.Map;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
-
 
 public class DynamicDaoHelperImpl implements DynamicDaoHelper {
     
@@ -61,8 +59,12 @@ public class DynamicDaoHelperImpl implements DynamicDaoHelper {
     }
     
     @Override
-    public Class<?>[] getAllPolymorphicEntitiesFromCeiling(Class<?> ceilingClass, SessionFactory sessionFactory,
-            boolean includeUnqualifiedPolymorphicEntities, boolean useCache) {
+    public Class<?>[] getAllPolymorphicEntitiesFromCeiling(
+    		Class<?> ceilingClass, 
+    		SessionFactory sessionFactory,
+            boolean includeUnqualifiedPolymorphicEntities, 
+            boolean useCache) {
+    	
         ceilingClass = getNonProxyImplementationClassIfNecessary(ceilingClass);
         Class<?>[] cache = null;
         synchronized(LOCK_OBJECT) {

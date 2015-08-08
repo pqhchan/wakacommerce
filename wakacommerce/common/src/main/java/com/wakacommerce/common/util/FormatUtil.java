@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.util;
 
 import java.text.SimpleDateFormat;
@@ -8,9 +7,6 @@ import javax.xml.datatype.DatatypeConfigurationException;
 
 import com.wakacommerce.common.web.WakaRequestContext;
 
-/**
- * 
- */
 public class FormatUtil {
 
     public static final String DATE_FORMAT = "yyyy.MM.dd HH:mm:ss";

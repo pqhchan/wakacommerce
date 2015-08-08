@@ -657,8 +657,8 @@ public class OrderImpl implements Order, AdminMainEntity, CurrencyCodeIdentifiab
     public String getMainEntityName() {
         String customerName = null;
         String orderNumber = getOrderNumber();
-        if (!StringUtils.isEmpty(getCustomer().getFirstName()) && !StringUtils.isEmpty(getCustomer().getLastName())) {
-            customerName = getCustomer().getFirstName() + " " + getCustomer().getLastName();
+        if (!StringUtils.isEmpty(getCustomer().getRealName())) {
+            customerName = getCustomer().getRealName();
         }
         if (!StringUtils.isEmpty(orderNumber) && !StringUtils.isEmpty(customerName)) {
             return orderNumber + " - " + customerName;

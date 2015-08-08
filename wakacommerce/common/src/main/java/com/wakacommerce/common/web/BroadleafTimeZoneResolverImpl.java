@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.web;
 
 import org.apache.commons.logging.Log;
@@ -12,8 +11,6 @@ import java.util.TimeZone;
 
 /**
  * Responsible for returning the timezone to use for the current request.
- *
- *Priyesh Patel
  */
 @Component("blTimeZoneResolver")
 public class BroadleafTimeZoneResolverImpl implements BroadleafTimeZoneResolver {

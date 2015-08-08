@@ -137,7 +137,7 @@ public class GoogleAnalyticsTag extends SimpleTagSupport {
                     sb.append("_gaq.push(['_addItem','" + order.getId() + "'");
                     sb.append(",'" + orderItem.getSku().getId() + "'");
                     sb.append(",'" + orderItem.getSku().getName() + "'");
-                    sb.append(",' " + orderItem.getProduct().getDefaultCategory() + "'");
+                    sb.append(",' " + orderItem.getProduct().getCategory() + "'");
                     sb.append(",'" + orderItem.getPrice() + "'");
                     sb.append(",'" + orderItem.getQuantity() + "'");
                     sb.append("]);");

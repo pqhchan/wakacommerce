@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.audit;
 
 import com.wakacommerce.common.time.SystemTime;
@@ -13,7 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 
-public class AdminAuditableListener {
+public class AdminAuditListener {
 
     @PrePersist
     public void setAuditCreatedBy(Object entity) throws Exception {
@@ -23,7 +22,7 @@ public class AdminAuditableListener {
             if (field.isAnnotationPresent(Embedded.class)) {
                 Object auditable = field.get(entity);
                 if (auditable == null) {
-                    field.set(entity, new AdminAuditable());
+                    field.set(entity, new AdminAuditImpl());
                     auditable = field.get(entity);
                 }
                 Field temporalCreatedField = auditable.getClass().getDeclaredField("dateCreated");
@@ -44,7 +43,7 @@ public class AdminAuditableListener {
             if (field.isAnnotationPresent(Embedded.class)) {
                 Object auditable = field.get(entity);
                 if (auditable == null) {
-                    field.set(entity, new AdminAuditable());
+                    field.set(entity, new AdminAuditImpl());
                     auditable = field.get(entity);
                 }
                 Field temporalField = auditable.getClass().getDeclaredField("dateUpdated");
@@ -79,11 +78,19 @@ public class AdminAuditableListener {
         return "auditable";
     }
 
+    /**
+     * 所有继承来的属性也可以被映射
+     * 
+     * @param clazz Class对象
+     * @param fieldName 要找的字段的名称
+     * @return 与fieldName名称对应的Field对象
+     * @throws IllegalStateException
+     */
     private Field getSingleField(Class<?> clazz, String fieldName) throws IllegalStateException {
         try {
             return clazz.getDeclaredField(fieldName);
         } catch (NoSuchFieldException nsf) {
-            // Try superclass
+            // 没有的话，继续去父类里找
             if (clazz.getSuperclass() != null) {
                 return getSingleField(clazz.getSuperclass(), fieldName);
             }

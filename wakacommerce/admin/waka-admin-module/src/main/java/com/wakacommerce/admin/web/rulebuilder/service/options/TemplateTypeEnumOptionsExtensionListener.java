@@ -1,4 +1,3 @@
-
 package com.wakacommerce.admin.web.rulebuilder.service.options;
 
 import org.springframework.stereotype.Component;
@@ -10,13 +9,6 @@ import com.wakacommerce.openadmin.web.rulebuilder.enums.AbstractRuleBuilderEnumO
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Rule Builder enum options provider for {@link TemplateType}
- * 
- * Used in Content Tests
- * 
- * 
- */
 @Component("blTemplateTypeOptionsExtensionListener")
 public class TemplateTypeEnumOptionsExtensionListener extends AbstractRuleBuilderEnumOptionsExtensionListener {
 

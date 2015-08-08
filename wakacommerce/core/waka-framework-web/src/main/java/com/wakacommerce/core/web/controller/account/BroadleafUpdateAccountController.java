@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.web.controller.account;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -35,8 +34,7 @@ public class BroadleafUpdateAccountController extends WakaAbstractController {
     public String viewUpdateAccount(HttpServletRequest request, Model model, UpdateAccountForm form) {
         Customer customer = CustomerState.getCustomer();
         form.setEmailAddress(customer.getEmailAddress());
-        form.setFirstName(customer.getFirstName());
-        form.setLastName(customer.getLastName());
+        form.setRealName(customer.getRealName());
         return getUpdateAccountView();
     }
 
@@ -47,8 +45,7 @@ public class BroadleafUpdateAccountController extends WakaAbstractController {
         }
         Customer customer = CustomerState.getCustomer();
         customer.setEmailAddress(form.getEmailAddress());
-        customer.setFirstName(form.getFirstName());
-        customer.setLastName(form.getLastName());
+        customer.setRealName(form.getRealName());
 
         if (useEmailForLogin) {
             customer.setUsername(form.getEmailAddress());

@@ -1,17 +1,9 @@
-
 package com.wakacommerce.menu.type;
 
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-
-/**
- * Menu Item Types
- *
- * 
- *
- */
 public class MenuItemType implements Serializable {
 
     private static final long serialVersionUID = 1L;

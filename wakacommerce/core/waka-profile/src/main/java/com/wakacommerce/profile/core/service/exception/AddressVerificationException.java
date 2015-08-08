@@ -1,6 +1,4 @@
-
 package com.wakacommerce.profile.core.service.exception;
-
 
 public class AddressVerificationException extends Exception {
 

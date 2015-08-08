@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.dao.provider.metadata;
 
 import org.apache.commons.lang.StringUtils;
@@ -13,7 +12,7 @@ import com.wakacommerce.openadmin.dto.BasicFieldMetadata;
 import com.wakacommerce.openadmin.dto.FieldMetadata;
 import com.wakacommerce.openadmin.dto.override.FieldMetadataOverride;
 import com.wakacommerce.openadmin.server.dao.DynamicEntityDao;
-import com.wakacommerce.openadmin.server.dao.FieldInfo;
+import com.wakacommerce.openadmin.server.dao.FieldMappingInfo;
 
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
@@ -27,9 +26,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.MapKey;
 import javax.persistence.OneToMany;
 
-/**
- * 
- */
 public abstract class AbstractFieldMetadataProvider implements FieldMetadataProvider {
 
     protected Map<String, Map<String, FieldMetadataOverride>> metadataOverrides;
@@ -37,10 +33,11 @@ public abstract class AbstractFieldMetadataProvider implements FieldMetadataProv
     @Resource(name = "blEntityConfiguration")
     protected EntityConfiguration entityConfiguration;
     
-    @Resource(name = "blBroadleafEnumerationUtility")
-    protected BroadleafEnumerationUtility enumerationUtility;
+    @Resource(name = "wkWakaEnumTypeUtility")
+    protected WakaEnumTypeUtility enumerationUtility;
 
-    @Resource(name="blMetadataOverrides")
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Resource(name="blMetadataOverrides")
     public void setMetadataOverrides(Map metadataOverrides) {
         try {
             this.metadataOverrides = metadataOverrides;
@@ -53,7 +50,7 @@ public abstract class AbstractFieldMetadataProvider implements FieldMetadataProv
         }
     }
 
-    protected void setClassOwnership(Class<?> parentClass, Class<?> targetClass, Map<String, FieldMetadata> attributes, FieldInfo field) {
+    protected void setClassOwnership(Class<?> parentClass, Class<?> targetClass, Map<String, FieldMetadata> attributes, FieldMappingInfo field) {
         FieldMetadata metadata = attributes.get(field.getName());
         if (metadata != null) {
             AdminPresentationClass adminPresentationClass;
@@ -72,8 +69,8 @@ public abstract class AbstractFieldMetadataProvider implements FieldMetadataProv
         }
     }
 
-    protected FieldInfo buildFieldInfo(Field field) {
-        FieldInfo info = new FieldInfo();
+    protected FieldMappingInfo buildFieldMappingInfo(Field field) {
+        FieldMappingInfo info = new FieldMappingInfo();
         info.setName(field.getName());
         info.setGenericType(field.getGenericType());
         ManyToMany manyToMany = field.getAnnotation(ManyToMany.class);
@@ -91,20 +88,6 @@ public abstract class AbstractFieldMetadataProvider implements FieldMetadataProv
             info.setMapKey(mapKey.name());
         }
         return info;
-    }
-
-    /**
-     * @deprecated use the overloaded method that takes DynamicEntityDao as well. This version does not always properly detect the override from xml.
-     * @param configurationKey
-     * @param ceilingEntityFullyQualifiedClassname
-     * @return override value
-     */
-    @Deprecated
-    protected Map<String, FieldMetadataOverride> getTargetedOverride(String configurationKey, String ceilingEntityFullyQualifiedClassname) {
-        if (metadataOverrides != null && (configurationKey != null || ceilingEntityFullyQualifiedClassname != null)) {
-            return metadataOverrides.containsKey(configurationKey)?metadataOverrides.get(configurationKey):metadataOverrides.get(ceilingEntityFullyQualifiedClassname);
-        }
-        return null;
     }
 
     protected Map<String, FieldMetadataOverride> getTargetedOverride(DynamicEntityDao dynamicEntityDao, String configurationKey, String ceilingEntityFullyQualifiedClassname) {
@@ -196,9 +179,9 @@ public abstract class AbstractFieldMetadataProvider implements FieldMetadataProv
         return response;
     }
 
-    protected void setupBroadleafEnumeration(String broadleafEnumerationClass, BasicFieldMetadata fieldMetadata, DynamicEntityDao dynamicEntityDao) {
+    protected void setupWakaEnumType(String wakaEnumTypeClazz, BasicFieldMetadata fieldMetadata, DynamicEntityDao dynamicEntityDao) {
         try {
-            List<Tuple<String, String>> enumVals = enumerationUtility.getEnumerationValues(broadleafEnumerationClass, dynamicEntityDao);
+            List<Tuple<String, String>> enumVals = enumerationUtility.getEnumerationValues(wakaEnumTypeClazz, dynamicEntityDao);
             
             String[][] enumerationValues = new String[enumVals.size()][2];
             int j = 0;
@@ -209,7 +192,7 @@ public abstract class AbstractFieldMetadataProvider implements FieldMetadataProv
             }
             
             fieldMetadata.setEnumerationValues(enumerationValues);
-            fieldMetadata.setEnumerationClass(broadleafEnumerationClass);
+            fieldMetadata.setEnumerationClass(wakaEnumTypeClazz);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -1,6 +1,4 @@
-
 package com.wakacommerce.core.catalog.domain;
-
 
 import java.io.Serializable;
 import java.util.LinkedHashMap;
@@ -8,20 +6,15 @@ import java.util.Map;
 
 import com.wakacommerce.common.WakaEnumType;
 
-/**
- * Extensible enumeration indicating types of product relations such as upsell, crosssell, or featured.
- * 
- *   
- */
 public class RelatedProductTypeEnum implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 
     private static final Map<String, RelatedProductTypeEnum> TYPES = new LinkedHashMap<String, RelatedProductTypeEnum>();
 
-    public static final RelatedProductTypeEnum FEATURED = new RelatedProductTypeEnum("FEATURED", "Featured");
-    public static final RelatedProductTypeEnum UP_SALE = new RelatedProductTypeEnum("UP_SALE", "Up sale");
-    public static final RelatedProductTypeEnum CROSS_SALE = new RelatedProductTypeEnum("CROSS_SALE", "Cross sale");
+    public static final RelatedProductTypeEnum FEATURED = new RelatedProductTypeEnum("FEATURED", "特色");
+    public static final RelatedProductTypeEnum UP_SALE = new RelatedProductTypeEnum("UP_SALE", "增销");
+    public static final RelatedProductTypeEnum CROSS_SALE = new RelatedProductTypeEnum("CROSS_SALE", "联销");
 
 
     public static RelatedProductTypeEnum getInstance(final String type) {

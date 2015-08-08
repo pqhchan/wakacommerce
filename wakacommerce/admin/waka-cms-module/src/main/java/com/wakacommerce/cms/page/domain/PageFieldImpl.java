@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.page.domain;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -13,8 +12,8 @@ import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformTypes;
 import com.wakacommerce.common.extensibility.jpa.copy.ProfileEntity;
 import com.wakacommerce.common.i18n.service.DynamicTranslationProvider;
 import com.wakacommerce.common.presentation.AdminPresentation;
-import com.wakacommerce.openadmin.audit.AdminAuditable;
-import com.wakacommerce.openadmin.audit.AdminAuditableListener;
+import com.wakacommerce.openadmin.audit.AdminAuditImpl;
+import com.wakacommerce.openadmin.audit.AdminAuditListener;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -30,13 +29,10 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-/**
- *   
- */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "BLC_PAGE_FLD")
-@EntityListeners(value = { AdminAuditableListener.class })
+@EntityListeners(value = { AdminAuditListener.class })
 @DirectCopyTransform({
         @DirectCopyTransformMember(templateTokens = DirectCopyTransformTypes.SANDBOX, skipOverlaps=true),
         @DirectCopyTransformMember(templateTokens = DirectCopyTransformTypes.MULTITENANT_SITE, skipOverlaps=true)
@@ -60,7 +56,7 @@ public class PageFieldImpl implements PageField, ProfileEntity {
 
     @Embedded
     @AdminPresentation(excluded = true)
-    protected AdminAuditable auditable = new AdminAuditable();
+    protected AdminAuditImpl auditable = new AdminAuditImpl();
 
     @Column (name = "FLD_KEY")
     protected String fieldKey;
@@ -123,12 +119,12 @@ public class PageFieldImpl implements PageField, ProfileEntity {
     }
 
     @Override
-    public AdminAuditable getAuditable() {
+    public AdminAuditImpl getAuditable() {
         return auditable;
     }
 
     @Override
-    public void setAuditable(AdminAuditable auditable) {
+    public void setAuditable(AdminAuditImpl auditable) {
         this.auditable = auditable;
     }
 

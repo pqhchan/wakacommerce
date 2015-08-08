@@ -1,4 +1,3 @@
-
 package com.wakacommerce.admin.web.rulebuilder.service.options;
 
 import org.springframework.stereotype.Component;
@@ -11,11 +10,6 @@ import com.wakacommerce.openadmin.web.rulebuilder.enums.AbstractRuleBuilderEnumO
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Rule Builder enum options provider for {@link HourOfDayType}
- * 
- * 
- */
 @Component("blFulfillmentTypeOptionsExtensionListener")
 public class FulfillmentTypeEnumOptionsExtensionListener extends AbstractRuleBuilderEnumOptionsExtensionListener {
 

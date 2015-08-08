@@ -1,5 +1,32 @@
-
 package com.wakacommerce.core.catalog.domain;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.OrderBy;
+import javax.persistence.Transient;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
@@ -28,7 +55,6 @@ import com.wakacommerce.common.presentation.AdminPresentation;
 import com.wakacommerce.common.presentation.AdminPresentationAdornedTargetCollection;
 import com.wakacommerce.common.presentation.AdminPresentationClass;
 import com.wakacommerce.common.presentation.AdminPresentationCollection;
-import com.wakacommerce.common.presentation.AdminPresentationMap;
 import com.wakacommerce.common.presentation.AdminPresentationToOneLookup;
 import com.wakacommerce.common.presentation.PopulateToOneFieldsEnum;
 import com.wakacommerce.common.presentation.RequiredOverride;
@@ -44,56 +70,9 @@ import com.wakacommerce.common.vendor.service.type.ContainerShapeType;
 import com.wakacommerce.common.vendor.service.type.ContainerSizeType;
 import com.wakacommerce.common.web.Locatable;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.MapKey;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.OrderBy;
-import javax.persistence.Transient;
-
-/**
- * The Class ProductImpl is the default implementation of {@link Product}. A
- * product is a general description of an item that can be sold (for example: a
- * hat). Products are not sold or added to a cart. {@link Sku}s which are
- * specific items (for example: a XL Blue Hat) are sold or added to a cart. <br>
- * <br>
- * If you want to add fields specific to your implementation of
- * BroadLeafCommerce you should extend this class and add your fields. If you
- * need to make significant changes to the ProductImpl then you should implement
- * your own version of {@link Product}. <br>
- * <br>
- * This implementation uses a Hibernate implementation of JPA configured through
- * annotations. The Entity references the following tables: BLC_PRODUCT,
- * BLC_PRODUCT_SKU_XREF, BLC_PRODUCT_IMAGE
- *btaylor
- * @see {@link Product}, {@link SkuImpl}, {@link CategoryImpl}
- */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @javax.persistence.Table(name="BLC_PRODUCT")
-//multi-column indexes don't appear to get exported correctly when declared at the field level, so declaring here as a workaround
 @org.hibernate.annotations.Table(appliesTo = "BLC_PRODUCT", indexes = {
     @Index(name = "PRODUCT_URL_INDEX",
             columnNames = {"URL","URL_KEY"}
@@ -124,7 +103,6 @@ public class ProductImpl implements Product, Status, AdminMainEntity, Locatable,
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
-    /** The id. */
     @Id
     @GeneratedValue(generator= "ProductId")
     @GenericGenerator(
@@ -197,17 +175,17 @@ public class ProductImpl implements Product, Status, AdminMainEntity, Locatable,
     protected Boolean canSellWithoutOptions = false;
     
     @Transient
-    protected List<Sku> skus = new ArrayList<Sku>();
-    
-    @Transient
     protected String promoMessage;
 
     @OneToMany(mappedBy = "product", targetEntity = CrossSaleProductImpl.class, cascade = {CascadeType.ALL})
     @Cascade(value={org.hibernate.annotations.CascadeType.ALL, org.hibernate.annotations.CascadeType.DELETE_ORPHAN})
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="blProducts")
     @OrderBy(value="sequence")
-    @AdminPresentationAdornedTargetCollection(friendlyName = "crossSaleProductsTitle", order = 1000,
-        tab = Presentation.Tab.Name.Marketing, tabOrder = Presentation.Tab.Order.Marketing,
+    @AdminPresentationAdornedTargetCollection(
+    	friendlyName = "ProductImpl_crossSaleProducts", 
+    	order = 1000,
+        tab = Presentation.Tab.Name.Marketing, 
+        tabOrder = Presentation.Tab.Order.Marketing,
         targetObjectProperty = "relatedSaleProduct", 
         sortProperty = "sequence", 
         maintainedAdornedTargetFields = { "promotionMessage" }, 
@@ -218,7 +196,7 @@ public class ProductImpl implements Product, Status, AdminMainEntity, Locatable,
     @Cascade(value={org.hibernate.annotations.CascadeType.ALL, org.hibernate.annotations.CascadeType.DELETE_ORPHAN})
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="blProducts")
     @OrderBy(value="sequence")
-    @AdminPresentationAdornedTargetCollection(friendlyName = "upsaleProductsTitle", order = 2000,
+    @AdminPresentationAdornedTargetCollection(friendlyName = "ProductImpl_upSaleProducts", order = 2000,
         tab = Presentation.Tab.Name.Marketing, tabOrder = Presentation.Tab.Order.Marketing,
         targetObjectProperty = "relatedSaleProduct", 
         sortProperty = "sequence",
@@ -243,28 +221,18 @@ public class ProductImpl implements Product, Status, AdminMainEntity, Locatable,
     @AdminPresentationToOneLookup()
     @Deprecated
     protected Category defaultCategory;
-
+    
     @OneToMany(targetEntity = CategoryProductXrefImpl.class, mappedBy = "product", orphanRemoval = true,
             cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @OrderBy(value="displayOrder")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="blProducts")
     @BatchSize(size = 50)
-    @AdminPresentationAdornedTargetCollection(friendlyName = "allParentCategoriesTitle", order = 3000,
+    @AdminPresentationAdornedTargetCollection(friendlyName = "ProductImpl_allParentCategoryXrefs", order = 3000,
         tab = Presentation.Tab.Name.Marketing, tabOrder = Presentation.Tab.Order.Marketing,
         targetObjectProperty = "category",
         parentObjectProperty = "product",
         gridVisibleFields = { "name" })
     protected List<CategoryProductXref> allParentCategoryXrefs = new ArrayList<CategoryProductXref>();
-
-    @OneToMany(mappedBy = "product", targetEntity = ProductAttributeImpl.class, cascade = { CascadeType.ALL }, orphanRemoval = true)
-    @Cache(usage=CacheConcurrencyStrategy.READ_WRITE, region="blProducts")
-    @MapKey(name="name")
-    @BatchSize(size = 50)
-    @AdminPresentationMap(friendlyName = "productAttributesTitle",
-        tab = Presentation.Tab.Name.Advanced, tabOrder = Presentation.Tab.Order.Advanced,
-        deleteEntityUponRemove = true, forceFreeFormKeys = true, keyPropertyFriendlyName = "ProductAttributeImpl_Attribute_Name"
-    )
-    protected Map<String, ProductAttribute> productAttributes = new HashMap<String, ProductAttribute>();
 
     @OneToMany(targetEntity = ProductOptionXrefImpl.class, mappedBy = "product",
             cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
@@ -434,20 +402,6 @@ public class ProductImpl implements Product, Status, AdminMainEntity, Locatable,
     }
 
     @Override
-    @Deprecated
-    public List<Sku> getSkus() {
-        if (skus.size() == 0) {
-            List<Sku> additionalSkus = getAdditionalSkus();
-            for (Sku sku : additionalSkus) {
-                if (sku.isActive()) {
-                    skus.add(sku);
-                }
-            }
-        }
-        return Collections.unmodifiableList(skus);
-    }
-
-    @Override
     public List<Sku> getAdditionalSkus() {
         return additionalSkus;
     }
@@ -459,24 +413,6 @@ public class ProductImpl implements Product, Status, AdminMainEntity, Locatable,
         for(Sku sku : skus){
             this.additionalSkus.add(sku);
         }
-    }
-
-    @Override
-    @Deprecated
-    public Category getDefaultCategory() {
-        Category response;
-        if (defaultCategory != null) {
-            response = defaultCategory;
-        } else {
-            response = getCategory();
-        }
-        return response;
-    }
-
-    @Override
-    @Deprecated
-    public void setDefaultCategory(Category defaultCategory) {
-        this.defaultCategory = defaultCategory;
     }
 
     @Override
@@ -556,22 +492,6 @@ public class ProductImpl implements Product, Status, AdminMainEntity, Locatable,
     public void setAllParentCategoryXrefs(List<CategoryProductXref> allParentCategories) {
         this.allParentCategoryXrefs.clear();
         allParentCategoryXrefs.addAll(allParentCategories);
-    }
-
-    @Override
-    @Deprecated
-    public List<Category> getAllParentCategories() {
-        List<Category> parents = new ArrayList<Category>();
-        for (CategoryProductXref xref : allParentCategoryXrefs) {
-            parents.add(xref.getCategory());
-        }
-        return Collections.unmodifiableList(parents);
-    }
-
-    @Override
-    @Deprecated
-    public void setAllParentCategories(List<Category> allParentCategories) {
-        throw new UnsupportedOperationException("Not Supported - Use setAllParentCategoryXrefs()");
     }
 
     @Override
@@ -689,8 +609,9 @@ public class ProductImpl implements Product, Status, AdminMainEntity, Locatable,
     @Override
     public List<RelatedProduct> getCumulativeCrossSaleProducts() {
         List<RelatedProduct> returnProducts = getCrossSaleProducts();
-        if (defaultCategory != null) {
-            List<RelatedProduct> categoryProducts = defaultCategory.getCumulativeCrossSaleProducts();
+        Category parentCategroy = getCategory();
+        if (parentCategroy != null) {
+            List<RelatedProduct> categoryProducts = parentCategroy.getCumulativeCrossSaleProducts();
             if (categoryProducts != null) {
                 returnProducts.addAll(categoryProducts);
             }
@@ -708,8 +629,9 @@ public class ProductImpl implements Product, Status, AdminMainEntity, Locatable,
     @Override
     public List<RelatedProduct> getCumulativeUpSaleProducts() {
         List<RelatedProduct> returnProducts = getUpSaleProducts();
-        if (defaultCategory != null) {
-            List<RelatedProduct> categoryProducts = defaultCategory.getCumulativeUpSaleProducts();
+        Category parentCategroy = getCategory();
+        if (parentCategroy != null) {
+            List<RelatedProduct> categoryProducts = parentCategroy.getCumulativeUpSaleProducts();
             if (categoryProducts != null) {
                 returnProducts.addAll(categoryProducts);
             }
@@ -722,16 +644,6 @@ public class ProductImpl implements Product, Status, AdminMainEntity, Locatable,
             }
         }
         return returnProducts;
-    }
-
-    @Override
-    public Map<String, ProductAttribute> getProductAttributes() {
-        return productAttributes;
-    }
-
-    @Override
-    public void setProductAttributes(Map<String, ProductAttribute> productAttributes) {
-        this.productAttributes = productAttributes;
     }
 
     @Override
@@ -753,20 +665,6 @@ public class ProductImpl implements Product, Status, AdminMainEntity, Locatable,
         this.productOptions = productOptions;
     }
 
-    @Override
-    public List<ProductOption> getProductOptions() {
-        List<ProductOption> response = new ArrayList<ProductOption>();
-        for (ProductOptionXref xref : getProductOptionXrefs()) {
-            response.add(xref.getProductOption());
-        }
-        return Collections.unmodifiableList(response);
-    }
-
-    @Override
-    public void setProductOptions(List<ProductOption> productOptions) {
-        throw new UnsupportedOperationException("Use setProductOptionXrefs(..) instead");
-    }
-    
     @Override
     public String getUrl() {
         if (url == null) {
@@ -846,7 +744,7 @@ public class ProductImpl implements Product, Status, AdminMainEntity, Locatable,
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((skus == null) ? 0 : skus.hashCode());
+        result = prime * result + ((additionalSkus == null) ? 0 : additionalSkus.hashCode());
         return result;
     }
 
@@ -864,10 +762,10 @@ public class ProductImpl implements Product, Status, AdminMainEntity, Locatable,
             return id.equals(other.id);
         }
 
-        if (skus == null) {
-            if (other.skus != null)
+        if (additionalSkus == null) {
+            if (other.additionalSkus != null)
                 return false;
-        } else if (!skus.equals(other.skus))
+        } else if (!additionalSkus.equals(other.additionalSkus))
             return false;
         return true;
     }
@@ -894,8 +792,8 @@ public class ProductImpl implements Product, Status, AdminMainEntity, Locatable,
 
     @Override
     public String getGeneratedUrl() {       
-        if (getDefaultCategory() != null && getDefaultCategory().getGeneratedUrl() != null) {
-            String generatedUrl = getDefaultCategory().getGeneratedUrl();
+        if (getCategory() != null && getCategory().getGeneratedUrl() != null) {
+            String generatedUrl = getCategory().getGeneratedUrl();
             if (generatedUrl.endsWith("//")) {
                 return generatedUrl + getUrlKey();
             } else {
@@ -930,9 +828,6 @@ public class ProductImpl implements Product, Status, AdminMainEntity, Locatable,
         cloned.setUrlKey(urlKey);
         cloned.setManufacturer(manufacturer);
         cloned.setPromoMessage(promoMessage);
-        if (defaultCategory != null) {
-            cloned.setDefaultCategory(defaultCategory.createOrRetrieveCopyInstance(context).getClone());
-        }
         cloned.setModel(model);
         if (defaultSku != null) {
             cloned.setDefaultSku(defaultSku.createOrRetrieveCopyInstance(context).getClone());
@@ -946,11 +841,6 @@ public class ProductImpl implements Product, Status, AdminMainEntity, Locatable,
             cloned.getProductOptionXrefs().add(clonedEntry);
 
         }
-        for(Map.Entry<String, ProductAttribute> entry : productAttributes.entrySet()){
-            ProductAttribute clonedEntry = entry.getValue().createOrRetrieveCopyInstance(context).getClone();
-            cloned.getProductAttributes().put(entry.getKey(),clonedEntry);
-        }
-
         //Don't clone references to other Product and Category collections - those will be handled by another MultiTenantCopier call
 
         return createResponse;
@@ -1012,16 +902,6 @@ public class ProductImpl implements Product, Status, AdminMainEntity, Locatable,
             public static final int MANUFACTURER = 6000;
             public static final int URL = 7000;
         }
-    }
-
-    @Override
-    public String getTaxCode() {
-        return getDefaultSku().getTaxCode();
-    }
-
-    @Override
-    public void setTaxCode(String taxCode) {
-        getDefaultSku().setTaxCode(taxCode);
     }
 
     @Override

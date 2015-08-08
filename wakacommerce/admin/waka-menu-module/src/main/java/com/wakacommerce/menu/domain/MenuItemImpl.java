@@ -1,4 +1,3 @@
-
 package com.wakacommerce.menu.domain;
 
 import org.hibernate.annotations.Cache;
@@ -149,7 +148,7 @@ public class MenuItemImpl implements MenuItem, ProfileEntity {
 
     @Override
     public String getLabel() {
-        return DynamicTranslationProvider.getValue(this, "label", label);
+        return label;
     }
 
     @Override
@@ -230,7 +229,7 @@ public class MenuItemImpl implements MenuItem, ProfileEntity {
 
     @Override
     public String getCustomHtml() {
-        return DynamicTranslationProvider.getValue(this, "customHtml", customHtml);
+        return customHtml;
     }
 
     @Override

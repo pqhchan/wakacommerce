@@ -1,19 +1,6 @@
 
 package com.wakacommerce.core.web.api.wrapper;
 
-import org.springframework.http.HttpStatus;
-
-import com.wakacommerce.common.exception.ServiceException;
-import com.wakacommerce.common.util.xml.ISO8601DateAdapter;
-import com.wakacommerce.core.catalog.domain.Category;
-import com.wakacommerce.core.catalog.domain.CategoryAttribute;
-import com.wakacommerce.core.catalog.domain.Product;
-import com.wakacommerce.core.catalog.service.CatalogService;
-import com.wakacommerce.core.search.domain.SearchCriteria;
-import com.wakacommerce.core.search.domain.SearchResult;
-import com.wakacommerce.core.search.service.SearchService;
-import com.wakacommerce.core.web.api.BroadleafWebServicesException;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -26,6 +13,18 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.springframework.http.HttpStatus;
+
+import com.wakacommerce.common.exception.ServiceException;
+import com.wakacommerce.common.util.xml.ISO8601DateAdapter;
+import com.wakacommerce.core.catalog.domain.Category;
+import com.wakacommerce.core.catalog.domain.Product;
+import com.wakacommerce.core.catalog.service.CatalogService;
+import com.wakacommerce.core.search.domain.SearchCriteria;
+import com.wakacommerce.core.search.domain.SearchResult;
+import com.wakacommerce.core.search.service.SearchService;
+import com.wakacommerce.core.web.api.BroadleafWebServicesException;
 
 /**
  *  This is a JAXB wrapper for a Broadleaf Category.  There may be several reasons to extend this class.
@@ -77,10 +76,6 @@ public class CategoryWrapper extends BaseWrapper implements APIWrapper<Category>
     @XmlElementWrapper(name = "products")
     protected List<ProductWrapper> products;
 
-    @XmlElement(name = "categoryAttribute")
-    @XmlElementWrapper(name = "categoryAttributes")
-    protected List<CategoryAttributeWrapper> categoryAttributes;
-
     @Override
     public void wrapDetails(Category category, HttpServletRequest request) {
         this.id = category.getId();
@@ -91,15 +86,6 @@ public class CategoryWrapper extends BaseWrapper implements APIWrapper<Category>
         this.activeEndDate = category.getActiveEndDate();
         this.url = category.getUrl();
         this.urlKey = category.getUrlKey();
-
-        if (category.getCategoryAttributes() != null && !category.getCategoryAttributes().isEmpty()) {
-            categoryAttributes = new ArrayList<CategoryAttributeWrapper>();
-            for (CategoryAttribute attribute : category.getCategoryAttributes()) {
-                CategoryAttributeWrapper wrapper = (CategoryAttributeWrapper) context.getBean(CategoryAttributeWrapper.class.getName());
-                wrapper.wrapSummary(attribute, request);
-                categoryAttributes.add(wrapper);
-            }
-        }
 
         Integer productLimit = (Integer) request.getAttribute("productLimit");
         Integer productOffset = (Integer) request.getAttribute("productOffset");
@@ -337,19 +323,4 @@ public class CategoryWrapper extends BaseWrapper implements APIWrapper<Category>
         this.products = products;
     }
 
-    
-    /**
-     * @return the categoryAttributes
-     */
-    public List<CategoryAttributeWrapper> getCategoryAttributes() {
-        return categoryAttributes;
-    }
-
-    
-    /**
-     * @param categoryAttributes the categoryAttributes to set
-     */
-    public void setCategoryAttributes(List<CategoryAttributeWrapper> categoryAttributes) {
-        this.categoryAttributes = categoryAttributes;
-    }
 }

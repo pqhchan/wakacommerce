@@ -1,5 +1,3 @@
-
-
 package com.wakacommerce.core.payment.service;
 
 import org.apache.commons.lang.StringUtils;
@@ -116,8 +114,7 @@ public class OrderToPaymentRequestDTOServiceImpl implements OrderToPaymentReques
 
         requestDTO.customer()
                 .customerId(customer.getId().toString())
-                .firstName(customer.getFirstName())
-                .lastName(customer.getLastName())
+                .realName(customer.getRealName())
                 .email(orderEmail)
                 .phone(phoneNumber);
 

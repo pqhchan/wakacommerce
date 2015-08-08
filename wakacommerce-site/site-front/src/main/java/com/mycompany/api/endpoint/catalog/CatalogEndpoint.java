@@ -1,6 +1,8 @@
-  
-
 package com.mycompany.api.endpoint.catalog;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,28 +12,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wakacommerce.core.web.api.wrapper.CategoriesWrapper;
-import com.wakacommerce.core.web.api.wrapper.CategoryAttributeWrapper;
 import com.wakacommerce.core.web.api.wrapper.CategoryWrapper;
 import com.wakacommerce.core.web.api.wrapper.InventoryWrapper;
 import com.wakacommerce.core.web.api.wrapper.MediaWrapper;
-import com.wakacommerce.core.web.api.wrapper.ProductAttributeWrapper;
 import com.wakacommerce.core.web.api.wrapper.ProductWrapper;
 import com.wakacommerce.core.web.api.wrapper.RelatedProductWrapper;
 import com.wakacommerce.core.web.api.wrapper.SearchResultsWrapper;
 import com.wakacommerce.core.web.api.wrapper.SkuAttributeWrapper;
 import com.wakacommerce.core.web.api.wrapper.SkuWrapper;
 
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
 /**
  * This is a reference REST API endpoint for catalog. This can be modified, used as is, or removed. 
  * The purpose is to provide an out of the box RESTful catalog service implementation, but also 
  * to allow the implementor to have fine control over the actual API, URIs, and general JAX-RS annotations.
- * 
- *  
- *
  */
 @RestController
 @RequestMapping(value = "/catalog/",
@@ -130,13 +123,6 @@ public class CatalogEndpoint extends
     }
 
     @Override
-    @RequestMapping(value = "category/{id}/category-attributes", method = RequestMethod.GET)
-    public List<CategoryAttributeWrapper> findCategoryAttributesForCategory(HttpServletRequest request,
-            @PathVariable("id") Long id) {
-        return super.findCategoryAttributesForCategory(request, id);
-    }
-
-    @Override
     @RequestMapping(value = "product/{id}/related-products/upsale", method = RequestMethod.GET)
     public List<RelatedProductWrapper> findUpSaleProductsByProduct(HttpServletRequest request,
             @PathVariable("id") Long id,
@@ -152,13 +138,6 @@ public class CatalogEndpoint extends
             @RequestParam(value = "limit", defaultValue = "20") int limit,
             @RequestParam(value = "offset", defaultValue = "0") int offset) {
         return super.findCrossSaleProductsByProduct(request, id, limit, offset);
-    }
-
-    @Override
-    @RequestMapping(value = "product/{id}/product-attributes", method = RequestMethod.GET)
-    public List<ProductAttributeWrapper> findProductAttributesForProduct(HttpServletRequest request,
-            @PathVariable("id") Long id) {
-        return super.findProductAttributesForProduct(request, id);
     }
 
     @Override

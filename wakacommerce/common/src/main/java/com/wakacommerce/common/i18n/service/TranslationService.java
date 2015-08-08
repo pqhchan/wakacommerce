@@ -1,5 +1,3 @@
-
-
 package com.wakacommerce.common.i18n.service;
 
 import net.sf.ehcache.Cache;

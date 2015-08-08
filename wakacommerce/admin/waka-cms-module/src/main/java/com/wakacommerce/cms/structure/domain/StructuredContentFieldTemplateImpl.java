@@ -64,7 +64,9 @@ public class StructuredContentFieldTemplateImpl implements StructuredContentFiel
     protected String name;
 
     @ManyToMany(targetEntity = FieldGroupImpl.class, cascade = {CascadeType.ALL})
-    @JoinTable(name = "BLC_SC_FLDGRP_XREF", joinColumns = @JoinColumn(name = "SC_FLD_TMPLT_ID", referencedColumnName = "SC_FLD_TMPLT_ID"), inverseJoinColumns = @JoinColumn(name = "FLD_GROUP_ID", referencedColumnName = "FLD_GROUP_ID"))
+    @JoinTable(name = "BLC_SC_FLDGRP_XREF", 
+    	joinColumns = @JoinColumn(name = "SC_FLD_TMPLT_ID", referencedColumnName = "SC_FLD_TMPLT_ID"), 
+    	inverseJoinColumns = @JoinColumn(name = "FLD_GROUP_ID", referencedColumnName = "FLD_GROUP_ID"))
     @Cascade(value={org.hibernate.annotations.CascadeType.ALL, org.hibernate.annotations.CascadeType.DELETE_ORPHAN})
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="blCMSElements")
     @OrderColumn(name = "GROUP_ORDER")

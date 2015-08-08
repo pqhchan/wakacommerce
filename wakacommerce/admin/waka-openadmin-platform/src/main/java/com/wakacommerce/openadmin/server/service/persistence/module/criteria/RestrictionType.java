@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.service.persistence.module.criteria;
 
 import java.io.Serializable;
@@ -7,12 +6,6 @@ import java.util.Map;
 
 import com.wakacommerce.common.WakaEnumType;
 
-/**
- * An extendible enumeration of service status types.
- * 
- *  
- *
- */
 public class RestrictionType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;

@@ -9,7 +9,7 @@ import com.wakacommerce.common.exception.ExceptionHelper;
 import com.wakacommerce.common.value.Searchable;
 import com.wakacommerce.common.value.ValueAssignable;
 import com.wakacommerce.openadmin.dto.Property;
-import com.wakacommerce.openadmin.server.dao.FieldInfo;
+import com.wakacommerce.openadmin.server.dao.FieldMappingInfo;
 import com.wakacommerce.openadmin.server.service.persistence.PersistenceException;
 import com.wakacommerce.openadmin.server.service.persistence.module.FieldManager;
 import com.wakacommerce.openadmin.server.service.persistence.module.FieldNotAvailableException;
@@ -154,7 +154,7 @@ public class MapFieldPersistenceProvider extends BasicFieldPersistenceProvider {
         String fieldName = populateValueRequest.getProperty().getName().substring(0,
                 populateValueRequest.getProperty().getName().indexOf(FieldManager.MAPFIELDSEPARATOR));
         Field field = populateValueRequest.getFieldManager().getField(instance.getClass(), fieldName);
-        FieldInfo fieldInfo = buildFieldInfo(field);
+        FieldMappingInfo fieldInfo = buildFieldInfo(field);
         String manyToField = null;
         if (populateValueRequest.getMetadata().getManyToField() != null) {
             manyToField = populateValueRequest.getMetadata().getManyToField();

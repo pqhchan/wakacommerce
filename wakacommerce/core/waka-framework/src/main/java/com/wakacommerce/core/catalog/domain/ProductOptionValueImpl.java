@@ -1,5 +1,17 @@
-
 package com.wakacommerce.core.catalog.domain;
+
+import java.math.BigDecimal;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -18,9 +30,6 @@ import com.wakacommerce.common.presentation.AdminPresentationClass;
 import com.wakacommerce.common.presentation.client.SupportedFieldType;
 import com.wakacommerce.core.catalog.service.dynamic.DynamicSkuPrices;
 import com.wakacommerce.core.catalog.service.dynamic.SkuPricingConsiderationContext;
-
-import javax.persistence.*;
-import java.math.BigDecimal;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

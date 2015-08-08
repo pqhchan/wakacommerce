@@ -9,10 +9,6 @@ import com.wakacommerce.profile.core.domain.Customer;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * Convenient class to get the active customer from the current request. This state is kept up-to-date in regards to the database
- * throughout the lifetime of the request via the {@link CustomerStateRefresher}.
- */
 @Component("blCustomerState")
 public class CustomerState {
     

@@ -1,5 +1,9 @@
-
 package com.wakacommerce.admin.web.controller.entity;
+
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,20 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.wakacommerce.core.offer.domain.Offer;
 import com.wakacommerce.core.offer.service.type.OfferType;
 import com.wakacommerce.openadmin.web.controller.entity.AdminBasicEntityController;
 import com.wakacommerce.openadmin.web.form.entity.EntityForm;
 
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-/**
- * Handles admin operations for the {@link Offer} entity. Certain Offer fields should only render when specific values
- * are set for other fields; we provide the support for that in this controller.
- */
 @Controller("blAdminOfferController")
 @RequestMapping("/" + AdminOfferController.SECTION_KEY)
 public class AdminOfferController extends AdminBasicEntityController {

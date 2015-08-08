@@ -1,19 +1,4 @@
-
 package com.wakacommerce.core.catalog.domain;
-
-import com.wakacommerce.common.copy.MultiTenantCloneable;
-import com.wakacommerce.common.currency.domain.BroadleafCurrency;
-import com.wakacommerce.common.media.domain.Media;
-import com.wakacommerce.common.money.Money;
-import com.wakacommerce.common.web.WakaRequestContext;
-import com.wakacommerce.core.catalog.service.dynamic.DynamicSkuPrices;
-import com.wakacommerce.core.catalog.service.dynamic.SkuPricingConsiderationContext;
-import com.wakacommerce.core.inventory.service.InventoryService;
-import com.wakacommerce.core.inventory.service.type.InventoryType;
-import com.wakacommerce.core.order.domain.FulfillmentGroup;
-import com.wakacommerce.core.order.domain.FulfillmentOption;
-import com.wakacommerce.core.order.service.type.FulfillmentType;
-import com.wakacommerce.core.order.service.workflow.CheckAvailabilityActivity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -22,169 +7,67 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.wakacommerce.common.copy.MultiTenantCloneable;
+import com.wakacommerce.common.currency.domain.BroadleafCurrency;
+import com.wakacommerce.common.media.domain.Media;
+import com.wakacommerce.common.money.Money;
+import com.wakacommerce.common.web.WakaRequestContext;
+import com.wakacommerce.core.catalog.service.dynamic.DynamicSkuPrices;
+import com.wakacommerce.core.inventory.service.InventoryService;
+import com.wakacommerce.core.inventory.service.type.InventoryType;
+import com.wakacommerce.core.order.domain.FulfillmentGroup;
+import com.wakacommerce.core.order.domain.FulfillmentOption;
+import com.wakacommerce.core.order.service.type.FulfillmentType;
+import com.wakacommerce.core.order.service.workflow.CheckAvailabilityActivity;
+
 /**
- * Implementations of this interface are used to hold data about a SKU.  A SKU is
- * a specific item that can be sold including any specific attributes of the item such as
- * color or size.
- * <br>
- * <br>
- * You should implement this class if you want to make significant changes to how the
- * class is persisted.  If you just want to add additional fields then you should extend {@link SkuImpl}.
- *
  * @see {@link SkuImpl}, {@link Money}
- *btaylor
- *
+ * @author hui
  */
 public interface Sku extends Serializable, MultiTenantCloneable<Sku> {
 
-    /**
-     * Returns the id of this sku
-     */
     public Long getId();
-
-    /**
-     * Sets the id of this sku
-     */
     public void setId(Long id);
 
-    /**
-     * Returns the sku specific portion of a full url used for a sku info page.
-     */ 
     public String getUrlKey();
-
-    /**
-     * Sets the sku specific portion of a full url used for a sku info page.  
-     * 
-     * @param url
-     */
     public void setUrlKey(String url);
 
-    /**
-     * Returns the name of a display template that is used to render this sku.  Most implementations have a default
-     * template for all skus.  This allows for the user to define a specific template to be used by this sku.
-     * 
-     * @return
-     */
     public String getDisplayTemplate();
-
-    /**
-     * Sets the name of a display template that is used to render this sku.  Most implementations have a default
-     * template for all skus.  This allows for the user to define a specific template to be used by this sku.
-     * 
-     * @param displayTemplate
-     */
     public void setDisplayTemplate(String displayTemplate);
+    
     /**
-     * This is the sum total of the priceAdjustments from the associated ProductOptionValues
-     * 
-     * @return <b>null</b> if there are no ProductOptionValues associated with this Sku or
-     * all of their priceAdjustments are null. Otherwise this will be the sum total of those price
-     * adjustments
-     * 
+     * 可以是null
      * @see {@link ProductOptionValue}
      */
     public Money getProductOptionValueAdjustments();
     
     /**
-     * Returns the Sale Price of the Sku.  The Sale Price is the standard price the vendor sells
-     * this item for.  If {@link SkuPricingConsiderationContext} is set, this uses the DynamicSkuPricingService
-     * to calculate what this should actually be rather than use the property itself
-     * 
+     * 销售价格（标准销售价格）
      * @see SkuPricingConsiderationContext, DynamicSkuPricingService
      */
     public Money getSalePrice();
-
-    /**
-     * Sets the the Sale Price of the Sku.  The Sale Price is the standard price the vendor sells
-     * this item for. This price will automatically be overridden if your system is utilizing
-     * the DynamicSkuPricingService.
-     */
     public void setSalePrice(Money salePrice);
-
-    /**
-     * Determines if there is a sale price.  In other words, determines whether salePrice is null. Returns true if 
-     * salePrice is not null.  Returns false otherwise.
-     * @return
-     */
     public boolean hasSalePrice();
 
     /**
-     * Returns the Retail Price of the Sku.  The Retail Price is the MSRP of the sku. If {@link SkuPricingConsiderationContext}
-     * is set, this uses the DynamicSkuPricingService to calculate what this should actually be rather than use the property
-     * itself.
-     * 
-     * @throws IllegalStateException if retail price is null. 
-     * 
-     * @see SkuPricingConsiderationContext, DynamicSkuPricingService, Sku.hasRetailPrice()
+     * 零售价格（建议零售价）
      */
     public Money getRetailPrice();
-
-    /**
-     * Sets the retail price for the Sku. This price will automatically be overridden if your system is utilizing
-     * the DynamicSkuPricingService.
-     * 
-     * @param retail price for the Sku
-     */
     public void setRetailPrice(Money retailPrice);
-
-    /**
-     * Provides a way of determining if a Sku has a retail price without getting an IllegalStateException. Returns true if 
-     * retailPrice is not null.  Returns false otherwise.
-     * @see Sku.getRetailPrice()
-     * @return
-     */
     public boolean hasRetailPrice();
 
     /**
-     * Resolves the price of the Sku. If the Sku is on sale (that is, isOnSale() returns true), the
-     * return value will be the result of getSalePrice(). Otherwise, the return value will be the result of
-     * getRetailPrice().
-     * @return the price of the Sku
+     * 该Sku的售价。如果Sku在售的话(isOnSale返回true)，则该方法返回的是getSalePrice()。
+     * 否则，返回getRetailPrice()。
      */
     public Money getPrice();
 
-    /**
-     * Returns the List Price of the Sku.  The List Price is the MSRP of the sku.
-     * @deprecated
-     */
-    @Deprecated
-    public Money getListPrice();
-
-    /**
-     * Sets the the List Price of the Sku.  The List Price is the MSRP of the sku.
-     * @deprecated
-     */
-    @Deprecated
-    public void setListPrice(Money listPrice);
-
-    /**
-     * Returns the name of the Sku.  The name is a label used to show when displaying the sku.
-     */
     public String getName();
-
-    /**
-     * Sets the the name of the Sku.  The name is a label used to show when displaying the sku.
-     */
     public void setName(String name);
 
-    /**
-     * Returns the brief description of the Sku.
-     */
     public String getDescription();
-
-    /**
-     * Sets the brief description of the Sku.
-     */
     public void setDescription(String description);
-
-    /**
-     * Returns the long description of the sku.
-     */
     public String getLongDescription();
-
-    /**
-     * Sets the long description of the sku.
-     */
     public void setLongDescription(String longDescription);
 
     /**
@@ -192,17 +75,6 @@ public interface Sku extends Serializable, MultiTenantCloneable<Sku> {
      * to calculate taxes.
      */
     public Boolean isTaxable();
-
-    /**
-     * Convenience that passes through to isTaxable
-     */
-    public Boolean getTaxable();
-
-    /**
-     * Sets the whether the Sku qualifies for taxes or not.  This field is used by the pricing engine
-     * to calculate taxes.
-     */
-    public void setTaxable(Boolean taxable);
 
     /**
      * Returns whether the Sku qualifies for discounts or not.  This field is used by the pricing engine
@@ -619,21 +491,6 @@ public interface Sku extends Serializable, MultiTenantCloneable<Sku> {
      * @return the currency for this sku
      */
     public BroadleafCurrency getCurrency();
-
-    /**
-     * Returns the Tax Code for this particular Entity.
-     * 
-     *  If the current Tax Code on the Sku is null, the Product tax code will be returned.
-     * @return taxCode
-     */
-    public String getTaxCode();
-
-    /**
-     * Sets the tax code for this SKU
-     * 
-     * @param taxCode
-     */
-    public void setTaxCode(String taxCode);
 
     /**
      * Gets the Universal Product Code (UPC)

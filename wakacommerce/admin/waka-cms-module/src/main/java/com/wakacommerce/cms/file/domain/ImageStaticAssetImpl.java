@@ -4,7 +4,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import com.wakacommerce.common.presentation.AdminPresentation;
-import com.wakacommerce.openadmin.audit.AdminAuditableListener;
+import com.wakacommerce.openadmin.audit.AdminAuditListener;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@EntityListeners(value = { AdminAuditableListener.class })
+@EntityListeners(value = { AdminAuditListener.class })
 @Table(name = "BLC_IMG_STATIC_ASSET")
 @Cache(usage= CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region="blCMSElements")
 public class ImageStaticAssetImpl extends StaticAssetImpl implements ImageStaticAsset {

@@ -1,15 +1,9 @@
-
 package com.wakacommerce.openadmin.server.dao.provider.metadata.request;
 
 import java.lang.reflect.Field;
 
 import com.wakacommerce.openadmin.server.dao.DynamicEntityDao;
 
-/**
- * Contains the requested field, metadata and support classes.
- *
- * 
- */
 public class AddMetadataRequest {
 
     private final Field requestedField;

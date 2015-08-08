@@ -1,5 +1,12 @@
-
 package com.wakacommerce.core.web.api.endpoint.catalog;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
@@ -10,10 +17,9 @@ import com.wakacommerce.common.file.service.StaticAssetPathService;
 import com.wakacommerce.common.media.domain.Media;
 import com.wakacommerce.common.security.service.ExploitProtectionService;
 import com.wakacommerce.core.catalog.domain.Category;
-import com.wakacommerce.core.catalog.domain.CategoryAttribute;
+import com.wakacommerce.core.catalog.domain.CategoryMediaXref;
 import com.wakacommerce.core.catalog.domain.CategoryProductXref;
 import com.wakacommerce.core.catalog.domain.Product;
-import com.wakacommerce.core.catalog.domain.ProductAttribute;
 import com.wakacommerce.core.catalog.domain.RelatedProduct;
 import com.wakacommerce.core.catalog.domain.Sku;
 import com.wakacommerce.core.catalog.domain.SkuAttribute;
@@ -26,25 +32,15 @@ import com.wakacommerce.core.search.service.SearchService;
 import com.wakacommerce.core.web.api.BroadleafWebServicesException;
 import com.wakacommerce.core.web.api.endpoint.BaseEndpoint;
 import com.wakacommerce.core.web.api.wrapper.CategoriesWrapper;
-import com.wakacommerce.core.web.api.wrapper.CategoryAttributeWrapper;
 import com.wakacommerce.core.web.api.wrapper.CategoryWrapper;
 import com.wakacommerce.core.web.api.wrapper.InventoryWrapper;
 import com.wakacommerce.core.web.api.wrapper.MediaWrapper;
-import com.wakacommerce.core.web.api.wrapper.ProductAttributeWrapper;
 import com.wakacommerce.core.web.api.wrapper.ProductWrapper;
 import com.wakacommerce.core.web.api.wrapper.RelatedProductWrapper;
 import com.wakacommerce.core.web.api.wrapper.SearchResultsWrapper;
 import com.wakacommerce.core.web.api.wrapper.SkuAttributeWrapper;
 import com.wakacommerce.core.web.api.wrapper.SkuWrapper;
 import com.wakacommerce.core.web.service.SearchFacetDTOService;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * This class exposes catalog services as RESTful APIs.  It is dependent on
@@ -354,24 +350,6 @@ public abstract class CatalogEndpoint extends BaseEndpoint {
                 .addMessage(BroadleafWebServicesException.CATEGORY_NOT_FOUND, searchParameter);
     }
 
-    public List<CategoryAttributeWrapper> findCategoryAttributesForCategory(HttpServletRequest request,
-            Long id) {
-        Category category = catalogService.findCategoryById(id);
-        if (category != null) {
-            ArrayList<CategoryAttributeWrapper> out = new ArrayList<CategoryAttributeWrapper>();
-            if (category.getCategoryAttributes() != null) {
-                for (CategoryAttribute attribute : category.getCategoryAttributes()) {
-                    CategoryAttributeWrapper wrapper = (CategoryAttributeWrapper)context.getBean(CategoryAttributeWrapper.class.getName());
-                    wrapper.wrapSummary(attribute, request);
-                    out.add(wrapper);
-                }
-            }
-            return out;
-        }
-        throw BroadleafWebServicesException.build(HttpStatus.NOT_FOUND.value())
-                .addMessage(BroadleafWebServicesException.CATEGORY_NOT_FOUND, id);
-    }
-
     public List<RelatedProductWrapper> findUpSaleProductsByProduct(HttpServletRequest request,
             Long id,
             int limit,
@@ -418,24 +396,6 @@ public abstract class CatalogEndpoint extends BaseEndpoint {
                 .addMessage(BroadleafWebServicesException.PRODUCT_NOT_FOUND, id);
     }
     
-    public List<ProductAttributeWrapper> findProductAttributesForProduct(HttpServletRequest request,
-            Long id) {
-        Product product = catalogService.findProductById(id);
-        if (product != null) {
-            ArrayList<ProductAttributeWrapper> out = new ArrayList<ProductAttributeWrapper>();
-            if (product.getProductAttributes() != null) {
-                for (Map.Entry<String, ProductAttribute> entry : product.getProductAttributes().entrySet()) {
-                    ProductAttributeWrapper wrapper = (ProductAttributeWrapper)context.getBean(ProductAttributeWrapper.class.getName());
-                    wrapper.wrapSummary(entry.getValue(), request);
-                    out.add(wrapper);
-                }
-            }
-            return out;
-        }
-        throw BroadleafWebServicesException.build(HttpStatus.NOT_FOUND.value())
-                .addMessage(BroadleafWebServicesException.PRODUCT_NOT_FOUND, id);
-    }
-
     public List<SkuAttributeWrapper> findSkuAttributesForSku(HttpServletRequest request,
             Long id) {
         Sku sku = catalogService.findSkuById(id);
@@ -530,10 +490,10 @@ public abstract class CatalogEndpoint extends BaseEndpoint {
         Category category = catalogService.findCategoryById(id);
         if (category != null) {
             ArrayList<MediaWrapper> out = new ArrayList<MediaWrapper>();
-            Map<String, Media> media = category.getCategoryMedia();
-            for (Media med : media.values()) {
+            Map<String, CategoryMediaXref> media = category.getCategoryMediaXref();
+            for (CategoryMediaXref med : media.values()) {
                 MediaWrapper wrapper = (MediaWrapper)context.getBean(MediaWrapper.class.getName());
-                wrapper.wrapSummary(med, request);
+                wrapper.wrapSummary(med.getMedia(), request);
                 out.add(wrapper);
             }
             return out;

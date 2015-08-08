@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.domain;
 
 import javax.persistence.Column;
@@ -12,11 +11,6 @@ import com.wakacommerce.common.presentation.AdminPresentationClass;
 import com.wakacommerce.common.presentation.AdminPresentationToOneLookup;
 import com.wakacommerce.common.sitemap.domain.SiteMapGeneratorConfigurationImpl;
 
-/**
- * CategorySiteMapGenerator is controlled by this configuration.
- * 
- *  
- */
 @Entity
 @Table(name = "BLC_CAT_SITE_MAP_GEN_CFG")
 @AdminPresentationClass(friendlyName = "CategorySiteMapGeneratorConfigurationImpl")

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import com.wakacommerce.cms.field.type.StorageType;
 import com.wakacommerce.common.copy.MultiTenantCloneable;
-import com.wakacommerce.openadmin.audit.AdminAuditable;
+import com.wakacommerce.openadmin.audit.AdminAuditImpl;
 
 public interface StaticAsset extends Serializable, MultiTenantCloneable<StaticAsset> {
 
@@ -47,8 +47,8 @@ public interface StaticAsset extends Serializable, MultiTenantCloneable<StaticAs
 
     public void setStorageType(StorageType storageType);
 
-    public AdminAuditable getAuditable();
+    public AdminAuditImpl getAuditable();
 
-    public void setAuditable(AdminAuditable auditable);
+    public void setAuditable(AdminAuditImpl auditable);
 
 }

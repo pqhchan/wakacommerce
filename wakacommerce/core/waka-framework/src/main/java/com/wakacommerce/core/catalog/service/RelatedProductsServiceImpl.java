@@ -61,7 +61,7 @@ public class RelatedProductsServiceImpl implements RelatedProductsService {
         List<FeaturedProduct> returnFeaturedProducts = null;
         
         if (product != null) {
-            category = product.getDefaultCategory();
+            category = product.getCategory();
         }
         
         if (category != null) {

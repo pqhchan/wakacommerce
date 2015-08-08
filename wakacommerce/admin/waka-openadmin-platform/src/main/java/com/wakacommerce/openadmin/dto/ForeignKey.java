@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.dto;
 
 import com.wakacommerce.common.presentation.client.ForeignKeyRestrictionType;
@@ -6,12 +5,6 @@ import com.wakacommerce.openadmin.dto.visitor.PersistencePerspectiveItemVisitor;
 
 import java.io.Serializable;
 
-
-/**
- * 
- *  
- *
- */
 public class ForeignKey implements Serializable, PersistencePerspectiveItem {
 
     private static final long serialVersionUID = 1L;

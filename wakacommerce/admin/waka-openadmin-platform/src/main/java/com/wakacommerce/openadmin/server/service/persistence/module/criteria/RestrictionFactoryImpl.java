@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.server.service.persistence.module.criteria;
 
 import org.springframework.stereotype.Service;
@@ -7,9 +6,6 @@ import javax.annotation.Resource;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/**
- * 
- */
 @Service("blRestrictionFactory")
 public class RestrictionFactoryImpl implements RestrictionFactory {
 

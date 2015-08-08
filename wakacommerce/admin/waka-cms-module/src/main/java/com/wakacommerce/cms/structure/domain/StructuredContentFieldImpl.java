@@ -22,13 +22,13 @@ import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformMember;
 import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformTypes;
 import com.wakacommerce.common.extensibility.jpa.copy.ProfileEntity;
 import com.wakacommerce.common.presentation.AdminPresentation;
-import com.wakacommerce.openadmin.audit.AdminAuditable;
-import com.wakacommerce.openadmin.audit.AdminAuditableListener;
+import com.wakacommerce.openadmin.audit.AdminAuditImpl;
+import com.wakacommerce.openadmin.audit.AdminAuditListener;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "BLC_SC_FLD")
-@EntityListeners(value = { AdminAuditableListener.class })
+@EntityListeners(value = { AdminAuditListener.class })
 @DirectCopyTransform({
         @DirectCopyTransformMember(templateTokens = DirectCopyTransformTypes.SANDBOX, skipOverlaps = true),
         @DirectCopyTransformMember(templateTokens = DirectCopyTransformTypes.MULTITENANT_SITE)
@@ -52,7 +52,7 @@ public class StructuredContentFieldImpl implements StructuredContentField, Profi
 
     @Embedded
     @AdminPresentation(excluded = true)
-    protected AdminAuditable auditable = new AdminAuditable();
+    protected AdminAuditImpl auditable = new AdminAuditImpl();
 
     @Column (name = "FLD_KEY")
     protected String fieldKey;
@@ -111,12 +111,12 @@ public class StructuredContentFieldImpl implements StructuredContentField, Profi
     }
 
     @Override
-    public AdminAuditable getAuditable() {
+    public AdminAuditImpl getAuditable() {
         return auditable;
     }
 
     @Override
-    public void setAuditable(AdminAuditable auditable) {
+    public void setAuditable(AdminAuditImpl auditable) {
         this.auditable = auditable;
     }
     

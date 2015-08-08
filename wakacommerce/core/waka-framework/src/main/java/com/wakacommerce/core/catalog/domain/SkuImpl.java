@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.domain;
 
 import org.apache.commons.beanutils.MethodUtils;
@@ -110,7 +109,6 @@ import javax.persistence.Transient;
  * {@link AdminPresentation#requiredOverride()}, use the mo:overrides section in bl-admin-applicationContext.xml for Product
  * and reference each required field like 'defaultSku.name' or 'defaultSku.retailPrice'.</p>
  *
- *btaylor
  * @see {@link Sku}
  */
 @Entity
@@ -212,12 +210,6 @@ public class SkuImpl implements Sku {
         largeEntry = true, 
         fieldType = SupportedFieldType.HTML_BASIC)
     protected String longDescription;
-
-    @Column(name = "TAX_CODE")
-    @AdminPresentation(friendlyName = "SkuImpl_Sku_TaxCode", order = 1001, group = ProductImpl.Presentation.Group.Name.Financial)
-    @AdminPresentationDataDrivenEnumeration(optionCanEditValues = true, optionFilterParams = { @OptionFilterParam(
-            param = "type.key", value = "TAX_CODE", paramType = OptionFilterParamType.STRING) })
-    protected String taxCode;
 
     @Column(name = "TAXABLE_FLAG")
     @Index(name="SKU_TAXABLE_INDEX", columnNames={"TAXABLE_FLAG"})
@@ -366,7 +358,7 @@ public class SkuImpl implements Sku {
 
     @Column(name = "INVENTORY_TYPE")
     @AdminPresentation(friendlyName = "SkuImpl_Sku_InventoryType",
-            helpText = "skuInventoryTypeHelpText",
+        helpText = "skuInventoryTypeHelpText",
         order = 1000,
         tab = ProductImpl.Presentation.Tab.Name.Inventory, tabOrder = ProductImpl.Presentation.Tab.Order.Inventory,
         group = ProductImpl.Presentation.Group.Name.Inventory, groupOrder = ProductImpl.Presentation.Group.Order.Inventory,
@@ -611,18 +603,6 @@ public class SkuImpl implements Sku {
     }
 
     @Override
-    @Deprecated
-    public Money getListPrice() {
-        return getRetailPrice();
-    }
-
-    @Override
-    @Deprecated
-    public void setListPrice(Money listPrice) {
-        this.retailPrice = Money.toAmount(listPrice);
-    }
-
-    @Override
     public String getName() {
         if (name == null && hasDefaultSku()) {
             return lookupDefaultSku().getName();
@@ -673,20 +653,6 @@ public class SkuImpl implements Sku {
             return null;
         }
         return taxable == 'Y' ? Boolean.TRUE : Boolean.FALSE;
-    }
-
-    @Override
-    public Boolean getTaxable() {
-        return isTaxable();
-    }
-
-    @Override
-    public void setTaxable(Boolean taxable) {
-        if (taxable == null) {
-            this.taxable = null;
-        } else {
-            this.taxable = taxable ? 'Y' : 'N';
-        }
     }
 
     @Override
@@ -1014,8 +980,8 @@ public class SkuImpl implements Sku {
         if (StringUtils.isEmpty(this.inventoryType)) {
             if (hasDefaultSku() && lookupDefaultSku().getInventoryType() != null) {
                 return lookupDefaultSku().getInventoryType();
-            } else if (getProduct() != null && getProduct().getDefaultCategory() != null) {
-                return getProduct().getDefaultCategory().getInventoryType();
+            } else if (getProduct() != null && getProduct().getCategory() != null) {
+                return getProduct().getCategory().getInventoryType();
             }
             return null;
         }
@@ -1042,8 +1008,8 @@ public class SkuImpl implements Sku {
         if (StringUtils.isEmpty(this.fulfillmentType)) {
             if (hasDefaultSku() && lookupDefaultSku().getFulfillmentType() != null) {
                 return lookupDefaultSku().getFulfillmentType();
-            } else if (getProduct() != null && getProduct().getDefaultCategory() != null) {
-                return getProduct().getDefaultCategory().getFulfillmentType();
+            } else if (getProduct() != null && getProduct().getCategory() != null) {
+                return getProduct().getCategory().getFulfillmentType();
             }
             return null;
         }
@@ -1122,23 +1088,6 @@ public class SkuImpl implements Sku {
     }
 
     @Override
-    public String getTaxCode() {
-        if (StringUtils.isEmpty(this.taxCode)) {
-            if (hasDefaultSku() && !StringUtils.isEmpty(lookupDefaultSku().getTaxCode())) {
-                return lookupDefaultSku().getTaxCode();
-            } else if (getProduct() != null && getProduct().getDefaultCategory() != null) {
-                return getProduct().getDefaultCategory().getTaxCode();
-            }
-        }
-        return this.taxCode;
-    }
-
-    @Override
-    public void setTaxCode(String taxCode) {
-        this.taxCode = taxCode;
-    }
-
-    @Override
     public String getExternalId() {
         return externalId;
     }
@@ -1177,8 +1126,6 @@ public class SkuImpl implements Sku {
         cloned.setDiscountable(isDiscountable());
         cloned.setDisplayTemplate(displayTemplate);
         cloned.setExternalId(externalId);
-        cloned.setTaxable(isTaxable());
-        cloned.setTaxCode(taxCode);
         cloned.setUrlKey(urlKey);
         cloned.setInventoryType(getInventoryType());
         cloned.setFulfillmentType(getFulfillmentType());

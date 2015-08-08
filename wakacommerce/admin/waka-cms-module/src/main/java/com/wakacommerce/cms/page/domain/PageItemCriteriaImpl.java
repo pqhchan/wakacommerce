@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.page.domain;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -27,11 +26,6 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-/**
- * 
- * 
- *
- */
 @Entity
 @Table(name = "BLC_PAGE_ITEM_CRITERIA")
 @Inheritance(strategy=InheritanceType.JOINED)

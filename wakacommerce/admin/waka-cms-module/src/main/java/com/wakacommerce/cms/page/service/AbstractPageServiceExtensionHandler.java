@@ -1,4 +1,3 @@
-
 package com.wakacommerce.cms.page.service;
 
 import com.wakacommerce.cms.field.domain.FieldDefinition;
@@ -8,10 +7,6 @@ import com.wakacommerce.common.extension.ExtensionResultHolder;
 import com.wakacommerce.common.extension.ExtensionResultStatusType;
 import com.wakacommerce.common.page.dto.PageDTO;
 
-
-/**
- * 
- */
 public abstract class AbstractPageServiceExtensionHandler extends AbstractExtensionHandler 
         implements PageServiceExtensionHandler {
     

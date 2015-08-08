@@ -1,4 +1,3 @@
-  
 package com.wakacommerce.profile.web.core.security;
 
 import org.springframework.core.Ordered;
@@ -15,17 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Component("blCustomerStateFilter")
-/**
- * <p>
- * This filter should be configured after the RememberMe listener from Spring Security.
- * Retrieves the Broadleaf Customer based using the authenticated user OR creates an Anonymous customer and stores them
- * in the session.  Calls Customer.setCookied(true) if the authentication token is an instance of
- * {@link org.springframework.security.providers.rememberme.RememberMeAuthenticationToken).   Calls Customer.setLoggedIn(true) if
- * the authentication token is an instance of {@link org.springframework.security.providers.UsernamePasswordAuthenticationToken}
- * </p>
- *
- * 
- */
 public class CustomerStateFilter extends OncePerRequestFilter implements Ordered {
     
     @Resource(name="blCustomerStateRequestProcessor")

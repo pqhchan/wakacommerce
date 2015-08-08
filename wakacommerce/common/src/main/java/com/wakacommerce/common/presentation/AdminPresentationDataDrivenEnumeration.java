@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.presentation;
 
 import java.lang.annotation.ElementType;
@@ -8,22 +7,12 @@ import java.lang.annotation.Target;
 
 import com.wakacommerce.common.enumeration.domain.DataDrivenEnumerationValueImpl;
 
-/**
- * 
- */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD})
 public @interface AdminPresentationDataDrivenEnumeration {
 
     /**
-     * <p>Optional - only required if the target entity is other than DataDrivenEnumerationValueImpl. The annotated
-     * field must be of type String. DataDrivenEnumerationValueImpl is the standard entity for storing data driven enumerations,
-     * but a completely different entity (e.g. CountryImpl) could be substituted, if applicable.</p>
-     *
-     * <p>Specify the target entity that should be queried for the list of options that will be presented to the user in a
-     * drop down list. The value selected from the dropdown will become the String value for this field.</p>
-     *
-     * @return the entity class representing the data to populate a dropdown field in the admin tool
+     * <p>Optional - 只有当目标实体不是DataDrivenEnumerationValueImpl的时候才需要指定 
      */
     Class<?> optionListEntity() default DataDrivenEnumerationValueImpl.class;
 
@@ -33,8 +22,6 @@ public @interface AdminPresentationDataDrivenEnumeration {
      * equals DataDrivenEnumerationValueImpl, it is generally appropriate to denote:</p>
      *
      * <p>@OptionFilterParam(param="type.key", value="[the key value of the DataDrivenEnumerationImpl instance]", paramType=[your param type])</p>
-     *
-     * <p>Additional parameters with which to filter the list of options shown to the user in the admin tool</p>
      *
      * @return list of parameters with which to filter the option list
      */
@@ -59,13 +46,9 @@ public @interface AdminPresentationDataDrivenEnumeration {
     String optionDisplayFieldName() default "";
 
     /**
-     * <p>Optional - only required if you want to allow users to edit (or enter new values) in the dropdown. If true, users will
-     * be able to type their own value or select from one of the data-driven values. This is only required when the optionListEntity
-     * is not DataDrivenEnumerationValueImpl, since that class already defines this property (i.e. the modifiable property)</p>
-     *
-     * <p>Whether or not the user can type in the data-driven field</p>
-     *
-     * @return whether or not the user can type in the data-driven field
+     * <p>Optional - 是否允许用户在dropdown中编辑。如果设为true的话，用户就既可以输入自己的值也可以从选择一个存在的值。
+     * 只有当optionListEntity没有指定为DataDrivenEnumerationValueImpl的时候才需要设置该值，
+     * 因为DataDrivenEnumerationValueImpl中已经有这样的属性了（modifiable）
      */
     boolean optionCanEditValues() default false;
 }

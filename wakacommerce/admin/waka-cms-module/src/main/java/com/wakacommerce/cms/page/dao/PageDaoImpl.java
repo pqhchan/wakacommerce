@@ -1,5 +1,17 @@
 package com.wakacommerce.cms.page.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.Resource;
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 import org.hibernate.ejb.QueryHints;
 import org.springframework.stereotype.Repository;
 
@@ -9,36 +21,14 @@ import com.wakacommerce.cms.page.domain.PageFieldImpl;
 import com.wakacommerce.cms.page.domain.PageImpl;
 import com.wakacommerce.cms.page.domain.PageTemplate;
 import com.wakacommerce.cms.page.domain.PageTemplateImpl;
-import com.wakacommerce.common.locale.domain.Locale;
 import com.wakacommerce.common.persistence.EntityConfiguration;
-import com.wakacommerce.common.sandbox.domain.SandBox;
-import com.wakacommerce.common.sandbox.domain.SandBoxImpl;
 import com.wakacommerce.common.time.SystemTime;
 import com.wakacommerce.common.util.dao.TQRestriction;
-import com.wakacommerce.common.util.dao.TypedQueryBuilder;
 import com.wakacommerce.common.util.dao.TQRestriction.Mode;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.annotation.Resource;
-import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Path;
-import javax.persistence.criteria.Root;
+import com.wakacommerce.common.util.dao.TypedQueryBuilder;
 
 @Repository("blPageDao")
 public class PageDaoImpl implements PageDao {
-
-    private static SandBox DUMMY_SANDBOX = new SandBoxImpl();
-    {
-        DUMMY_SANDBOX.setId(-1l);
-    }
 
     @PersistenceContext(unitName = "blPU")
     protected EntityManager em;
@@ -59,7 +49,6 @@ public class PageDaoImpl implements PageDao {
         Root<PageFieldImpl> pageField = criteria.from(PageFieldImpl.class);
         criteria.select(pageField);
 
-        Path<Object> path = pageField.get("page").get("id");
         criteria.where(builder.equal(pageField.get("page").get("id"), pageId));
 
         TypedQuery<PageField> query = em.createQuery(criteria);
@@ -115,21 +104,6 @@ public class PageDaoImpl implements PageDao {
     }
 
     @Override
-    public List<Page> findPageByURI(Locale fullLocale, Locale languageOnlyLocale, String uri) {
-        Query query;
-
-        if (languageOnlyLocale == null)  {
-            languageOnlyLocale = fullLocale;
-        }
-        query = em.createNamedQuery("BC_READ_PAGE_BY_URI");
-        query.setParameter("fullLocale", fullLocale);
-        query.setParameter("languageOnlyLocale", languageOnlyLocale);
-        query.setParameter("uri", uri);
-
-        return query.getResultList();
-    }
-    
-    @Override
     public List<Page> readAllPages() {
         CriteriaBuilder builder = em.getCriteriaBuilder();
         CriteriaQuery<Page> criteria = builder.createQuery(Page.class);
@@ -174,11 +148,6 @@ public class PageDaoImpl implements PageDao {
         } catch (NoResultException e) {
             return new ArrayList<PageTemplate>();
         }
-    }
-
-    @Override
-    public List<Page> findPageByURI(Locale locale, String uri) {
-        return findPageByURI(locale, null, uri);
     }
 
     @Override
