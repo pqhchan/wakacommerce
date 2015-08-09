@@ -4,9 +4,8 @@ package com.wakacommerce.core.workflow;
 
 
 /**
- * A Do-nothing activity used to test proper merge ordering in workflows
  *
- *     
+ * @ hui
  */
 public class PassThroughActivity extends BaseActivity<ProcessContext<? extends Object>> {
 

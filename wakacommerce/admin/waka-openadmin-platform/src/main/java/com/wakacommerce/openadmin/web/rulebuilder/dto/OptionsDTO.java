@@ -4,7 +4,8 @@ package com.wakacommerce.openadmin.web.rulebuilder.dto;
 import java.io.Serializable;
 
 /**
- *  
+ *
+ * @ hui
  */
 public class OptionsDTO implements Serializable {
 

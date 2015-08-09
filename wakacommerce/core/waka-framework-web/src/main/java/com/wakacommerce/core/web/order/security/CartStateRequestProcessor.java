@@ -31,21 +31,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- * Ensures that the customer's current cart is available to the request.  
- * 
- * Also invokes blMergeCartProcessor" if the user has just logged in.   
- * 
- * Genericized version of the CartStateFilter. This was made to facilitate reuse between Servlet Filters, Portlet Filters 
- * and Spring MVC interceptors. Spring has an easy way of converting HttpRequests and PortletRequests into WebRequests 
- * via <br />
- * new ServletWebRequest(httpServletRequest); new PortletWebRequest(portletRequest); <br />
- * For the interceptor pattern, you can simply implement a WebRequestInterceptor to invoke from there.
- * 
- *  
- * @see {@link CartStateFilter}
- * @see {@link WakaWebRequestProcessor}
- * @see {@link ServletWebRequest}
- * @see {@link org.springframework.web.portlet.context.PortletWebRequest}
+ *
+ * @ hui
  */
 @Component("blCartStateRequestProcessor")
 public class CartStateRequestProcessor extends AbstractWakaWebRequestProcessor {
@@ -141,11 +128,7 @@ public class CartStateRequestProcessor extends AbstractWakaWebRequestProcessor {
 
         return cart;
     }
-    
-    /**
-     * Returns true if the given <b>customer</b> is different than the previous anonymous customer, implying that this is
-     * the logged in customer and we need to merge the carts
-     */
+
     public boolean mergeCartNeeded(Customer customer, WebRequest request) {
         // When the user is a CSR, we want to disable cart merging
         if (crossAppAuthService != null && crossAppAuthService.isAuthedFromAdmin()) {
@@ -156,10 +139,6 @@ public class CartStateRequestProcessor extends AbstractWakaWebRequestProcessor {
         return (anonymousCustomer != null && customer.getId() != null && !customer.getId().equals(anonymousCustomer.getId()));
     }
 
-    /**
-     * Looks up the anonymous customer and merges that cart with the cart from the given logged in <b>customer</b>. This
-     * will also remove the customer from session after it has finished since it is no longer needed
-     */
     public Order mergeCart(Customer customer, WebRequest request) {
         Customer anonymousCustomer = customerStateRequestProcessor.getAnonymousCustomer(request);
         MergeCartResponse mergeCartResponse;

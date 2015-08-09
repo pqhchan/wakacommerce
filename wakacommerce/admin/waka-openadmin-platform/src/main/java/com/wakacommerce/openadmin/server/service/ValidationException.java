@@ -7,11 +7,8 @@ import com.wakacommerce.openadmin.server.service.persistence.module.RecordHelper
 
 
 /**
- * Thrown when an entity fails validation when attempting to populate an actual Hibernate entity based on its DTO
- * representation
  *
- * @see {@link RecordHelper#createPopulatedInstance(java.io.Serializable, Entity, java.util.Map, Boolean)}
- *     
+ * @ hui
  */
 public class ValidationException extends ServiceException {
 

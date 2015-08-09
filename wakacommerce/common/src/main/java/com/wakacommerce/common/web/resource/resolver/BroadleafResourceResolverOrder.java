@@ -8,13 +8,8 @@ import com.wakacommerce.common.web.resource.BroadleafResourceHttpRequestHandler;
 import javax.annotation.PostConstruct;
 
 /**
- * Constants representing out of box Broadleaf Resource Resolvers.
- * 
- * Used by {@link BroadleafResourceHttpRequestHandler} which sorts resolvers that 
- * implement {@link Ordered} in its {@link PostConstruct} method.
- * 
- * 
  *
+ * @ hui
  */
 public class BroadleafResourceResolverOrder {
 

@@ -4,10 +4,8 @@ package com.wakacommerce.core.workflow.state;
 import com.wakacommerce.common.classloader.release.ThreadLocalManager;
 
 /**
- * Handles the identification of the outermost workflow and the current thread so that the StateManager can
- * operate on the appropriate RollbackHandlers.
  *
- * 
+ * @ hui
  */
 public class RollbackStateLocal {
 

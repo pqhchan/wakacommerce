@@ -6,8 +6,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 /**
- *  This class allows us to round Big Decimals to 2 decimal places, generally for
- *  marshalling purposes.  This is to be used with <code>javax.xml.bind.annotation.adapters.XmlJavaTypeAdapters</code>.
+ *
+ * @ hui
  */
 public class BigDecimalRoundingAdapter extends XmlAdapter<String, BigDecimal> {
 

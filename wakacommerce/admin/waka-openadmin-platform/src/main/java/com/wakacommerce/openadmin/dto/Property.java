@@ -8,9 +8,8 @@ import java.util.Date;
 
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public class Property implements Serializable {
     

@@ -23,8 +23,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- * 
- *  
+ *
+ * @ hui
  */
 @Entity
 @Table(name = "BLC_SITE_MAP_GEN_CFG")

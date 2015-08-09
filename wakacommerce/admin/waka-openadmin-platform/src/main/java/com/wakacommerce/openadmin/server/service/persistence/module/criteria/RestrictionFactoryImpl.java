@@ -8,7 +8,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Service("blRestrictionFactory")
 public class RestrictionFactoryImpl implements RestrictionFactory {

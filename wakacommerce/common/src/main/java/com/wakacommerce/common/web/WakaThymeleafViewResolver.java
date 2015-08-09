@@ -23,10 +23,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * This class extends the default ThymeleafViewResolver to facilitate rendering
- * template fragments (such as those used by AJAX modals or iFrames) within a 
- * full page container should the request for that template have occurred in a 
- * stand-alone context.
+ *
+ * @ hui
  */
 public class WakaThymeleafViewResolver extends ThymeleafViewResolver {
     private static final Log LOG = LogFactory.getLog(WakaThymeleafViewResolver.class);
@@ -35,22 +33,7 @@ public class WakaThymeleafViewResolver extends ThymeleafViewResolver {
     protected WakaThymeleafViewResolverExtensionManager extensionManager;
     
     public static final String EXTENSION_TEMPLATE_ATTR_NAME = "extensionTemplateAttr";
-    
-    /**
-     * <p>
-     *   Prefix to be used in view names (returned by controllers) for specifying an
-     *   HTTP redirect with AJAX support. That is, if you want a redirect to be followed
-     *   by the browser as the result of an AJAX call or within an iFrame at the parent 
-     *   window, you can utilize this prefix. Note that this requires a JavaScript component,
-     *   which is provided as part of BLC.js
-     *   
-     *   If the request was not performed in an AJAX / iFrame context, this method will
-     *   delegate to the normal "redirect:" prefix.
-     * </p>
-     * <p>
-     *   Value: <tt>ajaxredirect:</tt>
-     * </p>
-     */
+
     public static final String AJAX_REDIRECT_URL_PREFIX = "ajaxredirect:";
     
     protected Map<String, String> layoutMap = new HashMap<String, String>();
@@ -82,11 +65,6 @@ public class WakaThymeleafViewResolver extends ThymeleafViewResolver {
         return super.resolveViewName(viewName, locale);
     }
 
-    /**
-     * Determines which internal method to call for creating the appropriate view. If no
-     * Broadleaf specific methods match the viewName, it delegates to the parent 
-     * ThymeleafViewResolver createView method
-     */
     @Override
     protected View createView(final String viewName, final Locale locale) throws Exception {
         if (!canHandle(viewName)) {
@@ -102,16 +80,7 @@ public class WakaThymeleafViewResolver extends ThymeleafViewResolver {
         
         return super.createView(viewName, locale);
     }
-    
-    /**
-     * Performs a Broadleaf AJAX redirect. This is used in conjunction with BLC.js to support
-     * doing a browser page change as as result of an AJAX call.
-     * 
-     * @param redirectUrl
-     * @param locale
-     * @return
-     * @throws Exception
-     */
+
     protected View loadAjaxRedirectView(String redirectUrl, final Locale locale) throws Exception {
         if (isAjaxRequest()) {
             String viewName = "utility/blcRedirect";
@@ -222,54 +191,26 @@ public class WakaThymeleafViewResolver extends ThymeleafViewResolver {
         return WakaControllerUtility.isAjaxRequest(request);
     }
 
-    /**
-     * Gets the map of prefix : layout for use in determining which layout
-     * to dispatch the request to in non-AJAX calls
-     * 
-     * @return the layout map
-     */
     public Map<String, String> getLayoutMap() {
         return layoutMap;
     }
 
-    /**
-     * @see #getLayoutMap()
-     * @param layoutMap
-     */
     public void setLayoutMap(Map<String, String> layoutMap) {
         this.layoutMap = layoutMap;
     }
 
-    /**
-     * The default layout to use if there is no specifc entry in the layout map
-     * 
-     * @return the full page layout
-     */
     public String getFullPageLayout() {
         return fullPageLayout;
     }
 
-    /**
-     * @see #getFullPageLayout()
-     * @param fullPageLayout
-     */
     public void setFullPageLayout(String fullPageLayout) {
         this.fullPageLayout = fullPageLayout;
     }
 
-    /**
-     * The layout to use for iframe requests
-     * 
-     * @return the iframe layout
-     */
     public String getIframeLayout() {
         return iframeLayout;
     }
 
-    /**
-     * @see #getIframeLayout()
-     * @param iframeLayout
-     */
     public void setIframeLayout(String iframeLayout) {
         this.iframeLayout = iframeLayout;
     }

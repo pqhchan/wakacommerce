@@ -20,9 +20,7 @@ import java.util.List;
 import java.util.Set;
 
 @Service("blRelatedProductsService")
-/*
- * Service that provides method for finding a product's related products.   
- */
+
 public class RelatedProductsServiceImpl implements RelatedProductsService {
     
     @Resource(name="blCategoryDao")
@@ -49,14 +47,7 @@ public class RelatedProductsServiceImpl implements RelatedProductsService {
             throw new IllegalArgumentException("RelatedProductType " + relatedProductDTO.getType() + " not supported.");
         }       
     }
-    
-    /**
-     * Returns the featured products for the past in product/category
-     * @param product
-     * @param category
-     * @param relatedProductDTO
-     * @return
-     */
+
     protected List<? extends PromotableProduct> buildFeaturedProductsList(Product product, Category category, RelatedProductDTO relatedProductDTO) {
         List<FeaturedProduct> returnFeaturedProducts = null;
         
@@ -110,14 +101,7 @@ public class RelatedProductsServiceImpl implements RelatedProductsService {
             }           
         }
     }
-    
-    /**
-     * Returns the upSale products for the past in product/category
-     * @param product
-     * @param category
-     * @param relatedProductDTO
-     * @return
-     */
+
     protected List<? extends PromotableProduct> buildUpSaleProductsList(Product product, Category category, RelatedProductDTO relatedProductDTO) {
         List<? extends PromotableProduct> returnUpSaleProducts = null;
         
@@ -140,14 +124,7 @@ public class RelatedProductsServiceImpl implements RelatedProductsService {
 
         return resizeList(returnUpSaleProducts, relatedProductDTO.getQuantity());
     }
-    
-    /**
-     * Returns the crossSale products for the past in product/category
-     * @param product
-     * @param category
-     * @param relatedProductDTO
-     * @return
-     */
+
     protected List<? extends PromotableProduct> buildCrossSaleProductsList(Product product, Category category, RelatedProductDTO relatedProductDTO) {
         List<? extends PromotableProduct> crossSaleProducts = null;
         
@@ -169,16 +146,8 @@ public class RelatedProductsServiceImpl implements RelatedProductsService {
         crossSaleProducts = removeDuplicatesFromList(crossSaleProducts);
         
         return resizeList(crossSaleProducts, relatedProductDTO.getQuantity());
-    }   
-    
-    /**
-     * Resizes the list to match the passed in quantity.   If the quantity is greater than the size of the list or null,
-     * the originalList is returned.
-     * 
-     * @param originalList
-     * @param qty
-     * @return
-     */
+    }
+
     protected List<? extends PromotableProduct> resizeList(List<? extends PromotableProduct> originalList, Integer qty) {
         if (qty != null && originalList != null && originalList.size() > qty) {
             return originalList.subList(0, qty);

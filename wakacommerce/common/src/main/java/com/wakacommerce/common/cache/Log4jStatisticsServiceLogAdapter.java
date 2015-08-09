@@ -5,8 +5,8 @@ import org.apache.log4j.Level;
 import org.apache.log4j.LogManager;
 
 /**
- * Specific implementation used with a Log4j dependency
- *  
+ *
+ * @ hui
  */
 public class Log4jStatisticsServiceLogAdapter implements StatisticsServiceLogAdapter {
 

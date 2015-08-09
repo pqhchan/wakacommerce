@@ -12,9 +12,6 @@ public class ResourceRequestExtensionManager extends ExtensionManager<ResourceRe
         super(ResourceRequestExtensionHandler.class);
     }
 
-    /**
-     * The first handler to return a handled status will win
-     */
     @Override
     public boolean continueOnHandled() {
         return false;

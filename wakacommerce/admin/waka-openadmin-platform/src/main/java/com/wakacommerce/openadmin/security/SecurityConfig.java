@@ -7,9 +7,8 @@ import java.util.List;
 import com.wakacommerce.openadmin.server.security.remote.EntityOperationType;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public class SecurityConfig {
 

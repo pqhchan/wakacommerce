@@ -6,9 +6,6 @@ public abstract class WakaAbstractHandlerMapping extends AbstractHandlerMapping 
 
 	protected String controllerName;
 
-    /**
-     * 不提供默认处理器
-     */
     @Override
     public Object getDefaultHandler() {
         return null;        

@@ -15,9 +15,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Contains the requested field, property name and support classes.
  *
- * 
+ * @ hui
  */
 public class AddMetadataFromFieldTypeRequest {
 

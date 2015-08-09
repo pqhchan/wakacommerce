@@ -22,88 +22,8 @@ import javax.servlet.http.HttpServletRequest;
 
 
 /**
- * <p>
- * Works with the blc:bundle tag.   
- * 
- * <p>
- * This processor does not do the actual bundling.   It merely changes the URL which causes the 
- * other bundling components to be invoked through the normal static resource handling processes.
- * 
- * <p>
- * This processor relies {@code bundle.enabled}.   If this property is false (typical for dev) then the list of
- * resources will be output as individual SCRIPT or LINK elements for each JavaScript or CSS file respectively.
- * 
- * <p>
- * To use this processor, supply a name, mapping prefix, and list of files.   
- * 
- * <pre>
- * {@code
- * <blc:bundle name="lib.js" 
- *             mapping-prefix="/js/"
- *             files="plugins.js,
- *                    libs/jquery.MetaData.js,
- *                    libs/jquery.rating.pack.js,
- *                    libs/jquery.dotdotdot-1.5.1.js" />
- *  }
- * </pre>                  
- * 
- * <p>
- * With bundling enabled this will turn into:
- * 
- * <pre>
- * 
- * {@code
- *  <script type="text/javascript" src="/js/lib-blbundle12345.js" />
- * }
- * </pre>
- * 
- * <p>
- * Where the <b>-blbundle12345</b> is used by the BundleUrlResourceResolver to determine the
- * actual bundle name.  
- * 
- * <p>
- * With bundling disabled this turns into:
- * 
- * <pre>
- * {@code
- *  <script type="text/javascript" src="/js/plugins.js" />
- *  <script type="text/javascript" src="/js/jquery.MetaData.js" />
- *  <script type="text/javascript" src="/js/jquery.rating.pack.js.js" />
- *  <script type="text/javascript" src="/js/jquery.dotdotdot-1.5.1.js" />
- * }
- * </pre>
- * 
- * <p>
- * This processor also supports producing the 'async' and 'defer' attributes for Javascript files. For instance:
- * 
- * <pre>
- * {@code
- * <blc:bundle name="lib.js" 
- *             async="true"
- *             defer="true"
- *             mapping-prefix="/js/"
- *             files="plugins.js,
- *                    libs/jquery.MetaData.js,
- *                    libs/jquery.rating.pack.js,
- *                    libs/jquery.dotdotdot-1.5.1.js" />
- *  }
- * </pre>
- * 
- * <p>
- * If bundling is turned on, the single output file contains the 'async' and 'defer' name-only attributes. When bundling is
- * turned off, then those name-only attributes are applied to each individual file reference.
- * 
- * <p>
- * This processor only supports files that end in <b>.js</b> and <b>.css</b>
- * 
- * @param <b>name</b>           (required) the final name prefix of the bundle
- * @param <b>mapping-prefix</b> (required) the prefix appended to the final tag output whether that be 
- *                              the list of files or the single minified file
- * @param <b>files</b>          (required) a comma-separated list of files that should be bundled together
- * 
- *  
- * 
- * @see {@link ResourceBundlingService}
+ *
+ * @ hui
  */
 public class ResourceBundleProcessor extends AbstractElementProcessor {
     
@@ -158,18 +78,7 @@ public class ResourceBundleProcessor extends AbstractElementProcessor {
         parent.removeChild(element);
         return ProcessorResult.OK;
     }
-    
-    /**
-     * Adds the context path to the bundleUrl.    We don't use the Thymeleaf "@" syntax or any other mechanism to 
-     * encode this URL as the resolvers could have a conflict.   
-     * 
-     * For example, resolving a bundle named "style.css" that has a file also named "style.css" creates problems as
-     * the TF or version resolvers both want to version this file.
-     *  
-     * @param arguments
-     * @param bundleName
-     * @return
-     */
+
     protected String getBundleUrl(Arguments arguments, String bundleName) {
         String bundleUrl = bundleName;
 

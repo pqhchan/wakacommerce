@@ -8,9 +8,8 @@ import java.util.HashMap;
 import javax.persistence.spi.PersistenceUnitInfo;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public class EJB3ConfigurationDaoImpl implements EJB3ConfigurationDao {
 

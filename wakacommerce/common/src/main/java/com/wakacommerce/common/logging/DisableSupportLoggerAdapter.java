@@ -2,8 +2,8 @@
 package com.wakacommerce.common.logging;
 
 /**
- * <p>An implementation of SupportLoggerAdapter that would disable SupportLogger logging. (i.e. do nothing)</p>
- *  
+ *
+ * @ hui
  */
 public class DisableSupportLoggerAdapter implements SupportLoggerAdapter {
 

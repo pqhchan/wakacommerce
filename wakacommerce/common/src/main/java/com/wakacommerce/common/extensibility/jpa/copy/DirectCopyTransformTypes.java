@@ -2,10 +2,8 @@
 package com.wakacommerce.common.extensibility.jpa.copy;
 
 /**
- * Constants for tagging an entity class to receive byte code transformation upon
- * being loaded by the classloader
  *
- * 
+ * @ hui
  */
 public class DirectCopyTransformTypes {
 

@@ -12,7 +12,8 @@ import javax.persistence.criteria.Predicate;
 import java.util.List;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Component("blBetweenPredicateProvider")
 public class BetweenPredicateProvider implements PredicateProvider<Comparable, Comparable> {

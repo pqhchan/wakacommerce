@@ -11,11 +11,8 @@ import com.wakacommerce.core.catalog.domain.SkuBundleItem;
 import java.util.HashMap;
 
 /**
- * Default implementation of the {@link DynamicSkuPricingService} which simply ignores the considerations hashmap in all
- * method implementations
- * 
- *  
- * 
+ *
+ * @ hui
  */
 @Service("blDynamicSkuPricingService")
 public class DefaultDynamicSkuPricingServiceImpl implements DynamicSkuPricingService {

@@ -15,7 +15,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 /**
- *  
+ *
+ * @ hui
  */
 @Repository("blISODao")
 public class ISODaoImpl implements ISODao {

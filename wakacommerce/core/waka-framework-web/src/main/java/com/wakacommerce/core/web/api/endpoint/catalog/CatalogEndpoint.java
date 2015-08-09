@@ -47,26 +47,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * This class exposes catalog services as RESTful APIs.  It is dependent on
- * a JAX-RS implementation such as Jersey.  This class must be extended, with appropriate JAX-RS 
- * annotations, such as: <br></br> 
- * 
- * <code>javax.ws.rs.@Scope</code> <br></br> 
- * <code>javax.ws.rs.@Path</code> <br></br> 
- * <code>javax.ws.rs.@Produces</code> <br></br> 
- * <code>javax.ws.rs.@Consumes</code> <br></br> 
- * <code>javax.ws.rs.@Context</code> <br></br> 
- * etc... <br></br>
- * 
- * ... in the subclass.  The subclass must also be a Spring Bean.  The subclass can then override 
- * the methods, and specify custom inputs and outputs.  It will also specify 
- * <code>javax.ws.rs.@Path annotations</code>, <code>javax.ws.rs.@Context</code>, 
- * <code>javax.ws.rs.@PathParam</code>, <code>javax.ws.rs.@QueryParam</code>, 
- * <code>javax.ws.rs.@GET</code>, <code>javax.ws.rs.@POST</code>, etc...  Essentially, the subclass 
- * will override and extend the methods of this class, add new methods, and control the JAX-RS behavior 
- * using annotations according to the JAX-RS specification.
  *
- * User:   
+ * @ hui
  */
 public abstract class CatalogEndpoint extends BaseEndpoint {
 
@@ -88,12 +70,6 @@ public abstract class CatalogEndpoint extends BaseEndpoint {
     @Resource(name = "blInventoryService")
     protected InventoryService inventoryService;
 
-    /**
-     * Search for {@code Product} by product id
-     *
-     * @param id the product id
-     * @return the product instance with the given product id
-     */
     public ProductWrapper findProductById(HttpServletRequest request, Long id) {
         Product product = catalogService.findProductById(id);
         if (product != null) {
@@ -106,15 +82,6 @@ public abstract class CatalogEndpoint extends BaseEndpoint {
                 .addMessage(BroadleafWebServicesException.PRODUCT_NOT_FOUND, id);
     }
 
-    /**
-     * This uses Broadleaf's search service to search for products or skus within a category.
-     * @param request
-     * @param q
-     * @param categoryId
-     * @param pageSize
-     * @param page
-     * @return
-     */
     public SearchResultsWrapper findSearchResultsByCategoryAndQuery(HttpServletRequest request,
             Long categoryId,
             String q,
@@ -162,15 +129,6 @@ public abstract class CatalogEndpoint extends BaseEndpoint {
         }
     }
 
-    /**
-     * Queries for products or skus. The parameter q, which represents the query, is required. It can be any 
-     * string, but is typically a name or keyword, similar to a search engine search.
-     * @param request
-     * @param q
-     * @param pageSize
-     * @param page
-     * @return
-     */
     public SearchResultsWrapper findSearchResultsByQuery(HttpServletRequest request,
             String q,
             Integer pageSize,
@@ -207,12 +165,6 @@ public abstract class CatalogEndpoint extends BaseEndpoint {
         }
     }
 
-    /**
-     * Search for {@code Sku} instances for a given product
-     *
-     * @param id
-     * @return the list of sku instances for the product
-     */
     public List<SkuWrapper> findSkusByProductById(HttpServletRequest request, Long id) {
         Product product = catalogService.findProductById(id);
         if (product != null) {
@@ -309,16 +261,6 @@ public abstract class CatalogEndpoint extends BaseEndpoint {
                 .addMessage(BroadleafWebServicesException.CATEGORY_NOT_FOUND, id);
     }
 
-    /**
-     * Allows you to search for a category by ID or by name.
-     * @param request
-     * @param searchParameter
-     * @param productLimit
-     * @param productOffset
-     * @param subcategoryLimit
-     * @param subcategoryOffset
-     * @return
-     */
     public CategoryWrapper findCategoryByIdOrName(HttpServletRequest request,
             String searchParameter,
             int productLimit,

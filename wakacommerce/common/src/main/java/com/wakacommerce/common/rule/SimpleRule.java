@@ -4,7 +4,8 @@ import javax.annotation.Nonnull;
 import java.io.Serializable;
 
 /**
- * 用MVEL表达式来表示的规则
+ *
+ * @ hui
  */
 public interface SimpleRule extends Serializable {
 

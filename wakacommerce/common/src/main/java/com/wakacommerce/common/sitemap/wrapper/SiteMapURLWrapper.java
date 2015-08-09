@@ -14,9 +14,8 @@ import com.wakacommerce.common.sitemap.service.type.SiteMapPriorityType;
 import com.wakacommerce.common.util.FormatUtil;
 
 /**
- * Representation of SiteMapURLEntry that can be used to generate an XML element.
- * 
- * 
+ *
+ * @ hui
  */
 @XmlRootElement(name = "url")
 @XmlType(propOrder = { "loc", "lastmod", "changefreq", "priority" })

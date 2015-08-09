@@ -10,7 +10,8 @@ import com.wakacommerce.profile.core.domain.Customer;
 
 
 /**
- * 
+ *
+ * @ hui
  */
 public abstract class AbstractOrderServiceExtensionHandler extends AbstractExtensionHandler implements
         OrderServiceExtensionHandler {

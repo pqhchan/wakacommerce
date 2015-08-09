@@ -8,9 +8,8 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public interface PageTemplateFieldGroupXref extends Serializable, MultiTenantCloneable<PageTemplateFieldGroupXref> {
 

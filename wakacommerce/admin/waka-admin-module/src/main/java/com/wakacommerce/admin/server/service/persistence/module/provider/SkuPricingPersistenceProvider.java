@@ -26,9 +26,8 @@ import java.util.Currency;
 import java.util.Locale;
 
 /**
- * Persistence provider capable of extracting friendly display values for Sku prices, taking currency into consideration.
- * 
- * 
+ *
+ * @ hui
  */
 @Scope("prototype")
 @Component("blSkuPricingPersistenceProvider")
@@ -79,14 +78,7 @@ public class SkuPricingPersistenceProvider extends AbstractMoneyFieldPersistence
         BigDecimal decimalValue = (value instanceof Money) ? ((Money)value).getAmount() : (BigDecimal) value;
         return super.formatDisplayValue(decimalValue, extractValueRequest, property);
     }
-    
-    /**
-     * Handle all fields that have declared themselves to be apart of a Sku and have a field type of Money
-     *  
-     * @param extractValueRequest
-     * @param property
-     * @return whether or not we can handle extraction
-     */
+
     @Override
     protected boolean canHandleExtraction(ExtractValueRequest extractValueRequest, Property property) {
         return (

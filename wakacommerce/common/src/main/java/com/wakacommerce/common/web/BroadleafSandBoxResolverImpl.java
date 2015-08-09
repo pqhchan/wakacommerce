@@ -28,23 +28,13 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Responsible for determining the SandBox to use for the current request. 
- * SandBox's are used to store a user's changes to products, content-items, etc. 
- * until they are ready to be pushed to production.  
- * 
- * If a request is being served with a SandBox parameter, it indicates that the user
- * wants to see the site as if their changes were applied.
  *
- * 
+ * @ hui
  */
 @Component("blSandBoxResolver")
 public class BroadleafSandBoxResolverImpl implements BroadleafSandBoxResolver  {
     private final Log LOG = LogFactory.getLog(BroadleafSandBoxResolverImpl.class);
-    
-    /**
-     * Property used to disable sandbox mode.   Some implementations will want to
-     * turn off sandboxes in production.
-     */
+
     protected Boolean sandBoxPreviewEnabled = true;
     
     // Request Parameters and Attributes for Sandbox Mode properties - mostly values to manage dates.
@@ -60,10 +50,6 @@ public class BroadleafSandBoxResolverImpl implements BroadleafSandBoxResolver  {
     private static final String SANDBOX_DISPLAY_DATE_TIME_MINUTES_PARAM = "blSandboxDisplayDateTimeMinutes";
     private static final String SANDBOX_DISPLAY_DATE_TIME_AMPM_PARAM = "blSandboxDisplayDateTimeAMPM";
 
-    
-    /**
-     * Request attribute to store the current sandbox
-     */
     public static String SANDBOX_VAR = "blSandbox";
 
     @Resource(name = "blSandBoxDao")
@@ -72,15 +58,7 @@ public class BroadleafSandBoxResolverImpl implements BroadleafSandBoxResolver  {
     @Autowired(required = false)
     @Qualifier("blCrossAppAuthService")
     protected CrossAppAuthService crossAppAuthService;
-    
-    /**
-     * Determines the current sandbox based on other parameters on the request such as
-     * the blSandBoxId parameters.    
-     * 
-     * If the {@link #getSandBoxPreviewEnabled()}, then this method will not return a user
-     * SandBox. 
-     * 
-     */
+
     @Override
     public SandBox resolveSandBox(HttpServletRequest request, Site site) {
         return resolveSandBox(new ServletWebRequest(request), site);
@@ -158,13 +136,6 @@ public class BroadleafSandBoxResolverImpl implements BroadleafSandBoxResolver  {
         return currentSandbox;
     }
 
-    /**
-     * If another filter has already set the language as a request attribute, that will be honored.
-     * Otherwise, the request parameter is checked followed by the session attribute.
-     *
-     * @param request
-     * @return
-     */
     private Long lookupSandboxId(WebRequest request) {
         String sandboxIdStr = request.getParameter(SANDBOX_ID_VAR);
         Long sandboxId = null;
@@ -197,11 +168,6 @@ public class BroadleafSandBoxResolverImpl implements BroadleafSandBoxResolver  {
         return sandboxId;
     }
 
-    /**
-     * Allows a user in SandBox mode to override the current time and date being used by the system.
-     * 
-     * @param request
-     */
     private void setContentTime(WebRequest request) {
         String sandboxDateTimeParam = request.getParameter(SANDBOX_DATE_TIME_VAR);
         if (!sandBoxPreviewEnabled) {
@@ -264,12 +230,7 @@ public class BroadleafSandBoxResolverImpl implements BroadleafSandBoxResolver  {
         Date parsedDate = CONTENT_DATE_PARSE_FORMAT.parse(dateString);
         return parsedDate;
     }
-    
 
-    /**
-     * Sets whether or not the site can be viewed in preview mode.  
-     * @return
-     */
     public Boolean getSandBoxPreviewEnabled() {
         return sandBoxPreviewEnabled;
     }

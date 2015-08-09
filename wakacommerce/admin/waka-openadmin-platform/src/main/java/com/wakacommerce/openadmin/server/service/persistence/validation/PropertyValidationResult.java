@@ -3,10 +3,8 @@ package com.wakacommerce.openadmin.server.service.persistence.validation;
 
 
 /**
- * Empty DTO for now that just denotes that this validation error is from a property
  *
- *     
- * @see {@link PropertyValidator}
+ * @ hui
  */
 public class PropertyValidationResult extends GlobalValidationResult {
 

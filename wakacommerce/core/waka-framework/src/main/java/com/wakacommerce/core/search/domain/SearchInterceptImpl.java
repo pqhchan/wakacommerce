@@ -15,7 +15,8 @@ import javax.persistence.Id;
 
 
 /**
- * @deprecated Replaced in functionality by {@link SearchRedirectImpl}
+ *
+ * @ hui
  */
 @Deprecated
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="blStandardElements")

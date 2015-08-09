@@ -22,10 +22,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * This class works in combination with the SkuHandlerMapping which finds a category based upon
- * the passed in URL.
  *
- *  
+ * @ hui
  */
 public class BroadleafSkuController extends WakaAbstractController implements Controller, TemplateTypeAware {
     

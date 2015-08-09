@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * This class works in combination with the SkuHandlerMapping which finds a sku based upon
- * the passed in URL.
+ *
+ * @ hui
  */
 @Controller("blSkuController")
 public class SkuController extends BroadleafSkuController {

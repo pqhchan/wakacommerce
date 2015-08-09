@@ -5,8 +5,8 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 
- *  
+ *
+ * @ hui
  */
 public class AdminExporterDTO implements Serializable {
 

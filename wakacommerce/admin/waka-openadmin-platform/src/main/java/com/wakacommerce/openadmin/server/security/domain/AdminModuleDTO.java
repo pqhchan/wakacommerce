@@ -6,8 +6,7 @@ import java.util.List;
 
 /**
  *
- * 
- *
+ * @ hui
  */
 public class AdminModuleDTO implements AdminModule {
 

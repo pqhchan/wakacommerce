@@ -9,11 +9,8 @@ import com.wakacommerce.openadmin.web.rulebuilder.dto.FieldData;
 import com.wakacommerce.openadmin.web.rulebuilder.service.AbstractRuleBuilderFieldService;
 
 /**
- * An implementation of a RuleBuilderFieldService
- * that constructs metadata necessary
- * to build the supported fields for a Fulfillment Group entity
  *
- *  
+ * @ hui
  */
 @Service("blFulfillmentGroupFieldService")
 public class FulfillmentGroupFieldServiceImpl  extends AbstractRuleBuilderFieldService {

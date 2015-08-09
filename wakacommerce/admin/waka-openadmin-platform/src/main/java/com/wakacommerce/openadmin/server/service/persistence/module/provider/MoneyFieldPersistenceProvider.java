@@ -15,9 +15,8 @@ import java.util.Currency;
 import java.util.Locale;
 
 /**
- * Persistence provider capable of extracting friendly display values for Money fields
- * 
- * 
+ *
+ * @ hui
  */
 @Scope("prototype")
 @Component("blMoneyFieldPersistenceProvider")

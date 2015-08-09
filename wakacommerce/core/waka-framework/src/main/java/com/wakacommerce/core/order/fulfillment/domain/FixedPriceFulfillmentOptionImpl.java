@@ -24,8 +24,8 @@ import javax.persistence.Table;
 import java.math.BigDecimal;
 
 /**
- * 
- *  
+ *
+ * @ hui
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

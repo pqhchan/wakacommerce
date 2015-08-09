@@ -10,7 +10,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Service("blPersistenceManagerFactory")
 public class PersistenceManagerFactory implements ApplicationContextAware {

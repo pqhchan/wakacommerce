@@ -1,7 +1,8 @@
 package com.wakacommerce.common.presentation.client;
 
 /**
- * Define whether a new collection member is searched for or constructed.
+ *
+ * @ hui
  */
 public enum AddMethodType {
     PERSIST,

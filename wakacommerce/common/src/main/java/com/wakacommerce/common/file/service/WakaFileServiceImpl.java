@@ -218,11 +218,6 @@ public class WakaFileServiceImpl implements WakaFileService {
         return selectFileServiceProvider().addOrUpdateResourcesForPaths(workArea, files, removeFilesFromWorkArea);
     }
 
-    /**
-     * Returns the FileServiceProvider that can handle the passed in application type.
-     * 
-     * By default, this method returns the component configured at blFileServiceProvider
-     */
     protected FileServiceProvider selectFileServiceProvider() {
         return defaultFileServiceProvider;
     }
@@ -279,12 +274,6 @@ public class WakaFileServiceImpl implements WakaFileService {
         return baseDirectory;
     }
 
-    /**
-     * Adds the file to the passed in Collection.
-     * If the file is a directory, adds its children recursively.   Otherwise, just adds the file to the list.    
-     * @param file
-     * @param fileList
-     */
     protected void buildFileList(File file, Collection<File> fileList) {
         if (file.isDirectory()) {
             File[] children = file.listFiles();

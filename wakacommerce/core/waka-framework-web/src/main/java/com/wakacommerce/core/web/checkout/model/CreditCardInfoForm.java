@@ -6,16 +6,8 @@ package com.wakacommerce.core.web.checkout.model;
 import java.io.Serializable;
 
 /**
- * <p>Typically, clients will utilize 3rd party payment integrations as the final
- * checkout step. See documentation specific to the integration(s) you are using
- * (e.g. PayPal, Braintree, Cybersource). With some of these integrations, Credit Card
- * information is passed directly to the gateway, bypassing the Broadleaf Servers to ease
- * on PCI compliance. In that case, this form will NOT be used.</p>
  *
- * <p>This form can also be used for simple payment methods where only a paymentMethod and
- * amount is required.</p>
- *
- *  
+ * @ hui
  */
 public class CreditCardInfoForm implements Serializable {
 

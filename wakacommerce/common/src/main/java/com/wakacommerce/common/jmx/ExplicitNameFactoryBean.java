@@ -4,9 +4,8 @@ package com.wakacommerce.common.jmx;
 import org.springframework.beans.factory.FactoryBean;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public class ExplicitNameFactoryBean implements FactoryBean {
     

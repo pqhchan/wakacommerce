@@ -11,10 +11,6 @@ public class GenericResponse {
     private List<String> errorCodes = new ArrayList<String>();
     private Map<String, List<String>> errorCodeMap = new HashMap<String, List<String>>();
 
-    /**
-     * Returns true if
-     * @return
-     */
     public boolean getHasErrors() {
         return errorCodes.size() > 0;
     }

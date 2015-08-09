@@ -2,13 +2,8 @@
 package com.wakacommerce.core.order.service.call;
 
 /**
- * This DTO is used to bind multiship options in a way that doesn't require
- * the actual objects to be instantiated -- we handle that at the controller
- * level.
- * 
- * @see OrderMultishipOptionForm
- * 
- * 
+ *
+ * @ hui
  */
 public class OrderMultishipOptionDTO {
 

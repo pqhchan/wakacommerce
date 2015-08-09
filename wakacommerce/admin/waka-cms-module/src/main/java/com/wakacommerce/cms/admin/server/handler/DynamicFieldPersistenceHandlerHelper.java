@@ -25,8 +25,8 @@ import java.util.Map;
 
 
 /**
- * Commonalities between {@link PageTemplateCustomPersistenceHandler} and {@link StructuredContentTypeCustomPersistenceHandler}
- * since they share similar issues in regards to dynamic fields
+ *
+ * @ hui
  */
 @Component("blDynamicFieldPersistenceHandlerHelper")
 public class DynamicFieldPersistenceHandlerHelper {
@@ -88,15 +88,6 @@ public class DynamicFieldPersistenceHandlerHelper {
         return property;
     }
 
-    /**
-     * Builds all of the metadata for all of the dynamic properties within a {@link StructuredContentType}, gleaned from
-     * the {@link FieldGroup}s and {@link FieldDefinition}s.
-     * 
-     * @param fieldGroups groups that the {@link Property}s are built from
-     * @param inheritedType the value that each built {@link FieldMetadata} for each property will use to notate where the
-     * dynamic field actually came from (meaning {@link FieldMetadata#setAvailableToTypes(String[])} and {@link FieldMetadata#setInheritedFromType(String)}
-     * @return
-     */
     public Property[] buildDynamicPropertyList(List<FieldGroup> fieldGroups, Class<?> inheritedType) {
         List<Property> propertiesList = new ArrayList<Property>();
         int groupCount = 1;

@@ -14,9 +14,8 @@ import com.wakacommerce.common.presentation.AdminPresentationClass;
 import com.wakacommerce.common.presentation.AdminPresentationCollection;
 
 /**
- * CustomSiteMapGenerator is controlled by this configuration.
- * 
- * 
+ *
+ * @ hui
  */
 @Entity
 @Table(name = "BLC_CUST_SITE_MAP_GEN_CFG")

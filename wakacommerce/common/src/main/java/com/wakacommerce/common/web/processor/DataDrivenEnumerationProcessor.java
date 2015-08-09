@@ -19,25 +19,14 @@ import javax.annotation.Resource;
 
 
 /**
- * Processor that adds a list of {@link DataDriveEnumerationValue}s onto the model for a particular key.
- *  This will add a new variable on the model called 'enumValues'
  *
- * @param key (required) key for the {@link DataDrivenEnumeration} that the {@link DataDrivenEnumerationValue}s should be
- * apart of. This corresponds to {@link DataDrivenEnumeration#getKey()}.
- * 
- * @param sort (optional) <i>ASCENDING</i> or <i>DESCENDING</i> if the resulting values should be sorted by not. The sort will be on
- *          {@link DataDrivenEnumerationValue#getDisplay()}
- *
- *     
+ * @ hui
  */
 public class DataDrivenEnumerationProcessor extends AbstractModelVariableModifierProcessor {
 
     @Resource(name = "blDataDrivenEnumerationService")
     protected DataDrivenEnumerationService enumService;
-    
-    /**
-     * @param elementName
-     */
+
     public DataDrivenEnumerationProcessor() {
         super("enumeration");
     }

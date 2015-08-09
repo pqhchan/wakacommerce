@@ -7,7 +7,8 @@ import com.wakacommerce.common.extension.ExtensionManager;
 
 
 /**
- * ,  
+ *
+ * @ hui
  */
 @Service("blOrderServiceExtensionManager")
 public class OrderServiceExtensionManager extends ExtensionManager<OrderServiceExtensionHandler> {
@@ -16,9 +17,6 @@ public class OrderServiceExtensionManager extends ExtensionManager<OrderServiceE
         super(OrderServiceExtensionHandler.class);
     }
 
-    /**
-     * By default,this extension manager will continue on handled allowing multiple handlers to interact with the order.
-     */
     public boolean continueOnHandled() {
         return true;
     }

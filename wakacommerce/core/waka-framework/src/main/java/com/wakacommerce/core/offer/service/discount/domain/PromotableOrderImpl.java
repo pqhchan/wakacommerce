@@ -42,10 +42,6 @@ public class PromotableOrderImpl implements PromotableOrder {
         }
     }
 
-    /**
-     * Bring over the order adjustments.   Intended to be used when processing
-     * fulfillment orders.
-     */
     protected void createExistingOrderAdjustments() {
         if (order.getOrderAdjustments() != null) {
             for (OrderAdjustment adjustment : order.getOrderAdjustments()) {

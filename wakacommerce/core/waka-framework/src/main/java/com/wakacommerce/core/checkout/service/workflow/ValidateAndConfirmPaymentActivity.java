@@ -42,25 +42,13 @@ import javax.annotation.Resource;
 
 
 /**
- * <p>Verifies that there is enough payment on the order via the <i>successful</i> amount on {@link PaymentTransactionType.AUTHORIZE} and
- * {@link PaymentTransactionType.AUTHORIZE_AND_CAPTURE} transactions. This will also confirm any {@link PaymentTransactionType.UNCONFIRMED} transactions
- * that exist on am {@link OrderPayment}.</p>
- * 
- * <p>If there is an exception (either in this activity or later downstream) the confirmed payments are rolled back via {@link ConfirmPaymentsRollbackHandler}
  *
- *     
+ * @ hui
  */
 public class ValidateAndConfirmPaymentActivity extends BaseActivity<ProcessContext<CheckoutSeed>> {
     
     protected static final Log LOG = LogFactory.getLog(ValidateAndConfirmPaymentActivity.class);
-    
-    /**
-     * <p>
-     * Used by the {@link ConfirmPaymentsRollbackHandler} to roll back transactions that this activity confirms.
-     * 
-     * <p>
-     * This could also contain failed transactions that still need to be rolled back
-     */
+
     public static final String ROLLBACK_TRANSACTIONS = "confirmedTransactions";
     
     @Autowired(required = false)
@@ -93,20 +81,13 @@ public class ValidateAndConfirmPaymentActivity extends BaseActivity<ProcessConte
         // changed, the order payments need to be adjusted to reflect this and must add up to the order total.
         // This can happen in the case of PayPal Express or other hosted gateways where the unconfirmed payment comes back
         // to a review page, the customer selects shipping and the order total is adjusted.
-        
-        /**
-         * This list contains the additional transactions that were created to confirm previously unconfirmed transactions
-         * which can occur if you send credit card data directly to Broadlaef and rely on this activity to confirm
-         * that transaction
-         */
+
         Map<OrderPayment, PaymentTransaction> additionalTransactions = new HashMap<OrderPayment, PaymentTransaction>();
         List<ResponseTransactionPair> failedTransactions = new ArrayList<ResponseTransactionPair>();
         // Used for the rollback handler; we want to make sure that we roll back transactions that have already been confirmed
         // as well as transctions that we are about to confirm here
         List<PaymentTransaction> confirmedTransactions = new ArrayList<PaymentTransaction>();
-        /**
-         * This is a subset of the additionalTransactions that contains the transactions that were confirmed in this activity
-         */
+
         Map<OrderPayment, PaymentTransactionType> additionalConfirmedTransactions = new HashMap<OrderPayment, PaymentTransactionType>();
 
         for (OrderPayment payment : order.getPayments()) {
@@ -254,29 +235,10 @@ public class ValidateAndConfirmPaymentActivity extends BaseActivity<ProcessConte
         return context;
     }
 
-    /**
-     * <p>
-     * Default implementation is to throw a generic CheckoutException which will be caught and displayed
-     * on the Checkout Page where the Customer can try again. In many cases, this is
-     * sufficient as it is usually recommended to display a generic Error Message to prevent
-     * Credit Card fraud.
-     *
-     * <p>
-     * The configured payment gateway may return a more specific error.
-     * Each gateway is different and will often times return different error codes based on the acquiring bank as well.
-     * In that case, you may override this method to decipher these errors
-     * and handle it appropriately based on your business requirements.
-     *
-     * @param responseDTOs
-     */
     protected void handleUnsuccessfulTransactions(List<ResponseTransactionPair> failedTransactions, ProcessContext<CheckoutSeed> context) throws Exception {
         //The Response DTO was not successful confirming/authorizing a transaction.
         String msg = "Attempting to confirm/authorize an UNCONFIRMED transaction on the order was unsuccessful.";
-        
-        
-        /**
-         * For each of the failed transactions we might need to register state with the rollback handler
-         */
+
         List<OrderPayment> invalidatedPayments = new ArrayList<OrderPayment>();
         List<PaymentTransaction> failedTransactionsToRollBack = new ArrayList<PaymentTransaction>();
         for (ResponseTransactionPair responseTransactionPair : failedTransactions) {
@@ -289,13 +251,7 @@ public class ValidateAndConfirmPaymentActivity extends BaseActivity<ProcessConte
                 invalidatedPayments.add(payment);
             }
         }
-        
-        /**
-         * Even though the original transaction confirmation failed, there is still a possibility that we need to rollback
-         * the failure. The use case is in the case of fraud checks, some payment gateways complete the AUTHORIZE prior to
-         * executing the fraud check. Thus, the AUTHORIZE technically fails because of fraud but the user's card was still
-         * charged. This handles the case of rolling back the AUTHORIZE transaction in that case
-         */
+
         Map<String, Object> rollbackState = new HashMap<String, Object>(); 
         rollbackState.put(ROLLBACK_TRANSACTIONS, failedTransactionsToRollBack);
         ActivityStateManagerImpl.getStateManager().registerState(this, context, getRollbackHandler(), rollbackState);
@@ -356,14 +312,6 @@ public class ValidateAndConfirmPaymentActivity extends BaseActivity<ProcessConte
         }
     }
 
-    /**
-     * Default expiration date construction.
-     * Some Payment Gateways may require a different format. Override if necessary or set the property
-     * "gateway.config.global.expDateFormat" with a format string to provide the correct format for the configured gateway.
-     * @param expMonth
-     * @param expYear
-     * @return
-     */
     protected String constructExpirationDate(Integer expMonth, Integer expYear) {
         SimpleDateFormat sdf = new SimpleDateFormat(getGatewayExpirationDateFormat());
         DateTime exp = new DateTime()

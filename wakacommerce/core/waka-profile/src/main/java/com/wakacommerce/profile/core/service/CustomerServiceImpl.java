@@ -58,40 +58,17 @@ public class CustomerServiceImpl implements CustomerService {
     @Resource(name="blCustomerForgotPasswordSecurityTokenDao")
     protected CustomerForgotPasswordSecurityTokenDao customerForgotPasswordSecurityTokenDao;
 
-    /**
-     * <p>Set by {@link #setupPasswordEncoder()} if the blPasswordEncoder bean provided is the deprecated version.
-     *
-     * @deprecated Spring Security has deprecated this encoder interface, this will be removed in 4.2
-     */
     @Deprecated
     protected org.springframework.security.authentication.encoding.PasswordEncoder passwordEncoder;
 
-    /**
-     * <p>Set by {@link #setupPasswordEncoder()} if the blPasswordEncoder bean provided is the new version.
-     */
     protected PasswordEncoder passwordEncoderNew;
 
-    /**
-     * <p>This is simply a placeholder to be used by {@link #setupPasswordEncoder()} to determine if we're using the
-     * new {@link PasswordEncoder} or the deprecated {@link org.springframework.security.authentication.encoding.PasswordEncoder PasswordEncoder}
-     */
     @Resource(name="blPasswordEncoder")
     protected Object passwordEncoderBean;
-    
-    /**
-     * Optional password salt to be used with the passwordEncoder
-     *
-     * @deprecated utilize {@link #saltSource} instead so that it can be shared between this class as well as Spring's
-     * authentication manager, this will be removed in 4.2
-     */
+
     @Deprecated
     protected String salt;
-    
-    /**
-     * Use a Salt Source ONLY if there's one configured
-     *
-     * @deprecated the new {@link PasswordEncoder} handles salting internally, this will be removed in 4.2
-     */
+
     @Deprecated
     @Autowired(required=false)
     @Qualifier("blSaltSource")
@@ -122,16 +99,6 @@ public class CustomerServiceImpl implements CustomerService {
     protected List<PasswordUpdatedHandler> passwordResetHandlers = new ArrayList<PasswordUpdatedHandler>();
     protected List<PasswordUpdatedHandler> passwordChangedHandlers = new ArrayList<PasswordUpdatedHandler>();
 
-    /**
-     * <p>Sets either {@link #passwordEncoder} or {@link #passwordEncoderNew} based on the type of {@link #passwordEncoderBean}
-     * in order to provide bean configuration backwards compatibility with the deprecated {@link org.springframework.security.authentication.encoding.PasswordEncoder PasswordEncoder} bean.
-     *
-     * <p>{@link #passwordEncoderBean} is set by the bean defined as "blPasswordEncoder" and can be changed with {@link #setPasswordEncoder(Object)}.
-     *
-     * <p>This class will utilize either the new or deprecated PasswordEncoder type depending on which is not null.
-     *
-     * @throws NoSuchBeanDefinitionException if {@link #passwordEncoderBean} is null or not an instance of either PasswordEncoder
-     */
     @PostConstruct
     protected void setupPasswordEncoder() {
         passwordEncoderNew = null;
@@ -313,14 +280,6 @@ public class CustomerServiceImpl implements CustomerService {
         this.customerDao = customerDao;
     }
 
-    /**
-     * <p>Set the passwordEncoder to be used by this class.
-     *
-     * <p>This method will indirectly set one of the two PasswordEncoder member variables, depending on its type
-     * by calling {@link #setupPasswordEncoder()}
-     *
-     * @param passwordEncoder Either Spring Security's new {@link PasswordEncoder}, or the deprecated {@link org.springframework.security.authentication.encoding.PasswordEncoder PasswordEncoder}
-     */
     public void setPasswordEncoder(Object passwordEncoder) {
         this.passwordEncoderBean = passwordEncoder;
         setupPasswordEncoder();
@@ -342,15 +301,6 @@ public class CustomerServiceImpl implements CustomerService {
         return salt;
     }
 
-    /**
-     * Delegates to either the new {@link PasswordEncoder} or the deprecated {@link org.springframework.security.authentication.encoding.PasswordEncoder PasswordEncoder}.
-     *
-     * @deprecated the new {@link org.springframework.security.crypto.password.PasswordEncoder PasswordEncoder} handles salting internally, this will be removed in 4.2
-     *
-     * @param rawPassword the unencoded password
-     * @param salt the optional salt
-     * @return
-     */
     @Deprecated
     protected String encodePass(String rawPassword, Object salt) {
         if (usingDeprecatedPasswordEncoder()) {
@@ -371,16 +321,6 @@ public class CustomerServiceImpl implements CustomerService {
         return passwordEncoderNew.encode(rawPassword);
     }
 
-    /**
-     * Delegates to either the new {@link PasswordEncoder} or the deprecated {@link org.springframework.security.authentication.encoding.PasswordEncoder PasswordEncoder}.
-     *
-     * @deprecated the new {@link org.springframework.security.crypto.password.PasswordEncoder PasswordEncoder} handles salting internally, this will be removed in 4.2
-     *
-     * @param rawPassword the unencoded password
-     * @param encodedPassword the encoded password to compare rawPassword against
-     * @param salt the optional salt
-     * @return
-     */
     @Deprecated
     protected boolean isPassValid(String rawPassword, String encodedPassword, Object salt) {
         if (usingDeprecatedPasswordEncoder()) {

@@ -9,15 +9,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * <p>
- * Designed to specifically handle the merge of schemaLocation references. This takes any of the Spring XSD references
- * for particular Spring versions and replaces them with XSDs without a version reference. This allows the final XSD
- * reference to refer to the latest version of Spring, and reduces the need for modules to be updated with every Spring
- * update.
- * 
- * <p>
- * This will also prevents multiple XSD references that cause parse exceptions when the final XML file is presented to Spring
- * 
+ *
+ * @ hui
  */
 public class SchemaLocationNodeValueMerge extends SpaceDelimitedNodeValueMerge {
 
@@ -38,18 +31,7 @@ public class SchemaLocationNodeValueMerge extends SpaceDelimitedNodeValueMerge {
         }
         return finalItems;
     }
-    
-    /**
-     * <p>
-     * Sanitizes the given attribute value by stripping out the version number for the Spring XSDs.
-     * 
-     * <p>
-     * For example, given http://www.springframework.org/schema/beans/<b>spring-beans-4.1.xsd</b> this will return
-     * http://www.springframework.org/schema/beans/<b>spring-beans.xsd</b>
-     * 
-     * @param attributeValue the value of an xsi:schemaLocation attribute
-     * @return the given string with all of the Spring XSD version numbers stripped out.
-     */
+
     protected String getSanitizedValue(String attributeValue) {
         Pattern springVersionPattern = Pattern.compile("(spring-\\w*-[0-9]\\.[0-9]\\.xsd)");
         Matcher versionMatcher = springVersionPattern.matcher(attributeValue);

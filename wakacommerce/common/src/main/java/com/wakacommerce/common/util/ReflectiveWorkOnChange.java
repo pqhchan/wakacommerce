@@ -12,12 +12,8 @@ import java.util.Collection;
 import java.util.Map;
 
 /**
- * This WorkOnChange implementation is for a narrow case where the work to be done is simply calling a method on a target object
- * and passing to that method the changed collection. Of course, there must be a method with the correct signature on
- * the target object. This implementation also uses caching to optimize repeat searches for the same method and minimize
- * reflection time.
  *
- * 
+ * @ hui
  */
 public class ReflectiveWorkOnChange implements WorkOnChange {
 

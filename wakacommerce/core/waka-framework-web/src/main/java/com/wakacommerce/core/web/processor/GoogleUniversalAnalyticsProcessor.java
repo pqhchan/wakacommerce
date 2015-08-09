@@ -1,22 +1,4 @@
-/*
- * #%L
- * BroadleafCommerce Framework Web
- * %%
- * Copyright (C) 2009 - 2014 Broadleaf Commerce
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *       http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * #L%
- */
+
 package com.wakacommerce.core.web.processor;
 
 import org.apache.commons.collections.MapUtils;
@@ -53,48 +35,19 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * <p>
- * Takes advantage of the new-stype analytics.js from Google Analytics rather than the deprected ga.js. This also
- * supports a pre-processed <b>orderNumber</b> attribute that can be null, suitable for things like the order confirmation
- * page to send e-commerce transactions. Example usage:
- * 
- * <pre>
- * &lt;google_universal_analytics ordernumber="${order?.orderNumber" /&gt;
- * </pre>
- * 
- * <p>
- * This processor also supports:
- * <ul>
- *  <li>Multiple trackers (extensible via {@link #getTrackers()} or by setting the {@code googleAnalytics.masterWebPropertyId}
- *      and {@code googleAnalytics.webPropertyId})</li>
- *  <li>Affiliates for e-commerce ({@ googleAnalytics.affiliation property})</li>
- *  <li><a href="https://support.google.com/analytics/answer/2558867?hl=en&utm_id=ad">Link attribution</a>
- *      ({@code googleAnalytics.enableLinkAttribution} system property, default {@code true})</li>
- *  <li><a href="https://support.google.com/analytics/answer/3450482">Display Advertising</a>
- *      ({@code googleAnalytics.enableDisplayAdvertising} system property, default {@code false})</li>
- * </ul>
- * 
- * @param ordernumber the order number to look up for ecommerce tracking, such as on the confirmation page
- * 
- *     
+ *
+ * @ hui
  */
 public class GoogleUniversalAnalyticsProcessor extends AbstractElementProcessor {
 
     private static final Log LOG = LogFactory.getLog(GoogleUniversalAnalyticsProcessor.class);
 
-    /**
-     * Global value, intentionally only retrieved as a file property NOT via the system properties service
-     */
     @Value("${googleAnalytics.masterWebPropertyId}")
     protected String masterWebPropertyId;
     
     @Resource(name = "blOrderService")
     protected OrderService orderService;
-    
-    /**
-     * This will force the domain to 127.0.0.1 which is useful to determine if the Google Analytics tag is sending
-     * a request to Google
-     */
+
     @Value("${googleAnalytics.testLocal}")
     protected boolean testLocal = false;
     
@@ -195,10 +148,7 @@ public class GoogleUniversalAnalyticsProcessor extends AbstractElementProcessor 
         // Return OK
         return ProcessorResult.OK;
     }
-    
-    /**
-     * Grabs a map of trackers keyed by the tracker name with the analytics ID as the value
-     */
+
     protected Map<String, String> getTrackers() {
         Map<String, String> trackers = new HashMap<String, String>();
         if (shouldShowMasterTracker()) {
@@ -216,28 +166,14 @@ public class GoogleUniversalAnalyticsProcessor extends AbstractElementProcessor 
         return (StringUtils.isNotBlank(masterWebPropertyId) && (!"UA-XXXXXXX-X".equals(masterWebPropertyId)));
     }
 
-    /**
-     * Builds the linke attribution Javascript
-     * @param tracker the name of the tracker that is using the link attribution
-     * @return
-     */
     protected String getLinkAttributionJs(String trackerPrefix) {
         return "ga('" + trackerPrefix + "require', 'linkid', 'linkid.js');";
     }
-    
-    /**
-     * Builds the display advertising Javascript for the given tracker
-     * @param tracker
-     * @return
-     */
+
     protected String getDisplayAdvertisingJs(String trackerPrefix) {
         return "ga('" + trackerPrefix + "require', 'displayfeatures');";
     }
-    
-    /**
-     * Builds the transaction analytics for the given tracker name. Invokes {@link #getItemJs(Order, String) for each item
-     * in the given <b>order</b>.
-     */
+
     protected String getTransactionJs(Order order, String trackerPrefix) {
         StringBuffer sb = new StringBuffer();
         sb.append("ga('" + trackerPrefix + "require', 'ecommerce', 'ecommerce.js');");
@@ -282,13 +218,7 @@ public class GoogleUniversalAnalyticsProcessor extends AbstractElementProcessor 
         }
         return sb.toString();
     }
-    
-    /**
-     * Returns the product option values separated by a space if they are
-     * relevant for the item, or the product category if no options are available
-     * 
-     * @return
-     */
+
     protected String getVariation(OrderItem item) {
         if (MapUtils.isEmpty(item.getOrderItemAttributes())) {
             return item.getCategory() == null ? "" : item.getCategory().getName();

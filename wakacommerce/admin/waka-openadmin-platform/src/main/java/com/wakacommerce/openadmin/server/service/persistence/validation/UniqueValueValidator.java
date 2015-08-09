@@ -19,9 +19,8 @@ import com.wakacommerce.openadmin.server.service.persistence.PersistenceResponse
 
 
 /**
- * Checks for uniqueness of this field's value among other entities of this type
- * 
- *Brandon Smith
+ *
+ * @ hui
  */
 @Component("blUniqueValueValidator")
 public class UniqueValueValidator implements PropertyValidator {

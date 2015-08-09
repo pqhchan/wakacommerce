@@ -30,8 +30,8 @@ import com.wakacommerce.common.extensibility.context.ResourceInputStream;
 import com.wakacommerce.common.extensibility.context.merge.exceptions.MergeException;
 
 /**
- * <p>该类用来用来解析spring配置文件中的import元素。
- * <p>程序会动态的将import元素对应的资源加载进来，并且置于当前资源之后。同时，将该元素从源文件中删除。
+ *
+ * @ hui
  */
 public class ImportProcessor {
 
@@ -55,14 +55,6 @@ public class ImportProcessor {
         }
     }
 
-    /**
-     * 遍历sources资源数组，检查配置文件中有没有包含import元素。如果有的话，程序会将该import元素对应的
-     * 资源加载进来并置于资源数组当前source的后面。同时，将该import元素从source的源文件中删除
-     * 
-     * @param sources
-     * @return
-     * @throws MergeException
-     */
     public ResourceInputStream[] extract(ResourceInputStream[] sources) throws MergeException {
         if (sources == null) {
             return null;

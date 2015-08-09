@@ -2,9 +2,8 @@
 package com.wakacommerce.common.presentation;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public class NullBroadleafEnumerationType {
 

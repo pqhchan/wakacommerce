@@ -20,8 +20,8 @@ import java.util.Set;
 import javax.annotation.Resource;
 
 /**
- * This component allows for the default provisioning of an AdminUser and roles in the Broadleaf database, based on the 
- * external authentication of a user (e.g. LDAP or custom external authentication provider).
+ *
+ * @ hui
  */
 @Service("blAdminUserProvisioningService")
 public class AdminUserProvisioningServiceImpl implements AdminUserProvisioningService {
@@ -134,22 +134,6 @@ public class AdminUserProvisioningServiceImpl implements AdminUserProvisioningSe
         return new AdminUserDetails(adminUser.getId(), details.getUsername(), "", true, true, true, true, newAuthorities);
     }
 
-    /**
-     * This allows you to declaratively set a map containing values that will substitute role names from LDAP to Broadleaf roles names in cases that they might be different.
-     * For example, if you have a role specified in LDAP under "memberOf" with a DN of "Marketing Administrator", you might want to
-     * map that to the role "ADMIN".  By default the prefix "ROLE_" will be pre-pended to this name. So to configure this, you would specify:
-     *
-     * <bean class="com.wakacommerce.loadtest.web.security.ActiveDirectoryUserDetailsContextMapper">
-     *     <property name="roleMappings">
-     *         <map>
-     *             <entry key="Marketing_Administrator" value="ROLE_CATALOG_ADMIN"/>
-     *         </map>
-     *     </property>
-     * </bean>
-     *
-     * With this configuration, all roles returned by LDAP that have a DN of "Marketing Administrator" will be converted to "ADMIN"
-     * @param roleNameSubstitutions
-     */
     public void setRoleNameSubstitutions(Map<String, String[]> roleNameSubstitutions) {
         this.roleNameSubstitutions = roleNameSubstitutions;
     }

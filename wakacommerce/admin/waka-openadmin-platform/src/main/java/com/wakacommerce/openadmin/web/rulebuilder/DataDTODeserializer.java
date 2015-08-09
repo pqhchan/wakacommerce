@@ -18,7 +18,8 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- *  
+ *
+ * @ hui
  */
 public class DataDTODeserializer extends StdDeserializer<DataDTO> {
 
@@ -87,10 +88,7 @@ public class DataDTODeserializer extends StdDeserializer<DataDTO> {
             return dataDTO;
         }
     }
-    
-    /**
-     * Handles the string "null" when using asText() in a JsonNode and returns the literal null instead
-     */
+
     protected String getNullAwareText(JsonNode node) {
         return "null".equals(node.asText()) ? null : node.asText();
     }

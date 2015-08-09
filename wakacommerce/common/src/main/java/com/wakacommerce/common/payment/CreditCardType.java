@@ -8,10 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extendible enumeration of credit card types.
- * 
- *  
  *
+ * @ hui
  */
 public class CreditCardType implements Serializable, WakaEnumType {
 

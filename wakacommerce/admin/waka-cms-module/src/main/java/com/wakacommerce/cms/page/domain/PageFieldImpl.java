@@ -31,7 +31,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- *   
+ *
+ * @ hui
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

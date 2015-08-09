@@ -2,7 +2,8 @@
 package com.wakacommerce.openadmin.server.service.type;
 
 /**
- * The CRUD type requested by the admin
+ *
+ * @ hui
  */
 public enum ChangeType {
     ADD,

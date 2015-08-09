@@ -4,8 +4,8 @@ package com.wakacommerce.common.currency.domain;
 import java.io.Serializable;
 
 /**
- * Author: jerryocanas
- * Date: 9/6/12
+ *
+ * @ hui
  */
 public interface BroadleafCurrency extends Serializable {
 

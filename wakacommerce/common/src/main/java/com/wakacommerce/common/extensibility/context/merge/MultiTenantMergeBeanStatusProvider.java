@@ -5,10 +5,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 /**
- * This {@link MergeBeanStatusProvider} can be utilized by modules that are trying to provide functionality that 
- * is only required when MultiTenant is loaded.
- * 
- * 
+ *
+ * @ hui
  */
 @Component("blMultiTenantMergeBeanStatusProvider")
 public class MultiTenantMergeBeanStatusProvider implements MergeBeanStatusProvider {

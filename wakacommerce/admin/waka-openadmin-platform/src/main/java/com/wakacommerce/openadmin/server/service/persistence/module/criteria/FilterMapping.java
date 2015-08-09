@@ -10,7 +10,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class FilterMapping {
 

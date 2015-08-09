@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * This class serves up the Robots.txt file. The default contents can be overridden by 
- * adding a Page named "/robots.txt" in the BLC admin or DB. 
+ *
+ * @ hui
  */
 public class WakaRobotsController {
 
@@ -58,12 +58,6 @@ public class WakaRobotsController {
         return secure;
     }
 
-    /**
-     * Used to produce a working but simple robots.txt.    Can be overridden in code or by defining a page
-     * managed in the Broadleaf CMS named  "/robots.txt"
-     * 
-     * @return
-     */
     protected String getDefaultRobotsTxt() {
         StringBuilder sb = new StringBuilder();
         sb.append("# Using default Broadleaf Commerce robots.txt file").append("\n");
@@ -75,11 +69,6 @@ public class WakaRobotsController {
         return sb.toString();
     }
 
-    /**
-    *
-    * @param request
-    * @return
-    */
     private Map<String, Object> buildMvelParameters(HttpServletRequest request) {
         TimeDTO timeDto = new TimeDTO(SystemTime.asCalendar());
         RequestDTO requestDto = (RequestDTO) request.getAttribute(REQUEST_DTO);

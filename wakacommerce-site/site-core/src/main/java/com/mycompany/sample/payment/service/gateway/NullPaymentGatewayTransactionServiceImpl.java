@@ -15,18 +15,8 @@ import com.wakacommerce.common.payment.service.PaymentGatewayTransactionService;
 import com.wakacommerce.common.vendor.service.exception.PaymentException;
 
 /**
- * This is an example implementation of a {@link com.wakacommerce.common.payment.service.PaymentGatewayTransactionService}.
- * This handles the scenario where the implementation is PCI-Compliant and
- * the server directly handles the Credit Card PAN. If so, this service should make
- * a server to server call to charge the card against the configured gateway.
  *
- * In order to use load this demo service, you will need to component scan
- * the package "com.mycompany.sample".
- *
- * This should NOT be used in production, and is meant solely for demonstration
- * purposes only.
- *
- *  
+ * @ hui
  */
 @Service("blNullPaymentGatewayTransactionService")
 public class NullPaymentGatewayTransactionServiceImpl implements PaymentGatewayTransactionService {
@@ -68,13 +58,6 @@ public class NullPaymentGatewayTransactionServiceImpl implements PaymentGatewayT
         throw new PaymentException("The void method is not supported for this module");
     }
 
-    /**
-     * Does minimal Credit Card Validation (luhn check and expiration date is after today).
-     * Mimics the Response of a real Payment Gateway.
-     *
-     * @param creditCardDTO
-     * @return
-     */
     protected PaymentResponseDTO commonCreditCardProcessing(PaymentRequestDTO requestDTO, PaymentTransactionType paymentTransactionType) {
         PaymentResponseDTO responseDTO = new PaymentResponseDTO(PaymentType.CREDIT_CARD, NullPaymentGatewayType.NULL_GATEWAY);
         responseDTO.valid(true)

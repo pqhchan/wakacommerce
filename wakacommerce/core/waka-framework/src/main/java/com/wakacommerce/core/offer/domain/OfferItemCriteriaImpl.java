@@ -26,9 +26,8 @@ import javax.persistence.Lob;
 import javax.persistence.Table;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 @Entity
 @Table(name = "BLC_OFFER_ITEM_CRITERIA")

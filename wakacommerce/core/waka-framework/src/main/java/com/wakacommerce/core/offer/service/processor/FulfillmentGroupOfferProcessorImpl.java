@@ -30,9 +30,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 
- *  
- * 
+ *
+ * @ hui
  */
 @Service("blFulfillmentGroupOfferProcessor")
 public class FulfillmentGroupOfferProcessorImpl extends OrderOfferProcessorImpl implements FulfillmentGroupOfferProcessor {

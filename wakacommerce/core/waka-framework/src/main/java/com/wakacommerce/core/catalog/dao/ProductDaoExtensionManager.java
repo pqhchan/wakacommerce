@@ -6,7 +6,8 @@ import org.springframework.stereotype.Service;
 import com.wakacommerce.common.extension.ExtensionManager;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Service("blProductDaoExtensionManager")
 public class ProductDaoExtensionManager extends ExtensionManager<ProductDaoExtensionHandler> {

@@ -5,14 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * If a service extension using the {@link ExtensionManager} pattern expects a result from the extension, it should
- * pass in an instance of this class into the method call.   
- * 
- * The extension points can examine or update this class with response information and set a single return value with
- * {@link #setResult(Object)} or add values via the contextMap provided with {@link #getContextMap()}
- * 
- * 
  *
+ * @ hui
  */
 public class ExtensionResultHolder<T> {
 

@@ -18,20 +18,14 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * A Thymeleaf processor that processes the given url through the StaticAssetService's
- * {@link StaticAssetService#convertAssetPath(String, String, boolean)} method to determine
- * the appropriate URL for the asset to be served from.
- * 
- *  
+ *
+ * @ hui
  */
 public class UrlRewriteProcessor extends AbstractAttributeModifierAttrProcessor {
     
     @Resource(name = "blStaticAssetPathService")
     protected StaticAssetPathService staticAssetPathService;
 
-    /**
-     * Sets the name of this processor to be used in Thymeleaf template
-     */
     public UrlRewriteProcessor() {
         this("src");
     }
@@ -44,10 +38,7 @@ public class UrlRewriteProcessor extends AbstractAttributeModifierAttrProcessor 
     public int getPrecedence() {
         return 1000;
     }
-    
-    /**
-     * @return true if the current request.scheme = HTTPS or if the request.isSecure value is true.
-     */
+
     protected boolean isRequestSecure(HttpServletRequest request) {
         return ("HTTPS".equalsIgnoreCase(request.getScheme()) || request.isSecure());
     } 

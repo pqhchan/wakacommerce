@@ -15,9 +15,8 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 /**
- * 
- * 
  *
+ * @ hui
  */
 @Repository("blCustomerForgotPasswordSecurityTokenDao")
 public class CustomerForgotPasswordSecurityTokenDaoImpl implements CustomerForgotPasswordSecurityTokenDao {

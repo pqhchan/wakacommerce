@@ -5,7 +5,8 @@ package com.mycompany.sample.vendor.nullPaymentGateway.service.payment;
 import com.wakacommerce.common.payment.PaymentGatewayType;
 
 /**
- *  
+ *
+ * @ hui
  */
 public class NullPaymentGatewayType extends PaymentGatewayType {
 

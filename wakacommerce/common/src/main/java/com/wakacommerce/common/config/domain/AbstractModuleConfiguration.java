@@ -33,9 +33,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 /**
- * Modules that need to be configured via the database should extend this.  Classes that
- * extend this MUST call setModuleConfigurationType(ModuleConfigurationType type) in their
- * constructor.
+ *
+ * @ hui
  */
 @Entity
 @Table(name = "BLC_MODULE_CONFIGURATION")
@@ -151,9 +150,6 @@ public abstract class AbstractModuleConfiguration implements ModuleConfiguration
         this.isDefault = isDefault;
     }
 
-    /**
-     * Subclasses of this must set the ModuleConfigType in their constructor.
-     */
     protected void setModuleConfigurationType(ModuleConfigurationType moduleConfigurationType) {
         this.configType = moduleConfigurationType.getType();
     }

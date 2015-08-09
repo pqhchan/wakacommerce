@@ -7,13 +7,8 @@ import java.util.List;
 import com.wakacommerce.core.order.service.call.OrderMultishipOptionDTO;
 
 /**
- * This form is used to bind multiship options in a way that doesn't require
- * the actual objects to be instantiated -- we handle that at the controller
- * level.
- * 
- * @see OrderMultishipOptionDTO
- * 
- * 
+ *
+ * @ hui
  */
 public class OrderMultishipOptionForm implements Serializable {
 

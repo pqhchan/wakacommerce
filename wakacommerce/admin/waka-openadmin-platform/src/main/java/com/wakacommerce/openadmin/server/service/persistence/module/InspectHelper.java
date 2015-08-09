@@ -10,9 +10,8 @@ import com.wakacommerce.openadmin.dto.PersistencePerspective;
 import java.util.Map;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public interface InspectHelper {
 

@@ -9,7 +9,8 @@ import com.wakacommerce.core.search.redirect.domain.SearchRedirect;
 import javax.annotation.Resource;
 
 /**
- * Created by ppatel.
+ *
+ * @ hui
  */
 @Service("blSearchRedirectService")
 public class SearchRedirectServiceImpl implements SearchRedirectService {
@@ -18,14 +19,6 @@ public class SearchRedirectServiceImpl implements SearchRedirectService {
     @Resource(name = "blSearchRedirectDao")
     protected SearchRedirectDao SearchRedirectDao;
 
-
-    /**
-     * Checks the passed in URL to determine if there is a matching
-     * SearchRedirect. Returns null if no handler was found.
-     * 
-     * @param uri
-     * @return
-     */
     @Override
     public SearchRedirect findSearchRedirectBySearchTerm(String uri) {
 

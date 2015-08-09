@@ -254,9 +254,6 @@ public class FulfillmentGroupImpl implements FulfillmentGroup, CurrencyCodeIdent
     @Index(name="FG_ADDRESS_INDEX", columnNames={"ADDRESS_ID"})
     protected Address address;
 
-    /**
-     * @deprecated uses the phonePrimary property on AddressImpl instead
-     */
     @ManyToOne(targetEntity = PhoneImpl.class, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "PHONE_ID")
     @Index(name="FG_PHONE_INDEX", columnNames={"PHONE_ID"})
@@ -390,18 +387,12 @@ public class FulfillmentGroupImpl implements FulfillmentGroup, CurrencyCodeIdent
         this.address = address;
     }
 
-    /**
-     * @deprecated use the phonePrimary property on the related Address instead
-     */
     @Deprecated
     @Override
     public Phone getPhone() {
         return phone;
     }
 
-    /**
-     * @deprecated use the phonePrimary property on the related Address instead
-     */
     @Deprecated
     @Override
     public void setPhone(Phone phone) {

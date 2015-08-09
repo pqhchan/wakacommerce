@@ -2,17 +2,8 @@ package com.wakacommerce.openadmin.web.form.component;
 
 
 /**
- * Convenience class to deal with the common actions on most list grids. If you are using one of these static variables
- * as a base for a new action, <b>do not modify them directly</b> or your changes will persist for the remainder of the
- * application. Instead, use the clone() method from {@link ListGridAction}. For instance:
- * 
- * <pre>
- *  {@code
- *  ListGridAction newAddAction = DefaultListGridActions.ADD.clone().withDisplayText("New Add Text");
- *  }
- * </pre>
- *  
- * @see {@link ListGridAction#clone()}
+ *
+ * @ hui
  */
 public class DefaultListGridActions {
     

@@ -11,9 +11,8 @@ import com.wakacommerce.core.offer.domain.OfferItemCriteria;
 import com.wakacommerce.core.offer.service.discount.domain.PromotableOrderItem;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public class CandidatePromotionItems {
     

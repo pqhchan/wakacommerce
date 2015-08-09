@@ -51,10 +51,6 @@ public class PromotableCandidateItemOfferImpl extends AbstractPromotionRounding 
         return savings.multiply(qtyToReceiveSavings);
     }
 
-    /**
-     * Returns the number of items that potentially could be targets for the offer.   Due to combination or bogo
-     * logic, they may not all get the tiered offer price.
-     */
     @Override
     public int calculateTargetQuantityForTieredOffer() {
         int returnQty = 0;
@@ -100,10 +96,6 @@ public class PromotableCandidateItemOfferImpl extends AbstractPromotionRounding 
         return (offer.getQualifyingItemCriteriaXref() != null && !offer.getQualifyingItemCriteriaXref().isEmpty());
     }
 
-    /**
-     * Determines the maximum number of times this promotion can be used based on the
-     * ItemCriteria and promotion's maxQty setting.
-     */
     @Override
     public int calculateMaximumNumberOfUses() {     
         int maxMatchesFound = 9999; // set arbitrarily high / algorithm will adjust down

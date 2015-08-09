@@ -4,9 +4,8 @@ package com.wakacommerce.openadmin.dto;
 import com.wakacommerce.openadmin.dto.visitor.PersistencePerspectiveItemVisitor;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public class AdornedTargetList implements PersistencePerspectiveItem {
 

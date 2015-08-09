@@ -1,4 +1,3 @@
-
 package com.wakacommerce.admin.server.service.handler;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -57,7 +56,8 @@ import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Component("blProductCustomPersistenceHandler")
 public class ProductCustomPersistenceHandler extends CustomPersistenceHandlerAdapter {
@@ -221,12 +221,6 @@ public class ProductCustomPersistenceHandler extends CustomPersistenceHandlerAda
         helper.getCompatibleModule(OperationType.BASIC).remove(persistencePackage);
     }
 
-    /**
-     * If the pricing model is of type item_sum, that property should not be required
-     * @param adminInstance
-     * @param adminProperties
-     * @param entity
-     */
     protected void removeBundleFieldRestrictions(ProductBundle adminInstance, Map<String, FieldMetadata> adminProperties, Entity entity) {
         //no required validation for product bundles
         if (entity.getPMap().get("pricingModel") != null) {

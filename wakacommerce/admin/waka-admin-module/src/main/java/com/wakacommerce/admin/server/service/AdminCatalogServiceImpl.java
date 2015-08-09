@@ -27,9 +27,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 @Service("blAdminCatalogService")
 public class AdminCatalogServiceImpl implements AdminCatalogService {
@@ -117,14 +116,7 @@ public class AdminCatalogServiceImpl implements AdminCatalogService {
         }
         return false;
     }
-    
-    /**
-     * Generates all the possible permutations for the combinations of given ProductOptions
-     * @param currentTypeIndex
-     * @param currentPermutation
-     * @param options
-     * @return a list containing all of the possible combinations of ProductOptionValues based on grouping by the ProductOptionValue
-     */
+
     public List<List<ProductOptionValue>> generatePermutations(int currentTypeIndex, List<ProductOptionValue> currentPermutation, List<ProductOption> options) {
         List<List<ProductOptionValue>> result = new ArrayList<List<ProductOptionValue>>();
         if (currentTypeIndex == options.size()) {

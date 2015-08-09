@@ -22,29 +22,8 @@ import com.wakacommerce.common.structure.dto.StructuredContentDTO;
 import com.wakacommerce.common.time.SystemTime;
 
 /**
- * Tag used to display structured content that is maintained with the Broadleaf CMS.
  *
- * Usage based on the following attributes:<br>
- * <ul>
- *     <li>contentType (required) - specifies the content you are retrieving</li>
- *     <li>contentName - if included will retrieve only content that matches the name.   When no name is specified,
- *                       all matching content items of the passed in type are retrieved.</li>
- *     <li>count - if specified limits the results to a specified number of items.   The content will be returned
- *                 according to priority.   If content items share the same priority, then they will be returned
- *                 randomly.  Consider the example with 5 matching items with priorities (1,2,3,3,3) respectively.  If
- *                 the count is set to 3.   Items 1 and 2 will ALWAYS be returned.   The third item returned will
- *                 randomy rotate through the 3rd, 4th, and 5th item.
- *     </li>
- *     <li>contentListVar - allows you to specify an alternate name for the list of content results.   By default,
- *                          the results are returned in the page attributed "contentList"</li>
- *     <li>contentItemVar - since a typical usage is to only return one item, the first item is returned in the
- *                          variable "contentItem".   This variable can be used to change the attribute name.</li>
- *     <li>numResultsVar  - variable holding the returns the number of results being returned to through the tag-lib.
- *                          defaults to "numResults".</li>
- *     <li>locale         - the locale being targeted for the content.   Defaults to locale that exists in
- *                          the requestAttribute "blLocale".   This is typically setup through Broadleaf's
- *                          ProcessURLFilter.</li>
- * </ul>
+ * @ hui
  */
 public class DisplayContentTag extends BodyTagSupport {
     private static final long serialVersionUID = 1L;
@@ -70,14 +49,6 @@ public class DisplayContentTag extends BodyTagSupport {
         initVariables();
     }
 
-
-    /**
-     * MVEL is used to process the content targeting rules.
-     *
-     *
-     * @param request
-     * @return
-     */
     private Map<String,Object> buildMvelParameters(HttpServletRequest request) {
         TimeDTO timeDto = new TimeDTO(SystemTime.asCalendar());
         RequestDTO requestDto = (RequestDTO) request.getAttribute(REQUEST_DTO);

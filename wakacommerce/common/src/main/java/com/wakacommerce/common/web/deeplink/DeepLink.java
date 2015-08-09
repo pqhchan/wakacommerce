@@ -2,10 +2,8 @@
 package com.wakacommerce.common.web.deeplink;
 
 /**
- * DTO Class that contains enough information to allow the client site application to generate
- * the necessary information for a link to an admin screen
- * 
- * 
+ *
+ * @ hui
  */
 public class DeepLink {
 

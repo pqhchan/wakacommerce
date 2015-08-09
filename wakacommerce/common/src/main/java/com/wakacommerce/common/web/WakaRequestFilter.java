@@ -84,12 +84,6 @@ public class WakaRequestFilter extends OncePerRequestFilter {
         }
     }
 
-    /**
-     * 该过滤器默认不处理任何后台管理系统的URL、service调用以及mime-type类型为image/digital的请求
-     * 
-     * @param request
-     * @param requestURI
-     */
     protected boolean shouldProcessURL(HttpServletRequest request, String requestURI) {
         if (requestURI.contains(BLC_ADMIN_GWT) || requestURI.endsWith(BLC_ADMIN_SERVICE) || requestURI.contains(BLC_ADMIN_PREFIX)) {
             if (LOG.isTraceEnabled()) {

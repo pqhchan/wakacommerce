@@ -14,17 +14,8 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 /**
- * This is an example implementation of a {@link PaymentGatewayHostedService}.
- * This is just a sample that mimics what URL a real hosted payment gateway implementation
- * might generate. This mimics implementations like PayPal Express Checkout
  *
- * In order to use load this demo service, you will need to component scan
- * the package "com.mycompany.sample".
- *
- * This should NOT be used in production, and is meant solely for demonstration
- * purposes only.
- *
- *  
+ * @ hui
  */
 @Service("blNullPaymentGatewayHostedService")
 public class NullPaymentGatewayHostedServiceImpl implements PaymentGatewayHostedService {

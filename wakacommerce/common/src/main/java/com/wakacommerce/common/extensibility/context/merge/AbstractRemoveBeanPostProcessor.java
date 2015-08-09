@@ -19,31 +19,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 /**
- * <p>
- * Contains useful processing code for merge bean post processors. The BeanPostProcessor instances can
- * be used to remove collection members from collections declared elsewhere. In effect, this allows
- * an implementer to remove a bean that was declared in a collection (list, set or map) or previously merged
- * via LateStageMergeBeanPostProcessor or EarlyStageMergeBeanPostProcessor.
- * </p>
- * <p>
- * This code demonstrates using one of the concrete implementations, {@link LateStageRemoveBeanPostProcessor}. The
- * basic usage pattern is to specify the id of the member you want to remove (beanRef) and the id
- * of the pre-existing, target collection (targetRef) that should receive the removal. The collection
- * can be represented using ListFactoryBean, SetFactoryBean or MapFactoryBean. For MapFactoryBeans, use either the
- * mapKey or mapKeyRef property instead to reference the map item to remove.
- * </p>
- * <pre>
- * {@code
- * <bean class="com.wakacommerce.common.extensibility.context.merge.LateStageRemoveBeanPostProcessor">
- *  <property name="beanRef" value="myBean"/>
- *  <property name="targetRef" value="targetCollection"/>
- * </bean>
- * }
- * </pre>
  *
- * @see LateStageRemoveBeanPostProcessor
- * @see EarlyStageRemoveBeanPostProcessor
- * 
+ * @ hui
  */
 public abstract class AbstractRemoveBeanPostProcessor implements BeanPostProcessor, ApplicationContextAware {
 

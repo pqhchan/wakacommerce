@@ -10,8 +10,8 @@ import com.wakacommerce.core.pricing.service.FulfillmentPricingService;
 import com.wakacommerce.core.pricing.service.fulfillment.provider.BandedFulfillmentPricingProvider;
 
 /**
- * @deprecated Superceded in functionality by {@link BandedPriceFulfillmentOption} and {@link BandedFulfillmentPricingProvider}
- * @see {@link FulfillmentOption}, {@link FulfillmentPricingService}
+ *
+ * @ hui
  */
 @Deprecated
 public interface ShippingRateDao {

@@ -479,20 +479,12 @@ public class OrderItemImpl implements OrderItem, Cloneable, AdminMainEntity, Cur
         assignFinalPrice();
         return removedAdjustmentCount;
     }
-    
-    /**
-     * A list of arbitrary attributes added to this item.
-     */
+
     @Override
     public Map<String,OrderItemAttribute> getOrderItemAttributes() {
         return orderItemAttributeMap;
     }
 
-    /**
-     * Sets the map of order item attributes.
-     *
-     * @param orderItemAttributes
-     */
     @Override
     public void setOrderItemAttributes(Map<String,OrderItemAttribute> orderItemAttributes) {
         this.orderItemAttributeMap = orderItemAttributes;

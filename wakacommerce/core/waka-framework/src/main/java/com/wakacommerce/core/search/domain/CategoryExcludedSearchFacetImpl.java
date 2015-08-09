@@ -32,9 +32,6 @@ import java.math.BigDecimal;
 })
 public class CategoryExcludedSearchFacetImpl implements CategoryExcludedSearchFacet, Serializable {
 
-    /**
-     * 
-     */
     private static final long serialVersionUID = 1L;
 
     @Id

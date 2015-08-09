@@ -7,11 +7,8 @@ import java.util.List;
 import com.wakacommerce.core.order.service.call.ActivityMessageDTO;
 
 /**
- * 
- * Default ProcessContext implementation
- *"Priyesh Patel"
  *
- * @param <T> SeedData
+ * @ hui
  */
 
 public class DefaultProcessContextImpl<T> implements ProcessContext<T>, ActivityMessages {

@@ -15,12 +15,8 @@ import java.util.List;
 
 
 /**
- * Abstract implementatino of {@link AdminAbstractControllerExtensionHandler}.
- * 
- * Individual implementations of this extension handler should subclass this class as it will allow them to 
- * only override the methods that they need for their particular scenarios.
- * 
- * 
+ *
+ * @ hui
  */
 public class AbstractAdminAbstractControllerExtensionHandler extends AbstractExtensionHandler implements AdminAbstractControllerExtensionHandler {
 

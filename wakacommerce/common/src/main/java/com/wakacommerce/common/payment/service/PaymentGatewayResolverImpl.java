@@ -7,10 +7,8 @@ import org.springframework.web.context.request.WebRequest;
 import com.wakacommerce.common.payment.PaymentGatewayType;
 
 /**
- * Default Resolver implementation. Extensions and modules can override this to provide
- * more exotic scenarios on which PaymentGateway should be used.
  *
- *  
+ * @ hui
  */
 @Service("blPaymentGatewayResolver")
 public class PaymentGatewayResolverImpl implements PaymentGatewayResolver {

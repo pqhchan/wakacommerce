@@ -46,7 +46,8 @@ import com.wakacommerce.openadmin.server.security.remote.SecurityVerifier;
 import com.wakacommerce.openadmin.server.security.service.AdminSecurityService;
 
 /**
- * @see {@link WakaRequestFilter}
+ *
+ * @ hui
  */
 @Component("blAdminRequestProcessor")
 public class WakaAdminRequestProcessor extends AbstractWakaWebRequestProcessor {

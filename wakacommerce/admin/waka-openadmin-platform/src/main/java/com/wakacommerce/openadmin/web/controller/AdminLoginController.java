@@ -32,13 +32,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * AdminLoginController handles login related needs for the BLC admin including:
- * <ul>
- *     <li>Forgot Password</li>
- *     <li>Forgot Username</li>
- *     <li>Reset Password</li>
- * </ul>
  *
+ * @ hui
  */
 @Controller("blAdminLoginController")
 public class AdminLoginController extends WakaAbstractController {

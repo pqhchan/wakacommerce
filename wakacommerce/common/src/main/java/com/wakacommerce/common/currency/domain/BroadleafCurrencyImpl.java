@@ -20,7 +20,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 /**
- * Author: jerryocanas Date: 9/6/12
+ *
+ * @ hui
  */
 
 @Entity

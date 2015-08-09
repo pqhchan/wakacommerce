@@ -8,14 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Base abstract ApplicationEvent that provides a marker for Broadleaf events and provides a default 
- * context map. 
- * 
- * @see <code>com.wakacommerce.common.event.BroadleafApplicationEventMultiCaster</code>
- * @see <code>com.wakacommerce.common.event.BroadleafApplicationListener</code>
- * 
- *  
  *
+ * @ hui
  */
 public abstract class BroadleafApplicationEvent extends ApplicationEvent {
 

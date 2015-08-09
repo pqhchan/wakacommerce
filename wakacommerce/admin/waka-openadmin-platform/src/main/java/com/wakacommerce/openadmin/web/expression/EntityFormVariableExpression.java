@@ -6,9 +6,8 @@ import com.wakacommerce.openadmin.web.form.entity.EntityForm;
 import com.wakacommerce.openadmin.web.form.entity.Tab;
 
 /**
- * A {@link BroadleafVariableExpression} that assists with operations for Thymeleaf-layer operations on entity forms.
- * 
- * 
+ *
+ * @ hui
  */
 public class EntityFormVariableExpression implements BroadleafVariableExpression {
     

@@ -12,9 +12,8 @@ import java.util.List;
 import javax.annotation.Resource;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 @Service("blShippingOfferService")
 public class ShippingOfferServiceImpl implements ShippingOfferService {

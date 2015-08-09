@@ -23,7 +23,8 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Service("bli18nUpdateCartServiceExtensionHandler")
 public class i18nUpdateCartServiceExtensionHandler extends AbstractUpdateCartServiceExtensionHandler
@@ -48,17 +49,6 @@ public class i18nUpdateCartServiceExtensionHandler extends AbstractUpdateCartSer
         }
     }
 
-    /**
-     * If the locale of the cart does not match the current locale, then this extension handler will
-     * attempt to translate the order items.  
-     * 
-     * The property "clearCartOnLocaleSwitch" can be set to true if the implementation desires to 
-     * create a new cart when the locale is switched (3.0.6 and prior behavior).
-     * 
-     * @param cart
-     * @param resultHolder
-     * @return
-     */
     public ExtensionResultStatusType updateAndValidateCart(Order cart, ExtensionResultHolder resultHolder) {
         if (WakaRequestContext.hasLocale()) {
             WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();

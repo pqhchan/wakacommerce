@@ -21,11 +21,8 @@ import com.wakacommerce.common.web.WakaRequestContext;
 import javax.annotation.Resource;
 
 /**
- * Service that retrieves property settings from the database.   If not set in 
- * the DB then returns the value from property files.
- *  
- * 
  *
+ * @ hui
  */
 @Service("blSystemPropertiesService")
 public class SystemPropertiesServiceImpl implements SystemPropertiesService{
@@ -111,13 +108,6 @@ public class SystemPropertiesServiceImpl implements SystemPropertiesService{
         return null;
     }
 
-    /**
-     * Properties can vary by site.   If a site is found on the request, use the site id as part of the
-     * cache-key.
-     *
-     * @param propertyName
-     * @return
-     */
     protected String buildKey(String propertyName) {
         String key = propertyName;
         WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
@@ -129,13 +119,6 @@ public class SystemPropertiesServiceImpl implements SystemPropertiesService{
         return key;
     }
 
-    /**
-     * Properties can vary by site.   If a site is found on the request, use the site id as part of the
-     * cache-key.
-     * 
-     * @param systemProperty
-     * @return
-     */
     protected String buildKey(SystemProperty systemProperty) {
         String key = systemProperty.getName();
         if (systemProperty instanceof SiteDiscriminator && ((SiteDiscriminator) systemProperty).getSiteDiscriminator() != null) {

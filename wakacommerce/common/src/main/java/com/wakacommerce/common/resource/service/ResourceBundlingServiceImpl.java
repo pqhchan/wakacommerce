@@ -43,7 +43,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @see ResourceBundlingService
+ *
+ * @ hui
  */
 @Service("blResourceBundlingService")
 public class ResourceBundlingServiceImpl implements ResourceBundlingService {
@@ -286,12 +287,6 @@ public class ResourceBundlingServiceImpl implements ResourceBundlingService {
         this.additionalBundleFiles = additionalBundleFiles;
     }
 
-    /**
-     * Copied from Spring 4.1 AbstractVersionStrategy
-     * @param requestPath
-     * @param version
-     * @return
-     */
     protected String addVersion(String requestPath, String version) {
         String baseFilename = StringUtils.stripFilenameExtension(requestPath);
         String extension = StringUtils.getFilenameExtension(requestPath);
@@ -323,11 +318,6 @@ public class ResourceBundlingServiceImpl implements ResourceBundlingService {
         return (resourceName != null && resourceName.contains(".css"));
     }
 
-    /**
-     * Returns the resource path for the given <b>name</b> in URL-format (meaning, / separators)
-     * @param name
-     * @return
-     */
     protected String getResourcePath(String name) {
         if (name.startsWith("/")) {
             return "bundles" + name;

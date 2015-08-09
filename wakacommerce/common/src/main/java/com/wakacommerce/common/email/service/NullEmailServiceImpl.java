@@ -6,8 +6,8 @@ import com.wakacommerce.common.email.domain.EmailTarget;
 import com.wakacommerce.common.email.service.info.EmailInfo;
 
 /**
- * This null implementation class can be used during development to work around
- * the need to have a working SMTP service to route emails through.
+ *
+ * @ hui
  */
 public class NullEmailServiceImpl implements EmailService {
 

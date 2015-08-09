@@ -150,14 +150,6 @@ public class URLHandlerImpl implements URLHandler, Locatable, AdminMainEntity, P
         }
     }
 
-    /**
-     * In a preview environment, {@link #getLocation()} attempts to navigate to the 
-     * provided URL.    If the URL contains a Regular Expression, then we can't 
-     * navigate to it. 
-     * 
-     * @param location
-     * @return
-     */
     protected boolean hasRegExCharacters(String location) {
         return location.contains(".") ||
                 location.contains("(") ||

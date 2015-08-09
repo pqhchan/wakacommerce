@@ -11,7 +11,8 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * @deprecated - use {@link com.wakacommerce.profile.core.service.CountrySubdivisionServiceImpl} instead.
+ *
+ * @ hui
  */
 @Deprecated
 @Service("blStateService")

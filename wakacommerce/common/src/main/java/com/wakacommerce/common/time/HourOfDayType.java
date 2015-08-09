@@ -8,9 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extendible enumeration of container shape types.
- * 
- *  
+ *
+ * @ hui
  */
 public class HourOfDayType implements Serializable, WakaEnumType {
 

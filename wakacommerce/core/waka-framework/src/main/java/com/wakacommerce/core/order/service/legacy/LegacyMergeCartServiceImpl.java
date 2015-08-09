@@ -29,9 +29,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * These methods used to exist in LegacyCartService.
- * 
- *  
+ *
+ * @ hui
  */
 @Deprecated
 public class LegacyMergeCartServiceImpl implements MergeCartService {

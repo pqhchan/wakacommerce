@@ -8,7 +8,8 @@ import com.wakacommerce.common.extension.ExtensionHandler;
 import com.wakacommerce.common.extension.ExtensionResultStatusType;
 
 /**
- *  
+ *
+ * @ hui
  */
 public interface PaymentGatewayFieldExtensionHandler extends ExtensionHandler {
 

@@ -8,9 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extendible enumeration of container permission types.
- * 
- *  
+ *
+ * @ hui
  */
 public class PermissionType implements Serializable, WakaEnumType {
 

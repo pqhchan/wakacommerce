@@ -31,7 +31,8 @@ import java.lang.reflect.ParameterizedType;
 import java.util.Map;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Component("blMapFieldsFieldMetadataProvider")
 @Scope("prototype")

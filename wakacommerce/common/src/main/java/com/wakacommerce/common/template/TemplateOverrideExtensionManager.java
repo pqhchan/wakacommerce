@@ -6,7 +6,8 @@ import org.springframework.stereotype.Service;
 import com.wakacommerce.common.extension.ExtensionManager;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Service("blTemplateOverrideExtensionManager")
 public class TemplateOverrideExtensionManager extends ExtensionManager<TemplateOverrideExtensionHandler> {
@@ -15,10 +16,6 @@ public class TemplateOverrideExtensionManager extends ExtensionManager<TemplateO
         super(TemplateOverrideExtensionHandler.class);
     }
 
-    /**
-     * By default, this manager will allow other handlers to process the method when a handler returns
-     * HANDLED.
-     */
     @Override
     public boolean continueOnHandled() {
         return true;

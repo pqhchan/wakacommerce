@@ -21,9 +21,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- * Custom persistence handler for SystemProperty to ensure that the value is validated against the type appropriately.
- * 
- * 
+ *
+ * @ hui
  */
 @Component("blSystemPropertyCustomPersistenceHandler")
 public class SystemPropertyCustomPersistenceHandler extends CustomPersistenceHandlerAdapter {

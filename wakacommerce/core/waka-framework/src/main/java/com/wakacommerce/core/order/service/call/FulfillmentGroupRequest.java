@@ -15,10 +15,7 @@ public class FulfillmentGroupRequest {
     protected Address address;
     protected Order order;
     protected Phone phone;
-    
-    /**
-     * Both of these fields uses are superceded by the FulfillmentOption paradigm
-     */
+
     @Deprecated
     protected String method;
     @Deprecated
@@ -78,37 +75,21 @@ public class FulfillmentGroupRequest {
         this.fulfillmentType = fulfillmentType;
     }
 
-    /**
-     * Deprecated in favor of {@link #getOption()}
-     * @see {@link FulfillmentOption}
-     */
     @Deprecated
     public String getMethod() {
         return method;
     }
-
-    /**
-     * Deprecated in favor of {@link #setOption(FulfillmentOption)}
-     * @see {@link FulfillmentOption}
-     */    
+    
     @Deprecated
     public void setMethod(String method) {
         this.method = method;
     }
 
-    /**
-     * Deprecated in favor of {@link #getOption()}
-     * @see {@link FulfillmentOption}
-     */
     @Deprecated
     public String getService() {
         return service;
     }
-
-    /**
-     * Deprecated in favor of {@link #setOption(FulfillmentOption)}
-     * @see {@link FulfillmentOption}
-     */    
+    
     @Deprecated
     public void setService(String service) {
         this.service = service;

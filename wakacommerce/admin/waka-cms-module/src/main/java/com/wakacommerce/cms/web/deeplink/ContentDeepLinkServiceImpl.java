@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Provides deep links for {@link StructuredContent} items.
+ *
+ * @ hui
  */
 public class ContentDeepLinkServiceImpl extends DeepLinkService<StructuredContentDTO> {
 

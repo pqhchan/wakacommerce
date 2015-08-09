@@ -6,9 +6,8 @@ import java.lang.reflect.Field;
 import com.wakacommerce.openadmin.server.dao.DynamicEntityDao;
 
 /**
- * Contains the requested field, metadata and support classes.
  *
- * 
+ * @ hui
  */
 public class AddMetadataRequest {
 

@@ -2,7 +2,8 @@
 package com.wakacommerce.common.cache;
 
 /**
- * 
+ *
+ * @ hui
  */
 public enum CacheStatType {
     PAGE_CACHE_HIT_RATE,

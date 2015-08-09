@@ -15,14 +15,8 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * A {@link org.springframework.web.servlet.resource.ResourceTransformer} that minifies
- * the resource.    Only works with allowed extensions (".css" and ".js" by default).
- * 
- * {@link com.wakacommerce.common.resource.service.ResourceMinificationService} is used to
- * perform the minification. 
  *
- *  
- * @since 4.0
+ * @ hui
  */
 @Component("blMinifyResourceTransformer")
 public class MinifyResourceTransformer implements ResourceTransformer, Ordered {

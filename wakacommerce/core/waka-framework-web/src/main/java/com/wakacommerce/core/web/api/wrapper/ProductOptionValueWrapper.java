@@ -36,50 +36,26 @@ public class ProductOptionValueWrapper extends BaseWrapper implements
         wrapDetails(model, request);
     }
 
-    
-    /**
-     * @return the attributeValue
-     */
     public String getAttributeValue() {
         return attributeValue;
     }
 
-    
-    /**
-     * @param attributeValue the attributeValue to set
-     */
     public void setAttributeValue(String attributeValue) {
         this.attributeValue = attributeValue;
     }
 
-    
-    /**
-     * @return the priceAdjustment
-     */
     public Money getPriceAdjustment() {
         return priceAdjustment;
     }
 
-    
-    /**
-     * @param priceAdjustment the priceAdjustment to set
-     */
     public void setPriceAdjustment(Money priceAdjustment) {
         this.priceAdjustment = priceAdjustment;
     }
 
-    
-    /**
-     * @return the productOptionId
-     */
     public Long getProductOptionId() {
         return productOptionId;
     }
 
-    
-    /**
-     * @param productOptionId the productOptionId to set
-     */
     public void setProductOptionId(Long productOptionId) {
         this.productOptionId = productOptionId;
     }

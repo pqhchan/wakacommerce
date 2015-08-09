@@ -73,23 +73,11 @@ public class PageServiceImpl implements PageService {
     protected Cache pageMapCache;
     protected final PageDTO NULL_PAGE = new NullPageDTO();
 
-    /**
-     * Returns the page with the passed in id.
-     *
-     * @param pageId - The id of the page.
-     * @return The associated page.
-     */
     @Override
     public Page findPageById(Long pageId) {
         return pageDao.readPageById(pageId);
     }
 
-    /**
-     * Returns the page with the passed in id.
-     *
-     * @param pageId - The id of the page.
-     * @return The associated page.
-     */
     @Override
     public Map<String, PageField> findPageFieldMapByPageId(Long pageId) {
         Map<String, PageField> returnMap = new HashMap<String, PageField>();
@@ -111,9 +99,6 @@ public class PageServiceImpl implements PageService {
         return pageDao.savePageTemplate(template);
     }
 
-    /**
-     * Retrieve the page if one is available for the passed in uri.
-     */
     @Override
     public PageDTO findPageByURI(Locale locale, String uri, Map<String,Object> ruleDTOs, boolean secure) {
         List<PageDTO> returnList = null;
@@ -183,14 +168,6 @@ public class PageServiceImpl implements PageService {
         }
     }
 
-    /**
-     * Converts a list of pages to a list of pageDTOs.<br>
-     * Internally calls buildPageDTO(...).
-     *
-     * @param pageList
-     * @param secure
-     * @return
-     */
     @Override
     public List<PageDTO> buildPageDTOList(List<Page> pageList, boolean secure) {
         List<PageDTO> dtoList = new ArrayList<PageDTO>();

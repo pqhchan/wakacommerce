@@ -9,9 +9,8 @@ import java.util.List;
 
 
 /**
- * Allows Broadleaf Add-On modules to manipulate the list of rule fields.
- * 
- * 
+ *
+ * @ hui
  */
 public interface RuleBuilderFieldServiceExtensionHandler extends ExtensionHandler {
     

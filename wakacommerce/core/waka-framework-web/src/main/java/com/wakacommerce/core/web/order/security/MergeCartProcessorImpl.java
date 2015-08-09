@@ -23,9 +23,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 
- * @deprecated this has been replaced by invoking {@link MergeCartService} explicitly within the
- * {@link CartStateRequestProcessor}
+ *
+ * @ hui
  */
 @Deprecated
 @Component("blMergeCartProcessor")

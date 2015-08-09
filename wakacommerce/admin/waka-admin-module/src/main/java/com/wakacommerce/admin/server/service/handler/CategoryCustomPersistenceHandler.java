@@ -1,4 +1,3 @@
-
 package com.wakacommerce.admin.server.service.handler;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -35,11 +34,6 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-/**
- * 
- *  
- *
- */
 @Component("blCategoryCustomPersistenceHandler")
 public class CategoryCustomPersistenceHandler extends CustomPersistenceHandlerAdapter {
     
@@ -73,7 +67,7 @@ public class CategoryCustomPersistenceHandler extends CustomPersistenceHandlerAd
             md.remove("allParentCategoryXrefs");
 
             BasicFieldMetadata defaultCategory = ((BasicFieldMetadata) md.get("defaultParentCategory"));
-            defaultCategory.setFriendlyName("CategoryImpl_ParentCategory");
+            defaultCategory.setFriendlyName("CategoryImpl_defaultParentCategory");
         }
 
         return getResultSet(persistencePackage, helper, md);

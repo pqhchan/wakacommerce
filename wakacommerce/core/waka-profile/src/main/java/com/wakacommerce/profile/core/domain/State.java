@@ -4,7 +4,8 @@ package com.wakacommerce.profile.core.domain;
 import java.io.Serializable;
 
 /**
- * @deprecated - use {@link com.wakacommerce.profile.core.domain.CountrySubdivision} instead.
+ *
+ * @ hui
  */
 @Deprecated
 public interface State extends Serializable {

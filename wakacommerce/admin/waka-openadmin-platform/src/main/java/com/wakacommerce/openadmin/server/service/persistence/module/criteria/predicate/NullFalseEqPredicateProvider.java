@@ -15,11 +15,8 @@ import org.springframework.stereotype.Component;
 import com.wakacommerce.openadmin.server.service.persistence.module.criteria.FieldPathBuilder;
 
 /**
- * This predicate provider is very similar to the {@link EqPredicateProvider}, except that it will treat
- * nulls equal to false. This implementation will provide an equality clause for the character 'N' and
- * {@link Boolean#FALSE}.
- * 
- * 
+ *
+ * @ hui
  */
 @Component("blNullFalseEqPredicateProvider")
 public class NullFalseEqPredicateProvider implements PredicateProvider<Serializable, Serializable> {

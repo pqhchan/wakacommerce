@@ -16,12 +16,8 @@ import com.wakacommerce.core.workflow.BaseActivity;
 import com.wakacommerce.core.workflow.ProcessContext;
 
 /**
- * <p>Checks the offers being used in the order to make sure that the customer
- * has not exceeded the max uses for the {@link Offer}.</p>
- * 
- * This will also verify that max uses for any {@link OfferCode}s that were used to retrieve the {@link Offer}s.
- * 
- *     
+ *
+ * @ hui
  */
 public class VerifyCustomerMaxOfferUsesActivity extends BaseActivity<ProcessContext<CheckoutSeed>> {
 

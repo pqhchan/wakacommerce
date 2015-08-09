@@ -30,10 +30,8 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 /**
- * Default implementation for the core framework.
  *
- * @see com.wakacommerce.openadmin.server.service.persistence.module.extension.BasicPersistenceModuleExtensionHandler
- * 
+ * @ hui
  */
 @Service("blDefaultBasicPersistenceModuleExtensionHandler")
 public class DefaultBasicPersistenceModuleExtensionHandler extends AbstractBasicPersistenceModuleExtensionHandler {

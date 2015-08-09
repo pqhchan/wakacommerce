@@ -28,7 +28,8 @@ import javax.persistence.metamodel.ManagedType;
 import javax.persistence.metamodel.Metamodel;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class FieldPathBuilder {
     
@@ -143,9 +144,6 @@ public class FieldPathBuilder {
         return path;
     }
 
-    /**
-     * This is a workaround for HHH-6562 (https://hibernate.atlassian.net/browse/HHH-6562)
-     */
     @SuppressWarnings("unchecked")
     private void copyCollectionPersister(String originalKey, String copyKey,
             SessionFactoryImpl sessionFactory) {

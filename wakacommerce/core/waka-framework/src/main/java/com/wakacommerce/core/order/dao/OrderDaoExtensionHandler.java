@@ -10,7 +10,8 @@ import java.util.List;
 
 
 /**
- * ,  
+ *
+ * @ hui
  */
 public interface OrderDaoExtensionHandler extends ExtensionHandler {
     

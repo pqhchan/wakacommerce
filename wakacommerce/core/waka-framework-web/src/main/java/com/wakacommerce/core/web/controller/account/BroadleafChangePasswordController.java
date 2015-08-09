@@ -16,7 +16,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * This controller handles password changes for a customer's account
+ *
+ * @ hui
  */
 public class BroadleafChangePasswordController extends WakaAbstractController {
 

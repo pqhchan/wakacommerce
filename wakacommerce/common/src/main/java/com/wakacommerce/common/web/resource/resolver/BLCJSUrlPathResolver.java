@@ -20,13 +20,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * A {@link ResourceResolver} that replaces the //BLC-SERVLET-CONTEXT and //BLC-SITE-BASEURL" 
- * tokens before serving the BLC.js file.
- * 
- * This component modifies the path and works in conjunction with the {@link BLCJSResourceResolver}
- * which loads the modified file.
- * 
- * The processes were split to allow for caching of the resource but not the URL path.
+ *
+ * @ hui
  */
 @Component("blBLCJSUrlPathResolver")
 public class BLCJSUrlPathResolver extends AbstractResourceResolver implements Ordered {

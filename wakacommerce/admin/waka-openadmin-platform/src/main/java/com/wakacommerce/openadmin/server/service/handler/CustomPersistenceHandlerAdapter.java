@@ -19,10 +19,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Convenience class for those {@link com.wakacommerce.openadmin.server.service.handler.CustomPersistenceHandler} implementations
- * that do not wish to implement all the methods of the interface.
  *
- * 
+ * @ hui
  */
 public class CustomPersistenceHandlerAdapter implements CustomPersistenceHandler {
 
@@ -85,21 +83,14 @@ public class CustomPersistenceHandlerAdapter implements CustomPersistenceHandler
     public int getOrder() {
         return CustomPersistenceHandler.DEFAULT_ORDER;
     }
-    
-    /**
-     * This is a helper method that can be invoked as a first step in a custom inspect phase
-     */
+
     protected Map<String, FieldMetadata> getMetadata(PersistencePackage persistencePackage, InspectHelper helper) 
             throws ServiceException {
         String entityName = persistencePackage.getCeilingEntityFullyQualifiedClassname();
         PersistencePerspective perspective = persistencePackage.getPersistencePerspective();
         return helper.getSimpleMergedProperties(entityName, perspective);
     }
-    
-    /**
-     * This is a helper method that can be invoked as the last step in a custom inspect phase. It will assemble the
-     * appropriate DynamicResultSet from the given parameters.
-     */
+
     protected DynamicResultSet getResultSet(PersistencePackage persistencePackage, InspectHelper helper,
             Map<String, FieldMetadata> metadata) throws ServiceException {
         String entityName = persistencePackage.getCeilingEntityFullyQualifiedClassname();

@@ -10,7 +10,8 @@ import com.wakacommerce.common.page.dto.PageDTO;
 
 
 /**
- * 
+ *
+ * @ hui
  */
 public abstract class AbstractPageServiceExtensionHandler extends AbstractExtensionHandler 
         implements PageServiceExtensionHandler {

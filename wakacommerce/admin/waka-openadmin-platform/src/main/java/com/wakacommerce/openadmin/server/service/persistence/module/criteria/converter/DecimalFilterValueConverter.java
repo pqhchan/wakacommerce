@@ -7,7 +7,8 @@ import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Component("blDecimalFilterValueConverter")
 public class DecimalFilterValueConverter implements FilterValueConverter<BigDecimal> {

@@ -28,7 +28,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Responsible for setting up the site and locale used by Broadleaf Commerce components.
+ *
+ * @ hui
  */
 @Component("blURLHandlerFilter")
 public class URLHandlerFilter extends OncePerRequestFilter {
@@ -75,15 +76,7 @@ public class URLHandlerFilter extends OncePerRequestFilter {
             filterChain.doFilter(request, response);
         }
     }
-    
-    /**
-     * If the url does not include "//" then the system will ensure that the application context
-     * is added to the start of the URL.
-     * 
-     * @param url
-     * @return
-     * @throws Exception 
-     */
+
     protected String fixQueryString(HttpServletRequest request, String url) {
         if (getPreserveQueryStringOnRedirect()) {
             try {

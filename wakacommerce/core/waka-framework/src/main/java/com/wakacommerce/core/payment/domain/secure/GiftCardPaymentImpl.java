@@ -24,10 +24,6 @@ public class GiftCardPaymentImpl implements GiftCardPayment {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * Rather than constructing directly, use {@link SecureOrderPaymentService#create(com.wakacommerce.core.payment.service.type.PaymentType)}
-     * so that the appropriate {@link EncryptionModule} can be hooked up to this entity
-     */
     protected GiftCardPaymentImpl() {
         // do not allow direct instantiation -- must at least be package private
         // for bytecode instrumentation

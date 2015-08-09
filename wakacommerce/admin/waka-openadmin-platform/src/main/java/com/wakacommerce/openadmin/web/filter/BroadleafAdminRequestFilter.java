@@ -21,9 +21,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Responsible for setting the necessary attributes on the WakaRequestContext
- * 
- * 
+ *
+ * @ hui
  */
 @Component("blAdminRequestFilter")
 public class BroadleafAdminRequestFilter extends AbstractBroadleafAdminRequestFilter {

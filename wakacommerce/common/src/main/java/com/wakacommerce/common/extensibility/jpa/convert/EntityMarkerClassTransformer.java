@@ -28,15 +28,8 @@ import javax.persistence.Entity;
 import javax.persistence.MappedSuperclass;
 
 /**
- * <p>
- * This class transformer will check to see if there is class that should have been loaded by the {@link MergePersistenceUnitManager}
- * (meaning, it has an @Entity, @MappedSuperclass or @Embeddable annotation on it and will be inside of a persistence.xml).
- * If it it should have, it will add the fully qualified classname of that class to the transformedClassNames list.
- * 
- * <p>
- * This is a validation check to ensure that the class transformers are actually working properly
- * 
- * 
+ *
+ * @ hui
  */
 public class EntityMarkerClassTransformer extends AbstractClassTransformer implements BroadleafClassTransformer {
     protected static final Log LOG = LogFactory.getLog(EntityMarkerClassTransformer.class);
@@ -86,14 +79,7 @@ public class EntityMarkerClassTransformer extends AbstractClassTransformer imple
         // We don't need to transform anything, so we'll return null
         return null;
     }
-    
-    /**
-     * Determines if a given annotation set contains annotations that correspond to ones that someone would expect to appear
-     * in a persistence.xml
-     * 
-     * @param annotations
-     * @return
-     */
+
     protected boolean containsTypeLevelPersistenceAnnotation(Annotation[] annotations) {
         for (Annotation annotation : annotations) {
             if (annotation.getTypeName().equals(Entity.class.getName())
@@ -132,22 +118,11 @@ public class EntityMarkerClassTransformer extends AbstractClassTransformer imple
     public void compileJPAProperties(Properties props, Object key) throws Exception {
         // When performing the check that this class transformer does, JPA properties do not need modificiation
     }
-    
-    /**
-     * @return a list of fully qualified classnames of class that have an @Entity, @MappedSuperclass or @Embeddable
-     * annotation and were picked
-     * up by this class transformer (meaning that other class transformers also would have had a chance to
-     * perform their necessary work on those classes)
-     */
+
     public HashSet<String> getTransformedEntityClassNames() {
         return transformedEntityClassNames;
     }
-    
-    /**
-     * @return a list of fully qualified classnames of classes that <b>do not</b> have an @Entity, @MappedSuperclass or @Embeddable
-     * annotation but were picked up by this class transformer. This usually results in a benign misconfiguration as there are
-     * unnecessary classes within the {@link MergePersistenceUnitManager}
-     */
+
     public HashSet<String> getTransformedNonEntityClassNames() {
         return transformedNonEntityClassNames;
     }

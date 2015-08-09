@@ -8,10 +8,8 @@ import com.wakacommerce.core.order.domain.OrderItem;
 import java.io.Serializable;
 
 /**
- * OrderItem level offer that has been qualified for an order,
- * but may still be ejected based on additional pricing
- * and stackability concerns once the order has been processed
- * through the promotion engine.
+ *
+ * @ hui
  */
 public interface CandidateItemOffer extends Serializable, MultiTenantCloneable<CandidateItemOffer> {
     

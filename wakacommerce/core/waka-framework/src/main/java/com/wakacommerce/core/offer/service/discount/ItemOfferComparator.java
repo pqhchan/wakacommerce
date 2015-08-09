@@ -6,9 +6,8 @@ import java.util.Comparator;
 import com.wakacommerce.core.offer.service.discount.domain.PromotableCandidateItemOffer;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public class ItemOfferComparator implements Comparator<PromotableCandidateItemOffer> {
     

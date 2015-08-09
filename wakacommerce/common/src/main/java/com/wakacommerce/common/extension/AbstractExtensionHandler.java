@@ -4,21 +4,14 @@ package com.wakacommerce.common.extension;
 
 
 /**
- * Base {@link ExtensionHandler} class that provide basic extension handler properties including
- * priority (which drives the execution order of handlers) and enabled (which if false informs the
- * manager to skip this handler).
- * 
- * 
+ *
+ * @ hui
  */
 public abstract class AbstractExtensionHandler implements ExtensionHandler {
 
     protected int priority;
     protected boolean enabled = true;
 
-    /**
-     * Determines the priority of this extension handler.
-     * @return
-     */
     @Override
     public int getPriority() {
         return priority;

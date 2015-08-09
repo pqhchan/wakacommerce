@@ -11,22 +11,15 @@ import com.wakacommerce.common.util.BLCRequestUtils;
 import java.util.TimeZone;
 
 /**
- * Responsible for returning the timezone to use for the current request.
  *
- *Priyesh Patel
+ * @ hui
  */
 @Component("blTimeZoneResolver")
 public class BroadleafTimeZoneResolverImpl implements BroadleafTimeZoneResolver {
     private final Log LOG = LogFactory.getLog(BroadleafTimeZoneResolverImpl.class);
-    
-    /**
-     * Parameter/Attribute name for the current language
-     */
+
     public static String TIMEZONE_VAR = "blTimeZone";
 
-    /**
-     * Parameter/Attribute name for the current language
-     */
     public static String TIMEZONE_CODE_PARAM = "blTimeZoneCode";
 
     @Override

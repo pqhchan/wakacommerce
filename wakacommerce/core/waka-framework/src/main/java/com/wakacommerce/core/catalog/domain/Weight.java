@@ -12,9 +12,8 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 @Embeddable
 public class Weight implements Serializable {

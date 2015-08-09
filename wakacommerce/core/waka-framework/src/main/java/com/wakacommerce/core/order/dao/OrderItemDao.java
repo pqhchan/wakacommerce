@@ -25,9 +25,6 @@ public interface OrderItemDao {
 
     OrderItemQualifier createOrderItemQualifier();
 
-    /**
-     * Sets the initial orderItemPriceDetail for the item.
-     */
     OrderItemPriceDetail initializeOrderItemPriceDetails(OrderItem item);
 
 }

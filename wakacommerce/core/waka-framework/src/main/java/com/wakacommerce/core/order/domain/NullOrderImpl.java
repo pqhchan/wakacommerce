@@ -24,12 +24,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * NullOrderImpl is a class that represents an unmodifiable, empty order. This class is used as the default order
- * for a customer. It is a shared class between customers, and serves as a placeholder order until an item 
- * is initially added to cart, at which point a real Order gets created. This prevents creating individual orders
- * for customers that are just browsing the site.
- * 
- *  
+ *
+ * @ hui
  */
 public class NullOrderImpl implements Order {
 

@@ -24,16 +24,8 @@ public interface PageTemplate extends Serializable, MultiTenantCloneable<PageTem
 
     public void setTemplatePath(String templatePath);
 
-    /**
-     * @deprecated in favor of translating individual fields
-     * @return
-     */
     public Locale getLocale();
 
-    /**
-     * @deprecated in favor of translating individual fields
-     * @return
-     */
     public void setLocale(Locale locale);
 
     public List<PageTemplateFieldGroupXref> getFieldGroupXrefs();

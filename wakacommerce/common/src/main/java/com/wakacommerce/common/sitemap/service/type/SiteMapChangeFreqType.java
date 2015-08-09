@@ -9,9 +9,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An enumeration of Sitemap change frequency values
- * 
- *  
+ *
+ * @ hui
  */
 public class SiteMapChangeFreqType implements Serializable, WakaEnumType {
 

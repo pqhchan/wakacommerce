@@ -18,8 +18,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Adds a new 'passwordConfirm' field to the metadata as well as ensures that the field type for the password field is
- * actually a password
+ *
+ * @ hui
  */
 @Component("blPasswordFieldMetadataProvider")
 @Scope("prototype")

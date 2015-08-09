@@ -4,7 +4,8 @@ package com.wakacommerce.openadmin.server.service.persistence.module.criteria.co
 import org.springframework.stereotype.Component;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Component("blLongFilterValueConverter")
 public class LongFilterValueConverter implements FilterValueConverter<Long> {

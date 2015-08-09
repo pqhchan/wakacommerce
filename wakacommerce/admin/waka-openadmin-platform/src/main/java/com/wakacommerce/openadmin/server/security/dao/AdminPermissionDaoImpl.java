@@ -27,9 +27,8 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 @Repository("blAdminPermissionDao")
 public class AdminPermissionDaoImpl implements AdminPermissionDao {

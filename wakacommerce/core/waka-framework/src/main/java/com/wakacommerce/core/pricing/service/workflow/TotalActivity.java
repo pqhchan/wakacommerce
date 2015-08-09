@@ -14,12 +14,8 @@ import com.wakacommerce.core.workflow.ProcessContext;
 import java.math.BigDecimal;
 
 /**
- * The TotalActivity is responsible for calculating and setting totals for a given order.
- * It must set the sum of the the taxes in the appropriate places as well as fulfillment
- * group subtotals / totals and order subtotals / totals.
- * 
- *  
  *
+ * @ hui
  */
 public class TotalActivity extends BaseActivity<ProcessContext<Order>> {
 

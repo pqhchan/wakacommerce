@@ -39,11 +39,7 @@ public class StringUtil {
         calc.enter(myChecksum);
         return calc.getStandardDeviation();
     }
-    
-    /**
-     * Protect against HTTP Response Splitting
-     * @return
-     */
+
     public static String cleanseUrlString(String input){
         return removeSpecialCharacters(decodeUrl(input));
     }

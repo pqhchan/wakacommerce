@@ -5,9 +5,8 @@ import com.wakacommerce.common.WakaEnumType;
 
 
 /**
- * Extension Listener interface to provide option values for {@link WakaEnumType} for admin rule builders.
- * 
- * 
+ *
+ * @ hui
  */
 public interface RuleBuilderEnumOptionsExtensionListener {
     

@@ -14,7 +14,8 @@ import org.springframework.context.ApplicationContextAware;
 import com.wakacommerce.profile.core.domain.AdditionalFields;
 
 /**
- * Base class for APIWrapper implementations to inject the EntityConfiguration reference.
+ *
+ * @ hui
  */
 public abstract class BaseWrapper implements ApplicationContextAware {
 
@@ -26,11 +27,6 @@ public abstract class BaseWrapper implements ApplicationContextAware {
         context = applicationContext;
     }
 
-    /**
-     * Utility method.
-     * Traverses the domain object's additional fields, and generates a list of MapElementWrappers with them
-     * @param model  the domain object
-     */
     protected List<MapElementWrapper> createElementWrappers(AdditionalFields model) {
 
         if (model.getAdditionalFields() != null && !model.getAdditionalFields().isEmpty()) {

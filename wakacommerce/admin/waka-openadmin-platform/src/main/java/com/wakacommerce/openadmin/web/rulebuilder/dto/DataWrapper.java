@@ -12,36 +12,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- *  
  *
- * An example of the Serialized JSON:
- * (This is an example of a complex Item Rule)
- *
- * {'data': [
- *      {'id':'100',
- *      'quantity':'1',
- *      'groupOperator':'AND',
- *      'groups':[
- *          {'id':null,
- *          'quantity':null,
- *          'groupOperator':null,
- *          'groups':null,
- *          'name':'name',
- *          'operator':'IEQUALS',
- *          'value':'merchandise'}]},
- *      {'id':'200',
- *      'quantity':'2',
- *      'groupOperator':'AND',
- *      'groups':[
- *          {'id':null,
- *          'quantity':null,
- *          'groupOperator':null,
- *          'groups':null,
- *          'name':'retailPrice',
- *          'operator':'GREATER_THAN',
- *          'value':'20.00'}]}
- * ]}
- *
+ * @ hui
  */
 public class DataWrapper implements Serializable {
 

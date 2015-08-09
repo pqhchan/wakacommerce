@@ -7,8 +7,8 @@ import com.wakacommerce.core.order.domain.FulfillmentOption;
 import com.wakacommerce.core.pricing.service.fulfillment.provider.FulfillmentPricingProvider;
 
 /**
- * @deprecated Superceded by functionality given by {@link FulfillmentOption} and {@link FulfillmentPricingProvider}
- * @see {@link FulfillmentPricingProvider}, {@link FulfillmentOption}
+ *
+ * @ hui
  */
 @Deprecated
 public interface ShippingModule {

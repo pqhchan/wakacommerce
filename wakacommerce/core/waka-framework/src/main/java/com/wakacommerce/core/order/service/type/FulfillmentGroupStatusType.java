@@ -8,57 +8,28 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extendible enumeration of fulfillment group status types.
- * 
- *aangus
  *
+ * @ hui
  */
 public class FulfillmentGroupStatusType implements Serializable, WakaEnumType {
 
     private static final long serialVersionUID = 1L;
 
     private static final Map<String, FulfillmentGroupStatusType> TYPES = new LinkedHashMap<String, FulfillmentGroupStatusType>();
-    
-    /**
-     * Use FULFILLED, PARTIALLY_FULFILLED, DELIVERED, or PARTIALLY_DELIVERED
-     * @deprecated
-     */
+
     @Deprecated
     public static final FulfillmentGroupStatusType SHIPPED = new FulfillmentGroupStatusType("SHIPPED", "Shipped");
-    
-    /**
-     * CANCELLED: Used to indicate that the fulfillment group will not be shipped.
-     */
+
     public static final FulfillmentGroupStatusType CANCELLED = new FulfillmentGroupStatusType("CANCELLED", "Cancelled");
 
-    /**
-     * PROCESSING: Used to indicate that the fulfillment group is being processed. For example, during pick or pack processes 
-     * in a warehouse.
-     */
     public static final FulfillmentGroupStatusType PROCESSING = new FulfillmentGroupStatusType("PROCESSING", "Processing");
-    
-    /**
-     * FULFILLED: Used to indicate that the Fulfillment Group is completely fulfilled (e.g. shipped, downloaded, etc.). For some systems, 
-     * this will be the final status on a fulfillment group. For others that want to differentiate between FULFILLED and DELIVERED, usually 
-     * to differentiate between items that have been shipped vs. items that have been received by the customer.
-     */
+
     public static final FulfillmentGroupStatusType FULFILLED = new FulfillmentGroupStatusType("FULFILLED", "Fulfilled");
-    
-    /**
-     * PARTIALLY_FULFILLED: Used to indicate that one or more items has been fulfilled or partially fulfilled, but that there 
-     * are some items in the fulfillment group that are not fulfilled.
-     */
+
     public static final FulfillmentGroupStatusType PARTIALLY_FULFILLED = new FulfillmentGroupStatusType("PARTIALLY_FULFILLED", "Partially Fulfilled");
-    
-    /**
-     * DELIVERED: Used to indicate that all items in the fulfillment group have been delivered. This will generally only be used when there is some 
-     * integration with a shipping or fulfillment system to indicate that an item has actually been received by the customer.
-     */
+
     public static final FulfillmentGroupStatusType DELIVERED = new FulfillmentGroupStatusType("DELIVERED", "Delivered");
-    
-    /**
-     * PARTIALLY_DELIVERED: Indicates that an item or a FulfillemntGroup has been partially received by the customer.
-     */
+
     public static final FulfillmentGroupStatusType PARTIALLY_DELIVERED = new FulfillmentGroupStatusType("PARTIALLY_DELIVERED", "Partially Delivered");
     
     public static FulfillmentGroupStatusType getInstance(final String type) {

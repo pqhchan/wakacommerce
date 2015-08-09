@@ -43,14 +43,7 @@ public class AdminMappingExceptionResolver extends SimpleMappingExceptionResolve
             return super.resolveException(request, response, handler, ex);
         }
     }
-    
-    /**
-     * By default, appends the exception and its message followed by the file location that triggered this exception.
-     * Recursively builds this out for each cause of the given exception.
-     * 
-     * @param throwable
-     * @param sb
-     */
+
     protected void appendStackTrace(Throwable throwable, StringBuilder sb) {
         if (throwable == null) {
             return;

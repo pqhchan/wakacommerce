@@ -26,12 +26,8 @@ import com.wakacommerce.core.web.api.wrapper.ErrorMessageWrapper;
 import com.wakacommerce.core.web.api.wrapper.ErrorWrapper;
 
 /**
- * <p>
- * Handles exceptions that can occur in the Broadleaf REST APIs. Specifically, this will serialize exceptions into
- * consumable JSON or XML so that clients that utilize the API don't have to treat exception responses as special cases.
  *
- *  
- *     
+ * @ hui
  */
 public class BroadleafSpringRestExceptionMapper {
 
@@ -197,14 +193,6 @@ public class BroadleafSpringRestExceptionMapper {
         this.messageSource = messageSource;
     }
 
-    /**
-     * This key is the prefix that will be stripped off of all message keys that are returned to a client.
-     * The default is "com.wakacommerce.core.web.api.BroadleafWebServicesException.". So, if a message key contained
-     * in a BroadleafWebServicesException is com.wakacommerce.core.web.api.BroadleafWebServicesException.unknownError,
-     * just "unknownError" will be returned to the client. This behavior can be changed by overriding the
-     * <code>resolveClientMessageKey</code> method.
-     * @param prefix
-     */
     public void setMessageKeyPrefix(String prefix) {
         this.messageKeyPrefix = prefix;
     }

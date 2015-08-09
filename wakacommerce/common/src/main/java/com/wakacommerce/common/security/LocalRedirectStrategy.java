@@ -14,9 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * This class insures that if using the successUrl or failureUrl request
- * parameter, then the urls are valid and are local to the application
- * (preventing a user modifying to go somewhere else on login success/failure)
+ *
+ * @ hui
  */
 public class LocalRedirectStrategy implements RedirectStrategy {
 
@@ -48,13 +47,6 @@ public class LocalRedirectStrategy implements RedirectStrategy {
         response.sendRedirect(redirectUrl);
     }
 
-    /**
-     * Create the redirect url
-     *
-     * @param contextPath
-     * @param url
-     * @return
-     */
     protected String calculateRedirectUrl(String contextPath, String url) {
         if ((!(url.startsWith("http://"))) && (!(url.startsWith("https://")))) {
             if (this.contextRelative) {
@@ -77,21 +69,6 @@ public class LocalRedirectStrategy implements RedirectStrategy {
         return url;
     }
 
-    /**
-     * Insure the url is valid (must begin with http or https) and local to the
-     * application
-     *
-     * @param contextPath
-     *            the application context path
-     * @param url
-     *            the url to validate
-     * @param requestServerName
-     *            the server name of the request
-     * @param requestServerPort
-     *            the port of the request
-     * @throws MalformedURLException
-     *             if the url is invalid
-     */
     private void validateRedirectUrl(String contextPath, String url, String requestServerName, int requestServerPort) throws MalformedURLException {
         URL urlObject = new URL(url);
         if (urlObject.getProtocol().equals("http") || urlObject.getProtocol().equals("https")) {
@@ -108,23 +85,10 @@ public class LocalRedirectStrategy implements RedirectStrategy {
         throw new MalformedURLException(errorMessage + ":  " + url);
     }
 
-    /**
-     * This forces the redirect url port to match the request port. This could
-     * be problematic when switching between secure and non-secure (e.g.
-     * http://localhost:8080 to https://localhost:8443)
-     *
-     * @param enforcePortMatch
-     */
     public void setEnforcePortMatch(boolean enforcePortMatch) {
         this.enforcePortMatch = enforcePortMatch;
     }
 
-    /**
-     * Set whether or not the context should be included in the redirect path. If true, the context
-     * is excluded from the generated path, otherwise it is included.
-     *
-     * @param contextRelative
-     */
     public void setContextRelative(boolean contextRelative) {
         this.contextRelative = contextRelative;
     }

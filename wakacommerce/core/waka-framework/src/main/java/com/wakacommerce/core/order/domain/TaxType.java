@@ -8,10 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extensible enumeration of tax detail types
- * 
- *  
  *
+ * @ hui
  */
 public class TaxType implements Serializable, WakaEnumType {
 

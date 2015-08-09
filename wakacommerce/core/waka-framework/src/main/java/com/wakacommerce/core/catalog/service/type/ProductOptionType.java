@@ -8,9 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extendible enumeration of product option types.
- * 
- *  
+ *
+ * @ hui
  */
 public class ProductOptionType implements Serializable, WakaEnumType {
 

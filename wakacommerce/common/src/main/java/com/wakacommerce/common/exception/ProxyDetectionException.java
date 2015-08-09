@@ -2,11 +2,8 @@
 package com.wakacommerce.common.exception;
 
 /**
- * Special exception thrown when a problem is encountered while trying to retrieve the original implementation
- * class for a proxy. This is generally in relation to getting the original entity implementation from
- * a Hibernate javassist proxy.
  *
- * 
+ * @ hui
  */
 public class ProxyDetectionException extends RuntimeException {
 

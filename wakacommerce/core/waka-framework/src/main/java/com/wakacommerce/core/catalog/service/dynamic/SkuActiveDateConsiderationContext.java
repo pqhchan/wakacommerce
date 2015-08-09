@@ -7,11 +7,8 @@ import com.wakacommerce.core.catalog.domain.SkuImpl;
 import java.util.HashMap;
 
 /**
- * Convenient place to store the active date context and the related service on thread local. 
- * 
- *  
- * @see {@link SkuImpl#getActiveStartDate()}
- * @see {@link SkuImpl#getActiveEndDate()}
+ *
+ * @ hui
  */
 public class SkuActiveDateConsiderationContext {
 

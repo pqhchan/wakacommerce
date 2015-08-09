@@ -31,7 +31,8 @@ import java.util.List;
 import javax.annotation.Resource;
 
 /**
- *  
+ *
+ * @ hui
  */
 public abstract class AbstractRuleBuilderFieldService implements RuleBuilderFieldService, ApplicationContextAware, InitializingBean {
 

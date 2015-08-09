@@ -4,8 +4,8 @@ package com.wakacommerce.common.locale.util;
 import com.wakacommerce.common.locale.domain.Locale;
 
 /**
- * Author: jerryocanas
- * Date: 9/17/12
+ *
+ * @ hui
  */
 public final class LocaleUtil {
 

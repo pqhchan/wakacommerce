@@ -16,11 +16,8 @@ import java.util.Arrays;
 import java.util.Map;
 
 /**
- * This filter is based conceptually on the auto-levels feature of Photoshop and functions in the same way.
- * The filter automatically adjusts tonal range for problem photographs, making sure the tones are
- * equally distributed from black to white. Note, a marginal clipping does occur at the highs and lows to account
- * for aberrant pixels in those quadrants that might erroneously effect the calculation.
  *
+ * @ hui
  */
 public class AutoLevelsRGB extends BaseFilter {
     

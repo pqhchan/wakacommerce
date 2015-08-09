@@ -7,11 +7,8 @@ import com.wakacommerce.core.offer.domain.Offer;
 import com.wakacommerce.core.offer.domain.OfferItemCriteria;
 
 /**
- * Records the usage of this item as qualifier or target of
- * the promotion.   The discount amount will be 0 if this
- * item was only used as a qualifier.
- * 
- *  
+ *
+ * @ hui
  */
 public class PromotionQualifier implements Serializable{ 
     private static final long serialVersionUID = 1L;

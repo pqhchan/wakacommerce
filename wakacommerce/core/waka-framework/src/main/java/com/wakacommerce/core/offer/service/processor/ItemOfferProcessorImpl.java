@@ -34,10 +34,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 /**
- * Filter and apply order item offers.
- * 
- *  
  *
+ * @ hui
  */
 @Service("blItemOfferProcessor")
 public class ItemOfferProcessorImpl extends OrderOfferProcessorImpl implements ItemOfferProcessor, ItemOfferMarkTargets {
@@ -105,14 +103,7 @@ public class ItemOfferProcessorImpl extends OrderOfferProcessorImpl implements I
             }
         }
     }
-    
-    /**
-     * Create a candidate item offer based on the offer in question and a specific order item
-     * 
-     * @param qualifiedItemOffers the container list for candidate item offers
-     * @param offer the offer in question
-     * @return the candidate item offer
-     */
+
     protected PromotableCandidateItemOffer createCandidateItemOffer(List<PromotableCandidateItemOffer> qualifiedItemOffers,
             Offer offer, PromotableOrder promotableOrder) {
 
@@ -160,24 +151,12 @@ public class ItemOfferProcessorImpl extends OrderOfferProcessorImpl implements I
         }
         return false;
     }
-    
-    /**
-     * The itemOffer has been qualified and prior methods added PromotionDiscount objects onto the ItemPriceDetail.
-     * This code will convert the PromotionDiscounts into Adjustments
-     * @param order
-     * @param itemOffer
-     */
+
     protected void applyAdjustments(PromotableOrder order, PromotableCandidateItemOffer itemOffer) {
         List<PromotableOrderItemPriceDetail> itemPriceDetails = order.getAllPromotableOrderItemPriceDetails();
         offerServiceUtilities.applyAdjustmentsForItemPriceDetails(itemOffer, itemPriceDetails);
     }
 
-
-    /**
-     * Legacy adjustments use the stackable flag instead of item qualifiers and targets
-     * @param order
-     * @param itemOffer
-     */
     protected void applyLegacyAdjustments(PromotableOrder order, PromotableCandidateItemOffer itemOffer) {
         for (PromotableOrderItem item : itemOffer.getLegacyCandidateTargets()) {
             for (PromotableOrderItemPriceDetail itemPriceDetail : item.getPromotableOrderItemPriceDetails()) {
@@ -194,15 +173,7 @@ public class ItemOfferProcessorImpl extends OrderOfferProcessorImpl implements I
             }
         }
     }
-     
-    /**
-     * Call out to extension managers.
-     * Returns true if the core processing should still be performed for the passed in offer.  
-     * 
-     * @param order
-     * @param itemOffer
-     * @return
-     */
+
     protected Boolean applyItemOfferExtension(PromotableOrder order,
             PromotableCandidateItemOffer itemOffer) {
         Map<String, Object> contextMap = new HashMap<String, Object>();
@@ -231,14 +202,6 @@ public class ItemOfferProcessorImpl extends OrderOfferProcessorImpl implements I
         }
     }
 
-    /**
-     * Some promotions can only apply to the retail price.    This method determines whether
-     * retailPrice only promotions should be used instead of those that can apply to the sale
-     * price as well.
-     * 
-     * @param order
-     * @return
-     */
     protected void chooseSaleOrRetailAdjustments(PromotableOrder order) {
         List<PromotableOrderItemPriceDetail> itemPriceDetails = order.getAllPromotableOrderItemPriceDetails();
         for (PromotableOrderItemPriceDetail itemDetail : itemPriceDetails) {
@@ -247,12 +210,6 @@ public class ItemOfferProcessorImpl extends OrderOfferProcessorImpl implements I
         mergePriceDetails(order);
     }
 
-    /**
-     * Checks to see if any priceDetails need to be combined and if so, combines them.
-     * 
-     * @param order
-     * @return
-     */
     protected void mergePriceDetails(PromotableOrder order) {
         List<PromotableOrderItem> items = order.getAllOrderItems();
         for (PromotableOrderItem item : items) {
@@ -285,12 +242,6 @@ public class ItemOfferProcessorImpl extends OrderOfferProcessorImpl implements I
         return itemPriceDetails;
     }
 
-    /**
-     * Loop through ItemCriteria and mark qualifiers required to give the promotion to 1 or more targets.
-     * @param itemOffer
-     * @param order
-     * @return
-     */
     protected boolean markQualifiers(PromotableCandidateItemOffer itemOffer, PromotableOrder order) {
         for (OfferItemCriteria itemCriteria : itemOffer.getCandidateQualifiersMap().keySet()) {
             List<PromotableOrderItem> promotableItems = itemOffer.getCandidateQualifiersMap().get(itemCriteria);
@@ -309,13 +260,7 @@ public class ItemOfferProcessorImpl extends OrderOfferProcessorImpl implements I
     protected boolean markTargets(PromotableCandidateItemOffer itemOffer, PromotableOrder order, OrderItem relatedQualifier) {
         return markTargets(itemOffer, order, relatedQualifier, false);
     }
-    
-    /**
-     * Loop through ItemCriteria and mark targets that can get this promotion to give the promotion to 1 or more targets.
-     * @param itemOffer
-     * @param order
-     * @return
-     */
+
     public boolean markTargets(PromotableCandidateItemOffer itemOffer, PromotableOrder order, OrderItem relatedQualifier,
             boolean checkOnly) {
         Offer promotion = itemOffer.getOffer();
@@ -347,15 +292,6 @@ public class ItemOfferProcessorImpl extends OrderOfferProcessorImpl implements I
         return true;
     }
 
-    /**
-     * When the {@link Offer#getRequiresRelatedTargetAndQualifiers()} flag is set to true, we must make sure that we
-     * identify qualifiers and targets together, as they must be related to each other based on the 
-     * {@link OrderItem#getParentOrderItem()} / {@link OrderItem#getChildOrderItems()} attributes.
-     * 
-     * @param itemOffer
-     * @param order
-     * @return whether or not a suitable qualifier/target pair was found and marked
-     */
     protected boolean markRelatedQualifiersAndTargets(PromotableCandidateItemOffer itemOffer, PromotableOrder order) {
         OrderItemHolder orderItemHolder = new OrderItemHolder(null);
 
@@ -390,14 +326,7 @@ public class ItemOfferProcessorImpl extends OrderOfferProcessorImpl implements I
             }
         }
     }
-    
-    /**
-     * Provide an opportunity to for modules to override the potentialSavingsCalculation 
-     * @param itemOffer
-     * @param item
-     * @param quantity
-     * @return
-     */
+
     protected Money calculatePotentialSavingsForOrderItem(PromotableCandidateItemOffer itemOffer,
             PromotableOrderItem item, int quantity) {
         if (extensionManager != null) {
@@ -420,11 +349,6 @@ public class ItemOfferProcessorImpl extends OrderOfferProcessorImpl implements I
         return itemOffer.calculateSavingsForOrderItem(item, quantity);
     }
 
-    /**
-     * This method determines the potential savings for each item offer as if it was the only item offer being applied.
-     * @param itemOffers
-     * @param order
-     */
     protected void calculatePotentialSavings(List<PromotableCandidateItemOffer> itemOffers, PromotableOrder order) {
         if (itemOffers.size() > 1) {
             for (PromotableCandidateItemOffer itemOffer : itemOffers) {
@@ -499,14 +423,6 @@ public class ItemOfferProcessorImpl extends OrderOfferProcessorImpl implements I
         return false;
     }
 
-    /**
-     * This method could be overridden to potentially run all permutations of offers.
-     * A reasonable alternative is to have a permutation with nonCombinable offers
-     * and another with combinable offers. 
-     *
-     * @param offers
-     * @return
-     */
     protected List<List<PromotableCandidateItemOffer>> buildItemOfferPermutations(
             List<PromotableCandidateItemOffer> offers) {
         List<List<PromotableCandidateItemOffer>> listOfOfferLists = new ArrayList<List<PromotableCandidateItemOffer>>();

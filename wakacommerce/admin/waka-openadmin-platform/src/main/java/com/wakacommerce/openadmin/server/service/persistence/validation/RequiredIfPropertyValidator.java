@@ -18,17 +18,8 @@ import java.util.Map;
 
 
 /**
- * Makes a field required if the value of another field matches another value.
- * Designed for use where selecting a radio makes another field required.
- * 
- * This validator supports two approaches.   For both approaches, use compareField to indicate
- * the property name you want to compare ...
- * 
- * To compare against a specific value, also provide a "compareFieldValue" attribute.
- * 
- * To compare against a specific fieldName, also provide a "compareFieldName" attribute 
- * 
- *  
+ *
+ * @ hui
  */
 @Component("blRequiredIfPropertyValidator")
 public class RequiredIfPropertyValidator extends ValidationConfigurationBasedPropertyValidator {

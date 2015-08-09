@@ -14,10 +14,8 @@ import java.util.Map;
 
 
 /**
- * Ensures that every property that is required from {@link BasicFieldMetadata#getRequired()} has a non-empty value being
- * set.
  *
- *     
+ * @ hui
  */
 @Component("blRequiredPropertyValidator")
 public class RequiredPropertyValidator implements GlobalPropertyValidator {

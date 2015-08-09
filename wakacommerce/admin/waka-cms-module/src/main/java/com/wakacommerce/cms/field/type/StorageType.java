@@ -5,7 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 静态资源存储类型，支持数据库和文件系统
+ *
+ * @ hui
  */
 public class StorageType implements Serializable {
 

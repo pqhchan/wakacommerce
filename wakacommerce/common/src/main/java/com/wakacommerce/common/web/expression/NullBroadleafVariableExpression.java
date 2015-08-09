@@ -2,9 +2,8 @@
 package com.wakacommerce.common.web.expression;
 
 /**
- * A null implementation of {@link BroadleafVariableExpression} 
- * 
- * 
+ *
+ * @ hui
  */
 public class NullBroadleafVariableExpression implements BroadleafVariableExpression {
 

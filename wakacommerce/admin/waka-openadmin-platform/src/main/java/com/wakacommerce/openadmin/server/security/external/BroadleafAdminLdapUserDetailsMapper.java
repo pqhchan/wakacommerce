@@ -17,10 +17,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- * This is used to map LDAP principal and authorities into BLC security model.
- * 
- *  
  *
+ * @ hui
  */
 public class BroadleafAdminLdapUserDetailsMapper extends LdapUserDetailsMapper {
 
@@ -47,15 +45,6 @@ public class BroadleafAdminLdapUserDetailsMapper extends LdapUserDetailsMapper {
         return provisioningService.provisionAdminUser(details);
     }
 
-    /**
-     * Allows for a hook to determine the Multi-Tenant site for this user from the ctx, username, and authorities. Default is 
-     * to return null (no site).  Implementors may wish to subclass this to determine the Site from the context.
-     * 
-     * If the user is not associated with the current site, or if there is a problem determining the Site, an instance of 
-     * <code>org.springframework.security.core.AuthenticationException</code> should be thrown.
-     * 
-     * @return
-     */
     protected Site determineSite(DirContextOperations ctx, String username, Collection<? extends GrantedAuthority> authorities) {
         return null;
     }

@@ -19,15 +19,8 @@ import java.util.List;
 import javax.annotation.Resource;
 
 /**
- * A Thymeleaf processor that will add the desired categories to the model. It does this by
- * searching for the <b>parentCategory</b> by name> and adding up to <b>maxResults</b> subcategories under
- * the model attribute specified by <b>resultVar</b>
- * 
- * @param parentCategory (required) the name of the parent category to get subcategories from
- * @param resultVar (required) the model variable that the resulting list of categories should be set to
- * @param maxResults (optional) the maximum number of categories to return
- * 
- *  
+ *
+ * @ hui
  */
 public class CategoriesProcessor extends AbstractModelVariableModifierProcessor {
     
@@ -37,9 +30,6 @@ public class CategoriesProcessor extends AbstractModelVariableModifierProcessor 
     @Resource(name = "blCategoriesProcessorExtensionManager")
     protected CategoriesProcessorExtensionManager extensionManager;
 
-    /**
-     * Sets the name of this processor to be used in Thymeleaf template
-     */
     public CategoriesProcessor() {
         super("categories");
     }

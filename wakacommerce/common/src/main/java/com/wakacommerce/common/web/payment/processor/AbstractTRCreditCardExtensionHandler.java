@@ -16,11 +16,8 @@ import com.wakacommerce.common.payment.service.PaymentGatewayTransparentRedirect
 import com.wakacommerce.common.vendor.service.exception.PaymentException;
 
 /**
- * <p>An Abstract implementation of the TRCreditCardExtensionHandler.
- * PaymentGateway Handlers will just need to extend this class and implement
- * the declared abstract methods.</p>
  *
- *  
+ * @ hui
  */
 public abstract class AbstractTRCreditCardExtensionHandler extends AbstractExtensionHandler
         implements TRCreditCardExtensionHandler {

@@ -17,20 +17,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * <p>A Thymeleaf processor that will generate a Mock Hosted Link given a passed in PaymentRequestDTO.</p>
  *
- * <pre><code>
- * <form blc:null_payment_hosted_action="${paymentRequestDTO}" complete_checkout="${false}" method="POST">
- *   <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" align="left" style="margin-right:7px;" alt="Submit Form" />
- * </form>
- * </code></pre>
- *
- * In order to use this sample processor, you will need to component scan
- * the package "com.mycompany.sample".
- *
- * This should NOT be used in production, and is meant solely for demonstration
- * purposes only.
- *  
+ * @ hui
  */
 @Component("blNullPaymentGatewayHostedActionProcessor")
 public class NullPaymentGatewayHostedActionProcessor extends AbstractAttributeModifierAttrProcessor {
@@ -38,9 +26,6 @@ public class NullPaymentGatewayHostedActionProcessor extends AbstractAttributeMo
     @Resource(name = "blNullPaymentGatewayHostedService")
     private PaymentGatewayHostedService paymentGatewayHostedService;
 
-    /**
-     * Sets the name of this processor to be used in Thymeleaf template
-     */
     public NullPaymentGatewayHostedActionProcessor() {
         super("null_payment_hosted_action");
     }

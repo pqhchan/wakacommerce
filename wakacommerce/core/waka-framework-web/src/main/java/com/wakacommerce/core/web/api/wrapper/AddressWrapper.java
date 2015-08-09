@@ -14,10 +14,8 @@ import com.wakacommerce.profile.core.domain.Address;
 import com.wakacommerce.profile.core.service.AddressService;
 
 /**
- * This is a JAXB wrapper around Address.
  *
- * User: Elbert Bautista
- * Date: 4/10/12
+ * @ hui
  */
 @XmlRootElement(name = "address")
 @XmlAccessorType(value = XmlAccessType.FIELD)
@@ -44,16 +42,10 @@ public class AddressWrapper extends BaseWrapper implements APIWrapper<Address>, 
     @XmlElement
     protected String city;
 
-    /**
-     * Deprecated. Use "isoCountrySubdivision" and/or "stateProvinceRegion" instead.
-     */
     @XmlElement
     @Deprecated
     protected StateWrapper state;
 
-    /**
-     * Deprecated. Use "isoCountryAlpha2" instead.
-     */
     @XmlElement
     @Deprecated
     protected CountryWrapper country;

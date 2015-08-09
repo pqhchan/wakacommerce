@@ -5,13 +5,8 @@ import javax.servlet.http.HttpServletResponseWrapper;
 import java.io.IOException;
 
 /**
- * Code is largely copied from StackOverflow post made by David Rabinowitz with contributions
- * by others in the same thread.   Overrides all status setting methods and retains the status.
- * <br><br>
  *
- * http://stackoverflow.com/questions/1302072/how-can-i-get-the-http-status-code-out-of-a-servletresponse-in-a-servletfilter<br><br>
- *
- * This won't be needed with Servlet 3.0.<br><br>
+ * @ hui
  */
 public class StatusExposingServletResponse extends HttpServletResponseWrapper {
 

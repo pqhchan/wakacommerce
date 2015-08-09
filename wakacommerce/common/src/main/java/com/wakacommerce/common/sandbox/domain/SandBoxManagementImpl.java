@@ -28,19 +28,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
- * This class is required mostly as a workaround for an issue in Hibernate. It's obscure, but I'll try to explain.
- * SandBox ids are used as discriminators in workflow. SandBoxes themselves are also able to be managed in the
- * admin (add new sandbox, etc...) Site ids are used as discriminators in multitenant. When workflow and multitenant
- * are used together, both discriminators are in effect. Because sandboxes can be managed in the admin, it is required
- * that they have a site discriminator to be managed in the multitenant admin. This intermingling of references
- * ends up causing this exception at runtime during, for example, a product save:
  *
- * HibernateException: Found two representations of same collection
- *
- * To workaround, we use this management entity that exposes the properties seamlessly of SandBox to the admin, but
- * holds the site discriminator on its own table (rather than BLC_SANDBOX), which fixes the issue.
- *
- * 
+ * @ hui
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

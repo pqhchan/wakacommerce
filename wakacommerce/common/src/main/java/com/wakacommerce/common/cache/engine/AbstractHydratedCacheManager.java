@@ -11,7 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *  
+ *
+ * @ hui
  */
 public abstract class AbstractHydratedCacheManager implements CacheEventListener, HydratedCacheManager, HydratedAnnotationManager {
 

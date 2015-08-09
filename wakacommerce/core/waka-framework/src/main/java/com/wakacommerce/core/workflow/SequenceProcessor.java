@@ -110,14 +110,6 @@ public class SequenceProcessor extends BaseProcessor {
         return context;
     }
 
-    /**
-     * Determine if the process should stop
-     *
-     * @param context
-     *            the current process context
-     * @param activity
-     *            the current activity in the iteration
-     */
     protected boolean processShouldStop(ProcessContext<?> context, Activity<? extends ProcessContext<?>> activity) {
         if (context == null || context.isStopped()) {
             LOG.info("Interrupted workflow as requested by:" + activity.getBeanName());

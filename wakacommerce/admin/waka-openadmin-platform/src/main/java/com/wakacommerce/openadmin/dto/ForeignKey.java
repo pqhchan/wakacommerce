@@ -8,9 +8,8 @@ import java.io.Serializable;
 
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public class ForeignKey implements Serializable, PersistencePerspectiveItem {
 

@@ -12,13 +12,8 @@ import com.wakacommerce.menu.service.MenuService;
 import javax.annotation.Resource;
 
 /**
- * A Thymeleaf processor that will add a list of MenuItemDTOs to the model.
- * 
- * It accepts a menuName or menuId. The precedence is that a menuId
- * will honored first, followed by a menuName.
- * An extension manager may override the resulting menu if configured to do so.
  *
- * 
+ * @ hui
  */
 @Component("blMenuProcessor")
 public class MenuProcessor extends AbstractModelVariableModifierProcessor {
@@ -29,9 +24,6 @@ public class MenuProcessor extends AbstractModelVariableModifierProcessor {
     @Resource(name = "blMenuProcessorExtensionManager")
     protected MenuProcessorExtensionManager extensionManager;
 
-    /**
-     * Sets the name of this processor to be used in Thymeleaf template
-     */
     public MenuProcessor() {
         super("menu");
     }

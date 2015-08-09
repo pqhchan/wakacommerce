@@ -13,10 +13,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * This is a JAXB wrapper around Country.
  *
- * User: Elbert Bautista
- * Date: 4/10/12
+ * @ hui
  */
 @XmlRootElement(name = "country")
 @XmlAccessorType(value = XmlAccessType.FIELD)
@@ -50,34 +48,18 @@ public class CountryWrapper extends BaseWrapper implements APIWrapper<Country>, 
         return null;
     }
 
-    
-    /**
-     * @return the name
-     */
     public String getName() {
         return name;
     }
 
-    
-    /**
-     * @param name the name to set
-     */
     public void setName(String name) {
         this.name = name;
     }
 
-    
-    /**
-     * @return the abbreviation
-     */
     public String getAbbreviation() {
         return abbreviation;
     }
 
-    
-    /**
-     * @param abbreviation the abbreviation to set
-     */
     public void setAbbreviation(String abbreviation) {
         this.abbreviation = abbreviation;
     }

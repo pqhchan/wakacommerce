@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 
 /**
  *
- *     
+ * @ hui
  */
 @Service("blOfferAuditService")
 public class OfferAuditServiceImpl implements OfferAuditService {

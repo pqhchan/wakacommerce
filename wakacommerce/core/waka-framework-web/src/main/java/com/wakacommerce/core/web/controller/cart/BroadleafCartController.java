@@ -31,9 +31,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * In charge of performing the various modify cart operations
- * 
- * 
+ *
+ * @ hui
  */
 public class BroadleafCartController extends AbstractCartController {
     
@@ -42,20 +41,7 @@ public class BroadleafCartController extends AbstractCartController {
     
     @Value("${solr.index.use.sku}")
     protected boolean useSku;
-    
-    /**
-     * Renders the cart page.
-     * 
-     * If the method was invoked via an AJAX call, it will render the "ajax/cart" template.
-     * Otherwise, it will render the "cart" template.
-     *
-     * Will reprice the order if the currency has been changed.
-     * 
-     * @param request
-     * @param response
-     * @param model
-     * @throws PricingException
-     */
+
     public String cart(HttpServletRequest request, HttpServletResponse response, Model model) throws PricingException {
         Order cart = CartState.getCart();
         if (cart != null && !(cart instanceof NullOrderImpl)) {
@@ -63,21 +49,7 @@ public class BroadleafCartController extends AbstractCartController {
         }
         return getCartView();
     }
-    
-    /**
-     * Takes in an item request, adds the item to the customer's current cart, and returns.
-     * 
-     * If the method was invoked via an AJAX call, it will render the "ajax/cart" template.
-     * Otherwise, it will perform a 302 redirect to "/cart"
-     * 
-     * @param request
-     * @param response
-     * @param model
-     * @param itemRequest
-     * @throws IOException
-     * @throws AddToCartException 
-     * @throws PricingException
-     */
+
     public String add(HttpServletRequest request, HttpServletResponse response, Model model,
             AddToCartItem itemRequest) throws IOException, AddToCartException, PricingException  {
         Order cart = CartState.getCart();
@@ -95,24 +67,7 @@ public class BroadleafCartController extends AbstractCartController {
         
         return isAjaxRequest(request) ? getCartView() : getCartPageRedirect();
     }
-    
-    /**
-     * Takes in an item request, adds the item to the customer's current cart, and returns.
-     * 
-     * Calls the addWithOverrides method on the orderService which will honor the override
-     * prices on the AddToCartItem request object.
-     * 
-     * Implementors must secure this method to avoid accidentally exposing the ability for 
-     * malicious clients to override prices by hacking the post parameters.
-     * 
-     * @param request
-     * @param response
-     * @param model
-     * @param itemRequest
-     * @throws IOException
-     * @throws AddToCartException 
-     * @throws PricingException
-     */
+
     public String addWithPriceOverride(HttpServletRequest request, HttpServletResponse response, Model model,
             AddToCartItem itemRequest) throws IOException, AddToCartException, PricingException {
         Order cart = CartState.getCart();
@@ -131,22 +86,6 @@ public class BroadleafCartController extends AbstractCartController {
         return isAjaxRequest(request) ? getCartView() : getCartPageRedirect();
     }
 
-    /**
-     * Takes in an item request and updates the quantity of that item in the cart. If the quantity
-     * was passed in as 0, it will remove the item.
-     * 
-     * If the method was invoked via an AJAX call, it will render the "ajax/cart" template.
-     * Otherwise, it will perform a 302 redirect to "/cart"
-     * 
-     * @param request
-     * @param response
-     * @param model
-     * @param itemRequest
-     * @throws IOException
-     * @throws PricingException
-     * @throws UpdateCartException
-     * @throws RemoveFromCartException 
-     */
     public String updateQuantity(HttpServletRequest request, HttpServletResponse response, Model model,
             AddToCartItem itemRequest) throws IOException, UpdateCartException, PricingException, RemoveFromCartException {
         Order cart = CartState.getCart();
@@ -168,21 +107,7 @@ public class BroadleafCartController extends AbstractCartController {
             return getCartPageRedirect();
         }
     }
-    
-    /**
-     * Takes in an item request, updates the quantity of that item in the cart, and returns
-     * 
-     * If the method was invoked via an AJAX call, it will render the "ajax/cart" template.
-     * Otherwise, it will perform a 302 redirect to "/cart"
-     * 
-     * @param request
-     * @param response
-     * @param model
-     * @param itemRequest
-     * @throws IOException
-     * @throws PricingException
-     * @throws RemoveFromCartException 
-     */
+
     public String remove(HttpServletRequest request, HttpServletResponse response, Model model,
             AddToCartItem itemRequest) throws IOException, PricingException, RemoveFromCartException {
         Order cart = CartState.getCart();
@@ -204,15 +129,7 @@ public class BroadleafCartController extends AbstractCartController {
             return getCartPageRedirect();
         }
     }
-    
-    /**
-     * Cancels the current cart and redirects to the homepage
-     * 
-     * @param request
-     * @param response
-     * @param model
-     * @throws PricingException
-     */
+
     public String empty(HttpServletRequest request, HttpServletResponse response, Model model) throws PricingException {
         Order cart = CartState.getCart();
         orderService.cancelOrder(cart);

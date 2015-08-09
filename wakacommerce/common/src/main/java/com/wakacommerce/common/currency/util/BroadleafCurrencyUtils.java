@@ -15,10 +15,8 @@ import com.wakacommerce.common.money.Money;
 
 
 /**
- * Utility methods for common currency operations
- * 
- *  
- * @see {@link BroadleafCurrency}
+ *
+ * @ hui
  */
 public class BroadleafCurrencyUtils {
 
@@ -57,11 +55,6 @@ public class BroadleafCurrencyUtils {
         return (currency == null) ? Money.defaultCurrency() : Currency.getInstance(currency.getCurrencyCode());
     }
 
-    /**
-     * Returns the unit amount (e.g. .01 for US and all other 2 decimal currencies)
-     * @param currency
-     * @return
-     */
     public static Money getUnitAmount(Money difference) {
         Currency currency = BroadleafCurrencyUtils.getCurrency(difference);
         BigDecimal divisor = new BigDecimal(Math.pow(10, currency.getDefaultFractionDigits()));
@@ -73,11 +66,6 @@ public class BroadleafCurrencyUtils {
         return new Money(unitAmount, currency);
     }
 
-    /**
-     * Returns the unit amount (e.g. .01 for US and all other 2 decimal currencies)
-     * @param currency
-     * @return
-     */
     public static Money getUnitAmount(BroadleafCurrency blCurrency) {
         Currency currency = getCurrency(blCurrency);
         BigDecimal divisor = new BigDecimal(Math.pow(10, currency.getDefaultFractionDigits()));
@@ -85,12 +73,6 @@ public class BroadleafCurrencyUtils {
         return new Money(unitAmount, currency);
     }
 
-    /**
-     * Returns the remainder amount if the passed in totalAmount was divided by the
-     * quantity taking into account the normal unit of the currency (e.g. .01 for US).
-     * @param currency
-     * @return
-     */
     public static int calculateRemainder(Money totalAmount, int quantity) {
         if (totalAmount == null || totalAmount.isZero() || quantity == 0) {
             return 0;
@@ -104,14 +86,6 @@ public class BroadleafCurrencyUtils {
         return remainder.toBigInteger().intValue();
     }
 
-    /**
-     * Provides a cached approach for creating NumberFormat instances. More performant
-     * than creating a new one each time.
-     *
-     * @param locale the Locale
-     * @param currency the Currency
-     * @return either a new NumberFormat instance, or one taken from the cache
-     */
     public static NumberFormat getNumberFormatFromCache(Locale locale, Currency currency) {
         String key = locale.toString() + currency.getCurrencyCode();
         if (!FORMAT_CACHE.containsKey(key)) {

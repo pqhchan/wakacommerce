@@ -6,9 +6,8 @@ import java.util.TimeZone;
 import com.wakacommerce.core.offer.domain.Offer;
 
 /**
- * 
- * 
  *
+ * @ hui
  */
 public interface OfferTimeZoneProcessor {
 

@@ -14,11 +14,8 @@ import com.wakacommerce.common.logging.SupportLogManager;
 import com.wakacommerce.common.logging.SupportLogger;
 
 /**
- * This is a utility class that is only meant to be used for testing the BLC demo on Oracle. In our current
- * import sql files, there are a number of value declarations that are incompatible with Oracle. This
- * custom extractor takes care of transforming those values into something Oracle understands.
  *
- * 
+ * @ hui
  */
 public class DemoOracleSingleLineSqlCommandExtractor extends SingleLineSqlCommandExtractor {
 

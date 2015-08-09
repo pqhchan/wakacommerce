@@ -6,9 +6,8 @@ import org.springframework.stereotype.Component;
 import com.wakacommerce.common.extension.ExtensionManager;
 
 /**
- * Manager for the {@link AdminAbstractControllerExtensionHandler}
- * 
- * 
+ *
+ * @ hui
  */
 @Component("blAdminAbstractControllerExtensionManager")
 public class AdminAbstractControllerExtensionManager extends ExtensionManager<AdminAbstractControllerExtensionHandler> {

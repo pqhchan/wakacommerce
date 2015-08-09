@@ -8,9 +8,8 @@ import com.wakacommerce.openadmin.server.security.domain.AdminUser;
 import com.wakacommerce.openadmin.server.security.service.type.PermissionType;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public interface AdminPermissionDao {
 

@@ -6,9 +6,8 @@ import com.wakacommerce.common.money.Money;
 import com.wakacommerce.core.offer.domain.Offer;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public class FulfillmentGroupOfferPotential {
     

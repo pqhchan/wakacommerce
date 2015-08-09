@@ -21,18 +21,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * This is a sample implementation of {@link PaymentGatewayAbstractController}
- * that mimics what a real Payment Gateway Controller might look like.
- * This will handle translating the "fake response" from our NullPaymentGateway
- * so that it can be processed in the system.
  *
- * In order to use this sample controller, you will need to component scan
- * the package "com.mycompany.sample".
- *
- * This should NOT be used in production, and is meant solely for demonstration
- * purposes only.
- *
- *  
+ * @ hui
  */
 @Controller("blNullPaymentGatewayController")
 @RequestMapping("/" + NullPaymentGatewayController.GATEWAY_CONTEXT_KEY)

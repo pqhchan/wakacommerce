@@ -17,7 +17,8 @@ import java.util.Map;
 
 
 /**
- * ,  
+ *
+ * @ hui
  */
 public class AbstractOfferServiceExtensionHandler extends AbstractExtensionHandler implements OfferServiceExtensionHandler {
     

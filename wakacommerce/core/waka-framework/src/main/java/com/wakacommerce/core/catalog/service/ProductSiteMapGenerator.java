@@ -20,9 +20,8 @@ import java.util.List;
 import javax.annotation.Resource;
 
 /**
- * Responsible for generating site map entries for Product.
- * 
- *  
+ *
+ * @ hui
  */
 @Component("blProductSiteMapGenerator")
 public class ProductSiteMapGenerator implements SiteMapGenerator {

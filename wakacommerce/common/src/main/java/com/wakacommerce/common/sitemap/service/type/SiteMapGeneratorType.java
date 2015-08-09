@@ -9,16 +9,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extendible enumeration of site map generator types.
- * 
- * <ul>
- *  <li><b>CATEGORY</b> - Generator that understands how to generate category based sitemap entries.</li>
- *  <li><b>PRODUCT</b> - Generator that understands how to generate product based sitemap entries.</li>
- *  <li><b>PAGE</b> - Generator that understands how to generate page based sitemap entries.</li>
- *  <li><b>CUSTOM</b> - Generator that understands how to generate static based sitemap entries.</li>  
- * </ul>
- * 
- * 
+ *
+ * @ hui
  */
 public class SiteMapGeneratorType implements Serializable, WakaEnumType {
 

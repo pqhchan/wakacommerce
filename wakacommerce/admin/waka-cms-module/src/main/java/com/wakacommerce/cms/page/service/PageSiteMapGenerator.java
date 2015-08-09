@@ -19,9 +19,8 @@ import java.util.List;
 import javax.annotation.Resource;
 
 /**
- * Responsible for generating site map entries for Page.
- * 
- *  
+ *
+ * @ hui
  */
 @Component("blPageSiteMapGenerator")
 public class PageSiteMapGenerator implements SiteMapGenerator {

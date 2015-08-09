@@ -13,9 +13,8 @@ import java.util.List;
 import javax.servlet.jsp.JspException;
 
 /**
- * This class is for demonstration purposes only. It contains a call to
- * catalogService.findActiveProductsByCategory, which may return a large list. A
- * more performant solution would be to utilize data paging techniques.
+ *
+ * @ hui
  */
 public class GetProductsByCategoryIdTag extends AbstractCatalogTag {
 

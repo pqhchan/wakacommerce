@@ -16,27 +16,16 @@ import java.util.regex.PatternSyntaxException;
 
 
 /**
- * Validates a field against a configured 'regularExpression' item
- * 
- *  
+ *
+ * @ hui
  */
 @Component("blRegexPropertyValidator")
 public class RegexPropertyValidator extends ValidationConfigurationBasedPropertyValidator {
 
     protected static final Log LOG = LogFactory.getLog(RegexPropertyValidator.class);
 
-    /**
-     * Denotes what should occur when this validator encounters a null value to validate against. Default behavior is to
-     * allow them, which means that this validator will always return true with null values
-     */
     protected boolean succeedForNullValues = true;
-    
-    /**
-     * Whether or not this validator should succeed (and thus pass validation) even when the configured regular expression
-     * pattern is invalid. While this value defaults to true, it might be beneficial to set this to false in a development
-     * environment to debug problems in regular expressions. In either case, this validator will log that there is an invalid
-     * regular expression
-     */
+
     protected boolean suceedForInvalidRegex = true;
     
     @Override

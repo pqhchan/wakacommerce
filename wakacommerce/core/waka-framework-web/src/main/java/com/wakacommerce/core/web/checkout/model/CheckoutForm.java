@@ -40,10 +40,6 @@ public class CheckoutForm implements Serializable {
         billingAddress.setIsoCountryAlpha2(new ISOCountryImpl());
         isSameAddress = true;
 
-        /**
-         * @deprecated - setCountry() and setState() on address have been deprecated in favor of ISO standardization.
-         * Leaving here for legacy implementations.
-         */
         shippingAddress.setCountry(new CountryImpl());
         billingAddress.setCountry(new CountryImpl());
         shippingAddress.setState(new StateImpl());

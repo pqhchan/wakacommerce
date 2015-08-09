@@ -6,7 +6,8 @@ import java.util.Stack;
 import com.wakacommerce.common.classloader.release.ThreadLocalManager;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class PersistenceManagerContext {
 

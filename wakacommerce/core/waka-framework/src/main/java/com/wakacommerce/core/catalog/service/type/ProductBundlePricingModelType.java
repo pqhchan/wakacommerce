@@ -8,8 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- *  
  *
+ * @ hui
  */
 public class ProductBundlePricingModelType implements Serializable, WakaEnumType {
 

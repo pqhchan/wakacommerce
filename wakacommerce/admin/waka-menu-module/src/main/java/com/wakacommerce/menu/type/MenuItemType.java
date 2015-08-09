@@ -7,10 +7,8 @@ import java.util.Map;
 
 
 /**
- * Menu Item Types
  *
- * 
- *
+ * @ hui
  */
 public class MenuItemType implements Serializable {
 

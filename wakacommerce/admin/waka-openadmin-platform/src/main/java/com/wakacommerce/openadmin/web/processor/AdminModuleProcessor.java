@@ -18,13 +18,8 @@ import com.wakacommerce.openadmin.server.security.service.navigation.AdminNaviga
 import javax.annotation.Resource;
 
 /**
- * A Thymeleaf processor that will add the appropriate AdminModules to the model. It does this by
- * iterating through the permissions specified in the SecurityContexts AdminUser object and adding the
- * appropriate section to the model attribute specified by resultVar
  *
- * This is useful in constructing the left navigation menu for the admin console.
- *
- *  
+ * @ hui
  */
 @Component("blAdminModuleProcessor")
 public class AdminModuleProcessor extends AbstractModelVariableModifierProcessor {
@@ -37,9 +32,6 @@ public class AdminModuleProcessor extends AbstractModelVariableModifierProcessor
     @Resource(name = "blAdminSecurityService")
     protected AdminSecurityService securityService;
 
-    /**
-     * Sets the name of this processor to be used in Thymeleaf template
-     */
     public AdminModuleProcessor() {
         super("admin_module");
     }

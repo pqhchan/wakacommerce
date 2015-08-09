@@ -3,9 +3,8 @@ package com.wakacommerce.core.order.service.call;
 
 
 /**
- * ActivityMessageDTO will hold messages that will be  passed between activities/workflows.  As opposed to 
- * 
- * Created by priyesh patel.
+ *
+ * @ hui
  */
 public class ActivityMessageDTO {
 

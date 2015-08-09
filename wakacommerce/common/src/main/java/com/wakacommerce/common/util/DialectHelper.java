@@ -14,7 +14,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Repository("blDialectHelper")
 public class DialectHelper {

@@ -21,7 +21,8 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 /**
- * Created by ppatel.
+ *
+ * @ hui
  */
 @Repository("blURLHandlerDao")
 public class URlHandlerDaoImpl implements URLHandlerDao {

@@ -7,7 +7,8 @@ import java.util.concurrent.atomic.AtomicLong;
 import com.wakacommerce.common.time.SystemTime;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class CacheStat {
 

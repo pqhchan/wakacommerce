@@ -8,11 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * <p>This represents types of payments that can be applied to an order. There might be multiple order payments with the
- * same type on an order if the customer can pay with multiple cards (like 2 credit cards or 3 gift cards).</p>
- * 
- * @see {@link OrderPayment}
- *     
+ *
+ * @ hui
  */
 public class PaymentType implements Serializable, WakaEnumType {
 
@@ -29,16 +26,7 @@ public class PaymentType implements Serializable, WakaEnumType {
     public static final PaymentType MONEY_ORDER = new PaymentType("MONEY_ORDER", "Money Order");
     public static final PaymentType CUSTOMER_CREDIT = new PaymentType("CUSTOMER_CREDIT", "Customer Credit");
     public static final PaymentType COD = new PaymentType("COD", "Collect On Delivery");
-    /**
-     * Intended for modules like PayPal Express Checkout
-     *
-     * It is important to note that in this system an `UNCONFIRMED` `THIRD_PARTY_ACCOUNT` has a specific use case.
-     * The Order Payment amount can be variable. That means, when you confirm that `UNCONFIRMED` transaction, you can pass in a different amount
-     * than what was sent as the initial transaction amount. see (AdjustOrderPaymentsActivity)
-     *
-     * Note that not all third party gateways support this feature described above.
-     * Make sure to the gateway does before assigning this type to your Order Payment.
-     */
+
     public static final PaymentType THIRD_PARTY_ACCOUNT = new PaymentType("THIRD_PARTY_ACCOUNT", "3rd-Party Account");
 
     public static PaymentType getInstance(final String type) {

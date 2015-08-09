@@ -7,9 +7,8 @@ import com.wakacommerce.core.catalog.domain.ProductOption;
 import com.wakacommerce.core.catalog.domain.ProductOptionValue;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public interface ProductOptionDao {
     

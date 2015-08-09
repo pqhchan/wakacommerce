@@ -14,35 +14,14 @@ import com.wakacommerce.profile.web.core.CustomerState;
 import javax.annotation.Resource;
 
 /**
- * <p>
- * A Thymeleaf processor that will add the desired named order to the model
  *
- * <p>
- * Example:
- * 
- * <pre>
- *  &lt;blc:named_order orderVar="wishlist" orderName="wishlist" /&gt;
- *  &lt;span th:text="${wishlist.customer.name}" /&gt; 
- * </pre>
- *
- * @param orderVar the value that the order will be assigned to
- * @param orderName the name of the order, {@link Order#getName()}
- * 
- * @see {@link Order#getName()}
- *  
+ * @ hui
  */
 public class NamedOrderProcessor extends AbstractModelVariableModifierProcessor {
     
     @Resource(name = "blOrderService")
     protected OrderService orderService;
 
-    /**
-     * Sets the name of this processor to be used in Thymeleaf template
-     *
-     * NOTE: thymeleaf normalizes the attribute names by converting all to lower-case
-     * we will use the underscore instead of camel case to avoid confusion
-     *
-     */
     public NamedOrderProcessor() {
         super("named_order");
     }

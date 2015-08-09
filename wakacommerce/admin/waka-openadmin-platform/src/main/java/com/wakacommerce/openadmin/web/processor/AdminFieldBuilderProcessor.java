@@ -18,7 +18,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- *  
+ *
+ * @ hui
  */
 @Component("blAdminFieldBuilderProcessor")
 public class AdminFieldBuilderProcessor extends AbstractLocalVariableDefinitionElementProcessor {
@@ -26,9 +27,6 @@ public class AdminFieldBuilderProcessor extends AbstractLocalVariableDefinitionE
     @Resource(name = "blRuleBuilderFieldServiceFactory")
     protected RuleBuilderFieldServiceFactory ruleBuilderFieldServiceFactory;
 
-    /**
-     * Sets the name of this processor to be used in Thymeleaf template
-     */
     public AdminFieldBuilderProcessor() {
         super("admin_field_builder");
     }

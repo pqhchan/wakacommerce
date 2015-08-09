@@ -18,16 +18,10 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
- * TODO setup other BLC items to be JMX managed resources like this one. This would include other services, and singleton beans
- * that are configured via Spring and property files (i.e. payment modules, etc...)
- */
+
 /**
- * This legacy implementation should no longer be used as of 2.0
- * 
- * The new interface and implementation are OrderService and OrderServiceImpl
- * 
- * @deprecated
+ *
+ * @ hui
  */
 @Deprecated
 public class LegacyCartServiceImpl extends LegacyOrderServiceImpl implements LegacyCartService {

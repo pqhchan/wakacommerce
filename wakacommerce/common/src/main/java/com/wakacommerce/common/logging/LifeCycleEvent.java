@@ -2,10 +2,8 @@
 package com.wakacommerce.common.logging;
 
 /**
- * Enumeration describes the type of event that is being logged in the
- * SupportLogger.lifecycle method.
  *
- * 
+ * @ hui
  */
 public enum LifeCycleEvent {
     START,

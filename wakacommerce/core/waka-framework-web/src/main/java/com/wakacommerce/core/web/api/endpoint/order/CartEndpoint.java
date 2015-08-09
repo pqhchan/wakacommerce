@@ -37,14 +37,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * This endpoint depends on JAX-RS to provide cart services.  It should be extended by components that actually wish 
- * to provide an endpoint.  The annotations such as @Path, @Scope, @Context, @PathParam, @QueryParam, 
- * @GET, @POST, @PUT, and @DELETE are purposely not provided here to allow implementors finer control over 
- * the details of the endpoint.
  *
- * <p/>
- * User:   
- * Date: 4/10/12
+ * @ hui
  */
 public abstract class CartEndpoint extends BaseEndpoint {
 
@@ -57,11 +51,6 @@ public abstract class CartEndpoint extends BaseEndpoint {
     @Resource(name="blCustomerService")
     protected CustomerService customerService;
 
-   /**
-     * Search for {@code Order} by {@code Customer}
-     *
-     * @return the cart for the customer
-     */
     public OrderWrapper findCartForCustomer(HttpServletRequest request) {
         Order cart = CartState.getCart();
         if (cart == null || cart instanceof NullOrderImpl) {
@@ -75,11 +64,6 @@ public abstract class CartEndpoint extends BaseEndpoint {
         return wrapper;
     }
 
-   /**
-     * Create a new {@code Order} for {@code Customer}
-     *
-     * @return the cart for the customer
-     */
     public OrderWrapper createNewCartForCustomer(HttpServletRequest request) {
         Customer customer = CustomerState.getCustomer(request);
 
@@ -99,25 +83,6 @@ public abstract class CartEndpoint extends BaseEndpoint {
         return wrapper;
     }
 
-    /**
-     * This method takes in a categoryId and productId as path parameters.  In addition, query parameters can be supplied including:
-     * 
-     * <li>skuId</li>
-     * <li>quantity</li>
-     * <li>priceOrder</li>
-     * 
-     * You must provide a ProductId OR ProductId with product options. Product options can be posted as form or querystring parameters. 
-     * You must pass in the ProductOption attributeName as the key and the 
-     * ProductOptionValue attributeValue as the value.  See {@link CatalogEndpoint}.
-     * 
-     * @param request
-     * @param uriInfo
-     * @param categoryId
-     * @param productId
-     * @param quantity
-     * @param priceOrder
-     * @return OrderWrapper
-     */
     public OrderWrapper addProductToOrder(HttpServletRequest request,
             MultiValueMap<String, String> requestParams,
             Long productId,

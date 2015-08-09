@@ -11,11 +11,6 @@ import com.wakacommerce.core.web.order.security.CartStateRequestProcessor;
 @Component("blCartState")
 public class CartState {
 
-    /**
-     * Gets the current cart based on the current request
-     * 
-     * @return the current customer's cart
-     */
     public static Order getCart() {
         if (WakaRequestContext.getWakaRequestContext() == null ||
                 WakaRequestContext.getWakaRequestContext().getWebRequest() == null) {
@@ -25,12 +20,7 @@ public class CartState {
         WebRequest request = WakaRequestContext.getWakaRequestContext().getWebRequest();
         return (Order) request.getAttribute(CartStateRequestProcessor.getCartRequestAttributeName(), WebRequest.SCOPE_REQUEST);
     }
-    
-    /**
-     * Sets the current cart on the current request
-     * 
-     * @param cart the new cart to set
-     */
+
     public static void setCart(Order cart) {
         WebRequest request = WakaRequestContext.getWakaRequestContext().getWebRequest();
         request.setAttribute(CartStateRequestProcessor.getCartRequestAttributeName(), cart, WebRequest.SCOPE_REQUEST);

@@ -21,23 +21,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *  
+ *
+ * @ hui
  */
 public class BroadleafBillingInfoController extends AbstractCheckoutController {
 
-    /**
-     * Processes the request to save a billing address.
-     *
-     * Note: this default Broadleaf implementation will create an OrderPayment of
-     * type CREDIT_CARD if it doesn't exist and save the passed in billing address
-     *
-     * @param request
-     * @param response
-     * @param model
-     * @param billingForm
-     * @return the return path
-     * @throws com.wakacommerce.common.exception.ServiceException
-     */
     public String saveBillingAddress(HttpServletRequest request, HttpServletResponse response, Model model,
                                  BillingInfoForm billingForm, BindingResult result) throws PricingException, ServiceException {
         Order cart = CartState.getCart();
@@ -96,10 +84,6 @@ public class BroadleafBillingInfoController extends AbstractCheckoutController {
         }
     }
 
-    /**
-     * This method will copy the shipping address of the first fulfillment group on the order
-     * to the billing address on the BillingInfoForm that is passed in.
-     */
     protected void copyShippingAddressToBillingAddress(Order order, BillingInfoForm billingInfoForm) {
         if (order.getFulfillmentGroups().get(0) != null) {
             Address shipping = order.getFulfillmentGroups().get(0).getAddress();

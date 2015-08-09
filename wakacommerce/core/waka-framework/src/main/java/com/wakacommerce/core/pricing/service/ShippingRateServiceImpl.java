@@ -16,8 +16,8 @@ import java.math.BigDecimal;
 import javax.annotation.Resource;
 
 /**
- * @deprecated Superceded in functionality by {@link BandedPriceFulfillmentOption} and {@link BandedFulfillmentPricingProvider}
- * @see {@link FulfillmentOption}, {@link FulfillmentPricingService}
+ *
+ * @ hui
  */
 @Service("blShippingRateService")
 @Deprecated

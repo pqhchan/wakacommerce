@@ -11,7 +11,8 @@ import com.wakacommerce.core.catalog.domain.Sku;
 import java.util.Set;
 
 /**
- * 
+ *
+ * @ hui
  */
 public interface UncacheableDataProcessorExtensionHandler extends ExtensionHandler {
 

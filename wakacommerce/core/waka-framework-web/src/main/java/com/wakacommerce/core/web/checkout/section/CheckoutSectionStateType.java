@@ -8,7 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- *  
+ *
+ * @ hui
  */
 public class CheckoutSectionStateType implements Serializable, WakaEnumType {
 

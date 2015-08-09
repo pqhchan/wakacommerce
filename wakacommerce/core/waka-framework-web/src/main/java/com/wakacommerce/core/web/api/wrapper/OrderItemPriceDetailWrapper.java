@@ -17,9 +17,8 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * API wrapper to wrap Order Item Price Details.
- *Priyesh Patel
  *
+ * @ hui
  */
 @XmlRootElement(name = "orderItemAttribute")
 @XmlAccessorType(value = XmlAccessType.FIELD)
@@ -63,82 +62,42 @@ public class OrderItemPriceDetailWrapper extends BaseWrapper implements
         wrapDetails(model, request);
     }
 
-    
-    /**
-     * @return the id
-     */
     public Long getId() {
         return id;
     }
 
-    
-    /**
-     * @param id the id to set
-     */
     public void setId(Long id) {
         this.id = id;
     }
 
-    
-    /**
-     * @return the totalAdjustmentValue
-     */
     public Money getTotalAdjustmentValue() {
         return totalAdjustmentValue;
     }
 
-    
-    /**
-     * @param totalAdjustmentValue the totalAdjustmentValue to set
-     */
     public void setTotalAdjustmentValue(Money totalAdjustmentValue) {
         this.totalAdjustmentValue = totalAdjustmentValue;
     }
 
-    
-    /**
-     * @return the totalAdjustedPrice
-     */
     public Money getTotalAdjustedPrice() {
         return totalAdjustedPrice;
     }
 
-    
-    /**
-     * @param totalAdjustedPrice the totalAdjustedPrice to set
-     */
     public void setTotalAdjustedPrice(Money totalAdjustedPrice) {
         this.totalAdjustedPrice = totalAdjustedPrice;
     }
 
-    
-    /**
-     * @return the quantity
-     */
     public Integer getQuantity() {
         return quantity;
     }
 
-    
-    /**
-     * @param quantity the quantity to set
-     */
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
-    
-    /**
-     * @return the orderItemPriceDetailAdjustments
-     */
     public List<AdjustmentWrapper> getOrderItemPriceDetailAdjustments() {
         return orderItemPriceDetailAdjustments;
     }
 
-    
-    /**
-     * @param orderItemPriceDetailAdjustments the orderItemPriceDetailAdjustments to set
-     */
     public void setOrderItemPriceDetailAdjustments(List<AdjustmentWrapper> orderItemPriceDetailAdjustments) {
         this.orderItemPriceDetailAdjustments = orderItemPriceDetailAdjustments;
     }

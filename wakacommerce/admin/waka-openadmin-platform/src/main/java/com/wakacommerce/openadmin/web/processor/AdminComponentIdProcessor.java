@@ -16,16 +16,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * A Thymeleaf processor that will generate the appropriate ID for a given admin component.
- * 
- * 
+ *
+ * @ hui
  */
 @Component("blAdminComponentIdProcessor")
 public class AdminComponentIdProcessor extends AbstractAttributeModifierAttrProcessor {
 
-    /**
-     * Sets the name of this processor to be used in Thymeleaf template
-     */
     public AdminComponentIdProcessor() {
         super("component_id");
     }

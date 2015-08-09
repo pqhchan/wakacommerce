@@ -28,9 +28,8 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
 /**
- * Handles creating the various sitemap files. 
- * 
- * 
+ *
+ * @ hui
  */
 public class SiteMapBuilder {
 
@@ -51,10 +50,6 @@ public class SiteMapBuilder {
         this.gzipSiteMapFiles = gzipSiteMapFiles;
     }
 
-    /**
-     * Returns the SiteMapURLSetWrapper that a Generator should use to add its next URL element.
-     * 
-     */
     public void addUrl(SiteMapURLWrapper urlWrapper) {
         if (currentURLSetWrapper.getSiteMapUrlWrappers().size() >= siteMapConfig.getMaximumUrlEntriesPerFile()) {
             persistIndexedURLSetWrapper(currentURLSetWrapper);
@@ -63,12 +58,6 @@ public class SiteMapBuilder {
         currentURLSetWrapper.getSiteMapUrlWrappers().add(urlWrapper);
     }
 
-    /**
-     * Method takes in a valid JAXB object (e.g. has a RootElement) and persists it to 
-     * the temporary directory associated with this builder. 
-     * 
-     * @param fileName
-     */
     protected void persistXMLDocument(String fileName, Object xmlObject) {
 
         try {
@@ -98,32 +87,17 @@ public class SiteMapBuilder {
         }
     }
 
-    /**
-     * Save the passed in URL set to a new indexed file. 
-     * 
-     * @return
-     */
     protected void persistIndexedURLSetWrapper(SiteMapURLSetWrapper urlSetWrapper) {
         String indexedFileName = createNextIndexedFileName();
         indexedFileNames.add(indexedFileName);
         persistXMLDocument(indexedFileName, urlSetWrapper);
     }
 
-    /**
-     * Save the passed in URL set to a non-indexed file. 
-     * 
-     * @return
-     */
     protected void persistNonIndexedSiteMap() {
         indexedFileNames.add(siteMapConfig.getSiteMapFileName());
         persistXMLDocument(siteMapConfig.getSiteMapFileName(), currentURLSetWrapper);
     }
 
-    /**
-     * Save the site map index file. 
-     * 
-     * @return
-     */
     protected void persistIndexedSiteMap() {
         String now = FormatUtil.formatDateUsingW3C(new Date());
         
@@ -153,12 +127,6 @@ public class SiteMapBuilder {
                 siteMapIndexWrapper);
     }
 
-    /**
-     * Create the name of the indexed files.
-     * For example, sitemap1.xml, sitemap2.xml, etc.
-     * 
-     * @return
-     */
     protected String createNextIndexedFileName() {
         String pattern = siteMapConfig.getSiteMapIndexFilePattern();
         int indexFileNumber = indexedFileNames.size() + 1;

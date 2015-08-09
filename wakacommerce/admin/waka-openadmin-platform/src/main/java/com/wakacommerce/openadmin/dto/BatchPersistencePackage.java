@@ -5,7 +5,8 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class BatchPersistencePackage implements Serializable {
 

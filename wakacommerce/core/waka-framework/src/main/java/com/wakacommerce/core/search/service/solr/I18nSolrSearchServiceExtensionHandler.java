@@ -25,9 +25,8 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 /**
- * If the field is translatable, then this method prefixes the field with supported locales.
- * 
- * 
+ *
+ * @ hui
  */
 @Service("blI18nSolrSearchServiceExtensionHandler")
 public class I18nSolrSearchServiceExtensionHandler extends AbstractSolrSearchServiceExtensionHandler
@@ -145,12 +144,6 @@ public class I18nSolrSearchServiceExtensionHandler extends AbstractSolrSearchSer
 
     }
 
-    /**
-     * If the field is translatable, take the current locale and add that as a prefix.
-     * @param context
-     * @param field
-     * @return
-     */
     protected ExtensionResultStatusType getLocalePrefix(Field field, List<String> prefixList) {
         if (field.getTranslatable()) {
             if (WakaRequestContext.getWakaRequestContext() != null) {

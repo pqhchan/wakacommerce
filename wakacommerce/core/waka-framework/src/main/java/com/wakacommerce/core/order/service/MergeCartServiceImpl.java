@@ -24,10 +24,8 @@ import java.util.List;
 import javax.annotation.Resource;
 
 /**
- * The 2.0 implementation of merge cart service. Instead of merging items directly from one cart to another, we will
- * convert the previous cart to a named order that the customer is able to interact with as they see fit.
- * 
- * 
+ *
+ * @ hui
  */
 @Service("blMergeCartService")
 public class MergeCartServiceImpl implements MergeCartService {
@@ -176,32 +174,14 @@ public class MergeCartServiceImpl implements MergeCartService {
         extensionManager.getProxy().setNewCartOwnership(cart, customer);
     }
 
-    /**
-     * @param orderItem
-     * @return whether or not the discrete order item's sku is active
-     */
     protected boolean checkActive(DiscreteOrderItem orderItem) {
         return orderItem.getSku().isActive(orderItem.getProduct(), orderItem.getCategory());
     }
 
-    /**
-     * By default, Broadleaf does not provide an inventory check. This is set up as an extension point if your
-     * application needs it.
-     * 
-     * @param orderItem
-     * @return whether or not the item is in stock
-     */
     protected boolean checkInventory(DiscreteOrderItem orderItem) {
         return true;
     }
 
-    /**
-     * By default, Broadleaf does not provide additional validity checks. This is set up as an extension point if your
-     * application needs it.
-     * 
-     * @param orderItem
-     * @return whether or not the orderItem is valid
-     */
     protected boolean checkOtherValidity(OrderItem orderItem) {
         return true;
     }

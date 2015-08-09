@@ -8,11 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extensible enumeration for a Security Context Type.
- * @see com.wakacommerce.openadmin.server.security.domain.AdminSecurityContext
  *
- *  
- *
+ * @ hui
  */
 public class ContextType implements Serializable, WakaEnumType {
 

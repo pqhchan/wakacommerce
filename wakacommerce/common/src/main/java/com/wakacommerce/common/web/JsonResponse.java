@@ -10,17 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 
 /**
- * Used when a controller typically returns a String that represents a view path but would like to return a
- * JSON response in other scenarios, such as an error case.
- * 
- * Example Usage:
- * 
- * return new JsonResponse(response)
- *     .with("status", "ok")
- *     .with("shouldRefresh", true)
- *     .done();
- * 
- * 
+ *
+ * @ hui
  */
 public class JsonResponse {
     

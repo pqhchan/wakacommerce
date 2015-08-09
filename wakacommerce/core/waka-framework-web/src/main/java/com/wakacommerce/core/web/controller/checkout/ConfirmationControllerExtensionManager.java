@@ -7,7 +7,8 @@ import com.wakacommerce.common.extension.ExtensionManager;
 
 
 /**
- * 
+ *
+ * @ hui
  */
 @Service("blConfirmationControllerExtensionManager")
 public class ConfirmationControllerExtensionManager extends ExtensionManager<ConfirmationControllerExtensionHandler> {
@@ -16,10 +17,6 @@ public class ConfirmationControllerExtensionManager extends ExtensionManager<Con
         super(ConfirmationControllerExtensionHandler.class);
     }
 
-    /**
-     * By default, this manager will allow other handlers to process the method when a handler returns
-     * HANDLED.
-     */
     @Override
     public boolean continueOnHandled() {
         return true;

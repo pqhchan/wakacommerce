@@ -13,9 +13,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

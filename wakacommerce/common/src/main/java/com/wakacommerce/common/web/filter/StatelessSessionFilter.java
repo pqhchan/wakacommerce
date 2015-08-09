@@ -17,11 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Sets a request attribute that informs all Broadleaf Filters that follow NOT to use the HTTP Session.
- * 
- * Intended for use by REST api requests.
- * 
- * 
+ *
+ * @ hui
  */
 @Component("blStatelessSessionFilter")
 public class StatelessSessionFilter extends GenericFilterBean {

@@ -7,7 +7,8 @@ import com.wakacommerce.common.extension.ExtensionManager;
 
 
 /**
- * ,  
+ *
+ * @ hui
  */
 @Service("blPageServiceExtensionManager")
 public class PageServiceExtensionManager extends ExtensionManager<PageServiceExtensionHandler> {
@@ -16,10 +17,6 @@ public class PageServiceExtensionManager extends ExtensionManager<PageServiceExt
         super(PageServiceExtensionHandler.class);
     }
 
-    /**
-     * By default, this manager will allow other handlers to process the method when a handler returns
-     * HANDLED.
-     */
     @Override
     public boolean continueOnHandled() {
         return false;

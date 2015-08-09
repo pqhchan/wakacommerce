@@ -6,9 +6,8 @@ import org.springframework.stereotype.Service;
 import com.wakacommerce.common.extension.ExtensionManager;
 
 /**
- * Extension manager for the checkout controller
  *
- *  
+ * @ hui
  */
 @Service("blCheckoutControllerExtensionManager")
 public class BroadleafCheckoutControllerExtensionManager extends ExtensionManager<BroadleafCheckoutControllerExtensionHandler> {

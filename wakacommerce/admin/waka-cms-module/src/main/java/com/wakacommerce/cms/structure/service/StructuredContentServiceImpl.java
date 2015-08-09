@@ -116,24 +116,12 @@ public class StructuredContentServiceImpl implements StructuredContentService {
         c.setProjection(Projections.rowCount());
         return (Long) c.uniqueResult();
     }
-    
-    /**
-     * Saves the given <b>type</b> and returns the merged instance
-     */
+
     @Override
     public StructuredContentType saveStructuredContentType(StructuredContentType type) {
         return structuredContentDao.saveStructuredContentType(type);
     }
 
-    /**
-     * Converts a list of structured content items to a list of structured content DTOs.<br>
-     * Internally calls buildStructuredContentDTO(...).
-     *
-     * @param structuredContentList
-     * @param secure
-     * @return
-     * @see {@link #buildStructuredContentDTO(StructuredContent, boolean)}
-     */
     @Override
     public List<StructuredContentDTO> buildStructuredContentDTOList(List<StructuredContent> structuredContentList, boolean secure) {
         List<StructuredContentDTO> dtoList = new ArrayList<StructuredContentDTO>();
@@ -313,10 +301,6 @@ public class StructuredContentServiceImpl implements StructuredContentService {
         this.contentRuleProcessors = contentRuleProcessors;
     }
 
-    /**
-     * Call to evict an item from the cache.
-     * @param sc
-     */
     @Override
     public void removeStructuredContentFromCache(SandBox sandBox, StructuredContent sc) {
         // Remove secure and non-secure instances of the page.
@@ -343,12 +327,6 @@ public class StructuredContentServiceImpl implements StructuredContentService {
         return structuredContentCache;
     }
 
-    /**
-     * Call to evict both secure and non-secure SC items matching
-     * the passed in key.
-     *
-     * @param nameKey
-     */
     @Override
     public void removeItemFromCache(String nameKey, String typeKey) {
         // Remove secure and non-secure instances of the structured content.
@@ -398,27 +376,6 @@ public class StructuredContentServiceImpl implements StructuredContentService {
         return itemCriteriaDTOList;
     }
 
-    /**
-     * Parses the given {@link StructuredContent} into its {@link StructuredContentDTO} representation. This will also
-     * format the values from {@link StructuredContentDTO#getValues()} into their actual data types. For instance, if the
-     * given {@link StructuredContent} has a DATE field, then this method will ensure that the resulting object in the values
-     * map of the DTO is a {@link Date} rather than just a String representing a date.
-     *
-     * Current support of parsing field types is:
-     *    DATE - {@link Date}
-     *    BOOLEAN - {@link Boolean}
-     *    DECIMAL - {@link BigDecimal}
-     *    INTEGER - {@link Integer}
-     *    MONEY - {@link Money}
-     *
-     * All other fields are treated as strings. This will also fix URL strings that have the CMS prefix (like images) by
-     * prepending the standard CMS prefix with the particular environment prefix
-     *
-     * @param sc
-     * @param scDTO
-     * @param secure
-     * @see {@link StaticAssetService#getStaticAssetEnvironmentUrlPrefix()}
-     */
     protected void buildFieldValues(StructuredContent sc, StructuredContentDTO scDTO, boolean secure) {
 
         String cmsPrefix = staticAssetPathService.getStaticAssetUrlPrefix();
@@ -488,17 +445,6 @@ public class StructuredContentServiceImpl implements StructuredContentService {
         extensionManager.getProxy().populateAdditionalStructuredContentFields(sc, scDTO, secure);
     }
 
-    /**
-     * Converts a StructuredContent into a StructuredContentDTO.   If the item contains fields with
-     * broadleaf cms urls, the urls are converted to utilize the domain.
-     * 
-     * The StructuredContentDTO is built via the {@link EntityConfiguration}. To override the actual type that is returned,
-     * include an override in an applicationContext like any other entity override.
-     * 
-     * @param sc
-     * @param secure
-     * @return
-     */
     @Override
     public StructuredContentDTO buildStructuredContentDTO(StructuredContent sc, boolean secure) {
         StructuredContentDTO scDTO = entityConfiguration.createEntityInstance(StructuredContentDTO.class.getName(), StructuredContentDTO.class);

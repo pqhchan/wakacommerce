@@ -43,10 +43,6 @@ public class TimeDTO {
         this.cal = cal;
     }
 
-
-    /**
-     * @return  int representing the hour of day as 0 - 23
-     */
     public HourOfDayType getHour() {
         if (hour == null) {
             hour = cal.get(Calendar.HOUR_OF_DAY);
@@ -54,10 +50,6 @@ public class TimeDTO {
         return HourOfDayType.getInstance(hour.toString());
     }
 
-    /**
-     * @return int representing the day of week using Calendar.DAY_OF_WEEK values.
-     * 1 = Sunday, 7 = Saturday
-     */
     public DayOfWeekType getDayOfWeek() {
         if (dayOfWeek == null) {
             dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
@@ -65,9 +57,6 @@ public class TimeDTO {
         return DayOfWeekType.getInstance(dayOfWeek.toString());
     }
 
-    /**
-     * @return the current day of the month (1-31).
-     */
     public DayOfMonthType getDayOfMonth() {
         if (dayOfMonth == null) {
             dayOfMonth =  cal.get(Calendar.DAY_OF_MONTH);
@@ -75,9 +64,6 @@ public class TimeDTO {
         return DayOfMonthType.getInstance(dayOfMonth.toString());
     }
 
-    /**
-     * @return int representing the current month (1-12)
-     */
     public MonthType getMonth() {
         if (month == null) {
             month = cal.get(Calendar.MONTH);

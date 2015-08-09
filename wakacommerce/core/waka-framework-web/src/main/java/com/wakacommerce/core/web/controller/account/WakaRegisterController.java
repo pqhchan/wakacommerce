@@ -24,13 +24,8 @@ import com.wakacommerce.profile.web.core.form.RegisterCustomerForm;
 import com.wakacommerce.profile.web.core.service.login.LoginService;
 
 /**
- * The controller responsible for registering a customer.
- * 
- * Uses a component registered with the name blCustomerValidator to perform validation of the
- * submitted customer.
- * 
- * Uses the property "useEmailForLogin" to determine if the username should be defaulted to the
- * email address if no username is supplied.
+ *
+ * @ hui
  */
 public class WakaRegisterController extends WakaAbstractController {
 
@@ -116,26 +111,10 @@ public class WakaRegisterController extends WakaAbstractController {
         this.useEmailForLogin = useEmailForLogin;
     }
 
-    /**
-     * Returns the view that will be returned from this controller when the 
-     * registration is successful.   The success view should be a redirect (e.g. start with "redirect:" since 
-     * this will cause the entire SpringSecurity pipeline to be fulfilled.
-     * 
-     * By default, returns "redirect:/"
-     * 
-     * @return the register success view
-     */
     public String getRegisterSuccessView() {
         return registerSuccessView;
     }
 
-    /**
-     * Returns the view that will be used to display the registration page.
-     * 
-     * By default, returns "/register"
-     * 
-     * @return the register view
-     */
     public String getRegisterView() {
         return registerView;
     }

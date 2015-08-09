@@ -20,16 +20,8 @@ import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Wraps Spring's {@link VersionResourceResolver} but adds in support to disable with 
- * environment properties.
- * 
- * Before delegating to {@link VersionResourceResolver}, first checks to see if the request is for 
- * a Broadleaf bundle.   If so, skips versioning since bundles are already versioned.
- * 
- *  {@code }
- * 
- *  
- * @since Broadleaf 4.0
+ *
+ * @ hui
  */
 @Component("blVersionResourceResolver")
 public class BroadleafVersionResourceResolver extends VersionResourceResolver implements Ordered {

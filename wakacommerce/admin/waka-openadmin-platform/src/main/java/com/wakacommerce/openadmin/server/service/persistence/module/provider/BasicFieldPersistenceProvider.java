@@ -53,7 +53,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Component("blBasicFieldPersistenceProvider")
 @Scope("prototype")

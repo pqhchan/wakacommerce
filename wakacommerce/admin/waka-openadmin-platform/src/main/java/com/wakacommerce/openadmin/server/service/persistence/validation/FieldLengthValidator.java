@@ -15,9 +15,8 @@ import java.util.Map;
 
 
 /**
- * Ensures that field values submitted in the admin are less than or equal to the length specified in the metadata
- * 
- *     
+ *
+ * @ hui
  */
 @Component("blFieldLengthValidator")
 public class FieldLengthValidator implements GlobalPropertyValidator {

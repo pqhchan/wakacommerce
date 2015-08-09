@@ -15,12 +15,8 @@ import com.wakacommerce.core.web.api.wrapper.OrderWrapper;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * This is a reference REST API endpoint for cart. This can be modified, used as is, or removed. 
- * The purpose is to provide an out of the box RESTful cart service implementation, but also 
- * to allow the implementor to have fine control over the actual API, URIs, and general JAX-RS annotations.
- * 
- *  
  *
+ * @ hui
  */
 @RestController
 @RequestMapping(value = "/cart",

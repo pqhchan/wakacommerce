@@ -4,7 +4,8 @@ package com.wakacommerce.openadmin.server.service;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class JSCompatibilityHelper {
 

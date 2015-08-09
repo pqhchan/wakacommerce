@@ -18,7 +18,8 @@ import java.io.Serializable;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Component("blHTMLFieldPersistenceProvider")
 @Scope("prototype")
@@ -78,11 +79,6 @@ public class HTMLFieldPersistenceProvider extends FieldPersistenceProviderAdapte
         return FieldProviderResponse.HANDLED_BREAK;
     }
 
-    /**
-     * Stores the image paths at the root (e.g. no Servlet Context).   
-     * @param val
-     * @return
-     */
     public String fixAssetPathsForStorage(String val) {
         if (staticAssetUrlPrefix != null) {
             String tmpPrefix = staticAssetUrlPrefix;
@@ -94,11 +90,6 @@ public class HTMLFieldPersistenceProvider extends FieldPersistenceProviderAdapte
         return val;
     }
 
-    /**
-     * 
-     * @param val
-     * @return
-     */
     public String fixAssetPathsForDisplay(String val) {
         String contextPath = "/";
         WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();

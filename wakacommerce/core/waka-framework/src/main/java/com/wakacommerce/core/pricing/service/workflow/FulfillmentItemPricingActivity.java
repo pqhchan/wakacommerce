@@ -22,9 +22,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Called during the pricing workflow to set each item's merchandise total and taxable total
- * 
- *   
+ *
+ * @ hui
  */
 public class FulfillmentItemPricingActivity extends BaseActivity<ProcessContext<Order>> {
     
@@ -33,12 +32,7 @@ public class FulfillmentItemPricingActivity extends BaseActivity<ProcessContext<
     protected BroadleafCurrency getCurrency(FulfillmentGroup fg) {
         return fg.getOrder().getCurrency();
     }
-    
-    /**
-     * Returns the order adjustment value or zero if none exists
-     * @param order
-     * @return
-     */
+
     protected Money getOrderSavingsToDistribute(Order order) {
         if (order.getOrderAdjustmentsValue() == null) {
             return new Money(order.getCurrency());
@@ -78,13 +72,6 @@ public class FulfillmentItemPricingActivity extends BaseActivity<ProcessContext<
         return context;
     }
 
-    /**
-     * Sets the fulfillment amount which includes the relative portion of the total price for 
-     * the corresponding order item.
-     * 
-     * @param order
-     * @param partialOrderItemMap
-     */
     protected void populateItemTotalAmount(Order order, Map<OrderItem, List<FulfillmentGroupItem>> partialOrderItemMap) {
         for (FulfillmentGroup fulfillmentGroup : order.getFulfillmentGroups()) {
             for (FulfillmentGroupItem fgItem : fulfillmentGroup.getFulfillmentGroupItems()) {
@@ -110,18 +97,6 @@ public class FulfillmentItemPricingActivity extends BaseActivity<ProcessContext<
         }
     }
 
-    /**
-     * Because an item may have multiple price details that don't round cleanly, we may have pennies
-     * left over that need to be distributed.
-     * 
-     * This method may not be needed because the sum of the item amounts is derived from a double price (OrderItem's total)
-     * being multiplied and divided by whole numbers of which guarantees that each item amount is a clean multiple
-     * of the price of a single unit of that item. This behavior being enforced in populateItemTotalAmount. So we will
-     * never get a fraction of a cent that could cause totalItemAmount and totalFGItemAmount to be different values.
-     * 
-     * @param order
-     * @param partialOrderItemMap
-     */
     protected void fixItemTotalRoundingIssues(Order order, Map<OrderItem, List<FulfillmentGroupItem>> partialOrderItemMap) {
         for (OrderItem orderItem : partialOrderItemMap.keySet()) {
             Money totalItemAmount = orderItem.getTotalPrice();
@@ -142,11 +117,6 @@ public class FulfillmentItemPricingActivity extends BaseActivity<ProcessContext<
         }
     }
 
-    /**
-     * Returns the total price for all fulfillment items.
-     * @param order
-     * @return
-     */
     protected Money calculateTotalPriceForAllFulfillmentItems(Order order) {
         Money totalAllItemsAmount = new Money(order.getCurrency());
         for (FulfillmentGroup fulfillmentGroup : order.getFulfillmentGroups()) {
@@ -157,12 +127,6 @@ public class FulfillmentItemPricingActivity extends BaseActivity<ProcessContext<
         return totalAllItemsAmount;
     }
 
-    /**
-     * Distributes the order adjustments (if any) to the individual fulfillment group items.
-     * @param order
-     * @param totalAllItems
-     * @return
-     */
     protected Money distributeOrderSavingsToItems(Order order, BigDecimal totalAllItems) {
         Money returnAmount = new Money(order.getCurrency());
 
@@ -179,12 +143,6 @@ public class FulfillmentItemPricingActivity extends BaseActivity<ProcessContext<
         return returnAmount;
     }
 
-    /**
-     * It is possible due to rounding that the order adjustments do not match the 
-     * total.   This method fixes by adding or removing the pennies.
-     * @param order
-     * @param partialOrderItemMap
-     */
     protected void fixOrderSavingsRoundingIssues(Order order, Money totalOrderAdjustmentDistributed) {
         if (!order.getHasOrderAdjustments()) {
             return;
@@ -209,11 +167,6 @@ public class FulfillmentItemPricingActivity extends BaseActivity<ProcessContext<
         }
     }
 
-    /**
-     * Returns the total price for all fulfillment items.
-     * @param order
-     * @return
-     */
     protected void updateTaxableAmountsOnItems(Order order) {
         Money zero = new Money(order.getCurrency());
         for (FulfillmentGroup fulfillmentGroup : order.getFulfillmentGroups()) {
@@ -253,11 +206,6 @@ public class FulfillmentItemPricingActivity extends BaseActivity<ProcessContext<
         return Math.round(Math.abs(numUnits));
     }
 
-    /**
-     * Returns the unit amount (e.g. .01 for US)
-     * @param currency
-     * @return
-     */
     public Money getUnitAmount(Money difference) {
         Currency currency = difference.getCurrency();
         BigDecimal divisor = new BigDecimal(Math.pow(10, currency.getDefaultFractionDigits()));

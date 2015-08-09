@@ -13,7 +13,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import com.wakacommerce.core.catalog.domain.Category;
 
 /**
- * This is a JAXB wrapper class for wrapping a collection of categories.
+ *
+ * @ hui
  */
 @XmlRootElement(name = "categories")
 @XmlAccessorType(value = XmlAccessType.FIELD)
@@ -36,18 +37,10 @@ public class CategoriesWrapper extends BaseWrapper implements APIWrapper<List<Ca
         wrapDetails(cats, request);
     }
 
-    
-    /**
-     * @return the categories
-     */
     public List<CategoryWrapper> getCategories() {
         return categories;
     }
 
-    
-    /**
-     * @param categories the categories to set
-     */
     public void setCategories(List<CategoryWrapper> categories) {
         this.categories = categories;
     }

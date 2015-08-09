@@ -23,9 +23,8 @@ import java.util.List;
 import javax.annotation.Resource;
 
 /**
- * Responsible for generating site map entries for Sku.
- * 
- *  
+ *
+ * @ hui
  */
 @Component("blSkuSiteMapGenerator")
 public class SkuSiteMapGenerator implements SiteMapGenerator {

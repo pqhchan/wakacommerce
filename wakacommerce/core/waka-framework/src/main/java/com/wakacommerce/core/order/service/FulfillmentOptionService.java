@@ -7,8 +7,8 @@ import com.wakacommerce.core.order.domain.FulfillmentOption;
 import com.wakacommerce.core.order.service.type.FulfillmentType;
 
 /**
- * 
- *  
+ *
+ * @ hui
  */
 public interface FulfillmentOptionService {
 

@@ -52,8 +52,8 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 /**
- * 
- * 
+ *
+ * @ hui
  */
 @Repository("blProductDao")
 public class ProductDaoImpl implements ProductDao {

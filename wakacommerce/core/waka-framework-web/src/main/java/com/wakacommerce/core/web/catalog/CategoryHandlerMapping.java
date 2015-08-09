@@ -14,14 +14,8 @@ import com.wakacommerce.core.catalog.domain.Category;
 import com.wakacommerce.core.catalog.service.CatalogService;
 
 /**
- * This handler mapping works with the Category entity to determine if a category has been configured for
- * the passed in URL.   
- * 
- * If the URL matches a valid Category then this mapping returns the handler configured via the 
- * controllerName property or blCategoryController by default. 
  *
- * @see com.wakacommerce.core.catalog.domain.Category
- * @see CataService
+ * @ hui
  */
 public class CategoryHandlerMapping extends WakaAbstractHandlerMapping {
     

@@ -7,7 +7,8 @@ import com.wakacommerce.common.extension.ExtensionManager;
 
 
 /**
- * 
+ *
+ * @ hui
  */
 @Service("blRuleBuilderFieldServiceExtensionManager")
 public class RuleBuilderFieldServiceExtensionManager extends ExtensionManager<RuleBuilderFieldServiceExtensionHandler> {

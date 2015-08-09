@@ -25,9 +25,8 @@ import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 
 /**
- * Validates that a rule can be parsed out successfully. Most of this comes from {@link RuleFieldPersistenceProvider}.
  *
- *     
+ * @ hui
  */
 @Component("blRuleFieldValidator")
 public class RuleFieldValidator implements PopulateValueRequestValidator {

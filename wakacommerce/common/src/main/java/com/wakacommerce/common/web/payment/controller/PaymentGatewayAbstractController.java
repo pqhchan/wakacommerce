@@ -21,15 +21,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * <p>Abstract controller that provides convenience methods and resource declarations for Payment Gateway
- * Operations that are shared between all gateway controllers belong here.</p>
  *
- * <p>The Core Framework should have an implementation of a "blPaymentGatewayCheckoutService" bean defined.
- * If you are using the common jars without the framework dependency, you will either have to
- * implement the blPaymentGatewayCheckoutService yourself, or override the applyPaymentToOrder and
- * the markPaymentAsInvalid methods accordingly.</p>
- *
- *  
+ * @ hui
  */
 public abstract class PaymentGatewayAbstractController extends WakaAbstractController {
 
@@ -110,22 +103,7 @@ public abstract class PaymentGatewayAbstractController extends WakaAbstractContr
     // ***********************************************
     // Common Result Processing
     // ***********************************************
-    /**
-     *
-     * try {
-     *   translate http request to DTO
-     *   apply payment to order
-     *   check success and validity of response
-     *   if (complete checkout on callback == true)
-     *     initiateCheckout(order id);
-     *   else
-     *     show review page;
-     * } catch (Exception e) {
-     *     notify admin user of failure
-     *     handle processing exception
-     * }
-     *
-     */
+
     public String process(Model model, HttpServletRequest request,
                           final RedirectAttributes redirectAttributes) throws PaymentException {
         Long orderPaymentId = null;

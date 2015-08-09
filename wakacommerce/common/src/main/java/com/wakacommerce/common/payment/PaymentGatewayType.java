@@ -10,28 +10,8 @@ import com.wakacommerce.common.WakaEnumType;
 
 
 /**
- * <p>This is designed such that individual payment modules will extend this to add their own type. For instance, while
- * this class does not explicitly have a 'Braintree' payment gateway type, the Braintree module will provide an extension
- * to this class and add itself in the list of types. For instance:</p>
- * 
- * <pre>
- * {@code
- * public class BraintreeGatewayType extends PaymentGatewayType {
- *     public static final BRAINTREE = new PaymentGatewayType("BRAINTREE", "Braintree");
- * }
- * </pre>
- * 
- * And then in your application context:
- * <pre>
- * {@code
- * <bean class="com.wakacommerce.vendor.braintree.BraintreeGatewayType" />
- * }
- * </pre>
- * 
- * <p>This is especially useful in auditing scenarios so that, at a glance, you can easily see what gateway a particular
- * order payment was processed by.</p>
- * 
- *     
+ *
+ * @ hui
  */
 public class PaymentGatewayType implements Serializable, WakaEnumType {
 

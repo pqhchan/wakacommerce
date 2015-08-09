@@ -157,26 +157,11 @@ public class DiscreteOrderItemImpl extends OrderItemImpl implements DiscreteOrde
         this.order = order;
     }
 
-    /**
-     * If this item is part of a bundle that was created via a ProductBundle, then this
-     * method returns a reference to the corresponding SkuBundleItem.
-     * <p/>
-     * For manually created
-     * <p/>
-     * For all others, this method returns null.
-     *
-     * @return
-     */
     @Override
     public SkuBundleItem getSkuBundleItem() {
         return skuBundleItem;
     }
 
-    /**
-     * Sets the associated SkuBundleItem.
-     *
-     * @param SkuBundleItem
-     */
     @Override
     public void setSkuBundleItem(SkuBundleItem SkuBundleItem) {
         this.skuBundleItem =SkuBundleItem;

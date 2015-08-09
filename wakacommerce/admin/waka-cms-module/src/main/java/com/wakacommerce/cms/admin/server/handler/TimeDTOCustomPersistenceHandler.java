@@ -20,11 +20,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by IntelliJ IDEA.
- * User:   
- * Date: 8/23/11
- * Time: 1:56 PM
- * To change this template use File | Settings | File Templates.
+ *
+ * @ hui
  */
 @Component("blTimeDTOCustomPersistenceHandler")
 public class TimeDTOCustomPersistenceHandler extends CustomPersistenceHandlerAdapter {

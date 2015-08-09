@@ -1,22 +1,4 @@
-/*
- * #%L
- * BroadleafCommerce Framework
- * %%
- * Copyright (C) 2009 - 2014 Broadleaf Commerce
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *       http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * #L%
- */
+
 package com.wakacommerce.core.util.service;
 
 import java.util.Date;
@@ -45,38 +27,8 @@ import com.wakacommerce.profile.core.domain.Customer;
 import com.wakacommerce.profile.core.service.CustomerService;
 
 /**
- * Service capable of deleting old or defunct entities from the persistence layer (e.g. Carts and anonymous Customers).
- * {@link ResourcePurgeService} for additional API documentation.
- * <p/>
- * A basic Quartz scheduled job configuration for calling this service can be configured as follows:
- * <p/>
- * {@code
- * <bean id="purgeCartConfig" class="org.springframework.beans.factory.config.MapFactoryBean">
- * <property name="sourceMap">
- * <map>
- * <entry key="SECONDS_OLD" value="2592000"/>
- * <entry key="STATUS" value="IN_PROCESS"/>
- * </map>
- * </property>
- * </bean>
- * <p/>
- * <bean id="purgeCartJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
- * <property name="targetObject" ref="blResourcePurgeService" />
- * <property name="targetMethod" value="purgeCarts" />
- * <property name="arguments">
- * <list>
- * <ref bean="purgeCartConfig"/>
- * </list>
- * </property>
- * </bean>
- * <p/>
- * <bean id="purgeCartTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
- * <property name="jobDetail" ref="purgeCartJobDetail" />
- * <property name="startDelay" value="30000" />
- * <property name="repeatInterval" value="86400000" />
- * </bean>
- *}
- * 
+ *
+ * @ hui
  */
 @Service("blResourcePurgeService")
 public class ResourcePurgeServiceImpl implements ResourcePurgeService {
@@ -196,12 +148,6 @@ public class ResourcePurgeServiceImpl implements ResourcePurgeService {
         this.pageSize = pageSize;
     }
 
-    /**
-     * Get the list of carts to delete from the database. Subclasses may override for custom cart retrieval logic.
-     *
-     * @param config params for the query
-     * @return list of carts to delete
-     */
     protected List<Order> getCartsToPurge(Map<String, String> config, int startPos, int length) {
         CartPurgeParams purgeParams = new CartPurgeParams(config).invoke();
         String[] nameArray = purgeParams.getNameArray();
@@ -211,12 +157,6 @@ public class ResourcePurgeServiceImpl implements ResourcePurgeService {
         return resourcePurgeDao.findCarts(nameArray, statusArray, dateCreatedMinThreshold, isPreview, startPos, length);
     }
 
-    /**
-     * Get the count of carts to delete from the database. Subclasses may override for custom cart retrieval logic.
-     *
-     * @param config params for the query
-     * @return count of carts to delete
-     */
     protected Long getCartsToPurgeLength(Map<String, String> config) {
         CartPurgeParams purgeParams = new CartPurgeParams(config).invoke();
         String[] nameArray = purgeParams.getNameArray();
@@ -226,11 +166,6 @@ public class ResourcePurgeServiceImpl implements ResourcePurgeService {
         return resourcePurgeDao.findCartsCount(nameArray, statusArray, dateCreatedMinThreshold, isPreview);
     }
 
-    /**
-     * Remove the cart from the persistence layer. Subclasses may override for custom cart retrieval logic.
-     *
-     * @param cart the cart to remove
-     */
     protected void deleteCart(Order cart) {
         //We delete the order this way (rather than with a delete query) in order to ensure the cascades take place
         try {
@@ -240,12 +175,6 @@ public class ResourcePurgeServiceImpl implements ResourcePurgeService {
         }
     }
 
-    /**
-     * Get the list of carts to delete from the database. Subclasses may override for custom cart retrieval logic.
-     *
-     * @param config params for the query
-     * @return list of carts to delete
-     */
     protected List<Customer> getCustomersToPurge(Map<String, String> config, int startPos, int length) {
         CustomerPurgeParams purgeParams = new CustomerPurgeParams(config).invoke();
         Boolean isRegistered = purgeParams.getIsRegistered();
@@ -255,12 +184,6 @@ public class ResourcePurgeServiceImpl implements ResourcePurgeService {
         return resourcePurgeDao.findCustomers(dateCreatedMinThreshold, isRegistered, isDeactivated, isPreview, startPos, length);
     }
 
-    /**
-     * Get the count of carts to delete from the database. Subclasses may override for custom cart retrieval logic.
-     *
-     * @param config params for the query
-     * @return count of carts to delete
-     */
     protected Long getCustomersToPurgeLength(Map<String, String> config) {
         CustomerPurgeParams purgeParams = new CustomerPurgeParams(config).invoke();
         Boolean isRegistered = purgeParams.getIsRegistered();
@@ -270,11 +193,6 @@ public class ResourcePurgeServiceImpl implements ResourcePurgeService {
         return resourcePurgeDao.findCustomersCount(dateCreatedMinThreshold, isRegistered, isDeactivated, isPreview);
     }
 
-    /**
-     * Remove the cart from the persistence layer. Subclasses may override for custom cart retrieval logic.
-     *
-     * @param customer the customer to remove
-     */
     protected void deleteCustomer(Customer customer) {
         //We delete the customer this way (rather than with a delete query) in order to ensure the cascades take place
         try {

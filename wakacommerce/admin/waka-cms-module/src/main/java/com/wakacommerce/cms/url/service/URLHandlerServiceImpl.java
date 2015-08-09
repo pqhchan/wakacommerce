@@ -31,13 +31,6 @@ public class URLHandlerServiceImpl implements URLHandlerService {
 
     protected Map<String, Pattern> urlPatternMap = new EfficientLRUMap<String, Pattern>(2000);
 
-    /**
-     * Checks the passed in URL to determine if there is a matching URLHandler.
-     * Returns null if no handler was found.
-     * 
-     * @param uri
-     * @return
-     */
     @Override
     public URLHandler findURLHandlerByURI(String uri) {
         return checkForMatches(uri);

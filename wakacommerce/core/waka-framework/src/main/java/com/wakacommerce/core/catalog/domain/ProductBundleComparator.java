@@ -5,7 +5,8 @@ import java.math.BigDecimal;
 import java.util.Comparator;
 
 /**
- *   
+ *
+ * @ hui
  */
 public class ProductBundleComparator implements Comparator<ProductBundle> {
 

@@ -56,7 +56,8 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Service("blAdminEntityService")
 public class AdminEntityServiceImpl implements AdminEntityService {
@@ -769,15 +770,7 @@ public class AdminEntityServiceImpl implements AdminEntityService {
             return new PersistenceResponse().withEntity(e.getEntity());
         }
     }
-    
-    /**
-     * <p>
-     * Should be invoked when a {@link ValidationException} is thrown to verify that the {@link Entity} contained within the
-     * given <b>originalRequest</b> has a validationFailure = true
-     * 
-     * <p>
-     * This will also check for a cause of {@link ConstraintViolationException} and add a gloal error to that.
-     */
+
     protected void ensureEntityMarkedAsValidationFailure(ValidationException e, PersistencePackageRequest originalRequest) {
         if (e.containsCause(ConstraintViolationException.class)) {
             e.getEntity().addGlobalValidationError("constraintViolationError");

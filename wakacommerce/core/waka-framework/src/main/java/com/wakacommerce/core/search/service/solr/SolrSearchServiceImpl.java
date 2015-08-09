@@ -65,12 +65,8 @@ import javax.annotation.Resource;
 import javax.xml.parsers.ParserConfigurationException;
 
 /**
- * An implementation of SearchService that uses Solr.
- * 
- * Note that prior to 2.2.0, this class used to contain all of the logic for interaction with Solr. Since 2.2.0, this class
- * has been refactored and parts of it have been split into the other classes you can find in this package.
- * 
- * 
+ *
+ * @ hui
  */
 public class SolrSearchServiceImpl implements SearchService, InitializingBean, DisposableBean {
     private static final Log LOG = LogFactory.getLog(SolrSearchServiceImpl.class);
@@ -206,11 +202,6 @@ public class SolrSearchServiceImpl implements SearchService, InitializingBean, D
         }
     }
 
-    /**
-     * This creates the proper directories and writes the correct properties files for Solr to run in embedded mode.
-     * @param solrServer
-     * @throws IOException
-     */
     protected void buildSolrCoreDirectories(String solrServer) throws IOException {
         //Create a "cores" directory if it does not exist
         File cores = new File(new File(solrServer), "cores");
@@ -267,33 +258,11 @@ public class SolrSearchServiceImpl implements SearchService, InitializingBean, D
         SolrContext.setPrimaryServer(solrServer);
     }
 
-    /**
-     * This constructor serves to mimic the one which takes in one {@link SolrServer} argument.
-     * By having this and then simply disregarding the second parameter, we can more easily support 2-core
-     * Solr configurations that use embedded/standalone per environment.
-     * 
-     * @param solrServer
-     * @param reindexServer
-     * @throws SAXException 
-     * @throws ParserConfigurationException 
-     * @throws IOException 
-     */
     public SolrSearchServiceImpl(String solrServer, String reindexServer)
             throws IOException, ParserConfigurationException, SAXException {
         this(solrServer);
     }
 
-    /**
-     * This constructor serves to mimic the one which takes in one {@link SolrServer} argument.
-     * By having this and then simply disregarding the second and third parameters, we can more easily support 2-core
-     * Solr configurations that use embedded/standalone per environment, along with an admin server.
-     * 
-     * @param solrServer
-     * @param reindexServer
-     * @throws SAXException 
-     * @throws ParserConfigurationException 
-     * @throws IOException 
-     */
     public SolrSearchServiceImpl(String solrServer, String reindexServer, String adminServer)
             throws IOException, ParserConfigurationException, SAXException {
         this(solrServer);
@@ -521,25 +490,12 @@ public class SolrSearchServiceImpl implements SearchService, InitializingBean, D
         }
     }
 
-    /**
-     * @deprecated in favor of the other findSearchResults() method
-     */
     @Deprecated
     protected SearchResult findSearchResults(String qualifiedSolrQuery, List<SearchFacetDTO> facets,
             SearchCriteria searchCriteria, String defaultSort) throws ServiceException {
         return findSearchResults(qualifiedSolrQuery, facets, searchCriteria, defaultSort, (String[]) null);
     }
 
-    /**
-     * Given a qualified solr query string (such as "category:2002"), actually performs a solr search. It will
-     * take into considering the search criteria to build out facets / pagination / sorting.
-     *
-     * @param qualifiedSolrQuery
-     * @param facets
-     * @param searchCriteria
-     * @return the ProductSearchResult of the search
-     * @throws ServiceException
-     */
     protected SearchResult findSearchResults(String qualifiedSolrQuery, List<SearchFacetDTO> facets, SearchCriteria searchCriteria, String defaultSort, String... filterQueries) throws ServiceException {
         Map<String, SearchFacetDTO> namedFacetMap = getNamedFacetMap(facets, searchCriteria);
 
@@ -624,17 +580,6 @@ public class SolrSearchServiceImpl implements SearchService, InitializingBean, D
         return result;
     }
 
-    /**
-     * Provides a hook point for implementations to modify all SolrQueries before they're executed.
-     * Modules should leverage the extension manager method of the same name,
-     * {@link SolrSearchServiceExtensionHandler#modifySolrQuery(SolrQuery, String, List, SearchCriteria, String)}
-     * 
-     * @param query
-     * @param qualifiedSolrQuery
-     * @param facets
-     * @param searchCriteria
-     * @param defaultSort
-     */
     protected void modifySolrQuery(SolrQuery query, String qualifiedSolrQuery,
             List<SearchFacetDTO> facets, SearchCriteria searchCriteria, String defaultSort) {
     }
@@ -663,12 +608,6 @@ public class SolrSearchServiceImpl implements SearchService, InitializingBean, D
         return buildSearchFacetDTOs(searchFacets);
     }
 
-    /**
-     * Sets up the sorting criteria. This will support sorting by multiple fields at a time
-     * 
-     * @param query
-     * @param searchCriteria
-     */
     protected void attachSortClause(SolrQuery query, SearchCriteria searchCriteria, String defaultSort) {
         List<Field> fields = null;
         if (useSku) {
@@ -679,82 +618,33 @@ public class SolrSearchServiceImpl implements SearchService, InitializingBean, D
         shs.attachSortClause(query, searchCriteria, defaultSort, fields);
     }
 
-    /**
-     * Restricts the query by adding active facet filters.
-     * 
-     * @param query
-     * @param namedFacetMap
-     * @param searchCriteria
-     */
     protected void attachActiveFacetFilters(SolrQuery query, Map<String, SearchFacetDTO> namedFacetMap,
             SearchCriteria searchCriteria) {
         shs.attachActiveFacetFilters(query, namedFacetMap, searchCriteria);
     }
-    
-    /**
-     * Scrubs a facet value string for all Solr special characters, automatically adding escape characters
-     * 
-     * @param facetValue The raw facet value
-     * @return The facet value with all special characters properly escaped, safe to be used in construction of a Solr query
-     */
+
     protected String scrubFacetValue(String facetValue) {
         return shs.scrubFacetValue(facetValue);
     }
 
-    /**
-     * Notifies solr about which facets you want it to determine results and counts for
-     * 
-     * @param query
-     * @param namedFacetMap
-     */
     protected void attachFacets(SolrQuery query, Map<String, SearchFacetDTO> namedFacetMap) {
         shs.attachFacets(query, namedFacetMap);
     }
 
-    /**
-     * Builds out the DTOs for facet results from the search. This will then be used by the view layer to
-     * display which values are available given the current constraints as well as the count of the values.
-     * 
-     * @param namedFacetMap
-     * @param response
-     */
     protected void setFacetResults(Map<String, SearchFacetDTO> namedFacetMap, QueryResponse response) {
         shs.setFacetResults(namedFacetMap, response);
     }
 
-    /**
-     * Invoked to sort the facet results. This method will use the natural sorting of the value attribute of the
-     * facet (or, if value is null, the minValue of the facet result). Override this method to customize facet
-     * sorting for your given needs.
-     * 
-     * @param namedFacetMap
-     */
     protected void sortFacetResults(Map<String, SearchFacetDTO> namedFacetMap) {
         shs.sortFacetResults(namedFacetMap);
     }
 
-    /**
-     * Sets the total results, the current page, and the page size on the ProductSearchResult. Total results comes
-     * from solr, while page and page size are duplicates of the searchCriteria conditions for ease of use.
-     * 
-     * @param result
-     * @param response
-     * @param searchCriteria
-     */
     public void setPagingAttributes(SearchResult result, int numResults, SearchCriteria searchCriteria) {
         result.setTotalResults(numResults);
         result.setPage(searchCriteria.getPage());
         result.setPageSize(searchCriteria.getPageSize());
     }
 
-    /**
-     * Given a list of product IDs from solr, this method will look up the IDs via the productDao and build out
-     * actual Product instances. It will return a Products that is sorted by the order of the IDs in the passed
-     * in list.
-     * 
-     * @param response
-     * @return the actual Product instances as a result of the search
-     */
     protected List<Product> getProducts(List<SolrDocument> responseDocuments) {
         final List<Long> productIds = new ArrayList<Long>();
         for (SolrDocument doc : responseDocuments) {
@@ -778,14 +668,6 @@ public class SolrSearchServiceImpl implements SearchService, InitializingBean, D
         return products;
     }
 
-    /**
-     * Given a list of Sku IDs from solr, this method will look up the IDs via the skuDao and build out
-     * actual Sku instances. It will return a Sku list that is sorted by the order of the IDs in the passed
-     * in list.
-     * 
-     * @param response
-     * @return the actual Sku instances as a result of the search
-     */
     protected List<Sku> getSkus(List<SolrDocument> responseDocuments) {
         final List<Long> skuIds = new ArrayList<Long>();
         for (SolrDocument doc : responseDocuments) {
@@ -807,51 +689,22 @@ public class SolrSearchServiceImpl implements SearchService, InitializingBean, D
         return skus;
     }
 
-    /**
-     * Create the wrapper DTO around the SearchFacet
-     * 
-     * @param searchFacets
-     * @return the wrapper DTO
-     */
     protected List<SearchFacetDTO> buildSearchFacetDTOs(List<SearchFacet> searchFacets) {
         return shs.buildSearchFacetDTOs(searchFacets);
     }
 
-    /**
-     * Checks to see if the requiredFacets condition for a given facet is met.
-     * 
-     * @param facet
-     * @param request
-     * @return whether or not the facet parameter is available 
-     */
     protected boolean facetIsAvailable(SearchFacet facet, Map<String, String[]> params) {
         return shs.isFacetAvailable(facet, params);
     }
 
-    /**
-     * Perform any necessary query sanitation here. For example, we disallow open and close parentheses, colons, and we also
-     * ensure that quotes are actual quotes (") and not the URL encoding (&quot;) so that Solr is able to properly handle
-     * the user's intent.
-     * 
-     * @param query
-     * @return the sanitized query
-     */
     protected String sanitizeQuery(String query) {
         return shs.sanitizeQuery(query);
     }
 
-    /**
-     * Returns a fully composed solr field string. Given indexField = a, tag = ex, and a non-null range,
-     * would produce the following String: {!tag=a frange incl=false l=minVal u=maxVal}a
-     */
     protected String getSolrTaggedFieldString(String indexField, String tag, SearchFacetRange range) {
         return shs.getSolrTaggedFieldString(indexField, tag, range);
     }
 
-    /**
-     * Returns a solr field tag. Given indexField = a, tag = tag, would produce the following String:
-     * {!tag=a}. if range is not null it will produce {!tag=a frange incl=false l=minVal u=maxVal} 
-     */
     protected String getSolrFieldTag(String tagField, String tag, SearchFacetRange range) {
         return shs.getSolrFieldTag(tagField, tag, range);
     }
@@ -860,29 +713,15 @@ public class SolrSearchServiceImpl implements SearchService, InitializingBean, D
         return shs.getSolrRangeString(fieldName, minValue, maxValue);
     }
 
-    /**
-     * @param minValue
-     * @param maxValue
-     * @return a string representing a call to the frange solr function. it is not inclusive of lower limit, inclusive of upper limit
-     */
     protected String getSolrRangeFunctionString(BigDecimal minValue, BigDecimal maxValue) {
         return shs.getSolrRangeFunctionString(minValue, maxValue);
     }
 
-    /**
-     * @param facets
-     * @param searchCriteria
-     * @return a map of fully qualified solr index field key to the searchFacetDTO object
-     */
     protected Map<String, SearchFacetDTO> getNamedFacetMap(List<SearchFacetDTO> facets,
             final SearchCriteria searchCriteria) {
         return shs.getNamedFacetMap(facets, searchCriteria);
     }
 
-    /**
-     * @param searchCriteria
-     * @return a map of abbreviated key to fully qualified solr index field key for all product fields
-     */
     protected Map<String, String> getSolrFieldKeyMap(SearchCriteria searchCriteria) {
         List<Field> fields = null;
         if (useSku) {
@@ -893,14 +732,6 @@ public class SolrSearchServiceImpl implements SearchService, InitializingBean, D
         return shs.getSolrFieldKeyMap(searchCriteria, fields);
     }
 
-    /**
-     * Allows the user to choose the query method to use.  POST allows for longer, more complex queries with 
-     * a higher number of facets.
-     * 
-     * Default value is POST.  Implementors can override this to use GET if they wish.
-     * 
-     * @return
-     */
     protected METHOD getSolrQueryMethod() {
         return METHOD.POST;
     }

@@ -7,11 +7,8 @@ import com.wakacommerce.core.order.domain.PersonalMessage;
 import com.wakacommerce.core.order.domain.PersonalMessageImpl;
 
 /**
- * This form is used to bind multiship options in a way that doesn't require
- * the actual objects to be instantiated -- we handle that at the controller
- * level.
- * 
- * 
+ *
+ * @ hui
  */
 public class MultiShipInstructionForm implements Serializable {
 

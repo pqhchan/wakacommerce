@@ -14,7 +14,8 @@ import com.wakacommerce.common.persistence.EntityConfiguration;
 import javax.annotation.Resource;
 
 /**
- *Chad Harchar (charchar)
+ *
+ * @ hui
  */
 @Service("blMediaBuilderService")
 public class MediaBuilderServiceImpl implements MediaBuilderService {

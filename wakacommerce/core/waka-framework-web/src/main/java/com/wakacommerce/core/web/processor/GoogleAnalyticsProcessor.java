@@ -27,22 +27,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- * A Thymeleaf processor that will output Google Analytics tracking Javascript. When used on an order confirmation page
- * in conjunction with an <b>orderNumber</b> this will also output the ecommerce transaction tracking parameters for
- * Google Analytics
- * 
- * Example usage on order confirmation page:
- * <pre>
- *  {@code
- *      <blc:googleanalytics th:attr="orderNumber=${order != null ? order.orderNumber : null}" />
- *      <script th:utext="${analytics}" />
- *  }
- * </pre>
- * 
- * @param ordernumber the order number of the submitted order
- * 
- *tleffert
- * @deprecated use the {@link GoogleUniversalAnalyticsProcessor} instead
+ *
+ * @ hui
  */
 @Deprecated
 public class GoogleAnalyticsProcessor extends AbstractModelVariableModifierProcessor {
@@ -63,9 +49,6 @@ public class GoogleAnalyticsProcessor extends AbstractModelVariableModifierProce
     @Value("${googleAnalytics.testLocal}")
     protected boolean testLocal = false;
 
-    /**
-     * Sets the name of this processor to be used in Thymeleaf template
-     */
     public GoogleAnalyticsProcessor() {
         super("googleanalytics");
     }
@@ -86,18 +69,6 @@ public class GoogleAnalyticsProcessor extends AbstractModelVariableModifierProce
         addToModel(arguments, "analytics", analytics(getWebPropertyId(), order));
     }
 
-    /**
-     * Documentation for the recommended asynchronous GA tag is at:
-     * http://code.google.com/apis/analytics/docs/tracking/gaTrackingEcommerce.html
-     * 
-     * @param webPropertyId
-     *            - Google Analytics ID
-     * @param order
-     *            - optionally track the order submission. This should be
-     *            included on the page after the order has been sucessfully
-     *            submitted. If null, this will just track the current page
-     * @return the relevant Javascript to render on the page
-     */
     protected String analytics(String webPropertyId, Order order) {
         StringBuffer sb = new StringBuffer();
 
@@ -175,13 +146,7 @@ public class GoogleAnalyticsProcessor extends AbstractModelVariableModifierProce
 
         return sb.toString();
     }
-    
-    /**
-     * Returns the product option values separated by a space if they are
-     * relevant for the item, or the product category if no options are available
-     * 
-     * @return
-     */
+
     protected String getVariation(OrderItem item) {
         if (MapUtils.isEmpty(item.getOrderItemAttributes())) {
             return item.getCategory() == null ? "" : item.getCategory().getName();

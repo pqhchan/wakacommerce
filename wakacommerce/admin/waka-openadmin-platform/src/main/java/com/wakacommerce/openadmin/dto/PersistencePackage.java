@@ -230,20 +230,10 @@ public class PersistencePackage implements Serializable, StateDescriptor {
         return sectionCrumbs[0];
     }
 
-    /**
-     * Internally used field when passing the persistence package through the admin pipeline
-     *
-     * @return whether or not this persistence package has been exposed to a internal processing step
-     */
     public boolean isProcessedInternal() {
         return isProcessedInternal;
     }
 
-    /**
-     * Internally used field when passing the persistence package through the admin pipeline
-     *
-     * @param isProcessedInternal whether or not this persistence package has been exposed to a internal processing step
-     */
     public void setProcessedInternal(boolean isProcessedInternal) {
         this.isProcessedInternal = isProcessedInternal;
     }

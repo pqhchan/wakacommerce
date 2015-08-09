@@ -28,20 +28,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * <p>
- * This filter should be configured after the BroadleafCommerce CustomerStateFilter listener from Spring Security.
- * Retrieves the cart for the current BroadleafCommerce Customer based using the authenticated user OR creates an empty non-modifiable cart and
- * stores it in the request.
- * </p>
- * 
- * <p>
- * This filter is also responsible for establishing a session-wide lock for operations that require a lock, indicated
- * by {@link #requestRequiresLock(ServletRequest)}. By default, this is configured for all POST requests. Requests that
- * are marked as requiring a lock will execute strictly serially as defined by the configured {@link OrderLockManager}.
- * </p>
  *
- * 
- * 
+ * @ hui
  */
 @Component("blCartStateFilter")
 public class CartStateFilter extends OncePerRequestFilter implements Ordered {
@@ -113,13 +101,6 @@ public class CartStateFilter extends OncePerRequestFilter implements Ordered {
         }
     }
 
-    /**
-     * By default, all POST requests that are not matched by the {@link #getExcludedOrderLockRequestPatterns()} list
-     * (using the {@link AntPathRequestMatcher}) will be marked as requiring a lock on the Order.
-     * 
-     * @param req
-     * @return whether or not the current request requires a lock on the order
-     */
     protected boolean requestRequiresLock(ServletRequest req) {
         if (!(req instanceof HttpServletRequest)) {
                return false;

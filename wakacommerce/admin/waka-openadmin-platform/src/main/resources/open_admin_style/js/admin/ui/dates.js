@@ -1,19 +1,14 @@
-
 (function($, BLCAdmin) {
-    
     var adminFormats = {
         blcDateFormat : "yy.mm.dd",
         blcTimeFormat : "HH:mm:ss",
-        displayDateFormat : 'mm/dd/yy',
+        displayDateFormat : 'yy-mm-dd',
         displayTimeFormat : 'HH:mm:ss',
-        displayDateDelimiter : '/'
+        displayDateDelimiter : '-'
     };
 
     // Add utility functions for dates to the BLCAdmin object
     BLCAdmin.dates = {
-        /**
-         * This function should be called for any element that wants to be a rulebuilder
-         */
         initialize : function($element) {
             // Set the value of this datepicker to be the appropriately formatted one
             $element.val($element.val().indexOf(adminFormats.displayDateDelimiter)>=0?this.getDisplayDate(this.getServerDate($element.val())):this.getDisplayDate($element.val()));

@@ -11,9 +11,8 @@ import com.wakacommerce.openadmin.server.dao.DynamicEntityDao;
 import java.util.List;
 
 /**
- * Contains the requested Hibernate type, metadata and support classes.
  *
- * 
+ * @ hui
  */
 public class AddMetadataFromMappingDataRequest {
 

@@ -10,7 +10,8 @@ import com.wakacommerce.core.workflow.BaseActivity;
 import com.wakacommerce.core.workflow.ProcessContext;
 
 /**
- * Utilized within the blPricingWorkflow to calculate tax for an {@link Order}
+ *
+ * @ hui
  */
 public class TaxActivity extends BaseActivity<ProcessContext<Order>> {
 

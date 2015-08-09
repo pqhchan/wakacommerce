@@ -12,12 +12,8 @@ import java.util.Map;
 
 
 /**
- * Provides a default validate method that uses the validation configuration map to pull out the error key and pre-populate
- * the {@link PropertyValidationResult} based on {@link ConfigurationItem#ERROR_MESSAGE}.
- * 
- * This class should be used as your base if you are writing a validator based on a {@link ValidationConfiguration}
  *
- *     
+ * @ hui
  */
 public abstract class ValidationConfigurationBasedPropertyValidator implements PropertyValidator {
 
@@ -35,10 +31,7 @@ public abstract class ValidationConfigurationBasedPropertyValidator implements P
                 propertyName,
                 value), validationConfiguration.get(ConfigurationItem.ERROR_MESSAGE));
     }
-    
-    /**
-     * Delegate method for {@link ValidationConfiguration}-based processors that don't need to return an error message
-     */
+
     public boolean validateInternal(Entity entity,
             Serializable instance,
             Map<String, FieldMetadata> entityFieldMetadata,

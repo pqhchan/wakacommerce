@@ -16,18 +16,7 @@ public interface SystemPropertiesDao {
 
     public SystemProperty createNewSystemProperty();
 
-    /**
-     * Reads a SystemProperty by its internal database id
-     * 
-     * @param id
-     * @return the {@link SystemProperty}
-     */
     public SystemProperty readById(Long id);
 
-    /**
-     * Removes the SystemProperty from the null-capable cache.
-     *
-     * @param systemProperty the property instance
-     */
     public void removeFromCache(SystemProperty systemProperty);
 }

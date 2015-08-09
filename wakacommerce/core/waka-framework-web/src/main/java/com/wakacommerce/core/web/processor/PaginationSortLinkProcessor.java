@@ -15,10 +15,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Thymeleaf Processor that replaces the "href" attribute on an <a/> element, maintaining the current search criteria
- * of the request and adding (or replacing, if it exists) the sort parameter on the request.
  *
- *Joseph Fridye (jfridye)
+ * @ hui
  */
 public class PaginationSortLinkProcessor extends AbstractAttributeModifierAttrProcessor {
 

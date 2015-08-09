@@ -36,10 +36,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Waka请求上下文. 该类存储了当前请求处理线程范围内的一些有用的stuff. 
- * 其它类可以通过该上下文来方便的获得这些stuff的引用
- * 
- * @see {@link WakaRequestProcessor}
+ *
+ * @ hui
  */
 public class WakaRequestContext {
     
@@ -114,55 +112,23 @@ public class WakaRequestContext {
     protected ValidateProductionChangesState validateProductionChangesState = ValidateProductionChangesState.UNDEFINED;
     protected EnforceEnterpriseCollectionBehaviorState enforceEnterpriseCollectionBehaviorState = EnforceEnterpriseCollectionBehaviorState.UNDEFINED;
 
-    /**
-     * Gets the current request on the context
-     * @return
-     */
     public HttpServletRequest getRequest() {
         return request;
     }
 
-    /**
-     * Sets the current request on the context. Note that this also invokes {@link #setWebRequest(WebRequest)} by wrapping
-     * <b>request</b> in a {@link ServletWebRequest}.
-     * 
-     * @param request
-     */
     public void setRequest(HttpServletRequest request) {
         this.request = request;
         this.webRequest = new ServletWebRequest(request);
     }
 
-    /**
-     * Returns the response for the context
-     * 
-     * @return
-     */
     public HttpServletResponse getResponse() {
         return response;
     }
 
-    /**
-     * Sets the response on the context
-     * 
-     * @param response
-     */
     public void setResponse(HttpServletResponse response) {
         this.response = response;
     }
 
-    /**
-     * Sets the generic request on the context. This is available to be used in non-Servlet environments (like Portlets).
-     * Note that if <b>webRequest</b> is an instance of {@link ServletWebRequest} then
-     * {@link #setRequest(HttpServletRequest)} will be invoked as well with the native underlying {@link HttpServletRequest}
-     * passed as a parameter.
-     * <br />
-     * <br />
-     * Also, if <b>webRequest</b> is an instance of {@link ServletWebRequest} then an attempt is made to set the response
-     * (note that this could be null if the ServletWebRequest was not instantiated with both the {@link HttpServletRequest}
-     * and {@link HttpServletResponse}
-     * @param webRequest
-     */
     public void setWebRequest(WebRequest webRequest) {
         this.webRequest = webRequest;
         if (webRequest instanceof ServletWebRequest) {
@@ -171,29 +137,14 @@ public class WakaRequestContext {
         }
     }
 
-    /**
-     * Returns the generic request for use outside of servlets (like in Portlets). This will be automatically set
-     * by invoking {@link #setRequest(HttpServletRequest)}
-     * 
-     * @return the generic request
-     * @see {@link #setWebRequest(WebRequest)}
-     */
     public WebRequest getWebRequest() {
         return webRequest;
     }
 
-    /**
-     * @return the site that is currently associated to this request thread. The site that is returned is not attached to a
-     * Hibernate session and thus cannot lazy-load collection properties. For additional collections that are added to
-     * extensions of {@link Site}, they should be manually cloned by overriding the clone() method.
-     */
     public Site getNonPersistentSite() {
         return site;
     }
-    
-    /**
-     * 
-     */
+
     public void setNonPersistentSite(Site site) {
         this.site = site;
     }
@@ -221,10 +172,6 @@ public class WakaRequestContext {
         return locale;
     }
 
-    /**
-     * Returns the java.util.Locale constructed from the com.wakacommerce.common.locale.domain.Locale.
-     * @return
-     */
     public java.util.Locale getJavaLocale() {
         if (this.javaLocale == null) {
             this.javaLocale = convertLocaleToJavaLocale();
@@ -232,12 +179,6 @@ public class WakaRequestContext {
         return this.javaLocale;
     }
 
-    /**
-     * Returns the java.util.Currency constructed from the com.wakacommerce.common.currency.domain.BroadleafCurrency.
-     * If there is no BroadleafCurrency specified this will return the currency based on the JVM locale
-     * 
-     * @return
-     */
     public Currency getJavaCurrency() {
         if (javaCurrency == null) {
             try {
@@ -411,16 +352,10 @@ public class WakaRequestContext {
         this.adminUserId = adminUserId;
     }
 
-    /**
-     * Intended for internal use only
-     */
     public Boolean getInternalIgnoreFilters() {
         return internalIgnoreFilters;
     }
 
-    /**
-     * Intended for internal use only
-     */
     public void setInternalIgnoreFilters(Boolean internalIgnoreFilters) {
         this.internalIgnoreFilters = internalIgnoreFilters;
     }
@@ -449,41 +384,15 @@ public class WakaRequestContext {
         this.validateProductionChangesState = validateProductionChangesState;
     }
 
-    /**
-     * Defines the state in which sandboxable collections in the Enterprise module should adhere to Broadleaf defined behavior.
-     * When FALSE, {@link org.hibernate.collection.spi.PersistentCollection} extensions in the Enterprise module will delegate
-     * to the standard Hibernate behavior. This is useful when the desire is to build and persist entity object structures (that
-     * the Enterprise module would otherwise interpret as sandboxable) without interference from the Enterprise module
-     * on the collection persistence behavior. When the Enterprise module is loaded, the behavior is enforced by default.
-     *
-     * @return the definition of how the enterprise module should handle persistent collection behavior
-     */
     public EnforceEnterpriseCollectionBehaviorState getEnforceEnterpriseCollectionBehaviorState() {
         return enforceEnterpriseCollectionBehaviorState;
     }
 
-    /**
-     * Returns the state in which sandboxable collections in the Enterprise module should adhere to Broadleaf defined behavior.
-     * When FALSE, {@link org.hibernate.collection.spi.PersistentCollection} extensions in the Enterprise module will delegate
-     * to the standard Hibernate behavior. This is useful when the desire is to build and persist entity object structures (that
-     * the Enterprise module would otherwise interpret as sandboxable) without interference from the Enterprise module
-     * on the collection persistence behavior. When the Enterprise module is loaded, the behavior is enforced by default.
-     *
-     * @param enforceEnterpriseCollectionBehaviorState
-     */
     public void setEnforceEnterpriseCollectionBehaviorState(EnforceEnterpriseCollectionBehaviorState
                                                                     enforceEnterpriseCollectionBehaviorState) {
         this.enforceEnterpriseCollectionBehaviorState = enforceEnterpriseCollectionBehaviorState;
     }
 
-    /**
-     * In some cases, it is useful to utilize a clone of the context that does not include the actual container request
-     * and response information. Such a case would be when executing an asynchronous operation on a new thread from
-     * an existing request thread. That new thread may still require context information, in which case this lightweight
-     * context is useful.
-     *
-     * @return The instance without the container request and response
-     */
     public WakaRequestContext createLightWeightClone() {
         WakaRequestContext context = new WakaRequestContext();
         context.setIgnoreSite(ignoreSite);
@@ -508,13 +417,6 @@ public class WakaRequestContext {
         return context;
     }
 
-    /**
-     * In some cases, it is useful to create a JSON representation of the context that does not include the actual container
-     * request and response information. This can be used subsequently to resurrect the WakaRequestContext state, presumably
-     * on a new thread.
-     *
-     * @return
-     */
     public String createLightWeightCloneJson() {
         StringBuilder sb = new StringBuilder();
         sb.append("{\"ignoreSite\":\"");
@@ -551,13 +453,6 @@ public class WakaRequestContext {
         return sb.toString();
     }
 
-    /**
-     * Resurrect the WakaRequestContext state based on a JSON representation.
-     *
-     * @param Json
-     * @param em
-     * @return
-     */
     public static WakaRequestContext createLightWeightCloneFromJson(String Json, EntityManager em) {
         WakaRequestContext context = new WakaRequestContext();
         JsonFactory factory = new JsonFactory();

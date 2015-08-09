@@ -6,9 +6,8 @@ import org.springframework.stereotype.Service;
 import com.wakacommerce.common.extension.ExtensionManager;
 
 /**
- * Provides internal extension points for functionality in the {@link com.wakacommerce.core.web.processor.extension.UncacheableDataProcessor}
  *
- * 
+ * @ hui
  */
 @Service("blUncacheableDataProcessorExtensionManager")
 public class UncacheableDataProcessorExtensionManager extends ExtensionManager<UncacheableDataProcessorExtensionHandler> {

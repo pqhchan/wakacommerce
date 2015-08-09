@@ -36,7 +36,8 @@ import java.util.Map.Entry;
 import javax.annotation.Resource;
 
 /**
- * @deprecated Use {@link SolrSearchServiceImpl} 
+ *
+ * @ hui
  */
 @Deprecated
 @Service("blSearchService")
@@ -137,11 +138,7 @@ public class DatabaseSearchServiceImpl implements SearchService {
         }
         return facets;
     }
-    
-    /**
-     * Perform any necessary conversion of the key to be used by the search service
-     * @param criteria
-     */
+
     protected void setQualifiedKeys(SearchCriteria criteria) {
         // Convert the filter criteria url keys
         Map<String, String[]> convertedFilterCriteria = new HashMap<String, String[]>();
@@ -175,14 +172,7 @@ public class DatabaseSearchServiceImpl implements SearchService {
         }
         
     }
-    
-    /**
-     * From the Field's qualifiedName, build out the qualified name to be used by the ProductDao
-     * to find the requested products.
-     * 
-     * @param qualifiedFieldName
-     * @return the database qualified name
-     */
+
     protected String getDatabaseQualifiedFieldName(String qualifiedFieldName) {
         if (qualifiedFieldName.contains("productAttributes")) {
             return qualifiedFieldName.replace("product.", "");
@@ -204,13 +194,7 @@ public class DatabaseSearchServiceImpl implements SearchService {
             }
         }
     }
-    
-    
-    /**
-     * Create the wrapper DTO around the SearchFacet
-     * @param categoryFacets
-     * @return the wrapper DTO
-     */
+
     protected List<SearchFacetDTO> buildSearchFacetDtos(List<SearchFacet> categoryFacets) {
         List<SearchFacetDTO> facets = new ArrayList<SearchFacetDTO>();
         

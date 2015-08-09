@@ -4,9 +4,8 @@ package com.wakacommerce.common.cache.engine;
 import java.lang.reflect.Method;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public class HydrationItemDescriptor {
     

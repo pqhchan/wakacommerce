@@ -90,11 +90,6 @@ public class Dimension implements Serializable {
         this.depth = depth;
     }
 
-    /**
-     * Returns the product dimensions as a String (assumes measurements are in
-     * inches)
-     * @return a String value of the product dimensions
-     */
     public String getDimensionString() {
         return height + "Hx" + width + "Wx" + depth + "D\"";
     }

@@ -5,9 +5,8 @@ import javax.persistence.spi.ClassTransformer;
 import java.util.Properties;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public interface BroadleafClassTransformer extends ClassTransformer {
 

@@ -2,11 +2,8 @@
 package com.wakacommerce.common.cache;
 
 /**
- * An implementation of StatisticsServiceLogAdapter that does nothing.
- * If your application, requires a specific logging framework then the custom application can
- * implement the appropriate setLevel() methods necessary to activate and disable logging.
  *
- *  
+ * @ hui
  */
 public class NoOpStatisticsServiceLogAdapter implements StatisticsServiceLogAdapter {
 

@@ -8,8 +8,8 @@ import org.thymeleaf.util.Validate;
 import com.wakacommerce.common.site.domain.Theme;
 
 /**
- * Overrides the Thymeleaf ContextTemplateResolver and appends the com.wakacommerce.common.web.Theme path to the url
- * if it exists.
+ *
+ * @ hui
  */
 public class BroadleafThymeleafServletContextTemplateResolver extends ServletContextTemplateResolver {    
     

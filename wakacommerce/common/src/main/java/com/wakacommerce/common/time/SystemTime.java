@@ -83,12 +83,6 @@ public class SystemTime {
         return asCalendar(Locale.getDefault(), timeZone, true);
     }
 
-    /**
-     * Returns false if the current time source is a {@link FixedTimeSource} indicating that the 
-     * time is being overridden.   For example to preview items in a later time.
-     * 
-     * @return
-     */
     public static boolean shouldCacheDate() {
         if (SystemTime.getTimeSource() instanceof FixedTimeSource) {
             return false;
@@ -97,16 +91,6 @@ public class SystemTime {
         }
     }
 
-    /**
-     * Many DAO objects in Broadleaf use a cached time concept.   Since most entities have an active
-     * start and end date, the DAO may ask for a representation of "NOW" that is within some
-     * threshold.   
-     * 
-     * By default, most entities cache active-date queries to every 10 seconds.    These DAO
-     * classes can be overridden to extend or decrease this default.
-     * 
-     * @return
-     */
     public static Date getCurrentDateWithinTimeResolution(Date cachedDate, Long dateResolutionMillis) {
         Date returnDate = SystemTime.asDate();
         if (cachedDate == null || (SystemTime.getTimeSource() instanceof FixedTimeSource)) {

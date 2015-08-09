@@ -16,25 +16,12 @@ import com.wakacommerce.profile.web.core.CustomerState;
 
 
 /**
- * {@link ApplicationListener} responsible for updating {@link CartState} with a new version that was persisted.
- * 
- *     
- * 
- * @see {@link OrderPersistedEntityListener}
- * @see {@link OrderPersistedEvent}
+ *
+ * @ hui
  */
 @Component("blCartStateRefresher")
 public class CartStateRefresher implements ApplicationListener<OrderPersistedEvent> {
 
-    /**
-     * <p>Resets {@link CartState} with the newly persisted Order. If {@link CartState} was empty, this will only update it if
-     * the {@link Order} that has been persisted is the {@link OrderStatus#IN_PROCESS} {@link Order} for the active
-     * {@link Customer} (as determined by {@link CustomerState#getCustomer()}. If {@link CartState} was <b>not</b> empty,
-     * then it will be replaced only if this newly persisted {@link Order} has the same id.</p>
-     * 
-     * <p>This ensures that whatever is returned from {@link CartState#getCart()} will always be the most up-to-date
-     * database version (meaning, safe to write to the DB).</p>
-     */
     @Override
     public void onApplicationEvent(final OrderPersistedEvent event) {
         WebRequest request = WakaRequestContext.getWakaRequestContext().getWebRequest();

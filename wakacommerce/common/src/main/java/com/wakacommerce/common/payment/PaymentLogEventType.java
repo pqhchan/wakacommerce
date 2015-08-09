@@ -8,10 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extendible enumeration of payment log types.
- * 
- *  
  *
+ * @ hui
  */
 public class PaymentLogEventType implements Serializable, WakaEnumType {
 

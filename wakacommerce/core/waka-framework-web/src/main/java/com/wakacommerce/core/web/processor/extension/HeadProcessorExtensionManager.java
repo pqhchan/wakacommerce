@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *   (jocanas)
+ *
+ * @ hui
  */
 public class HeadProcessorExtensionManager implements HeadProcessorExtensionListener {
 

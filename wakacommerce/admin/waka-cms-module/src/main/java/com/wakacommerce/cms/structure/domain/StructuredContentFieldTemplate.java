@@ -9,12 +9,8 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * A structured content field template holds the structure for a
- * structured content.
  *
- * For example, an 'Ad' template might describe the fields 'Ad URL' and
- * 'Target URL'.   The 'Ad' template might be used in multiple StructuredContentType
- * instances such as 'Home Page Banner Ad' or 'Cart Bottom Ad', etc.
+ * @ hui
  */
 public interface StructuredContentFieldTemplate extends Serializable, MultiTenantCloneable<StructuredContentFieldTemplate> {
 

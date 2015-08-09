@@ -2,7 +2,8 @@
 package com.wakacommerce.common.cache;
 
 /**
- *  
+ *
+ * @ hui
  */
 public interface StatisticsServiceLogAdapter {
 

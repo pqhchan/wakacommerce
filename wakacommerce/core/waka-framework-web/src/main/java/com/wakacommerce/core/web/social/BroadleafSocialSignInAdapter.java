@@ -15,23 +15,8 @@ import javax.annotation.Resource;
 
 
 /**
- * The SignInAdapter is exclusively used for provider sign in so a SignInAdapter
- * bean will need to be added to the Spring Social configuration.
  *
- * The signIn() method takes the local application user's user ID normalized as a String.
- * No other credentials are necessary here because by the time this method is called the user will have signed
- * into the provider and their connection with that provider has been used to prove the user's identity.
- * This adapter will then authenticate manually against Spring Security
- *
- * To use:
- * this will automatically be injected into ProviderSignInController,
- * as long as this package is scanned
- * (make sure the following is in applicationContext-servlet.xml)
- * <context:component-scan base-package="com.wakacommerce.core.web"/>
- *
- * @see org.springframework.social.connect.web.ProviderSignInController
- *  
- *
+ * @ hui
  */
 @Component("blSocialSignInAdapter")
 public class BroadleafSocialSignInAdapter implements SignInAdapter {

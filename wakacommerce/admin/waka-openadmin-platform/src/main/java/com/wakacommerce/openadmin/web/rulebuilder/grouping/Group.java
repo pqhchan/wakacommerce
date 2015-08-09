@@ -7,8 +7,8 @@ import java.util.List;
 import com.wakacommerce.openadmin.web.rulebuilder.BLCOperator;
 
 /**
- *  
- *  
+ *
+ * @ hui
  */
 public class Group {
 

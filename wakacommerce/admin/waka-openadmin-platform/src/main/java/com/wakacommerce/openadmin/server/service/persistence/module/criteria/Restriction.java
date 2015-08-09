@@ -14,14 +14,8 @@ import com.wakacommerce.openadmin.server.service.persistence.module.criteria.con
 import com.wakacommerce.openadmin.server.service.persistence.module.criteria.predicate.PredicateProvider;
 
 /**
- * Responsible for providing a JPA {@link javax.persistence.criteria.Predicate} instance for query construction based
- * on several objects that define query construction behavior for the target field. The objects can be replaced with custom
- * implementations for more specific behavior.
  *
- * @see com.wakacommerce.openadmin.server.service.persistence.module.criteria.predicate.PredicateProvider
- * @see com.wakacommerce.openadmin.server.service.persistence.module.criteria.converter.FilterValueConverter
- * @see com.wakacommerce.openadmin.server.service.persistence.module.criteria.FieldPathBuilder
- * 
+ * @ hui
  */
 public class Restriction {
 
@@ -43,22 +37,7 @@ public class Restriction {
         setFieldPathBuilder(fieldPathBuilder);
         return this;
     }
-    
-    /**
-     * This method  will return a FieldPathBuilder that could be used by the caller to establish any additional Roots that 
-     * might be necessary due to the path living inside of a polymorphic version of the ceiling entity. The Predicate 
-     * object that {@link #buildRestriction(...)} returns is also available inside of the FieldPathBuilder object for 
-     * the caller's use.
-     * 
-     * @param builder
-     * @param root
-     * @param ceilingEntity
-     * @param targetPropertyName
-     * @param explicitPath
-     * @param directValues
-     * @param shouldConvert
-     * @return
-     */
+
     public Predicate buildRestriction(CriteriaBuilder builder, From root, String ceilingEntity, String targetPropertyName, 
             Path explicitPath, List directValues, boolean shouldConvert, CriteriaQuery criteria, List<Predicate> restrictions) {
         fieldPathBuilder.setCriteria(criteria);

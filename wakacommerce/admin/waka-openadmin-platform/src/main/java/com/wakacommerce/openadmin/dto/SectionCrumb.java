@@ -4,7 +4,8 @@ package com.wakacommerce.openadmin.dto;
 import java.io.Serializable;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class SectionCrumb implements Serializable {
 

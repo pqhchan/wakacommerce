@@ -6,8 +6,8 @@ import java.util.List;
 import com.wakacommerce.core.order.domain.FulfillmentOption;
 
 /**
- * 
- *  
+ *
+ * @ hui
  */
 public interface BandedPriceFulfillmentOption extends FulfillmentOption {
     

@@ -28,16 +28,7 @@ public class PromotableCandidateOrderOfferImpl implements PromotableCandidateOrd
         this.offer = offer;
         calculatePotentialSavings();
     }
-    
-    /**
-     * Instead of calculating the potential savings, you can specify an override of this value.   
-     * This is currently coded only to work if the promotableOrder's isIncludeOrderAndItemAdjustments flag
-     * is true.
-     *  
-     * @param promotableOrder
-     * @param offer
-     * @param potentialSavings
-     */
+
     public PromotableCandidateOrderOfferImpl(PromotableOrder promotableOrder, Offer offer, Money potentialSavings) {
         this(promotableOrder, offer);
         if (promotableOrder.isIncludeOrderAndItemAdjustments()) {

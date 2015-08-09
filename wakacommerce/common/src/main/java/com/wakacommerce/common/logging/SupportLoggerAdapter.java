@@ -2,7 +2,8 @@
 package com.wakacommerce.common.logging;
 
 /**
- *  
+ *
+ * @ hui
  */
 public interface SupportLoggerAdapter {
 
@@ -10,31 +11,12 @@ public interface SupportLoggerAdapter {
 
     public void setName(String name);
 
-    /**
-     * emit a SUPPORT level message
-     * @param message
-     */
     public void support(String message);
 
-    /**
-     * emit a SUPPORT level message with throwable
-     * @param message
-     * @param t
-     */
     public void support(String message, Throwable t);
 
-    /**
-     * emit a SUPPORT lifecycle message
-     * @param lifeCycleEvent
-     * @param message
-     */
     public void lifecycle(LifeCycleEvent lifeCycleEvent, String message);
 
-    /**
-     * In order to be backwards compatible. The support logger should also support
-     * the debug, error, fatal, info, and warn levels as well.
-     * @param message
-     */
 
     public void debug(String message);
 

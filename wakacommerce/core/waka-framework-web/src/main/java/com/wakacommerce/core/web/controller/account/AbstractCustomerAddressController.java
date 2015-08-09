@@ -1,22 +1,4 @@
-/*
- * #%L
- * BroadleafCommerce Framework Web
- * %%
- * Copyright (C) 2009 - 2014 Broadleaf Commerce
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *       http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * #L%
- */
+
 package com.wakacommerce.core.web.controller.account;
 
 import org.apache.commons.lang.StringUtils;
@@ -41,11 +23,8 @@ import java.beans.PropertyEditorSupport;
 import java.util.List;
 
 /**
- * An abstract controller that provides convenience methods and resource declarations for its children.
  *
- * Operations that are shared between controllers that deal with Customer Addresses belong here.
- *
- *  
+ * @ hui
  */
 public class AbstractCustomerAddressController extends WakaAbstractController {
 
@@ -72,22 +51,8 @@ public class AbstractCustomerAddressController extends WakaAbstractController {
     @Resource(name = "blISOService")
     protected ISOService isoService;
 
-    /**
-     * Initializes some custom binding operations for the managing an address.
-     * More specifically, this method will attempt to bind state and country
-     * abbreviations to actual State and Country objects when the String
-     * representation of the abbreviation is submitted.
-     *
-     * @param request
-     * @param binder
-     * @throws Exception
-     */
     protected void initBinder(HttpServletRequest request, ServletRequestDataBinder binder) throws Exception {
 
-        /**
-         * @deprecated - address.setState() is deprecated in favor of ISO standardization
-         * This is here for legacy compatibility
-         */
         binder.registerCustomEditor(State.class, "address.state", new PropertyEditorSupport() {
             @Override
             public void setAsText(String text) {
@@ -100,10 +65,6 @@ public class AbstractCustomerAddressController extends WakaAbstractController {
             }
         });
 
-        /**
-         * @deprecated - address.setCountry() is deprecated in favor of ISO standardization
-         * This is here for legacy compatibility
-         */
         binder.registerCustomEditor(Country.class, "address.country", new PropertyEditorSupport() {
             @Override
             public void setAsText(String text) {

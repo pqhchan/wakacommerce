@@ -17,7 +17,7 @@ import java.util.Properties;
 
 /**
  *
- * 
+ * @ hui
  */
 public class IdOverrideTableGenerator extends TableGenerator {
 

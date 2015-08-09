@@ -9,11 +9,8 @@ import com.wakacommerce.core.workflow.BaseActivity;
 import com.wakacommerce.core.workflow.ProcessContext;
 
 /**
- * This is an optional activity to allow a committal of taxes to a tax sub system. Many tax 
- * providers store tax details for reference, debugging, reporting, and reconciliation.
- * 
- *  
  *
+ * @ hui
  */
 public class CommitTaxActivity extends BaseActivity<ProcessContext<CheckoutSeed>> {
     

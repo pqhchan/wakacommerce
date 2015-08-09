@@ -5,8 +5,8 @@ import net.sf.ehcache.Cache;
 
 
 /**
- *  
  *
+ * @ hui
  */
 public interface ServiceResponseCacheable {
     

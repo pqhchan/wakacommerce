@@ -23,16 +23,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Helper class for some common rule functions that can be called from mvel as well as utility functions
- * to make calling MVEL rules within Broadleaf easier.  
- * 
- * An instance of this class is available to the mvel runtime under the variable name MvelHelper with the 
- * following functions:
- * 
- *    convertField(type, fieldValue)
- *    toUpperCase(value)
  *
- * 
+ * @ hui
  */
 public class MvelHelper {
 
@@ -44,14 +36,8 @@ public class MvelHelper {
     public static final String BLC_RULE_MAP_PARAM = "blRuleMap";
 
     // The following attribute is set in BroadleafProcessURLFilter
-    public static final String REQUEST_DTO = "blRequestDTO";    
+    public static final String REQUEST_DTO = "blRequestDTO";
 
-    /**
-     * Converts a field to the specified type.    Useful when 
-     * @param type
-     * @param fieldValue
-     * @return
-     */
     public static Object convertField(String type, String fieldValue) {
         if (fieldValue == null) {
             return null;
@@ -78,31 +64,11 @@ public class MvelHelper {
         }
         return value.toUpperCase();
     }
-    
-    /**
-     * Returns true if the passed in rule passes based on the passed in ruleParameters.   
-     * 
-     * Also returns true if the rule is blank or null.
-     * 
-     * Calls the {@link #evaluateRule(String, Map, Map)} method passing in the DEFAULT_EXPRESSION_CACHE.
-     * For systems that need to cache a large number of rule expressions, an alternate cache can be passed in.   The
-     * default cache is able to cache up to 1,000 rule expressions which should suffice for most systems.
-     * 
-     * @param rule
-     * @param ruleParameters
-     * @return
-     */
+
     public static boolean evaluateRule(String rule, Map<String, Object> ruleParameters) {
         return evaluateRule(rule, ruleParameters, DEFAULT_EXPRESSION_CACHE);
     }
 
-    /**
-     * Evaluates the passed in rule given the passed in parameters.   
-     * 
-     * @param rule
-     * @param ruleParameters
-     * @return
-     */
     public static boolean evaluateRule(String rule, Map<String, Object> ruleParameters,
             Map<String, Serializable> expressionCache) {
         // Null or empty is a match
@@ -145,23 +111,10 @@ public class MvelHelper {
         }
     }
 
-    /**
-     * When true, LOG.info statement will be suppressed.   Should only be set from within MvelHelperTest.
-     * Prevents an error from displaying during unit test runs.
-     * @param testMode
-     */
     public static void setTestMode(boolean testMode) {
         TEST_MODE = testMode;
     }
-    
-    /**
-     * Builds parameters using time, request, customer, and cart.
-     * 
-     * Should be called from within a valid web request.
-     *
-     * @param request
-     * @return
-     */
+
     public static Map<String, Object> buildMvelParameters() {
         Map<String, Object> mvelParameters = new HashMap<String, Object>();
        WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();

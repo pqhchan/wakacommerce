@@ -9,7 +9,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- *   
+ *
+ * @ hui
  */
 public class SandBoxType implements Serializable, WakaEnumType {
 

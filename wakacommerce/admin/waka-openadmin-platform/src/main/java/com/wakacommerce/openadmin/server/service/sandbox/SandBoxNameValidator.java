@@ -17,9 +17,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- * Ensures that the SandBox name is unique within a given site.
- * 
- * 
+ *
+ * @ hui
  */
 @Component("blSandBoxNameValidator")
 public class SandBoxNameValidator extends ValidationConfigurationBasedPropertyValidator {
@@ -27,10 +26,6 @@ public class SandBoxNameValidator extends ValidationConfigurationBasedPropertyVa
     @Resource(name = "blSandBoxService")
     protected SandBoxService sandboxService;
 
-    /**
-     * Denotes what should occur when this validator encounters a null value to validate against. Default behavior is to
-     * allow them, which means that this validator will always return true with null values
-     */
     protected boolean succeedForNullValues = false;
 
     protected String ERROR_DUPLICATE_SANDBOX_NAME = "errorDuplicateSandBoxName";

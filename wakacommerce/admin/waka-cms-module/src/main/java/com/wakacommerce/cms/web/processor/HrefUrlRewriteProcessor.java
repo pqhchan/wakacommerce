@@ -11,9 +11,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- * Similar to {@link UrlRewriteProcessor} but handles href tags.   
- * Mainly those that have a useCdn=true attribute or those that are inside a script tag.
- * 
+ *
+ * @ hui
  */
 public class HrefUrlRewriteProcessor extends UrlRewriteProcessor {
     
@@ -23,9 +22,6 @@ public class HrefUrlRewriteProcessor extends UrlRewriteProcessor {
     private static final String LINK = "link";
     private static final String HREF = "href";
 
-    /**
-     * Sets the name of this processor to be used in Thymeleaf template
-     */
     public HrefUrlRewriteProcessor() {
         super(HREF);
     }

@@ -7,7 +7,8 @@ import com.wakacommerce.common.extension.ExtensionManager;
 
 
 /**
- * ,  
+ *
+ * @ hui
  */
 @Service("blUpdateCartServiceExtensionManager")
 public class UpdateCartServiceExtensionManager extends ExtensionManager<UpdateCartServiceExtensionHandler> {

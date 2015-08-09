@@ -13,8 +13,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 /**
- * @see com.wakacommerce.common.sandbox.SandBoxHelper
- * 
+ *
+ * @ hui
  */
 @Component("blSandBoxHelper")
 public class DefaultSandBoxHelper implements SandBoxHelper {

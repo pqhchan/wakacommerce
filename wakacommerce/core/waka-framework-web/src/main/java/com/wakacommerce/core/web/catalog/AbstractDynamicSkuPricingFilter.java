@@ -12,9 +12,8 @@ import com.wakacommerce.core.catalog.service.dynamic.SkuPricingConsiderationCont
 import java.io.IOException;
 
 /**
- * 
- *  
- * @see {@link DefaultDynamicSkuPricingFilter}
+ *
+ * @ hui
  */
 public abstract class AbstractDynamicSkuPricingFilter implements DynamicSkuPricingFilter {
 

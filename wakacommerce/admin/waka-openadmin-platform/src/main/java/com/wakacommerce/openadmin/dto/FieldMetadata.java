@@ -9,9 +9,8 @@ import java.util.Map;
 import com.wakacommerce.openadmin.dto.visitor.MetadataVisitor;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public abstract class FieldMetadata implements Serializable {
     

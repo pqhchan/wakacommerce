@@ -15,7 +15,8 @@ import javax.persistence.Query;
 import java.util.List;
 
 /**
- *   
+ *
+ * @ hui
  */
 @Repository("blLocaleDao")
 public class LocaleDaoImpl implements LocaleDao {
@@ -27,9 +28,6 @@ public class LocaleDaoImpl implements LocaleDao {
     @Resource(name="blEntityConfiguration")
     protected EntityConfiguration entityConfiguration;
 
-    /**
-     * @return The locale for the passed in code
-     */
     @Override
     public Locale findLocaleByCode(String localeCode) {
         Query query = em.createNamedQuery("BC_READ_LOCALE_BY_CODE");
@@ -45,11 +43,6 @@ public class LocaleDaoImpl implements LocaleDao {
         return null;
     }
 
-    /**
-     * Returns the page template with the passed in id.
-     *
-     * @return The default locale
-     */
     @Override
     public Locale findDefaultLocale() {
         Query query = em.createNamedQuery("BC_READ_DEFAULT_LOCALE");
@@ -64,10 +57,6 @@ public class LocaleDaoImpl implements LocaleDao {
         return null;
     }
 
-    /**
-     * Returns all supported BLC locales.
-     * @return
-     */
     public List<Locale> findAllLocales() {
         Query query = em.createNamedQuery("BC_READ_ALL_LOCALES");
         query.setHint(org.hibernate.ejb.QueryHints.HINT_CACHEABLE, true);

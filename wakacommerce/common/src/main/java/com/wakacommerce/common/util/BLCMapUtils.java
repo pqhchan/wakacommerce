@@ -13,25 +13,11 @@ import java.util.TreeSet;
 
 
 /**
- * Convenience methods for interacting with maps
- * 
- * 
+ *
+ * @ hui
  */
 public class BLCMapUtils {
-    
-    /**
-     * Given a collection of values and a TypedClosure that maps an appropriate key for a given value,
-     * returns a HashMap of the key to the value.
-     * 
-     * <b>Note: If two values share the same key, the later one will override the previous one in the returned map</b>
-     * @see #keyedListMap(Iterable, TypedClosure)
-     * 
-     * List<V> --> Map<K, V>
-     * 
-     * @param values
-     * @param closure
-     * @return the map
-     */
+
     public static <K, CV extends Iterable<V>, V> Map<K, V> keyedMap(CV values, TypedClosure<K, V> closure) {
         Map<K, V> map = new HashMap<K, V>();
         
@@ -42,20 +28,7 @@ public class BLCMapUtils {
         
         return map;
     }
-    
-    /**
-     * Given an array of values and a TypedClosure that maps an appropriate key for a given value,
-     * returns a HashMap of the key to the value.
-     * 
-     * <b>Note: If two values share the same key, the later one will override the previous one in the returned map</b>
-     * @see #keyedListMap(Iterable, TypedClosure)
-     * 
-     * V[] --> Map<K, V>
-     * 
-     * @param values
-     * @param closure
-     * @return the map
-     */
+
     public static <K, V> Map<K, V> keyedMap(V[] values, TypedClosure<K, V> closure) {
         Map<K, V> map = new HashMap<K, V>();
         
@@ -68,19 +41,7 @@ public class BLCMapUtils {
         
         return map;
     }
-    
-    /**
-     * Given a collection of values and a TypedClosure that maps an appropriate key for a given value,
-     * returns a HashMap of the key to a list of values that map to that key.
-     * 
-     * @see #keyedMap(Iterable, TypedClosure)
-     * 
-     * List<V> --> Map<K, List<V>>
-     * 
-     * @param values
-     * @param closure
-     * @return the map
-     */
+
     public static <K, CV extends Iterable<V>, V> Map<K, List<V>> keyedListMap(CV values, TypedClosure<K, V> closure) {
         Map<K, List<V>> map = new HashMap<K, List<V>>();
         

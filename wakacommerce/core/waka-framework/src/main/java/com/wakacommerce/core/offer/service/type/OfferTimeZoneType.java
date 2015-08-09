@@ -8,8 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extendible enumeration of offer types.
  *
+ * @ hui
  */
 public class OfferTimeZoneType implements Serializable, WakaEnumType {
     

@@ -8,8 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extendible enumeration of offer rule types.
  *
+ * @ hui
  */
 public class OfferRuleType implements Serializable, WakaEnumType {
     

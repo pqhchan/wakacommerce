@@ -10,9 +10,8 @@ import java.util.List;
 import javax.annotation.Resource;
 
 /**
- * 
- * 
- *     
+ *
+ * @ hui
  */
 @Service("blPaymentGatewayConfigurationServiceProvider")
 public class PaymentGatewayConfigurationServiceProviderImpl implements PaymentGatewayConfigurationServiceProvider {

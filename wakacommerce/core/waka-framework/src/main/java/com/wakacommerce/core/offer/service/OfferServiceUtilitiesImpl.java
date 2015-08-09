@@ -38,9 +38,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- * 
- * 
  *
+ * @ hui
  */
 @Service("blOfferServiceUtilities")
 public class OfferServiceUtilitiesImpl implements OfferServiceUtilities {
@@ -253,12 +252,6 @@ public class OfferServiceUtilitiesImpl implements OfferServiceUtilities {
         }
     }
 
-    /**
-     * The adjustment might not be better than the sale price.
-     * @param itemOffer
-     * @param detail
-     * @return
-     */
     protected boolean adjustmentIsNotGoodEnoughToBeApplied(PromotableCandidateItemOffer itemOffer,
             PromotableOrderItemPriceDetail detail) {
         if (!itemOffer.getOffer().getApplyDiscountToSalePrice()) {

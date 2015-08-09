@@ -5,7 +5,8 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
 import org.thymeleaf.templateresolver.TemplateResolution;
 
 /**
- * Placeholder component to support a custom TemplateResolver.
+ *
+ * @ hui
  */
 public class NullBroadleafTemplateResolver implements ITemplateResolver {
 

@@ -6,7 +6,8 @@ import java.util.Map;
 import com.wakacommerce.common.site.domain.Site;
 
 /**
- * 
+ *
+ * @ hui
  */
 public interface SiteConfigProvider {
 

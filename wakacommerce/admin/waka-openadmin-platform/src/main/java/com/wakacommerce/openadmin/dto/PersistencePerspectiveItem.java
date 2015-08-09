@@ -6,10 +6,8 @@ import java.io.Serializable;
 import com.wakacommerce.openadmin.dto.visitor.PersistencePerspectiveItemVisitor;
 
 /**
- * Simple marker interface for persistence perspective members
- * 
- *  
  *
+ * @ hui
  */
 public interface PersistencePerspectiveItem extends Serializable {
 

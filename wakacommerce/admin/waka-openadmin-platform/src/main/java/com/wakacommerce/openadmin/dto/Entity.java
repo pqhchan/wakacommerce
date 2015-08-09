@@ -17,12 +17,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Generic DTO for a domain object. Each property of the domain object is represented by the 'properties' instance variable
- * which allows for further display metadata to be stored.
- * 
- *  
- * @see {@link Property}
  *
+ * @ hui
  */
 public class Entity implements Serializable {
 
@@ -88,12 +84,7 @@ public class Entity implements Serializable {
         }
         properties = merged;
     }
-    
-    /**
-     * Replaces all property values in this entity with the values from the given entity. This also resets the {@link #pMap}
-     * 
-     * @param entity
-     */
+
     public void overridePropertyValues(Entity entity) {
         for (Property property : entity.getProperties()) {
             Property myProperty = findProperty(property.getName());
@@ -178,16 +169,6 @@ public class Entity implements Serializable {
         return response;
     }
 
-    /**
-     * Adds a single validation error to this entity. This will also set the entire
-     * entity in an error state by invoking {@link #setValidationFailure(boolean)}.
-     * 
-     * @param fieldName - the field that is in error. This works on top-level properties (like a 'manufacturer' field on a
-     * Product entity) but can also work on properties gleaned from a related entity (like
-     * 'defaultSku.weight.weightUnitOfMeasure' on a Product entity)
-     * @param errorOrErrorKey - the error message to present to a user. Could be the actual error message or a key to a
-     * property in messages.properties to support different locales
-     */
     public void addValidationError(String fieldName, String errorOrErrorKey) {
         Map<String, List<String>> fieldErrors = getPropertyValidationErrors();
         List<String> errorMessages = fieldErrors.get(fieldName);
@@ -215,11 +196,6 @@ public class Entity implements Serializable {
         this.multiPartAvailableOnThread = multiPartAvailableOnThread;
     }
 
-    /**
-     * 
-     * @return if this entity has failed validation. This will also check the {@link #getPropertyValidationErrors()} map and 
-     * {@link #getGlobalValidationErrors()} if this boolean has not been explicitly set
-     */
     public boolean isValidationFailure() {
         if (MapUtils.isNotEmpty(getPropertyValidationErrors()) || CollectionUtils.isNotEmpty(getGlobalValidationErrors())) {
             isValidationFailure = true;
@@ -231,67 +207,32 @@ public class Entity implements Serializable {
         isValidationFailure = validationFailure;
     }
 
-    /**
-     * @deprecated use {@link #getPropertyValidationErrors()} instead
-     * @return
-     */
     @Deprecated
     public Map<String, List<String>> getValidationErrors() {
         return getPropertyValidationErrors();
     }
-    
-    /**
-     * Validation error map where the key corresponds to the property that failed validation (which could be dot-separated)
-     * and the value corresponds to a list of the error messages, in the case of multiple errors on the same field.
-     * 
-     * For instance, you might have a configuration where the field is both a Required validator and a regex validator.
-     * The validation map in this case might contain something like:
-     *      
-     *      defaultSku.name => ['This field is required', 'Cannot have numbers in name']
-     * 
-     * @return a map keyed by property name to the list of error messages for that property
-     */
+
     public Map<String, List<String>> getPropertyValidationErrors() {
         return validationErrors;
     }
 
-    /**
-     * @deprecated use {@link #setPropertyValidationErrors(Map)} instead
-     */
     @Deprecated
     public void setValidationErrors(Map<String, List<String>> validationErrors) {
         setPropertyValidationErrors(validationErrors);
     }
-    
-    /**
-     * Completely reset the validation errors for this Entity. In most cases it is more appropriate to use the convenience
-     * method for adding a single error via {@link #addValidationError(String, String)}. This will also set the entire
-     * entity in an error state by invoking {@link #setValidationFailure(boolean)}.
-     * 
-     * @param validationErrors
-     * @see #addValidationError(String, String)
-     */
+
     public void setPropertyValidationErrors(Map<String, List<String>> validationErrors) {
         if (MapUtils.isNotEmpty(validationErrors)) {
             setValidationFailure(true);
         }
         this.validationErrors = validationErrors;
     }
-    
-    /**
-     * Adds a validation error to this entity that is not tied to any specific property. If you need to tie this to a
-     * property then you should use {@link #addValidationError(String, String)} instead.
-     * @param errorOrErrorKey
-     */
+
     public void addGlobalValidationError(String errorOrErrorKey) {
         setValidationFailure(true);
         globalValidationErrors.add(errorOrErrorKey);
     }
-    
-    /**
-     * Similar to {@link #addGlobalValidationError(String)} except with a list of errors
-     * @param errorOrErrorKeys
-     */
+
     public void addGlobalValidationErrors(List<String> errorOrErrorKeys) {
         setValidationFailure(true);
         globalValidationErrors.addAll(errorOrErrorKeys);

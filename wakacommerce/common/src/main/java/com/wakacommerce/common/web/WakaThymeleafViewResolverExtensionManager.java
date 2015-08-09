@@ -17,9 +17,7 @@ public class WakaThymeleafViewResolverExtensionManager extends ExtensionManager<
     }
 
     @Override
-    /**
-     * Don't use this extension manager in the admin.
-     */
+
     public List<WakaThymeleafViewResolverExtensionHandler> getHandlers() {
         if (WakaRequestContext.getWakaRequestContext().getAdmin()) {
             return EMPTY_LIST;
@@ -28,11 +26,6 @@ public class WakaThymeleafViewResolverExtensionManager extends ExtensionManager<
         }
     }
 
-
-    /**
-     * By default, this manager will allow other handlers to process the method when a handler returns
-     * HANDLED.
-     */
     @Override
     public boolean continueOnHandled() {
         return true;

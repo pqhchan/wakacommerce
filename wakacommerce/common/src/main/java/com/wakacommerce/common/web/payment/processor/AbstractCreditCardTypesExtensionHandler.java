@@ -10,7 +10,8 @@ import com.wakacommerce.common.payment.PaymentGatewayType;
 import com.wakacommerce.common.payment.service.PaymentGatewayResolver;
 
 /**
- *  
+ *
+ * @ hui
  */
 public abstract class AbstractCreditCardTypesExtensionHandler extends AbstractExtensionHandler
         implements CreditCardTypesExtensionHandler {

@@ -15,9 +15,8 @@ import java.util.Map;
 import javax.persistence.EntityManager;
 
 /**
- * Provides utility methods for interacting with dynamic entities
- * 
- * 
+ *
+ * @ hui
  */
 public interface DynamicDaoHelper {
 

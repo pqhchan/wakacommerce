@@ -24,11 +24,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * This is a stub implementation to handle gift card processing.
- * Please contact us to learn more about our AccountCredit module that handles both Gift Cards and Customer Credit.
- * http://www.broadleafcommerce.com/contact
  *
- * This should NOT be used in production, and is meant solely for demonstration purposes only.
+ * @ hui
  */
 @Controller("blNullPaymentGatewayGiftCardController")
 @RequestMapping("/" + NullGiftCardController.GATEWAY_CONTEXT_KEY)

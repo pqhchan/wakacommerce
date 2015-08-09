@@ -16,10 +16,8 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Provides shared code for the default implementations of PromotableOrderItemPriceDetailAdjustmentImpl and
- * PromotableCandidateItemOfferImpl
- * 
  *
+ * @ hui
  */
 public class PromotableOfferUtility {
     

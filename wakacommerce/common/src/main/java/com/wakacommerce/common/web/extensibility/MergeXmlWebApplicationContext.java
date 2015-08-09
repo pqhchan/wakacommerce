@@ -26,33 +26,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * {@link org.springframework.web.context.WebApplicationContext} implementation
- * which takes its configuration from XML documents, understood by an
- * {@link org.springframework.beans.factory.xml.XmlBeanDefinitionReader}.
  *
- * <p>By default, the configuration will be taken from "/WEB-INF/applicationContext.xml"
- * for the rootId context, and "/WEB-INF/test-servlet.xml" for a context with the namespace
- * "test-servlet" (like for a DispatcherServlet instance with the servlet-name "test").
- *
- * <p>The config location defaults can be overridden via the "contextConfigLocation"
- * context-param of {@link org.springframework.web.context.ContextLoader} and servlet
- * init-param of {@link org.springframework.web.servlet.FrameworkServlet}. Config locations
- * can either denote concrete files like "/WEB-INF/context.xml" or Ant-style patterns
- * like "/WEB-INF/*-context.xml" (see {@link org.springframework.util.PathMatcher}
- * javadoc for pattern details).
- *
- * <p>Note: In case of multiple config locations, later bean definitions will
- * override ones defined in earlier loaded files. This can be leveraged to
- * deliberately override certain bean definitions via an extra XML file.
- *
- * <p>In addition to standard configuration, this implementation also takes a list of
- * patch configuration files that are merged into the configuration provided above.
- * {@link com.wakacommerce.profile.extensibility.MergeXmlConfigResourceFactory}. The patch
- * file locations are set via the "patchConfigLocation" context-param of
- * {@link MergeContextLoader}. Patch locations
- * can either denote concrete files like "/WEB-INF/patch.xml" or Ant-style patterns
- * like "/WEB-INF/*-context.xml" (see {@link org.springframework.util.pathMatcher}
- * javadoc for pattern details).
+ * @ hui
  */
 public class MergeXmlWebApplicationContext extends XmlWebApplicationContext {
 
@@ -63,19 +38,6 @@ public class MergeXmlWebApplicationContext extends XmlWebApplicationContext {
     private String shutdownMethod;
     private int standardLocationTypes = StandardConfigLocations.APPCONTEXTTYPE;
 
-    /**
-     * Load the bean definitions with the given XmlBeanDefinitionReader.
-     * <p>The lifecycle of the bean factory is handled by the refreshBeanFactory method;
-     * therefore this method is just supposed to load and/or register bean definitions.
-     * <p>Delegates to a ResourcePatternResolver for resolving location patterns
-     * into Resource instances.
-     * @throws org.springframework.beans.BeansException in case of bean registration errors
-     * @throws java.io.IOException if the required XML document isn't found
-     * @see #refreshBeanFactory
-     * @see #getConfigLocations
-     * @see #getResources
-     * @see #getResourcePatternResolver
-     */
     protected void loadBeanDefinitions(XmlBeanDefinitionReader reader) throws BeansException, IOException {
         String[] broadleafConfigLocations = StandardConfigLocations.retrieveAll(standardLocationTypes);
         ArrayList<ResourceInputStream> sources = new ArrayList<ResourceInputStream>(20);
@@ -163,39 +125,23 @@ public class MergeXmlWebApplicationContext extends XmlWebApplicationContext {
     public void setPatchLocation(String patchLocation) {
         this.patchLocation = patchLocation;
     }
-    
-    /**
-     * Sets the type of standard Broadleaf context locations that should be merged. For possible values see
-     * {@link StandardConfigLocations#APPCONTEXTTYPE}
-     */
+
     public void setStandardLocationTypes(int standardLocationTypes) {
         this.standardLocationTypes = standardLocationTypes;
     }
 
-    /**
-     * @return the shutdownBean
-     */
     public String getShutdownBean() {
         return shutdownBean;
     }
 
-    /**
-     * @param shutdownBean the shutdownBean to set
-     */
     public void setShutdownBean(String shutdownBean) {
         this.shutdownBean = shutdownBean;
     }
 
-    /**
-     * @return the shutdownMethod
-     */
     public String getShutdownMethod() {
         return shutdownMethod;
     }
 
-    /**
-     * @param shutdownMethod the shutdownMethod to set
-     */
     public void setShutdownMethod(String shutdownMethod) {
         this.shutdownMethod = shutdownMethod;
     }

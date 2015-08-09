@@ -69,9 +69,8 @@ import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 @Component("blDynamicEntityDao")
 @Scope("prototype")

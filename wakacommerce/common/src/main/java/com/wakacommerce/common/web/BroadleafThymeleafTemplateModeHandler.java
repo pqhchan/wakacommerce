@@ -8,8 +8,8 @@ import org.thymeleaf.templatewriter.CacheAwareGeneralTemplateWriter;
 import org.thymeleaf.templatewriter.ITemplateWriter;
 
 /**
- * Overrides the Thymeleaf ContextTemplateResolver and appends the com.wakacommerce.common.web.Theme path to the url
- * if it exists.
+ *
+ * @ hui
  */
 public class BroadleafThymeleafTemplateModeHandler implements ITemplateModeHandler {
 

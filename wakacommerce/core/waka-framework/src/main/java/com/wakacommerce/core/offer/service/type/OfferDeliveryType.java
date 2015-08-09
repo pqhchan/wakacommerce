@@ -8,13 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extendible enumeration of delivery types.
  *
- * Enumeration of how the offer should be applied.
- * AUTOMATIC - will be applied to everyone's order
- * MANUAL - offer is manually assigned to a Customer by an administrator
- * CODE - a offer code must be supplied in order to receive this offer
- *
+ * @ hui
  */
 public class OfferDeliveryType implements Serializable, WakaEnumType, Comparable<OfferDeliveryType> {
     

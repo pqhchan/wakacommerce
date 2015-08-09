@@ -77,9 +77,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * The default implementation of the {@link #BroadleafAdminAbstractEntityController}. This delegates every call to 
- * super and does not provide any custom-tailored functionality. It is responsible for rendering the admin for every
- * entity that is not explicitly customized by its own controller.
+ *
+ * @ hui
  */
 @Controller("blAdminBasicEntityController")
 @RequestMapping("/{sectionKey:.+}")
@@ -96,18 +95,6 @@ public class AdminBasicEntityController extends AdminAbstractController {
     // REQUEST-MAPPING BOUND CONTROLLER METHODS *
     // ******************************************
 
-    /**
-     * Renders the main entity listing for the specified class, which is based on the current sectionKey with some optional
-     * criteria.
-     * 
-     * @param request
-     * @param response
-     * @param model
-     * @param pathVars
-     * @param requestParams a Map of property name -> list critiera values
-     * @return the return view path
-     * @throws Exception
-     */
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String viewEntityList(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable Map<String, String> pathVars,
@@ -146,14 +133,6 @@ public class AdminBasicEntityController extends AdminAbstractController {
         return "modules/defaultContainer";
     }
 
-    /**
-     * Adds the "Add" button to the main entity form if the current user has permissions to create new instances
-     * of the entity and all of the fields in the entity aren't marked as read only.
-     * 
-     * @param sectionClassName
-     * @param cmd
-     * @param mainActions
-     */
     protected void addAddActionIfAllowed(String sectionClassName, ClassMetadata cmd, List<EntityFormAction> mainActions) {
         if (isAddActionAllowed(sectionClassName, cmd)) {
             mainActions.add(DefaultMainActions.ADD);
@@ -191,20 +170,6 @@ public class AdminBasicEntityController extends AdminAbstractController {
         return canCreate;
     }
 
-    /**
-     * Renders the modal form that is used to add a new parent level entity. Note that this form cannot render any
-     * subcollections as operations on those collections require the parent level entity to first be saved and have 
-     * and id. Once the entity is initially saved, we will redirect the user to the normal manage entity screen where 
-     * they can then perform operations on sub collections.
-     * 
-     * @param request
-     * @param response
-     * @param model
-     * @param pathVars
-     * @param entityType
-     * @return the return view path
-     * @throws Exception
-     */
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String viewAddEntityForm(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable  Map<String, String> pathVars,
@@ -263,18 +228,6 @@ public class AdminBasicEntityController extends AdminAbstractController {
         return "modules/modalContainer";
     }
 
-    /**
-     * Processes the request to add a new entity. If successful, returns a redirect to the newly created entity.
-     * 
-     * @param request
-     * @param response
-     * @param model
-     * @param pathVars
-     * @param entityForm
-     * @param result
-     * @return the return view path
-     * @throws Exception
-     */
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addEntity(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable  Map<String, String> pathVars,
@@ -308,17 +261,6 @@ public class AdminBasicEntityController extends AdminAbstractController {
         return "ajaxredirect:" + getContextPath(request) + sectionKey + "/" + entity.getPMap().get("id").getValue();
     }
 
-    /**
-     * Renders the main entity form for the specified entity
-     * 
-     * @param request
-     * @param response
-     * @param model
-     * @param pathVars
-     * @param id
-     * @return the return view path
-     * @throws Exception
-     */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String viewEntityForm(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable  Map<String, String> pathVars,
@@ -363,25 +305,6 @@ public class AdminBasicEntityController extends AdminAbstractController {
         }
     }
 
-    /**
-     * Builds JSON that looks like this:
-     * 
-     * {"errors":
-     *      [{"message":"This field is Required",
-     *        "code": "requiredValidationFailure"
-     *        "field":"defaultSku--name",
-     *        "errorType", "field",
-     *        "tab": "General"
-     *        },
-     *        {"message":"This field is Required",
-     *        "code": "requiredValidationFailure"
-     *        "field":"defaultSku--name",
-     *        "errorType", "field",
-     *        "tab": "General"
-     *        }]
-     * }
-     * 
-     */
     @RequestMapping(value = "/{id}", method = RequestMethod.POST, produces = "application/json")
     public String saveEntityJson(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable Map<String, String> pathVars,
@@ -398,11 +321,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
 
         return json.done();
     }
-    
-    /**
-     * Populates the given <b>json</b> response object based on the given <b>form</b> and <b>result</b>
-     * @return the same <b>result</b> that was passed in
-     */
+
     protected JsonResponse populateJsonValidationErrors(EntityForm form, BindingResult result, JsonResponse json) {
         List<Map<String, Object>> errors = new ArrayList<Map<String, Object>>();
         for (FieldError e : result.getFieldErrors()){
@@ -441,21 +360,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
             return error.getCode();
         }
     }
-    
-    /**
-     * Attempts to save the given entity. If validation is unsuccessful, it will re-render the entity form with
-     * error fields highlighted. On a successful save, it will refresh the entity page.
-     * 
-     * @param request
-     * @param response
-     * @param model
-     * @param pathVars
-     * @param id
-     * @param entityForm
-     * @param result
-     * @return the return view path
-     * @throws Exception
-     */
+
     @RequestMapping(value = "/{id}", method = RequestMethod.POST)
     public String saveEntity(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable  Map<String, String> pathVars,
@@ -506,17 +411,6 @@ public class AdminBasicEntityController extends AdminAbstractController {
         return "redirect:/" + sectionKey + "/" + id;
     }
 
-    /**
-     * Attempts to remove the given entity.
-     * 
-     * @param request
-     * @param response
-     * @param model
-     * @param pathVars
-     * @param id
-     * @return the return view path
-     * @throws Exception
-     */
     @RequestMapping(value = "/{id}/delete", method = RequestMethod.POST)
     public String removeEntity(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable  Map<String, String> pathVars,
@@ -607,20 +501,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
 
         return null;
     }
-    
-    /**
-     * Shows the modal popup for the current selected "to-one" field. For instance, if you are viewing a list of products
-     * then this method is invoked when a user clicks on the name of the default category field.
-     * 
-     * @param request
-     * @param response
-     * @param model
-     * @param pathVars
-     * @param collectionField
-     * @param id
-     * @return
-     * @throws Exception
-     */
+
     @RequestMapping(value = "/{collectionField:.*}/{id}/view", method = RequestMethod.GET)
     public String viewCollectionItemDetails(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable  Map<String, String> pathVars,
@@ -640,18 +521,6 @@ public class AdminBasicEntityController extends AdminAbstractController {
         return viewEntityForm(request, response, model, varsForField, id);
     }
 
-    /**
-     * Returns the records for a given collectionField filtered by a particular criteria
-     * 
-     * @param request
-     * @param response
-     * @param model
-     * @param pathVars
-     * @param collectionField
-     * @param requestParams
-     * @return the return view path
-     * @throws Exception
-     */
     @RequestMapping(value = "/{id}/{collectionField:.*}", method = RequestMethod.GET)
     public String getCollectionFieldRecords(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable  Map<String, String> pathVars,
@@ -679,46 +548,6 @@ public class AdminBasicEntityController extends AdminAbstractController {
         return "views/standaloneListGrid";
     }
 
-    /**
-     * Shows the modal dialog that is used to add an item to a given collection. There are several possible outcomes
-     * of this call depending on the type of the specified collection field.
-     * 
-     * <ul>
-     *  <li>
-     *    <b>Basic Collection (Persist)</b> - Renders a blank form for the specified target entity so that the user may
-     *    enter information and associate the record with this collection. Used by fields such as ProductAttribute.
-     *  </li>
-     *  <li>
-     *    <b>Basic Collection (Lookup)</b> - Renders a list grid that allows the user to click on an entity and select it. 
-     *    Used by fields such as "allParentCategories".
-     *  </li>
-     *  <li>
-     *    <b>Adorned Collection (without form)</b> - Renders a list grid that allows the user to click on an entity and 
-     *    select it. The view rendered by this is identical to basic collection (lookup), but will perform the operation
-     *    on an adorned field, which may carry extra meta-information about the created relationship, such as order.
-     *  </li>
-     *  <li>
-     *    <b>Adorned Collection (with form)</b> - Renders a list grid that allows the user to click on an entity and 
-     *    select it. Once the user selects the entity, he will be presented with an empty form based on the specified
-     *    "maintainedAdornedTargetFields" for this field. Used by fields such as "crossSellProducts", which in addition
-     *    to linking an entity, provide extra fields, such as a promotional message.
-     *  </li>
-     *  <li>
-     *    <b>Map Collection</b> - Renders a form for the target entity that has an additional key field. This field is
-     *    populated either from the configured map keys, or as a result of a lookup in the case of a key based on another
-     *    entity. Used by fields such as the mediaMap on a Sku.
-     *  </li>
-     *  
-     * @param request
-     * @param response
-     * @param model
-     * @param pathVars
-     * @param id
-     * @param collectionField
-     * @param requestParams
-     * @return the return view path
-     * @throws Exception
-     */
     @RequestMapping(value = "/{id}/{collectionField:.*}/add", method = RequestMethod.GET)
     public String showAddCollectionItem(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable Map<String, String> pathVars,
@@ -783,20 +612,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
 
         return buildAddCollectionItemModel(request, response, model, id, collectionField, sectionKey, collectionProperty, md, ppr, null, null);
     }
-    
-    /**
-     * Adds the requested collection item
-     * 
-     * @param request
-     * @param response
-     * @param model
-     * @param pathVars
-     * @param id
-     * @param collectionField
-     * @param entityForm
-     * @return the return view path
-     * @throws Exception
-     */
+
     @RequestMapping(value = "/{id}/{collectionField:.*}/add", method = RequestMethod.POST)
     public String addCollectionItem(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable Map<String, String> pathVars,
@@ -840,23 +656,6 @@ public class AdminBasicEntityController extends AdminAbstractController {
         return "views/standaloneListGrid";
     }
 
-    /**
-     * Builds out all of the model information needed for showing the add modal for collection items on both the initial GET
-     * as well as after a POST with validation errors
-     * 
-     * @param request
-     * @param model
-     * @param id
-     * @param collectionField
-     * @param sectionKey
-     * @param collectionProperty
-     * @param md
-     * @param ppr
-     * @return the appropriate view to display for the modal
-     * @see {@link #addCollectionItem(HttpServletRequest, HttpServletResponse, Model, Map, String, String, EntityForm, BindingResult)}
-     * @see {@link #showAddCollectionItem(HttpServletRequest, HttpServletResponse, Model, Map, String, String, MultiValueMap)}
-     * @throws ServiceException
-     */
     protected String buildAddCollectionItemModel(HttpServletRequest request, HttpServletResponse response,
             Model model, String id, String collectionField, String sectionKey, Property collectionProperty,
             FieldMetadata md, PersistencePackageRequest ppr, EntityForm entityForm, Entity entity) throws ServiceException {
@@ -955,19 +754,6 @@ public class AdminBasicEntityController extends AdminAbstractController {
         return "modules/modalContainer";
     }
 
-    /**
-     * Shows the appropriate modal dialog to edit the selected collection item
-     * 
-     * @param request
-     * @param response
-     * @param model
-     * @param pathVars
-     * @param id
-     * @param collectionField
-     * @param collectionItemId
-     * @return the return view path
-     * @throws Exception
-     */
     @RequestMapping(value = "/{id}/{collectionField:.*}/{collectionItemId}/{alternateId}", method = RequestMethod.GET)
     public String showUpdateCollectionItem(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable  Map<String, String> pathVars,
@@ -989,19 +775,6 @@ public class AdminBasicEntityController extends AdminAbstractController {
                 "updateCollectionItem");
     }
 
-    /**
-     * Shows the appropriate modal dialog to view the selected collection item. This will display the modal as readonly
-     *
-     * @param request
-     * @param response
-     * @param model
-     * @param pathVars
-     * @param id
-     * @param collectionField
-     * @param collectionItemId
-     * @return the return view path
-     * @throws Exception
-     */
     @RequestMapping(value = "/{id}/{collectionField:.*}/{collectionItemId}/{alternateId}/view", method = RequestMethod.GET)
     public String showViewCollectionItem(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable  Map<String, String> pathVars,
@@ -1050,22 +823,6 @@ public class AdminBasicEntityController extends AdminAbstractController {
         return showViewUpdateCollection(request, model, pathVars, id, collectionField, collectionItemId, null, modalHeaderType, entityForm, entity);
     }
 
-    /**
-     * Shows the view and populates the model for updating a collection item. You can also pass in an entityform and entity
-     * which are optional. If they are not passed in then they are automatically looked up
-     * 
-     * @param request
-     * @param model
-     * @param pathVars
-     * @param id
-     * @param collectionField
-     * @param collectionItemId
-     * @param modalHeaderType
-     * @param ef
-     * @param entity
-     * @return
-     * @throws ServiceException
-     */
     protected String showViewUpdateCollection(HttpServletRequest request, Model model, Map<String, String> pathVars,
             String id, String collectionField, String collectionItemId, String alternateId, String modalHeaderType, EntityForm entityForm, Entity entity) throws ServiceException {
         String sectionKey = getSectionKey(pathVars);
@@ -1215,21 +972,6 @@ public class AdminBasicEntityController extends AdminAbstractController {
         return "modules/modalContainer";
     }
 
-    /**
-     * Updates the specified collection item
-     *
-     * @param request
-     * @param response
-     * @param model
-     * @param pathVars
-     * @param id
-     * @param collectionField
-     * @param collectionItemId the collection primary key value (in the case of adorned target collection, this is the primary key value of the target entity)
-     * @param entityForm
-     * @param result
-     * @return the return view path
-     * @throws Exception
-     */
     @RequestMapping(value = "/{id}/{collectionField:.*}/{collectionItemId}", method = RequestMethod.POST)
     public String updateCollectionItem(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable  Map<String, String> pathVars,
@@ -1241,22 +983,6 @@ public class AdminBasicEntityController extends AdminAbstractController {
         return updateCollectionItem(request, response, model, pathVars, id, collectionField, collectionItemId, entityForm, null, result);
     }
 
-    /**
-     * Updates the specified collection item
-     *
-     * @param request
-     * @param response
-     * @param model
-     * @param pathVars
-     * @param id
-     * @param collectionField
-     * @param collectionItemId the collection primary key value (in the case of adorned target collection, this is the primary key value of the target entity)
-     * @param entityForm
-     * @param alternateId in the case of adorned target collections, this is the primary key value of the collection member
-     * @param result
-     * @return the return view path
-     * @throws Exception
-     */
     @RequestMapping(value = "/{id}/{collectionField:.*}/{collectionItemId}/{alternateId}", method = RequestMethod.POST)
     public String updateCollectionItem(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable  Map<String, String> pathVars,
@@ -1304,21 +1030,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
             @RequestParam(value="newSequence") String newSequence) throws Exception {
         return updateCollectionItemSequence(request, response, model, pathVars, id, collectionField, collectionItemId, newSequence, null);
     }
-    
-    /**
-     * Updates the given collection item's sequence. This should only be triggered for adorned target collections
-     * where a sort field is specified -- any other invocation is incorrect and will result in an exception.
-     * 
-     * @param request
-     * @param response
-     * @param model
-     * @param pathVars
-     * @param id
-     * @param collectionField
-     * @param collectionItemId
-     * @return an object explaining the state of the operation
-     * @throws Exception
-     */
+
     @RequestMapping(value = "/{id}/{collectionField:.*}/{collectionItemId}/{alternateId}/sequence", method = RequestMethod.POST)
     public @ResponseBody Map<String, Object> updateCollectionItemSequence(HttpServletRequest request, 
             HttpServletResponse response, Model model,
@@ -1392,22 +1104,6 @@ public class AdminBasicEntityController extends AdminAbstractController {
         }
     }
 
-    /**
-     * Removes the requested collection item
-     *
-     * Note that the request must contain a parameter called "key" when attempting to remove a collection item from a
-     * map collection.
-     *
-     * @param request
-     * @param response
-     * @param model
-     * @param pathVars
-     * @param id
-     * @param collectionField
-     * @param collectionItemId
-     * @return the return view path
-     * @throws Exception
-     */
     @RequestMapping(value = "/{id}/{collectionField:.*}/{collectionItemId}/delete", method = RequestMethod.POST)
     public String removeCollectionItem(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable  Map<String, String> pathVars,
@@ -1417,22 +1113,6 @@ public class AdminBasicEntityController extends AdminAbstractController {
         return removeCollectionItem(request, response, model, pathVars, id, collectionField, collectionItemId, null);
     }
 
-    /**
-     * Removes the requested collection item
-     * 
-     * Note that the request must contain a parameter called "key" when attempting to remove a collection item from a 
-     * map collection.
-     * 
-     * @param request
-     * @param response
-     * @param model
-     * @param pathVars
-     * @param id
-     * @param collectionField
-     * @param collectionItemId
-     * @return the return view path
-     * @throws Exception
-     */
     @RequestMapping(value = "/{id}/{collectionField:.*}/{collectionItemId}/{alternateId}/delete", method = RequestMethod.POST)
     public String removeCollectionItem(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable  Map<String, String> pathVars,
@@ -1479,14 +1159,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
     // *********************************
     // ADDITIONAL SPRING-BOUND METHODS *
     // *********************************
-    
-    /**
-     * Invoked on every request to provide the ability to register specific binders for Spring's binding process.
-     * By default, we register a binder that treats empty Strings as null and a Boolean editor that supports either true
-     * or false. If the value is passed in as null, it will treat it as false.
-     * 
-     * @param binder
-     */
+
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         binder.registerCustomEditor(String.class, new StringTrimmerEditor(true));

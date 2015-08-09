@@ -97,10 +97,6 @@ public class AddressServiceImpl implements AddressService {
         return out;
     }
 
-    /**
-     * Default is false. If set to true, the verifyAddress method will throw an exception if there are no providers to handle the request.
-     * @param mustValidateAddresses
-     */
     public void setMustValidateAddresses(boolean mustValidateAddresses) {
         this.mustValidateAddresses = mustValidateAddresses;
     }

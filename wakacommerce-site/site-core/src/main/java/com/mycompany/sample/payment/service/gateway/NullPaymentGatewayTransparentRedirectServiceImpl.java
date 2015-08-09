@@ -17,18 +17,8 @@ import org.springframework.util.Assert;
 import javax.annotation.Resource;
 
 /**
- * This is an example implementation of a {@link PaymentGatewayTransparentRedirectService}.
- * This is just a sample that mimics what hidden fields a real payment gateway implementation
- * might put on your transparent redirect credit card form on your checkout page.
- * Replace with a real Payment Gateway Integration like Braintree or PayPal PayFlow.
  *
- * In order to use load this demo service, you will need to component scan
- * the package "com.mycompany.sample".
- *
- * This should NOT be used in production, and is meant solely for demonstration
- * purposes only.
- *
- *  
+ * @ hui
  */
 @Service("blNullPaymentGatewayTransparentRedirectService")
 public class NullPaymentGatewayTransparentRedirectServiceImpl implements PaymentGatewayTransparentRedirectService {

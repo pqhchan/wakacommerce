@@ -105,11 +105,6 @@ public class PromotableOrderItemPriceDetailImpl implements PromotableOrderItemPr
         return returnPrice;
     }
 
-    /**
-     * This method will check to see if the salePriceAdjustments or retailPriceAdjustments are better
-     * and remove those that should not apply.
-     * @return 
-     */
     public void chooseSaleOrRetailAdjustments() {
         adjustmentsFinalized = true;
         adjustedTotal = null;
@@ -177,9 +172,6 @@ public class PromotableOrderItemPriceDetailImpl implements PromotableOrderItemPr
         }
     }
 
-    /**
-     * Removes retail only adjustments.
-     */
     protected void removeRetailOnlyAdjustments() {
         Iterator<PromotableOrderItemPriceDetailAdjustment> adjustments = promotableOrderItemPriceDetailAdjustments.iterator();
         while (adjustments.hasNext()) {
@@ -190,10 +182,6 @@ public class PromotableOrderItemPriceDetailImpl implements PromotableOrderItemPr
         }
     }
 
-    /**
-     * If removeUnusedAdjustments is s 
-     * @param useSaleAdjustments
-     */
     protected void removeZeroDollarAdjustments(boolean useSalePrice) {
         Iterator<PromotableOrderItemPriceDetailAdjustment> adjustments = promotableOrderItemPriceDetailAdjustments.iterator();
         while (adjustments.hasNext()) {
@@ -452,10 +440,6 @@ public class PromotableOrderItemPriceDetailImpl implements PromotableOrderItemPr
         return adjustmentUnitValue;
     }
 
-    /**
-     * Creates a key that represents a unique priceDetail
-     * @return
-     */
     @Override
     public String buildDetailKey() {
         List<Long> offerIds = new ArrayList<Long>();

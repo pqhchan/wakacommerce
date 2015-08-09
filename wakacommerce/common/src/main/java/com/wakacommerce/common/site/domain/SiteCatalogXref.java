@@ -4,11 +4,8 @@ package com.wakacommerce.common.site.domain;
 import java.io.Serializable;
 
 /**
- * Defines the explicit join between a {@link Site} and {@link Catalog}
- * 
- *     
- * @see {@link Site#getCatalogXrefs()}
- * @see {@link Catalog#getSiteXrefs()}
+ *
+ * @ hui
  */
 public interface SiteCatalogXref extends Serializable {
     

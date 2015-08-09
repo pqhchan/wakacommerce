@@ -20,11 +20,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
- * <p>
- * Some resource handlers need a valid site, theme, or sandbox to be available when serving request.
- * 
- * <p>
- * This component provides the {@link #establishThinRequestContext()} method for that purpose.  
+ *
+ * @ hui
  */
 @Service("blBroadleafContextUtil")
 public class BroadleafContextUtil {
@@ -43,39 +40,18 @@ public class BroadleafContextUtil {
 
     protected boolean versioningEnabled = false;
 
-    /**
-     * Creates a WakaRequestContext with supported values populated
-     * @see #establishThinRequestContextInternal(boolean, boolean)
-     */
     public void establishThinRequestContext() {
         establishThinRequestContextInternal(true, true);
     }
 
-    /**
-     * Creates a WakaRequestContext without a Sandbox
-     * @see #establishThinRequestContextInternal(boolean, boolean)
-     */
     public void establishThinRequestContextWithoutSandBox() {
         establishThinRequestContextInternal(true, false);
     }
 
-    /**
-     * Creates a WakaRequestContext without a Theme or Sandbox
-     * @see #establishThinRequestContextInternal(boolean, boolean)
-     */
     public void establishThinRequestContextWithoutThemeOrSandbox() {
         establishThinRequestContextInternal(false, false);
     }
 
-    /**
-     * Adds request and site to the WakaRequestContext
-     * 
-     * If includeTheme is true then also adds the Theme.
-     * If includeSandBox is true then also adds the SandBox.
-     * 
-     * @param includeTheme
-     * @param includeSandBox
-     */
     protected void establishThinRequestContextInternal(boolean includeTheme, boolean includeSandBox) {
         WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
 

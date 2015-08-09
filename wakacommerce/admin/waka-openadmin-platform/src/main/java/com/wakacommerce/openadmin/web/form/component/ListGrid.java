@@ -125,10 +125,6 @@ public class ListGrid {
         return sb.toString();
     }
 
-    /**
-     * Grabs a filtered list of toolbar actions filtered by whether or not they match the same readonly state as the listgrid
-     * and are thus shown on the screen
-     */
     @SuppressWarnings("unchecked")
     public List<ListGridAction> getActiveToolbarActions() {
         return (List<ListGridAction>) CollectionUtils.select(getToolbarActions(), new TypedPredicate<ListGridAction>() {
@@ -139,11 +135,7 @@ public class ListGrid {
             }
         });
     }
-    
-    /**
-     * Grabs a filtered list of row actions filtered by whether or not they match the same readonly state as the listgrid
-     * and are thus shown on the screen
-     */
+
     @SuppressWarnings("unchecked")
     public List<ListGridAction> getActiveRowActions() {
         return (List<ListGridAction>) CollectionUtils.select(getRowActions(), new TypedPredicate<ListGridAction>() {
@@ -188,15 +180,7 @@ public class ListGrid {
         }
         return null;
     }
-    
-    /**
-     * This grid is sortable if there is a reorder action defined in the toolbar. If records can be reordered, then the
-     * sort functionality doesn't make any sense.
-     * 
-     * Also, map structures are currently unsortable.
-     * 
-     * @return
-     */
+
     public boolean isSortable() {
         return getToolbarActions().contains(DefaultListGridActions.REORDER) || 
                 Type.MAP.toString().toLowerCase().equals(getListGridType());
@@ -209,12 +193,7 @@ public class ListGrid {
     public void setListGridType(Type listGridType) {
         this.listGridType = listGridType.toString().toLowerCase();
     }
-    
-    /**
-     * Allows for completely custom types other than the ones defined {@link Type} to assign unique handlers to on the JS
-     * side
-     * @param listGridType
-     */
+
     public void setListGridTypeString(String listGridType) {
         this.listGridType = listGridType;
     }

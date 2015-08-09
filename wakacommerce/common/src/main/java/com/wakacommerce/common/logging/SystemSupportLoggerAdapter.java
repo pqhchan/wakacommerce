@@ -6,37 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * <p>Default Implementation of SupportLoggerAdapter that sends all support log messages to the console ({@code System.out}).
- * The following System Properties are supported to configure the behavior of this logger:</p>
- * </p>
  *
- * <ul>
- * <li><code>SystemSupportLoggerAdapter.showDateTime</code> - Set to <code>true</code> if you want the current date and
- * time to be included in output messages. Default is <code>true</code></li>
- *
- * <li><code>SystemSupportLoggerAdapter.dateTimeFormat</code> - The date and time format to be used in the output messages.
- * The pattern describing the date and time format is defined by
- * <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/text/SimpleDateFormat.html"><code>SimpleDateFormat</code></a>.
- * If the format is not specified or is invalid, the number of milliseconds since start up will be output. </li>
- *
- * <li><code>SystemSupportLoggerAdapter.showThreadName</code> - Set to <code>true</code> if you want to output the current
- * thread name. Defaults to <code>false</code>.</li>
- *
- * <li><code>SystemSupportLoggerAdapter.showLogName</code> - Set to <code>true</code> if you want the Logger instance name
- * to be included in output messages. Defaults to <code>true</code>.</li>
- *
- * <li><code>SystemSupportLoggerAdapter.levelInBrackets</code> - Should the level string be output in brackets? Defaults
- * to <code>true</code>.</li>
- *
- * <li><code>SystemSupportLoggerAdapter.showNonSupportLevels</code> - Show non-support level logs
- * (i.e. DEBUG, ERROR, FATAL, INFO, WARN) Defaults to <code>false</code>.</li>
- *
- * </ul>
- *
- * <p>This implementation is heavily inspired by
- * <a href="http://www.slf4j.org/">SLF4J</a>'s SimpleLogger.</p>
- *
- *  
+ * @ hui
  */
 public class SystemSupportLoggerAdapter extends AbstractSupportLoggerAdapter implements SupportLoggerAdapter {
 
@@ -49,34 +20,16 @@ public class SystemSupportLoggerAdapter extends AbstractSupportLoggerAdapter imp
 
     private String name;
 
-    /**
-     * Generate a SUPPORT level log message
-     *
-     * @param message the log message
-     */
     @Override
     public void support(String message) {
         log(LOG_LEVEL_SUPPORT, message, null);
     }
 
-    /**
-     * Generate a SUPPORT level log message with an accompanying Throwable
-     *
-     * @param message the log message
-     * @param t the exception to accompany the log message - will result in a stack track in the log
-     */
     @Override
     public void support(String message, Throwable t) {
         log(LOG_LEVEL_SUPPORT, message, t);
     }
 
-    /**
-     * Generate a specialized SUPPORT level log message that includes a LifeCycleEvent
-     * in the message.
-     *
-     * @param lifeCycleEvent The module life cycle type for this log message
-     * @param message the log message
-     */
     @Override
     public void lifecycle(LifeCycleEvent lifeCycleEvent, String message) {
         log(LOG_LEVEL_SUPPORT, message, null);

@@ -198,11 +198,7 @@ public class OfferImpl implements Offer, AdminMainEntity {
     @AdminPresentation(excluded = true)
     @Deprecated
     protected boolean applyDiscountToMarkedItems;
-    
-    /**
-     * No offers can be applied on top of this offer; 
-     * If false, stackable has to be false also
-     */
+
     @Column(name = "COMBINABLE_WITH_OTHER_OFFERS")
     @AdminPresentation(friendlyName = "OfferImpl_Offer_Combinable",
         tab = Presentation.Tab.Name.Advanced, tabOrder = Presentation.Tab.Order.Advanced,
@@ -468,22 +464,11 @@ public class OfferImpl implements Offer, AdminMainEntity {
         this.endDate = endDate;
     }
 
-    /**
-     * Returns true if this offer can be stacked on top of another offer.  Stackable is evaluated
-     * against offers with the same offer type.
-     *
-     * @return true if stackable, otherwise false
-     */
     @Override
     public boolean isStackable() {
         return stackable == null ? false : stackable;
     }
 
-    /**
-     * Sets the stackable value for this offer.
-     *
-     * @param stackable
-     */
     @Override
     public void setStackable(boolean stackable) {
         this.stackable = stackable;
@@ -557,21 +542,11 @@ public class OfferImpl implements Offer, AdminMainEntity {
         this.applyDiscountToMarkedItems = applyDiscountToMarkedItems;
     }
 
-    /**
-     * Returns true if this offer can be combined with other offers in the order.
-     *
-     * @return true if combinableWithOtherOffers, otherwise false
-     */
     @Override
     public boolean isCombinableWithOtherOffers() {
         return combinableWithOtherOffers == null ? false : combinableWithOtherOffers;
     }
 
-    /**
-     * Sets the combinableWithOtherOffers value for this offer.
-     *
-     * @param combinableWithOtherOffers
-     */
     @Override
     public void setCombinableWithOtherOffers(boolean combinableWithOtherOffers) {
         this.combinableWithOtherOffers = combinableWithOtherOffers;

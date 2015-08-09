@@ -54,11 +54,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * This legacy implementation should no longer be used as of 2.0
- * 
- * The new interface and implementation are OrderService and OrderServiceImpl
- * 
- * @deprecated
+ *
+ * @ hui
  */
 @Deprecated
 public class LegacyOrderServiceImpl extends OrderServiceImpl implements LegacyOrderService {
@@ -498,19 +495,6 @@ public class LegacyOrderServiceImpl extends OrderServiceImpl implements LegacyOr
         return order;
     }
 
-    /**
-     * Adds the passed in name/value pair to the order-item.    If the
-     * attribute already exists, then it is updated with the new value.
-     * <p/>
-     * If the value passed in is null and the attribute exists, it is removed
-     * from the order item.
-     *
-     * @param order
-     * @param item
-     * @param attributeValues
-     * @param priceOrder
-     * @return
-     */
     @Override
     public Order addOrUpdateOrderItemAttributes(Order order, OrderItem item, Map<String,String> attributeValues, boolean priceOrder) throws ItemNotFoundException, PricingException {
         if (!order.getOrderItems().contains(item)) {
@@ -714,13 +698,6 @@ public class LegacyOrderServiceImpl extends OrderServiceImpl implements LegacyOr
         return bundleOrderItemRequest;
     }
 
-
-    /**
-     * Returns the order associated with the passed in orderId.
-     *
-     * @param orderId
-     * @return
-     */
     protected Order validateOrder(Long orderId) {
         if (orderId == null) {
             throw new IllegalArgumentException("orderId required when adding item to order.");
@@ -776,13 +753,6 @@ public class LegacyOrderServiceImpl extends OrderServiceImpl implements LegacyOr
         return sku;
     }
 
-    /**
-     * Checks to make sure the correct SKU is still attached to the order.
-     * For example, if you have the SKU for a Large, Red T-shirt in the
-     * cart and your UI allows the user to change the one of the attributes
-     * (e.g. red to black), then it is possible that the SKU needs to
-     * be adjusted as well.
-     */
     protected Sku findMatchingSku(Product product, Map<String,String> attributeValues) {
         Map<String, String> attributeValuesForSku = new HashMap<String,String>();
         // Verify that required product-option values were set.

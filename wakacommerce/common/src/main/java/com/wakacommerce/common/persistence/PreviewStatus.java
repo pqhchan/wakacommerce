@@ -9,7 +9,8 @@ import javax.persistence.Embeddable;
 import com.wakacommerce.common.presentation.AdminPresentation;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Embeddable
 public class PreviewStatus implements Serializable, Previewable {

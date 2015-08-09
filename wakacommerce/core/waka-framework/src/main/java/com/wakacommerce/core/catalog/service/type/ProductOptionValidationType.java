@@ -8,10 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extendible enumeration of product option validation types.
- * 
- *ppatel
  *
+ * @ hui
  */
 public class ProductOptionValidationType implements Serializable, WakaEnumType {
 

@@ -42,42 +42,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Processor used to display structured content that is maintained with the Waka CMS.
  *
- * Usage based on the following attributes:<br>
- * <ul>
- *     <li>contentType (required *) - only required if an extension manager is not defined to handle content lookup.
- *                                    If the content type is not found, it will try to retrieve content from any registered
- *                                    extension handlers.
- *                                    Specifies the content you are retrieving.</li>
- *     <li>contentName - if included will retrieve only content that matches the name.   When no name is specified,
- *                       all matching content items of the passed in type are retrieved.</li>
- *     <li>maxResults - if specified limits the results to a specified number of items.   The content will be returned
- *                 according to priority.   If content items share the same priority, then they will be returned
- *                 randomly.  Consider the example with 5 matching items with priorities (1,2,3,3,3) respectively.  If
- *                 the count is set to 3.   Items 1 and 2 will ALWAYS be returned.   The third item returned will
- *                 randomy rotate through the 3rd, 4th, and 5th item.
- *     </li>
- *     <li>contentListVar - allows you to specify an alternate name for the list of content results.   By default,
- *                          the results are returned in the page attributed "contentList"</li>
- *     <li>contentItemVar - since a typical usage is to only return one item, the first item is returned in the
- *                          variable "contentItem".   This variable can be used to change the attribute name.</li>
- *     <li>numResultsVar  - variable holding the returns the number of results being returned to through the tag-lib.
- *                          defaults to "numResults".</li>
- *     <li>fieldFilters  - Thymeleaf key-value pair to filter the resulting StructuredContentDTO by particular field values.
- *                          For instance, if you had a field in a piece of structured content called 'featured' and you
- *                          wanted to return all of the featured content items, you could do the following:
- *                          
- *                          <blc:content fieldFilters="featured=${'true'},otherField=${'someValue'}" />
- *     <li>sorts         - sorts to apply to the resulting list of content. These should be key-value pairs corresponding
- *                          where the key is the field to sort and the value is the direction of the sort. If unspecified,
- *                          the default sorting is used (by priority). The sort fields must occur in the dynamic fields
- *                          for that piece of structured content. For instance:
- *                          
- *                          <blc:content sort="dynamicFieldA='DESCENDING',dynamicFieldB='ASCENDING'" />
- *                          
- *                          The list will be sorted first by dynamicFieldA descending and then dynamicFieldB ascending
- * </ul>
+ * @ hui
  */
 public class ContentProcessor extends AbstractModelVariableModifierProcessor {
 
@@ -243,16 +209,6 @@ public class ContentProcessor extends AbstractModelVariableModifierProcessor {
         }
     }
 
-    /**
-     * @param contentName name of the content to be looked up (can be null)
-     * @param maxResults maximum results to return
-     * @param request servlet request
-     * @param mvelParameters values that should be considered when filtering the content list by rules
-     * @param structuredContentType the type of content that should be returned
-     * @param arguments Thymeleaf Arguments passed into the tag
-     * @param element element context that this Thymeleaf processor is being executed in
-     * @return
-     */
     protected List<StructuredContentDTO> getContentItems(
     		String contentName, 
     		Integer maxResults, 
@@ -279,13 +235,7 @@ public class ContentProcessor extends AbstractModelVariableModifierProcessor {
 
         return contentItems;
     }
-    
-    /**
-     * MVEL is used to process the content targeting rules.
-     *
-     * @param request
-     * @return
-     */
+
     protected Map<String, Object> buildMvelParameters(HttpServletRequest request, Arguments arguments, Element element) {
         TimeZone timeZone = WakaRequestContext.getWakaRequestContext().getTimeZone();
 

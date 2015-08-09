@@ -10,10 +10,8 @@ import com.wakacommerce.common.site.domain.Site;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Returns null for the Site (typical for non-multi-site implementations of
- * Broadleaf Commerce.
  *
- * 
+ * @ hui
  */
 public class NullBroadleafSiteResolver implements BroadleafSiteResolver {
 

@@ -29,7 +29,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Component("blMetadata")
 @Scope("prototype")

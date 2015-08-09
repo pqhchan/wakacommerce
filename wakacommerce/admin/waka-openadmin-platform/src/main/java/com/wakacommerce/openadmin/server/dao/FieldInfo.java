@@ -4,7 +4,8 @@ package com.wakacommerce.openadmin.server.dao;
 import java.lang.reflect.Type;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class FieldInfo {
 

@@ -40,9 +40,6 @@ public interface StaticAsset extends Serializable, MultiTenantCloneable<StaticAs
 
     public void setFileExtension(String fileExtension);
 
-    /**
-     * 存储类型，如果为null，则认为是StorageType.DATABASE
-     */
     public StorageType getStorageType();
 
     public void setStorageType(StorageType storageType);

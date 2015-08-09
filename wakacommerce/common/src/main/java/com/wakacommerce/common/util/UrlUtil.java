@@ -18,14 +18,7 @@ public class UrlUtil {
         }
         return toConvert;
     }
-    
-        /**
-         * If the url does not include "//" then the system will ensure that the
-         * application context is added to the start of the URL.
-         * 
-         * @param url
-         * @return
-         */
+
         public static String fixRedirectUrl(String contextPath, String url) {
             if (url.indexOf("//") < 0) {
 

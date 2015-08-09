@@ -8,7 +8,8 @@ import com.wakacommerce.common.payment.PaymentGatewayType;
 import org.springframework.stereotype.Service;
 
 /**
- *  
+ *
+ * @ hui
  */
 @Service("blNullPaymentGatewayHostedConfiguration")
 public class NullPaymentGatewayHostedConfigurationImpl implements NullPaymentGatewayHostedConfiguration {

@@ -19,31 +19,6 @@ public class StaticAssetPathServiceImpl implements StaticAssetPathService {
     @Value("${asset.server.url.prefix.secure}")
     protected String staticAssetEnvironmentSecureUrlPrefix;
 
-    /**
-     * This method will take in a content string (e.g. StructuredContentDTO or PageDTO HTML/ASSET_LOOKUP/STRING field value)
-     * and replace any instances of "staticAssetUrlPrefix" in the string with the "staticAssetEnvironmentUrlPrefix"
-     * or the "staticAssetEnvironmentSecureUrlPrefix" depending on if the request was secure and if it was configured.
-     *
-     * Given asset.server.url.prefix.internal=cmsstatic
-     * Given asset.server.url.prefix=http://static.mydomain.com/cmsstatic
-     * Given asset.server.url.prefix.secure=https://static.mydomain.com/cmsstatic
-     *
-     * Example 1:
-     * Given content = "<p><img src="/cmsstatic/my_image.jpg"/></p>"
-     *
-     * The result should yield: "<p><img src="http://static.mydomain.com/cmsstatic/my_image.jpg"/></p>"
-     *
-     * Example 2:
-     * Given content = "<p><img src="cmsstatic/my_image_2.jpg"/></p>"
-     *
-     * The result should yield: "<p><img src="http://static.mydomain.com/cmsstatic/my_image_2.jpg"/></p>"
-     *
-     * @param content       - The content string to rewrite if it contains a cms managed asset
-     * @param secureRequest - True if the request is being served over https
-     * @return
-     * @see com.wakacommerce.common.file.service.StaticAssetService#getStaticAssetUrlPrefix()
-     * @see com.wakacommerce.common.file.service.StaticAssetService#getStaticAssetEnvironmentUrlPrefix()
-     */
     @Override
     public String convertAllAssetPathsInContent(String content, boolean secureRequest) {
         String returnValue = content;
@@ -75,41 +50,6 @@ public class StaticAssetPathServiceImpl implements StaticAssetPathService {
         return returnValue;
     }
 
-    /**
-     * This method will take in an assetPath (think image url) and prepend the
-     * staticAssetUrlPrefix if one exists.
-     * 
-     * Will append any contextPath onto the request.    If the incoming assetPath contains
-     * the internalStaticAssetPrefix and the image is being prepended, the prepend will be
-     * removed.
-     *
-     * Example 1:
-     * Given asset.server.url.prefix.internal=cmsstatic
-     * Given asset.server.url.prefix=http://static.mydomain.com/cmsstatic
-     * Given asset.server.url.prefix.secure=https://static.mydomain.com/cmsstatic
-     * Given assetPath = "/cmsstatic/my_image.jpg"
-     *
-     * The result should yield: "http://static.mydomain.com/cmsstatic/my_image.jpg"
-     *
-     * Example 2:
-     * Given asset.server.url.prefix.internal=cmsstatic
-     * Given asset.server.url.prefix=
-     * Given asset.server.url.prefix.secure=
-     * Given assetPath = "/cmsstatic/my_image.jpg"
-     * Given contextPath = "myApp"
-     *
-     * The result should yield: "/myApp/cmsstatic/my_image.jpg"
-     * 
-     * Also, since all paths are intended to be URLs, there should be no system-specific separator characters like '\' for
-     * Windows. All paths should be unix file paths as URLs.
-     *
-     * @param assetPath     - The path to rewrite if it is a cms managed asset
-     * @param contextPath   - The context path of the web application (if applicable)
-     * @param secureRequest - True if the request is being served over https
-     * @return
-     * @see com.wakacommerce.common.file.service.StaticAssetService#getStaticAssetUrlPrefix()
-     * @see com.wakacommerce.common.file.service.StaticAssetService#getStaticAssetEnvironmentUrlPrefix()
-     */
     @Override
     public String convertAssetPath(String assetPath, String contextPath, boolean secureRequest) {
         String returnValue = assetPath;
@@ -200,13 +140,6 @@ public class StaticAssetPathServiceImpl implements StaticAssetPathService {
         this.staticAssetEnvironmentSecureUrlPrefix = staticAssetEnvironmentSecureUrlPrefix;
     }
 
-    /**
-     * Trims whitespace.   If the value is the same as the internal url prefix, then return
-     * null.
-     *
-     * @param urlPrefix
-     * @return
-     */
     private String fixEnvironmentUrlPrefix(String urlPrefix) {
         if (urlPrefix != null) {
             urlPrefix = urlPrefix.trim();

@@ -8,11 +8,8 @@ import com.wakacommerce.openadmin.web.form.component.ListGridRecord;
 import com.wakacommerce.openadmin.web.form.entity.EntityForm;
 
 /**
- * Abstract class to provide convenience for determining how to handle form 
- * extensions in the admin
- * 
- *  
- *     
+ *
+ * @ hui
  */
 public abstract class AbstractFormBuilderExtensionHandler extends AbstractExtensionHandler implements FormBuilderExtensionHandler {
 

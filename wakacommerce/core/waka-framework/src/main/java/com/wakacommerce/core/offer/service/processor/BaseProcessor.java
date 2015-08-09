@@ -7,9 +7,8 @@ import com.wakacommerce.profile.core.domain.Customer;
 import java.util.List;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public interface BaseProcessor {
     

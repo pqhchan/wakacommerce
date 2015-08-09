@@ -10,20 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Controller to retrieve robots.txt file.   
+ *
+ * @ hui
  */
 @Controller
 public class RobotsController extends WakaRobotsController {
 
-    /**
-     * Retrieves the robots.txt file     
-     *  
-     * @param request
-     * @param response
-     * @param model
-     * @param fileName
-     * @return
-     */
     @RequestMapping(value = { "/robots.txt" })
     @ResponseBody
     public String getRobotsFile(HttpServletRequest request, HttpServletResponse response) {

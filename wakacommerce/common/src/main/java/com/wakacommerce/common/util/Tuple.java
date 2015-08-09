@@ -2,9 +2,8 @@
 package com.wakacommerce.common.util;
 
 /**
- * This Tuple class can be used when you want to return two elements from a function in a type safe way.
- * 
- * 
+ *
+ * @ hui
  */
 public class Tuple<A, B> {
     

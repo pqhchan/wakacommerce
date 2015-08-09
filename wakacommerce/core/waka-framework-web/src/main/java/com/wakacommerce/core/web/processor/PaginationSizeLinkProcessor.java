@@ -14,10 +14,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Thymeleaf Processor that replaces the "href" attribute on an <a/> element, maintaining the current search criteria
- * of the request and adding (or replacing, if it exists) the page size parameter on the request.
  *
- *Joseph Fridye (jfridye)
+ * @ hui
  */
 public class PaginationSizeLinkProcessor extends AbstractAttributeModifierAttrProcessor {
 

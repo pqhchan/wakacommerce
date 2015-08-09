@@ -11,10 +11,8 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * <p>This default implementation encodes the seal using a URL-Safe Base64 encoder
- * and 'HmacSHA1'</p>
  *
- *  
+ * @ hui
  */
 @Service("blPaymentGatewayTamperProofSealService")
 public class PaymentGatewayTamperProofSealServiceImpl implements PaymentGatewayTamperProofSealService {

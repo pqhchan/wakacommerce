@@ -7,14 +7,8 @@ import com.wakacommerce.core.catalog.domain.SkuImpl;
 import java.util.HashMap;
 
 /**
- * Convenient place to store the pricing considerations context and the pricing service on thread local. This class is
- * usually filled out by a {@link com.wakacommerce.core.web.catalog.DynamicSkuPricingFilter}. The default
- * implementation of this is {@link com.wakacommerce.core.web.catalog.DefaultDynamicSkuPricingFilter}.
- * 
- *  
- * @see {@link SkuImpl#getRetailPrice}
- * @see {@link SkuImpl#getSalePrice}
- * @see {@link com.wakacommerce.core.web.catalog.DynamicSkuPricingFilter}
+ *
+ * @ hui
  */
 public class SkuPricingConsiderationContext {
 

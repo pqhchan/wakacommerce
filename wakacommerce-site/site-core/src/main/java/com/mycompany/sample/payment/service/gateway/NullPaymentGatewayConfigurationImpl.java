@@ -8,13 +8,8 @@ import com.wakacommerce.common.payment.PaymentGatewayType;
 import org.springframework.stereotype.Service;
 
 /**
- * In order to use load this demo service, you will need to component scan
- * the package "com.mycompany.sample".
  *
- * This should NOT be used in production, and is meant solely for demonstration
- * purposes only.
- *
- *  
+ * @ hui
  */
 @Service("blNullPaymentGatewayConfiguration")
 public class NullPaymentGatewayConfigurationImpl implements NullPaymentGatewayConfiguration {

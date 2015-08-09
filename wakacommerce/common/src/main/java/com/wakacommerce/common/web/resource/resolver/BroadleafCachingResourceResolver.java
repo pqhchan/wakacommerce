@@ -19,13 +19,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Wraps Spring's {@link CachingResourceResolver} but adds in support to disable with 
- * environment properties.
- * 
- *  {@code }
- * 
- *  
- * @since Broadleaf 4.0
+ *
+ * @ hui
  */
 @Component("blCacheResourceResolver")
 public class BroadleafCachingResourceResolver extends CachingResourceResolver implements Ordered {

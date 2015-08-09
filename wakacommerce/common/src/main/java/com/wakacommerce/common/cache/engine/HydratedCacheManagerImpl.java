@@ -15,9 +15,8 @@ import java.util.Hashtable;
 import java.util.Map;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 @Deprecated
 public class HydratedCacheManagerImpl implements CacheEventListener, HydratedCacheManager, HydratedAnnotationManager {

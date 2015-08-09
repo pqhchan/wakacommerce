@@ -4,9 +4,8 @@ package com.wakacommerce.common.cache.engine;
 import java.io.Serializable;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public interface HydratedCacheManager {
 

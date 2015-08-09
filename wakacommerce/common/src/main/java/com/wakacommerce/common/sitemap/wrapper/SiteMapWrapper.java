@@ -9,10 +9,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * Representation the sitemap element defined in the schema definition at
- * http://www.sitemaps.org/schemas/sitemap/0.9.
- * 
- * 
+ *
+ * @ hui
  */
 @XmlRootElement(name = "sitemap")
 @XmlType(propOrder = { "loc", "lastmod" })

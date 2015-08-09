@@ -122,12 +122,6 @@ public class SiteServiceImpl implements SiteService {
         return response[0];
     }
 
-    /**
-     * Checks whether the provided subdomain is one to be stripped/removed from the full domain name
-     *
-     * @param subDomain
-     * @return boolean if subdomain is a candiate to be removed - true indicates it is eligible to be removed
-     */
     protected boolean stripSubdomain(String subDomain) {
         if (subDomain != null) {
             String propStripPrefixes = BLCSystemProperty.resolveSystemProperty("site.domain.resolver.strip.subdomains");

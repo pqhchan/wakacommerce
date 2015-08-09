@@ -10,10 +10,8 @@ import javax.jms.TextMessage;
 import com.wakacommerce.cms.page.service.PageService;
 
 /**
- * Receives JMS message with a String that indicates the cache key
- * to invalidate.
  *
- * 
+ * @ hui
  */
 public class JMSArchivedPageSubscriber implements MessageListener {
 

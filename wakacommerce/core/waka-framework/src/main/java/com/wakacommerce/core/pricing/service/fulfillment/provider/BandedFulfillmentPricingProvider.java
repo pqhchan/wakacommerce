@@ -29,16 +29,8 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * <p>Used in conjunction with {@link BandedPriceFulfillmentOption} and {@link BandedWeightFulfillmentOption}. 
- *  If 2 bands are configured equal to each other (meaning, there are 2 {@link FulfillmentPriceBand}s that have the 
- *  same retail price minimum or 2 {@link FulfillmentWeightBand}s that have the same minimum weight), 
- *  this will choose the cheaper rate of the 2</p>
- * <p>If the retail total does not fall within a configured price band, the total cost of fulfillment is zero</p>
- * <p>
- * Note: For {@link BandedWeightFulfillmentOption}, this assumes that all of your weights have the same units
- * </p>
- *  
- * @see {@link BandedPriceFulfillmentOption}, {@link FulfillmentPriceBand}
+ *
+ * @ hui
  */
 public class BandedFulfillmentPricingProvider implements FulfillmentPricingProvider {
 
@@ -214,14 +206,7 @@ public class BandedFulfillmentPricingProvider implements FulfillmentPricingProvi
 
         return res;
     }
-    
-    /**
-     * Default implementation is to convert everything to pounds for consistent weight types
-     * 
-     * @param weight
-     * @param type
-     * @return
-     */
+
     protected BigDecimal convertWeight(BigDecimal weight, WeightUnitOfMeasureType type) {
         return UnitOfMeasureUtil.findPounds(weight, type);
     }

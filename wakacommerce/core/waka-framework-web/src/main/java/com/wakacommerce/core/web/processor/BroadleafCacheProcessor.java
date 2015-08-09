@@ -1,22 +1,4 @@
-/*
- * #%L
- * BroadleafCommerce Framework Web
- * %%
- * Copyright (C) 2009 - 2014 Broadleaf Commerce
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *       http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * #L%
- */
+
 
 package com.wakacommerce.core.web.processor;
 
@@ -46,37 +28,8 @@ import java.util.Set;
 import javax.annotation.Resource;
 
 /**
- * <p>
- * Allows for a customizable cache mechanism that can be used to avoid expensive Thymeleaf processing for 
- * HTML fragments that are static. For high volume sites, even a 30 second cache of pages can have significant overall
- * performance impacts.
- * 
- * <p>
- * When used as in conjunction within a {@code th:substituteby}, {@code th:replace} or {@code th:include} attribute this
- * will cache the template being included. If used in conjunction with {@link th:remove} this will cache all of the child
- * nodes of the element. If neither of these cases are true, this will cache the current node and all children.
- * 
- * <p>
- * The parameters allowed for this processor include a "cacheTimeout" and "cacheKey". This component will rely on
- * an implementation of {@link TemplateCacheKeyResolverService} to build the actual cacheKey used by the underlying
- * caching implementation.   The parameter named "cacheKey" will be used in the construction of the actual cacheKey
- * which may rely on variables like 
- * 
- * <p>
- * Implementors can create more functional cacheKey mechanisms. For example, Broadleaf Enterprise provides an 
- * additional implementation named {@code EnterpriseCacheKeyResolver} with support for additional caching 
- * features.
- * 
- * @param cacheTimeout (optional) the maximum length of time that the fragment will be allowed to be cached.   This
- * is important for fragments for which a good cacheKey would be difficult to generate.
- * @param cacheKey (optional) Thymeleaf expression that should contribute to the final cache key to reference the cached
- * element. The final key is determined by the {@link TemplateCacheKeyResolverService} but it is not required.
- * Implementations of {@link TemplateCacheKeyResolverService} can rely on variables like the customer, site, theme, etc. to
- * build the final cacheKey.
- *  
- * 
- * @see {@link TemplateCacheKeyResolverService}
- * @see {@link SimpleCacheKeyResolver}
+ *
+ * @ hui
  */
 public class BroadleafCacheProcessor extends AbstractAttrProcessor {
 
@@ -177,16 +130,6 @@ public class BroadleafCacheProcessor extends AbstractAttrProcessor {
         return ProcessorResult.OK;
     }
 
-    /**
-     * If this template was found in cache, adds the response to the element and returns true.
-     * 
-     * If not found in cache, adds the cacheKey to the element so that the Writer can cache after the
-     * first process.
-     * 
-     * @param arguments
-     * @param element
-     * @return
-     */
     protected boolean checkCacheForElement(Arguments arguments, Element element) {
 
         if (isCachingEnabled()) {
@@ -220,12 +163,6 @@ public class BroadleafCacheProcessor extends AbstractAttrProcessor {
         return false;
     }
 
-    /**
-     * Returns true if the item has been 
-     * @param element
-     * @param cacheElement
-     * @return
-     */
     protected boolean checkExpired(Element element, net.sf.ehcache.Element cacheElement) {
         if (cacheElement.isExpired()) {
             return true;

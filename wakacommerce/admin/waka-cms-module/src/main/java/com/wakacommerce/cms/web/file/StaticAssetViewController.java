@@ -51,14 +51,7 @@ public class StaticAssetViewController extends AbstractController {
                     + " see the docs at http://www.broadleafcommerce.com/docs/core/current/broadleaf-concepts/additional-configuration/asset-server-configuration");
         }
     }
-    
-    /**
-     * Converts the given request parameter map into a single key-value map. This will also strip parameters that do not
-     * conform to existing application-configured named operations according to {@link #allowUnnamedImageManipulation} that
-     * appear in {@link NamedOperationManager#getNamedOperationComponents()}
-     * @param parameterMap
-     * @return
-     */
+
     protected Map<String, String> convertParameterMap(Map<String, String[]> parameterMap) {
         Map<String, String> convertedMap = new LinkedHashMap<String, String>(parameterMap.size());
         for (Map.Entry<String, String[]> entry : parameterMap.entrySet()) {
@@ -91,18 +84,6 @@ public class StaticAssetViewController extends AbstractController {
         return parameterWithinNamedOperations;
     }
 
-    /**
-     * Process the static asset request by determining the asset name.
-     * Checks the current sandbox for a matching asset.   If not found, checks the
-     * production sandbox.
-     *
-     * The view portion will be handled by a component with the name "blStaticAssetView" This is
-     * intended to be the specific class StaticAssetView.
-     *
-     * @see StaticAssetView
-     *
-     * @see #handleRequest
-     */
     @Override
     protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String fullUrl = removeAssetPrefix(request.getRequestURI());

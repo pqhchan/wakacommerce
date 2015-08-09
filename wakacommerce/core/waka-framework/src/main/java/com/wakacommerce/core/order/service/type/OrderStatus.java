@@ -8,9 +8,8 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 
 /**
- * An extendible enumeration of order status types.
- * 
- *  
+ *
+ * @ hui
  */
 public class OrderStatus implements Serializable, WakaEnumType {
 
@@ -18,28 +17,14 @@ public class OrderStatus implements Serializable, WakaEnumType {
 
     private static final LinkedHashMap<String, OrderStatus> TYPES = new LinkedHashMap<String, OrderStatus>();
 
-    /**
-     * Represents a wishlist. This also usually means that the {@link Order} has its {@link Order#getName()} set although
-     * not required
-     */
     public static final OrderStatus NAMED = new OrderStatus("NAMED", "Named");
     public static final OrderStatus QUOTE = new OrderStatus("QUOTE", "Quote");
-    
-    /**
-     * Represents a cart (non-submitted {@link Order}s)
-     */
+
     public static final OrderStatus IN_PROCESS = new OrderStatus("IN_PROCESS", "In Process");
-    
-    /**
-     * Used to represent a completed {@link Order}. Note that this also means that the {@link Order}
-     * should have its {@link Order#getOrderNumber} set
-     */
+
     public static final OrderStatus SUBMITTED = new OrderStatus("SUBMITTED", "Submitted");
     public static final OrderStatus CANCELLED = new OrderStatus("CANCELLED", "Cancelled");
-    
-    /**
-     * Used when a CSR has locked a cart to act on behalf of a customer
-     */
+
     public static final OrderStatus CSR_OWNED = new OrderStatus("CSR_OWNED", "Owned by CSR");
 
 

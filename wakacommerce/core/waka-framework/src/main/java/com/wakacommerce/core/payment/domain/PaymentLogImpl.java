@@ -31,7 +31,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- * @deprecated - payment logs should now be captured as raw responses in Payment Transaction line items
+ *
+ * @ hui
  */
 @Deprecated
 @Entity

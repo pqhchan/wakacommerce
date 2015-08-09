@@ -30,28 +30,12 @@ public interface PromotableCandidateItemOffer extends Serializable {
 
     public boolean hasQualifyingItemCriteria();
 
-    /**
-     * Public only for unit testing - not intended to be called
-     */
     public Money calculateSavingsForOrderItem(PromotableOrderItem orderItem, int qtyToReceiveSavings);
 
     public int calculateMaximumNumberOfUses();
-    
-    /**
-     * Returns the number of item quantities that qualified as targets for 
-     * this promotion.
-     */
+
     public int calculateTargetQuantityForTieredOffer();
 
-    /**
-     * Determines the max number of times this itemCriteria might apply.    This calculation does 
-     * not take into account other promotions.   It is useful only to assist in prioritizing the order to process
-     * the promotions. 
-     * 
-     * @param itemCriteria
-     * @param promotion
-     * @return
-     */
     public int calculateMaxUsesForItemCriteria(OfferItemCriteria itemCriteria, Offer promotion);
     
     public int getPriority();
@@ -61,14 +45,7 @@ public interface PromotableCandidateItemOffer extends Serializable {
     public int getUses();
 
     public void addUse();
-    
-    /**
-     * Resets the uses for this candidate offer item. This is mainly used in the case where we want to calculate savings
-     * and then actually apply the promotion to an item. Both scenarios run through the same logic that add uses in order
-     * to determine if various quantities of items can be targeted for a particular promotion.
-     * 
-     * @see {@link ItemOfferProcessor#applyAndCompareOrderAndItemOffers(PromotableOrder, List, List)}
-     */
+
     public void resetUses();
     
     public boolean isLegacyOffer();

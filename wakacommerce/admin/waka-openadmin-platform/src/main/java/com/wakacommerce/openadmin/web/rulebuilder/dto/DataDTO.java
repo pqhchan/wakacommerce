@@ -7,7 +7,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- *  
+ *
+ * @ hui
  */
 public class DataDTO implements Serializable {
 

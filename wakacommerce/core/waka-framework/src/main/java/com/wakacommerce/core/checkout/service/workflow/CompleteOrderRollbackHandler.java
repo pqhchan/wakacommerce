@@ -13,13 +13,8 @@ import com.wakacommerce.core.workflow.state.RollbackHandler;
 
 
 /**
- * Rollback handler to execute after an order has been marked as 'completed' and there is an exception.
- * 
- *  1. Change the status back to IN_PROCESS
- *  2. Change the order number back to null
- *  3. Change the submit date back to null
  *
- *     
+ * @ hui
  */
 @Component("blCompleteOrderRollbackHandler")
 public class CompleteOrderRollbackHandler implements RollbackHandler<CheckoutSeed> {

@@ -7,7 +7,8 @@ import com.wakacommerce.common.extension.ExtensionResultStatusType;
 
 
 /**
- * 
+ *
+ * @ hui
  */
 public abstract class AbstractTemplateOverrideExtensionHandler extends AbstractExtensionHandler implements TemplateOverrideExtensionHandler {
     

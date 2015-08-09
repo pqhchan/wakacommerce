@@ -26,12 +26,8 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Base class for all Workflow Processors.  Responsible of keeping track of an ordered collection
- * of {@link Activity Activities}
- * 
- * @since March 1, 2005
- * @see Activity
- * 
+ *
+ * @ hui
  */
 public abstract class BaseProcessor implements InitializingBean, BeanNameAware, BeanFactoryAware, Processor {
 
@@ -44,19 +40,11 @@ public abstract class BaseProcessor implements InitializingBean, BeanNameAware, 
 
     @Value("${workflow.auto.rollback.on.error}")
     private boolean autoRollbackOnError = true;
-    
-    /**
-     * If set to true, this will allow an empty set of activities, thus creating a 'do-nothing' workflow
-     */
+
     protected boolean allowEmptyActivities = false;
     
     protected SupportLogger supportLogger = SupportLogManager.getLogger("Workflows", BaseProcessor.class);
 
-    /**
-     * Sets name of the spring bean in the application context that this
-     * processor is configured under
-     * @see org.springframework.beans.factory.BeanNameAware#setBeanName(java.lang.String)
-     */
     @Override
     public void setBeanName(String beanName) {
         this.beanName = beanName;
@@ -71,50 +59,22 @@ public abstract class BaseProcessor implements InitializingBean, BeanNameAware, 
         this.beanFactory = beanFactory;
     }
 
-    /**
-     * Whether or not the ActivityStateManager should automatically attempt to rollback any RollbackHandlers registered.
-     * If false, rolling back will require an explicit call to ActivityStateManagerImpl.getStateManager().rollbackAllState().
-     * The default value is true.
-     *
-     * @return Whether or not the ActivityStateManager should automatically attempt to rollback
-     */
     public boolean getAutoRollbackOnError() {
         return autoRollbackOnError;
     }
 
-    /**
-     * Set whether or not the ActivityStateManager should automatically attempt to rollback any RollbackHandlers registered.
-     * If false, rolling back will require an explicit call to ActivityStateManagerImpl.getStateManager().rollbackAllState().
-     * The default value is true.
-     *
-     * @param autoRollbackOnError Whether or not the ActivityStateManager should automatically attempt to rollback
-     */
     public void setAutoRollbackOnError(boolean autoRollbackOnError) {
         this.autoRollbackOnError = autoRollbackOnError;
     }
-    
-    /**
-     * Defaults to 'false'. This will prevent an exception from being thrown when no activities have been configured
-     * for a processor, and thus will create a 'do-nothing' workflow.
-     * @return the allowEmptyActivities
-     */
+
     public boolean isAllowEmptyActivities() {
         return allowEmptyActivities;
     }
-    
-    /**
-     * @param allowEmptyActivities the allowEmptyActivities to set
-     */
+
     public void setAllowEmptyActivities(boolean allowEmptyActivities) {
         this.allowEmptyActivities = allowEmptyActivities;
     }
 
-    /**
-     * Called after the properties have been set, Ensures the list of activities
-     *  is not empty and each activity is supported by this Workflow Processor
-     *
-     * @see org.springframework.beans.factory.InitializingBean#afterPropertiesSet()
-     */
     @Override
     public void afterPropertiesSet() throws Exception {
 
@@ -168,21 +128,12 @@ public abstract class BaseProcessor implements InitializingBean, BeanNameAware, 
         
     }
 
-    /**
-     * Returns the bean description if the current bean factory allows it.
-     * @return spring bean description configure via the spring description tag
-     */
     protected String getBeanDesc() {
         return (beanFactory instanceof ConfigurableListableBeanFactory) ?
                 ((ConfigurableListableBeanFactory) beanFactory).getBeanDefinition(beanName).getResourceDescription()
                 : "Workflow Processor: " + beanName;
     }
 
-    /**
-     * Sets the collection of Activities to be executed by the Workflow Process
-     * 
-     * @param activities ordered collection (List) of activities to be executed by the processor
-     */
     @Override
     public void setActivities(List<Activity<ProcessContext<? extends Object>>> activities) {
         this.activities = activities;
@@ -196,15 +147,7 @@ public abstract class BaseProcessor implements InitializingBean, BeanNameAware, 
     public List<Activity<ProcessContext<? extends Object>>> getActivities() {
         return activities;
     }
-    
-    /**
-     * Returns a filtered set of {@link #getActivities()} that have implemented the {@link ModuleActivity} interface. This
-     * set of module activities is only set once during {@link #afterPropertiesSet()}, so if you invoke
-     * {@link #setActivities(List)} after the bean has been initialized you will need to manually reset the list of module
-     * activities as well (which could be achieved by manually invoking {@link #afterPropertiesSet()}).
-     * 
-     * @return
-     */
+
     public List<ModuleActivity> getModuleActivities() {
         return moduleActivities;
     }

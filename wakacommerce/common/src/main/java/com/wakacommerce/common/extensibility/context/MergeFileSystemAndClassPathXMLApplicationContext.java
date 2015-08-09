@@ -16,22 +16,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * Standalone XML application context, taking the locations of one or more
- * source applicationContext xml files and one or more patch xml files.
- * 
- * <p>One or more source files merge together in pure override mode. Source
- * files are merged in the order specified. If a bean id is repeated in a subsequent
- * source file, the subsequent bean definition will always win. This is the same behavior
- * as Spring's default mechanism for merging 1 to N applicationContext files.</p>
- * 
- * <p>Each patch file is merged with the combined source, one patch file at a time. This
- * merge is performed in true merge mode. Therefore, if a bean id is delivered in a patch
- * file with the same id as a bean in the source, the patch will merge with the source. This
- * could result in an override of the class definition for the bean, or additional or changed
- * property elements within the bean definition.</p>
- * 
- *  
  *
+ * @ hui
  */
 public class MergeFileSystemAndClassPathXMLApplicationContext extends AbstractMergeXMLApplicationContext {
 
@@ -107,11 +93,7 @@ public class MergeFileSystemAndClassPathXMLApplicationContext extends AbstractMe
         this.configResources = new MergeApplicationContextXmlConfigResource().getConfigResources(classPathSources, fileSystemSources);
         refresh();
     }
-    
-    /**
-     * This could be advantageous for subclasses to override in order to utilize the parent application context. By default,
-     * this utilizes the class loader for the current class.
-     */
+
     protected ClassLoader getClassLoader(ApplicationContext parent) {
         return MergeFileSystemAndClassPathXMLApplicationContext.class.getClassLoader();
     }

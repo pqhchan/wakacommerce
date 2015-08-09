@@ -23,8 +23,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 /**
- * @see ResourceMinificationService 
- * 
+ *
+ * @ hui
  */
 @Service("blResourceMinificationService")
 public class ResourceMinificationServiceImpl implements ResourceMinificationService {
@@ -129,13 +129,7 @@ public class ResourceMinificationServiceImpl implements ResourceMinificationServ
             cssc.compress(out, 100);
         }
     }
-    
-    /**
-     * Return a SupportedFileType
-     * @param originalResource
-     * @param filename
-     * @return
-     */
+
     protected String getFileType(Resource originalResource, String filename) {
         if (filename.contains(".js")) {
             return JS_TYPE;

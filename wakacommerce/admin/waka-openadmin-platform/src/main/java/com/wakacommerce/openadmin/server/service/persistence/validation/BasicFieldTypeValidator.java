@@ -20,10 +20,8 @@ import java.util.Map;
 
 
 /**
- * Validates that values are actually of their required types before trying to populate it. Integers should be integers,
- * dates should parse correctly, etc.
  *
- *     
+ * @ hui
  */
 @Component("blBasicFieldTypeValidator")
 public class BasicFieldTypeValidator implements PopulateValueRequestValidator {

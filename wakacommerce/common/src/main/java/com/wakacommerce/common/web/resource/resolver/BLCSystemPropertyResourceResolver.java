@@ -24,7 +24,8 @@ import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * A {@link ResourceResolver} that replaces system properties in BLC-system-property.js 
+ *
+ * @ hui
  */
 @Component("blSystemPropertyJSResolver")
 public class BLCSystemPropertyResourceResolver extends AbstractResourceResolver implements Ordered {

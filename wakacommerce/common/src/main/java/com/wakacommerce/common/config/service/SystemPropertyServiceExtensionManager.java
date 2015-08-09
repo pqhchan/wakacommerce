@@ -11,9 +11,6 @@ public class SystemPropertyServiceExtensionManager extends ExtensionManager<Syst
         super(SystemPropertyServiceExtensionHandler.class);
     }
 
-    /**
-     * The first "handler" to "handle" the request wins.
-     */
     public boolean continueOnHandled() {
         return false;
     }

@@ -32,13 +32,8 @@ import javax.persistence.spi.PersistenceUnitInfo;
 import javax.sql.DataSource;
 
 /**
- * Merges jars, class names and mapping file names from several persistence.xml files. The
- * MergePersistenceUnitManager will continue to keep track of individual persistence unit
- * names (including individual data sources). When a specific PersistenceUnitInfo is requested
- * by unit name, the appropriate PersistenceUnitInfo is returned with modified jar files
- * urls, class names and mapping file names that include the comprehensive collection of these
- * values from all persistence.xml files.
  *
+ * @ hui
  */
 public class MergePersistenceUnitManager extends DefaultPersistenceUnitManager {
 

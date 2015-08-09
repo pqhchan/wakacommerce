@@ -16,10 +16,8 @@ import com.wakacommerce.common.util.xml.ISO8601DateAdapter;
 import com.wakacommerce.core.catalog.domain.Sku;
 
 /**
- * This is a JAXB wrapper to wrap Sku.
- * <p/>
- * User:   
- * Date: 4/10/12
+ *
+ * @ hui
  */
 @XmlRootElement(name = "sku")
 @XmlAccessorType(value = XmlAccessType.FIELD)

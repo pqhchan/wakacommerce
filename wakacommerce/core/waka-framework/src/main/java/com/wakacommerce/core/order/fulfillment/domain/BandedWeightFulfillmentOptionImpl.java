@@ -18,8 +18,8 @@ import javax.persistence.Table;
 import java.util.List;
 
 /**
- * 
- *  
+ *
+ * @ hui
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

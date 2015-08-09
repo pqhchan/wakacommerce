@@ -24,9 +24,8 @@ import javax.annotation.Nonnull;
 import javax.persistence.EntityManager;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public interface DynamicEntityDao {
 
@@ -42,12 +41,6 @@ public interface DynamicEntityDao {
     
     public abstract Map<String, FieldMetadata> getMergedProperties(String ceilingEntityFullyQualifiedClassname, Class<?>[] entities, ForeignKey foreignField, String[] additionalNonPersistentProperties, ForeignKey[] additionalForeignFields, MergedPropertyType mergedPropertyType, Boolean populateManyToOneFields, String[] includeManyToOneFields, String[] excludeManyToOneFields, String configurationKey, String prefix);
 
-    /**
-     * Convenience method that obtains all of the {@link MergedPropertyType#PRIMARY} properties for a given class. Delegates to
-     * {@link #getMergedProperties(String, Class[], ForeignKey, String[], ForeignKey[], MergedPropertyType, Boolean, String[], String[], String, String)}
-     * @param cls
-     * @return
-     */
     public Map<String, FieldMetadata> getMergedProperties(@Nonnull Class<?> cls);
     
     public abstract <T> T persist(T entity);
@@ -72,13 +65,6 @@ public interface DynamicEntityDao {
     
     public void setStandardEntityManager(EntityManager entityManager);
 
-    /**
-     * Get the Hibernate PersistentClass instance associated with the fully-qualified
-     * class name. Will return null if no persistent class is associated with this name.
-     *
-     * @param targetClassName
-     * @return The PersistentClass instance
-     */
     public PersistentClass getPersistentClass(String targetClassName);
     
     public Map<String, FieldMetadata> getSimpleMergedProperties(String entityName, PersistencePerspective persistencePerspective);

@@ -60,10 +60,8 @@ import javax.annotation.Resource;
 
 
 /**
- * Responsible for building and rebuilding the Solr index
- * 
- * 
- * 
+ *
+ * @ hui
  */
 @Service("blSolrIndexService")
 public class SolrIndexServiceImpl implements SolrIndexService {
@@ -223,24 +221,11 @@ public class SolrIndexServiceImpl implements SolrIndexService {
         }
     }
 
-    /**
-     * <p>
-     * This method deletes all of the documents from {@link SolrContext#getReindexServer()}
-     * 
-     * @throws ServiceException if there was a problem removing the documents
-     * @deprecated use {@link #deleteAllReindexCoreDocuments()} instead
-     */
     @Deprecated
     protected void deleteAllDocuments() throws ServiceException {
         deleteAllReindexCoreDocuments();
     }
-    
-    /**
-     * <p>
-     * This method deletes all of the documents from {@link SolrContext#getReindexServer()}
-     * 
-     * @throws ServiceException if there was a problem removing the documents
-     */
+
     protected void deleteAllReindexCoreDocuments() throws ServiceException {
         try {
             String deleteQuery = shs.getNamespaceFieldName() + ":(\"" + shs.getCurrentNamespace() + "\")";
@@ -433,42 +418,14 @@ public class SolrIndexServiceImpl implements SolrIndexService {
         }
     }
 
-    /**
-     * This method to read all active products will be slow if you have a large catalog. In this case, you will want to
-     * read the products in a different manner. For example, if you know the fields that will be indexed, you can configure
-     * a DAO object to only load those fields. You could also use a JDBC based DAO for even faster access. This default
-     * implementation is only suitable for small catalogs.
-     * 
-     * @return the list of all active products to be used by the index building task
-     */
     protected List<Product> readAllActiveProducts() {
         return productDao.readAllActiveProducts();
     }
 
-    /**
-     * This method to read active products utilizes paging to improve performance over {@link #readAllActiveProducts()}.
-     * While not optimal, this will reduce the memory required to load large catalogs.
-     * 
-     * It could still be improved for specific implementations by only loading fields that will be indexed or by accessing
-     * the database via direct JDBC (instead of Hibernate).
-     * 
-     * @return the list of all active products to be used by the index building task
-     * @since 2.2.0
-     */
     protected List<Product> readAllActiveProducts(int page, int pageSize) {
         return productDao.readAllActiveProducts(page, pageSize);
     }
 
-    /**
-     * This method to read active skus utilizes paging to improve performance.
-     * While not optimal, this will reduce the memory required to load large catalogs.
-     * 
-     * It could still be improved for specific implementations by only loading fields that will be indexed or by accessing
-     * the database via direct JDBC (instead of Hibernate).
-     * 
-     * @return the list of all active SKUs to be used by the index building task
-     * @since 2.2.0
-     */
     protected List<Sku> readAllActiveSkus(int page, int pageSize) {
         List<Sku> skus = skuDao.readAllActiveSkus(page, pageSize);
         ArrayList<Sku> skusToIndex = new ArrayList<Sku>();
@@ -626,33 +583,14 @@ public class SolrIndexServiceImpl implements SolrIndexService {
         return document;
     }
 
-    /**
-     * Implementors can extend this and override this method to add additional fields to the Solr document.
-     * 
-     * @param sku
-     * @param document
-     */
     protected void attachAdditionalDocumentFields(Sku sku, SolrInputDocument document) {
         //Empty implementation. Placeholder for others to extend and add additional fields
     }
 
-    /**
-     * Implementors can extend this and override this method to add additional fields to the Solr document.
-     * 
-     * @param product
-     * @param document
-     */
     protected void attachAdditionalDocumentFields(Product product, SolrInputDocument document) {
         //Empty implementation. Placeholder for others to extend and add additional fields
     }
 
-    /**
-     * Adds the ID, category, and explicitCategory fields for the product or sku to the document
-     * 
-     * @param product
-     * @param sku
-     * @param document
-     */
     protected void attachBasicDocumentFields(Sku sku, SolrInputDocument document) {
         boolean cacheOperationManaged = false;
         Product product = sku.getProduct();
@@ -739,13 +677,6 @@ public class SolrIndexServiceImpl implements SolrIndexService {
         }
     }
 
-    /**
-     * Walk the category hierarchy upwards, adding a field for each level to the solr document
-     *
-     * @param document the solr document for the product
-     * @param cache the catalog structure cache
-     * @param categoryId the current category id
-     */
     protected void buildFullCategoryHierarchy(SolrInputDocument document, CatalogStructure cache, Long categoryId, Set<Long> indexedParents) {
         Long catIdToAdd = shs.getCategoryId(categoryId); 
 
@@ -763,23 +694,6 @@ public class SolrIndexServiceImpl implements SolrIndexService {
         }
     }
 
-    /**
-     * Returns a map of prefix to value for the requested attributes. For example, if the requested field corresponds to
-     * a Sku's description and the locales list has the en_US locale and the es_ES locale, the resulting map could be
-     * 
-     * { "en_US" : "A description",
-     *   "es_ES" : "Una descripcion" }
-     * 
-     * @param product
-     * @param sku
-     * @param field
-     * @param fieldType
-     * @param locales
-     * @return the value of the property
-     * @throws IllegalAccessException
-     * @throws InvocationTargetException
-     * @throws NoSuchMethodException
-     */
     protected Map<String, Object> getPropertyValues(Object indexedItem, Field field, FieldType fieldType, List<Locale> locales)
             throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
 
@@ -805,23 +719,6 @@ public class SolrIndexServiceImpl implements SolrIndexService {
         return values;
     }
 
-    /**
-     * Converts a propertyName to one that is able to reference inside a map. For example, consider the property
-     * in Product that references a List<ProductAttribute>, "productAttributes". Also consider the utility method
-     * in Product called "mappedProductAttributes", which returns a map of the ProductAttributes keyed by the name
-     * property in the ProductAttribute. Given the parameters "productAttributes.heatRange", "productAttributes", 
-     * "mappedProductAttributes" (which would represent a property called "productAttributes.heatRange" that 
-     * references a specific ProductAttribute inside of a product whose "name" property is equal to "heatRange", 
-     * this method will convert this property to mappedProductAttributes(heatRange).value, which is then usable 
-     * by the standard beanutils PropertyUtils class to get the value.
-     * 
-     * @param propertyName
-     * @param listPropertyName
-     * @param mapPropertyName
-     * @return the converted property name
-     * 
-     * @deprecated see SolrHelperService.getPropertyValue()
-     */
     @Deprecated
     protected String convertToMappedProperty(String propertyName, String listPropertyName, String mapPropertyName) {
         String[] splitName = StringUtils.split(propertyName, "\\.");

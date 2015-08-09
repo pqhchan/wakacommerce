@@ -27,12 +27,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Filter used to protected against session fixation attacks while still keeping the same session id on both
- * http and https protocols. Uses a secondary, https cookie that must be present on every https request for a 
- * given session after the first request. If it's not present and equal to what we expect, we will redirect the 
- * user to "/" and remove his session cookie.
- * 
- * 
+ *
+ * @ hui
  */
 @Component("blSessionFixationProtectionFilter")
 public class SessionFixationProtectionFilter extends GenericFilterBean {

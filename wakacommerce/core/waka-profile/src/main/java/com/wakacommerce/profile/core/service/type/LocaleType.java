@@ -10,9 +10,8 @@ import com.wakacommerce.common.WakaEnumType;
 
 
 /**
- * An extendible enumeration of locale types.
- * 
- *  
+ *
+ * @ hui
  */
 public class LocaleType implements Serializable, WakaEnumType {
 

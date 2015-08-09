@@ -16,9 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Controller to generate and retrieve site map files.
- * 
- *  
+ *
+ * @ hui
  */
 public class BroadleafSiteMapController {
 
@@ -27,15 +26,6 @@ public class BroadleafSiteMapController {
     @Resource(name = "blSiteMapService")
     protected SiteMapService siteMapService;
 
-    /**
-     * Retrieves a site map index file in XML format
-     * 
-     * @param request
-     * @param response
-     * @param model
-     * @param fileName
-     * @return
-     */
     public FileSystemResource retrieveSiteMapFile(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         File siteMapFile = siteMapService.getSiteMapFile(getRequestURIWithoutContext(request));

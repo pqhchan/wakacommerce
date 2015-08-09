@@ -21,15 +21,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * This is an extension of WakaRegisterController
- * that utilizes Spring Social to register a customer from a Service Provider
- * such as Facebook or Twitter.
  *
- * To use: extend this class and provide @RequestMapping annotations
- *
- * @see com.wakacommerce.core.web.controller.account.WakaRegisterController
- *  
- *
+ * @ hui
  */
 public class BroadleafSocialRegisterController extends WakaRegisterController {
 

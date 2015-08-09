@@ -4,9 +4,8 @@ package com.wakacommerce.common.i18n.service;
 import com.wakacommerce.common.classloader.release.ThreadLocalManager;
 
 /**
- * Container for ThreadLocal attributes that relate to Translation.
- * 
- * 
+ *
+ * @ hui
  */
 public class TranslationConsiderationContext {
 

@@ -11,9 +11,8 @@ import org.springframework.web.context.request.WebRequest;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * By default, we'll resolve the customer from the "customer" attribute on the request.
- * 
- * 
+ *
+ * @ hui
  */
 @Service("blRequestCustomerResolver")
 public class BroadleafRequestCustomerResolverImpl implements ApplicationContextAware, BroadleafRequestCustomerResolver {

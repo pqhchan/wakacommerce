@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @deprecated use {@link BroadleafMergeResourceBundleMessageSource} instead
+ *
+ * @ hui
  */
 @Deprecated
 public class BLResourceBundleMessageSource extends ResourceBundleMessageSource implements InitializingBean {

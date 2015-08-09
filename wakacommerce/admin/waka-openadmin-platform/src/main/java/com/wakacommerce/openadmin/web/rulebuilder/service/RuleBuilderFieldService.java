@@ -9,7 +9,8 @@ import com.wakacommerce.openadmin.web.rulebuilder.dto.FieldWrapper;
 import java.util.List;
 
 /**
- *  
+ *
+ * @ hui
  */
 public interface RuleBuilderFieldService extends Cloneable {
 

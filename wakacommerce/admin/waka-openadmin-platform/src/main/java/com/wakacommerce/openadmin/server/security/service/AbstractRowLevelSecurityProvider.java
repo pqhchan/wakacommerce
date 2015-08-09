@@ -17,9 +17,8 @@ import com.wakacommerce.openadmin.server.service.persistence.module.criteria.Fil
 import com.wakacommerce.openadmin.server.service.persistence.validation.GlobalValidationResult;
 
 /**
- * Dummy implementation of a {@link RowLevelSecurityProvider}. Implementors should extend this class
- * 
- *     
+ *
+ * @ hui
  */
 public class AbstractRowLevelSecurityProvider implements RowLevelSecurityProvider {
 

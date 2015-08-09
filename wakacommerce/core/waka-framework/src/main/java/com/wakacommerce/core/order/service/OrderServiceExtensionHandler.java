@@ -10,7 +10,8 @@ import com.wakacommerce.profile.core.domain.Customer;
 
 
 /**
- * ,  
+ *
+ * @ hui
  */
 public interface OrderServiceExtensionHandler extends ExtensionHandler {
     
@@ -20,10 +21,6 @@ public interface OrderServiceExtensionHandler extends ExtensionHandler {
 
     public ExtensionResultStatusType preValidateUpdateQuantityOperation(Order cart, OrderItemRequestDTO dto, 
             ExtensionResultHolder erh);
-    
-    /**
-     * Can be used to attach or update fields must prior to saving an order.
-     * @return
-     */
+
     public ExtensionResultStatusType attachAdditionalDataToOrder(Order order, boolean priceOrder);
 }

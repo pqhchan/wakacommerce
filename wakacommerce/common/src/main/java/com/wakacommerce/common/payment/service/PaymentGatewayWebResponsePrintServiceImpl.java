@@ -8,10 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Enumeration;
 
 /**
- * <p>This default implementation produces the Request Attributes and Request Paremeters
- * in JSON notation.</p>
  *
- *  
+ * @ hui
  */
 @Service("blPaymentGatewayWebResponsePrintService")
 public class PaymentGatewayWebResponsePrintServiceImpl implements PaymentGatewayWebResponsePrintService {

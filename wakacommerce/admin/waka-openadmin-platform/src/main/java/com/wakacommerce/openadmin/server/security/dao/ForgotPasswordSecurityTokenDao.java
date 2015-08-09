@@ -6,9 +6,8 @@ import java.util.List;
 import com.wakacommerce.openadmin.server.security.domain.ForgotPasswordSecurityToken;
 
 /**
- * 
- * 
  *
+ * @ hui
  */
 public interface ForgotPasswordSecurityTokenDao {
     public ForgotPasswordSecurityToken readToken(String token);

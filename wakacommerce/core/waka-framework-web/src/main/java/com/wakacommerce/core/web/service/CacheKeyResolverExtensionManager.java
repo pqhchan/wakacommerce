@@ -7,7 +7,8 @@ import com.wakacommerce.common.extension.ExtensionManager;
 
 
 /**
- * 
+ *
+ * @ hui
  */
 @Service("blCacheKeyResolverExtensionManager")
 public class CacheKeyResolverExtensionManager extends ExtensionManager<CacheKeyResolverExtensionHandler> {

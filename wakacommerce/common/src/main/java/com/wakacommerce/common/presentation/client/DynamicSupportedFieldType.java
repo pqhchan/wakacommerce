@@ -11,10 +11,8 @@ import java.util.Map.Entry;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * This extensible enumeration controls the field types that are available for users to choose from when creating
- * FieldDefinitions in the admin tool. This list should be a strict subset of {@link SupportedFieldType} and will
- * throw an exception if a non-matching type is added.
- * 
+ *
+ * @ hui
  */
 public class DynamicSupportedFieldType implements Serializable, WakaEnumType {
 
@@ -46,21 +44,14 @@ public class DynamicSupportedFieldType implements Serializable, WakaEnumType {
         this.friendlyType = friendlyType;
         setType(type);
     }
-    
-    /**
-     * @param type
-     * @throws IllegalArgumentException when the given type does not exist in {@link SupportedFieldType}
-     */
+
     public static void verifyLegalType(String type) {
         if (type.contains("|")) {
             type = type.substring(0, type.indexOf('|'));
         }
         SupportedFieldType.valueOf(type);
     }
-    
-    /**
-     * @return a cloned list of the currently known {@link DynamicSupportedFieldType}s.
-     */
+
     public static List<DynamicSupportedFieldType> getTypes() {
         List<DynamicSupportedFieldType> list = new ArrayList<DynamicSupportedFieldType>(TYPES.size());
         for (Entry<String, DynamicSupportedFieldType> entry : TYPES.entrySet()) {

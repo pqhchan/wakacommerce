@@ -6,9 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * An extendible enumeration of target mode types.
- * 
- *  
+ *
+ * @ hui
  */
 public class TargetModeType implements Serializable {
 

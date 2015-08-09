@@ -9,8 +9,7 @@ import com.wakacommerce.openadmin.server.security.domain.AdminSection;
 
 /**
  *
- *  
- *
+ * @ hui
  */
 public interface AdminNavigationDao {
 

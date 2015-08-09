@@ -16,20 +16,8 @@ import java.util.Map;
 import java.util.UUID;
 
 /**
- * This is a sample implementation of a Payment Gateway Processor.
- * This mimics what a real payment gateway might do in order to process
- * credit card information. So, this controller will handle the POST
- * from your credit card form on your checkout page and do some
- * minimal Credit Card Validation (luhn check and expiration date is after today).
- * In production, that form should securely POST to your third party payment gateway and not this controller.
  *
- * In order to use this sample controller, you will need to component scan
- * the package "com.mycompany.sample".
- *
- * This should NOT be used in production, and is meant solely for demonstration
- * purposes only.
- *
- *  
+ * @ hui
  */
 @Controller("blNullPaymentGatewayProcessorController")
 public class NullPaymentGatewayProcessorController {

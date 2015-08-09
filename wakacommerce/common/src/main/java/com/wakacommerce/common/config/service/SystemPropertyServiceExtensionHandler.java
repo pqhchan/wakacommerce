@@ -7,17 +7,11 @@ import com.wakacommerce.common.extension.ExtensionResultStatusType;
 
 
 /**
- * 
+ *
+ * @ hui
  */
 public interface SystemPropertyServiceExtensionHandler extends ExtensionHandler {
-    
-    /**
-     * Provides an opportunity for modules to resolve a system property.
-     * 
-     * @param propertyName
-     * @param resultHolder
-     * @return
-     */
+
     public ExtensionResultStatusType resolveProperty(String propertyName, ExtensionResultHolder resultHolder);
     
 }

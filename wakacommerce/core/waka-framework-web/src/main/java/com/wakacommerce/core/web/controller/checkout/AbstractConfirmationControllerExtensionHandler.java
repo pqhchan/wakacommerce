@@ -7,7 +7,8 @@ import com.wakacommerce.core.order.domain.Order;
 
 
 /**
- * 
+ *
+ * @ hui
  */
 public class AbstractConfirmationControllerExtensionHandler extends AbstractExtensionHandler 
         implements ConfirmationControllerExtensionHandler {

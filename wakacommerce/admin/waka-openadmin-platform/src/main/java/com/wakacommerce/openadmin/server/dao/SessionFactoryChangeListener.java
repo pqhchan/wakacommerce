@@ -12,10 +12,8 @@ import java.lang.reflect.Field;
 import java.util.Map;
 
 /**
- * Clear the static entity metadata caches from {@code DynamicEntityDao}
- * upon recycling of the session factory.
  *
- *  
+ * @ hui
  */
 public class SessionFactoryChangeListener implements SessionFactoryObserver {
 

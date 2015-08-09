@@ -6,35 +6,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * <p>SupportLogger class that provides support for the new SUPPORT log level type.
- * The SUPPORT log level is independent of any configured logging framework and should be able to be configured independently.</p>
  *
- * <p>This Logger was originally built as an extension to Log4j's {@link Logger}. As a result,
- * other levels must be supported to maintain backwards compatibility.</p>
- *
- * <p>It is important to note that the SupportLogger can be called outside a Spring Context.
- * Therefore, it is possible to instantiate a different SupportLogger adapter using
- * the fully qualified class name of an implementation using a System Property.
- * By default, it will instantiate a {@link SystemSupportLoggerAdapter} if none is specified.
- * For example, you may wish to disable all logs made to the Support Logger by setting the following System Property:
- * </p>
- *
- * <ul>
- * <li><code>-DSupportLogger.adapter.fqcn=com.wakacommerce.common.logging.DisableSupportLoggerAdapter</code></li>
- * </ul>
- *
- * <p>
- * The main requirements for SUPPORT level logging are to:
- * <ul>
- * <li>show up in the logs as a SUPPORT item (not ERROR or WARN etc...)</li>
- * <li>always show up unless configured otherwise, as we want users to always see SUPPORT messages</li>
- * <li>allow state messages to be associated with the log (e.g. "Enterprise Module — …")</li>
- * </ul>
- * </p>
- *
- * 
- *  
- *
+ * @ hui
  */
 public class SupportLogger {
 
@@ -67,37 +40,18 @@ public class SupportLogger {
         }
     }
 
-    /**
-     * emit a SUPPORT level message
-     * @param message
-     */
     public void support(Object message) {
         adapter.support(moduleName + " - " + message);
     }
 
-    /**
-     * emit a SUPPORT level message with throwable
-     * @param message
-     * @param t
-     */
     public void support(Object message, Throwable t) {
         adapter.support(moduleName + " - " + message, t);
     }
 
-    /**
-     * emit a SUPPORT lifecycle message
-     * @param lifeCycleEvent
-     * @param message
-     */
     public void lifecycle(LifeCycleEvent lifeCycleEvent, Object message) {
         adapter.lifecycle(lifeCycleEvent, moduleName + " - " + lifeCycleEvent.toString() + (!StringUtils.isEmpty(message.toString())?" - " + message:""));
     }
 
-    /**
-     * In order to be backwards compatible. The support logger should also support
-     * the debug, error, fatal, info, and warn levels as well.
-     * @param message
-     */
 
     public void debug(Object message) {
         adapter.debug(moduleName + " - " + message);

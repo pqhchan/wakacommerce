@@ -9,11 +9,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * An extendible enumeration of type of messages.
- *  <li><b>CART</b> - Represents a  wishlist</li>
- *  <li><b>PRODUCT_OPTION</b> - Represents a cart (non-submitted {@link Order}s)</li>
- * 
- *  
+ *
+ * @ hui
  */
 public class MessageType implements Serializable, WakaEnumType {
 

@@ -12,9 +12,8 @@ import com.wakacommerce.openadmin.server.service.persistence.module.RecordHelper
 import com.wakacommerce.openadmin.server.service.persistence.module.criteria.RestrictionFactory;
 
 /**
- * Contains the requested ctoConverter, cto and support classes.
  *
- * 
+ * @ hui
  */
 public class AddSearchMappingRequest {
 

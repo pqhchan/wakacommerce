@@ -8,12 +8,8 @@ import java.util.Properties;
 import com.wakacommerce.common.extensibility.jpa.convert.BroadleafClassTransformer;
 
 /**
- * This class transformer will do nothing. The main use case for this transformer is when you would prefer to not
- * have a module's template classes copied over, and would rather do it yourself. 
- * 
- * This transformer should not typically be used.
- * 
- * 
+ *
+ * @ hui
  */
 public class NullClassTransformer implements BroadleafClassTransformer {
     

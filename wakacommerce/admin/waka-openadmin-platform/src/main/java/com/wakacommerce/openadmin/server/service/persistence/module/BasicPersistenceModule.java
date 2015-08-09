@@ -1228,16 +1228,6 @@ public class BasicPersistenceModule implements PersistenceModule, RecordHelper, 
         return persistenceManager;
     }
 
-    /**
-     * Use an alternate approach to generating a fetch query for a collection located inside of an @Embeddable object. Related
-     * to https://hibernate.atlassian.net/browse/HHH-8802. The alternate approach leverages HQL rather than JPA criteria,
-     * which seems to alleviate the problem.
-     *
-     * @param embeddedCollectionPath the path to the collection field itself
-     * @param filterMappings all the fetch restrictions for this request
-     * @param collectionClass the type of the collection members
-     * @return the builder capable of generating an appropriate HQL query
-     */
     protected TypedQueryBuilder getSpecialCaseQueryBuilder(FieldPath embeddedCollectionPath, List<FilterMapping> filterMappings, String collectionClass) {
         String specialPath = embeddedCollectionPath.getTargetProperty();
         String[] pieces = specialPath.split("\\.");
@@ -1271,14 +1261,6 @@ public class BasicPersistenceModule implements PersistenceModule, RecordHelper, 
         return builder;
     }
 
-    /**
-     * Generate LIKE or EQUALS restrictions for any filter property specified on the root entity (not the collection field in the @Embeddable object)
-     *
-     * @see #getSpecialCaseQueryBuilder(com.wakacommerce.openadmin.server.service.persistence.module.criteria.FieldPath, java.util.List, String)
-     * @param embeddedCollectionPath the path for the collection field in the @Embeddable object - this is what caused the whole thing
-     * @param filterMappings all the fetch restrictions for this request
-     * @return the list of restrictions on the root entity
-     */
     protected List<TQRestriction> buildStandardRestrictions(FieldPath embeddedCollectionPath, List<FilterMapping> filterMappings) {
         String expression = embeddedCollectionPath.getTargetProperty().substring(0, embeddedCollectionPath.getTargetProperty().lastIndexOf("."));
         List<TQRestriction> restrictions = new ArrayList<TQRestriction>();
@@ -1311,14 +1293,6 @@ public class BasicPersistenceModule implements PersistenceModule, RecordHelper, 
         return restrictions;
     }
 
-    /**
-     * Generate EQUALS restrictions for any filter property specified on the entity member of the collection field in the @Embeddable object
-     *
-     * @see #getSpecialCaseQueryBuilder(com.wakacommerce.openadmin.server.service.persistence.module.criteria.FieldPath, java.util.List, String)
-     * @param specialExpression the String representation of the path for the collection field in the @Embeddable object
-     * @param filterMappings all the fetch restrictions for this request
-     * @return the list of restrictions on the collection in the @Embeddable object
-     */
     protected List<TQRestriction> buildSpecialRestrictions(String specialExpression, List<FilterMapping> filterMappings) {
         List<TQRestriction> restrictions = new ArrayList<TQRestriction>();
         for (FilterMapping mapping : filterMappings) {

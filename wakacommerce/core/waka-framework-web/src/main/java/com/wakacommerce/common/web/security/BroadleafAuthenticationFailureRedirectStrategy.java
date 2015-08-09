@@ -12,16 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Extends the Spring DefaultRedirectStrategy with support for ajax redirects.
- * 
- * Designed for use with SpringSecurity when errors are present.
- * 
- * Tacks on the BLC_AJAX_PARAMETER=true to the redirect request if the request is an ajax request.   This will cause the
- * resulting controller (e.g. LoginController) to treat the request as if it is coming from Ajax and 
- * return the related page fragment rather than returning the full view of the page.
- * 
- * 
  *
+ * @ hui
  */
 @Component("blAuthenticationFailureRedirectStrategy")
 public class BroadleafAuthenticationFailureRedirectStrategy implements RedirectStrategy {

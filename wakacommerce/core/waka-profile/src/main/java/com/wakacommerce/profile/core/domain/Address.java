@@ -28,43 +28,18 @@ public interface Address extends Serializable, MultiTenantCloneable<Address> {
 
     public String getCity();
 
-    /**
-     * @deprecated Should use {@link #setIsoCountrySubdivision()} or {@link #setStateProvinceRegion()} instead
-     * The Broadleaf Country and State domains will no longer be used for addresses to better support i18n.
-     * BLC_STATE and BLC_COUNTRY should primarily be used for look-ups or filtering to those country/states you wish to ship.
-     */
     @Deprecated
     public void setState(State state);
 
-    /**
-     * @deprecated Should use {@link #getIsoCountrySubdivision()} or {@link #getStateProvinceRegion()} instead
-     * The Broadleaf Country and State domains will no longer be used for addresses to better support i18n.
-     * BLC_STATE and BLC_COUNTRY should primarily be used for look-ups or filtering to those country/states you wish to ship.
-     */
     @Deprecated
     public State getState();
 
-    /**
-     * gets the ISO 3166-2 code for the country subdivision (state/region/province) where this address resides
-     * @return - the code
-     */
     public String getIsoCountrySubdivision();
 
-    /**
-     * sets the ISO 3166-2 code for the country subdivision (state/region/province) where this address resides
-     * @param isoCountrySubdivision - ISO 3166-2 country subdivision code
-     */
     public void setIsoCountrySubdivision(String isoCountrySubdivision);
 
-    /**
-     * @return - a friendly name indicating a countries subdivision, i.e. State, Province, Region etc...
-     */
     public String getStateProvinceRegion();
 
-    /**
-     * sets the friendly name indicating a countries subdivision, i.e. State, Province, Region etc...
-     * @param stateProvinceRegion - friendly name
-     */
     public void setStateProvinceRegion(String stateProvinceRegion);
 
     public void setPostalCode(String postalCode);
@@ -79,32 +54,14 @@ public interface Address extends Serializable, MultiTenantCloneable<Address> {
 
     public void setZipFour(String zipFour);
 
-    /**
-     * @deprecated Should use {@link #setIsoCountryAlpha2(ISOCountry)} instead
-     * The Broadleaf Country and State domains will no longer be used for addresses to better support i18n.
-     * BLC_STATE and BLC_COUNTRY should primarily be used for look-ups or filtering to those country/states you wish to ship.
-     */
     @Deprecated
     public void setCountry(Country country);
 
-    /**
-     * @deprecated Should use {@link #getIsoCountryAlpha2()} instead
-     * The Broadleaf Country and State domains will no longer be used for addresses to better support i18n.
-     * BLC_STATE and BLC_COUNTRY should primarily be used for look-ups or filtering to those country/states you wish to ship.
-     */
     @Deprecated
     public Country getCountry();
 
-    /**
-     * gets the ISO 3166-1 alpha-2 code for the country where this address resides
-     * @return - the ISOCountry representation of the code
-     */
     public ISOCountry getIsoCountryAlpha2();
 
-    /**
-     * sets the ISO 3166-1 alpha-2 code for the country where this address resides
-     * @param isoCountryAlpha2 - ISO 3166-1 alpha-2 code
-     */
     public void setIsoCountryAlpha2(ISOCountry isoCountryAlpha2);
 
     public String getTokenizedAddress();
@@ -135,45 +92,21 @@ public interface Address extends Serializable, MultiTenantCloneable<Address> {
 
     public void setFullName(String fullName);
 
-    /**
-     * @deprecated Should use {@link #getPhonePrimary()} instead
-     * @see {@link Phone}
-     */
     @Deprecated
     public String getPrimaryPhone();
 
-    /**
-     * @deprecated Should use {@link #setPhonePrimary(Phone)} instead
-     * @see {@link Phone}
-     */
     @Deprecated
     public void setPrimaryPhone(String primaryPhone);
 
-    /**
-     * @deprecated Should use {@link #getPhoneSecondary()} instead
-     * @see {@link Phone}
-     */
     @Deprecated
     public String getSecondaryPhone();
 
-    /**
-     * @deprecated Should use {@link #setPhoneSecondary(Phone)} instead
-     * @see {@link Phone}
-     */
     @Deprecated
     public void setSecondaryPhone(String secondaryPhone);
 
-    /**
-     * @deprecated Should use {@link #getPhoneFax()} instead
-     * @see {@link Phone}
-     */
     @Deprecated
     public String getFax();
 
-    /**
-     * @deprecated Should use {@link #setPhoneFax(Phone)} instead
-     * @see {@link Phone}
-     */
     @Deprecated
     public void setFax(String fax);
 

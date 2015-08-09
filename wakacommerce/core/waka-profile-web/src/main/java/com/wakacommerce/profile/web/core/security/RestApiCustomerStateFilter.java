@@ -21,19 +21,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * This is a basic filter for finding the customer ID on the request and setting the customer object on the request.  
- * This must come after the WakaRequestFilter (blRequestFilter). This should come after any security filters.
- * This filter DOES NOT provide any security.  It simply looks for a "customerId" parameter on the request or in the request header.  If it finds 
- * this parameter it looks up the customer and makes it available as a request attribute.  This is generally for use in a filter chain for RESTful web services, 
- * allowing the client consuming services to specify the customerId on whos behalf they are invoking the service.  It is assumed that services are invoked either 
- * in a trusted, secured network where no additional security is required.  Or using OAuth or a similar trusted security model.  Whatever security model is used,
- * it should ensure that the caller has access to call the system, and that they have access to do so on behalf of the client whos ID is being determined by this class.
  *
- * For RESTful services, this should be used instead of CustomerStateFilter since it does not look at or touch cookies or session.
- * 
- * <p/>
- * User:   
- * Date: 4/18/12
+ * @ hui
  */
 public class RestApiCustomerStateFilter extends GenericFilterBean implements Ordered {
 

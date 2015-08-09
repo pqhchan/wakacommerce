@@ -18,12 +18,8 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * The controller responsible for wishlist management activities, including
- * viewing a wishlist, moving items from the wishlist to the cart, and
- * removing items from the wishlist
  *
- *
- *jfridye
+ * @ hui
  */
 public class BroadleafManageWishlistController extends AbstractAccountController {
     

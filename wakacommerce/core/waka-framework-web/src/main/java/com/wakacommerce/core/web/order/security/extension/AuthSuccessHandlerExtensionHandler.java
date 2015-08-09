@@ -11,20 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 
 
 /**
- * Extension handler for actions that should take place after a user has authenticated on the front-end site.
- * 
- * 
+ *
+ * @ hui
  */
 public interface AuthSuccessHandlerExtensionHandler extends ExtensionHandler {
-    
-    /**
-     * Perform any necessary tasks before the merge cart processor executes.
-     * 
-     * @param request
-     * @param response
-     * @param authentication
-     * @return
-     */
+
     public ExtensionResultStatusType preMergeCartExecution(HttpServletRequest request, HttpServletResponse response, 
             Authentication authentication);
 

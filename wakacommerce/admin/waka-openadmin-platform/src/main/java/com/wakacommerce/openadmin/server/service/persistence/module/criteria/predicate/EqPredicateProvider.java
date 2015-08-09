@@ -14,7 +14,8 @@ import org.springframework.stereotype.Component;
 import com.wakacommerce.openadmin.server.service.persistence.module.criteria.FieldPathBuilder;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Component("blEqPredicateProvider")
 public class EqPredicateProvider implements PredicateProvider<Serializable, Serializable> {

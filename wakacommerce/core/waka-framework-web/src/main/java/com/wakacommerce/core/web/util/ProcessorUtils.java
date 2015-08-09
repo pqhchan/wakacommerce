@@ -7,20 +7,11 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 /**
- *  
  *
- * Utility class for Thymeleaf Processors
+ * @ hui
  */
 public class ProcessorUtils {
-    
-    /**
-     * Gets a UTF-8 URL encoded URL based on the current URL as well as the specified map 
-     * of query string parameters
-     * 
-     * @param baseUrl
-     * @param parameters
-     * @return the built URL
-     */
+
     public static String getUrl(String baseUrl, Map<String, String[]> parameters) {
         if (baseUrl.contains("?")) {
             throw new IllegalArgumentException("baseUrl contained a ? indicating it is not a base url");

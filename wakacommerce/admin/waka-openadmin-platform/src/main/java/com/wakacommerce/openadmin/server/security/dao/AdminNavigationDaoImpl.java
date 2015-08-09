@@ -20,8 +20,7 @@ import javax.persistence.TypedQuery;
 
 /**
  *
- *  
- *
+ * @ hui
  */
 @Repository("blAdminNavigationDao")
 public class AdminNavigationDaoImpl implements AdminNavigationDao {

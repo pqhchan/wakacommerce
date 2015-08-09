@@ -21,20 +21,14 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * A Thymeleaf processor that processes the value attribute on the element it's tied to
- * with a predetermined value based on the SearchFacetResultDTO object that is passed into this
- * processor. 
- * 
- *  
+ *
+ * @ hui
  */
 public class ToggleFacetLinkProcessor extends AbstractAttributeModifierAttrProcessor {
     
     @Resource(name = "blSearchFacetDTOService")
     protected SearchFacetDTOService facetService;
 
-    /**
-     * Sets the name of this processor to be used in Thymeleaf template
-     */
     public ToggleFacetLinkProcessor() {
         super("togglefacetlink");
     }

@@ -11,7 +11,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- * Provides a skeleton to register multiple {@link BroadleafVariableExpression} implementors.
+ *
+ * @ hui
  */
 public class BroadleafVariableExpressionEvaluator extends SpelVariableExpressionEvaluator {
     

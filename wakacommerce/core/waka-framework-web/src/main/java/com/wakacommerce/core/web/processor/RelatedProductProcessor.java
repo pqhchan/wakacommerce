@@ -24,25 +24,8 @@ import javax.annotation.Resource;
 
 
 /**
- * A Thymeleaf processor that will find related products and skus.    A product or category id must be specified.    If both are specified, only the productId will be used.  
  *
- * Takes in the following parameters
- * <ul>
- *    <li>productId - productId to find related products.</li>
- *    <li>categoryId - categoryId to find related products.</li>
- *    <li>type - the type of relations to find (e.g. FEATURED (DEFAULT), UPSELL, CROSSSELL).   Implementations may have other specific types of related products.</li>  
- *    <li>cumulativeResults - true (DEFAULT) /false - indicates that the system should add results from the parent categories of the passed in item as well as the current item</li>
- *    <li>qty - if specified, determines the max-number of results that will be returned; otherwise, all results are returned.
- *    <li>productsResultVar - if specified, adds the products to the model keyed by this var.   Otherwise, uses "products" as the model identifier.
- *    <li>relatedProductsResultVar - if specified, adds the RelatedProduct(s) to the model keyed by this var.   Otherwise, uses "relatedProducts" as the model identifier.   
- *    <li>relatedSkusResultVar - if specified, adds the related skus to the model keyed by this var.   Otherwise, uses "relatedSkus" as the model identifier.   
- * </ul>
- * 
- * The output from this operation returns a list of PromotableProducts which represent the following. 
- *      relatedProduct.product 
- *      relatedProduct.promotionMessage.
- *      
- * 
+ * @ hui
  */
 public class RelatedProductProcessor extends AbstractModelVariableModifierProcessor {
     
@@ -52,9 +35,6 @@ public class RelatedProductProcessor extends AbstractModelVariableModifierProces
     @Resource(name = "blRelatedProductsService")
     protected RelatedProductsService relatedProductsService;
 
-    /**
-     * Sets the name of this processor to be used in Thymeleaf template
-     */
     public RelatedProductProcessor() {
         super("related_products");
     }
@@ -65,9 +45,7 @@ public class RelatedProductProcessor extends AbstractModelVariableModifierProces
     }
 
     @Override
-    /**
-     * Controller method for the processor that readies the service call and adds the results to the model.
-     */
+
     protected void modifyModelAttributes(Arguments arguments, Element element) {
         RelatedProductDTO relatedProductDTO = buildDTO(arguments, element);
         List<? extends PromotableProduct> relatedProducts = relatedProductsService.findRelatedProducts(relatedProductDTO);

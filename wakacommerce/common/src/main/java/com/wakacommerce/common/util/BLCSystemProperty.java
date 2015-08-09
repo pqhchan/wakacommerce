@@ -9,21 +9,14 @@ import org.springframework.stereotype.Service;
 import com.wakacommerce.common.config.service.SystemPropertiesService;
 
 /**
- * Convenience class to faciliate getting system properties
- * 
- * Note that this class is scanned as a bean to pick up the applicationContext, but the methods
- * this class provides should be invoked statically.
- * 
- * 
+ *
+ * @ hui
  */
 @Service("blBLCSystemProperty")
 public class BLCSystemProperty implements ApplicationContextAware {
 
     protected static ApplicationContext applicationContext;
-    
-    /**
-     * @see SystemPropertiesService#resolveSystemProperty(String)
-     */
+
     public static String resolveSystemProperty(String name) {
         return getSystemPropertiesService().resolveSystemProperty(name);
     }
@@ -32,9 +25,6 @@ public class BLCSystemProperty implements ApplicationContextAware {
         return getSystemPropertiesService().resolveSystemProperty(name, defaultValue);
     }
 
-    /**
-     * @see SystemPropertiesService#resolveIntSystemProperty(String)
-     */
     public static int resolveIntSystemProperty(String name) {
         return getSystemPropertiesService().resolveIntSystemProperty(name);
     }
@@ -43,9 +33,6 @@ public class BLCSystemProperty implements ApplicationContextAware {
         return getSystemPropertiesService().resolveIntSystemProperty(name, defaultValue);
     }
 
-    /**
-     * @see SystemPropertiesService#resolveBooleanSystemProperty(String)
-     */
     public static boolean resolveBooleanSystemProperty(String name) {
         return getSystemPropertiesService().resolveBooleanSystemProperty(name);
     }
@@ -54,9 +41,6 @@ public class BLCSystemProperty implements ApplicationContextAware {
         return getSystemPropertiesService().resolveBooleanSystemProperty(name, defaultValue);
     }
 
-    /**
-     * @see SystemPropertiesService#resolveLongSystemProperty(String)
-     */
     public static long resolveLongSystemProperty(String name) {
         return getSystemPropertiesService().resolveLongSystemProperty(name);
     }
@@ -64,10 +48,7 @@ public class BLCSystemProperty implements ApplicationContextAware {
     public static long resolveLongSystemProperty(String name, long defaultValue) {
         return getSystemPropertiesService().resolveLongSystemProperty(name, defaultValue);
     }
-    
-    /**
-     * @return the "blSystemPropertiesService" bean from the application context
-     */
+
     protected static SystemPropertiesService getSystemPropertiesService() {
         return (SystemPropertiesService) applicationContext.getBean("blSystemPropertiesService");
     }

@@ -6,7 +6,8 @@ import org.springframework.util.Log4jConfigurer;
 import java.io.FileNotFoundException;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class RuntimeLog4jConfigurer {
 

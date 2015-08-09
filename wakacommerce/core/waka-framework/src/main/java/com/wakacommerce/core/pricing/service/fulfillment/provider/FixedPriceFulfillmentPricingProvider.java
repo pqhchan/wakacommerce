@@ -11,11 +11,8 @@ import java.util.HashMap;
 import java.util.Set;
 
 /**
- * Processor used in conjunction with {@link FixedPriceFulfillmentOption}. Simply takes the
- * flat rate defined on the option and sets that to the total shipping price of the {@link FulfillmentGroup}
- * 
- *  
- * @see {@link FixedPriceFulfillmentOption}
+ *
+ * @ hui
  */
 public class FixedPriceFulfillmentPricingProvider implements FulfillmentPricingProvider {
 

@@ -17,11 +17,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * A {@code ResourceResolver} that is used to serve previously bundled files.
- * 
- * <p>
- * It works with {@link ResourceBundlingService} which is able to create and read bundle files.
- *  
+ *
+ * @ hui
  */
 @Component("blBundleResourceResolver")
 public class BundleResourceResolver extends AbstractResourceResolver implements Ordered {

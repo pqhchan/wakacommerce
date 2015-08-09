@@ -5,13 +5,8 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
 import java.util.Currency;
 
 /**
- * Unfortunately, JAXB doesn't know how to deal with java.util.Currency because it doesn't have a
- * default constructor.
- * 
- * Source via: http://weblogs.java.net/blog/kohsuke/archive/2005/09/using_jaxb_20s.html
- * 
- *phillipverheyden
  *
+ * @ hui
  */
 public class CurrencyAdapter extends XmlAdapter<String, Currency> {
 

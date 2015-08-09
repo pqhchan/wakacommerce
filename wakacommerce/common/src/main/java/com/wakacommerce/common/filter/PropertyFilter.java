@@ -2,7 +2,8 @@
 package com.wakacommerce.common.filter;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class PropertyFilter extends Filter {
 

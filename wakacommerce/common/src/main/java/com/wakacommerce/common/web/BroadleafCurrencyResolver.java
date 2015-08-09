@@ -8,19 +8,16 @@ import com.wakacommerce.common.currency.domain.BroadleafRequestedCurrencyDto;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Author: jerryocanas
- * Date: 9/6/12
+ *
+ * @ hui
  */
 
 /**
- * Responsible for returning the currency to use for the current request.
+ *
+ * @ hui
  */
 public interface BroadleafCurrencyResolver {
 
-    /**
-     * 
-     * @deprecated use {@link #resolveCurrency(WebRequest)} instead
-     */
     @Deprecated
     public BroadleafRequestedCurrencyDto resolveCurrency(HttpServletRequest request);
     

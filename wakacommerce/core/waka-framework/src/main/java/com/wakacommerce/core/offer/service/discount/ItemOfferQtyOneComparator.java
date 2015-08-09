@@ -6,10 +6,8 @@ import java.util.Comparator;
 import com.wakacommerce.core.offer.service.discount.domain.PromotableCandidateItemOffer;
 
 /**
- * The same as {@link ItemOfferComparator} but uses the {@link PromotableCandidateItemOffer#getPotentialSavingsQtyOne()}
- * method instead.
- * 
- * 
+ *
+ * @ hui
  */
 public class ItemOfferQtyOneComparator implements Comparator<PromotableCandidateItemOffer> {
     

@@ -24,14 +24,8 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 /**
- * This class is based on the OpenJPA's org.apache.openjpa.enhance.InstrumentationFactory.  It essentially does
- * its best to install an instrumentation agent.  The preferred or prescribed way to install an instrumentation agent
- * is to add the agent as an argument on the command line when starting the JVM.  This class attempts to do the
- * same thing after the JVM has already started.  Unfortunately, this is the only way we know of to attach an agent to
- * the JVM except by adding a "javaagent:..." flag on the command line.
  *
- *  
- * @deprecated Because of classloader differences, this approach is not reliable for some containers. Use the javaagent jvm argument instead to set instrumentation.
+ * @ hui
  */
 @Deprecated
 public class InstrumentationRuntimeFactory {
@@ -41,22 +35,10 @@ public class InstrumentationRuntimeFactory {
     private static boolean isIBM = false;
     private static Instrumentation inst;
 
-    /**
-     * This method is called by the JVM to set the instrumentation.  We can't synchronize this because it will cause
-     * a deadlock with the thread calling the getInstrumentation() method when the instrumentation is installed.
-     *
-     * @param agentArgs
-     * @param instrumentation
-     */
     public static void agentmain(String agentArgs, Instrumentation instrumentation) {
         inst = instrumentation;
     }
 
-    /**
-     * This method returns the Instrumentation object provided by the JVM. If the Instrumentation object is null,
-     * it does its best to add an instrumentation agent to the JVM and then the instrumentation object.
-     * @return Instrumentation
-     */
     public static synchronized Instrumentation getInstrumentation() {
         if (inst != null) {
             return inst;

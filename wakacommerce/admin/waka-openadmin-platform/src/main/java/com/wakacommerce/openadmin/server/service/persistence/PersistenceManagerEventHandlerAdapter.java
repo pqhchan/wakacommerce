@@ -8,10 +8,8 @@ import com.wakacommerce.openadmin.dto.Entity;
 import com.wakacommerce.openadmin.dto.PersistencePackage;
 
 /**
- * Convenience adapter for PersistenceManagerEventHandler implementations that don't need to implement every
- * method of the interface.
  *
- * 
+ * @ hui
  */
 public class PersistenceManagerEventHandlerAdapter implements PersistenceManagerEventHandler {
 

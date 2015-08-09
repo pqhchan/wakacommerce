@@ -31,29 +31,12 @@ public interface OrderItemService {
 
     public GiftWrapOrderItem createGiftWrapOrderItem(GiftWrapOrderItemRequest itemRequest);
 
-    /**
-     * Used to create "manual" product bundles.   Manual product bundles are primarily designed
-     * for grouping items in the cart display.    Typically ProductBundle will be used to
-     * achieve non programmer related bundles.
-     *
-     *
-     * @param itemRequest
-     * @return
-     */
     public BundleOrderItem createBundleOrderItem(BundleOrderItemRequest itemRequest);
 
     public BundleOrderItem createBundleOrderItem(ProductBundleOrderItemRequest itemRequest);
 
     public BundleOrderItem createBundleOrderItem(ProductBundleOrderItemRequest itemRequest, boolean saveItem);
 
-    /**
-     * Creates an OrderItemRequestDTO object that most closely resembles the given OrderItem.
-     * That is, it will copy the SKU and quantity and attempt to copy the product and category
-     * if they exist.
-     * 
-     * @param item the item to copy
-     * @return the OrderItemRequestDTO that mirrors the item
-     */
     public OrderItemRequestDTO buildOrderItemRequestDTOFromOrderItem(OrderItem item);
 
     public OrderItem updateDiscreteOrderItem(OrderItem orderItem, DiscreteOrderItemRequest itemRequest);

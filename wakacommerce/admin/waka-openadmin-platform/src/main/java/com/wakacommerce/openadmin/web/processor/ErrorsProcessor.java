@@ -27,15 +27,8 @@ import java.util.Map;
 
 
 /**
- * Processor that returns all the errors within an {@link EntityForm} organized by tab, according to the expression passed
- * in as an argument.
- * 
- * For instance, if you would like to get all of the errors for the {@link EntityForm}, invoke this processor with an
- * attribute that looks like:
- * 
- *      blc_admin:errors="*{*}"
  *
- *     
+ * @ hui
  */
 @Component("blErrorsProcessor")
 public class ErrorsProcessor extends AbstractAttrProcessor {

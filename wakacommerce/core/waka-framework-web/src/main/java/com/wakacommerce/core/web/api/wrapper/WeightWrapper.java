@@ -12,10 +12,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import com.wakacommerce.core.catalog.domain.Weight;
 
 /**
- * This is a JAXB wrapper around Weight
- * <p/>
- * User:   
- * Date: 4/10/12
+ *
+ * @ hui
  */
 @XmlRootElement(name = "weight")
 @XmlAccessorType(value = XmlAccessType.FIELD)
@@ -40,34 +38,18 @@ public class WeightWrapper implements APIWrapper<Weight>{
         wrapDetails(model, request);
     }
 
-    
-    /**
-     * @return the weight
-     */
     public BigDecimal getWeight() {
         return weight;
     }
 
-    
-    /**
-     * @param weight the weight to set
-     */
     public void setWeight(BigDecimal weight) {
         this.weight = weight;
     }
 
-    
-    /**
-     * @return the unitOfMeasure
-     */
     public String getUnitOfMeasure() {
         return unitOfMeasure;
     }
 
-    
-    /**
-     * @param unitOfMeasure the unitOfMeasure to set
-     */
     public void setUnitOfMeasure(String unitOfMeasure) {
         this.unitOfMeasure = unitOfMeasure;
     }

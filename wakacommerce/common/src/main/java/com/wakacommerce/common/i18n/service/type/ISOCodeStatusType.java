@@ -8,10 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extensible enumeration of ISO Code Status Types.
- * See {@link http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2}
  *
- *  
+ * @ hui
  */
 public class ISOCodeStatusType implements Serializable, WakaEnumType {
 

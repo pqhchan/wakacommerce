@@ -4,9 +4,8 @@ package com.wakacommerce.openadmin.dto;
 import com.wakacommerce.openadmin.dto.visitor.PersistencePerspectiveItemVisitor;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public class SimpleValueMapStructure extends MapStructure {
 
@@ -18,14 +17,7 @@ public class SimpleValueMapStructure extends MapStructure {
     public SimpleValueMapStructure() {
         super();
     }
-    
-    /**
-     * @param keyClassName
-     * @param keyPropertyName
-     * @param keyPropertyFriendlyName
-     * @param valueClassName
-     * @param mapProperty
-     */
+
     public SimpleValueMapStructure(String keyClassName, String keyPropertyName, String keyPropertyFriendlyName, String valueClassName, String valuePropertyName, String valuePropertyFriendlyName, String mapProperty, String mapKeyValueProperty) {
         super(keyClassName, keyPropertyName, keyPropertyFriendlyName, valueClassName, mapProperty, false, mapKeyValueProperty);
         this.valuePropertyFriendlyName = valuePropertyFriendlyName;

@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class to hold the admin menus and sections for which the passed in user has permissions to view.
- *  
+ *
+ * @ hui
  */
 public class AdminMenu {
 

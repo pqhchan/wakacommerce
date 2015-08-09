@@ -28,13 +28,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- * This is an required activity to valiate if required product options are in the order.
- * 
- * If sku browsing is enabled, product option data will not be available.
- * In this case, the following validation is skipped.
- * 
- *Priyesh Patel
  *
+ * @ hui
  */
 public class ValidateProductOptionsActivity extends BaseActivity<ProcessContext<CheckoutSeed>> {
 

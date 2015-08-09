@@ -24,7 +24,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- *  
+ *
+ * @ hui
  */
 @Component("blCustomerCustomPersistenceHandler")
 public class CustomerCustomPersistenceHandler extends CustomPersistenceHandlerAdapter {
@@ -113,14 +114,7 @@ public class CustomerCustomPersistenceHandler extends CustomPersistenceHandlerAd
             throw new ServiceException("Unable to update entity for " + entity.getType()[0], e);
         }
     }
-    
-    /**
-     * Validates that a Customer does not have their username duplicated
-     * 
-     * @param entity
-     * @param adminInstance
-     * @return the original entity with a validation error on it or null if no validation failure
-     */
+
     protected Entity validateUniqueUsername(Entity entity, Customer adminInstance) {
         if (customerService.readCustomerByUsername(adminInstance.getUsername()) != null) {
             entity.addValidationError("emailAddress", "nonUniqueUsernameError");

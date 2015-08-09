@@ -7,8 +7,5 @@ public interface NamedOperationManager {
 
     Map<String, String> manageNamedParameters(Map<String, String> parameterMap);
 
-    /**
-     * Returns all of the components that have been registered to perform manipulations
-     */
     List<NamedOperationComponent> getNamedOperationComponents();
 }

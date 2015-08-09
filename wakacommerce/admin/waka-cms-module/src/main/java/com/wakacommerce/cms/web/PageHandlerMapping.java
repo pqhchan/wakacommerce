@@ -20,8 +20,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @see com.wakacommerce.cms.page.domain.Page
- * @see WakaPageController
+ *
+ * @ hui
  */
 public class PageHandlerMapping extends WakaAbstractHandlerMapping {
     

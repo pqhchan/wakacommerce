@@ -127,10 +127,6 @@ public class AdminModuleImpl implements AdminModule {
         this.displayOrder = displayOrder;
     }
 
-    /**
-     * Set all properties except the sections.
-     * @return
-     */
     public AdminModuleDTO getAdminModuleDTO() {
         AdminModuleDTO dto = new AdminModuleDTO();
         dto.setDisplayOrder(displayOrder);

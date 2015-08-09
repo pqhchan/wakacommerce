@@ -164,10 +164,6 @@ public class PomEvaluator {
 
     }
 
-
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         initializeKnownLibraries();
         BufferedReader br = null;

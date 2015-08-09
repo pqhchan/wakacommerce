@@ -26,38 +26,8 @@ import java.util.Properties;
 import java.util.Set;
 
 /**
- * A property resource configurer that chooses the property file at runtime
- * based on the runtime environment.
- * <p>
- * Used for choosing properties files based on the current runtime environment,
- * allowing for movement of the same application between multiple runtime
- * environments without rebuilding.
- * <p>
- * The property replacement semantics of this implementation are identical to
- * PropertyPlaceholderConfigurer, from which this class inherits. <code>
- * <pre>
- * &lt;bean id=&quot;propertyConfigurator&quot; class=&quot;frilista.framework.RuntimeEnvironmentPropertiesConfigurer&quot;&gt;
- *        &lt;property name=&quot;propertyLocation&quot; value=&quot;/WEB-INF/runtime-properties/&quot; /&gt;
- *        &lt;property name=&quot;environments&quot;&gt;
- *        &lt;set&gt;
- *            &lt;value&gt;production&lt;/value&gt;
- *            &lt;value&gt;staging&lt;/value&gt;
- *            &lt;value&gt;integration&lt;/value&gt;
- *            &lt;value&gt;development&lt;/value&gt;
- *        &lt;/set&gt;
- *        &lt;/property&gt;
- *        &lt;property name=&quot;defaultEnvironment&quot; value=&quot;development&quot;/&gt;
- * &lt;/bean&gt;
- * </code> </pre> The keys of the environment specific properties files are
- * compared to ensure that each property file defines the complete set of keys,
- * in order to avoid environment-specific failures.
- * <p>
- * An optional RuntimeEnvironmentKeyResolver implementation can be provided,
- * allowing for customization of how the runtime environment is determined. If
- * no implementation is provided, a default of
- * SystemPropertyRuntimeEnvironmentKeyResolver is used (which uses the system
- * property 'runtime.environment')
- *<a href="mailto:chris.lee.9@gmail.com">Chris Lee</a>
+ *
+ * @ hui
  */
 public class RuntimeEnvironmentPropertiesConfigurer extends PropertyPlaceholderConfigurer implements InitializingBean {
 
@@ -289,10 +259,6 @@ public class RuntimeEnvironmentPropertiesConfigurer extends PropertyPlaceholderC
         stringValueResolver = new PlaceholderResolvingStringValueResolver(props);
     }
 
-    /**
-     * Sets the default environment name, used when the runtime environment
-     * cannot be determined.
-     */
     public void setDefaultEnvironment(String defaultEnvironment) {
         this.defaultEnvironment = defaultEnvironment;
     }
@@ -305,28 +271,14 @@ public class RuntimeEnvironmentPropertiesConfigurer extends PropertyPlaceholderC
         this.keyResolver = keyResolver;
     }
 
-    /**
-     * Sets the allowed list of runtime environments
-     */
     public void setEnvironments(Set<String> environments) {
         this.environments = environments;
     }
 
-    /**
-     * Sets the directory from which to read environment-specific properties
-     * files; note that it must end with a '/'
-     */
     public void setPropertyLocations(Set<Resource> propertyLocations) {
         this.propertyLocations = propertyLocations;
     }
 
-    /**
-     * Sets the directory from which to read environment-specific properties
-     * files; note that it must end with a '/'. Note, these properties may be
-     * overridden by those defined in propertyLocations and any "runtime-properties" directories
-     *
-     * @param overridableProperyLocations location containing overridable environment properties
-     */
     public void setOverridableProperyLocations(Set<Resource> overridableProperyLocations) {
         this.overridableProperyLocations = overridableProperyLocations;
     }

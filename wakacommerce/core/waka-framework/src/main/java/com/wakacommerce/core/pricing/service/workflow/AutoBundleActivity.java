@@ -30,14 +30,8 @@ import com.wakacommerce.core.workflow.BaseActivity;
 import com.wakacommerce.core.workflow.ProcessContext;
 
 /**
- * This pricing workflow step will automatically bundle items in the cart.
  *
- * For example, if a ProductBundle exists of two items and the user has
- * one of the items in their cart.   If they then add the second item,
- * this activity will replace the two items with the ProductBundle.
- *
- * This only occurs if the ProductBundle is set to "automatically" bundle.
- *
+ * @ hui
  */
 public class AutoBundleActivity extends BaseActivity<ProcessContext<Order>> {
     @Resource(name="blCatalogService")
@@ -91,12 +85,6 @@ public class AutoBundleActivity extends BaseActivity<ProcessContext<Order>> {
         return order;
     }
 
-    /**
-     * Removes all automatic bundles from the order and replaces with DiscreteOrderItems.
-     *
-     * @param order
-     * @throws PricingException 
-     */
     private Order removeAutomaticBundles(Order order) throws PricingException {
         List<BundleOrderItem> bundlesToRemove = new ArrayList<BundleOrderItem>();
 
@@ -120,11 +108,6 @@ public class AutoBundleActivity extends BaseActivity<ProcessContext<Order>> {
         return order;
     }
 
-    /**
-     * Removes all automatic bundles from the order and replaces with DiscreteOrderItems.
-     *
-     * @param order
-     */
     private List<DiscreteOrderItem> unBundleItems(Order order) throws PricingException{
         List<DiscreteOrderItem> unbundledItems = null;
 
@@ -151,16 +134,6 @@ public class AutoBundleActivity extends BaseActivity<ProcessContext<Order>> {
         return unbundledItems;
     }
 
-    /**
-     * Builds a BundleOrderItem based on the passed in productBundle.    Creates new DiscreteOrderItems.
-     * Removes the existing matching DiscreteOrderItems or modifies the quantity if needed.
-     *
-     * @param order
-     * @param productBundle
-     * @param numApplications
-     * @throws PricingException 
-     * @throws ItemNotFoundException 
-     */
     private Order bundleItems(Order order, ProductBundle productBundle, Integer numApplications, List<DiscreteOrderItem> unbundledItems) throws PricingException, RemoveFromCartException {
 
         BundleOrderItem bundleOrderItem = (BundleOrderItem) orderItemDao.create(OrderItemType.BUNDLE);

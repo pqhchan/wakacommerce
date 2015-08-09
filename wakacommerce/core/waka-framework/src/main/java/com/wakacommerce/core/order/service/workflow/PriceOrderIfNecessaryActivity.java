@@ -26,14 +26,8 @@ import java.util.Map.Entry;
 import javax.annotation.Resource;
 
 /**
- * As of Broadleaf version 3.1.0, saves of individual aspects of an Order (such as OrderItems and FulfillmentGroupItems) no
- * longer happen in their respective activities. Instead, we will now handle these saves in this activity exclusively.
- * 
- * This provides the ability for an implementation to not require a transactional wrapper around the entire workflow and
- * instead only requires it around this particular activity. This is only recommended if there are long running steps in
- * the workflow, such as an external service call to check availability.
- * 
- * 
+ *
+ * @ hui
  */
 public class PriceOrderIfNecessaryActivity extends BaseActivity<ProcessContext<CartOperationRequest>> {
     
@@ -185,13 +179,7 @@ public class PriceOrderIfNecessaryActivity extends BaseActivity<ProcessContext<C
 
         oiFgiMap.put(oi, fgis);
     }
-    
-    /**
-     * Intended to be overridden by a custom implementation if there is a requirement to perform additional logic or
-     * saves before triggering the main Order save with pricing.
-     * 
-     * @param request
-     */
+
     protected void preSaveOperation(CartOperationRequest request) {
         // Broadleaf implementation does nothing here
     }

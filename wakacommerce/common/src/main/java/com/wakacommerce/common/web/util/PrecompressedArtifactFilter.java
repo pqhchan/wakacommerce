@@ -69,16 +69,6 @@ public class PrecompressedArtifactFilter extends GenericFilterBean {
         }
     }
 
-    /**
-     * Copied from Tomcat
-     *
-     * Return the page resource path from the request. For example:
-     * <pre class="codeHtml">
-     * <span class="blue">http://www.mycorp.com/banking/secure/login.htm</span>  ->  <span class="red">/secure/login.htm</span> </pre>
-     *
-     * @param request the page servlet request
-     * @return the page resource path from the request
-     */
     public String getResourcePath(HttpServletRequest request) {
         // Adapted from VelocityViewServlet.handleRequest() method:
 
@@ -107,16 +97,6 @@ public class PrecompressedArtifactFilter extends GenericFilterBean {
         return path;
     }
 
-    /**
-     * Copied from Tomcat
-     *
-     * Return true if the response should be GZIP compressed.
-     *
-     * @param request the request to test
-     * @param response the response to test
-     * @param path the request path to test
-     * @return true if the response should be GZIP compressed
-     */
     protected boolean useGzipCompression(HttpServletRequest request, HttpServletResponse response, String path, String gzipPath) throws MalformedURLException {
         if (gzipPath == null) {
             return false;

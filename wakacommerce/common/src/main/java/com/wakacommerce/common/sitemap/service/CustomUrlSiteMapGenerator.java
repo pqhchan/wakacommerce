@@ -15,22 +15,12 @@ import com.wakacommerce.common.sitemap.wrapper.SiteMapURLWrapper;
 import java.util.Date;
 
 /**
- * Responsible for generating site map entries.   
- * 
- * Each SiteMapGenerator can generate 
- * 
- * 
  *
+ * @ hui
  */
 @Component("blCustomSiteMapGenerator")
 public class CustomUrlSiteMapGenerator implements SiteMapGenerator {
-    
-    /**
-     * Returns true if this SiteMapGenerator is able to process the passed in siteMapGeneratorConfiguration.   
-     * 
-     * @param siteMapGeneratorConfiguration
-     * @return
-     */
+
     public boolean canHandleSiteMapConfiguration(SiteMapGeneratorConfiguration siteMapGeneratorConfiguration) {
         return SiteMapGeneratorType.CUSTOM.equals(siteMapGeneratorConfiguration.getSiteMapGeneratorType());
     }

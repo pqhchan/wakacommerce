@@ -4,9 +4,8 @@ package com.wakacommerce.common.media.domain;
 import com.wakacommerce.common.util.UnknownUnwrapTypeException;
 
 /**
- * A null safe media object.
- * 
  *
+ * @ hui
  */
 public class MediaDto implements Media {
 

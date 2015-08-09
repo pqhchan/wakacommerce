@@ -7,8 +7,8 @@ import org.springframework.web.servlet.ViewResolver;
 import java.util.Locale;
 
 /**
- *  
  *
+ * @ hui
  */
 public class WrappingViewResolver implements ViewResolver {
     

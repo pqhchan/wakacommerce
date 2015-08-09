@@ -2,9 +2,8 @@
 package com.wakacommerce.common.exception;
 
 /**
- * Exception thrown when a {@link EntityService service} method fails.
- * 
- *  
+ *
+ * @ hui
  */
 public class ServiceException extends Exception {
     
@@ -26,14 +25,7 @@ public class ServiceException extends Exception {
     public ServiceException(Throwable cause) {
         super(cause);
     }
-    
-    /**
-     * Checks to see if any of the causes of the chain of exceptions that led to this ServiceException are an instance
-     * of the given class.
-     * 
-     * @param clazz
-     * @return whether or not this exception's causes includes the given class.
-     */
+
     public boolean containsCause(Class<? extends Throwable> clazz) {
         Throwable current = this;
 

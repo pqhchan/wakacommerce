@@ -2,15 +2,8 @@
 package com.wakacommerce.common.currency.domain;
 
 /**
- * The BroadleafCurrencyResolver can be implemented to set the currency (e.g. CurrencyToUse).   
- * 
- * This may differ from the currency that was requested (e.g. from the locale, etc.)   
- * 
- * By storing the desired currency, we have the opportunity for a later module (like PriceLists) to 
- * check the DesiredCurrency and possibly alter the currency for the request. 
- * 
- * 
  *
+ * @ hui
  */
 public class BroadleafRequestedCurrencyDto {
 
@@ -23,16 +16,10 @@ public class BroadleafRequestedCurrencyDto {
         this.requestedCurrency = requestedCurrency;
     }
 
-    /**
-     * @return the currencyToUse
-     */
     public BroadleafCurrency getCurrencyToUse() {
         return currencyToUse;
     }
 
-    /**
-     * @return the requestedCurrency
-     */
     public BroadleafCurrency getRequestedCurrency() {
         return requestedCurrency;
     }

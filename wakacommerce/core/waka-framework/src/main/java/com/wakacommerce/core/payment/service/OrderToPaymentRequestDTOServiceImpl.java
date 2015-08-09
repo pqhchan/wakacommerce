@@ -24,7 +24,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- *  
+ *
+ * @ hui
  */
 @Service("blOrderToPaymentRequestDTOService")
 public class OrderToPaymentRequestDTOServiceImpl implements OrderToPaymentRequestDTOService {
@@ -123,12 +124,6 @@ public class OrderToPaymentRequestDTOServiceImpl implements OrderToPaymentReques
 
     }
 
-    /**
-     * Uses the first shippable fulfillment group to populate the {@link PaymentRequestDTO#shipTo()} object
-     * @param order the {@link Order} to get data from
-     * @param requestDTO the {@link PaymentRequestDTO} that should be populated
-     * @see {@link FulfillmentGroupService#getFirstShippableFulfillmentGroup(Order)}
-     */
     @Override
     public void populateShipTo(Order order, PaymentRequestDTO requestDTO) {
         List<FulfillmentGroup> fgs = order.getFulfillmentGroups();
@@ -250,28 +245,6 @@ public class OrderToPaymentRequestDTOServiceImpl implements OrderToPaymentReques
         return response;
     }
 
-
-    /**
-     * IMPORTANT:
-     * <p>If you would like to pass Line Item information to a payment gateway
-     * so that it shows up on the hosted site, you will need to override this method and
-     * construct line items to conform to the requirements of that particular gateway:</p>
-     *
-     * <p>For Example: The Paypal Express Checkout NVP API validates that the order subtotal that you pass in,
-     * add up to the amount of the line items that you pass in. So,
-     * In that case you will need to take into account any additional fees, promotions,
-     * credits, gift cards, etc... that are applied to the payment and add them
-     * as additional line items with a negative amount when necessary.</p>
-     *
-     * <p>Each gateway that accepts line item information may require you to construct
-     * this differently. Please consult the module documentation on how it should
-     * be properly constructed.</p>
-     *
-     * <p>In this default implementation, just the subtotal is set, without any line item details.</p>
-     *
-     * @param order
-     * @param requestDTO
-     */
     @Override
     public void populateDefaultLineItemsAndSubtotal(Order order, PaymentRequestDTO requestDTO) {
         String subtotal = ZERO_TOTAL;

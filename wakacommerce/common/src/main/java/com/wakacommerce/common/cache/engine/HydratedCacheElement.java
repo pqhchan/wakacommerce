@@ -5,9 +5,8 @@ import java.io.Serializable;
 import java.util.Hashtable;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 @Deprecated
 public class HydratedCacheElement extends Hashtable<String, Object> {

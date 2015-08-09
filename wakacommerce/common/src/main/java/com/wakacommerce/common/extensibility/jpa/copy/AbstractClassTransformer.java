@@ -9,11 +9,8 @@ import java.util.Set;
 import org.springframework.beans.factory.InitializingBean;
 
 /**
- * This provides a useful mechanism to pre-load/initialize classes that are required by a child class during class transformation, 
- * but that may not have been loaded or initialized by the JVM.
- * 
- *  
  *
+ * @ hui
  */
 public abstract class AbstractClassTransformer implements InitializingBean {
 

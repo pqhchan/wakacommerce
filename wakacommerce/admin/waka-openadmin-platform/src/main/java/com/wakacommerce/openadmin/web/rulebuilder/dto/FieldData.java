@@ -4,13 +4,8 @@ package com.wakacommerce.openadmin.web.rulebuilder.dto;
 import com.wakacommerce.common.presentation.client.SupportedFieldType;
 
 /**
- *  
  *
- * A temporary container object used to load the data into a RuleBuilderFieldService
- * @see com.wakacommerce.openadmin.web.rulebuilder.service.RuleBuilderFieldService
- * @see com.wakacommerce.openadmin.web.rulebuilder.service.OrderItemFieldServiceImpl
- *
- *
+ * @ hui
  */
 public class FieldData {
 

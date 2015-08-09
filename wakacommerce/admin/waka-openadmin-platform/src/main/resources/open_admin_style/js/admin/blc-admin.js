@@ -346,6 +346,7 @@ var BLCAdmin = (function($) {
     	    // Set up rich-text HTML editors
     	    if($.fn.redactor) {
 	            $container.find('.redactor').redactor({
+	            	lang: 'zh_cn',
 	                plugins: ['selectasset', 'fontfamily', 'fontcolor', 'fontsize', 'video', 'table'],
 	                replaceDivs : false,
 	                buttonSource: true,

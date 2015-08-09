@@ -21,8 +21,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Handles admin operations for the {@link Offer} entity. Certain Offer fields should only render when specific values
- * are set for other fields; we provide the support for that in this controller.
+ *
+ * @ hui
  */
 @Controller("blAdminOfferController")
 @RequestMapping("/" + AdminOfferController.SECTION_KEY)
@@ -70,14 +70,7 @@ public class AdminOfferController extends AdminBasicEntityController {
         }
         return view;
     }
-    
-    /**
-     * Offer field visibility is dependent on other fields in the entity. Mark the form with the appropriate class
-     * so that the Javascript will know to handle this form.
-     * 
-     * We also want to tell the UI to make item target criteria required. We cannot manage this at the entity level via an
-     * @AdminPresentation annotation as it is only required when the offer type has a type of {@link OfferType#ORDER_ITEM}.
-     */
+
     protected void modifyModelAttributes(Model model) {
         model.addAttribute("additionalControllerClasses", "offer-form");
         EntityForm form = (EntityForm) model.asMap().get("entityForm");

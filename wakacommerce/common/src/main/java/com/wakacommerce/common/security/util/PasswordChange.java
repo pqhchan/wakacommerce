@@ -3,9 +3,8 @@ package com.wakacommerce.common.security.util;
 
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public class PasswordChange extends PasswordReset {
 

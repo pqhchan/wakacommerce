@@ -16,9 +16,8 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Utility class to convert a DataDTO/ExpressionDTO into an MVEL string
  *
- *  
+ * @ hui
  */
 public class DataDTOToMVELTranslator {
 

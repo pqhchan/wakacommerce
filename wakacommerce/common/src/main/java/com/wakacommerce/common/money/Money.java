@@ -388,11 +388,6 @@ public class Money implements Serializable, Cloneable, Comparable<Money>, Extern
         return ((money == null) ? null : money.currency);
     }
 
-    /**
-     * Ensures predictable results by converting the double into a string then calling the BigDecimal string constructor.
-     * @param amount The amount
-     * @return BigDecimal a big decimal with a predictable value
-     */
     private static BigDecimal valueOf(double amount) {
         return valueOf(String.valueOf(amount));
     }
@@ -406,11 +401,6 @@ public class Money implements Serializable, Cloneable, Comparable<Money>, Extern
         return value;
     }
 
-    /**
-     * Attempts to load a default currency by using the default locale. {@link Currency#getInstance(Locale)} uses the country component of the locale to resolve the currency. In some instances, the locale may not have a country component, in which case the default currency can be controlled with a
-     * system property.
-     * @return The default currency to use when none is specified
-     */
     public static Currency defaultCurrency() {
         if (
             CurrencyConsiderationContext.getCurrencyConsiderationContext() != null &&

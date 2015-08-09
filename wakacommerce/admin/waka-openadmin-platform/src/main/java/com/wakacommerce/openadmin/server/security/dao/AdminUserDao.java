@@ -7,9 +7,8 @@ import java.util.Set;
 import com.wakacommerce.openadmin.server.security.domain.AdminUser;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public interface AdminUserDao {
     List<AdminUser> readAllAdminUsers();

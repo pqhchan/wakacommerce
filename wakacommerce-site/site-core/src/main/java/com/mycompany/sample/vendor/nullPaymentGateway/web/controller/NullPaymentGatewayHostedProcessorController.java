@@ -12,16 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
- * This is a sample implementation of a Hosted Payment Gateway Processor.
- * This mimics the flow of a real hosted service like PayPal Express Checkout.
  *
- * In order to use this sample controller, you will need to component scan
- * the package "com.mycompany.sample".
- *
- * This should NOT be used in production, and is meant solely for demonstration
- * purposes only.
- *
- *  
+ * @ hui
  */
 @Controller("blNullPaymentGatewayHostedProcessorController")
 public class NullPaymentGatewayHostedProcessorController {

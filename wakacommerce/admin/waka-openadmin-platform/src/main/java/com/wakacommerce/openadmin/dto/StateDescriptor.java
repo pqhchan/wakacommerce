@@ -4,9 +4,8 @@ package com.wakacommerce.openadmin.dto;
 import java.util.Map;
 
 /**
- * The current state of an entity
  *
- * 
+ * @ hui
  */
 public interface StateDescriptor {
 

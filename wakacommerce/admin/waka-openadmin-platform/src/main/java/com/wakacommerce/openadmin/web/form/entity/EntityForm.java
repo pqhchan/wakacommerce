@@ -72,17 +72,6 @@ public class EntityForm {
 
     protected Map<String, Object> attributes = new HashMap<String, Object>();
 
-    /**
-     * @return a flattened, field name keyed representation of all of 
-     * the fields in all of the groups for this form. This set will also includes all of the dynamic form
-     * fields.
-     * 
-     * Note that if there collisions between the dynamic form fields and the fields on this form (meaning that they
-     * have the same name), then the dynamic form field will be excluded from the map and the preference will be given
-     * to first-level entities
-     * 
-     * @see {@link #getFields(boolean)}
-     */
     public Map<String, Field> getFields() {
         if (fields == null) {
             Map<String, Field> map = new LinkedHashMap<String, Field>();
@@ -110,12 +99,7 @@ public class EntityForm {
 
         return fields;
     }
-    
-    /**
-     * Clears out the cached 'fields' variable which is used to render the form on the frontend. Use this method
-     * if you want to force the entityForm to rebuild itself based on the tabs and groups that have been assigned and 
-     * populated
-     */
+
     public void clearFieldsMap() {
         fields = null;
     }
@@ -129,14 +113,7 @@ public class EntityForm {
         }
         return list;
     }
-    
-    /**
-     * Convenience method for grabbing a grid by its collection field name. This is very similar to {@link #findField(String)}
-     * but differs in that this only searches through the sub collections for the current entity
-     * 
-     * @param collectionFieldName the field name of the collection on the top-level entity
-     * @return
-     */
+
     public ListGrid findListGrid(String collectionFieldName) {
         for (ListGrid grid : getAllListGrids()) {
             if (grid.getSubCollectionFieldName().equals(collectionFieldName)) {
@@ -182,13 +159,7 @@ public class EntityForm {
         }
         return null;
     }
-    
-    /**
-     * Since this field name could come from the frontend (where all fields are referenced like fields[name].value,
-     * we need to strip that part out to look up the real field name in this entity
-     * @param fieldName
-     * @return
-     */
+
     public String sanitizeFieldName(String fieldName) {
         if (fieldName.contains("[")) {
             fieldName = fieldName.substring(fieldName.indexOf('[') + 1, fieldName.indexOf(']'));
@@ -333,11 +304,6 @@ public class EntityForm {
         tab.getListGrids().add(listGrid);
     }
 
-    /**
-     * Uses a zero based position.   Use 0 to add to the top of the list.
-     * @param position
-     * @param action
-     */
     public void addAction(int position, EntityFormAction action) {
         if (actions.size() > position) {
             actions.add(position, action);

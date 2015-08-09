@@ -8,7 +8,8 @@ import com.wakacommerce.openadmin.dto.DynamicResultSet;
 import com.wakacommerce.openadmin.dto.Entity;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class PersistenceManagerEventHandlerResponse {
 

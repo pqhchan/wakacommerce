@@ -14,10 +14,8 @@ import com.wakacommerce.core.workflow.ProcessContext;
 import java.math.BigDecimal;
 
 /**
- * @deprecated Should use the {@link FulfillmentOption} paradigm, implemented in {@link FulfillmentPricingService}.
- * This activity was replaced by {@link FulfillmentGroupPricingActivity}.
- * 
- * @see {@link FulfillmentPricingActivity}, {@link FulfillmentPricingService}, {@link FulfillmentOption}
+ *
+ * @ hui
  */
 @Deprecated
 public class ShippingActivity extends BaseActivity<ProcessContext<Order>> {

@@ -32,12 +32,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- * This processor will add the following information to the model, available for consumption by a template:
- * -pricing for a sku based on the product option values selected
- * -the complete set of product options and values for a given product
- *  
- *jfridye
  *
+ * @ hui
  */
 public class ProductOptionsProcessor extends AbstractModelVariableModifierProcessor {
     

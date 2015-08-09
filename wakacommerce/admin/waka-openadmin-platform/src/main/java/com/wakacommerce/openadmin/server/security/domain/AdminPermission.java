@@ -8,9 +8,8 @@ import java.util.Set;
 import com.wakacommerce.openadmin.server.security.service.type.PermissionType;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public interface AdminPermission extends Serializable {
 

@@ -6,7 +6,8 @@ import java.io.Serializable;
 import com.wakacommerce.common.copy.MultiTenantCloneable;
 
 /**
- * 
+ *
+ * @ hui
  */
 public interface ProductOptionXref extends Serializable, MultiTenantCloneable<ProductOptionXref> {
 

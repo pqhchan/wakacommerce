@@ -10,44 +10,23 @@ import org.springframework.stereotype.Service;
 import com.wakacommerce.common.web.WakaRequestContext;
 
 /**
- * Convenience class to faciliate getting internationalized messages. 
- * 
- * Note that this class is scanned as a bean to pick up the applicationContext, but the methods
- * this class provides should be invoked statically.
- * 
- * 
+ *
+ * @ hui
  */
 @Service("blBLCMessageUtils")
 public class BLCMessageUtils implements ApplicationContextAware {
 
     protected static ApplicationContext applicationContext;
-    
-    /**
-     * Returns the message requested by the code with no arguments and the currently set Java Locale on 
-     * the {@link WakaRequestContext} as returned by {@link WakaRequestContext#getJavaLocale()}
-     * 
-     * @param code
-     * @return the message
-     */
+
     public static String getMessage(String code) {
         return getMessage(code, (Object) null);
     }
-    
-    /**
-     * Returns the message requested by the code with the specified arguments and the currently set Java Locale on 
-     * the {@link WakaRequestContext} as returned by {@link WakaRequestContext#getJavaLocale()}
-     * 
-     * @param code
-     * @return the message
-     */
+
     public static String getMessage(String code, Object... args) {
         WakaRequestContext brc = WakaRequestContext.getWakaRequestContext();
         return getMessageSource().getMessage(code, args, brc.getJavaLocale());
     }
-    
-    /**
-     * @return the "messageSource" bean from the application context
-     */
+
     protected static MessageSource getMessageSource() {
         return (MessageSource) applicationContext.getBean("messageSource");
     }

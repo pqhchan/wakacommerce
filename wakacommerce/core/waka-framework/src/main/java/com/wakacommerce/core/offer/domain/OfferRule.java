@@ -5,9 +5,8 @@ import com.wakacommerce.common.copy.MultiTenantCloneable;
 import com.wakacommerce.common.rule.SimpleRule;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public interface OfferRule extends SimpleRule, MultiTenantCloneable<OfferRule> {
 

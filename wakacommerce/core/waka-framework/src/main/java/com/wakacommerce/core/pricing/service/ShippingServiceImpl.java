@@ -7,8 +7,8 @@ import com.wakacommerce.core.order.domain.FulfillmentOption;
 import com.wakacommerce.core.pricing.service.module.ShippingModule;
 
 /**
- * @deprecated Should use the {@link FulfillmentOption} paradigm, implemented in {@link FulfillmentPricingService}
- * @see {@link FulfillmentPricingService}, {@link FulfillmentOption}
+ *
+ * @ hui
  */
 @Deprecated
 public class ShippingServiceImpl implements ShippingService {

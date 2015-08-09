@@ -9,9 +9,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * Extensible enumeration indicating types of product relations such as upsell, crosssell, or featured.
- * 
- *   
+ *
+ * @ hui
  */
 public class RelatedProductTypeEnum implements Serializable, WakaEnumType {
 

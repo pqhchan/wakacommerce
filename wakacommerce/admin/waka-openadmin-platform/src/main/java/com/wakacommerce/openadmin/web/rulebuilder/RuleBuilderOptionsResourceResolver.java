@@ -17,10 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  *
- * {@link ResourceResolver} for ruleBuilder-options.js. Delegates to all registered {@link RuleBuilderEnumOptionsExtensionListener}
- * to create the resource.
- *Reginald Cole
- * @since 4.0
+ * @ hui
  */
 @Component("blRuleBuilderOptionResourceResolver")
 public class RuleBuilderOptionsResourceResolver implements ResourceResolver {

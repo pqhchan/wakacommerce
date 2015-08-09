@@ -69,7 +69,8 @@ import com.wakacommerce.profile.core.domain.Customer;
 
 
 /**
- *  
+ *
+ * @ hui
  */
 @Service("blOrderService")
 @ManagedResource(objectName="com.wakacommerce:name=OrderService", description="Order Service", currencyTimeLimit=15)
@@ -729,14 +730,7 @@ public class OrderServiceImpl implements OrderService {
             paymentDao.delete(payment);
         }
     }
-    
-    /**
-     * This method will return the exception that is immediately below the deepest 
-     * WorkflowException in the current stack trace.
-     * 
-     * @param e the workflow exception that contains the requested root cause
-     * @return the root cause of the workflow exception
-     */
+
     protected Throwable getCartOperationExceptionRootCause(WorkflowException e) {
         Throwable cause = e.getCause();
         if (cause == null) {
@@ -754,12 +748,6 @@ public class OrderServiceImpl implements OrderService {
         return cause;
     }
 
-    /**
-     * Returns true if the two items attributes exactly match.
-     * @param item1
-     * @param item2
-     * @return
-     */
     protected boolean compareAttributes(Map<String, OrderItemAttribute> item1Attributes, OrderItemRequestDTO item2) {
         int item1AttributeSize = item1Attributes == null ? 0 : item1Attributes.size();
         int item2AttributeSize = item2.getItemAttributes() == null ? 0 : item2.getItemAttributes().size();

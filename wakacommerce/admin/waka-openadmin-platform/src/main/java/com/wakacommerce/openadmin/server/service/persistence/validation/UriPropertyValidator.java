@@ -14,18 +14,8 @@ import java.io.Serializable;
 import java.util.Map;
 
 /**
- * Validates a field as being a valid URI to ensure compatibility with Broadleaf handlers including
- * PageHandler, ProductHandler, and CategoryHandlers.
- * 
- * Component can be overridden with the following properties:
- * 
- * This component was introduced instead of using RegEx because most site have simple url needs and BLC out of 
- * box simply requires that the URL start with a / and use valid url characters.
- * 
- * Replace if needed for your implementation.
- * 
- * 
- *  
+ *
+ * @ hui
  */
 @Component("blUriPropertyValidator")
 public class UriPropertyValidator extends ValidationConfigurationBasedPropertyValidator {
@@ -52,10 +42,6 @@ public class UriPropertyValidator extends ValidationConfigurationBasedPropertyVa
         return (url.startsWith("http") || url.startsWith("ftp"));
     }
 
-    /**
-     * Denotes what should occur when this validator encounters a null value to validate against. Default behavior is to
-     * allow them, which means that this validator will always return true with null values
-     */
     protected boolean succeedForNullValues = true;
     
     @Override

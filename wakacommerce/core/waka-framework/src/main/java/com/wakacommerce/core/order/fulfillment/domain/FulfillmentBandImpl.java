@@ -10,9 +10,8 @@ import javax.persistence.MappedSuperclass;
 import java.math.BigDecimal;
 
 /**
- * 
- *  
- * @see {@link FulfillmentPriceBandImpl}, {@link FulfillmentWeightBandImpl}
+ *
+ * @ hui
  */
 @MappedSuperclass
 public abstract class FulfillmentBandImpl implements FulfillmentBand {

@@ -9,9 +9,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * Reasonsable set of SiteMap URL priorities
- * 
- * 
+ *
+ * @ hui
  */
 public class SiteMapPriorityType implements Serializable, WakaEnumType {
 

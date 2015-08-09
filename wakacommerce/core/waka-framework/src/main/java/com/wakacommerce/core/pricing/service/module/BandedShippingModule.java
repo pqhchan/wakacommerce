@@ -21,8 +21,8 @@ import java.math.BigDecimal;
 import java.util.Map;
 
 /**
- * @deprecated Superceded by functionality given by {@link BandedPriceFulfillmentOption} and {@link BandedFulfillmentPricingProvider}
- * @see {@link BandedPriceFulfillmentOption}, {@link BandedPriceFulfillmentOption}
+ *
+ * @ hui
  */
 @Deprecated
 public class BandedShippingModule implements ShippingModule {

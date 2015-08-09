@@ -4,9 +4,8 @@ package com.wakacommerce.openadmin.server.dao.provider.metadata.request;
 import com.wakacommerce.openadmin.server.dao.DynamicEntityDao;
 
 /**
- * Contains the requested config key, ceiling entity, metadata and support classes.
  *
- * 
+ * @ hui
  */
 public class OverrideViaXmlRequest {
 

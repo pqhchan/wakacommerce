@@ -14,14 +14,8 @@ import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.tagext.TagSupport;
 
 /**
- * Will convert from http/https based on the request.
- * 
- * If the URL is based on a  BLC-CMS-Asset and the environment
- * specifies a replacement prefix, then the prefix will be set.
- * 
- * Populates the page-attribute "assetpath" with the updated
- * url.
- * 
+ *
+ * @ hui
  */
 public class UrlRewriteTag extends TagSupport {
     private static final long serialVersionUID = 1L;
@@ -40,12 +34,7 @@ public class UrlRewriteTag extends TagSupport {
             staticAssetService = (StaticAssetService) applicationContext.getBean("blStaticAssetService");
         }
     }
-        
 
-    /**
-     * Returns true if the current request.scheme = HTTPS or if the request.isSecure value is true.
-     * @return
-     */
     protected boolean isRequestSecure() {
         HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
         return ("HTTPS".equalsIgnoreCase(request.getScheme()) || request.isSecure());

@@ -7,10 +7,8 @@ import java.util.Collections;
 import java.util.Map;
 
 /**
- * Event that may be raised to indicate that items have been fulfilled.
- * 
- *  
  *
+ * @ hui
  */
 public class ItemsFulfilledEvent extends BroadleafApplicationEvent {
 

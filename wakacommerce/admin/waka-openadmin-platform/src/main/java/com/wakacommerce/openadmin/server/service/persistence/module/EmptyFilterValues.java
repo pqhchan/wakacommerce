@@ -4,7 +4,8 @@ package com.wakacommerce.openadmin.server.service.persistence.module;
 import java.util.ArrayList;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class EmptyFilterValues extends ArrayList<String> {
 

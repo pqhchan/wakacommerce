@@ -32,12 +32,6 @@ public class DefaultDynamicSkuPricingInvocationHandler implements InvocationHand
         }
     }
 
-    /**
-     * This is used with SkuBundleItem to allow the bundle override price.
-     *
-     * @param sku
-     * @param salePriceOverride
-     */
     public DefaultDynamicSkuPricingInvocationHandler(Sku sku, BigDecimal salePriceOverride) {
         this(sku);
 
@@ -45,12 +39,7 @@ public class DefaultDynamicSkuPricingInvocationHandler implements InvocationHand
             salePrice = new Money(salePriceOverride);
         }
     }
-    /**
-     * This is used with SkuBundleItem to allow the bundle override price.
-     *
-     * @param sku
-     * @param salePriceOverride
-     */
+
     public DefaultDynamicSkuPricingInvocationHandler(BigDecimal salePriceOverride) {
         this(new SkuImpl());
 
@@ -58,13 +47,7 @@ public class DefaultDynamicSkuPricingInvocationHandler implements InvocationHand
             salePrice = new Money(salePriceOverride);
         }
     }
-    /**
-     * Used to add ProductOptionValue price adjustments to the proxy Sku
-     * 
-     * @param sku
-     * @param adjustments - the sum total of the ProductOptionValue price adjustments. If null, this
-     * functions the same as the default constructor. This value is added to both the salePrice and retailPrice
-     */
+
     public DefaultDynamicSkuPricingInvocationHandler(Sku sku, Money adjustments) {
         this(sku);
 

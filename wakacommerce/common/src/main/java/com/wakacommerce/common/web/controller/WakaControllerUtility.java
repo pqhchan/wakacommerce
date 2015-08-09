@@ -10,12 +10,7 @@ public class WakaControllerUtility {
     
     public static final String BLC_REDIRECT_ATTRIBUTE = "blc_redirect";
     public static final String WK_AJAX_PARAMETER = "blcAjax";
-    
-    /**
-     * 判断指定的request是普通请求还是Ajax请求
-     * 
-     * @param request
-     */
+
     public static boolean isAjaxRequest(HttpServletRequest request) {
         String ajaxParameter = request.getParameter(WK_AJAX_PARAMETER);
         String requestedWithHeader = request.getHeader("X-Requested-With");

@@ -12,21 +12,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Only the product and quantity are required to add an item to an order.
  *
- * The category can be inferred from the product's default category.
- *
- * The sku can be inferred from either the passed in attributes as they are compared to the product's options or
- * the sku can be determined from the product's default sku.
- * 
- * When adding a bundle using this DTO, you MUST have the {@link ProductBundle} included in the productId for it to
- * properly instantiate the {@link BundleOrderItem}
- * 
- * Important Note:  To protect against misuse, the {@link OrderService}'s addItemToCart method will blank out
- * any values passed in on this DTO for the overrideSalePrice or overrideRetailPrice.
- * 
- * Instead, implementors should call the more explicit addItemWithPriceOverrides.
- *
+ * @ hui
  */
 public class OrderItemRequestDTO {
 

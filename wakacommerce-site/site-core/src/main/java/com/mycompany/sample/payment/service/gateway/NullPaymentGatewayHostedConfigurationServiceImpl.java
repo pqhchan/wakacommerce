@@ -24,7 +24,8 @@ import com.wakacommerce.common.web.payment.processor.TRCreditCardExtensionHandle
 import javax.annotation.Resource;
 
 /**
- *  
+ *
+ * @ hui
  */
 @Service("blNullPaymentGatewayHostedConfigurationService")
 public class NullPaymentGatewayHostedConfigurationServiceImpl implements PaymentGatewayConfigurationService {

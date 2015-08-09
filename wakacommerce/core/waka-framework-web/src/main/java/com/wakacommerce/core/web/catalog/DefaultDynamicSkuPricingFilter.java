@@ -11,12 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 
 /**
- * Register this filter via Spring DelegatingFilterProxy, or register your own implementation
- * that provides additional, desirable members to the pricingConsiderations Map
- * that is generated from the getPricingConsiderations method.
- * 
- *  
  *
+ * @ hui
  */
 public class DefaultDynamicSkuPricingFilter extends AbstractDynamicSkuPricingFilter {
     

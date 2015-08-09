@@ -11,7 +11,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @deprecated - payment logs should now be captured as raw responses in Payment Transaction line items
+ *
+ * @ hui
  */
 @Deprecated
 public interface PaymentLog extends Serializable {

@@ -22,37 +22,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- * <p>The following processor will modify the declared Credit Card Form
- * and call the Transparent Redirect Service of the configured payment gateway. </p>
  *
- * <p>This processor will change the form's action URL and append any hidden input fields
- * that are necessary to make the call. Certain gateway implementations accept configuration
- * settings in order to generate the form. These configuration parameters can be passed into
- * the module, by prefixing any configuration settings name with "config-" + attribute name = attribute value
- * </p>
- * <p>Here is an example:</p>
- *
- * <pre><code>
- *     <blc:transparent_credit_card_form action="#" method="POST"
- *         paymentRequestDTO="${requestDTO}"
- *         config-specificGatewayParam="value1"
- *         config-specificGatewayParam2="value2"
- *         config-specificGatewayParam3="value3">
- *
- *         <input type="text" name="credit_card_num"/>
- *         ...
- *
- *     </blc:transparent_credit_form>
- * </code></pre>
- *
- * <p>NOTE: please see {@link com.wakacommerce.common.web.payment.expression.PaymentGatewayFieldVariableExpression}
- * to modify the input "name" fields for a particular gateway</p>
- *
- * @see {@link com.wakacommerce.common.web.payment.expression.PaymentGatewayFieldVariableExpression}
- * @see {@link TRCreditCardExtensionHandler}
- * @see {@link AbstractTRCreditCardExtensionHandler}
- *
- *  
+ * @ hui
  */
 @Component("blTransparentRedirectCreditCardFormProcessor")
 public class TransparentRedirectCreditCardFormProcessor extends AbstractElementProcessor {

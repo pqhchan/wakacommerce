@@ -40,22 +40,11 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 /**
- * This class manages all xml merge interactions with callers. It is responsible for
- * not only loading the handler configurations, but also for cycling through the handlers
- * in a prioritized fashion and exporting the final merged document.
  *
+ * @ hui
  */
 public class MergeManager {
 
-    /**
-     * Additional merge points may be added by the caller. Also default merge points
-     * may be overriden to change their current behavior. This is accomplished by
-     * specifying the system property denoted by the key MergeManager.MERGE_DEFINITION_SYSTEM_PROPERTY
-     * with a value stating the fully qualified path of user-created property file. Please refer
-     * to the default properties file located at org/broadleafcommerce/profile/extensibility/context/merge/default.properties
-     * for more details.
-     *
-     */
     public static final String MERGE_DEFINITION_SYSTEM_PROPERTY = "com.wakacommerce.extensibility.context.merge.handlers.merge.properties";
 
     private static final Log LOG = LogFactory.getLog(MergeManager.class);
@@ -130,14 +119,6 @@ public class MergeManager {
         }
     }
 
-    /**
-     * Examines the properties file for an entry with an id equal to the component that we want
-     * to ignore and then removes all keys that have the same number (e.g. if xpath.28 is the key
-     * then handler.28, xpath.28, and priority.28 will all be removed).
-     * 
-     * @param props
-     * @param componentName
-     */
     private void removeSkipMergeComponents(Properties props, String componentName) {
         String lookupName = "@id='" + componentName.trim() + "'";
         String key = findComponentKey(lookupName, props);
@@ -147,15 +128,6 @@ public class MergeManager {
         }
     }
 
-    /**
-     * Examines the properties file for an entry that contains the passed in component id string and returns its key
-     * 
-     * to ignore. 
-     * 
-     * @param componentName
-     * @param props
-     * @return
-     */
     private String findComponentKey(String componentIdStr, Properties props) {
         for (Map.Entry<Object, Object> entry : props.entrySet()) {
             Object value = entry.getValue();
@@ -172,14 +144,6 @@ public class MergeManager {
         return null;
     }
 
-    /**
-     * Removes all keys that share the same number.   (e.g. if xpath.28 is the key
-     * then handler.28, xpath.28, and priority.28 will all be removed).
-     * 
-     * @param firstKey
-     * @param props
-     * @return
-     */
     private void removeItemsMatchingKey(String firstKey, Properties props) {
         int dotPos = firstKey.indexOf(".");
         if (dotPos > 0) {
@@ -201,16 +165,6 @@ public class MergeManager {
         }
     }
 
-    /**
-     * Merge 2 xml document streams together into a final resulting stream. During
-     * the merge, various merge business rules are followed based on configuration
-     * defined for various merge points.
-     *
-     * @param stream1
-     * @param stream2
-     * @return the stream representing the merged document
-     * @throws com.wakacommerce.common.extensibility.context.merge.exceptions.MergeException
-     */
     public ResourceInputStream merge(ResourceInputStream stream1, ResourceInputStream stream2) throws MergeException {
         try {
             Document doc1 = builder.parse(stream1);

@@ -45,7 +45,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Resource;
 
 /**
- * The Class OfferServiceImpl.
+ *
+ * @ hui
  */
 @Service("blOfferService")
 public class OfferServiceImpl implements OfferService {
@@ -101,14 +102,6 @@ public class OfferServiceImpl implements OfferService {
         return offerCodeDao.save(offerCode);
     }
 
-    /**
-     * Creates a list of offers that applies to this order.  All offers that are assigned to the customer,
-     * entered during checkout, or has a delivery type of automatic are added to the list.  The same offer
-     * cannot appear more than once in the list.
-     *
-     * @param code
-     * @return a List of offers that may apply to this order
-     */
     @Override
     public Offer lookupOfferByCode(String code) {
         Offer offer = null;
@@ -124,14 +117,6 @@ public class OfferServiceImpl implements OfferService {
         return offerCodeDao.readOfferCodeByCode(code);
     }
 
-    /**
-     * Creates a list of offers that applies to this order.  All offers that are assigned to the customer,
-     * entered during checkout, or has a delivery type of automatic are added to the list.  The same offer
-     * cannot appear more than once in the list.
-     *
-     * @param order
-     * @return a List of offers that may apply to this order
-     */
     @Override
     public List<Offer> buildOfferListForOrder(Order order) {
         List<Offer> offers = new ArrayList<Offer>();
@@ -180,39 +165,16 @@ public class OfferServiceImpl implements OfferService {
         return offerCodes;
     }
 
-    /**
-     * Private method used to retrieve all offers assigned to this customer.  These offers
-     * have a DeliveryType of MANUAL and are programmatically assigned to the customer.
-     *
-     * @param customer
-     * @return a List of offers assigned to the customer
-     */
     protected List<CustomerOffer> lookupOfferCustomerByCustomer(Customer customer) {
         List<CustomerOffer> offerCustomers = customerOfferDao.readCustomerOffersByCustomer(customer);
         return offerCustomers;
     }
 
-    /**
-     * Private method used to retrieve all offers with DeliveryType of AUTOMATIC
-     *
-     * @return a List of automatic delivery offers
-     */
     protected List<Offer> lookupAutomaticDeliveryOffers() {
         List<Offer> globalOffers = offerDao.readOffersByAutomaticDeliveryType();
         return globalOffers;
     }
 
-    /**
-     * Removes all out of date offerCodes based on the offerCode and its offer's start and end
-     * date.  If an offerCode has a later start date, that offerCode will be removed.
-     * OfferCodes without a start date will still be processed. If the offerCode
-     * has a end date that has already passed, that offerCode will be removed.  OfferCodes
-     * without a end date will be processed.  The start and end dates on the offer will
-     * still need to be evaluated.
-     *
-     * @param offerCodes
-     * @return a List of non-expired offers
-     */
     protected List<OfferCode> removeOutOfDateOfferCodes(List<OfferCode> offerCodes){
         List<OfferCode> offerCodesToRemove = new ArrayList<OfferCode>();
         for (OfferCode offerCode : offerCodes) {

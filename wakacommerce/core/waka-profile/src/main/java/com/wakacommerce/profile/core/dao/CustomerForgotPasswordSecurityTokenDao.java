@@ -7,9 +7,8 @@ import com.wakacommerce.profile.core.domain.CustomerForgotPasswordSecurityToken;
 
 
 /**
- * 
- * 
  *
+ * @ hui
  */
 public interface CustomerForgotPasswordSecurityTokenDao {
     public CustomerForgotPasswordSecurityToken readToken(String token);

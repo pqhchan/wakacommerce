@@ -2,7 +2,8 @@
 package com.wakacommerce.common.copy;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class CreateResponse<G> {
 

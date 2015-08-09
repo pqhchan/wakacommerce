@@ -13,9 +13,8 @@ import java.util.Map;
 
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public class PersistencePerspective implements Serializable {
      
@@ -87,59 +86,21 @@ public class PersistencePerspective implements Serializable {
         this.persistencePerspectiveItems = persistencePerspectiveItems;
     }
 
-    /**
-     * Retrieves whether or not ManyToOne and OneToOne field boundaries
-     * will be traversed when retrieving and populating entity fields.
-     * Implementation should use the @AdminPresentationClass annotation
-     * instead.
-     *
-     * @return Whether or not ManyToOne and OneToOne field boundaries will be crossed.
-     */
     @Deprecated
     public Boolean getPopulateToOneFields() {
         return populateToOneFields;
     }
 
-    /**
-     * Sets whether or not ManyToOne and OneToOne field boundaries
-     * will be traversed when retrieving and populating entity fields.
-     * Implementation should use the @AdminPresentationClass annotation
-     * instead.
-     *
-     * @return Whether or not ManyToOne and OneToOne field boundaries will be crossed.
-     */
     @Deprecated
     public void setPopulateToOneFields(Boolean populateToOneFields) {
         this.populateToOneFields = populateToOneFields;
     }
 
-    /**
-     * Retrieve the list of fields to exclude from the admin presentation.
-     * Implementations should use the excluded property of the AdminPresentation
-     * annotation instead, or use an AdminPresentationOverride if re-enabling a
-     * Broadleaf field is desired. If multiple datasources point to the same
-     * entity, but different exclusion behavior is required, a custom persistence
-     * handler may be employed with different inspect method implementations to
-     * account for the variations.
-     *
-     * @return list of fields to exclude from the admin
-     */
     @Deprecated
     public String[] getExcludeFields() {
         return excludeFields;
     }
 
-    /**
-     * Set the list of fields to exclude from the admin presentation.
-     * Implementations should use the excluded property of the AdminPresentation
-     * annotation instead, or use an AdminPresentationOverride if re-enabling a
-     * Broadleaf field is desired. If multiple datasources point to the same
-     * entity, but different exclusion behavior is required, a custom persistence
-     * handler may be employed with different inspect method implementations to
-     * account for the variations.
-     *
-     * @param excludeManyToOneFields
-     */
     @Deprecated
     public void setExcludeFields(String[] excludeManyToOneFields) {
         this.excludeFields = excludeManyToOneFields;
@@ -148,23 +109,11 @@ public class PersistencePerspective implements Serializable {
         }
     }
 
-    /**
-     * Get the list of fields to include in the admin presentation.
-     * Implementations should use excludeFields instead.
-     *
-     * @return list of fields to include in the admin
-     */
     @Deprecated
     public String[] getIncludeFields() {
         return includeFields;
     }
 
-    /**
-     * Set the list of fields to include in the admin presentation.
-     * Implementations should use excludeFields instead.
-     *
-     * @param includeManyToOneFields
-     */
     @Deprecated
     public void setIncludeFields(String[] includeManyToOneFields) {
         this.includeFields = includeManyToOneFields;

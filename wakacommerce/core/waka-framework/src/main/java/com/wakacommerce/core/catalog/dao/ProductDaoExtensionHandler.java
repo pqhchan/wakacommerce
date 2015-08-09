@@ -6,7 +6,8 @@ import com.wakacommerce.common.extension.ExtensionResultHolder;
 import com.wakacommerce.common.extension.ExtensionResultStatusType;
 
 /**
- * 
+ *
+ * @ hui
  */
 public interface ProductDaoExtensionHandler extends ExtensionHandler {
 

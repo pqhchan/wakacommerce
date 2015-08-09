@@ -29,7 +29,8 @@ import java.util.Map.Entry;
 import javax.annotation.Resource;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Service("blFulfillmentGroupItemStrategy")
 public class FulfillmentGroupItemStrategyImpl implements FulfillmentGroupItemStrategy {
@@ -158,14 +159,7 @@ public class FulfillmentGroupItemStrategyImpl implements FulfillmentGroupItemStr
         
         return request;
     }
-    
-    /**
-     * Resolves the fulfillment type based on the order item. The OOB implementation uses the {@link DiscreteOrderItem#getSku()}
-     * to then invoke {@link #resolveFulfillmentType(Sku)}.
-     * 
-     * @param discreteOrderItem
-     * @return
-     */
+
     protected FulfillmentType resolveFulfillmentType(DiscreteOrderItem discreteOrderItem) {
         return resolveFulfillmentType(discreteOrderItem.getSku());
     }

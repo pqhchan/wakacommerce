@@ -5,9 +5,8 @@ import java.lang.reflect.Method;
 import java.util.Map;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public class HydrationDescriptor {
 

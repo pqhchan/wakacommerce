@@ -27,7 +27,8 @@ import com.wakacommerce.openadmin.server.service.persistence.module.RecordHelper
 import java.util.Map;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Component("blAdminPermissionCustomPersistenceHandler")
 public class AdminPermissionCustomPersistenceHandler extends CustomPersistenceHandlerAdapter {

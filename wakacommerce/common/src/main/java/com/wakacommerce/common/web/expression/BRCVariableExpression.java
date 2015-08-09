@@ -15,7 +15,8 @@ import java.util.Date;
 
 
 /**
- * Exposes the {@link WakaRequestContext} to the Thymeleaf expression context
+ *
+ * @ hui
  */
 public class BRCVariableExpression implements BroadleafVariableExpression {
     

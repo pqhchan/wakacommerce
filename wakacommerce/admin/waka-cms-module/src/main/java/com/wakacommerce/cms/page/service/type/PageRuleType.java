@@ -8,11 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extendible enumeration of offer rule types.<BR>
- * REQUEST - indicates a rule based on the incoming http request.<BR>
- * TIME - indicates a rule based on {@link com.wakacommerce.common.TimeDTO time}<br>
- * PRODUCT - indicates a rule based on {@link com.wakacommerce.core.catalog.domain.Product product}
- * CUSTOMER - indicates a rule based on {@link com.wakacommerce.profile.core.domain}
+ *
+ * @ hui
  */
 public class PageRuleType implements Serializable, WakaEnumType {
 
@@ -25,11 +22,6 @@ public class PageRuleType implements Serializable, WakaEnumType {
     public static final PageRuleType PRODUCT = new PageRuleType("PRODUCT", "Product");
     public static final PageRuleType CUSTOMER = new PageRuleType("CUSTOMER", "Customer");
 
-    /**
-     * Allows translation from the passed in String to a <code>PageRuleType</code>
-     * @param type
-     * @return The matching rule type
-     */
     public static PageRuleType getInstance(final String type) {
         return TYPES.get(type);
     }
@@ -41,20 +33,11 @@ public class PageRuleType implements Serializable, WakaEnumType {
         //do nothing
     }
 
-    /**
-     * Initialize the type and friendlyType
-     * @param <code>type</code>
-     * @param <code>friendlyType</code>
-     */
     public PageRuleType(final String type, final String friendlyType) {
         this.friendlyType = friendlyType;
         setType(type);
     }
 
-    /**
-     * Sets the type
-     * @param type
-     */
     public void setType(final String type) {
         this.type = type;
         if (!TYPES.containsKey(type)) {
@@ -62,19 +45,11 @@ public class PageRuleType implements Serializable, WakaEnumType {
         }
     }
 
-    /**
-     * Gets the type
-     * @return
-     */
     @Override
     public String getType() {
         return type;
     }
 
-    /**
-     * Gets the name of the type
-     * @return
-     */
     @Override
     public String getFriendlyType() {
         return friendlyType;

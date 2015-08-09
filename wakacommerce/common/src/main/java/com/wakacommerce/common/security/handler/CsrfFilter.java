@@ -21,15 +21,8 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Checks the validity of the CSRF token on every POST request.
- * You can inject excluded Request URI patterns to bypass this filter.
- * This filter uses the AntPathRequestMatcher which compares a pre-defined ant-style pattern against the URL
- * ({@code servletPath + pathInfo}) of an {@code HttpServletRequest}.
- * This allows you to use wildcard matching as well, for example {@code /**} or {@code **}
  *
- * @see org.springframework.security.web.util.AntPathRequestMatcher
- *
- * 
+ * @ hui
  */
 public class CsrfFilter extends GenericFilterBean {
     protected static final Log LOG = LogFactory.getLog(CsrfFilter.class);

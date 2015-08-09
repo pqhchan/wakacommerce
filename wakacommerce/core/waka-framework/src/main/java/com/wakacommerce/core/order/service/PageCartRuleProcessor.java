@@ -10,17 +10,11 @@ import com.wakacommerce.core.order.domain.Order;
 import com.wakacommerce.profile.core.domain.Customer;
 
 /**
- *   
+ *
+ * @ hui
  */
 public class PageCartRuleProcessor extends AbstractCartRuleProcessor<PageDTO> {
 
-    /**
-     * Expects to find a valid "Customer" in the valueMap.
-     * Uses the customer to locate the cart and then loops through the items in the current
-     * cart and checks to see if the cart items rules are met.
-     *
-     * @param sc
-     */
     @Override
     public boolean checkForMatch(PageDTO page, Map<String, Object> valueMap) {
         List<ItemCriteriaDTO> itemCriterias = page.getItemCriteriaDTOList();

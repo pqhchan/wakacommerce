@@ -8,9 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extensible enumeration of entities that are used for searching and reporting
- * 
- * 
+ *
+ * @ hui
  */
 public class FieldEntity implements Serializable, WakaEnumType {
 

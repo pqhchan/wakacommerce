@@ -6,9 +6,8 @@ import com.wakacommerce.common.extension.ExtensionResultStatusType;
 import com.wakacommerce.common.site.domain.Site;
 
 /**
- * Default implementation of {@link SiteServiceExtensionHandler}
- * 
- *     
+ *
+ * @ hui
  */
 public class AbstractSiteServiceExtensionHandler extends AbstractExtensionHandler implements SiteServiceExtensionHandler {
 

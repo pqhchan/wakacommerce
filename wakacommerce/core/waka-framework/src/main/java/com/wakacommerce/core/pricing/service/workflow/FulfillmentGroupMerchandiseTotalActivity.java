@@ -13,11 +13,8 @@ import com.wakacommerce.core.workflow.ProcessContext;
 import java.math.BigDecimal;
 
 /**
- * Called during the pricing workflow to set the merchandise total for each FulfillmentGroup
- * in an Order. This activity should come before any activity dealing with pricing FulfillmentGroups
- * 
- *  
- * @see {@link FulfillmentGroup#setMerchandiseTotal(Money)}, {@link FulfillmentGroup#getMerchandiseTotal()}
+ *
+ * @ hui
  */
 public class FulfillmentGroupMerchandiseTotalActivity extends BaseActivity<ProcessContext<Order>> {
 

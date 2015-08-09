@@ -7,7 +7,8 @@ import com.wakacommerce.common.extension.ExtensionManager;
 
 
 /**
- * ,  
+ *
+ * @ hui
  */
 @Service("blDatabaseResourceResolverExtensionManager")
 public class DatabaseResourceResolverExtensionManager extends ExtensionManager<DatabaseResourceResolverExtensionHandler> {
@@ -16,10 +17,6 @@ public class DatabaseResourceResolverExtensionManager extends ExtensionManager<D
         super(DatabaseResourceResolverExtensionHandler.class);
     }
 
-    /**
-     * By default, this manager will allow other handlers to process the method when a handler returns
-     * HANDLED.
-     */
     @Override
     public boolean continueOnHandled() {
         return false;

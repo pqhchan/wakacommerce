@@ -6,14 +6,8 @@ import org.w3c.dom.Node;
 import java.util.List;
 
 /**
- * This handler is responsible for replacing nodes in the source document
- * with the same nodes from the patch document. Note, additional nodes
- * from the patch document that are not present in the source document
- * are simply appended to the source document. This is specialized for the
- * mo:overrideItem element.
- * 
- *  
  *
+ * @ hui
  */
 public class MetadataOverrideNodeReplaceInsert extends NodeReplaceInsert {
 

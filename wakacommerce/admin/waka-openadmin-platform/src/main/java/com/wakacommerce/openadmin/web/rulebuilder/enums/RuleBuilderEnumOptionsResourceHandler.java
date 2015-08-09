@@ -10,11 +10,8 @@ import com.wakacommerce.common.web.resource.AbstractGeneratedResourceHandler;
 import java.util.List;
 
 /**
- * Generated resource handler for blc-rulebuilder-options.js.
- * 
- * Delegates to all registered {@link RuleBuilderEnumOptionsExtensionListener} to create the resource
- * 
- * 
+ *
+ * @ hui
  */
 @Component("blRuleBuilderEnumOptionsResourceHandler")
 public class RuleBuilderEnumOptionsResourceHandler extends AbstractGeneratedResourceHandler {

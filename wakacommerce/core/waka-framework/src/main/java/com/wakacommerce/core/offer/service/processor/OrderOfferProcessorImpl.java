@@ -43,7 +43,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- *  ,  
+ *
+ * @ hui
  */
 @Service("blOrderOfferProcessor")
 public class OrderOfferProcessorImpl extends AbstractBaseProcessor implements OrderOfferProcessor {
@@ -104,42 +105,14 @@ public class OrderOfferProcessorImpl extends AbstractBaseProcessor implements Or
         return couldOfferApplyToOrder(offer, promotableOrder, null, null);
     }
 
-    /**
-     * Private method which executes the appliesToOrderRules in the Offer to determine if this offer
-     * can be applied to the Order, OrderItem, or FulfillmentGroup.
-     *
-     * @param offer
-     * @param order
-     * @param orderItem
-     * @return true if offer can be applied, otherwise false
-     */
     protected boolean couldOfferApplyToOrder(Offer offer, PromotableOrder promotableOrder, PromotableOrderItem orderItem) {
         return couldOfferApplyToOrder(offer, promotableOrder, orderItem, null);
     }
 
-    /**
-     * Private method which executes the appliesToOrderRules in the Offer to determine if this offer
-     * can be applied to the Order, OrderItem, or FulfillmentGroup.
-     *
-     * @param offer
-     * @param order
-     * @param fulfillmentGroup
-     * @return true if offer can be applied, otherwise false
-     */
     protected boolean couldOfferApplyToOrder(Offer offer, PromotableOrder promotableOrder, PromotableFulfillmentGroup fulfillmentGroup) {
         return couldOfferApplyToOrder(offer, promotableOrder, null, fulfillmentGroup);
     }
 
-    /**
-     * Private method which executes the appliesToOrderRules in the Offer to determine if this offer
-     * can be applied to the Order, OrderItem, or FulfillmentGroup.
-     *
-     * @param offer
-     * @param order
-     * @param promotableOrderItem
-     * @param promotableFulfillmentGroup
-     * @return true if offer can be applied, otherwise false
-     */
     protected boolean couldOfferApplyToOrder(Offer offer, PromotableOrder promotableOrder, PromotableOrderItem promotableOrderItem, PromotableFulfillmentGroup promotableFulfillmentGroup) {
         boolean appliesToItem = false;
         String rule = null;
@@ -234,11 +207,6 @@ public class OrderOfferProcessorImpl extends AbstractBaseProcessor implements Or
         promotableOrder.getOrder().setSubTotal(promotableOrder.calculateSubtotalWithAdjustments());
     }
 
-    /**
-     * Called when the system must determine whether to apply order or item adjustments.
-     * @param promotableOrder
-     * @param orderOffersApplied
-     */
     protected void compareAndAdjustOrderAndItemOffers(PromotableOrder promotableOrder) {
         Money orderAdjustmentTotal = promotableOrder.calculateOrderAdjustmentTotal();
         Money itemAdjustmentTotal = promotableOrder.calculateItemAdjustmentTotal();
@@ -250,12 +218,6 @@ public class OrderOfferProcessorImpl extends AbstractBaseProcessor implements Or
         }
     }
 
-    /**
-     * Private method used by applyAllOrderOffers to create an OrderAdjustment from a CandidateOrderOffer
-     * and associates the OrderAdjustment to the Order.
-     *
-     * @param orderOffer a CandidateOrderOffer to apply to an Order
-     */
     protected void applyOrderOffer(PromotableOrder promotableOrder, PromotableCandidateOrderOffer orderOffer) {
         PromotableOrderAdjustment promotableOrderAdjustment = promotableItemFactory.createPromotableOrderAdjustment(orderOffer, promotableOrder);
         promotableOrder.addCandidateOrderAdjustment(promotableOrderAdjustment);

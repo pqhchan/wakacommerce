@@ -7,7 +7,8 @@ import com.wakacommerce.core.search.domain.SearchIntercept;
 import com.wakacommerce.core.search.redirect.dao.SearchRedirectDao;
 
 /**
- * @deprecated Replaced in functionality by {@link SearchRedirectDao}
+ *
+ * @ hui
  */
 @Deprecated
 public interface SearchInterceptDao {

@@ -4,7 +4,8 @@ package com.wakacommerce.openadmin.server.service.persistence.module.criteria.co
 import org.springframework.stereotype.Component;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Component("blStringFilterValueConverter")
 public class StringFilterValueConverter implements FilterValueConverter<String>{

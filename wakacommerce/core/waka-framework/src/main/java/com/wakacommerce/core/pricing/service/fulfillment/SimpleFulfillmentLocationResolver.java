@@ -5,11 +5,8 @@ import com.wakacommerce.core.order.domain.FulfillmentGroup;
 import com.wakacommerce.profile.core.domain.Address;
 
 /**
- * Default implementation of {@link FulfillmentLocationResolver} that stores a
- * single Address. Useful for businesses that do not have a complicated warehouse solution
- * and fulfill from a single location.
- * 
- *  
+ *
+ * @ hui
  */
 public class SimpleFulfillmentLocationResolver implements FulfillmentLocationResolver {
 

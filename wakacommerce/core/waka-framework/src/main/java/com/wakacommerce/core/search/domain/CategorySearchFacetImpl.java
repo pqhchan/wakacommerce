@@ -42,10 +42,7 @@ import javax.persistence.Table;
         @DirectCopyTransformMember(templateTokens = DirectCopyTransformTypes.MULTITENANT_CATALOG)
 })
 public class CategorySearchFacetImpl implements CategorySearchFacet {
-    
-    /**
-     * 
-     */
+
     private static final long serialVersionUID = 1L;
 
     @Id

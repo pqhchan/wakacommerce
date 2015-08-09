@@ -7,7 +7,8 @@ import com.wakacommerce.common.extension.ExtensionManager;
 
 
 /**
- * ,  
+ *
+ * @ hui
  */
 @Service("blOrderDaoExtensionManager")
 public class OrderDaoExtensionManager extends ExtensionManager<OrderDaoExtensionHandler> {
@@ -16,10 +17,6 @@ public class OrderDaoExtensionManager extends ExtensionManager<OrderDaoExtension
         super(OrderDaoExtensionHandler.class);
     }
 
-    /**
-     * By default, this manager will allow other handlers to process the method when a handler returns
-     * HANDLED.
-     */
     @Override
     public boolean continueOnHandled() {
         return true;

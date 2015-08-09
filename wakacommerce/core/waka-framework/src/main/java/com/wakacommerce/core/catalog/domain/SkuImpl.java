@@ -90,28 +90,8 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 /**
- * The Class SkuImpl is the default implementation of {@link Sku}. A SKU is a
- * specific item that can be sold including any specific attributes of the item
- * such as color or size. <br>
- * <br>
- * If you want to add fields specific to your implementation of
- * BroadLeafCommerce you should extend this class and add your fields. If you
- * need to make significant changes to the SkuImpl then you should implement
- * your own version of {@link Sku}.<br>
- * <br>
- * This implementation uses a Hibernate implementation of JPA configured through
- * annotations. The Entity references the following tables: BLC_SKU,
- * BLC_SKU_IMAGE
  *
- * !!!!!!!!!!!!!!!!!
- * <p>For admin required field validation, if this Sku is apart of an additionalSkus list (meaning it is not a defaultSku) then
- * it should have no required restrictions on it. All additional Skus can delegate to the defaultSku of the related product
- * for all of its fields. For this reason, if you would like to mark more fields as required then rather than using
- * {@link AdminPresentation#requiredOverride()}, use the mo:overrides section in bl-admin-applicationContext.xml for Product
- * and reference each required field like 'defaultSku.name' or 'defaultSku.retailPrice'.</p>
- *
- *btaylor
- * @see {@link Sku}
+ * @ hui
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -299,9 +279,6 @@ public class SkuImpl implements Sku {
     @Transient
     protected Map<String, Media> legacySkuMedia = new HashMap<String, Media>();
 
-    /**
-     * This will be non-null if and only if this Sku is the default Sku for a Product
-     */
     @OneToOne(optional = true, targetEntity = ProductImpl.class, cascade = {CascadeType.ALL})
     @Cascade(value = {org.hibernate.annotations.CascadeType.ALL})
     @JoinColumn(name = "DEFAULT_PRODUCT_ID")
@@ -309,10 +286,6 @@ public class SkuImpl implements Sku {
     @IgnoreEnterpriseBehavior
     protected Product defaultProduct;
 
-    /**
-     * This relationship will be non-null if and only if this Sku is contained in the list of
-     * additional Skus for a Product (for Skus based on ProductOptions)
-     */
     @ManyToOne(optional = true, targetEntity = ProductImpl.class, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "ADDL_PRODUCT_ID")
     protected Product product;
@@ -390,15 +363,7 @@ public class SkuImpl implements Sku {
         fieldType = SupportedFieldType.WAKA_ENUMERATION, 
         wakaEnumeration = "com.wakacommerce.core.order.service.type.FulfillmentType")
     protected String fulfillmentType;
-    
-    /**
-     * Note that this field is not the target of the currencyCodeField attribute on either retailPrice or salePrice.
-     * This is because SKUs are special in that we want to return the currency on this SKU if there is one, falling back
-     * to the defaultSku's currency if possible.
-     * 
-     * Normally null and hidden.  Use Meta-Data overrides to display in the admin.
-     * @see Sku#getCurrency() for further cautions about using this field.
-     */
+
     @ManyToOne(targetEntity = BroadleafCurrencyImpl.class)
     @JoinColumn(name = "CURRENCY_CODE")
     @AdminPresentation(friendlyName = "SkuImpl_Currency", order = 3000,

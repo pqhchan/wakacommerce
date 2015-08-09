@@ -23,11 +23,8 @@ import java.util.Map;
 
 
 /**
- * Implementors of the SolrSearchServiceExtensionHandler interface should extend this class so that if 
- * additional extension points are added which they don't care about, their code will not need to be
- * modified.
- * 
- * 
+ *
+ * @ hui
  */                                      
 public abstract class AbstractSolrSearchServiceExtensionHandler extends AbstractExtensionHandler
         implements SolrSearchServiceExtensionHandler {

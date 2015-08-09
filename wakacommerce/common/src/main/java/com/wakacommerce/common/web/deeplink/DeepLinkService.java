@@ -17,11 +17,6 @@ public abstract class DeepLinkService<T> {
     @Autowired
     protected RuntimeEnvironmentPropertiesManager propMgr;
 
-    /**
-     * Returns a list of {@link DeepLink} objects that represent the location of 1 or more admin elements
-     * 
-     * @param item
-     */
     public final List<DeepLink> getLinks(T item) {
         return getLinksInternal(item);
     }

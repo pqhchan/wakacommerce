@@ -3,10 +3,8 @@ package com.wakacommerce.common.email.domain;
 import java.io.Serializable;
 
 /**
- * The EmailTarget interface is used to specify the recipients of the email.
  *
- * @see EmailTargetImpl
- * 
+ * @ hui
  */
 public interface EmailTarget extends Serializable {
 

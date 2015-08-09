@@ -9,10 +9,8 @@ import com.wakacommerce.profile.core.service.exception.AddressVerificationExcept
 import java.util.List;
 
 /**
- * Allows for pluggable address validators.
- * 
- *  
  *
+ * @ hui
  */
 public interface AddressVerificationProvider extends ModuleProvider {
 

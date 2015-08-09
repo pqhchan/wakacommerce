@@ -28,9 +28,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * A DTO class used to seed a persistence package.
- * 
- * 
+ *
+ * @ hui
  */
 public class PersistencePackageRequest {
 
@@ -82,14 +81,6 @@ public class PersistencePackageRequest {
         return new PersistencePackageRequest(Type.MAP);
     }
 
-    /**
-     * Creates a semi-populate PersistencePacakageRequest based on the specified FieldMetadata. This initializer
-     * will copy over persistence perspective items from the metadata as well as set the appropriate OperationTypes
-     * as specified in the annotation/xml configuration for the field.
-     * 
-     * @param md
-     * @return the newly created PersistencePackageRequest
-     */
     public static PersistencePackageRequest fromMetadata(FieldMetadata md, List<SectionCrumb> sectionCrumbs) {
         final PersistencePackageRequest request = new PersistencePackageRequest();
 
@@ -369,13 +360,7 @@ public class PersistencePackageRequest {
     public void setType(Type type) {
         this.type = type;
     }
-    
-    /**
-     * Returns the entity that should be checked for security purposes.   If no value is defined explicitly, returns the 
-     * value for {@link #getCeilingEntityClassname()}.
-     * 
-     * @return
-     */
+
     public String getSecurityCeilingEntityClassname() {
         if (securityCeilingEntityClassname != null) {
             return securityCeilingEntityClassname;

@@ -14,14 +14,8 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 /**
- * An in memory generated resource. This class also overrides some parent Spring AbstractResource methods to ensure
- * compatibility with the {@link ResourceHttpRequestHandler}.
- * 
- * Note that this class <i>intentionally</i> does not subclass Spring's {@link InMemoryResource} and instead has copied
- * the fields here because {@link InMemoryResource} does not provide a default constructor. This causes issues when
- * deserializing an instance from disk (such as in a caching scenario that overflows from memory to disk).
- * 
- * 
+ *
+ * @ hui
  */
 public class GeneratedResource extends AbstractResource implements Serializable {
     
@@ -33,12 +27,6 @@ public class GeneratedResource extends AbstractResource implements Serializable 
     protected final byte[] source;
     protected final String description;
 
-    /**
-     * <b>Note: This constructor should not be explicitly used</b> 
-     * 
-     * To properly allow for serialization, we must provide this no-arg constructor that will 
-     * create a "dummy" GeneratedResource. The appropriate fields will be set during deserialization.
-     */
     public GeneratedResource()  {
         this(new byte[]{}, null);
     }

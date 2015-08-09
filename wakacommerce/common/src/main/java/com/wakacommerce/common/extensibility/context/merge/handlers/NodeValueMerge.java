@@ -10,10 +10,8 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * MergeHandler implementation that provides merging for the white space
- * delimited text values of a source and patch node. This merge takes into
- * account the same values from both nodes, such that the resulting string
- * is a union of the two without any repeat values.
+ *
+ * @ hui
  */
 public class NodeValueMerge extends BaseHandler {
 

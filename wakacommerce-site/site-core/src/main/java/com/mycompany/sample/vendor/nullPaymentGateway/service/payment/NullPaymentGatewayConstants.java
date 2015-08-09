@@ -3,7 +3,8 @@
 package com.mycompany.sample.vendor.nullPaymentGateway.service.payment;
 
 /**
- *  
+ *
+ * @ hui
  */
 public class NullPaymentGatewayConstants {
 

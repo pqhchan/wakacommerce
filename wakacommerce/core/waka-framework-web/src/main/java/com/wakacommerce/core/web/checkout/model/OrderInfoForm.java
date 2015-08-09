@@ -4,9 +4,8 @@ package com.wakacommerce.core.web.checkout.model;
 import java.io.Serializable;
 
 /**
- * A form to model checking out as guest
- * 
- * 
+ *
+ * @ hui
  */
 public class OrderInfoForm implements Serializable {
 

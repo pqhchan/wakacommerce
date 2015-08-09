@@ -5,7 +5,8 @@ import com.wakacommerce.common.presentation.client.AddMethodType;
 import com.wakacommerce.openadmin.dto.visitor.MetadataVisitor;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class BasicCollectionMetadata extends CollectionMetadata {
 

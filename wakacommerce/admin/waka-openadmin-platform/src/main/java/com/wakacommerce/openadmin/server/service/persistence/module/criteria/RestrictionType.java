@@ -8,10 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extendible enumeration of service status types.
- * 
- *  
  *
+ * @ hui
  */
 public class RestrictionType implements Serializable, WakaEnumType {
 

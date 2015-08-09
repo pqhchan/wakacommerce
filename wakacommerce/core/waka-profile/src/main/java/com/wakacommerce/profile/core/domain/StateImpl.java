@@ -19,7 +19,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- * @deprecated - use {@link com.wakacommerce.profile.core.domain.CountrySubdivision} instead.
+ *
+ * @ hui
  */
 @Deprecated
 @Entity

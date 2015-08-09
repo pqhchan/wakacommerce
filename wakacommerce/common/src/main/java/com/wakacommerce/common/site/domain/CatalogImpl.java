@@ -36,7 +36,8 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

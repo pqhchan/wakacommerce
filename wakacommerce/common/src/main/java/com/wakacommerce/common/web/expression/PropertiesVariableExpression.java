@@ -10,15 +10,8 @@ import com.wakacommerce.common.web.processor.ConfigVariableProcessor;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * <p>
- * This Thymeleaf variable expression class provides access to runtime configuration properties that are configured
- * in development.properties, development-shared.properties, etc, for the current environment.
- * 
- * <p>
- * This also includes properties that have been saved/overwritten in the database via {@link SystemProperty}.
- * 
- * 
- * @see {@link ConfigVariableProcessor}
+ *
+ * @ hui
  */
 public class PropertiesVariableExpression implements BroadleafVariableExpression {
     
@@ -42,11 +35,7 @@ public class PropertiesVariableExpression implements BroadleafVariableExpression
     public long getAsLong(String propertyName) {
         return BLCSystemProperty.resolveLongSystemProperty(propertyName); 
     }
-    
-    /**
-     * Returns true if the <b>listGrid.forceShowIdColumns</b> system property or a <b>showIds</b> request parameter is set
-     * to true. Used in the admin to show ID columns when displaying list grids.
-     */
+
     public boolean getForceShowIdColumns() {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 

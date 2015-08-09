@@ -2,8 +2,8 @@
 package com.wakacommerce.common.site.domain;
 
 /**
- * Stores the path to the theme.
- *   
+ *
+ * @ hui
  */
 public class ThemeDTO implements Theme {
 

@@ -8,9 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extendible enumeration of template types
- * 
- * 
+ *
+ * @ hui
  */
 public class TemplateType implements Serializable, WakaEnumType, Comparable<TemplateType> {
 

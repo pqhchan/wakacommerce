@@ -3,7 +3,8 @@ package com.wakacommerce.core.workflow;
 
 
 /**
- * 
+ *
+ * @ hui
  */
 public class ExplicitPrioritySequenceProcessor extends SequenceProcessor {
     

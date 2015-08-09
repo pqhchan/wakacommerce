@@ -13,14 +13,8 @@ import javax.annotation.Resource;
 
 
 /**
- * Interceptor responsible for putting the current cart on the request. Carts are defined in BLC as an {@link Order} with
- * a status of IN_PROCESS. This interceptor should go after {@link CustomerStateInterceptor} since it relies on
- * {@link CustomerState}.
- * 
- * Note that in servlet applications you should be using {@link CartStateFilter}
- * 
- *  
- * @see {@link CartState}
+ *
+ * @ hui
  */
 public class CartStateInterceptor implements WebRequestInterceptor {
 

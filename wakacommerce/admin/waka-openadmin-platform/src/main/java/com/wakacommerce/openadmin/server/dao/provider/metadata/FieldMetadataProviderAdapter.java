@@ -15,7 +15,8 @@ import com.wakacommerce.openadmin.server.service.type.FieldProviderResponse;
 import java.util.Map;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class FieldMetadataProviderAdapter extends AbstractFieldMetadataProvider {
 

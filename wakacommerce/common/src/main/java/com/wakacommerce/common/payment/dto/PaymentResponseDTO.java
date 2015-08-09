@@ -14,108 +14,41 @@ import com.wakacommerce.common.payment.PaymentTransactionType;
 import com.wakacommerce.common.payment.PaymentType;
 
 /**
- * <p>The DTO object that represents the response coming back from any call to the Gateway.
- * This can either wrap an API result call or a translated HTTP Web response.
- * This can not only be the results of a transaction, but also a request for a Secure Token etc...</p>
  *
- * <p>Note: the success and validity flags are set to true by default, unless otherwise overridden by specific
- * gateway implementations</p>
- *
- *  
+ * @ hui
  */
 public class PaymentResponseDTO {
 
-    /**
-     * Any customer information that relates to this transaction
-     */
     protected GatewayCustomerDTO<PaymentResponseDTO> customer;
 
-    /**
-     * If shipping information is captured on the gateway, the values sent back will be put here
-     */
     protected AddressDTO<PaymentResponseDTO> shipTo;
 
-    /**
-     * The billing address associated with this transaction
-     */
     protected AddressDTO<PaymentResponseDTO> billTo;
 
-    /**
-     * for sale/authorize transactions, this will be the Credit Card object that was charged. This data is useful for showing
-     * on an order confirmation screen.
-     */
     protected CreditCardDTO<PaymentResponseDTO> creditCard;
 
-    /**
-     * Any gift cards that have been processed. This data is useful for showing
-     * on an order confirmation screen
-     */
     protected List<GiftCardDTO<PaymentResponseDTO>> giftCards;
 
-    /**
-     * Any customer credit accounts that have been processed. This data is useful for showing
-     * on an order confirmation screen
-     */
     protected List<CustomerCreditDTO<PaymentResponseDTO>> customerCredits;
 
-    /**
-     * The Payment Gateway Type that this transaction response represents
-     */
     protected PaymentGatewayType paymentGatewayType;
 
-    /**
-     * The Type of Payment that this transaction response represents
-     */
     protected PaymentType paymentType;
 
-    /**
-     * The Transaction Type of the Payment that this response represents
-     */
     protected PaymentTransactionType paymentTransactionType;
 
-    /**
-     * The Order ID that this transaction is associated with
-     */
     protected String orderId;
-    
-    /**
-     * If this was a Transaction request, it will be the amount that was sent back from the gateway
-     */
+
     protected Money amount;
-    
-    /**
-     * Whether or not the transaction on the gateway was successful. This should be provided by the gateway alone.
-     */
+
     protected boolean successful = true;
-    
-    /**
-     * Whether or not this response was tampered with. This used to verify that the response that was received on the
-     * endpoint (which is intended to only be invoked from the payment gateway) actually came from the gateway and was not
-     * otherwise maliciously invoked by a 3rd-party. 
-     */
+
     protected boolean valid = true;
 
-    /**
-     * <p>Sets whether or not this module should complete checkout on callback.
-     * In most Credit Card gateway implementation, this should be set to 'TRUE' and
-     * should not be configurable as the gateway expects it to tbe the final step
-     * in the checkout process.</p>
-     *
-     * <p>In gateways where it does not expect to be the last step in the checkout process,
-     * for example BLC Gift Card Module, PayPal Express Checkout, etc... The callback from
-     * the gateway can be configured whether or not to complete checkout.</p>
-     */
     protected boolean completeCheckoutOnCallback = true;
 
-    /**
-     * A string representation of the response that came from the gateway. This should be a string serialization of
-     * {@link #responseMap}.
-     */
     protected String rawResponse;
-    
-    /**
-     * A more convenient representation of {@link #rawResponse} to hold the response from the gateway.
-     */
+
     protected Map<String, String> responseMap;
 
     public PaymentResponseDTO(PaymentType paymentType, PaymentGatewayType gatewayType) {

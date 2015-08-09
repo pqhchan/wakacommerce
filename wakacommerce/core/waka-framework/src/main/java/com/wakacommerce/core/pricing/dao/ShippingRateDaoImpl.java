@@ -19,8 +19,8 @@ import java.math.BigDecimal;
 import java.util.List;
 
 /**
- * @deprecated Superceded in functionality by {@link BandedPriceFulfillmentOption} and {@link BandedFulfillmentPricingProvider}
- * @see {@link FulfillmentOption}, {@link FulfillmentPricingService}
+ *
+ * @ hui
  */
 @Repository("blShippingRatesDao")
 @Deprecated

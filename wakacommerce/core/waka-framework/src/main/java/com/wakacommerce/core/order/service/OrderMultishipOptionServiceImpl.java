@@ -20,8 +20,8 @@ import java.util.Map.Entry;
 import javax.annotation.Resource;
 
 /**
- * 
- * 
+ *
+ * @ hui
  */
 @Service("blOrderMultishipOptionService")
 public class OrderMultishipOptionServiceImpl implements OrderMultishipOptionService {

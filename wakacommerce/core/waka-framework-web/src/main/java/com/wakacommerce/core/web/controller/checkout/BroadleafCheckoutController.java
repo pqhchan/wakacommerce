@@ -30,25 +30,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * In charge of performing the various checkout operations
- * 
- * 
- *  
- *  
+ *
+ * @ hui
  */
 public class BroadleafCheckoutController extends AbstractCheckoutController {
 
     private static final Log LOG = LogFactory.getLog(BroadleafCheckoutController.class);
     protected static String baseConfirmationRedirect = "redirect:/confirmation";
 
-    /**
-     * Renders the default checkout page and allows modules to add variables to the model.
-     *
-     * @param request
-     * @param response
-     * @param model
-     * @return the return path
-     */
     public String checkout(HttpServletRequest request, HttpServletResponse response, Model model,
                            RedirectAttributes redirectAttributes) {
         Order cart = CartState.getCart();
@@ -69,16 +58,6 @@ public class BroadleafCheckoutController extends AbstractCheckoutController {
         return getCheckoutView();
     }
 
-
-    /**
-     * Attempts to attach the user's email to the order so that they may proceed anonymously
-     * @param request
-     * @param model
-     * @param orderInfoForm
-     * @param result
-     * @return
-     * @throws ServiceException
-     */
     public String saveGlobalOrderDetails(HttpServletRequest request, Model model, 
             OrderInfoForm orderInfoForm, BindingResult result) throws ServiceException {
         Order cart = CartState.getCart();
@@ -107,28 +86,6 @@ public class BroadleafCheckoutController extends AbstractCheckoutController {
         return getCheckoutPageRedirect();   
     }
 
-    /**
-     * Creates a pass-through payment of the PaymentType passed in with
-     * an amount equal to the order total after any non-final applied payments.
-     * (for example gift cards, customer credit, or third party accounts)
-     *
-     * This intended to be used in cases like COD and other Payment Types where implementations wish
-     * to just checkout without having to do any payment processing.
-     *
-     * This default implementations assumes that the pass-through payment is the only
-     * "final" payment, as this will remove any payments that are not PaymentTransactionType.UNCONFIRMED
-     * That means that it will look at all transactions on the order payment and see if it has unconfirmed transactions.
-     * If it does, it will not remove it.
-     *
-     * Make sure not to expose this method in your extended Controller if you do not wish to
-     * have this feature enabled.
-     *
-     * @param redirectAttributes
-     * @param paymentType
-     * @return
-     * @throws PaymentException
-     * @throws PricingException
-     */
     public String processPassthroughCheckout(final RedirectAttributes redirectAttributes,
                                              PaymentType paymentType) throws PaymentException, PricingException {
         Order cart = CartState.getCart();
@@ -180,16 +137,6 @@ public class BroadleafCheckoutController extends AbstractCheckoutController {
         return processCompleteCheckoutOrderFinalized(redirectAttributes);
     }
 
-    /**
-     * If the order has been finalized. i.e. all the payments have been applied to the order,
-     * then you can go ahead and call checkout using the passed in order id.
-     * This is usually called from a Review Page or if enough Payments have been applied to the Order to complete checkout.
-     * (e.g. Gift Cards cover the entire amount and there is no need to call an external Payment Gateway, or
-     * a Payment from a Hosted Gateway has already been applied to the order like Paypal Express Checkout)
-     *
-     * @return
-     * @throws Exception
-     */
     public String processCompleteCheckoutOrderFinalized(final RedirectAttributes redirectAttributes) throws PaymentException {
         Order cart = CartState.getCart();
 

@@ -23,22 +23,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- * <p>
- * Simple factor-based tax module that can be configured by adding rates for
- * specific postalCodes, city, state, or country.
  *
- * <p>
- * Through configuration, this module can be used to set a specific tax rate for items and shipping for a given postal code,
- * city, state, or country.
- * 
- * <p>
- * Utilizes the fulfillment group's address to determine the tax location.
- * 
- * <p>
- * Useful for those with very simple tax needs that want to configure rates programmatically.
- * 
- *  ,   
- *     
+ * @ hui
  */
 public class SimpleTaxProvider implements TaxProvider {
 
@@ -149,13 +135,6 @@ public class SimpleTaxProvider implements TaxProvider {
         // intentionally left blank; tax never got committed so it never gets cancelled
     }
 
-    /**
-     * Returns the taxAmount for the passed in postal code or
-     * null if no match is found.
-     *
-     * @param postalCode
-     * @return
-     */
     public Double lookupPostalCodeRate(Map<String,Double> postalCodeTaxRateMap, String postalCode) {
         if (postalCodeTaxRateMap != null && postalCode != null) {
             return postalCodeTaxRateMap.get(postalCode);
@@ -163,15 +142,6 @@ public class SimpleTaxProvider implements TaxProvider {
         return null;
     }
 
-    /**
-     * Changes the city to upper case before checking the
-     * configuration.
-     *
-     * Return null if no match is found.
-     *
-     * @param cityTaxRateMap, city
-     * @return
-     */
     public Double lookupCityRate(Map<String,Double> cityTaxRateMap, String city) {
         if (cityTaxRateMap != null && city != null) {
             city = city.toUpperCase();
@@ -180,15 +150,6 @@ public class SimpleTaxProvider implements TaxProvider {
         return null;
     }
 
-    /**
-     * Returns the taxAmount for the passed in state or
-     * null if no match is found.
-     *
-     * First checks the abbreviation (uppercase) followed by the name (uppercase).
-     *
-     * @param stateTaxRateMap, state
-     * @return
-     */
     public Double lookupStateRate(Map<String,Double> stateTaxRateMap, State state) {
         if (stateTaxRateMap != null && state != null && state.getAbbreviation() != null) {
             String stateAbbr = state.getAbbreviation().toUpperCase();
@@ -203,15 +164,6 @@ public class SimpleTaxProvider implements TaxProvider {
         return null;
     }
 
-    /**
-     * Returns the taxAmount for the passed in stateProvinceRegion or
-     * null if no match is found.
-     *
-     * First checks the abbreviation (uppercase) followed by the name (uppercase).
-     *
-     * @param stateTaxRateMap, stateProvinceRegion
-     * @return
-     */
     public Double lookupStateRate(Map<String,Double> stateTaxRateMap, String stateProvinceRegion) {
         if (stateTaxRateMap != null && StringUtils.isNotBlank(stateProvinceRegion)) {
             return stateTaxRateMap.get(stateProvinceRegion);
@@ -219,15 +171,6 @@ public class SimpleTaxProvider implements TaxProvider {
         return null;
     }
 
-    /**
-     * Returns the taxAmount for the passed in country or
-     * null if no match is found.
-     *
-     * First checks the abbreviation (uppercase) followed by the name (uppercase).
-     *
-     * @param countryTaxRateMap, country
-     * @return
-     */
     public Double lookupCountryRate(Map<String,Double> countryTaxRateMap, Country country) {
         if (countryTaxRateMap != null && country != null && country.getAbbreviation() != null) {
             String cntryAbbr = country.getAbbreviation().toUpperCase();
@@ -242,15 +185,6 @@ public class SimpleTaxProvider implements TaxProvider {
         return null;
     }
 
-    /**
-     * Returns the taxAmount for the passed in country or
-     * null if no match is found.
-     *
-     * First checks the alpha2 (uppercase) followed by the name (uppercase).
-     *
-     * @param countryTaxRateMap, isoCountry
-     * @return
-     */
     public Double lookupCountryRate(Map<String,Double> countryTaxRateMap, ISOCountry isoCountry) {
         if (countryTaxRateMap != null && isoCountry != null && isoCountry.getAlpha2() != null) {
             String cntryAbbr = isoCountry.getAlpha2().toUpperCase();
@@ -273,15 +207,6 @@ public class SimpleTaxProvider implements TaxProvider {
         return fee.isTaxable();
     }
 
-
-    /**
-     * Uses the passed in address to determine if the item is taxable.
-     *
-     * Checks the configured maps in order - (postal code, city, state, country)
-     *
-     * @param address
-     * @return
-     */
     public BigDecimal determineItemTaxRate(Address address) {
         if (address != null) {
             Double postalCodeRate = lookupPostalCodeRate(itemPostalCodeTaxRateMap, address.getPostalCode());
@@ -323,14 +248,6 @@ public class SimpleTaxProvider implements TaxProvider {
         }
     }
 
-    /**
-     * Uses the passed in address to determine if the item is taxable.
-     *
-     * Checks the configured maps in order - (postal code, city, state, country)
-     *
-     * @param fulfillmentGroup
-     * @return
-     */
     public BigDecimal determineTaxRateForFulfillmentGroup(FulfillmentGroup fulfillmentGroup) {
         boolean isTaxable = true;
 

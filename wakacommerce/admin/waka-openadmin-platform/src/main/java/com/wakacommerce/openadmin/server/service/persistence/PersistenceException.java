@@ -2,7 +2,8 @@
 package com.wakacommerce.openadmin.server.service.persistence;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class PersistenceException extends RuntimeException {
 

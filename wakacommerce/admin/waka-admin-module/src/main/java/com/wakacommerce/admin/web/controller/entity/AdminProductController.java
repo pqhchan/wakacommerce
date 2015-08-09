@@ -43,10 +43,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Handles admin operations for the {@link Product} entity. Editing a product requires custom criteria in order to properly
- * invoke the {@link ProductCustomPersistenceHandler}
- * 
- * @see {@link ProductCustomPersistenceHandler}
+ *
+ * @ hui
  */
 @Controller("blAdminProductController")
 @RequestMapping("/" + AdminProductController.SECTION_KEY)

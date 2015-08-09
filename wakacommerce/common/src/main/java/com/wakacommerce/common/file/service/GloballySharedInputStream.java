@@ -4,7 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * 标记接口，表示资源来自于文件系统的共享区域. 允许multi-site实现在resize的时候只产生一份复本
+ *
+ * @ hui
  */
 public class GloballySharedInputStream extends InputStream {
 

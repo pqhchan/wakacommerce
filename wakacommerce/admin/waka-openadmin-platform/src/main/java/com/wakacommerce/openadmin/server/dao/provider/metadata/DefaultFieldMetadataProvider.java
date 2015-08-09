@@ -33,7 +33,8 @@ import com.wakacommerce.openadmin.server.dao.provider.metadata.request.OverrideV
 import com.wakacommerce.openadmin.server.service.type.FieldProviderResponse;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Component("blDefaultFieldMetadataProvider")
 @Scope("prototype")

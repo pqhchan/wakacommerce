@@ -2,9 +2,8 @@
 package com.wakacommerce.common.cache.engine;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public class CacheFactoryException extends Exception {
 

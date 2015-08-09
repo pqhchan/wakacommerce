@@ -6,7 +6,8 @@ import java.io.Serializable;
 import com.wakacommerce.common.copy.MultiTenantCloneable;
 
 /**
- * 
+ *
+ * @ hui
  */
 public interface RequiredFacet extends Serializable, MultiTenantCloneable<RequiredFacet> {
 

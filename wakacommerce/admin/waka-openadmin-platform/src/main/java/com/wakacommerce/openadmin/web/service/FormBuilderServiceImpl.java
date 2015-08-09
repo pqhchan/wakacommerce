@@ -82,7 +82,8 @@ import javax.persistence.OneToOne;
 
 
 /**
- * 
+ *
+ * @ hui
  */
 @Service("blFormBuilderService")
 public class FormBuilderServiceImpl implements FormBuilderService {
@@ -462,17 +463,7 @@ public class FormBuilderServiceImpl implements FormBuilderService {
 
         return listGrid;
     }
-    
-    /**
-     * Determines whether or not a particular field in a record is derived. By default this checks the {@link BasicFieldMetadata}
-     * for the given Property to see if something on the backend has marked it as derived
-     * 
-     * @param headerField the header for this recordField
-     * @param recordField the recordField being populated
-     * @param p the property that relates to this recordField
-     * @return whether or not this field is derived
-     * @see {@link #createListGrid(String, List, com.wakacommerce.openadmin.web.form.component.ListGrid.Type, DynamicResultSet, String, int, String)}
-     */
+
     protected Boolean isDerivedField(Field headerField, Field recordField, Property p) {
         return BooleanUtils.isTrue(((BasicFieldMetadata) p.getMetadata()).getIsDerived());
     }
@@ -667,13 +658,7 @@ public class FormBuilderServiceImpl implements FormBuilderService {
         
         extensionManager.getProxy().modifyUnpopulatedEntityForm(ef);
     }
-    
-    /**
-     * This method is invoked when EntityForms are created and is meant to provide a hook to add
-     * additional entity form actions for implementors of Broadleaf. Broadleaf modules will typically
-     * leverage {@link FormBuilderExtensionHandler#addAdditionalFormActions(EntityForm)} method.
-     * @param ef
-     */
+
     protected void addAdditionalFormActions(EntityForm ef) {
         
     }
@@ -765,16 +750,6 @@ public class FormBuilderServiceImpl implements FormBuilderService {
         }
     }
 
-    /**
-     * When using Thymeleaf, we need to convert the JSON string back to
-     * a DataWrapper object because Thymeleaf escapes JSON strings.
-     * Thymeleaf uses it's own object de-serializer
-     * see: https://github.com/thymeleaf/thymeleaf/issues/84
-     * see: http://forum.thymeleaf.org/Spring-Javascript-and-escaped-JSON-td4024739.html
-     * @param json
-     * @return DataWrapper
-     * @throws IOException
-     */
     protected DataWrapper convertJsonToDataWrapper(String json) {
         ObjectMapper mapper = new ObjectMapper();
         DataDTODeserializer dtoDeserializer = new DataDTODeserializer();
@@ -898,24 +873,7 @@ public class FormBuilderServiceImpl implements FormBuilderService {
         
         extensionManager.getProxy().modifyDetailEntityForm(ef);
     }
-    
-    /**
-     * Adds the {@link DefaultEntityFormActions#DELETE} if the user is allowed to delete the <b>entity</b>. The user can
-     * delete an entity for the following cases:
-     * <ol>
-     *  <li>The user has the security to {@link EntityOperationType#DELETE} the given class name represented by
-     *  the <b>entityForm</b> (determined by {@link #getSecurityClassname(EntityForm, ClassMetadata)})</li>
-     *  <li>The user has the security necessary to delete the given <b>entity</b> according to the
-     *  {@link RowLevelSecurityService#canDelete(Entity)}</li>
-     * </ol>
-     * 
-     * @param entityForm the form being generated
-     * @param cmd the metatadata used to build the <b>entityForm</b> for the <b>entity</b>
-     * @param entity the entity being edited
-     * @see {@link SecurityVerifier#securityCheck(String, EntityOperationType)}
-     * @see {@link #getSecurityClassname(EntityForm, ClassMetadata)}
-     * @see {@link RowLevelSecurityService#canDelete(Entity)}
-     */
+
     protected void addDeleteActionIfAllowed(EntityForm entityForm, ClassMetadata cmd, Entity entity) {
         boolean canDelete = true;
         try {
@@ -940,24 +898,7 @@ public class FormBuilderServiceImpl implements FormBuilderService {
             entityForm.addAction(DefaultEntityFormActions.DELETE);
         }
     }
-    
-    /**
-     * The given <b>entityForm</b> is marked as readonly for the following cases:
-     * <ol>
-     *  <li>All of the properties from <b>cmd</b> are readonly</b></li>
-     *  <li>The user does not have the security to {@link EntityOperationType#UPDATE} the given class name represented by
-     *  the <b>entityForm</b> (determined by {@link #getSecurityClassname(EntityForm, ClassMetadata)})</li>
-     *  <li>The user does not have the security necessary to modify the given <b>entity</b> according to the
-     *  {@link RowLevelSecurityService#canUpdate(Entity)}</li>
-     * </ol>
-     * 
-     * @param entityForm the form being generated
-     * @param cmd the metatadata used to build the <b>entityForm</b> for the <b>entity</b>
-     * @param entity the entity being edited
-     * @see {@link SecurityVerifier#securityCheck(String, EntityOperationType)}
-     * @see {@link #getSecurityClassname(EntityForm, ClassMetadata)}
-     * @see {@link RowLevelSecurityService#canUpdate(Entity)}
-     */
+
     protected void setReadOnlyState(EntityForm entityForm, ClassMetadata cmd, Entity entity) {
         boolean readOnly = true;
         
@@ -999,13 +940,7 @@ public class FormBuilderServiceImpl implements FormBuilderService {
             entityForm.setReadOnly();
         }
     }
-    
-    /**
-     * Obtains the class name suitable for passing along to the {@link SecurityVerifier}
-     * @param form
-     * @param cmd
-     * @return
-     */
+
     protected String getSecurityClassname(EntityForm entityForm, ClassMetadata cmd) {
         String securityEntityClassname = entityForm.getCeilingEntityClassname();
 

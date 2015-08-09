@@ -20,15 +20,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * This class attempts the work flow of the CsrfFilter, but in the event of a Csrf token mismatch 
- * (Session reset for example) the User will be redirected to login, if not session reset User is sent to previous location.
- * 
- * The "blCsrfFilter' from applicationContext-admin-security should reference this class (com.wakacommerce.openadmin.web.filter.AdminCsrfFilter)
- * instead of the CsrfFilter
- * 
- *     <bean id="blCsrfFilter" class="com.wakacommerce.openadmin.web.filter.AdminCsrfFilter" />
- *     
- *trevorleffert
+ *
+ * @ hui
  */
 public class AdminCsrfFilter extends CsrfFilter {
     

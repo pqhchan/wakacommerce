@@ -4,9 +4,8 @@ package com.wakacommerce.common.security.util;
 import java.io.Serializable;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public class PasswordReset implements Serializable {
 

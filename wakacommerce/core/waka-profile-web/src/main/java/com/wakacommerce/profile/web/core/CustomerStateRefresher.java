@@ -13,26 +13,12 @@ import com.wakacommerce.profile.web.core.security.CustomerStateRequestProcessor;
 
 
 /**
- * {@link ApplicationListener} responsible for updating {@link CustomerState} as well as invalidating the session-based
- * customer, if one existed previously. For instance, when originally browsing the catalog a Customer is created but only
- * stored in session and retrieved from session on subsequent requests. However, once the Customer has been persisted
- * (like when they add something to the cart) then this component is responsible for updating {@link CustomerState} as well
- * as invalidating the session-based customer.
- *     
+ *
+ * @ hui
  */
 @Component("blCustomerStateRefresher")
 public class CustomerStateRefresher implements ApplicationListener<CustomerPersistedEvent> {
 
-    /**
-     * Removes the complete {@link Customer} stored in session and adds a new session variable for just the customer ID. This
-     * should occur once the session-based {@link Customer} (all anonymous Customers start out this way) has been persisted.
-     * 
-     * <p>Also updates {@link CustomerState} with the persisted {@link Customer} so that it will always represent the most
-     * up-to-date version that is in the database</p>
-     * 
-     * @param request
-     * @param databaseCustomer
-     */
     @Override
     public void onApplicationEvent(final CustomerPersistedEvent event) {
         Customer dbCustomer = event.getCustomer();
@@ -63,17 +49,7 @@ public class CustomerStateRefresher implements ApplicationListener<CustomerPersi
             }
         }
     }
-    
-    /**
-     * After a JPA merge occurs, there is a new object created representing the merged changes.  The new object does 
-     * not reflect the state of transient fields that may have been set on the object that was merged.
-     * 
-     * This method, by default, resets the state of transient properties. 
-     * and allows the user to override this method to set additional (or different) transient values.
-     * 
-     * @param preMergedCustome
-     * @param postMergedCustomer
-     */
+
     protected void resetTransientFields(Customer preMergedCustomer, Customer postMergedCustomer) {
         postMergedCustomer.setUnencodedPassword(preMergedCustomer.getUnencodedPassword());
         postMergedCustomer.setUnencodedChallengeAnswer(preMergedCustomer.getUnencodedChallengeAnswer());

@@ -13,20 +13,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Controller to generate and retrieve site map files.
+ *
+ * @ hui
  */
 @Controller
 public class SiteMapController extends BroadleafSiteMapController {
-    
-    /**
-     * Retrieves a site map file
-     * 
-     * @param request
-     * @param response
-     * @param model
-     * @param fileName
-     * @return
-     */
+
     @RequestMapping(value = { "/sitemap*.xml", "sitemap*.gz" })
     @ResponseBody
     public FileSystemResource retrieveSiteMapIndex(HttpServletRequest request, HttpServletResponse response)

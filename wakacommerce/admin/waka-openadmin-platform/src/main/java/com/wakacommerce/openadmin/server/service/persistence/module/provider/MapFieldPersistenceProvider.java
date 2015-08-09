@@ -27,7 +27,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Component("blMapFieldPersistenceProvider")
 @Scope("prototype")

@@ -30,8 +30,7 @@ import java.util.List;
 
 /**
  *
- *  
- *
+ * @ hui
  */
 public class MergeJPAPersistenceResource extends MergeXmlConfigResource {
 

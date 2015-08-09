@@ -34,7 +34,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * The operations in this controller are actions that do not necessarily depend on a section key being present.
+ *
+ * @ hui
  */
 @Controller("blAdminBasicOperationsController")
 public class AdminBasicOperationsController extends AdminAbstractController {
@@ -42,19 +43,6 @@ public class AdminBasicOperationsController extends AdminAbstractController {
     @Resource(name = "blSearchFieldResolver")
     protected SearchFieldResolver searchFieldResolver;
 
-    /**
-     * Shows the modal dialog that is used to select a "to-one" collection item. For example, this could be used to show
-     * a list of categories for the ManyToOne field "defaultCategory" in Product.
-     * 
-     * @param request
-     * @param response
-     * @param model
-     * @param pathVars
-     * @param owningClass
-     * @param collectionField
-     * @return the return view path
-     * @throws Exception
-     */
     @RequestMapping(value = "/{owningClass:.*}/{collectionField:.*}/select", method = RequestMethod.GET)
     public String showSelectCollectionItem(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable Map<String, String> pathVars,
@@ -177,13 +165,7 @@ public class AdminBasicOperationsController extends AdminAbstractController {
                 .with("serverSessionTimeoutInterval", serverSessionTimeoutInterval)
                 .done();
     }
-    
-    /**
-     * Hook method to allow a user to modify the persistence package request for a fetch on a select lookup.
-     * 
-     * @param ppr
-     * @param pathVars
-     */
+
     protected void modifyFetchPersistencePackageRequest(PersistencePackageRequest ppr, Map<String, String> pathVars) {
 
     }

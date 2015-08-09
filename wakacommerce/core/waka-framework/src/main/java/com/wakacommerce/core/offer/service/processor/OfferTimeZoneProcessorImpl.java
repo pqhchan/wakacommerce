@@ -11,6 +11,8 @@ import com.wakacommerce.core.offer.domain.Offer;
 import java.util.TimeZone;
 
 /**
+ *
+ * @ hui
  */
 @Service("blOfferTimeZoneProcessor")
 public class OfferTimeZoneProcessorImpl implements OfferTimeZoneProcessor {

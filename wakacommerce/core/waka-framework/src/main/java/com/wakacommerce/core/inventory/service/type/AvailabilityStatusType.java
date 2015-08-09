@@ -8,11 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extendible enumeration of availability status types.
- * 
- *  
- * 
- * @deprecated This is no longer required and is instead implemented as a third-party inventory module
+ *
+ * @ hui
  */
 @Deprecated
 public class AvailabilityStatusType implements Serializable, WakaEnumType {

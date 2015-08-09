@@ -18,9 +18,8 @@ import javax.persistence.*;
 import java.lang.reflect.Method;
 
 /**
- * Arbitrary attributes to add to an order-item.
  *
- * @see com.wakacommerce.core.order.domain.OrderItemAttribute
+ * @ hui
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

@@ -4,7 +4,8 @@ package com.wakacommerce.openadmin.server.service.persistence;
 import org.springframework.stereotype.Service;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Service("blPersistenceThreadManager")
 public class PersistenceThreadManager {

@@ -11,7 +11,8 @@ import com.wakacommerce.common.presentation.client.VisibilityEnum;
 import com.wakacommerce.common.sandbox.SandBoxNonProductionSkip;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Embeddable
 public class ArchiveStatus implements Serializable, SandBoxNonProductionSkip {

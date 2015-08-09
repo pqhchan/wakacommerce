@@ -7,10 +7,8 @@ import com.wakacommerce.common.payment.dto.PaymentResponseDTO;
 import com.wakacommerce.common.vendor.service.exception.PaymentException;
 
 /**
- * <p>Some gateways allow you to create a form of recurring billing by creating a subscription profile.
- * Note: Some Gateways charge an extra fee to enable this feature</p>
  *
- *  
+ * @ hui
  */
 public interface PaymentGatewaySubscriptionService {
 

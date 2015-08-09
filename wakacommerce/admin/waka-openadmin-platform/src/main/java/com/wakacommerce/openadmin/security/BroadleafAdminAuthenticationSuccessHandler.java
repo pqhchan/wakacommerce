@@ -20,7 +20,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class BroadleafAdminAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
@@ -80,11 +81,6 @@ public class BroadleafAdminAuthenticationSuccessHandler extends SimpleUrlAuthent
         getRedirectStrategy().sendRedirect(request, response, targetUrl);
     }
 
-    /**
-     * Given the instance attribute loginUri, removes the loginUri from the passed url when present
-     * @param uri
-     * @return String
-     */
     protected String removeLoginSegment(String url) {
         if (StringUtils.isEmpty(url)) {
             return "/";

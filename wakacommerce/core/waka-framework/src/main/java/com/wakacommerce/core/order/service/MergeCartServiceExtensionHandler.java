@@ -8,9 +8,8 @@ import com.wakacommerce.profile.core.domain.Customer;
 
 
 /**
- * Extension handler for merge cart
- * 
- * 
+ *
+ * @ hui
  */
 public interface MergeCartServiceExtensionHandler extends ExtensionHandler {
     

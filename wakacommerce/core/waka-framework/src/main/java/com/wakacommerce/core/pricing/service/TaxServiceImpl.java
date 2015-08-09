@@ -134,21 +134,10 @@ public class TaxServiceImpl implements TaxService {
         }
     }
 
-    /**
-     * Sets a list of <code>TaxProvider</code> implementations.
-     * 
-     * @param providers
-     */
     public void setTaxProviders(List<TaxProvider> providers) {
         this.providers = providers;
     }
 
-    /**
-     * Sets whether or not this service is required to delegate to a tax provider. 
-     * Setting this value to true will cause an exception if no tax providers are configured, 
-     * or if none are eligible. 
-     * @param mustCalculate
-     */
     public void setMustCalculate(boolean mustCalculate) {
         this.mustCalculate = mustCalculate;
     }

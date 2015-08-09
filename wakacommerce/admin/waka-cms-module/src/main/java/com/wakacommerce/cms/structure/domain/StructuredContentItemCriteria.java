@@ -6,15 +6,8 @@ import com.wakacommerce.common.copy.MultiTenantCloneable;
 import com.wakacommerce.common.rule.QuantityBasedRule;
 
 /**
- * Implementations of this interface contain item rule data that is used for targeting
- * <code>StructuredContent</code> items.
- * <br>
- * <br>
- * For example, a <code>StructuredContent</code> item could be setup to only show to user's
- * who have a particular product in their cart.
  *
- * @see com.wakacommerce.core.order.service.StructuredContentCartRuleProcessor
- * 
+ * @ hui
  */
 public interface StructuredContentItemCriteria extends QuantityBasedRule, MultiTenantCloneable<StructuredContentItemCriteria> {
 

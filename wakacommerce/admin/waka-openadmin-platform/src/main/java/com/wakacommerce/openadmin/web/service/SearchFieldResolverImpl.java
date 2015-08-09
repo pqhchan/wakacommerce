@@ -14,8 +14,8 @@ import com.wakacommerce.openadmin.server.service.AdminEntityService;
 import javax.annotation.Resource;
 
 /**
- * @see SearchFieldResolver
- * 
+ *
+ * @ hui
  */
 @Service("blSearchFieldResolver")
 public class SearchFieldResolverImpl implements SearchFieldResolver {

@@ -78,11 +78,7 @@ public class PromotableOrderItemImpl implements PromotableOrderItem {
             itemPriceDetails.add(poid);
         }
     }
-    
-    /**
-     * Adds the item to the rule variables map.
-     * @param ruleVars
-     */
+
     public void updateRuleVariables(Map<String, Object> ruleVars) {
         ruleVars.put("orderItem", orderItem);
         ruleVars.put("discreteOrderItem", orderItem);

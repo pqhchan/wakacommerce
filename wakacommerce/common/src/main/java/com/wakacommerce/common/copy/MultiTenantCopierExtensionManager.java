@@ -12,9 +12,6 @@ public class MultiTenantCopierExtensionManager extends ExtensionManager<MultiTen
         super(MultiTenantCopierExtensionHandler.class);
     }
 
-    /**
-     * By default,this extension manager will continue on handled allowing multiple handlers to interact with the order.
-     */
     public boolean continueOnHandled() {
         return true;
     }

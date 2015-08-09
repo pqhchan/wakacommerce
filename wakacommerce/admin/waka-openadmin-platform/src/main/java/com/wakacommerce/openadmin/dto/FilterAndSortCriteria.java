@@ -114,12 +114,6 @@ public class FilterAndSortCriteria {
         return restrictionType;
     }
 
-    /**
-     * Useful when you want to explicitly define the type of pre-built {@link com.wakacommerce.openadmin.server.service.persistence.module.criteria.Restriction}
-     * instance to be used. The available, pre-built restrictions are defined in the Spring configured map "blRestrictionFactoryMap".
-     *
-     * @param restrictionType
-     */
     public void setRestrictionType(RestrictionType restrictionType) {
         this.restrictionType = restrictionType;
     }

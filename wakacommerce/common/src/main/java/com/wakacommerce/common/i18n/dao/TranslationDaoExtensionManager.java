@@ -7,7 +7,8 @@ import com.wakacommerce.common.extension.ExtensionManager;
 
 
 /**
- * 
+ *
+ * @ hui
  */
 @Service("blTranslationDaoExtensionManager")
 public class TranslationDaoExtensionManager extends ExtensionManager<TranslationDaoExtensionHandler> {
@@ -16,9 +17,6 @@ public class TranslationDaoExtensionManager extends ExtensionManager<Translation
         super(TranslationDaoExtensionHandler.class);
     }
 
-    /**
-     * By default,this extension manager will continue on handled allowing multiple handlers to interact with the order.
-     */
     public boolean continueOnHandled() {
         return true;
     }

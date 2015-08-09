@@ -2,7 +2,8 @@
 package com.wakacommerce.core.web.checkout.section;
 
 /**
- *  
+ *
+ * @ hui
  */
 public class CheckoutSectionDTO {
 

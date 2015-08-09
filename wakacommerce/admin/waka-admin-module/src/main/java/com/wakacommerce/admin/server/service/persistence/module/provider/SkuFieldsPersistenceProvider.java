@@ -15,12 +15,8 @@ import com.wakacommerce.openadmin.server.service.type.FieldProviderResponse;
 
 
 /**
- * Persistence provider for populating the display value of all Sku fields to invoke the getter if the entity property
- * itself is null. This is designed to immediately come after the {@link SkuPricingPersistenceProvider} and should not have
- * to handle any of the Money field types that occur on a Sku
  *
- *     
- * @see {@link SkuPricingPersistenceProvider}
+ * @ hui
  */
 @Scope("prototype")
 @Component("blSkuFieldsPersistenceProvider")

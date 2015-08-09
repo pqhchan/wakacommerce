@@ -12,21 +12,8 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 /**
- * This sample handler will add itself to the {@link PaymentGatewayFieldExtensionManager}
- * and will output the input NAMEs that are required by the
- * {@link com.mycompany.sample.vendor.nullPaymentGateway.web.controller.NullPaymentGatewayProcessorController}
  *
- * Note, we don't want this loaded into the extension manager
- * if a real payment gateway is used, so make sure to not scan this class when
- * using a real implementation.
- *
- * In order to use this sample extension handler, you will need to component scan
- * the package "com.mycompany.sample".
- *
- * This should NOT be used in production, and is meant solely for demonstration
- * purposes only.
- *
- *  
+ * @ hui
  */
 @Service("blNullPaymentGatewayFieldExtensionHandler")
 public class NullPaymentGatewayFieldExtensionHandler extends AbstractPaymentGatewayFieldExtensionHandler {

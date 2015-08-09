@@ -13,16 +13,8 @@ import javax.jms.Message;
 import javax.jms.Session;
 
 /**
- * JMS implementation of ArchivedPagePublisher.
- * Intended usage is to notify other VMs that a pageDTO needs to be
- * evicted from cache.   This occurs when the page is marked as
- * archived - typically because a replacemet page has been
- * promoted to production.
  *
- * Utilizes Spring JMS template pattern where template and destination
- * are configured via Spring.
- *
- *   
+ * @ hui
  */
 public class JMSArchivedPagePublisher implements ArchivedPagePublisher {
 

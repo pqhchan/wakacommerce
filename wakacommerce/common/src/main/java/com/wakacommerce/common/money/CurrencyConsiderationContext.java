@@ -6,9 +6,8 @@ import java.util.HashMap;
 import com.wakacommerce.common.classloader.release.ThreadLocalManager;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public class CurrencyConsiderationContext {
     

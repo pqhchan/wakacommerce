@@ -4,9 +4,8 @@ package com.wakacommerce.core.order.domain.dto;
 import com.wakacommerce.core.order.domain.OrderItem;
 
 /**
- * Class that contains a reference to an OrderItem
- * 
  *
+ * @ hui
  */
 public class OrderItemHolder {
 

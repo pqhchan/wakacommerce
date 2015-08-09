@@ -11,11 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Rule Builder enum options provider for {@link TemplateType}
- * 
- * Used in Content Tests
- * 
- * 
+ *
+ * @ hui
  */
 @Component("blTemplateTypeOptionsExtensionListener")
 public class TemplateTypeEnumOptionsExtensionListener extends AbstractRuleBuilderEnumOptionsExtensionListener {

@@ -24,21 +24,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 /**
- * The Class SkuAvailabilityImpl is the default implementation of {@link SkuAvailability}.
- * <br>
- * <br>
- * This class is retrieved using the AvailabilityService.   The service allows availability to be
- * be location specific (e.g. for store specific inventory availability)
- * <br>
- * <br>
- * This implementation uses a Hibernate implementation of JPA configured through annotations.
- * The Entity references the following tables:
- * BLC_SKU_AVAILABILITY
  *
- * @see {@link Sku}
- * 
- * 
- * @deprecated This is no longer required and is instead implemented as a third-party inventory module
+ * @ hui
  */
 @Deprecated
 @Entity
@@ -160,31 +147,16 @@ public class SkuAvailabilityImpl implements SkuAvailability {
         }
     }
 
-    /**
-     * Returns the reserve quantity.   Nulls will be treated the same as 0.
-     * Implementations may want to manage a reserve quantity at each location so that the
-     * available quantity for purchases is the quantityOnHand - reserveQuantity.
-     */
     @Override
     public Integer getReserveQuantity() {
         return reserveQuantity;
     }
 
-    /**
-     * Sets the reserve quantity.
-     * Implementations may want to manage a reserve quantity at each location so that the
-     * available quantity for purchases is the quantityOnHand - reserveQuantity.
-     */
     @Override
     public void setReserveQuantity(Integer reserveQuantity) {
         this.reserveQuantity = reserveQuantity;
     }
 
-    /**
-     * Returns the getQuantityOnHand() - getReserveQuantity().
-     * Preferred implementation is to return null if getQuantityOnHand() is null and to treat
-     * a null in getReserveQuantity() as ZERO.
-     */
     @Override
     public Integer getAvailableQuantity() {
         if (getQuantityOnHand() == null || getReserveQuantity() == null) {

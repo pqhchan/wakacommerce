@@ -14,7 +14,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Component("blPolymorphicEntityCheckSectionAuthorization")
 public class PolymorphicEntitySectionAuthorizationImpl implements SectionAuthorization {

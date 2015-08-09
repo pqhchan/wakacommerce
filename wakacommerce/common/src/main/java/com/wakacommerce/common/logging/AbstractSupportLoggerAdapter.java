@@ -2,7 +2,8 @@
 package com.wakacommerce.common.logging;
 
 /**
- *  
+ *
+ * @ hui
  */
 public abstract class AbstractSupportLoggerAdapter {
 

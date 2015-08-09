@@ -314,16 +314,6 @@ public class PersistenceManagerImpl implements InspectHelper, PersistenceManager
         return persistenceResponse;
     }
 
-    /**
-     * Called after the fetch event
-     *
-     * @param resultSet
-     * @param persistencePackage
-     * @param cto
-     * @return the modified result set
-     * @throws ServiceException
-     * @deprecated use the PersistenceManagerEventHandler api instead
-     */
     @Deprecated
     protected DynamicResultSet postFetch(DynamicResultSet resultSet, PersistencePackage persistencePackage,
             CriteriaTransferObject cto)
@@ -471,15 +461,6 @@ public class PersistenceManagerImpl implements InspectHelper, PersistenceManager
         return persistenceResponse;
     }
 
-    /**
-     * Called after the add event
-     *
-     * @param entity
-     * @param persistencePackage
-     * @return the modified Entity instance
-     * @throws ServiceException
-     * @deprecated use the PersistenceManagerEventHandler api instead
-     */
     @Deprecated
     protected Entity postAdd(Entity entity, PersistencePackage persistencePackage) throws ServiceException {
         //do nothing
@@ -589,15 +570,6 @@ public class PersistenceManagerImpl implements InspectHelper, PersistenceManager
         return persistenceResponse;
     }
 
-    /**
-     * Called after the update event
-     *
-     * @param entity
-     * @param persistencePackage
-     * @return the modified Entity instance
-     * @throws ServiceException
-     * @deprecated use the PersistenceManagerEventHandler api instead
-     */
     @Deprecated
     protected Entity postUpdate(Entity entity, PersistencePackage persistencePackage) throws ServiceException {
         //do nothing

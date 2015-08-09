@@ -13,7 +13,8 @@ import javax.persistence.Query;
 import java.util.List;
 
 /**
- * @deprecated Replaced in functionality by {@link SearchRedirectDaoImpl}
+ *
+ * @ hui
  */
 @Repository("blSearchInterceptDao")
 @Deprecated

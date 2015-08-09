@@ -34,12 +34,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * AdminAssetUploadController handles uploading or selecting assets.
- *     
- * Used with entities like {@link SkuImpl} and {@link CategoryImpl} that have {@link CustomPersistenceHandler} 
- * configurations that provide support for adding maps of Media objects.
- * 
- *   ( )
+ *
+ * @ hui
  */
 @Controller("blAdminAssetUploadController")
 @RequestMapping("/{sectionKey}")
@@ -121,17 +117,7 @@ public class AdminAssetUploadController extends AdminAbstractController {
         responseHeaders.add("Content-Type", "text/html; charset=utf-8");
         return new ResponseEntity<Map<String, Object>>(responseMap, responseHeaders, HttpStatus.OK);
     }
-    
-    /**
-     * Used by the Asset list view to upload an asset and then immediately show the
-     * edit form for that record.
-     * 
-     * @param request
-     * @param file
-     * @param sectionKey
-     * @return
-     * @throws IOException
-     */
+
     @RequestMapping(value = "/uploadAsset", method = RequestMethod.POST)
     public String upload(HttpServletRequest request,
             @RequestParam("file") MultipartFile file,

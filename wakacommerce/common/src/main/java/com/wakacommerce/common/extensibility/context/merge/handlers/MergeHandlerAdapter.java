@@ -6,13 +6,8 @@ import org.w3c.dom.Node;
 import java.util.List;
 
 /**
- * This adapter class allows the developer to create a merge handler
- * instance and only override a subset of the functionality, instead of
- * having to provide an independent, full implementation of the MergeHandler
- * interface.
- * 
- *  
  *
+ * @ hui
  */
 public class MergeHandlerAdapter implements MergeHandler {
 

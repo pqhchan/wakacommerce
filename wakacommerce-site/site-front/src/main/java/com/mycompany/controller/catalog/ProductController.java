@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * This class works in combination with the ProductHandlerMapping which finds a product based upon
- * the passed in URL.
+ *
+ * @ hui
  */
 @Controller("blProductController")
 public class ProductController extends BroadleafProductController {

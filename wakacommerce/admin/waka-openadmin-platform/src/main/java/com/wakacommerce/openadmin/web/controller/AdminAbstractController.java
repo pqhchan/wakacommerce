@@ -47,12 +47,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * An abstract controller that provides convenience methods and resource declarations for the Admin
  *
- * Operations that are shared between all admin controllers belong here.
- *
- * @see com.wakacommerce.openadmin.web.handler.AdminNavigationHandlerMapping
- *  
+ * @ hui
  */
 public abstract class AdminAbstractController extends WakaAbstractController {
     
@@ -84,9 +80,6 @@ public abstract class AdminAbstractController extends WakaAbstractController {
     @Resource(name="blAdminSecurityRemoteService")
     protected SecurityVerifier adminRemoteSecurityService;
 
-    /**
-     * Deprecated in favor of {@link com.wakacommerce.openadmin.web.controller.AdminAbstractControllerExtensionManager}
-     */
     @Deprecated
     @Resource(name = "blMainEntityActionsExtensionManager")
     protected MainEntityActionsExtensionManager mainEntityActionsExtensionManager;
@@ -97,16 +90,7 @@ public abstract class AdminAbstractController extends WakaAbstractController {
     // *********************************************************
     // UNBOUND CONTROLLER METHODS (USED BY DIFFERENT SECTIONS) *
     // *********************************************************
-    
-    /**
-     * Convenience method for obtaining a fully built EntityForm for the given sectionKey, sectionClassName, and id.
-     * 
-     * @param sectionKey
-     * @param sectionClassName
-     * @param id
-     * @return a fully composed EntityForm
-     * @throws ServiceException
-     */
+
     protected EntityForm getEntityForm(String sectionKey, String sectionClassName, String id) throws ServiceException {
         SectionCrumb sc = new SectionCrumb();
         sc.setSectionId(id);
@@ -123,21 +107,7 @@ public abstract class AdminAbstractController extends WakaAbstractController {
         EntityForm entityForm = formService.createEntityForm(cmd, entity, subRecordsMap, crumbs);
         return entityForm;
     }
-    
-    /**
-     * Returns a partial representing a dynamic form. An example of this is the dynamic fields that render
-     * on structured content, which are determined by the currently selected structured content type. This 
-     * method is typically only invoked through Javascript and used to replace the current dynamic form with
-     * the one for the newly selected type.
-     * 
-     * @param request
-     * @param response
-     * @param model
-     * @param pathVars
-     * @param info
-     * @return the return view path
-     * @throws Exception
-     */
+
     protected String getDynamicForm(HttpServletRequest request, HttpServletResponse response, Model model,
             Map<String, String> pathVars,
             DynamicEntityFormInfo info) throws Exception {
@@ -162,18 +132,6 @@ public abstract class AdminAbstractController extends WakaAbstractController {
     // HELPER METHODS FOR BUILDING DTOS *
     // **********************************
 
-    /**
-     * Convenience method for obtaining a ListGrid DTO object for a collection. Note that if no <b>criteria</b> is
-     * available, then this should be null (or empty)
-     * 
-     * @param mainMetadata class metadata for the root entity that this <b>collectionProperty</b> relates to
-     * @param id foreign key from the root entity for <b>collectionProperty</b>
-     * @param collectionProperty property that this collection should be based on from the root entity
-     * @param form the criteria form model attribute
-     * @param sectionKey the current main section key
-     * @return the list grid
-     * @throws ServiceException
-     */
     protected ListGrid getCollectionListGrid(ClassMetadata mainMetadata, Entity entity, Property collectionProperty,
             MultiValueMap<String, String> requestParams, String sectionKey, PersistenceResponse persistenceResponse, List<SectionCrumb> sectionCrumbs)
             throws ServiceException {
@@ -191,43 +149,16 @@ public abstract class AdminAbstractController extends WakaAbstractController {
         return listGrid;
     }
 
-    /**
-     * Convenience method for obtaining a ListGrid DTO object for a collection. Note that if no <b>criteria</b> is
-     * available, then this should be null (or empty)
-     *
-     * @param mainMetadata class metadata for the root entity that this <b>collectionProperty</b> relates to
-     * @param id foreign key from the root entity for <b>collectionProperty</b>
-     * @param collectionProperty property that this collection should be based on from the root entity
-     * @param form the criteria form model attribute
-     * @param sectionKey the current main section key
-     * @return the list grid
-     * @throws ServiceException
-     */
     protected ListGrid getCollectionListGrid(ClassMetadata mainMetadata, Entity entity, Property collectionProperty,
                 MultiValueMap<String, String> requestParams, String sectionKey, List<SectionCrumb> sectionCrumbs)
                 throws ServiceException {
         return getCollectionListGrid(mainMetadata, entity, collectionProperty, requestParams, sectionKey, null, sectionCrumbs);
     }
 
-    /**
-     * @see #getBlankDynamicFieldTemplateForm(DynamicEntityFormInfo, EntityForm)
-     * @param info
-     * @throws ServiceException
-     */
     protected EntityForm getBlankDynamicFieldTemplateForm(DynamicEntityFormInfo info) throws ServiceException {
         return getBlankDynamicFieldTemplateForm(info, null);
     }
 
-    /**
-     * Convenience method for obtaining a blank dynamic field template form. For example, if the main entity form should
-     * render different fields depending on the value of a specific field in that main form itself, the "dynamic" fields
-     * are generated by this method. Because this is invoked when a new value is chosen, the form generated by this method
-     * will never have values set.
-     * 
-     * @param info
-     * @return the entity form
-     * @throws ServiceException
-     */
     protected EntityForm getBlankDynamicFieldTemplateForm(DynamicEntityFormInfo info, EntityForm dynamicFormOverride) 
             throws ServiceException {
         // We need to inspect with the second custom criteria set to the id of
@@ -265,22 +196,7 @@ public abstract class AdminAbstractController extends WakaAbstractController {
 
         return dynamicForm;
     }
-    
-    /**
-     * Convenience method for obtaining a dynamic field template form for a particular entity. This method differs from
-     * {@link #getBlankDynamicFieldTemplateForm(DynamicEntityFormInfo)} in that it will fill out the current values for 
-     * the fields in this dynamic form from the database. This method is invoked when the initial view of a page containing
-     * a dynamic form is triggered.
-     * 
-     * Optionally, you can pass in a pre-existing dynamic form to this method that already has updated values. Example usage
-     * would be for after validation has failed and you do not want to lookup old values from the database again.
-     * 
-     * @param info
-     * @param entityId
-     * @param dynamicForm optional dynamic form that already has values to fill out
-     * @return the entity form
-     * @throws ServiceException
-     */
+
     protected EntityForm getDynamicFieldTemplateForm(DynamicEntityFormInfo info, String entityId, EntityForm dynamicFormOverride) 
             throws ServiceException {
         // We need to inspect with the second custom criteria set to the id of
@@ -339,12 +255,6 @@ public abstract class AdminAbstractController extends WakaAbstractController {
         return dynamicForm;
     }
 
-    /**
-     * This method will scan the entityForm for all dynamic form fields and pull them out
-     * as appropriate.
-     * 
-     * @param entityForm
-     */
     protected void extractDynamicFormFields(EntityForm entityForm) {
         Map<String, Field> dynamicFields = new HashMap<String, Field>();
         
@@ -381,41 +291,11 @@ public abstract class AdminAbstractController extends WakaAbstractController {
     // ***********************************************
     // HELPER METHODS FOR SECTION-SPECIFIC OVERRIDES *
     // ***********************************************
-    
-    /**
-     * This method is used to determine the current section key. For this default implementation, the sectionKey is pulled
-     * from the pathVariable, {sectionKey}, as defined by the request mapping on this controller. To support controller
-     * inheritance and allow more specialized controllers to delegate some methods to this basic controller, overridden
-     * implementations of this method could return a hardcoded value instead of reading the map
-     * 
-     * @param pathVars - the map of all currently bound path variables for this request
-     * @return the sectionKey for this request
-     */
+
     protected String getSectionKey(Map<String, String> pathVars) {
         return pathVars.get("sectionKey");
     }
-    
-    /**
-     * <p>Helper method to return an array of {@link com.wakacommerce.openadmin.dto.FilterAndSortCriteria} based on a map of propertyName -> list of criteria
-     * value. This will also grab the sorts off of the request parameters, if any.</p>
-     * 
-     * <p>The multi-valued map allows users to specify multiple criteria values per property, as well as multiple sort
-     * properties and sort directions. For multiple sort properties and sort directions, these would usually come in as
-     * request parameters like:
-     * <br />
-     * <br />
-     * ....?sortProperty=defaultSku.name&sortProperty=manufacturer&sortDirection=ASCENDING&sortDirection=DESCENDING
-     * <br />
-     * <br />
-     * This would attach criteria such that defaultSku.name was sorted ascending, and manufacturer was sorted descending</p>
-     * 
-     * @param requestParams usually a {@link MultiValueMap} that has been bound by a controller to receive all of the
-     * request parameters that are not explicitly named
-     * @return the final array of {@link com.wakacommerce.openadmin.dto.FilterAndSortCriteria} to pass to the fetch
-     * 
-     * @see {@link #getSortPropertyNames(Map)}
-     * @see {@link #getSortDirections(Map)}
-     */
+
     protected FilterAndSortCriteria[] getCriteria(Map<String, List<String>> requestParams) {
         if (requestParams == null || requestParams.isEmpty()) {
             return null;
@@ -471,39 +351,16 @@ public abstract class AdminAbstractController extends WakaAbstractController {
         
         return result.toArray(new FilterAndSortCriteria[result.size()]);
     }
-    
-    /**
-     * Obtains the list of sort directions from the bound request parameters. Note that these should appear in the same
-     * relative order as {@link #getSortPropertyNames(Map)}
-     * 
-     * @param requestParams
-     * @return
-     */
+
     protected List<String> getSortDirections(Map<String, List<String>> requestParams) {
         List<String> sortTypes = requestParams.get(FilterAndSortCriteria.SORT_DIRECTION_PARAMETER);
         return sortTypes;
     }
-    
-    /**
-     * Obtains the list of property names to sort on from the bound request parameters. Note that these should appear in the
-     * same relative order as {@link #getSortDirections(Map)}.
-     * 
-     * @param requestParams
-     * @return
-     */
+
     protected List<String> getSortPropertyNames(Map<String, List<String>> requestParams) {
         return requestParams.get(FilterAndSortCriteria.SORT_PROPERTY_PARAMETER);
     }
 
-    /**
-     * Gets the fully qualified ceiling entity classname for this section. If this section is not explicitly defined in
-     * the database, will return the value passed into this function. For example, if there is a mapping from "/myentity" to
-     * "com.mycompany.myentity", both "http://localhost/myentity" and "http://localhost/com.mycompany.myentity" are valid
-     * request paths.
-     * 
-     * @param sectionKey
-     * @return the className for this sectionKey if found in the database or the sectionKey if not
-     */
     protected String getClassNameForSection(String sectionKey) {
         AdminSection section = adminNavigationService.findAdminSectionByURI("/" + sectionKey);
         
@@ -516,84 +373,34 @@ public abstract class AdminAbstractController extends WakaAbstractController {
         return (section == null) ? sectionKey : section.getCeilingEntity();
     }
 
-    /**
-     * If there are certain types of entities that should not be allowed to be created, an override of this method would be
-     * able to specify that. It could also add additional types if desired.
-     * 
-     * @param classTree
-     * @return a List<ClassTree> representing all potentially avaialble entity types to create
-     */
     protected List<ClassTree> getAddEntityTypes(ClassTree classTree) {
         return classTree.getCollapsedClassTrees();
     }
 
-    /**
-     * This method is called when attempting to add new entities that have a polymorphic tree. 
-     * 
-     * If this method returns null, there is no default type set for this particular entity type, and the user will be 
-     * presented with a selection of possible types to utilize.
-     * 
-     * If it returns a non-null value, the returned fullyQualifiedClassname will be used and will bypass the selection step.
-     * 
-     * @return null if there is no default type, otherwise the default type
-     */
     protected String getDefaultEntityType() {
         return null;
     }
-    
-    /**
-     * This method is invoked for every request for this controller. By default, we do not want to specify a custom
-     * criteria, but specialized controllers may want to.
-     * 
-     * @return the custom criteria for this section for all requests, if any
-     */
+
     protected String[] getSectionCustomCriteria() {
         return null;
     }
-    
-    /**
-     * @deprecated in favor of {@link #attachSectionSpecificInfo(PersistencePackageRequest, Map)}
-     */
+
     protected void attachSectionSpecificInfo(PersistencePackageRequest ppr) {
         
     }
-    
-    /**
-     * This method is invoked whenever an assembled EntityForm is rendered. This typically occurs when viewing an entity
-     * in the admin or viewing an error state on a POST for that entity.
-     * 
-     * @param entityForm
-     */
+
     protected void modifyEntityForm(EntityForm entityForm, Map<String, String> pathVars) {
         
     }
 
-    /**
-     * This method is invoked whenever an assembled EntityForm is rendered for the add entity screen.
-     * 
-     * @param entityForm
-     */
     protected void modifyAddEntityForm(EntityForm entityForm, Map<String, String> pathVars) {
         
     }
 
-    /**
-     * A hook method that is invoked every time the {@link #getSectionPersistencePackageRequest(String)} method is invoked.
-     * This allows specialized controllers to hook into every request and manipulate the persistence package request as
-     * desired.
-     * 
-     * @param ppr
-     */
     protected void attachSectionSpecificInfo(PersistencePackageRequest ppr, Map<String, String> pathVars) {
         attachSectionSpecificInfo(ppr);
     }
 
-    /**
-     * Obtains the requested start index parameter
-     * 
-     * @param requestParams
-     * @return
-     */
     protected Integer getStartIndex(Map<String, List<String>> requestParams) {
         if (requestParams == null || requestParams.isEmpty()) {
             return null;
@@ -602,13 +409,7 @@ public abstract class AdminAbstractController extends WakaAbstractController {
         List<String> startIndex = requestParams.get(FilterAndSortCriteria.START_INDEX_PARAMETER);
         return CollectionUtils.isEmpty(startIndex) ? null : Integer.parseInt(startIndex.get(0));
     }
-    
-    /**
-     * Obtains the requested max index parameter
-     * 
-     * @param requestParams
-     * @return
-     */
+
     protected Integer getMaxIndex(Map<String, List<String>> requestParams) {
         if (requestParams == null || requestParams.isEmpty()) {
             return null;
@@ -621,13 +422,7 @@ public abstract class AdminAbstractController extends WakaAbstractController {
     // ************************
     // GENERIC HELPER METHODS *
     // ************************
-    
-    /**
-     * Attributes to add to the model on every request
-     * 
-     * @param model
-     * @param sectionKey
-     */
+
     protected void setModelAttributes(Model model, String sectionKey) {
         AdminSection section = adminNavigationService.findAdminSectionByURI("/" + sectionKey);
 
@@ -640,23 +435,10 @@ public abstract class AdminAbstractController extends WakaAbstractController {
         extensionManager.getProxy().setAdditionalModelAttributes(model, sectionKey);
     }
 
-    /**
-     * @deprecated in favor of {@link #getSectionPersistencePackageRequest(String, List, Map)}
-     */
     protected PersistencePackageRequest getSectionPersistencePackageRequest(String sectionClassName, List<SectionCrumb> sectionCrumbs) {
         return getSectionPersistencePackageRequest(sectionClassName, sectionCrumbs, null);
     }
 
-    /**
-     * Returns a PersistencePackageRequest for the given sectionClassName. Will also invoke the 
-     * {@link #getSectionCustomCriteria()} and {@link #attachSectionSpecificInfo(PersistencePackageRequest)} to allow
-     * specialized controllers to manipulate the request for every action in this controller.
-     * 
-     * @param sectionClassName
-     * @param sectionCrumbs
-     * @param pathVars
-     * @return
-     */
     protected PersistencePackageRequest getSectionPersistencePackageRequest(String sectionClassName, 
             List<SectionCrumb> sectionCrumbs, Map<String, String> pathVars) {
         PersistencePackageRequest ppr = PersistencePackageRequest.standard()
@@ -669,22 +451,11 @@ public abstract class AdminAbstractController extends WakaAbstractController {
         return ppr;
     }
 
-    /**
-     * @deprecated in favor of {@link #getSectionPersistencePackageRequest(String, MultiValueMap, List, Map)}
-     */
     protected PersistencePackageRequest getSectionPersistencePackageRequest(String sectionClassName, 
             MultiValueMap<String, String> requestParams, List<SectionCrumb> sectionCrumbs) {
         return getSectionPersistencePackageRequest(sectionClassName, requestParams, sectionCrumbs, null);
     }
 
-    /**
-     * Returns the result of a call to {@link #getSectionPersistencePackageRequest(String)} with the additional filter
-     * and sort criteria attached.
-     * 
-     * @param sectionClassName
-     * @param filterAndSortCriteria
-     * @return the PersistencePacakageRequest
-     */
     protected PersistencePackageRequest getSectionPersistencePackageRequest(String sectionClassName, 
             MultiValueMap<String, String> requestParams, List<SectionCrumb> sectionCrumbs, Map<String, String> pathVars) {
         FilterAndSortCriteria[] fascs = getCriteria(requestParams);

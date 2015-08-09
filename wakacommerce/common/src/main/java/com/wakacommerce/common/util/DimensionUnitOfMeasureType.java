@@ -8,10 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extendible enumeration of units of measure types.
- * 
- *  
  *
+ * @ hui
  */
 public class DimensionUnitOfMeasureType implements Serializable, WakaEnumType {
 

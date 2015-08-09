@@ -30,12 +30,8 @@ import javax.annotation.Resource;
 
 
 /**
- * This implementation validates each {@link Property} from the given {@link Entity} according to the
- * {@link ValidationConfiguration}s associated with it.
- * 
- *  
- * @see {@link EntityValidatorService}
- * @see {@link ValidationConfiguration}
+ *
+ * @ hui
  */
 @Service("blEntityValidatorService")
 public class EntityValidatorServiceImpl implements EntityValidatorService, ApplicationContextAware {
@@ -177,18 +173,6 @@ public class EntityValidatorServiceImpl implements EntityValidatorService, Appli
         }
     }
 
-    /**
-     * <p>
-     * Returns the type hierarchy of the given <b>entity</b> in ascending order of type, stopping at Object
-     * 
-     * <p>
-     * For instance, if this entity's {@link Entity#getType()} is {@link ProductBundleImpl}, then the result will be:
-     * 
-     * [com.wakacommerce.core.catalog.domain.ProductBundleImpl, com.wakacommerce.core.catalog.domain.ProductImpl]
-     * 
-     * @param entity
-     * @return
-     */
     protected List<String> getTypeHierarchy(Entity entity) {
         List<String> types = new ArrayList<String>();
         Class<?> myType;

@@ -4,17 +4,8 @@ package com.wakacommerce.openadmin.dto;
 import java.io.Serializable;
 
 /**
- * The DynamicEntityDao infrastructure provides a generic representation of an entity in 
- * the system.   Some utilities and services want both the generic representation and the
- * entity as it was persisted (e.g. the result of the <code>merge</code> call.
- * 
- * This object returns both properties.
- * 
- * 
- * 
- * @see {@link Entity}
- * @see {@link Property}
  *
+ * @ hui
  */
 public class EntityResult implements Serializable {
 

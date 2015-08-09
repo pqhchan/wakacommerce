@@ -9,9 +9,8 @@ import com.wakacommerce.common.WakaEnumType;
 
 
 /**
- * An extendible enumeration of customer address types.
- * 
- *  
+ *
+ * @ hui
  */
 public class CustomerAddressType implements Serializable, WakaEnumType {
 

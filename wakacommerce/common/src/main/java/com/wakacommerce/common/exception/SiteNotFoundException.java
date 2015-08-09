@@ -2,7 +2,8 @@
 package com.wakacommerce.common.exception;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class SiteNotFoundException extends RuntimeException {
 

@@ -7,10 +7,8 @@ import org.slf4j.Marker;
 import org.slf4j.MarkerFactory;
 
 /**
- * <p>An SLF4J implementation of SupportLoggerAdapter that will delegate to the
- * configured SLF4J logging framework.</p>
  *
- *  
+ * @ hui
  */
 public class SLF4JSupportLoggerAdapter extends AbstractSupportLoggerAdapter implements SupportLoggerAdapter {
 
@@ -54,20 +52,11 @@ public class SLF4JSupportLoggerAdapter extends AbstractSupportLoggerAdapter impl
         LOGGER.error(message, t);
     }
 
-    /**
-     * Mapping FATAL to ERROR as the SLF4J API does not contain a fatal level
-     * @param message
-     */
     @Override
     public void fatal(String message) {
         LOGGER.error(message);
     }
 
-    /**
-     * Mapping FATAL to ERROR as the SLF4J API does not contain a fatal level
-     * @param message
-     * @param t
-     */
     @Override
     public void fatal(String message, Throwable t) {
         LOGGER.error(message, t);

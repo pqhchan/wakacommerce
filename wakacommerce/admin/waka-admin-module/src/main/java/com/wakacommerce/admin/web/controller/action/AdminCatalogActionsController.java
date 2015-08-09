@@ -19,10 +19,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Controller that responds to custom catalog actions. These would normally be hooked up in customized controllers like 
- * {@link AdminProductController}
- *     
- * @see {@link AdminProductController}
+ *
+ * @ hui
  */
 @Controller("blAdminCatalogActionsController")
 public class AdminCatalogActionsController extends AdminAbstractController {
@@ -30,10 +28,6 @@ public class AdminCatalogActionsController extends AdminAbstractController {
     @Resource(name = "blAdminCatalogService")
     protected AdminCatalogService adminCatalogService;
 
-    /**
-     * Invokes a separate service to generate a list of Skus for a particular {@link Product} and that {@link Product}'s
-     * Product Options
-     */
     @RequestMapping(value = "product/{productId}/{skusFieldName}/generate-skus",
                     method = RequestMethod.GET,
                     produces = "application/json")

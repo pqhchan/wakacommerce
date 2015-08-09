@@ -22,8 +22,8 @@ import java.util.List;
 
 
 /**
- * An abstract GeneratedResourceHandler that is capable of responding to a single specified filename and generate
- * contents for that filename. This abstract parent will handle caching of the generated resource.
+ *
+ * @ hui
  */
 public abstract class AbstractGeneratedResourceHandler implements Ordered {
     
@@ -41,36 +41,13 @@ public abstract class AbstractGeneratedResourceHandler implements Ordered {
     protected ResourceRequestExtensionManager extensionManager;
 
     protected Cache generatedResourceCache;
-    
-    /**
-     * @param path
-     * @return booelean determining whether or not this handler is able to handle the given request
-     */
+
     public abstract boolean canHandle(String path);
-    
-    /**
-     * @param path
-     * @param locations 
-     * @return the Resource representing this file
-     */
+
     public abstract Resource getFileContents(String path, List<Resource> locations);
-    
-    /**
-     * @param cachedResource
-     * @param path
-     * @param locations
-     * @return whether or not the given cachedResource needs to be regenerated
-     */
+
     public abstract boolean isCachedResourceExpired(GeneratedResource cachedResource, String path, List<Resource> locations);
 
-    /**
-     * Attempts to retrive the requested resource from cache. If not cached, generates the resource, caches it,
-     * and then returns it
-     * 
-     * @param request
-     * @param location
-     * @return the generated resource
-     */
     public Resource getResource(final String path, final List<Resource> locations) {
         Element e = getGeneratedResourceCache().get(path);
         Resource r = null;
@@ -96,14 +73,7 @@ public abstract class AbstractGeneratedResourceHandler implements Ordered {
         }
         return r;
     }
-    
-    /**
-     * This method can be used to read in a resource given a path and at least one resource location
-     * 
-     * @param path
-     * @param locations
-     * @return the resource from the file system, classpath, etc, if it exists
-     */
+
     protected Resource getRawResource(String path, List<Resource> locations) {
         ExtensionResultHolder erh = new ExtensionResultHolder();
         extensionManager.getProxy().getOverrideResource(path, erh);

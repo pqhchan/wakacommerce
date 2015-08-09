@@ -6,9 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public class AdminUser implements Serializable {
 

@@ -10,33 +10,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- *  
  *
- * An example of the Serialized JSON:
- *
- * {'fields': [
- *      {'label':'Order Item - name',
- *      'name':'name',
- *      'operators':blcOperators_Text,
- *      'options':[]},
- *      {'label':'Order Item - Retail Price',
- *      'name':'retailPrice',
- *      'operators':blcOperators_Numeric,
- *      'options':[]},
- *      {'label':'Product - is Featured Product',
- *      'name':'sku.product.isFeaturedProduct',
- *      'operators':blcOperators_Boolean,
- *      'options':[]},
- *      {'label':'Sku - Active End Date',
- *      'name':'sku.activeEndDate',
- *      'operators':blcOperators_Date,
- *      'options':[]},
- *      {'label':'Category - Fulfillment Type',
- *      'name':'category.fulfillmentType',
- *      'operators':blcOperators_Enumeration,
- *      'options':blcOptions_FulfillmentType}
- * ]}
- *
+ * @ hui
  */
 public class FieldWrapper implements Serializable {
 

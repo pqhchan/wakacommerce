@@ -8,7 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extendible enumeration of email property types.
+ *
+ * @ hui
  */
 public class EmailPropertyType implements Serializable, WakaEnumType {
 

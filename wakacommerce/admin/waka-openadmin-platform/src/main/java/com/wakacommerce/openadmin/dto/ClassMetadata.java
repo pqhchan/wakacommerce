@@ -9,9 +9,8 @@ import com.wakacommerce.common.util.TypedClosure;
 
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public class ClassMetadata implements Serializable {
     
@@ -46,13 +45,6 @@ public class ClassMetadata implements Serializable {
         this.ceilingType = type;
     }
 
-    /**
-     * For dynamic forms, the type to check security permissions will be different than the type used to generate the 
-     * forms.   For example, a user with "ADD" or "UPDATE" permissions on STRUCTURE_CONTENT does not need 
-     * to have the same level of access to StructuredContentTemplate.   
-     * 
-     * @param type
-     */
     public String getSecurityCeilingType() {
         return securityCeilingType;
     }

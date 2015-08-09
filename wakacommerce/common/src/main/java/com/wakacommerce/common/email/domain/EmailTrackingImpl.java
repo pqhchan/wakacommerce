@@ -114,30 +114,18 @@ public class EmailTrackingImpl implements EmailTracking {
         this.type = type;
     }
 
-    /**
-     * @return the emailTrackingClicks
-     */
     public Set<EmailTrackingClicks> getEmailTrackingClicks() {
         return emailTrackingClicks;
     }
 
-    /**
-     * @param emailTrackingClicks the emailTrackingClicks to set
-     */
     public void setEmailTrackingClicks(Set<EmailTrackingClicks> emailTrackingClicks) {
         this.emailTrackingClicks = emailTrackingClicks;
     }
 
-    /**
-     * @return the emailTrackingOpens
-     */
     public Set<EmailTrackingOpens> getEmailTrackingOpens() {
         return emailTrackingOpens;
     }
 
-    /**
-     * @param emailTrackingOpens the emailTrackingOpens to set
-     */
     public void setEmailTrackingOpens(Set<EmailTrackingOpens> emailTrackingOpens) {
         this.emailTrackingOpens = emailTrackingOpens;
     }

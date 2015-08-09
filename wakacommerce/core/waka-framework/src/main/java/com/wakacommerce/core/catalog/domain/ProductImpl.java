@@ -74,21 +74,8 @@ import javax.persistence.OrderBy;
 import javax.persistence.Transient;
 
 /**
- * The Class ProductImpl is the default implementation of {@link Product}. A
- * product is a general description of an item that can be sold (for example: a
- * hat). Products are not sold or added to a cart. {@link Sku}s which are
- * specific items (for example: a XL Blue Hat) are sold or added to a cart. <br>
- * <br>
- * If you want to add fields specific to your implementation of
- * BroadLeafCommerce you should extend this class and add your fields. If you
- * need to make significant changes to the ProductImpl then you should implement
- * your own version of {@link Product}. <br>
- * <br>
- * This implementation uses a Hibernate implementation of JPA configured through
- * annotations. The Entity references the following tables: BLC_PRODUCT,
- * BLC_PRODUCT_SKU_XREF, BLC_PRODUCT_IMAGE
- *btaylor
- * @see {@link Product}, {@link SkuImpl}, {@link CategoryImpl}
+ *
+ * @ hui
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

@@ -7,7 +7,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- *  
+ *
+ * @ hui
  */
 public class BroadleafFormType implements Serializable, WakaEnumType {
 

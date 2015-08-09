@@ -10,21 +10,8 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * This class provides an LRUMap structure that defaults to a more efficient ConcurrentHashMap if the
- * size has not yet been reached.
- * 
- * In Broadleaf, there are many instances where an LRUMap could be used to guard against implementations
- * where Map sizes grow in unexpected ways.    However, the large majority of cases would fit well within the
- * max bounds of the LRUMap.
- * 
- * This class provides an approach that provides the benefits of a LRUMap for memory protection while
- * allowing concurrent access under normal circumstances.
- * 
- * For the first [n] entries, the underlying implementation will be a ConcurrentHashMap.   On the "n+1"th 
- * entry, this implementation will switch its underlying implementation to a synchronized LRUMap. 
- * 
- * 
- * 
+ *
+ * @ hui
  */
 public class EfficientLRUMap<K, V> implements Map<K, V> {
 
@@ -145,9 +132,6 @@ public class EfficientLRUMap<K, V> implements Map<K, V> {
         }
     }
 
-    /**
-     * We are clearing the map, so we can switch back to a {@link ConcurrentHashMap}
-     */
     protected synchronized void resetInternalMap() {
         usingLRUMap = false;
         lruMap.clear();

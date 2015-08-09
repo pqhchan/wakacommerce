@@ -8,10 +8,8 @@ import org.w3c.dom.NodeList;
 import java.util.List;
 
 /**
- * This handler implementation provides behavior where the child nodes from an
- * element in the patch document are added to the same node in the source
- * document.
- *  
+ *
+ * @ hui
  */
 public class InsertChildrenOf extends BaseHandler {
 

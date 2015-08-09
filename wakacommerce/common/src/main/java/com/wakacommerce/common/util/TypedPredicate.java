@@ -7,11 +7,8 @@ import java.lang.reflect.ParameterizedType;
 
 
 /**
- * A class that provides for a typed predicat
- * 
- * 
  *
- * @param <T> the type of object the predicate uses
+ * @ hui
  */
 @SuppressWarnings("unchecked")
 public abstract class TypedPredicate<T> implements Predicate {

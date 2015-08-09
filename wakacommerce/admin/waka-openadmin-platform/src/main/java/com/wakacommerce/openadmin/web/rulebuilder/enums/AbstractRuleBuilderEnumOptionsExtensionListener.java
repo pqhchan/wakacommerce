@@ -9,18 +9,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 /**
- * Abstract extension listener for rule builder enum options that handles the boilerplate code required for setting up
- * the response to the client. This class provides two abstract methods that must be implemented, {@link #getVariableName()}
- * and {@link #getEnumClass()}. Generates a String with the following pattern:
- * 
- * var variableName = [
- *     { label : "enumFriendlyType", name : "enumType" },
- *     { label : "enumFriendlyType2", name : "enumType2" },
- *     ...
- *     { label : "enumFriendlyTypeN", name : "enumTypeN" }
- * ];
- * 
- * 
+ *
+ * @ hui
  */
 public abstract class AbstractRuleBuilderEnumOptionsExtensionListener implements RuleBuilderEnumOptionsExtensionListener {
     
@@ -56,10 +46,7 @@ public abstract class AbstractRuleBuilderEnumOptionsExtensionListener implements
             throw new RuntimeException(e);
         }
     }
-    
-    /**
-     * @return a map representing the various values that this extension listener should generate
-     */
+
     protected abstract Map<String, Class<? extends WakaEnumType>> getValuesToGenerate();
 
 }

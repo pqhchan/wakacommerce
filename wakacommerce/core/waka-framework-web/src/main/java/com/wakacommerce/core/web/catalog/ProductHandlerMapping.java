@@ -14,16 +14,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * This handler mapping works with the Product entity to determine if a product has been configured for
- * the passed in URL.   
- * 
- * If the URL matches a valid Product then this mapping returns the handler configured via the 
- * controllerName property or blProductController by default. 
  *
- * 
- * @since 2.0
- * @see com.wakacommerce.core.catalog.domain.Product
- * @see CatalogService
+ * @ hui
  */
 public class ProductHandlerMapping extends WakaAbstractHandlerMapping {
     

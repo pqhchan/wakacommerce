@@ -8,12 +8,8 @@ import java.util.Collection;
 
 
 /**
- * Extended DTO class to support salts based on the primary key of the admin user. This allows username changes for
- * admin users.
- * 
- * @see {@link AdminSecurityService}
- * @see {@link AdminUserDetailsServiceImpl}
- *     
+ *
+ * @ hui
  */
 public class AdminUserDetails extends User {
     
@@ -34,17 +30,11 @@ public class AdminUserDetails extends User {
         setId(id);
         return this;
     }
-    
-    /**
-     * @return the primary key of the Admin User
-     */
+
     public Long getId() {
         return id;
     }
-    
-    /**
-     * @param id the primary key of the Admin User
-     */
+
     public void setId(Long id) {
         this.id = id;
     }

@@ -17,9 +17,8 @@ import com.wakacommerce.profile.core.service.CustomerService;
 import javax.annotation.Resource;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 @Component("blCustomerPasswordCustomPersistenceHandler")
 public class CustomerPasswordCustomPersistenceHandler extends CustomPersistenceHandlerAdapter {

@@ -8,9 +8,8 @@ import org.springframework.web.context.request.WebRequestInterceptor;
 import javax.annotation.Resource;
 
 /**
- * Interceptor for use with portlets that calls the {@link TranslationRequestProcessor}.
- * 
- * 
+ *
+ * @ hui
  */
 public class TranslationInterceptor implements WebRequestInterceptor {
     

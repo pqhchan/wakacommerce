@@ -8,9 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * Enumeration to specify whether inventory should be checked or not.
- * 
- *  
+ *
+ * @ hui
  */
 public class InventoryType implements Serializable, WakaEnumType {
 

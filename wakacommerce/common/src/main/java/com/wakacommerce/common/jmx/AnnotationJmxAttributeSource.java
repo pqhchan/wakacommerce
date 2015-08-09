@@ -5,9 +5,8 @@ import org.springframework.jmx.export.metadata.InvalidMetadataException;
 import org.springframework.jmx.export.metadata.ManagedResource;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public class AnnotationJmxAttributeSource extends org.springframework.jmx.export.annotation.AnnotationJmxAttributeSource {
     

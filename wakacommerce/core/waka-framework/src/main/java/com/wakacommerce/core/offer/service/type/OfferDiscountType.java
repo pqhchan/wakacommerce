@@ -8,8 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extendible enumeration of discount types.
  *
+ * @ hui
  */
 public class OfferDiscountType implements Serializable, WakaEnumType {
     

@@ -7,7 +7,8 @@ import com.wakacommerce.core.pricing.service.exception.TaxException;
 import com.wakacommerce.core.pricing.service.tax.provider.TaxProvider;
 
 /**
- * @deprectated use {@link TaxService} and {@link TaxProvider}s instead
+ *
+ * @ hui
  */
 @Deprecated
 public interface TaxModule {

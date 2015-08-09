@@ -24,11 +24,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- * Created by IntelliJ IDEA.
- * User:   
- * Date: 9/24/11
- * Time: 4:34 PM
- * To change this template use File | Settings | File Templates.
+ *
+ * @ hui
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

@@ -9,46 +9,8 @@ import org.springframework.beans.factory.annotation.Value;
 import java.util.Collection;
 
 /**
- * Extra logging facility whose design intent is to handle detailed production logging for complex interactions.
- * Generally, the target of this logging is a rolling log file. This is intentionally separate from the standard system
- * logging, since this logging would likely be noisy in that context. Review of this log is useful to recreate complex
- * user scenarios, replicate error conditions and fix otherwise difficult to find bugs.
- * <p/>
- * Configuration should be made in your implementation's log4j.xml file (or other logging system config file,
- * if applicable). A sample log4j configuration would be the following, which sets up a daily rolling log.
- * <p/>
- * {@code
- * <?xml version="1.0" encoding="UTF-8" ?>
- * <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
- * <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
- * <appender name="console" class="org.apache.log4j.ConsoleAppender">
- * <param name="Target" value="System.out" />
- * <layout class="org.apache.log4j.PatternLayout">
- * <param name="ConversionPattern" value="[%5p] %d$&#123;HH:mm:ss$&#125; %c$&#123;1$&#125; - %m%n" />
- * </layout>
- * </appender>
- * <appender name="rollingDailyEnterpriseWorkflow" class="org.apache.log4j.DailyRollingFileAppender">
- * <param name="file" value="workflow.log" />
- * <param name="DatePattern" value="'.'yyyy-MM-dd" />
- * <layout class="org.apache.log4j.PatternLayout">
- * <param name="ConversionPattern" value="[%5p] %d$&#123;HH:mm:ss$&#125; %c$&#123;1$&#125; - %m%n" />
- * </layout>
- * </appender>
- * <logger name="com.broadleafcommerce.enterprise.workflow.process.detail" additivity="false">
- * <level value="debug"/>
- * <appender-ref ref="rollingDailyEnterpriseWorkflow"/>
- * </logger>
- * <root>
- * <priority value="warn" />
- * <appender-ref ref="console" />
- * </root>
- * </log4j:configuration>
- * }
  *
- * If you duplicated the sample configuration exactly, you would provide the logger name "com.broadleafcommerce.enterprise.workflow.process.detail"
- * to the {@link #ProcessDetailLogger(String)} constructor.
- *
- * 
+ * @ hui
  */
 public class ProcessDetailLogger {
 
@@ -56,14 +18,8 @@ public class ProcessDetailLogger {
 
     private Log processDetailLog;
 
-    /**
-     * Max number of members that will output in the log for a collection or array member passed as a template variable
-     */
     protected int listTemplateVariableMaxMemberCount = 30;
 
-    /**
-     * Max length of any String passed as a template variable
-     */
     protected int stringTemplateVariableMaxLength = 200;
 
     @Value("${ignore.no.process.detail.logger.configuration:false}")
@@ -72,11 +28,6 @@ public class ProcessDetailLogger {
     @Value("${disable.all.process.detail.logging:false}")
     protected boolean disableAllProcessDetailLogging = false;
 
-    /**
-     * Construct a logger
-     *
-     * @param logIdentifier the logger name that should be used from the backing logging system configuration
-     */
     public ProcessDetailLogger(String logIdentifier) {
         if (!disableAllProcessDetailLogging) {
             processDetailLog = LogFactory.getLog(logIdentifier);
@@ -124,13 +75,6 @@ public class ProcessDetailLogger {
         }
     }
 
-    /**
-     * Log a message to the configured log file
-     *
-     * @param logContext a fragment describing the context of this log message - will be prepended in the log. Can be null.
-     * @param messageTemplate A template string using the same approach employed by {@link String#format(String, Object...)}
-     * @param templateVariables the variable used to replace the %s values in the template string
-     */
     public void logProcessDetail(String logContext, String messageTemplate, Object... templateVariables) {
         if (!disableAllProcessDetailLogging && processDetailLog.isDebugEnabled()) {
             String message = String.format(messageTemplate, processVariables(templateVariables));
@@ -138,24 +82,10 @@ public class ProcessDetailLogger {
         }
     }
 
-    /**
-     * Log a message to the configured log file
-     *
-     * @param logContext a fragment describing the context of this log message - will be prepended in the log. Can be null.
-     * @param message a message to log
-     */
     public void logProcessDetail(String logContext, String message) {
         logProcessDetail(logContext, null, message);
     }
 
-    /**
-     * Log a message to the configured log file
-     *
-     * @param logContext a fragment describing the context of this log message - will be prepended in the log. Can be null.
-     * @param e an exception to include with the log message as a stack trace
-     * @param messageTemplate A template string using the same approach employed by {@link String#format(String, Object...)}
-     * @param templateVariables the variable used to replace the %s values in the template string
-     */
     public void logProcessDetail(String logContext, Throwable e, String messageTemplate, Object... templateVariables) {
         if (!disableAllProcessDetailLogging && processDetailLog.isDebugEnabled()) {
             String message = String.format(messageTemplate, processVariables(templateVariables));
@@ -163,13 +93,6 @@ public class ProcessDetailLogger {
         }
     }
 
-    /**
-     * Log a message to the configured log file
-     *
-     * @param logContext a fragment describing the context of this log message - will be prepended in the log. Can be null.
-     * @param e an exception to include with the log message as a stack trace
-     * @param message a message to log
-     */
     public void logProcessDetail(String logContext, Throwable e, String message) {
         if (!disableAllProcessDetailLogging && processDetailLog.isDebugEnabled()) {
             if (e == null) {
@@ -180,13 +103,6 @@ public class ProcessDetailLogger {
         }
     }
 
-    /**
-     * If an array or collection is passed in as part of the template variables, shorten the output if the length
-     * exceeds a threshold. Also shorten long strings.
-     *
-     * @param variables the template variables to process for the log
-     * @return the processed list
-     */
     protected Object[] processVariables(Object[] variables) {
         for (int j=0;j<variables.length;j++) {
             Object[] temp = null;

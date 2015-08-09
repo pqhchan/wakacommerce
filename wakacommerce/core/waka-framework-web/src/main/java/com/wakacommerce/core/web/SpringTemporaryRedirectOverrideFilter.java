@@ -14,17 +14,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * This filter provides a method to override the default redirect behavior of Spring MVC,
- * which is to deliver a Temp Redirect (302), instead of a permanent redirect (301).
- * This filter is configured with one or more white-space delimited regular expression
- * patterns that match any request URIs whose response status should be checked for 302
- * and converted to 301, if applicable.
- * 
- * This filter should appear before the Spring Dispatch Servlet in the mapping configuration
- * in web.xml
- * 
- *  
  *
+ * @ hui
  */
 public class SpringTemporaryRedirectOverrideFilter implements Filter {
     

@@ -6,9 +6,8 @@ import org.springframework.web.context.request.WebRequest;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * This resolver is responsible for returning the Customer object that is currently present on the request.
- * 
- * 
+ *
+ * @ hui
  */
 public interface BroadleafRequestCustomerResolver {
 

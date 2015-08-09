@@ -273,14 +273,6 @@ public class StaticAssetStorageServiceImpl implements StaticAssetStorageService 
         return staticAssetStorageDao.createBlob(uploadedFile);
     }
 
-    /**
-     * Builds a file system path for the passed in static asset and paramaterMap.
-     * 
-     * @param staticAsset
-     * @param parameterMap
-     * @param useSharedFile
-     * @return
-     */
     protected String constructCacheFileName(StaticAsset staticAsset, Map<String, String> parameterMap) {
         String fileName = staticAsset.getFullUrl();
 

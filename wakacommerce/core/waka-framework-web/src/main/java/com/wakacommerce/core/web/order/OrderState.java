@@ -10,14 +10,8 @@ import java.util.HashMap;
 import javax.annotation.Resource;
 
 /**
- * This class is used as a request-scope container for the current
- * orderid. As a result, items that need the order during the control
- * flow of a single request may retrieve the order from this object. OrderState
- * utilizes the DAO to retrieve the full order from its dehydrated state in the
- * Hibernate cache.
- * 
- *  
  *
+ * @ hui
  */
 public class OrderState {
 

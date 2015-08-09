@@ -14,9 +14,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 /**
- * This class serves as a basic iterator for a list of source files to be
- * merged. The interesting part, however, is that additional resources
- * may be inserted at any time at the current iterator position.
+ *
+ * @ hui
  */
 public class DynamicResourceIterator extends ArrayList<ResourceInputStream> {
 

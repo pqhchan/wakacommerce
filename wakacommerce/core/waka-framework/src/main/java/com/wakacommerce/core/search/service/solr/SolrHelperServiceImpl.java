@@ -63,9 +63,8 @@ import javax.annotation.Resource;
 import javax.jms.IllegalStateException;
 
 /**
- * Provides utility methods that are used by other Solr service classes
- * 
- * 
+ *
+ * @ hui
  */
 @Service("blSolrHelperService")
 public class SolrHelperServiceImpl implements SolrHelperService {
@@ -87,9 +86,6 @@ public class SolrHelperServiceImpl implements SolrHelperService {
     @Resource(name = "blSolrSearchServiceExtensionManager")
     protected SolrSearchServiceExtensionManager extensionManager;
 
-    /**
-     * This should only ever be called when using the Solr reindex service to do a full reindex. 
-     */
     @Override
     public synchronized void swapActiveCores() throws ServiceException {
         if (SolrContext.isSolrCloudMode()) {

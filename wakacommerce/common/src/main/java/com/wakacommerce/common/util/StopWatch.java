@@ -4,7 +4,8 @@ package com.wakacommerce.common.util;
 import org.apache.commons.lang.time.DurationFormatUtils;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class StopWatch {
 

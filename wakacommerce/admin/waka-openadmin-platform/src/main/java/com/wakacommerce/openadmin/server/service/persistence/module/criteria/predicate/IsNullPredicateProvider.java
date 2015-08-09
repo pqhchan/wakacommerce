@@ -12,7 +12,8 @@ import javax.persistence.criteria.Predicate;
 import java.util.List;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Component("blIsNullPredicateProvider")
 public class IsNullPredicateProvider implements PredicateProvider {

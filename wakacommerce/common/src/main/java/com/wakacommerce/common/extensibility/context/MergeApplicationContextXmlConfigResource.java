@@ -18,17 +18,6 @@ public class MergeApplicationContextXmlConfigResource extends MergeXmlConfigReso
 
     private static final Log LOG = LogFactory.getLog(MergeApplicationContextXmlConfigResource.class);
 
-    /**
-     * Generate a merged configuration resource, loading the definitions from the given streams. Note,
-     * all sourceLocation streams will be merged using standard Spring configuration override rules. 
-     * However, the patch streams are fully merged into the result of the sourceLocations simple merge. 
-     * Patch merges are first executed according to beans with the same id. Subsequent merges within a bean 
-     * are executed against tagnames - ignoring any further id attributes.
-     *
-     * @param sources array of input streams for the source application context files
-     * @param patches array of input streams for the patch application context files
-     * @throws BeansException
-     */
     public Resource[] getConfigResources(ResourceInputStream[] sources, ResourceInputStream[] patches) throws BeansException {
         Resource[] configResources = null;
         ResourceInputStream merged = null;

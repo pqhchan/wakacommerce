@@ -31,7 +31,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @see {@link WakaRequestFilter}
+ *
+ * @ hui
  */
 @Component("blRequestProcessor")
 public class WakaRequestProcessor extends AbstractWakaWebRequestProcessor {

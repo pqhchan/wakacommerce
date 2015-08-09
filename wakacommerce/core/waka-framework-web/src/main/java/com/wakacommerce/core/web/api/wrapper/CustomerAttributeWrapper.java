@@ -14,9 +14,8 @@ import com.wakacommerce.profile.core.domain.CustomerAttribute;
 import com.wakacommerce.profile.core.domain.CustomerAttributeImpl;
 
 /**
- * API wrapper to wrap Customer Attributes.
- *Priyesh Patel
  *
+ * @ hui
  */
 @XmlRootElement(name = "customerAttribute")
 @XmlAccessorType(value = XmlAccessType.FIELD)

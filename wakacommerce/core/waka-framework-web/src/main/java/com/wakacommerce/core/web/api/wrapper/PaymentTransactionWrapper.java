@@ -1,22 +1,4 @@
-/*
- * #%L
- * BroadleafCommerce Framework Web
- * %%
- * Copyright (C) 2009 - 2014 Broadleaf Commerce
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *       http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * #L%
- */
+
 
 package com.wakacommerce.core.web.api.wrapper;
 
@@ -44,7 +26,8 @@ import com.wakacommerce.core.payment.domain.PaymentTransaction;
 import com.wakacommerce.core.payment.service.OrderPaymentService;
 
 /**
- *  
+ *
+ * @ hui
  */
 @XmlRootElement(name = "transaction")
 @XmlAccessorType(value = XmlAccessType.FIELD)
@@ -153,162 +136,82 @@ public class PaymentTransactionWrapper extends BaseWrapper implements APIWrapper
         return transaction;
     }
 
-    
-    /**
-     * @return the id
-     */
     public Long getId() {
         return id;
     }
 
-    
-    /**
-     * @param id the id to set
-     */
     public void setId(Long id) {
         this.id = id;
     }
 
-    
-    /**
-     * @return the orderPaymentId
-     */
     public Long getOrderPaymentId() {
         return orderPaymentId;
     }
 
-    
-    /**
-     * @param orderPaymentId the orderPaymentId to set
-     */
     public void setOrderPaymentId(Long orderPaymentId) {
         this.orderPaymentId = orderPaymentId;
     }
 
-    
-    /**
-     * @return the parentTransactionId
-     */
     public Long getParentTransactionId() {
         return parentTransactionId;
     }
 
-    
-    /**
-     * @param parentTransactionId the parentTransactionId to set
-     */
     public void setParentTransactionId(Long parentTransactionId) {
         this.parentTransactionId = parentTransactionId;
     }
 
-    
-    /**
-     * @return the type
-     */
     public String getType() {
         return type;
     }
 
-    
-    /**
-     * @param type the type to set
-     */
     public void setType(String type) {
         this.type = type;
     }
 
-    
-    /**
-     * @return the customerIpAddress
-     */
     public String getCustomerIpAddress() {
         return customerIpAddress;
     }
 
-    
-    /**
-     * @param customerIpAddress the customerIpAddress to set
-     */
     public void setCustomerIpAddress(String customerIpAddress) {
         this.customerIpAddress = customerIpAddress;
     }
 
-    
-    /**
-     * @return the rawResponse
-     */
     public String getRawResponse() {
         return rawResponse;
     }
 
-    
-    /**
-     * @param rawResponse the rawResponse to set
-     */
     public void setRawResponse(String rawResponse) {
         this.rawResponse = rawResponse;
     }
 
-    
-    /**
-     * @return the success
-     */
     public Boolean getSuccess() {
         return success;
     }
 
-    
-    /**
-     * @param success the success to set
-     */
     public void setSuccess(Boolean success) {
         this.success = success;
     }
 
-    
-    /**
-     * @return the amount
-     */
     public BigDecimal getAmount() {
         return amount;
     }
 
-    
-    /**
-     * @param amount the amount to set
-     */
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
-    
-    /**
-     * @return the currency
-     */
     public Currency getCurrency() {
         return currency;
     }
 
-    
-    /**
-     * @param currency the currency to set
-     */
     public void setCurrency(Currency currency) {
         this.currency = currency;
     }
 
-    
-    /**
-     * @return the additionalFields
-     */
     public List<MapElementWrapper> getAdditionalFields() {
         return additionalFields;
     }
 
-    
-    /**
-     * @param additionalFields the additionalFields to set
-     */
     public void setAdditionalFields(List<MapElementWrapper> additionalFields) {
         this.additionalFields = additionalFields;
     }

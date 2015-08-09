@@ -9,12 +9,8 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 /**
- * This is a modified version of the ServerCookie implementation taken from
- * the Apache Tomcat source. This class allows Broadleaf to properly construct
- * cookies for different browsers and include the httpOnly protection as well.
- * 
- *  
  *
+ * @ hui
  */
 public class ServerCookie {
 
@@ -39,14 +35,8 @@ public class ServerCookie {
         ancientDate = OLD_COOKIE_FORMAT.get().format(new Date(10000));
     }
 
-    /**
-     * If set to true, we parse cookies according to the servlet spec,
-     */
     public static final boolean STRICT_SERVLET_COMPLIANCE = false;
 
-    /**
-     * If set to false, we don't use the IE6/7 Max-Age/Expires work around
-     */
     public static final boolean ALWAYS_ADD_EXPIRES = true;
 
     // TODO RFC2965 fields also need to be passed
@@ -187,14 +177,6 @@ public class ServerCookie {
         return (value.charAt(0)=='\"' && value.charAt(value.length()-1)=='\"');
     }
 
-    /**
-     * Escapes any double quotes in the given string.
-     *
-     * @param s the input string
-     * @param beginIndex start index inclusive
-     * @param endIndex exclusive
-     * @return The (possibly) escaped string
-     */
     private static String escapeDoubleQuotes(String s, int beginIndex, int endIndex) {
 
         if (s == null || s.length() == 0 || s.indexOf('"') == -1) {

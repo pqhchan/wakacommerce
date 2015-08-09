@@ -27,8 +27,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- * 
- *  
+ *
+ * @ hui
  */
 public class ConsolidateFulfillmentFeesActivity extends BaseActivity<ProcessContext<Order>> {
     
@@ -78,13 +78,6 @@ public class ConsolidateFulfillmentFeesActivity extends BaseActivity<ProcessCont
         return context;
     }
 
-    /**
-     * If the SkuFee expression is null or empty, this method will always return true
-     * 
-     * @param fee
-     * @param fulfillmentGroup
-     * @return
-     */
     protected boolean shouldApplyFeeToFulfillmentGroup(SkuFee fee, FulfillmentGroup fulfillmentGroup) {
         boolean appliesToFulfillmentGroup = true;
         String feeExpression = fee.getExpression();

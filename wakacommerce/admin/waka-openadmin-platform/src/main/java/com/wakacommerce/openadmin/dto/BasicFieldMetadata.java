@@ -11,7 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class BasicFieldMetadata extends FieldMetadata {
 
@@ -287,10 +288,6 @@ public class BasicFieldMetadata extends FieldMetadata {
         this.gridOrder = gridOrder;
     }
 
-    /**
-     * @return the validation configurations for this property keyed by the fully-qualified name of the
-     * {@link PropertyValidator} implementation
-     */
     public Map<String, Map<String, String>> getValidationConfigurations() {
         return validationConfigurations;
     }

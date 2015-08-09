@@ -15,7 +15,8 @@ import java.util.HashMap;
 import javax.annotation.Resource;
 
 /**
- * Send order confirmation email
+ *
+ * @ hui
  */
 public class SendOrderConfirmationEmailActivity extends BaseActivity<ProcessContext<CheckoutSeed>> {
 

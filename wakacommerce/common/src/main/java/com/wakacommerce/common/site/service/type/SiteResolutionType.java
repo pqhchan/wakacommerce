@@ -8,22 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extendible enumeration of order status types.
- * 
- * <ul>
- *  <li><b>DOMAIN</b> - Resolve a site based on the whole domain (e.g. request.getServerName())</li>
- *  <li><b>DOMAIN_PREFIX</b> - Resolve a site based on the first word in the domain.</li>
- * </ul>
- * 
- * For example, if the URL you wanted to resolve was
- * http://mysite.mycompany.com.
- * 
- * The {@link #getSiteIdentifierValue()} should be set as follows: 
- *    
- * to use DOMAIN resolution, set to "mysite.mycompany.com"
- * to use DOMAIN_PREFIX resolution, set to "mysite"
- * 
- *  
+ *
+ * @ hui
  */
 public class SiteResolutionType implements Serializable, WakaEnumType {
 

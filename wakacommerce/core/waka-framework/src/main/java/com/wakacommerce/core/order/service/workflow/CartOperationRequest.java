@@ -10,10 +10,8 @@ import com.wakacommerce.core.order.domain.OrderItem;
 import com.wakacommerce.core.order.service.call.OrderItemRequestDTO;
 
 /**
- * This class represents the basic context necessary for the execution
- * of a particular order process workflow operation.
- * 
- *  
+ *
+ * @ hui
  */
 public class CartOperationRequest {
 
@@ -71,16 +69,10 @@ public class CartOperationRequest {
         this.orderItem = orderItem;
     }
 
-    /**
-     * @deprecated in favor of {@link #getOrderItem()}. Keeping this method for backwards compatibility
-     */
     public OrderItem getAddedOrderItem() {
         return orderItem;
     }
 
-    /**
-     * @deprecated in favor of {@link #setOrderItem(OrderItem)}. Keeping this method for backwards compatibility
-     */
     public void setAddedOrderItem(OrderItem addedOrderItem) {
         this.orderItem = addedOrderItem;
     }

@@ -24,9 +24,6 @@ public class ListGridRecord {
     protected String errorMessage;
     protected ListGridRecordIcon icon;
 
-    /**
-     * Convenience map keyed by the field name. Used to guarantee field ordering with header fields within a ListGrid
-     */
     protected Map<String, Field> fieldMap;
     
     public String getPath() {
@@ -65,13 +62,6 @@ public class ListGridRecord {
         return listGrid.getStartIndex() + listGrid.getRecords().indexOf(this);
     }
 
-    /**
-     * Normally you should not be looping through these fields. In order to preserve proper field ordering, instead you
-     * should loop through {@link ListGrid#getHeaderFields()} and then invoke the {@link #getField(String)} method
-     * with that header field name.
-     * 
-     * @return
-     */
     public List<Field> getFields() {
         return fields;
     }
@@ -88,13 +78,6 @@ public class ListGridRecord {
         this.hiddenFields = hiddenFields;
     }
 
-    /**
-     * Returns a {@link Field} in this record for a particular field name. Used when displaying a {@link ListGrid} in order
-     * to guarantee proper field ordering
-     * 
-     * @param fieldName
-     * @return
-     */
     public Field getField(String fieldName) {
         if (fieldMap == null) {
             fieldMap = new LinkedHashMap<String, Field>();
@@ -162,20 +145,11 @@ public class ListGridRecord {
     public void setErrorKey(String errorKey) {
         this.errorKey = errorKey;
     }
-    
-    /**
-     * Actual, localized error message.  If set, this will override the error key.
-     * @return
-     */
+
     public String getErrorMessage() {
         return this.errorMessage;
     }
 
-    /**
-     * If set, this will override the errorKey.
-     * 
-     * @param errorMessage
-     */
     public void setErrorMessage(String errorMessage) {
         this.errorMessage = errorMessage;
     }

@@ -12,10 +12,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import com.wakacommerce.core.catalog.domain.RelatedProduct;
 
 /**
- * This is a JAXB wrapper for RelatedProducts
  *
- * User:   
- * Date: 4/10/12
+ * @ hui
  */
 @XmlRootElement(name = "relatedProduct")
 @XmlAccessorType(value = XmlAccessType.FIELD)
@@ -47,66 +45,34 @@ public class RelatedProductWrapper extends BaseWrapper implements APIWrapper<Rel
         wrapDetails(model, request);
     }
 
-    
-    /**
-     * @return the id
-     */
     public Long getId() {
         return id;
     }
 
-    
-    /**
-     * @param id the id to set
-     */
     public void setId(Long id) {
         this.id = id;
     }
 
-    
-    /**
-     * @return the sequence
-     */
     public BigDecimal getSequence() {
         return sequence;
     }
 
-    
-    /**
-     * @param sequence the sequence to set
-     */
     public void setSequence(BigDecimal sequence) {
         this.sequence = sequence;
     }
 
-    
-    /**
-     * @return the promotionalMessage
-     */
     public String getPromotionalMessage() {
         return promotionalMessage;
     }
 
-    
-    /**
-     * @param promotionalMessage the promotionalMessage to set
-     */
     public void setPromotionalMessage(String promotionalMessage) {
         this.promotionalMessage = promotionalMessage;
     }
 
-    
-    /**
-     * @return the product
-     */
     public ProductWrapper getProduct() {
         return product;
     }
 
-    
-    /**
-     * @param product the product to set
-     */
     public void setProduct(ProductWrapper product) {
         this.product = product;
     }

@@ -6,9 +6,8 @@ import java.util.LinkedHashMap;
 import com.wakacommerce.openadmin.dto.ClassTree;
 
 /**
- *  
  *
- * Utility class to convert the Polymorphic ClassTree into a Map
+ * @ hui
  */
 public class PolymorphicEntityMapUtil {
 

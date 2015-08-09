@@ -15,26 +15,17 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Responsible for returning the Locale to use for the current request.
+ *
+ * @ hui
  */
 @Component("blLocaleResolver")
 public class WakaLocaleResolverImpl implements BroadleafLocaleResolver {
     private final Log LOG = LogFactory.getLog(WakaLocaleResolverImpl.class);
-    
-    /**
-     * Parameter/Attribute name for the current language
-     */
+
     public static String LOCALE_VAR = "blLocale";
 
-    /**
-     * Parameter/Attribute name for the current language
-     */
     public static String LOCALE_CODE_PARAM = "blLocaleCode";
 
-    /**
-     * Attribute indicating that the LOCALE was pulled from session.   Other filters may want to 
-     * behave differently if this is the case.
-     */
     public static String LOCALE_PULLED_FROM_SESSION = "blLocalePulledFromSession";
 
     @Resource(name = "blLocaleService")

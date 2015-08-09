@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @see {@link StructuredContentServiceImpl#buildStructuredContentDTO};
- * @see {@link StructuredContentServiceImpl#buildFieldValues};
+ *
+ * @ hui
  */
 public class StructuredContentDTO implements Serializable {
 

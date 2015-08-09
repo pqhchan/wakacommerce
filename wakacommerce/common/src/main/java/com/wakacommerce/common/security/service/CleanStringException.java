@@ -6,7 +6,8 @@ import org.owasp.validator.html.CleanResults;
 import com.wakacommerce.common.exception.ServiceException;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class CleanStringException extends ServiceException {
 

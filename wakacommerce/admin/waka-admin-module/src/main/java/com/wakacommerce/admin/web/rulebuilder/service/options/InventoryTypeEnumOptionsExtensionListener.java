@@ -13,16 +13,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Rule Builder enum options provider for {@link HourOfDayType}
- * 
- * 
+ *
+ * @ hui
  */
 @Component("blInventoryTypeOptionsExtensionListener")
 public class InventoryTypeEnumOptionsExtensionListener extends AbstractRuleBuilderEnumOptionsExtensionListener {
 
-    /**
-     * Overridden to remove deprecated options
-     */
     @Override
     protected Map<String, ? extends WakaEnumType> getTypes(Class<? extends WakaEnumType> clazz) {
         

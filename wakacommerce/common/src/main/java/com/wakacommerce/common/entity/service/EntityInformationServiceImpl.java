@@ -10,9 +10,8 @@ import com.wakacommerce.common.site.domain.Site;
 import javax.annotation.Resource;
 
 /**
- * 
- * 
  *
+ * @ hui
  */
 @Service("blEntityInformationService")
 public class EntityInformationServiceImpl implements EntityInformationService {
@@ -41,10 +40,6 @@ public class EntityInformationServiceImpl implements EntityInformationService {
         return erh.getResult();
     }
 
-    /**
-     * Factory method for instantiating the {@link EntityInformationDto}
-     * @return
-     */
     protected EntityInformationDto createEntityInformationDto(Object o) {
         return new EntityInformationDto();
     }

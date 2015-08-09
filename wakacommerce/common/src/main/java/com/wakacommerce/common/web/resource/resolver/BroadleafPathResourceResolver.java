@@ -8,10 +8,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.resource.PathResourceResolver;
 
 /**
- * Wraps Spring's {@link PathResourceResolver} for ordering purposes.
- *  
- *  
- * @since Broadleaf 4.0
+ *
+ * @ hui
  */
 @Component("blPathResourceResolver")
 public class BroadleafPathResourceResolver extends PathResourceResolver implements Ordered {

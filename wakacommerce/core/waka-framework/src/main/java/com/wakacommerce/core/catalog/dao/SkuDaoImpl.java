@@ -34,9 +34,8 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 /**
- * {@inheritDoc}
  *
- * 
+ * @ hui
  */
 @Repository("blSkuDao")
 public class SkuDaoImpl implements SkuDao {

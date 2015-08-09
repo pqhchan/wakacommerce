@@ -42,7 +42,8 @@ import javax.persistence.MapKeyColumn;
 import javax.persistence.Table;
 
 /**
- *   (jocanas)
+ *
+ * @ hui
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -109,11 +110,7 @@ public class PaymentTransactionImpl implements PaymentTransaction {
     @JoinColumn(name = "ORDER_PAYMENT")
     @AdminPresentation(excluded = true)
     protected OrderPayment orderPayment;
-    
-    /**
-     * Necessary for operations on a payment that require something to have happened beforehand. For instance, an AUTHORIZE
-     * would not have a parent but a CAPTURE must have an AUTHORIZE parent and a REFUND must have a CAPTURE parent
-     */
+
     @ManyToOne(targetEntity = PaymentTransactionImpl.class)
     @JoinColumn(name = "PARENT_TRANSACTION")
     @AdminPresentation(friendlyName = "Parent Transaction")

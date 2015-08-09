@@ -14,8 +14,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 /**
- * Author: jerryocanas
- * Date: 9/6/12
+ *
+ * @ hui
  */
 
 @Repository("blCurrencyDao")
@@ -38,9 +38,6 @@ public class BroadleafCurrencyDaoImpl implements BroadleafCurrencyDao {
         return null;
     }
 
-    /**
-     * @return The locale for the passed in code
-     */
     @Override
     public BroadleafCurrency findCurrencyByCode(String currencyCode) {
         Query query = em.createNamedQuery("BC_READ_CURRENCY_BY_CODE");

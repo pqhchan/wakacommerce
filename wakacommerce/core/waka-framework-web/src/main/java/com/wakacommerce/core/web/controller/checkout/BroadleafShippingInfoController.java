@@ -27,11 +27,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * In charge of performing the various checkout operations
  *
- * 
- *  
- *  
+ * @ hui
  */
 public class BroadleafShippingInfoController extends AbstractCheckoutController {
 
@@ -56,16 +53,6 @@ public class BroadleafShippingInfoController extends AbstractCheckoutController 
         return multishipAddAddressSuccessView;
     }
 
-    /**
-     * Converts the order to single ship by collapsing all of the shippable fulfillment groups into the default (first)
-     * shippable fulfillment group.  Allows modules to add module specific shipping logic.
-     *
-     * @param request
-     * @param response
-     * @param model
-     * @return a redirect to /checkout
-     * @throws com.wakacommerce.core.pricing.service.exception.PricingException
-     */
     public String convertToSingleship(HttpServletRequest request, HttpServletResponse response, Model model) throws PricingException {
         Order cart = CartState.getCart();
         fulfillmentGroupService.collapseToOneShippableFulfillmentGroup(cart, true);
@@ -76,20 +63,6 @@ public class BroadleafShippingInfoController extends AbstractCheckoutController 
         return getCheckoutPageRedirect();
     }
 
-    /**
-     * Processes the request to save a single shipping address.  Allows modules to add module specific shipping logic.
-     *
-     * Note:  the default Broadleaf implementation creates an order
-     * with a single fulfillment group. In the case of shipping to multiple addresses,
-     * the multiship methods should be used.
-     *
-     * @param request
-     * @param response
-     * @param model
-     * @param shippingForm
-     * @return the return path
-     * @throws com.wakacommerce.common.exception.ServiceException
-     */
     public String saveSingleShip(HttpServletRequest request, HttpServletResponse response, Model model,
                                  ShippingInfoForm shippingForm, BindingResult result) throws PricingException, ServiceException {
         Order cart = CartState.getCart();
@@ -139,10 +112,6 @@ public class BroadleafShippingInfoController extends AbstractCheckoutController 
         }
     }
 
-    /**
-     * This method will copy the billing address of any CREDIT CARD order payment on the order
-     * to the shipping address on the ShippingInfoForm that is passed in.
-     */
     protected void copyBillingAddressToShippingAddress(Order order, ShippingInfoForm shippingInfoForm) {
         if (order.getPayments() != null) {
             for (OrderPayment payment : order.getPayments()) {
@@ -186,18 +155,6 @@ public class BroadleafShippingInfoController extends AbstractCheckoutController 
         return null;
     }
 
-    /**
-     * Renders the multiship page. This page is used by the user when shipping items
-     * to different locations (or with different FulfillmentOptions) is desired.
-     *
-     * Note that the default Broadleaf implementation will require the user to input
-     * an Address and FulfillmentOption for each quantity of each DiscreteOrderItem.
-     *
-     * @param request
-     * @param response
-     * @param model
-     * @return the return path
-     */
     public String showMultiship(HttpServletRequest request, HttpServletResponse response, Model model) {
         Customer customer = CustomerState.getCustomer();
         Order cart = CartState.getCart();
@@ -207,20 +164,6 @@ public class BroadleafShippingInfoController extends AbstractCheckoutController 
         return getMultishipView();
     }
 
-    /**
-     * Processes the given options for multiship. Validates that all options are
-     * selected before performing any actions.  Allows modules to add module specific shipping logic.
-     *
-     * @see #showMultiship(HttpServletRequest, HttpServletResponse, Model)
-     *
-     * @param request
-     * @param response
-     * @param model
-     * @param orderMultishipOptionForm
-     * @return a redirect to the checkout page
-     * @throws PricingException
-     * @throws ServiceException
-     */
     public String saveMultiship(HttpServletRequest request, HttpServletResponse response, Model model,
                                 OrderMultishipOptionForm orderMultishipOptionForm, BindingResult result) throws PricingException, ServiceException {
         Order cart = CartState.getCart();
@@ -233,14 +176,6 @@ public class BroadleafShippingInfoController extends AbstractCheckoutController 
         return getMultishipSuccessView();
     }
 
-    /**
-     * Renders the add address form during the multiship process
-     *
-     * @param request
-     * @param response
-     * @param model
-     * @return the return path
-     */
     public String showMultishipAddAddress(HttpServletRequest request, HttpServletResponse response, Model model) {
         model.addAttribute("states", stateService.findStates());
         model.addAttribute("countries", countryService.findCountries());
@@ -248,18 +183,6 @@ public class BroadleafShippingInfoController extends AbstractCheckoutController 
         return getMultishipAddAddressView();
     }
 
-    /**
-     * Processes the requested add address from the multiship process.
-     * This method will create a CustomerAddress based on the requested Address
-     * and associate it with the current Customer in session.
-     *
-     * @param request
-     * @param response
-     * @param model
-     * @param addressForm
-     * @return the return path to the multiship page
-     * @throws ServiceException
-     */
     public String saveMultishipAddAddress(HttpServletRequest request, HttpServletResponse response, Model model,
                                           ShippingInfoForm addressForm, BindingResult result) throws ServiceException {
         multishipAddAddressFormValidator.validate(addressForm, result);

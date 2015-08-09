@@ -7,22 +7,8 @@ import com.wakacommerce.common.vendor.service.monitor.ServiceStatusDetectable;
 import com.wakacommerce.common.vendor.service.type.ServiceStatusType;
 
 /**
- * <p>All payment gateway classes that intend to make an external call, either manually
- * from an HTTP Post or through an SDK which makes its own external call, should
- * extend this class. The implementations should override the abstract methods:
- * communicateWithVendor(), and getFailureReportingThreshold();</p>
  *
- * <p>The generic Type 'T' represents the payment request object that is going to be sent to the external gateway.
- * The generic Type 'R' represents the payment result object that will be returned</p>
- *
- * <p>This allows anyone using the framework to configure the ServiceMonitor AOP hooks
- * and detect any outages to provide (email/logging) feedback when necessary.</p>
- *
- * @see com.wakacommerce.common.vendor.service.monitor.ServiceMonitor
- * @see com.wakacommerce.common.vendor.service.monitor.StatusHandler
- * @see ServiceStatusDetectable
- *
- *  
+ * @ hui
  */
 public abstract class AbstractExternalPaymentGatewayCall<T,R> implements ServiceStatusDetectable<T> {
 

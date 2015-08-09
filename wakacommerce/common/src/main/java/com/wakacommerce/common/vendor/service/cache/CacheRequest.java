@@ -4,8 +4,8 @@ package com.wakacommerce.common.vendor.service.cache;
 import java.util.List;
 
 /**
- *  
  *
+ * @ hui
  */
 public interface CacheRequest {
 

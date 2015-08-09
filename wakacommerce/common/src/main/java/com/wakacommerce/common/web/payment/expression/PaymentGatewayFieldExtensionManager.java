@@ -7,7 +7,8 @@ import org.springframework.stereotype.Service;
 import com.wakacommerce.common.extension.ExtensionManager;
 
 /**
- *  
+ *
+ * @ hui
  */
 @Service("blPaymentGatewayFieldExtensionManager")
 public class PaymentGatewayFieldExtensionManager extends ExtensionManager<PaymentGatewayFieldExtensionHandler> {

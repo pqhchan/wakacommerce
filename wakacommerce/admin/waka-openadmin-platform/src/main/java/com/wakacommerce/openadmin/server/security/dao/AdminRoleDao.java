@@ -6,9 +6,8 @@ import java.util.List;
 import com.wakacommerce.openadmin.server.security.domain.AdminRole;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public interface AdminRoleDao {
     public List<AdminRole> readAllAdminRoles();

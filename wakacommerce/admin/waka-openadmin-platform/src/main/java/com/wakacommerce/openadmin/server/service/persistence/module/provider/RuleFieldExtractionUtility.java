@@ -23,9 +23,8 @@ import java.io.IOException;
 import javax.annotation.Resource;
 
 /**
- * Commonality shared between {@link RuleFieldPersistenceProvider} and {@link RuleFieldValidator}
  *
- *     
+ * @ hui
  */
 @Component("blRuleFieldExtractionUtility")
 public class RuleFieldExtractionUtility {
@@ -33,12 +32,6 @@ public class RuleFieldExtractionUtility {
     @Resource(name = "blRuleBuilderFieldServiceFactory")
     protected RuleBuilderFieldServiceFactory ruleBuilderFieldServiceFactory;
 
-    /**
-     * Takes a JSON string that came from the frontend form submission and deserializes it into its {@link DataWrapper} dto
-     * representation so that it can be converted to an MVEL expression
-     * @param json
-     * @return
-     */
     public DataWrapper convertJsonToDataWrapper(String json) {
         ObjectMapper mapper = new ObjectMapper();
         DataDTODeserializer dtoDeserializer = new DataDTODeserializer();
@@ -56,15 +49,6 @@ public class RuleFieldExtractionUtility {
         }
     }
 
-    /**
-     * Converts the given {@link DataWrapper} into an MVEL expression
-     * @param translator 
-     * @param entityKey
-     * @param fieldService
-     * @param dw
-     * @return
-     * @throws MVELTranslationException
-     */
     public String convertSimpleMatchRuleJsonToMvel(DataDTOToMVELTranslator translator, String entityKey,
             String fieldService, DataWrapper dw) throws MVELTranslationException {
         String mvel = null;
@@ -81,16 +65,6 @@ public class RuleFieldExtractionUtility {
         return translator.createMVEL(entityKey, dto, ruleBuilderFieldServiceFactory.createInstance(fieldService));
     }
 
-    /**
-     * Converts a simple MVEL rule into its JSON representation suitable for adding to an {@link Entity} to pass to the
-     * frontend.
-     * @param translator
-     * @param mapper
-     * @param matchRule
-     * @param jsonProp
-     * @param fieldService
-     * @return
-     */
     public Property convertSimpleRuleToJson(MVELToDataWrapperTranslator translator, ObjectMapper mapper,
             String matchRule, String jsonProp, String fieldService) {
         Entity[] matchCriteria = new Entity[1];

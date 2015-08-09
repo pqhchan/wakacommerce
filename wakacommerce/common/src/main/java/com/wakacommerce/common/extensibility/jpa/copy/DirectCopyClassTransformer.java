@@ -42,11 +42,8 @@ import javax.annotation.Resource;
 import javax.persistence.EntityListeners;
 
 /**
- * This class transformer will copy fields, methods, and interface definitions from a source class to a target class,
- * based on the xformTemplates map. It will fail if it encounters any duplicate definitions.
  *
- * 
- * 
+ * @ hui
  */
 public class DirectCopyClassTransformer extends AbstractClassTransformer implements BroadleafClassTransformer {
 
@@ -417,15 +414,6 @@ public class DirectCopyClassTransformer extends AbstractClassTransformer impleme
 
     }
 
-    /**
-     * This method will do its best to return an implementation type for a given classname. This will allow weaving
-     * template classes to have initialized values.
-     *
-     * We provide default implementations for List, Map, and Set, and will attempt to utilize a default constructor for
-     * other classes.
-     *
-     * If the className contains an '[', we will return null.
-     */
     protected String getImplementationType(String className) {
         if (className.equals("java.util.List")) {
             return "java.util.ArrayList";

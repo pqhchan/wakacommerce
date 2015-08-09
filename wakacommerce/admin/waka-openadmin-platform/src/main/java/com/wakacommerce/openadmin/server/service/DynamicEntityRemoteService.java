@@ -31,7 +31,8 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 /**
- *  
+ *
+ * @ hui
  */
 @Service("blDynamicEntityRemoteService")
 public class DynamicEntityRemoteService implements DynamicEntityService {

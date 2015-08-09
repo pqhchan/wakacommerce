@@ -8,7 +8,8 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Service;
 
 /**
- * 
+ *
+ * @ hui
  */
 @Service("blParentCategoryLegacyModeService")
 public class ParentCategoryLegacyModeServiceImpl implements ApplicationContextAware, ParentCategoryLegacyModeService {

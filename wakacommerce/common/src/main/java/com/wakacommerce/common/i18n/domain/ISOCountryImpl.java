@@ -20,7 +20,8 @@ import javax.persistence.Column;
 
 
 /**
- *  
+ *
+ * @ hui
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

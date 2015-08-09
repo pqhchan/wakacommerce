@@ -29,20 +29,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- * The Class CategoryProductXrefImpl is the default implmentation of {@link Category}.
- * This entity is only used for executing a named query.
  *
- * If you want to add fields specific to your implementation of BroadLeafCommerce you should extend
- * this class and add your fields.  If you need to make significant changes to the class then you
- * should implement your own version of {@link Category}.
- * <br>
- * <br>
- * This implementation uses a Hibernate implementation of JPA configured through annotations.
- * The Entity references the following tables:
- * BLC_CATEGORY_PRODUCT_XREF,
- *
- * @see {@link Category}, {@link ProductImpl}
- *btaylor
+ * @ hui
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

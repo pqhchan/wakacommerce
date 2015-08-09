@@ -17,9 +17,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 @Repository("blAdminUserDao")
 public class AdminUserDaoImpl implements AdminUserDao {

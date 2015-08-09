@@ -10,11 +10,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * An extendible enumeration of shipping service types.
- * 
- *  
- * @deprecated Should use the {@link FulfillmentOption} and {@link FulfillmentPricingProvider} paradigm
- * @see {@link FulfillmentOption}, {@link FulfillmentPricingProvider}
+ *
+ * @ hui
  */
 @Deprecated
 public class ShippingServiceType implements Serializable, WakaEnumType {

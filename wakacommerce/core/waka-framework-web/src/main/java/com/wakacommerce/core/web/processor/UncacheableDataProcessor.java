@@ -38,23 +38,8 @@ import java.util.Set;
 import javax.annotation.Resource;
 
 /**
- * This processor outputs a SCRIPT tag with JSON data that can be used to update a mostly cached page followed by
- * a call to a javascript function.  The function name is "updateUncacheableData()" by default.
- * 
- * Broadleaf provides this example but most clients with typical customizations will need to create a similar processor
- * to meet their dynamic data caching needs.
- * 
- * The Broadleaf processor works with the sample javacript function in HeatClinic found in heatClinic-UncacheableData.js work 
- * together to update the "In Cart", "Out of Stock", "Welcome {name}", and "Cart Qty" messages.   By doing this, the 
- * category and product pages in HeatClinic can be aggressively cached using the {@link BroadleafCacheProcessor}. 
- * 
- * Example usage on cached pages with dynamic data.   This would generally go after the footer for the page.
- * <pre>
- *  {@code
- *      <blc:uncacheableData />  
- *  }
- * </pre>
- * 
+ *
+ * @ hui
  */
 public class UncacheableDataProcessor extends AbstractElementProcessor {
     
@@ -72,9 +57,6 @@ public class UncacheableDataProcessor extends AbstractElementProcessor {
 
     private String defaultCallbackFunction = "updateUncacheableData(params)";
 
-    /**
-     * Sets the name of this processor to be used in Thymeleaf template
-     */
     public UncacheableDataProcessor() {
         super("uncacheabledata");
     }

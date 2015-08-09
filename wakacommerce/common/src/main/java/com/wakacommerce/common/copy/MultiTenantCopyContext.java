@@ -103,13 +103,6 @@ public class MultiTenantCopyContext {
         return toSite;
     }
 
-    /**
-     * Detects whether or not the current cloned entity is an extension of an entity in Broadleaf, and if so, if the
-     * extension itself does not implement clone.
-     *
-     * @param cloned the cloned entity instance
-     * @throws CloneNotSupportedException thrown if the entity is an extension and is does not implement clone
-     */
     public void checkCloneable(Object cloned) throws CloneNotSupportedException {
         Method cloneMethod;
         try {
@@ -140,14 +133,6 @@ public class MultiTenantCopyContext {
         }
     }
 
-    /**
-     * Create a new instance of the polymorphic entity type - could be an extended type outside of Broadleaf.
-     *
-     * @param instance the object instance for the actual entity type (could be extended)
-     * @param <G>
-     * @return the new, empty instance of the entity
-     * @throws java.lang.CloneNotSupportedException
-     */
     public <G> CreateResponse<G> createOrRetrieveCopyInstance(Object instance) throws CloneNotSupportedException {
         WakaRequestContext context = WakaRequestContext.getWakaRequestContext();
         context.setCurrentCatalog(getToCatalog());

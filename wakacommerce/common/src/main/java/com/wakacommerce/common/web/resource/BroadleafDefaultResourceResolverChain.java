@@ -14,13 +14,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * This is a straight copy of Spring's DefaultResourceResolverChain  (as of 4.1.6).
- * 
- * This had to be copied as Spring set the class scope as  "package" scope thus not 
- * allowing it to be used or extended.
- *  
- * 
  *
+ * @ hui
  */
 public class BroadleafDefaultResourceResolverChain implements ResourceResolverChain {
 

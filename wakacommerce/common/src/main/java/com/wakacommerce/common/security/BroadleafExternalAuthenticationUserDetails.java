@@ -9,11 +9,8 @@ import com.wakacommerce.common.site.domain.Site;
 import java.util.Collection;
 
 /**
- * This is an extension of Spring's User class to provide additional data to the UserDetails interface.  This should be used by derivitave
- * authentication providers to return an instance of UserDetails when authenticating against a system other than the Broadleaf tables (e.g. LDAP)
- * <p/>
- * User:   
- * Date: 6/19/12
+ *
+ * @ hui
  */
 public class BroadleafExternalAuthenticationUserDetails extends User {
     
@@ -27,13 +24,6 @@ public class BroadleafExternalAuthenticationUserDetails extends User {
     
     private Site site;
 
-    /**
-     * This sets the username, password, and authorities.  
-     * It also set the enabled, accountNonExpired, credentialsNonExpired, and accountNonLocked properties to true.
-     * @param username
-     * @param password
-     * @param authorities
-     */
     public BroadleafExternalAuthenticationUserDetails(String username, String password, Collection<? extends GrantedAuthority> authorities) {
         super(username, password, true, true, true, true, authorities);
     }

@@ -28,17 +28,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * This class provides a filter to be used with External Security Providers (e.g. LDAP).  When authentication is performed against
- * another system it is important to provision an admin user in Broadleaf and set up the appropriate roles.
- * This class checks to see if a user exists and if not, creates one.  It also replaces all roles associated with a user with roles that
- * match their Authentication credentials.  DO NOT USE THIS FILTER UNLESS YOU ARE AUTHENTICATING AGAINST AN EXTERNAL
- * SOURCE SUCH AS LDAP.
- * 
- * @deprecated NO LONGER REQUIRED AND SHOULD NOT BE USED. SEE BroadleafAdminLdapUserDetailsMapper.
  *
- * <p/>
- * User:   
- * Date: 6/19/12
+ * @ hui
  */
 @Deprecated
 public class AdminExternalLoginStateFilter extends GenericFilterBean {

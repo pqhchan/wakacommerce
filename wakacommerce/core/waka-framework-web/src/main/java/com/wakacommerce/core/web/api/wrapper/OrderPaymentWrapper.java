@@ -28,10 +28,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
- * This is a JAXB wrapper around OrderPayment.
- * <p/>
- * User: Elbert Bautista
- * Date: 4/26/12
+ *
+ * @ hui
  */
 @XmlRootElement(name = "payment")
 @XmlAccessorType(value = XmlAccessType.FIELD)
@@ -150,146 +148,74 @@ public class OrderPaymentWrapper extends BaseWrapper implements APIWrapper<Order
         return payment;
     }
 
-    
-    /**
-     * @return the id
-     */
     public Long getId() {
         return id;
     }
 
-    
-    /**
-     * @param id the id to set
-     */
     public void setId(Long id) {
         this.id = id;
     }
 
-    
-    /**
-     * @return the orderId
-     */
     public Long getOrderId() {
         return orderId;
     }
 
-    
-    /**
-     * @param orderId the orderId to set
-     */
     public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 
-    
-    /**
-     * @return the type
-     */
     public String getType() {
         return type;
     }
 
-    
-    /**
-     * @param type the type to set
-     */
     public void setType(String type) {
         this.type = type;
     }
 
-    
-    /**
-     * @return the billingAddress
-     */
     public AddressWrapper getBillingAddress() {
         return billingAddress;
     }
 
-    
-    /**
-     * @param billingAddress the billingAddress to set
-     */
     public void setBillingAddress(AddressWrapper billingAddress) {
         this.billingAddress = billingAddress;
     }
 
-    
-    /**
-     * @return the amount
-     */
     public BigDecimal getAmount() {
         return amount;
     }
 
-    
-    /**
-     * @param amount the amount to set
-     */
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
-    
-    /**
-     * @return the currency
-     */
     public Currency getCurrency() {
         return currency;
     }
 
-    
-    /**
-     * @param currency the currency to set
-     */
     public void setCurrency(Currency currency) {
         this.currency = currency;
     }
 
-    
-    /**
-     * @return the referenceNumber
-     */
     public String getReferenceNumber() {
         return referenceNumber;
     }
 
-    
-    /**
-     * @param referenceNumber the referenceNumber to set
-     */
     public void setReferenceNumber(String referenceNumber) {
         this.referenceNumber = referenceNumber;
     }
 
-    
-    /**
-     * @return the gatewayType
-     */
     public String getGatewayType() {
         return gatewayType;
     }
 
-    
-    /**
-     * @param gatewayType the gatewayType to set
-     */
     public void setGatewayType(String gatewayType) {
         this.gatewayType = gatewayType;
     }
 
-    
-    /**
-     * @return the transactions
-     */
     public List<PaymentTransactionWrapper> getTransactions() {
         return transactions;
     }
 
-    
-    /**
-     * @param transactions the transactions to set
-     */
     public void setTransactions(List<PaymentTransactionWrapper> transactions) {
         this.transactions = transactions;
     }

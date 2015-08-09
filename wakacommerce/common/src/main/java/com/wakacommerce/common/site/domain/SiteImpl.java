@@ -41,7 +41,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
- *   
+ *
+ * @ hui
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -102,10 +103,7 @@ public class SiteImpl implements Site, AdminMainEntity {
     protected List<Catalog> catalogs = new ArrayList<Catalog>();
 
     /**************************************************/
-    /**
-     * Adding additional properties to this class or dynamically weaving in properties will have to contribute to the extension
-     * manager for {@link SiteServiceImpl}, {@link SiteServiceExtensionHandler}.
-     */
+
     /**************************************************/
 
     @Embedded

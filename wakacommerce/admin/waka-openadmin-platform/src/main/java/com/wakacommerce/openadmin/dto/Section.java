@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * DTO object to represent the components of a Section (a Module has many of these)
- * 
+ *
+ * @ hui
  */
 public class Section {
 

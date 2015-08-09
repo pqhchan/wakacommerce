@@ -21,8 +21,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
- * 
- *  
+ *
+ * @ hui
  */
 @Entity
 @Table(name = "BLC_SITE_MAP_CFG")

@@ -11,10 +11,8 @@ import com.wakacommerce.profile.core.domain.PhoneImpl;
 import java.io.Serializable;
 
 /**
- * A form to model adding a shipping address with shipping options.
- * 
- *Elbert Bautista (ebautista)
- * 
+ *
+ * @ hui
  */
 public class ShippingInfoForm implements Serializable {
 

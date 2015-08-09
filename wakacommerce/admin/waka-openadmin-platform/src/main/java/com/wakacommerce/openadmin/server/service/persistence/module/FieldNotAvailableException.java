@@ -2,7 +2,8 @@
 package com.wakacommerce.openadmin.server.service.persistence.module;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class FieldNotAvailableException extends Exception {
 

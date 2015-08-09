@@ -11,34 +11,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 /**
- * This class creates the following BLC domain object for the Spring Social User Connection.
- * The following is the SQL that is needed for Spring Social to achieve JDBC-based persistence.
- * http://static.springsource.org/spring-social/docs/1.0.x/reference/html/serviceprovider.html#service-providers-persisting-connections
  *
- * Spring Social expects the following table be created:
- * -----------------------------------------------------
- * create table UserConnection (userId varchar(255) not null,
- *  providerId varchar(255) not null,
- *  providerUserId varchar(255),
- *  rank int not null,
- *  displayName varchar(255),
- *  profileUrl varchar(512),
- *  imageUrl varchar(512),
- *  accessToken varchar(255) not null,
- *  secret varchar(255),
- *  refreshToken varchar(255),
- *  expireTime bigint,
- *  primary key (userId, providerId, providerUserId));
- *
- * create unique index UserConnectionRank on UserConnection(userId, providerId, rank);
- * ------------------------------------------------------
- *
- * NOTE: We are prefixing the table with "BLC_" to be consistent with the rest of the framework.
- * The prefix is injected into JdbcUsersConnectionRepository
- * @see org.springframework.social.connect.jdbc.JdbcUsersConnectionRepository
- *
- *  
- *
+ * @ hui
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

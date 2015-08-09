@@ -31,10 +31,7 @@ import java.util.List;
         @DirectCopyTransformMember(templateTokens = DirectCopyTransformTypes.MULTITENANT_CATALOG)
 })
 public class FieldImpl implements Field, Serializable, AdminMainEntity {
-    
-    /**
-     * 
-     */
+
     private static final long serialVersionUID = 2915813511754425605L;
 
     @Id

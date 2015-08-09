@@ -17,9 +17,8 @@ import com.wakacommerce.openadmin.server.security.service.AdminSecurityService;
 import javax.annotation.Resource;
 
 /**
- * A Thymeleaf processor that will add the appropriate AdminUser to the model.
  *
- *  
+ * @ hui
  */
 @Component("blAdminUserProcessor")
 public class AdminUserProcessor extends AbstractModelVariableModifierProcessor {

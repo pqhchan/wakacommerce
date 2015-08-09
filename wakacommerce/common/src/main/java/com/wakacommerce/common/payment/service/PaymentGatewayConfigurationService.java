@@ -7,12 +7,8 @@ import com.wakacommerce.common.web.payment.processor.CreditCardTypesExtensionHan
 import com.wakacommerce.common.web.payment.processor.TRCreditCardExtensionHandler;
 
 /**
- * Each payment gateway module should configure an instance of this. In order for multiple gateways to exist in the system
- * at the same time, a list of these is managed via the {@link PaymentGatewayConfigurationServiceProvider}. This allows for proper
- * delegation to the right gateway to perform operations against via different order payments on an order.
- * 
- *  
- *     
+ *
+ * @ hui
  */
 public interface PaymentGatewayConfigurationService {
 

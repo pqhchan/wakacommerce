@@ -6,9 +6,8 @@ import java.util.Locale;
 import java.util.Map;
 
 /**
- * The purpose of this is to allow REST endpoints to build an exception with 
- *  
  *
+ * @ hui
  */
 public class BroadleafWebServicesException extends RuntimeException {
 
@@ -77,21 +76,10 @@ public class BroadleafWebServicesException extends RuntimeException {
         return new BroadleafWebServicesException(httpStatusCode, locale, messages, cause);
     }
 
-    /**
-     * Returns the intended HTTP status code (e.g. 400, 403, 404, 500, etc...). Default is 500.
-     * @return
-     */
     public int getHttpStatusCode() {
         return httpStatusCode;
     }
 
-    /**
-     * Gets a map of message keys and object arrays. These will generally be used to build a 
-     * an internationalized message in the response. The map key is typically going to be a 
-     * message bundle key, and the object array provides parameters for the message.  For more information, 
-     * see Spring's <code>org.springframework.context.MessageSource</code>.
-     * @return
-     */
     public Map<String, Object[]> getMessages() {
         if (this.messages == null) {
             this.messages = new HashMap<String, Object[]>();
@@ -99,12 +87,6 @@ public class BroadleafWebServicesException extends RuntimeException {
         return this.messages;
     }
 
-    /**
-     * Gets a map of messages that have already been translated. BLC provides a number of translation mechanisms 
-     * for entities in the DB.
-     * 
-     * @return
-     */
     public Map<String,String> getTranslatedMessages() {
         if (this.translatedMessages == null) {
             this.translatedMessages = new HashMap<String, String>();
@@ -112,33 +94,15 @@ public class BroadleafWebServicesException extends RuntimeException {
         return this.translatedMessages;
     }
 
-    /**
-     * Adds a translated message. The assumption is that the message added to this map does not need to be 
-     * translated or internationalized any further. It is already translated according to the user's Locale.
-     * @param key
-     * @param message
-     * @return
-     */
     public BroadleafWebServicesException addTranslatedMessage(String key, String message) {
         getTranslatedMessages().put(key, message);
         return this;
     }
 
-    /**
-     * Convenience method for adding a message with no parameters
-     * @param key
-     * @return
-     */
     public BroadleafWebServicesException addMessage(String key) {
         return addMessage(key, null);
     }
 
-    /**
-     * Convenience method for adding a message with a single parameter
-     * @param key
-     * @param param
-     * @return
-     */
     public BroadleafWebServicesException addMessage(String key, Object param) {
         if (param != null) {
             return addMessage(key, new Object[] { param });
@@ -147,21 +111,11 @@ public class BroadleafWebServicesException extends RuntimeException {
         }
     }
 
-    /**
-     * Convenience mentod for adding a message with  multiple parameters
-     * @param key
-     * @param params
-     * @return
-     */
     public BroadleafWebServicesException addMessage(String key, Object[] params) {
         getMessages().put(key, params);
         return this;
     }
 
-    /**
-     * Returns the <code>java.util.Locale</code> that messages should be formatted in.
-     * @return
-     */
     public Locale getLocale() {
         return this.locale;
     }

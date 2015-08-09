@@ -13,7 +13,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- *   
+ *
+ * @ hui
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

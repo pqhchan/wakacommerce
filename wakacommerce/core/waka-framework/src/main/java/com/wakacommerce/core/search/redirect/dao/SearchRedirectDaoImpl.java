@@ -15,7 +15,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 /**
- * Created by ppatel.
+ *
+ * @ hui
  */
 @Repository("blSearchRedirectDao")
 public class SearchRedirectDaoImpl implements SearchRedirectDao {

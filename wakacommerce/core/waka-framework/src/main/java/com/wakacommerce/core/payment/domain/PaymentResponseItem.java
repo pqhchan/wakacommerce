@@ -30,19 +30,8 @@ public interface PaymentResponseItem extends Serializable {
 
     public void setProcessorResponseText(String processorResponseText);
 
-    /**
-     * The amount that the system processed. For example, when submitting an order, this would be the order.getTotal.
-     * If refunding $10, this would be 10.
-     *
-     * @return
-     */
     public Money getTransactionAmount();
 
-    /**
-     * Sets the transaction amount.
-     *
-     * @param amount
-     */
     public void setTransactionAmount(Money amount);
 
     public Boolean getTransactionSuccess();

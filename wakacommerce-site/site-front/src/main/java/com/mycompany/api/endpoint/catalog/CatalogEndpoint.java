@@ -26,12 +26,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * This is a reference REST API endpoint for catalog. This can be modified, used as is, or removed. 
- * The purpose is to provide an out of the box RESTful catalog service implementation, but also 
- * to allow the implementor to have fine control over the actual API, URIs, and general JAX-RS annotations.
- * 
- *  
  *
+ * @ hui
  */
 @RestController
 @RequestMapping(value = "/catalog/",

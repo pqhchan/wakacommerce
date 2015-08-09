@@ -6,7 +6,8 @@ import java.util.List;
 import com.wakacommerce.profile.core.domain.State;
 
 /**
- * @deprecated - use {@link com.wakacommerce.profile.core.service.CountrySubdivisionService} instead.
+ *
+ * @ hui
  */
 @Deprecated
 public interface StateService {

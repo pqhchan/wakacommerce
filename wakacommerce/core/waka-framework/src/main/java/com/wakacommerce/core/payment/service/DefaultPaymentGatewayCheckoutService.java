@@ -48,10 +48,8 @@ import javax.annotation.Resource;
 
 
 /**
- * Core framework implementation of the {@link PaymentGatewayCheckoutService}.
- * 
- * @see {@link PaymentGatewayAbstractController}
- *     
+ *
+ * @ hui
  */
 @Service("blPaymentGatewayCheckoutService")
 public class DefaultPaymentGatewayCheckoutService implements PaymentGatewayCheckoutService {
@@ -325,16 +323,6 @@ public class DefaultPaymentGatewayCheckoutService implements PaymentGatewayCheck
         }
     }
 
-    /**
-     * This default implementation will mark the entire payment as invalid and boot the user to re-enter their
-     * billing info and payment information as there may be an error with either the billing address or credit card.
-     * This is the safest method, because depending on the implementation of the Gateway, we may not know exactly where
-     * the error occurred (e.g. Address Verification enabled, etc...) So, we will assume that the error invalidates
-     * the entire Order Payment, and the customer will have to re-enter their billing and credit card information to be
-     * processed again.
-     *
-     * @param payment
-     */
     protected void handleUnsuccessfulTransaction(OrderPayment payment) {
         markPaymentAsInvalid(payment.getId());
     }

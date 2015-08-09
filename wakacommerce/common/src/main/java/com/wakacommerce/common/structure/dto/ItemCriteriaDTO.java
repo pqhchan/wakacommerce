@@ -4,13 +4,8 @@ package com.wakacommerce.common.structure.dto;
 import java.io.Serializable;
 
 /**
- * StructuredContent data is converted into a DTO since it requires
- * pre-processing.   The data is fairly static so the desire is
- * to cache the value after it has been processed.
  *
- * This DTO represents a compact version of StructuredContentItemCriteria
- *
- *   
+ * @ hui
  */
 public class ItemCriteriaDTO implements Serializable {
 

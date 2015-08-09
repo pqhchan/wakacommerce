@@ -11,14 +11,8 @@ import javax.annotation.Resource;
 
 
 /**
- * Interceptor responsible for putting the current customer on the current request. Note that this should always come after
- * the {@link PortletAuthenticationProcessingInterceptor} in order for this to work properly as this assumes that the
- * Spring {@link Authentication} object has already been set on Spring's {@link SecurityContext} (assuming that the user
- * is authenticated to begin with).
- * 
- *  
- * @see {@link CustomerStateRequestProcessor}
- * @see {@lnk CustomerState}
+ *
+ * @ hui
  */
 public class CustomerStateInterceptor implements WebRequestInterceptor {
 

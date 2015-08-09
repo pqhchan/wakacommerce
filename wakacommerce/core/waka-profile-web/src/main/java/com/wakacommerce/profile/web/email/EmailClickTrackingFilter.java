@@ -77,16 +77,10 @@ public class EmailClickTrackingFilter implements Filter {
         //do nothing
     }
 
-    /**
-     * @return the emailTrackingManager
-     */
     public EmailTrackingManager getEmailTrackingManager() {
         return emailTrackingManager;
     }
 
-    /**
-     * @param emailTrackingManager the emailTrackingManager to set
-     */
     public void setEmailTrackingManager(EmailTrackingManager emailTrackingManager) {
         this.emailTrackingManager = emailTrackingManager;
     }

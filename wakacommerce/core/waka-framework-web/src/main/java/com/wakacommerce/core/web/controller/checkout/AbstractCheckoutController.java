@@ -32,12 +32,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.beans.PropertyEditorSupport;
 
 /**
- * An abstract controller that provides convenience methods and resource declarations for its
- * children. Operations that are shared between controllers that deal with checkout belong here.
  *
- * 
- *  
- *  
+ * @ hui
  */
 public abstract class AbstractCheckoutController extends WakaAbstractController {
 
@@ -145,21 +141,8 @@ public abstract class AbstractCheckoutController extends WakaAbstractController 
         checkoutControllerExtensionManager.getProxy().addAdditionalModelVariables(model);
     }
 
-    /**
-     * Initializes some custom binding operations for the checkout flow.
-     * More specifically, this method will attempt to bind state and country
-     * abbreviations to actual State and Country objects when the String
-     * representation of the abbreviation is submitted.
-     *
-     * @param request
-     * @param binder
-     * @throws Exception
-     */
     protected void initBinder(HttpServletRequest request, ServletRequestDataBinder binder) throws Exception {
-        /**
-         * @deprecated - address.setState() is deprecated in favor of ISO standardization
-         * This is here for legacy compatibility
-         */
+
         binder.registerCustomEditor(State.class, "address.state", new PropertyEditorSupport() {
             @Override
             public void setAsText(String text) {
@@ -172,10 +155,6 @@ public abstract class AbstractCheckoutController extends WakaAbstractController 
             }
         });
 
-        /**
-         * @deprecated - address.setCountry() is deprecated in favor of ISO standardization
-         * This is here for legacy compatibility
-         */
         binder.registerCustomEditor(Country.class, "address.country", new PropertyEditorSupport() {
             @Override
             public void setAsText(String text) {

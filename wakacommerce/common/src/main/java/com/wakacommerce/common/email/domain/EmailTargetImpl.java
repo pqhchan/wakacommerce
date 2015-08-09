@@ -3,7 +3,8 @@ package com.wakacommerce.common.email.domain;
 import java.util.Arrays;
 
 /**
- * Basic implementation of EmailTarget
+ *
+ * @ hui
  */
 public class EmailTargetImpl implements EmailTarget {
 

@@ -44,9 +44,8 @@ import java.util.TimeZone;
 import javax.annotation.Resource;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public abstract class AbstractBaseProcessor implements BaseProcessor {
 
@@ -208,15 +207,7 @@ public abstract class AbstractBaseProcessor implements BaseProcessor {
 
         return appliesToItem;
     }
-    
-    /**
-     * Private method used by couldOfferApplyToOrder to execute the MVEL expression in the
-     * appliesToOrderRules to determine if this offer can be applied.
-     *
-     * @param expression
-     * @param vars
-     * @return a Boolean object containing the result of executing the MVEL expression
-     */
+
     public Boolean executeExpression(String expression, Map<String, Object> vars) {
         try {
             Serializable exp;
@@ -248,36 +239,19 @@ public abstract class AbstractBaseProcessor implements BaseProcessor {
         }
 
     }
-    
-    /**
-     * We were not able to meet all of the ItemCriteria for a promotion, but some of the items were
-     * marked as qualifiers or targets.  This method removes those items from being used as targets or
-     * qualifiers so they are eligible for other promotions.
-     * @param priceDetails
-     */
+
     protected void clearAllNonFinalizedQuantities(List<PromotableOrderItemPriceDetail> priceDetails) {
         for (PromotableOrderItemPriceDetail priceDetail : priceDetails) {
             priceDetail.clearAllNonFinalizedQuantities();
         }
     }
-    
-    /**
-     * Updates the finalQuanties for the PromotionDiscounts and PromotionQualifiers. 
-     * Called after we have confirmed enough qualifiers and targets for the promotion.
-     * @param priceDetails
-     */
+
     protected void finalizeQuantities(List<PromotableOrderItemPriceDetail> priceDetails) {
         for (PromotableOrderItemPriceDetail priceDetail : priceDetails) {
             priceDetail.finalizeQuantities();
         }
     }
-    
-    /**
-     * Checks to see if the discountQty matches the detailQty.   If not, splits the 
-     * priceDetail.
-     * 
-     * @param priceDetails
-     */
+
     protected void splitDetailsIfNecessary(List<PromotableOrderItemPriceDetail> priceDetails) {
         for (PromotableOrderItemPriceDetail priceDetail : priceDetails) {
             PromotableOrderItemPriceDetail splitDetail = priceDetail.splitIfNecessary();
@@ -342,14 +316,7 @@ public abstract class AbstractBaseProcessor implements BaseProcessor {
 
         return appliesToRequestRule;
     }
-    /**
-     * Removes all offers that are not within the timezone and timeperiod of the offer.  
-     * If an offer does not fall within the timezone or timeperiod rule,
-     * that offer will be removed.  
-     *
-     * @param offers
-     * @return List of Offers within the timezone or timeperiod of the offer
-     */
+
     protected List<Offer> removeTimePeriodOffers(List<Offer> offers) {
         List<Offer> offersToRemove = new ArrayList<Offer>();
 
@@ -390,16 +357,7 @@ public abstract class AbstractBaseProcessor implements BaseProcessor {
 
         return appliesToTimePeriod;
     }
-    /**
-     * Removes all out of date offers.  If an offer does not have a start date, or the start
-     * date is a later date, that offer will be removed.  Offers without a start date should
-     * not be processed.  If the offer has a end date that has already passed, that offer
-     * will be removed.  Offers without a end date will be processed if the start date
-     * is prior to the transaction date.
-     *
-     * @param offers
-     * @return List of Offers with valid dates
-     */
+
     protected List<Offer> removeOutOfDateOffers(List<Offer> offers){
         List<Offer> offersToRemove = new ArrayList<Offer>();
         for (Offer offer : offers) {
@@ -453,14 +411,6 @@ public abstract class AbstractBaseProcessor implements BaseProcessor {
         // return offers;
     }
 
-    /**
-     * Private method that takes in a list of Offers and removes all Offers from the list that
-     * does not apply to this customer.
-     *
-     * @param offers
-     * @param customer
-     * @return List of Offers that apply to this customer
-     */
     protected List<Offer> removeInvalidCustomerOffers(List<Offer> offers, Customer customer){
         List<Offer> offersToRemove = new ArrayList<Offer>();
         for (Offer offer : offers) {
@@ -474,15 +424,7 @@ public abstract class AbstractBaseProcessor implements BaseProcessor {
         }
         return offers;
     }
-    
-    /**
-     * Private method which executes the appliesToCustomerRules in the Offer to determine if this Offer
-     * can be applied to the Customer.
-     *
-     * @param offer
-     * @param customer
-     * @return true if offer can be applied, otherwise false
-     */
+
     protected boolean couldOfferApplyToCustomer(Offer offer, Customer customer) {
         boolean appliesToCustomer = false;
         

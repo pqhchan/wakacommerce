@@ -7,10 +7,8 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 /**
- * Convenient class to hold the Spring application context. Note that this holds the <i>root</i> application context
- * as opposed to an individual servlet context.
  *
- *     
+ * @ hui
  */
 @Component("blApplicationContextHolder")
 public class ApplicationContextHolder implements ApplicationContextAware {

@@ -8,10 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Convenience passthrough for {@link CustomPersistenceHandlerAdapter} that provides a method for class detection
- * based on the provided constructor.
- * 
- * 
+ *
+ * @ hui
  */
 public class ClassCustomPersistenceHandlerAdapter extends CustomPersistenceHandlerAdapter {
     

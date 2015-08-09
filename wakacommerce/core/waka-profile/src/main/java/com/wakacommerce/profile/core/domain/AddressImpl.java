@@ -207,37 +207,22 @@ public class AddressImpl implements Address {
     @AdminPresentation(friendlyName = "AddressImpl_Business_Address", order=180, group = "AddressImpl_Address")
     protected boolean isBusiness = false;
 
-    /**
-     * Intended to be used to differentiate whether this address is a physical address (e.g. street/house) or a mailing address (e.g. P.O. Box etc..)
-     */
     @Column(name = "IS_STREET")
     @AdminPresentation(friendlyName = "AddressImpl_Street_Address", order=220, group = "AddressImpl_Address")
     protected boolean isStreet = false;
 
-    /**
-     * Intended to be used to differentiate whether this address is a physical address (e.g. street/house) or a mailing address (e.g. P.O. Box etc..)
-     */
     @Column(name = "IS_MAILING")
     @AdminPresentation(friendlyName = "AddressImpl_Mailing_Address", order=230, group = "AddressImpl_Address")
     protected boolean isMailing = false;
 
-    /**
-     * This is intented to be used for address verification integrations and should not be modifiable in the admin
-     */
     @Column(name = "TOKENIZED_ADDRESS")
     @AdminPresentation(friendlyName = "AddressImpl_Tokenized_Address", order=190, group = "AddressImpl_Address", visibility=VisibilityEnum.HIDDEN_ALL)
     protected String tokenizedAddress;
-    
-    /**
-     * This is intented to be used for address verification integrations and should not be modifiable in the admin
-     */
+
     @Column(name = "STANDARDIZED")
     @AdminPresentation(friendlyName = "AddressImpl_Standardized", order=200, group = "AddressImpl_Address", visibility=VisibilityEnum.HIDDEN_ALL)
     protected Boolean standardized = Boolean.FALSE;
 
-    /**
-     * This is intented to be used for address verification integrations and should not be modifiable in the admin
-     */
     @Column(name = "VERIFICATION_LEVEL")
     @AdminPresentation(friendlyName = "AddressImpl_Verification_Level", order=210, group = "AddressImpl_Address", visibility=VisibilityEnum.HIDDEN_ALL)
     protected String verificationLevel;

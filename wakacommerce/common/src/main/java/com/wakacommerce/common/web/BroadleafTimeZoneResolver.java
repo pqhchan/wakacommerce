@@ -6,9 +6,8 @@ import org.springframework.web.context.request.WebRequest;
 import java.util.TimeZone;
 
 /**
- * Responsible for returning the TimeZone to use for the current request.
  *
- *Priyesh Patel
+ * @ hui
  */
 public interface BroadleafTimeZoneResolver  {
 

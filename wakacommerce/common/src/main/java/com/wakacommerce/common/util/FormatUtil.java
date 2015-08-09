@@ -9,7 +9,8 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import com.wakacommerce.common.web.WakaRequestContext;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class FormatUtil {
 
@@ -21,27 +22,13 @@ public class FormatUtil {
         formatter.setTimeZone(WakaRequestContext.getWakaRequestContext().getTimeZone());
         return formatter;
     }
-    
-    /**
-     * Used with dates in rules since they are not stored as a Timestamp type (and thus not converted to a specific database
-     * timezone on a save). In order to provide accurate information, the timezone must also be preserved in the MVEL rule
-     * expression
-     * 
-     * @return
-     */
+
     public static SimpleDateFormat getTimeZoneFormat() {
         SimpleDateFormat formatter = new SimpleDateFormat(DATE_FORMAT_WITH_TIMEZONE);
         formatter.setTimeZone(WakaRequestContext.getWakaRequestContext().getTimeZone());
         return formatter;
     }
 
-    /**
-     * Use to produce date Strings in the W3C date format
-     * 
-     * @param date
-     * @return
-     * @throws DatatypeConfigurationException 
-     */
     public static String formatDateUsingW3C(Date date) {
         String w3cDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").format(date);
         return w3cDate = w3cDate.substring(0, 22) + ":" + w3cDate.substring(22, 24);

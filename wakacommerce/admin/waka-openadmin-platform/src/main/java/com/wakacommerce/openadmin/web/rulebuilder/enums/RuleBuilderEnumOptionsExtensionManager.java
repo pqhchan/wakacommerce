@@ -10,9 +10,8 @@ import javax.annotation.Resource;
 
 
 /**
- * Extension Manager used to aggregate option values for all registered {@link RuleBuilderEnumOptionsExtensionListener}
- * 
- * 
+ *
+ * @ hui
  */
 @Component("blRuleBuilderEnumOptionsExtensionManager")
 public class RuleBuilderEnumOptionsExtensionManager implements RuleBuilderEnumOptionsExtensionListener {

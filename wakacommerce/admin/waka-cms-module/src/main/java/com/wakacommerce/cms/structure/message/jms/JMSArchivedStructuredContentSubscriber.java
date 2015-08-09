@@ -12,10 +12,8 @@ import javax.jms.ObjectMessage;
 import com.wakacommerce.cms.structure.service.StructuredContentService;
 
 /**
- * Receives JMS message with a String that indicates the cache key
- * to invalidate.
  *
- * 
+ * @ hui
  */
 public class JMSArchivedStructuredContentSubscriber implements MessageListener {
 

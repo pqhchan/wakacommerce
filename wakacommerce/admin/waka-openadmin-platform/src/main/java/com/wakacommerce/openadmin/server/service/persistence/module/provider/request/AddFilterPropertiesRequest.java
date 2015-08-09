@@ -4,9 +4,8 @@ package com.wakacommerce.openadmin.server.service.persistence.module.provider.re
 import com.wakacommerce.openadmin.dto.Entity;
 
 /**
- * Contains the {@link Entity} instance and unfiltered property list.
  *
- * 
+ * @ hui
  */
 public class AddFilterPropertiesRequest {
 

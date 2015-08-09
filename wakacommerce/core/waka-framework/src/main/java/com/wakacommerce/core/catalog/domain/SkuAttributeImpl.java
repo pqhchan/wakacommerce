@@ -28,21 +28,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- * The Class SkuAttributeImpl is the default implementation of {@link SkuAttribute}.
- * A SKU Attribute is a designator on a SKU that differentiates it from other similar SKUs
- * (for example: Blue attribute for hat).
- * If you want to add fields specific to your implementation of BroadLeafCommerce you should extend
- * this class and add your fields.  If you need to make significant changes to the SkuImpl then you
- * should implement your own version of {@link Sku}.
- * <br>
- * <br>
- * This implementation uses a Hibernate implementation of JPA configured through annotations.
- * The Entity references the following tables:
- * BLC_SKU_ATTRIBUTES,
- * 
- * 
- *   @see {@link SkuAttribute}, {@link SkuImpl}
- *  btaylor
+ *
+ * @ hui
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

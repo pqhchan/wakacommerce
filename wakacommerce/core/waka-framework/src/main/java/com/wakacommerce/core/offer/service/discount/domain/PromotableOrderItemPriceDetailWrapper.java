@@ -9,10 +9,8 @@ import com.wakacommerce.core.offer.service.discount.PromotionQualifier;
 import java.util.List;
 
 /**
- * Modules that extend offer engine behavior can benefit from a wrapped PromotableOrderItemPriceDetail.
- * 
- * 
  *
+ * @ hui
  */
 public class PromotableOrderItemPriceDetailWrapper implements PromotableOrderItemPriceDetail {
 

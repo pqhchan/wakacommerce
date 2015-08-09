@@ -22,10 +22,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 /**
- * The utility methods in this class provide a way to ignore the currently configured site/catalog contexts and instead
- * explicitly run operations in the specified context.
- * 
- * 
+ *
+ * @ hui
  */
 public class IdentityExecutionUtils {
 

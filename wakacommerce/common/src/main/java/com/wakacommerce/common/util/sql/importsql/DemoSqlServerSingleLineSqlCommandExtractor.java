@@ -9,11 +9,8 @@ import com.wakacommerce.common.logging.SupportLogger;
 import java.io.Reader;
 
 /**
- * This is a utility class that is only meant to be used for testing the BLC demo on SQL Server. In our current
- * import sql files, there are a number of value declarations that are incompatible with Sql Server. This
- * custom extractor takes care of transforming those values into something SQL Server understands.
  *
- * 
+ * @ hui
  */
 public class DemoSqlServerSingleLineSqlCommandExtractor extends SingleLineSqlCommandExtractor {
 

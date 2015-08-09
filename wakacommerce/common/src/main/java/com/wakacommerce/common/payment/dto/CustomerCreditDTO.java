@@ -5,7 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *  
+ *
+ * @ hui
  */
 public class CustomerCreditDTO<T> {
 

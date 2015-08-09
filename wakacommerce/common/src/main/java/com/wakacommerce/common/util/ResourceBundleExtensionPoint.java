@@ -2,8 +2,8 @@
 package com.wakacommerce.common.util;
 
 /**
- * 
- * @deprecated instead, use {@link BroadleafMergeResourceBundleMessageSource}
+ *
+ * @ hui
  */
 @Deprecated
 public class ResourceBundleExtensionPoint {

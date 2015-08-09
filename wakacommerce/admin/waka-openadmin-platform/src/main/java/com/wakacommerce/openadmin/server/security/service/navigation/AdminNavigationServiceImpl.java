@@ -27,8 +27,8 @@ import java.util.List;
 import javax.annotation.Resource;
 
 /**
- * This service is used to build the left hand navigation for the admin
- *  
+ *
+ * @ hui
  */
 @Service("blAdminNavigationService")
 public class AdminNavigationServiceImpl implements AdminNavigationService {

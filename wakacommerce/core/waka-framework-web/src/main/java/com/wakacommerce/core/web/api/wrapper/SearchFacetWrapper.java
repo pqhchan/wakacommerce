@@ -14,14 +14,8 @@ import com.wakacommerce.core.search.domain.SearchFacetDTO;
 import com.wakacommerce.core.search.domain.SearchFacetResultDTO;
 
 /**
- * This wrapper provides information about the search facets available 
- * for use with a search.
- * 
- * Search facets are typically returned from a catalog search as part of the result. 
- * You can use facets to narrow a search.
- * 
- *  
  *
+ * @ hui
  */
 @XmlRootElement(name = "searchFacet")
 @XmlAccessorType(value = XmlAccessType.FIELD)
@@ -66,50 +60,26 @@ public class SearchFacetWrapper extends BaseWrapper implements APIWrapper<Search
         wrapDetails(model, request);
     }
 
-    
-    /**
-     * @return the fieldName
-     */
     public String getFieldName() {
         return fieldName;
     }
 
-    
-    /**
-     * @param fieldName the fieldName to set
-     */
     public void setFieldName(String fieldName) {
         this.fieldName = fieldName;
     }
 
-    
-    /**
-     * @return the active
-     */
     public Boolean getActive() {
         return active;
     }
 
-    
-    /**
-     * @param active the active to set
-     */
     public void setActive(Boolean active) {
         this.active = active;
     }
 
-    
-    /**
-     * @return the values
-     */
     public List<SearchFacetValueWrapper> getValues() {
         return values;
     }
 
-    
-    /**
-     * @param values the values to set
-     */
     public void setValues(List<SearchFacetValueWrapper> values) {
         this.values = values;
     }

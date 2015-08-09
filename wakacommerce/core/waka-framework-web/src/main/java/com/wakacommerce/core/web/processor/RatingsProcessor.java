@@ -18,22 +18,14 @@ import com.wakacommerce.profile.web.core.CustomerState;
 import javax.annotation.Resource;
 
 /**
- * A Thymeleaf processor that will add the product ratings and reviews to the model
  *
- *jfridye
+ * @ hui
  */
 public class RatingsProcessor extends AbstractModelVariableModifierProcessor {
     
     @Resource(name = "blRatingService")
     protected RatingService ratingService;
 
-    /**
-     * Sets the name of this processor to be used in Thymeleaf template
-     *
-     * NOTE: Thymeleaf normalizes the attribute names by converting all to lower-case
-     * we will use the underscore instead of camel case to avoid confusion
-     *
-     */
     public RatingsProcessor() {
         super("ratings");
     }

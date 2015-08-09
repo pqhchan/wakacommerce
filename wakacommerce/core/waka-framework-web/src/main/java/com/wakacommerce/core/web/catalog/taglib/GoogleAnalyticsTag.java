@@ -73,15 +73,6 @@ public class GoogleAnalyticsTag extends SimpleTagSupport {
         super.doTag();
     }
 
-    /**
-     * Documentation for the recommended asynchronous GA tag is at:
-     * http://code.google.com/apis/analytics/docs/tracking/gaTrackingEcommerce.html
-     * 
-     * @param webPropertyId - Google Analytics ID
-     * @param order - optionally track the order submission. This should be included on the
-     * page after the order has been sucessfully submitted. If null, this will just track the current page
-     * @return the relevant Javascript to render on the page
-     */
     protected String analytics(String webPropertyId, Order order) {
         StringBuffer sb = new StringBuffer();
         

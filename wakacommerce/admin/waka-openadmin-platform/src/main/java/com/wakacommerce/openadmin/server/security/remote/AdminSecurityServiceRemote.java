@@ -35,21 +35,8 @@ import java.util.Set;
 import javax.annotation.Resource;
 
 /**
- * Service for handeling security with Ajax components.  Serves two functions.
- * <ul>
- *     <li>
- *         Converts the ServerSide AdminUser to a client level admin user with
- *         appropriate roles defined.
- *     </li>
- *     <li>
- *         Provides a method to check if the current logged in user matches the
- *         client side user and verifies whether that user has access to the
- *         entity operation they are trying to perform.
- *     </li>
- * </ul>
- * 1.
- *  
  *
+ * @ hui
  */
 @Service("blAdminSecurityRemoteService")
 public class AdminSecurityServiceRemote implements AdminSecurityService, SecurityVerifier {

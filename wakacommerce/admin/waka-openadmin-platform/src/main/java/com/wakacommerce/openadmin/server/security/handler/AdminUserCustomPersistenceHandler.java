@@ -29,9 +29,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 @Component("blAdminUserCustomPersistenceHandler")
 public class AdminUserCustomPersistenceHandler extends CustomPersistenceHandlerAdapter {

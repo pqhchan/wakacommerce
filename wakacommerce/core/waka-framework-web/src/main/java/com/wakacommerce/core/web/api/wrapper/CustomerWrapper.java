@@ -21,10 +21,8 @@ import com.wakacommerce.profile.core.domain.CustomerAttribute;
 import com.wakacommerce.profile.core.service.CustomerService;
 
 /**
- * This is a JAXB wrapper around FulfillmentGroupItem.
  *
- * User: Elbert Bautista
- * Date: 4/18/12
+ * @ hui
  */
 @XmlRootElement(name = "customer")
 @XmlAccessorType(value = XmlAccessType.FIELD)

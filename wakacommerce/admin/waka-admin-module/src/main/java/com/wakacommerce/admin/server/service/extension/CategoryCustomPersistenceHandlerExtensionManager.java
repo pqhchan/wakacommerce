@@ -7,9 +7,8 @@ import com.wakacommerce.common.extension.ExtensionManager;
 
 
 /**
- * Extension manager for {@link com.wakacommerce.admin.server.service.handler.CategoryCustomPersistenceHandler}
  *
- * 
+ * @ hui
  */
 @Service("blCategoryCustomPersistenceHandlerExtensionManager")
 public class CategoryCustomPersistenceHandlerExtensionManager extends ExtensionManager<CategoryCustomPersistenceHandlerExtensionHandler> {

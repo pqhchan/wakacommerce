@@ -7,7 +7,8 @@ import java.util.List;
 import com.wakacommerce.openadmin.dto.Entity;
 
 /**
- * 
+ *
+ * @ hui
  */
 public interface DynamicEntityRetriever {
 

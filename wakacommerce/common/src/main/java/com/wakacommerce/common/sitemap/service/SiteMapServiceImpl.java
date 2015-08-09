@@ -27,13 +27,8 @@ import java.util.zip.GZIPOutputStream;
 import javax.annotation.Resource;
 
 /**
- * Component responsible for generating a sitemap.   Relies on SiteMapGenerators to 
- * produce the actual url entries within the sitemap.
- * 
- * Create a sitemap index file and at least one sitemap file with the URL elements.
- * 
- * 
  *
+ * @ hui
  */
 @Service("blSiteMapService")
 public class SiteMapServiceImpl implements SiteMapService {
@@ -168,12 +163,6 @@ public class SiteMapServiceImpl implements SiteMapService {
         return smc;
     }
 
-    /**
-     * Returns the siteMapGenerator most qualified to handle the given configuration.     
-     * 
-     * @param smgc
-     * @return
-     */
     protected SiteMapGenerator selectSiteMapGenerator(SiteMapGeneratorConfiguration smgc) {
         for (SiteMapGenerator siteMapGenerator : siteMapGenerators) {
             if (siteMapGenerator.canHandleSiteMapConfiguration(smgc)) {
@@ -183,11 +172,6 @@ public class SiteMapServiceImpl implements SiteMapService {
         return null;
     }
 
-    /**
-     * Gzip a file and then delete the file
-     * 
-     * @param fileName
-     */
     protected void gzipAndDeleteFiles(FileWorkArea fileWorkArea, List<String> fileNames) {
         for (String fileName : fileNames) {
             try {

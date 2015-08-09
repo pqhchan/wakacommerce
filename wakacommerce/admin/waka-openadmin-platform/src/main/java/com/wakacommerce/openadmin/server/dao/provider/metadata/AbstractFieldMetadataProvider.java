@@ -28,7 +28,8 @@ import javax.persistence.MapKey;
 import javax.persistence.OneToMany;
 
 /**
- * 
+ *
+ * @ hui
  */
 public abstract class AbstractFieldMetadataProvider implements FieldMetadataProvider {
 
@@ -93,12 +94,6 @@ public abstract class AbstractFieldMetadataProvider implements FieldMetadataProv
         return info;
     }
 
-    /**
-     * @deprecated use the overloaded method that takes DynamicEntityDao as well. This version does not always properly detect the override from xml.
-     * @param configurationKey
-     * @param ceilingEntityFullyQualifiedClassname
-     * @return override value
-     */
     @Deprecated
     protected Map<String, FieldMetadataOverride> getTargetedOverride(String configurationKey, String ceilingEntityFullyQualifiedClassname) {
         if (metadataOverrides != null && (configurationKey != null || ceilingEntityFullyQualifiedClassname != null)) {

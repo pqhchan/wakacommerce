@@ -18,21 +18,8 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 /**
- * This sample handler will add itself to the {@link TRCreditCardExtensionManager}
- * and will add some default hidden parameters/form POST URL for our fake
- * {@link com.mycompany.sample.vendor.nullPaymentGateway.web.controller.NullPaymentGatewayProcessorController}
  *
- * Note, we don't want this loaded into the extension manager
- * if a real payment gateway is used, so make sure to not scan this class when
- * using a real implementation. This is for demo purposes only.
- *
- * In order to use this sample extension handler, you will need to component scan
- * the package "com.mycompany.sample".
- *
- * This should NOT be used in production, and is meant solely for demonstration
- * purposes only.
- *
- *  
+ * @ hui
  */
 @Service("blNullPaymentGatewayTRExtensionHandler")
 public class NullPaymentGatewayTRExtensionHandler extends AbstractTRCreditCardExtensionHandler {

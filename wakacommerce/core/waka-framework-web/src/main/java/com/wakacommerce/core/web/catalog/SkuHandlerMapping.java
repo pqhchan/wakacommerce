@@ -12,14 +12,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * This handler mapping works with the Sku entity to determine if a sku has been configured for
- * the passed in URL.   
- * 
- * If the URL matches a valid Sku then this mapping returns the handler configured via the 
- * controllerName property or blSkuController by default. 
  *
- * @see com.wakacommerce.core.catalog.domain.Sku
- * @see CatalogService
+ * @ hui
  */
 public class SkuHandlerMapping extends WakaAbstractHandlerMapping {
     

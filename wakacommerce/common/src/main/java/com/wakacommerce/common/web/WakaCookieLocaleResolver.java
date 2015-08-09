@@ -9,11 +9,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Specific Spring component to override the default behavior of {@link CookieLocaleResolver} so that the default Broadleaf
- * Locale looked up in the database is used. This should be hooked up in applicationContext-servlet.xml in place of Spring's
- * {@link CookieResolver}.
- * 
- * @see {@link WakaLocaleResolverImpl}
+ *
+ * @ hui
  */
 public class WakaCookieLocaleResolver extends CookieLocaleResolver {
 

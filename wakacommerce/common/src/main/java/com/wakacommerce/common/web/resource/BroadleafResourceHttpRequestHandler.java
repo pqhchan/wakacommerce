@@ -17,12 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Provides a PostConstruct method that sorts the {@link ResourceResolver}, {@link ResourceTransformer}, 
- * or location ({@link Resource}) collections based on the {@link Ordered} interface.
- * 
- *  
- * 
  *
+ * @ hui
  */
 public class BroadleafResourceHttpRequestHandler extends ResourceHttpRequestHandler {
     
@@ -58,14 +54,6 @@ public class BroadleafResourceHttpRequestHandler extends ResourceHttpRequestHand
         }
     }
 
-    /**
-     * Items that implement Ordered will sort by the value of {@link Ordered#getOrder()}.
-     * 
-     * <p>
-     * Nulls are considered greater except that a getOrder with a value of Integer.MAX_VALUE 
-     * will always sort at the end (even after nulls). 
-     *      
-     */
     protected class OrderedComparator implements Comparator<Object> {
 
         @Override

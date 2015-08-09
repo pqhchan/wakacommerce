@@ -6,13 +6,8 @@ import org.w3c.dom.Node;
 import java.util.List;
 
 /**
- * This handler is responsible for replacing nodes in the source document
- * with the same nodes from the patch document. This handler will replace
- * all nodes with the same name entirely, regardless of differences in
- * attributes.
- * 
- *  
  *
+ * @ hui
  */
 public class NodeReplace extends NodeReplaceInsert {
 

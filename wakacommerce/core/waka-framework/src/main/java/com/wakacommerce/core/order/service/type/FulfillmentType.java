@@ -8,10 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extendible enumeration of fulfillment group types.
- * 
- *  
  *
+ * @ hui
  */
 public class FulfillmentType implements Serializable, WakaEnumType {
 

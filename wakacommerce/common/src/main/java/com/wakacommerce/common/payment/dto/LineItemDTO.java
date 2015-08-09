@@ -6,22 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *  
  *
- * Many Hosted solutions, (e.g. PayPal Express/Sagepay Form) allow you to pass in the contents of your
- * cart to be displayed on their hosted pages.
- *
- * The following DTO represent the usual parameters that you may wish to pass:
- *
- * name: a Name for this Line Item
- * description: a Description for this Line Item
- * category: a Category for this Line Item (PayPal Express uses this to differentiate between Digital vs Physical)
- * quantity: the Quantity for this Line Item
- * amount: the unit cost of the item without tax
- * tax: the tax applied to this unit item
- * itemTotal: the cost of the unit item with tax
- * total: the total cost of this line item (Quanity x Cost Including Tax)
- *
+ * @ hui
  */
 public class LineItemDTO {
 

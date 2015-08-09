@@ -4,7 +4,8 @@ package com.wakacommerce.core.search.domain;
 import java.math.BigDecimal;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class SearchFacetResultDTO {
     

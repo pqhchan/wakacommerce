@@ -17,7 +17,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * 
+ *
+ * @ hui
  */
 public class JSCompatibilityRequestWrapper extends FirewalledRequest {
 

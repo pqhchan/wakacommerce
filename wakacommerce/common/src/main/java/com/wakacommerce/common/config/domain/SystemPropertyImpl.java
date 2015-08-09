@@ -26,7 +26,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 /**
- * Allows the storage and retrieval of System Properties in the database
+ *
+ * @ hui
  */
 @Entity
 @Table(name="BLC_SYSTEM_PROPERTY")

@@ -477,11 +477,6 @@ public class FulfillmentGroupServiceImpl implements FulfillmentGroupService {
         return true;
     }
 
-    /**
-     * This method will get the first shippable fulfillment group from an order.
-     *
-     * @param order
-     */
     @Override
     public FulfillmentGroup getFirstShippableFulfillmentGroup(Order order) {
         List<FulfillmentGroup> fulfillmentGroups = order.getFulfillmentGroups();

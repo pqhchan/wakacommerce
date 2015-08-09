@@ -12,18 +12,11 @@ import com.wakacommerce.common.money.Money;
 import com.wakacommerce.common.web.WakaRequestContext;
 
 /**
- * A Thymeleaf processor that renders a Money object according to the currently set locale options.
- * For example, when rendering "6.99" in a US locale, the output text would be "$6.99".
- * When viewing in France for example, you might see "6,99 (US)$". Alternatively, if currency conversion
- * was enabled, you may see "5,59 (euro-symbol)"
- * 
- *  
+ *
+ * @ hui
  */
 public class PriceTextDisplayProcessor extends AbstractTextChildModifierAttrProcessor {
 
-    /**
-     * Sets the name of this processor to be used in Thymeleaf template
-     */
     public PriceTextDisplayProcessor() {
         super("price");
     }

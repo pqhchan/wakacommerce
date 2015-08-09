@@ -80,11 +80,6 @@ public class StaticAssetServiceImpl implements StaticAssetService {
         }
     }
 
-    /**
-     * 随机生成文件名
-     * 
-     * @param size 文件名大小
-     */
     protected String generateFileName(int size) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < size; i++) {
@@ -94,14 +89,6 @@ public class StaticAssetServiceImpl implements StaticAssetService {
         return sb.toString();
     }
 
-    /**
-     * 为资源构建URL，格式:<br> 
-     * <pre>
-     *     /{entityType}/{entityId}/{fileName}
-     *     /product/1/7001ab127001ab12
-     * </pre>
-     * entityType和entityId都可以为空，此时URL为 /7001ab127001ab12
-     */
     protected String buildAssetURL(Map<String, String> assetProperties, String originalFilename) {
         StringBuilder path = new StringBuilder("/");
         
@@ -212,21 +199,7 @@ public class StaticAssetServiceImpl implements StaticAssetService {
 
         return imageMetadata;
     }
-    
-    /**
-     * Gets the count URL based on the original fullUrl. If requested in legacy format this will return URLs like:
-     * 
-     *  /path/to/image.jpg-1
-     *  /path/to/image.jpg-2
-     *  
-     * Whereas if this is in non-legacy format (<b>legacy</b> == false):
-     * 
-     *  /path/to/image-1.jpg
-     *  /path/to/image-2.jpg
-     *  
-     * Used to deal with duplicate URLs of uploaded assets
-     *  
-     */
+
     protected String getCountUrl(String fullUrl, int count, boolean legacyFormat) {
         String countUrl = fullUrl + '-' + count;
         int dotIndex = fullUrl.lastIndexOf('.');

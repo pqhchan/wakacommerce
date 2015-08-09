@@ -15,13 +15,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *Priyesh Patel
+ *
+ * @ hui
  */
 public class ProductOptionDisplayProcessor extends AbstractLocalVariableDefinitionElementProcessor {
 
-    /**
-     * Sets the name of this processor to be used in Thymeleaf template
-     */
     public ProductOptionDisplayProcessor() {
         super("product_option_display");
     }

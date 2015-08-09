@@ -17,9 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Responsible for setting the necessary attributes on the {@link TranslationConsiderationContext}.
- * 
- * ,  
+ *
+ * @ hui
  */
 @Component("blTranslationFilter")
 public class TranslationFilter extends GenericFilterBean {

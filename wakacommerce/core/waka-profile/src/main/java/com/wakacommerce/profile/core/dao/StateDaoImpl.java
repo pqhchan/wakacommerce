@@ -17,7 +17,8 @@ import javax.persistence.Query;
 import java.util.List;
 
 /**
- * @deprecated - use {@link com.wakacommerce.profile.core.dao.CountrySubdivisionDaoImpl} instead.
+ *
+ * @ hui
  */
 @Deprecated
 @Repository("blStateDao")

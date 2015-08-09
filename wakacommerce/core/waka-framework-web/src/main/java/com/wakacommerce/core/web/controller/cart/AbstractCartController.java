@@ -11,10 +11,8 @@ import com.wakacommerce.core.web.service.UpdateCartService;
 import javax.annotation.Resource;
 
 /**
- * An abstract controller that provides convenience methods and resource declarations for its
- * children. Operations that are shared between controllers that deal with the catalog belong here.
- * 
- *  
+ *
+ * @ hui
  */
 public abstract class AbstractCartController extends WakaAbstractController {
     

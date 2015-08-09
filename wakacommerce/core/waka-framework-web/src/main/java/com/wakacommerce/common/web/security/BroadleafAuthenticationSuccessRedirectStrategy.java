@@ -13,11 +13,9 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** 
- * If the incoming request is an ajax request, the system will add the desired redirect path to the session and
- * then redirect to the path configured for the redirectPath property.
- * 
- * It is assumed that the redirectPath will be picked up by the WakaRedirectController.
+/**
+ *
+ * @ hui
  */
 @Component("blAuthenticationSuccessRedirectStrategy")
 public class BroadleafAuthenticationSuccessRedirectStrategy implements RedirectStrategy {

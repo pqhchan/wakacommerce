@@ -25,10 +25,8 @@ import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * A {@link ResourceResolver} that replaces the //BLC-SERVLET-CONTEXT and //BLC-SITE-BASEURL" 
- * tokens before serving the BLC.js file.
- * 
- * Works in conjunction with {@link BLCJSUrlPathResolver}
+ *
+ * @ hui
  */
 @Component("blBLCJSResolver")
 public class BLCJSResourceResolver extends AbstractResourceResolver implements Ordered {

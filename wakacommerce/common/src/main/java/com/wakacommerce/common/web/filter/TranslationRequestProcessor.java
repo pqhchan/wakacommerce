@@ -11,9 +11,8 @@ import com.wakacommerce.common.web.AbstractWakaWebRequestProcessor;
 import javax.annotation.Resource;
 
 /**
- * This processor is responsible for setting up the translation context.   It is intended to be used
- * by both typical Web applications and called from a ServletFilter (such as "TranslationFilter") or 
- * from a portletFilter (such as "TranslationInterceptor")
+ *
+ * @ hui
  */
 @Component("blTranslationRequestProcessor")
 public class TranslationRequestProcessor extends AbstractWakaWebRequestProcessor {

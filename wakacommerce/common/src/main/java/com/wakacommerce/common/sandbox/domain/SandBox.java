@@ -13,13 +13,6 @@ public interface SandBox extends Serializable, Status {
 
     void setId(Long id);
 
-    /**
-     * The name of the sandbox.
-     * Certain sandbox names are reserved in the system.    User created
-     * sandboxes cannot start with "", "approve_", or "deploy_".
-     *
-     * @return String sandbox name
-     */
     String getName();
 
     void setName(String name);
@@ -52,9 +45,6 @@ public interface SandBox extends Serializable, Status {
 
     void setChildSandBoxes(List<SandBox> childSandBoxes);
 
-    /**
-     * @return whether or not this sandbox, or any of its parent sandboxes, has type DEFAULT.
-     */
     public boolean getIsInDefaultHierarchy();
 
     public void setArchived(Character archived);

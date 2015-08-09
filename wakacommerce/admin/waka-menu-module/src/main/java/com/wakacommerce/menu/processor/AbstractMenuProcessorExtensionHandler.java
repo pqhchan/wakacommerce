@@ -8,7 +8,8 @@ import com.wakacommerce.common.extension.AbstractExtensionHandler;
 import com.wakacommerce.common.extension.ExtensionResultStatusType;
 
 /**
- *  
+ *
+ * @ hui
  */
 public abstract class AbstractMenuProcessorExtensionHandler extends AbstractExtensionHandler
         implements MenuProcessorExtensionHandler {

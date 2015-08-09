@@ -4,7 +4,8 @@ package com.wakacommerce.core.search.domain;
 import com.wakacommerce.core.search.redirect.domain.SearchRedirect;
 
 /**
- * @deprecated Replaced in functionality by {@link SearchRedirect}
+ *
+ * @ hui
  */
 @Deprecated
 public interface SearchIntercept {

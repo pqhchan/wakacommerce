@@ -25,16 +25,11 @@ import java.util.Set;
 import javax.annotation.Resource;
 
 /**
- * Saves an instance of OfferAudit for each offer in the passed in order.
- * 
- *     
- * @see {@link RecordOfferUsageRollbackHandler}
+ *
+ * @ hui
  */
 public class RecordOfferUsageActivity extends BaseActivity<ProcessContext<CheckoutSeed>> {
-    
-    /**
-     * Key to retrieve the audits that were persisted
-     */
+
     public static final String SAVED_AUDITS = "savedAudits";
     
     protected static final Log LOG = LogFactory.getLog(RecordOfferUsageActivity.class);
@@ -60,12 +55,7 @@ public class RecordOfferUsageActivity extends BaseActivity<ProcessContext<Checko
 
         return context;
     }
-    
-    /**
-     * Persists each of the offers to the database as {@link OfferAudit}s.
-     * 
-     * @return the {@link OfferAudit}s that were persisted
-     */
+
     protected List<OfferAudit> saveOfferIds(Set<Offer> offers, Map<Offer, OfferCode> offerToCodeMapping, Order order) {
         List<OfferAudit> audits = new ArrayList<OfferAudit>(offers.size());
         for (Offer offer : offers) {

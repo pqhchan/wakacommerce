@@ -8,9 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extendible enumeration of order item types.
- * 
- *  
+ *
+ * @ hui
  */
 public class OrderItemType implements Serializable, WakaEnumType {
 

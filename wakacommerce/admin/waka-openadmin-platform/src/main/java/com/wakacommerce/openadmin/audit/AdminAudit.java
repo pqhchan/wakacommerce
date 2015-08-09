@@ -4,7 +4,8 @@ package com.wakacommerce.openadmin.audit;
 import java.util.Date;
 
 /**
- * 
+ *
+ * @ hui
  */
 public interface AdminAudit {
 

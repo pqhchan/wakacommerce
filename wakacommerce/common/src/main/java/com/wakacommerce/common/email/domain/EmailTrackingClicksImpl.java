@@ -132,17 +132,11 @@ public class EmailTrackingClicksImpl implements EmailTrackingClicks {
         this.emailTracking = emailTracking;
     }
 
-    /**
-     * @return the customer
-     */
     @Override
     public String getCustomerId() {
         return customerId;
     }
 
-    /**
-     * @param customerId the customer to set
-     */
     @Override
     public void setCustomerId(String customerId) {
         this.customerId = customerId;

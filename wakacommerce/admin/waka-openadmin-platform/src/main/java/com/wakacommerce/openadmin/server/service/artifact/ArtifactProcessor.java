@@ -6,9 +6,8 @@ import java.util.Map;
 import com.wakacommerce.openadmin.server.service.artifact.image.Operation;
 
 /**
- * 物件处理器(物件表示的是系统资源，这里主要指上传到系统中的图片)
- * 
- * @author hui
+ *
+ * @ hui
  */
 public interface ArtifactProcessor {
 

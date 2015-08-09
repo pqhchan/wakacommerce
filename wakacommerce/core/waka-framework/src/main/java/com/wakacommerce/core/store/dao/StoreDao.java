@@ -11,12 +11,6 @@ public interface StoreDao {
 
     public Store readStoreByStoreName(final String storeName);
 
-    /**
-     * @deprecated use {@link #readStoreByStoreName(String)} instead
-     *
-     * @param storeCode
-     * @return
-     */
     @Deprecated
     public Store readStoreByStoreCode(final String storeCode);
 

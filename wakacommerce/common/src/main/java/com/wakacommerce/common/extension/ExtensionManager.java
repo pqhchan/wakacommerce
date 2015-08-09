@@ -13,17 +13,8 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * The ExtensionManager pattern is intended for out of box components to be extended by Broadleaf modules.
- * 
- * Each component that needs an extension should define an interface which is a descendant of ExtensionHandler.
- * The concrete ExtensionManager class will utilize that interface as a parameter (e.g. T below).   
- * 
- * The default extension manager pattern loops through all handlers and examines their {@link ExtensionResultStatusType} 
- * to determine whether or not to continue with other handlers.
- * 
- * 
  *
- * @param <T>
+ * @ hui
  */
 public abstract class ExtensionManager<T extends ExtensionHandler> implements InvocationHandler {
 
@@ -33,10 +24,6 @@ public abstract class ExtensionManager<T extends ExtensionHandler> implements In
     protected T extensionHandler;
     protected List<T> handlers = new ArrayList<T>();
 
-    /**
-     * Should take in a className that matches the ExtensionHandler interface being managed.
-     * @param className
-     */
     @SuppressWarnings("unchecked")
     public ExtensionManager(Class<T> _clazz) {
         extensionHandler = (T) Proxy.newProxyInstance(_clazz.getClassLoader(),
@@ -48,15 +35,6 @@ public abstract class ExtensionManager<T extends ExtensionHandler> implements In
         return extensionHandler;
     }
 
-    /**
-     * If you are attempting to register a handler with this manager and are invoking this outside of an {@link ExtensionManager}
-     * subclass, consider using {@link #registerHandler(ExtensionHandler)} instead.
-     * 
-     * While the sorting of the handlers prior to their return is thread safe, adding directly to this list is not.
-     * 
-     * @return a list of handlers sorted by their priority
-     * @see {@link #registerHandler(ExtensionHandler)}
-     */
     @SuppressWarnings({ "unchecked", "rawtypes" })
     public List<T> getHandlers() {
         synchronized (LOCK_OBJECT) {
@@ -68,18 +46,7 @@ public abstract class ExtensionManager<T extends ExtensionHandler> implements In
             return handlers;
         }
     }
-    
-    /**
-     * Intended to be invoked from the extension handlers themselves. This will add the given handler to this manager's list of
-     * handlers. This also checks to ensure that the handler has not been already registered with this {@link ExtensionManager}
-     * by checking the class names of the already-added handlers.
-     * 
-     * This method is thread safe.
-     * 
-     * @param handler the handler to register with this extension manager
-     * @return true if the handler was successfully registered, false if this handler was already contained in the list of
-     * handlers for this manager
-     */
+
     public boolean registerHandler(T handler) {
         synchronized (LOCK_OBJECT) {
             boolean add = true;
@@ -100,15 +67,7 @@ public abstract class ExtensionManager<T extends ExtensionHandler> implements In
     public void setHandlers(List<T> handlers) {
         this.handlers = handlers;
     }
-    
-    /**
-     * Utility method that is useful for determining whether or not an ExtensionManager implementation
-     * should continue after processing a ExtensionHandler call.
-     * 
-     * By default, returns true for CONTINUE
-     * 
-     * @return
-     */
+
     public boolean shouldContinue(ExtensionResultStatusType result, ExtensionHandler handler,
             Method method, Object[] args) {
         if (result != null) {
@@ -122,22 +81,11 @@ public abstract class ExtensionManager<T extends ExtensionHandler> implements In
         }
         return true;
     }
-    
-    /**
-     * Returns whether or not this extension manager continues on {@link ExtensionResultStatusType}.HANDLED.   
-     * 
-     * @return
-     */
+
     public boolean continueOnHandled() {
         return false;
     }
 
-    /**
-     * {@link ExtensionManager}s don't really need a priority but they pick up this property due to the 
-     * fact that we want them to implement the same interface <T> as the handlers they are managing.   
-     * 
-     * @return
-     */
     public int getPriority() {
         throw new UnsupportedOperationException();
     }

@@ -18,7 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
- *  
+ *
+ * @ hui
  */
 @Service("blNullPaymentGatewayHostedWebResponseService")
 public class NullPaymentGatewayHostedWebResponseServiceImpl implements PaymentGatewayWebResponseService {

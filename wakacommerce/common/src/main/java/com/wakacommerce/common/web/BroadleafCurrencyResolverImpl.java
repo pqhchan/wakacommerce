@@ -17,34 +17,26 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Author: jerryocanas
- * Date: 9/6/12
+ *
+ * @ hui
  */
 
 /**
- * Responsible for returning the currency to use for the current request.
+ *
+ * @ hui
  */
 @Component("blCurrencyResolver")
 public class BroadleafCurrencyResolverImpl implements BroadleafCurrencyResolver {
 
     private final Log LOG = LogFactory.getLog(BroadleafCurrencyResolverImpl.class);
 
-    /**
-     * Parameter/Attribute name for the current currency code
-     */
     public static String CURRENCY_CODE_PARAM = "blCurrencyCode";
 
-    /**
-     * Parameter/Attribute name for the current currency
-     */
     public static String CURRENCY_VAR = "blCurrency";
 
     @Resource(name = "blCurrencyService")
     private BroadleafCurrencyService broadleafCurrencyService;
 
-    /**
-     * Responsible for returning the currency to use for the current request.
-     */
     @Override
     public BroadleafRequestedCurrencyDto resolveCurrency(HttpServletRequest request) {
         return resolveCurrency(new ServletWebRequest(request));

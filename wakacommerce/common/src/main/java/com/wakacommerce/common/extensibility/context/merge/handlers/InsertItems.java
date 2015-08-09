@@ -10,11 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This handler implementation provides behavior where a list of elements from the
- * patch document are appended to the same parent element in the source document.
- * 
- *  
  *
+ * @ hui
  */
 public class InsertItems extends BaseHandler {
 

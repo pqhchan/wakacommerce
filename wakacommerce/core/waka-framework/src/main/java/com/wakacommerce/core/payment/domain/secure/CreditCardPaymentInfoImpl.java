@@ -18,9 +18,8 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -29,10 +28,6 @@ public class CreditCardPaymentInfoImpl implements CreditCardPayment {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * Rather than constructing directly, use {@link SecureOrderPaymentService#create(com.wakacommerce.core.payment.service.type.PaymentType)}
-     * so that the appropriate {@link EncryptionModule} can be hooked up to this entity
-     */
     protected CreditCardPaymentInfoImpl() {
         //do not allow direct instantiation -- must at least be package private for bytecode instrumentation
         //this complies with JPA specification requirements for entity construction

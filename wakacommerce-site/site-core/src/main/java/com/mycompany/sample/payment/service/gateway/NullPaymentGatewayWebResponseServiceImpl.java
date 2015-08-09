@@ -21,20 +21,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
- * This is an example implementation of a {@link PaymentGatewayWebResponseService}.
- * This will translate the Post information back from
- * {@link com.mycompany.sample.vendor.nullPaymentGateway.web.controller.NullPaymentGatewayProcessorController}
- * into a PaymentResponseDTO for processing in the Broadleaf System.
  *
- * Replace with a real Payment Gateway Integration like Braintree or PayPal PayFlow.
- *
- * In order to use load this demo service, you will need to component scan
- * the package "com.mycompany.sample".
- *
- * This should NOT be used in production, and is meant solely for demonstration
- * purposes only.
- *
- *  
+ * @ hui
  */
 @Service("blNullPaymentGatewayWebResponseService")
 public class NullPaymentGatewayWebResponseServiceImpl implements PaymentGatewayWebResponseService {

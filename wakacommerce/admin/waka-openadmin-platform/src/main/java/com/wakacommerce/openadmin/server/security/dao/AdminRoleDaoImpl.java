@@ -13,9 +13,8 @@ import javax.persistence.Query;
 import java.util.List;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 @Repository("blAdminRoleDao")
 public class AdminRoleDaoImpl implements AdminRoleDao {

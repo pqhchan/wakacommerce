@@ -9,10 +9,8 @@ import org.springframework.jmx.export.annotation.ManagedOperationParameters;
 import org.springframework.jmx.export.annotation.ManagedResource;
 
 /**
- * This is not hooked up by default so that log4j is not required. If you are using Log4j, you can add this class to your
- * Spring applicationContext to enable it.
- * 
- *     
+ *
+ * @ hui
  */
 @ManagedResource(objectName="com.wakacommerce:name=Log4JManangement", description="Logging Management", currencyTimeLimit=15)
 public class Log4jManagementBean {

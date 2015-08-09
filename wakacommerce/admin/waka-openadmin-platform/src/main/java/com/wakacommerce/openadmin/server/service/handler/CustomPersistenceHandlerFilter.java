@@ -2,7 +2,8 @@
 package com.wakacommerce.openadmin.server.service.handler;
 
 /**
- * 
+ *
+ * @ hui
  */
 public interface CustomPersistenceHandlerFilter {
     

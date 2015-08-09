@@ -1,22 +1,4 @@
-/*
- * #%L
- * BroadleafCommerce Framework Web
- * %%
- * Copyright (C) 2009 - 2015 Broadleaf Commerce
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *       http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * #L%
- */
+
 package com.wakacommerce.core.web.api;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -36,10 +18,8 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * Default Broadleaf-recommended configuration for REST APIs. Recommended use is to extend this class and annotate
- * your extension with {@code @Configuration} and {@link @EnableWebMvc}
  *
- *     
+ * @ hui
  */
 public class BroadleafRestApiMvcConfiguration extends WebMvcConfigurerAdapter {
 
@@ -51,10 +31,7 @@ public class BroadleafRestApiMvcConfiguration extends WebMvcConfigurerAdapter {
         converters.add(getJsonConverter());
         converters.add(getXmlConverter());
     }
-    
-    /**
-     * Setup a simple strategy: use all the defaults and return JSON by default when not sure. 
-     */
+
     @Override
     public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
         configurer.defaultContentType(MediaType.APPLICATION_JSON);
@@ -63,12 +40,7 @@ public class BroadleafRestApiMvcConfiguration extends WebMvcConfigurerAdapter {
     protected HttpMessageConverter<?> getJsonConverter() { 
         return new MappingJackson2HttpMessageConverter(getObjectMapper(false));
     }
-    
-    /**
-     * Subclasses might override this method to use JAXB natively for XML serialization by
-     * {@code return new Jaxb2RootElementHttpMessageConverter()}
-     * @see {@link #getObjectMapper(boolean)}
-     */
+
     protected HttpMessageConverter<?> getXmlConverter() {
         return new MappingJackson2XmlHttpMessageConverter(getObjectMapper(true));
     }

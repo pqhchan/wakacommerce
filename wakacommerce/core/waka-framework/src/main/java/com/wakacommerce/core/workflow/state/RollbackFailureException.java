@@ -8,12 +8,8 @@ import com.wakacommerce.core.workflow.ProcessContext;
 import com.wakacommerce.core.workflow.WorkflowException;
 
 /**
- * This exception is thrown to indicate a problem while trying to rollback
- * state for any and all activities during a failed workflow. Only those
- * activities that register their state with the ProcessContext will have
- * their state rolled back.
  *
- * 
+ * @ hui
  */
 public class RollbackFailureException extends WorkflowException {
 

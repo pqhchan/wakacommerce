@@ -11,27 +11,13 @@ import com.wakacommerce.common.rule.AbstractRuleProcessor;
 import java.util.Map;
 
 /**
- * By default, this rule processor combines all of the rules from
- * {@link com.wakacommerce.cms.page.domain.Page#getPageMatchRules()}
- * into a single MVEL expression.
  *
- * .
- *
+ * @ hui
  */
 @Service("blPageDefaultRuleProcessor")
 public class PageDefaultRuleProcessor extends AbstractRuleProcessor<PageDTO> {
     private static final Log LOG = LogFactory.getLog(PageDefaultRuleProcessor.class);
 
-    /**
-     * Returns true if all of the rules associated with the passed in <code>Page</code>
-     * item match based on the passed in vars.
-     *
-     * Also returns true if no rules are present for the passed in item.
-     *
-     * @param sc - a page item to test
-     * @param vars - a map of objects used by the rule MVEL expressions
-     * @return the result of the rule checks
-     */
     public boolean checkForMatch(PageDTO page, Map<String, Object> vars) {
         String ruleExpression = page.getRuleExpression();
 

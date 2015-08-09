@@ -8,9 +8,8 @@ import java.util.Map;
 import com.wakacommerce.common.WakaEnumType;
 
 /**
- * An extendible enumeration of container size types.
- * 
- *  
+ *
+ * @ hui
  */
 public class ContainerSizeType implements Serializable, WakaEnumType {
 

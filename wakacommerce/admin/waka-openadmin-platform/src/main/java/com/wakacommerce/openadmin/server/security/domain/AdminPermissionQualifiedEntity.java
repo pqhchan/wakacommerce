@@ -2,11 +2,8 @@
 package com.wakacommerce.openadmin.server.security.domain;
 
 /**
- * Created by IntelliJ IDEA.
- * User:   
- * Date: 9/24/11
- * Time: 4:38 PM
- * To change this template use File | Settings | File Templates.
+ *
+ * @ hui
  */
 public interface AdminPermissionQualifiedEntity {
     Long getId();

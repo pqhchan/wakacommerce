@@ -9,11 +9,8 @@ import com.wakacommerce.core.order.service.OrderService;
 
 
 /**
- * An abstract controller that provides convenience methods and resource declarations for its children. 
- * 
- * Operations that are shared between controllers that deal with the cart belong here.
- * 
- *  
+ *
+ * @ hui
  */
 public abstract class AbstractAccountController extends WakaAbstractController {
     

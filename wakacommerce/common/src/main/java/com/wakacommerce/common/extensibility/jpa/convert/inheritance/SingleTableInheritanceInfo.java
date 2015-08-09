@@ -4,9 +4,8 @@ package com.wakacommerce.common.extensibility.jpa.convert.inheritance;
 import javax.persistence.DiscriminatorType;
 
 /**
- * 
- *  
  *
+ * @ hui
  */
 public class SingleTableInheritanceInfo {
 

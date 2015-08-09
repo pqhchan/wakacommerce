@@ -19,16 +19,10 @@ public class SandBoxContext {
     protected Long sandBoxId;
     protected Boolean previewMode = false;
 
-    /**
-     * @return the sandBoxName
-     */
     public Long getSandBoxId() {
         return sandBoxId;
     }
-    
-    /**
-     * @param sandBoxId the sandBoxName to set
-     */
+
     public void setSandBoxId(Long sandBoxId) {
         this.sandBoxId = sandBoxId;
     }

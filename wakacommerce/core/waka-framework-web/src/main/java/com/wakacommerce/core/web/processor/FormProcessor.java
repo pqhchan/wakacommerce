@@ -16,29 +16,19 @@ import com.wakacommerce.common.security.service.ExploitProtectionService;
 import javax.annotation.Resource;
 
 /**
- * Used as a replacement to the HTML {@code <form>} element which adds a CSRF token input field to forms that are submitted
- * via anything but GET. This is required to properly bypass the {@link CsrfFilter}.
- * 
- *  
- * @see {@link CsrfFilter}
+ *
+ * @ hui
  */
 @Component("blFormProcessor")
 public class FormProcessor extends AbstractElementProcessor {
     
     @Resource(name = "blExploitProtectionService")
     protected ExploitProtectionService eps;
-    
-    /**
-     * Sets the name of this processor to be used in Thymeleaf template
-     */
+
     public FormProcessor() {
         super("form");
     }
-    
-    /**
-     * We need this replacement to execute as early as possible to allow subsequent processors to act
-     * on this element as if it were a normal form instead of a blc:form
-     */
+
     @Override
     public int getPrecedence() {
         return 1;

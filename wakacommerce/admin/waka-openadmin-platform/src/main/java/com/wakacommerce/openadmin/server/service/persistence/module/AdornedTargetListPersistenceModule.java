@@ -48,7 +48,8 @@ import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 
 /**
- *  
+ *
+ * @ hui
  */
 @Component("blAdornedTargetListPersistenceModule")
 @Scope("prototype")
