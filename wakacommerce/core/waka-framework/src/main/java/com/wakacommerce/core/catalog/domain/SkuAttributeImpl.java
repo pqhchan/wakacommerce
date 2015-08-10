@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.domain;
 
 import org.hibernate.annotations.Cache;
@@ -41,10 +40,8 @@ import javax.persistence.Table;
 })
 public class SkuAttributeImpl implements SkuAttribute {
 
-    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
-    /** The id. */
     @Id
     @GeneratedValue(generator= "SkuAttributeId")
     @GenericGenerator(

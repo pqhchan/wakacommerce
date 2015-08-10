@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.domain;
 
 import org.hibernate.annotations.BatchSize;
@@ -23,19 +22,22 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "BLC_PRODUCT_BUNDLE")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "blProducts")
-@AdminPresentationClass(populateToOneFields = PopulateToOneFieldsEnum.TRUE, friendlyName = "ProductImpl_bundleProduct")
+@AdminPresentationClass(
+		populateToOneFields = PopulateToOneFieldsEnum.TRUE, 
+		friendlyName = "ProductBundleImpl_base")
 public class ProductBundleImpl extends ProductImpl implements ProductBundle {
 
     private static final long serialVersionUID = 1L;
 
     @Column(name = "PRICING_MODEL")
-    @AdminPresentation(friendlyName = "productBundlePricingModel", 
+    @AdminPresentation(
+    		friendlyName = "ProductBundleImpl_pricingModel", 
             group = ProductImpl.Presentation.Group.Name.Price,
             order = 1,
-        helpText = "productBundlePricingModelHelp", 
-        fieldType = SupportedFieldType.WAKA_ENUMERATION, 
-        wakaEnumeration = "com.wakacommerce.core.catalog.service.type.ProductBundlePricingModelType",
-        requiredOverride = RequiredOverride.REQUIRED)
+            helpText = "ProductBundleImpl_pricingModel_help", 
+            fieldType = SupportedFieldType.WAKA_ENUMERATION, 
+            wakaEnumeration = "com.wakacommerce.core.catalog.service.type.ProductBundlePricingModelType",
+            requiredOverride = RequiredOverride.REQUIRED)
     protected String pricingModel;
 
     @Column(name = "AUTO_BUNDLE")
@@ -51,14 +53,15 @@ public class ProductBundleImpl extends ProductImpl implements ProductBundle {
     protected Boolean bundlePromotable = false;
 
     @Column(name = "BUNDLE_PRIORITY")
-    @AdminPresentation(excluded = true, friendlyName = "productBundlePriority", group="productBundleGroup")
+    @AdminPresentation(excluded = true, 
+    friendlyName = "ProductBundleImpl_priority", group="ProductBundleImpl_grp_general")
     protected int priority=99;
 
     @OneToMany(mappedBy = "bundle", targetEntity = SkuBundleItemImpl.class, cascade = { CascadeType.ALL })
     @Cascade(value = { org.hibernate.annotations.CascadeType.ALL, org.hibernate.annotations.CascadeType.DELETE_ORPHAN })
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "blProducts")
     @BatchSize(size = 50)
-    @AdminPresentationCollection(friendlyName = "skuBundleItemsTitle")
+    @AdminPresentationCollection(friendlyName = "ProductBundleImpl_skuBundleItems")
     protected List<SkuBundleItem> skuBundleItems = new ArrayList<SkuBundleItem>();
     
     @Override

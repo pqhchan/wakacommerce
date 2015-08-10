@@ -1,4 +1,3 @@
-
 package com.wakacommerce.admin.web.rulebuilder.service.options;
 
 import org.apache.commons.lang3.reflect.FieldUtils;
@@ -21,7 +20,6 @@ public class InventoryTypeEnumOptionsExtensionListener extends AbstractRuleBuild
 
     @Override
     protected Map<String, ? extends WakaEnumType> getTypes(Class<? extends WakaEnumType> clazz) {
-        
         try {
             Map<String, ? extends WakaEnumType> options =
                     (Map<String, ? extends WakaEnumType>) FieldUtils.readStaticField(clazz, "TYPES", true);

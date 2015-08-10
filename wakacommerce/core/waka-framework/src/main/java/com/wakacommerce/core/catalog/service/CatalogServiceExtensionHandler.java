@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.service;
 
 import com.wakacommerce.common.extension.ExtensionHandler;

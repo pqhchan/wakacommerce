@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.domain;
 
 import org.hibernate.annotations.Cache;
@@ -43,7 +42,6 @@ import javax.persistence.Table;
 })
 public class CategoryMediaXrefImpl implements CategoryMediaXref, Media, MultiTenantCloneable<CategoryMediaXrefImpl> {
 
-    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
     public CategoryMediaXrefImpl(Category category, Media media, String key) {
@@ -53,7 +51,7 @@ public class CategoryMediaXrefImpl implements CategoryMediaXref, Media, MultiTen
     }
 
     public CategoryMediaXrefImpl() {
-        //support default constructor for Hibernate
+    	
     }
 
     @Id

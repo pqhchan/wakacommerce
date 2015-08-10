@@ -16,8 +16,6 @@ public interface CategoryDao {
     @Nonnull
     public Category readCategoryById(@Nonnull Long categoryId);
 
-    public Category readCategoryByExternalId(@Nonnull String externalId);
-
     @Nonnull
     @Deprecated
     public Category readCategoryByName(@Nonnull String categoryName);

@@ -1,5 +1,3 @@
-
-
 package com.wakacommerce.admin.server.service.handler;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -291,16 +289,6 @@ public class SkuCustomPersistenceHandler extends CustomPersistenceHandlerAdapter
     public Property getConsolidatedOptionProperty(Collection<ProductOptionValue> values) {
         Property optionValueProperty = new Property();
         optionValueProperty.setName(CONSOLIDATED_PRODUCT_OPTIONS_FIELD_NAME);
-
-        //order the values by the display order of their correspond product option
-        //        Collections.sort(values, new Comparator<ProductOptionValue>() {
-        //
-        //            @Override
-        //            public int compare(ProductOptionValue value1, ProductOptionValue value2) {
-        //                return new CompareToBuilder().append(value1.getProductOption().getDisplayOrder(),
-        //                        value2.getProductOption().getDisplayOrder()).toComparison();
-        //            }
-        //        });
 
         ArrayList<String> stringValues = new ArrayList<String>();
         CollectionUtils.collect(values, new Transformer() {

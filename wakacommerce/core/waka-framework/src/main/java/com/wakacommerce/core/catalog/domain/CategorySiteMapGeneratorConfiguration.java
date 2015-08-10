@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.domain;
 
 import com.wakacommerce.common.sitemap.domain.SiteMapGeneratorConfiguration;

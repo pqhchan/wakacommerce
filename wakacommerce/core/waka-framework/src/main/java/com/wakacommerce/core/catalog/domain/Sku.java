@@ -1,19 +1,4 @@
-
 package com.wakacommerce.core.catalog.domain;
-
-import com.wakacommerce.common.copy.MultiTenantCloneable;
-import com.wakacommerce.common.currency.domain.BroadleafCurrency;
-import com.wakacommerce.common.media.domain.Media;
-import com.wakacommerce.common.money.Money;
-import com.wakacommerce.common.web.WakaRequestContext;
-import com.wakacommerce.core.catalog.service.dynamic.DynamicSkuPrices;
-import com.wakacommerce.core.catalog.service.dynamic.SkuPricingConsiderationContext;
-import com.wakacommerce.core.inventory.service.InventoryService;
-import com.wakacommerce.core.inventory.service.type.InventoryType;
-import com.wakacommerce.core.order.domain.FulfillmentGroup;
-import com.wakacommerce.core.order.domain.FulfillmentOption;
-import com.wakacommerce.core.order.service.type.FulfillmentType;
-import com.wakacommerce.core.order.service.workflow.CheckAvailabilityActivity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -21,6 +6,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import com.wakacommerce.common.copy.MultiTenantCloneable;
+import com.wakacommerce.common.currency.domain.BroadleafCurrency;
+import com.wakacommerce.common.media.domain.Media;
+import com.wakacommerce.common.money.Money;
+import com.wakacommerce.core.catalog.service.dynamic.DynamicSkuPrices;
+import com.wakacommerce.core.inventory.service.type.InventoryType;
+import com.wakacommerce.core.order.domain.FulfillmentOption;
+import com.wakacommerce.core.order.service.type.FulfillmentType;
 
 /**
  *
@@ -55,12 +49,6 @@ public interface Sku extends Serializable, MultiTenantCloneable<Sku> {
     public boolean hasRetailPrice();
 
     public Money getPrice();
-
-    @Deprecated
-    public Money getListPrice();
-
-    @Deprecated
-    public void setListPrice(Money listPrice);
 
     public String getName();
 
@@ -198,10 +186,6 @@ public interface Sku extends Serializable, MultiTenantCloneable<Sku> {
     public String getUpc();
 
     public void setUpc(String upc);
-
-    public String getExternalId();
-
-    public void setExternalId(String externalId);
 
     public DynamicSkuPrices getPriceData();
 

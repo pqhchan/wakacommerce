@@ -1,9 +1,7 @@
-
 package com.wakacommerce.core.catalog.service;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import com.wakacommerce.core.catalog.domain.Category;
 import com.wakacommerce.core.catalog.domain.Product;
@@ -21,8 +19,6 @@ public interface CatalogService {
 
     public Product findProductById(Long productId);
     
-    public Product findProductByExternalId(String externalId);
-
     public List<Product> findProductsByName(String searchName);
 
     public List<Product> findProductsByName(String searchName, int limit, int offset);
@@ -58,8 +54,6 @@ public interface CatalogService {
 
     public Category findCategoryById(Long categoryId);
 
-    public Category findCategoryByExternalId(String externalId);
-
     @Deprecated
     public Category findCategoryByName(String categoryName);
 
@@ -89,12 +83,7 @@ public interface CatalogService {
 
     public Sku findSkuById(Long skuId);
 
-    public Sku findSkuByExternalId(String externalId);
-
     public Sku findSkuByUpc(String upc);
-
-    @Deprecated
-    public Map<String, List<Long>> getChildCategoryURLMapByCategoryId(Long categoryId);
 
     public Category createCategory();
     

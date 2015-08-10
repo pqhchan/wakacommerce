@@ -1,15 +1,12 @@
-
 package com.wakacommerce.core.catalog.domain;
+
+import java.io.Serializable;
+import java.util.List;
 
 import com.wakacommerce.common.copy.MultiTenantCloneable;
 import com.wakacommerce.core.catalog.service.type.ProductOptionType;
 import com.wakacommerce.core.catalog.service.type.ProductOptionValidationStrategyType;
 import com.wakacommerce.core.catalog.service.type.ProductOptionValidationType;
-import com.wakacommerce.core.order.domain.OrderItem;
-import com.wakacommerce.core.order.domain.OrderItemAttribute;
-
-import java.io.Serializable;
-import java.util.List;
 
 /**
  *

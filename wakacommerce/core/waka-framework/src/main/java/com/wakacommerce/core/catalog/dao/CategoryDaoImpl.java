@@ -72,19 +72,6 @@ public class CategoryDaoImpl implements CategoryDao {
     }
 
     @Override
-    public Category readCategoryByExternalId(@Nonnull String externalId) {
-        TypedQuery<Category> query = new TypedQueryBuilder<Category>(Category.class, "cat")
-                .addRestriction("cat.externalId", "=", externalId)
-                .toQuery(em);
-
-        try {
-            return query.getSingleResult();
-        } catch (NoResultException e) {
-            return null;
-        }
-    }
-
-    @Override
     @Deprecated
     public Category readCategoryByName(String categoryName) {
         Query query = em.createNamedQuery("BC_READ_CATEGORY_BY_NAME");

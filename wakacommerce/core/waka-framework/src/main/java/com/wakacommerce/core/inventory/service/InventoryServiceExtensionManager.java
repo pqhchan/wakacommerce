@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.inventory.service;
 
 import org.springframework.stereotype.Component;

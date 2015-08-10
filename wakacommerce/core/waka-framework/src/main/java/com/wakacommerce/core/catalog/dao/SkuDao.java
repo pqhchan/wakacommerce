@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.dao;
 
 import java.util.List;
@@ -15,8 +14,6 @@ public interface SkuDao {
     public Sku readSkuById(Long skuId);
 
     public Sku readSkuByUpc(String upc);
-
-    public Sku readSkuByExternalId(String externalId);
 
     public Sku save(Sku sku);
     

@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.service;
 
 import org.springframework.stereotype.Service;
@@ -51,11 +50,6 @@ public class CatalogServiceImpl implements CatalogService {
         return productDao.readProductById(productId);
     }
     
-    @Override
-    public Product findProductByExternalId(String externalId) {
-        return productDao.readProductByExternalId(externalId);
-    }
-
     @Override
     public List<Product> findProductsByName(String searchName) {
         return productDao.readProductsByName(searchName);
@@ -126,11 +120,6 @@ public class CatalogServiceImpl implements CatalogService {
     @Override
     public Category findCategoryById(Long categoryId) {
         return categoryDao.readCategoryById(categoryId);
-    }
-
-    @Override
-    public Category findCategoryByExternalId(String externalId) {
-        return categoryDao.readCategoryByExternalId(externalId);
     }
 
     @Override
@@ -229,11 +218,6 @@ public class CatalogServiceImpl implements CatalogService {
     }
 
     @Override
-    public Sku findSkuByExternalId(String externalId) {
-        return skuDao.readSkuByExternalId(externalId);
-    }
-
-    @Override
     public Sku findSkuByUpc(String upc) {
         return skuDao.readSkuByUpc(upc);
     }
@@ -277,16 +261,6 @@ public class CatalogServiceImpl implements CatalogService {
         this.categoryDao = categoryDao;
     }
 
-    @Override
-    @Deprecated
-    public Map<String, List<Long>> getChildCategoryURLMapByCategoryId(Long categoryId) {
-        Category category = findCategoryById(categoryId);
-        if (category != null) {
-            return category.getChildCategoryURLMap();
-        }
-        return null;
-    }
-    
     @Override
     public Category createCategory() {
         return categoryDao.create();

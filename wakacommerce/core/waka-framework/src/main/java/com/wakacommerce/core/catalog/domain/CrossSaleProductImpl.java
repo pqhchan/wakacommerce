@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.domain;
 
 import org.hibernate.annotations.Cache;
@@ -46,7 +45,7 @@ public class CrossSaleProductImpl implements RelatedProduct, MultiTenantCloneabl
     protected Long id;
     
     @Column(name = "PROMOTION_MESSAGE")
-    @AdminPresentation(friendlyName = "CrossSaleProductImpl_Cross_Sale_Promotion_Message", largeEntry=true)
+    @AdminPresentation(friendlyName = "CrossSaleProductImpl_promotionMessage", largeEntry=true)
     protected String promotionMessage;
 
     @Column(name = "SEQUENCE", precision = 10, scale = 6)

@@ -63,6 +63,7 @@ public class CategoryCustomPersistenceHandler extends CustomPersistenceHandlerAd
     public DynamicResultSet inspect(PersistencePackage persistencePackage, DynamicEntityDao dynamicEntityDao, InspectHelper helper) throws ServiceException {
         Map<String, FieldMetadata> md = getMetadata(persistencePackage, helper);
 
+        md.remove("taxCode");
         if (!isDefaultCategoryLegacyMode()) {
             md.remove("allParentCategoryXrefs");
 

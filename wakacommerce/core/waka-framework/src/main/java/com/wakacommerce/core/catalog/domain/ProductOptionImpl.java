@@ -1,8 +1,25 @@
 
 package com.wakacommerce.core.catalog.domain;
 
-import org.hibernate.annotations.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import com.wakacommerce.common.admin.domain.AdminMainEntity;
@@ -12,21 +29,16 @@ import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransform;
 import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformMember;
 import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformTypes;
 import com.wakacommerce.common.i18n.service.DynamicTranslationProvider;
-import com.wakacommerce.common.presentation.*;
+import com.wakacommerce.common.presentation.AdminPresentation;
+import com.wakacommerce.common.presentation.AdminPresentationClass;
+import com.wakacommerce.common.presentation.AdminPresentationCollection;
+import com.wakacommerce.common.presentation.PopulateToOneFieldsEnum;
+import com.wakacommerce.common.presentation.RequiredOverride;
 import com.wakacommerce.common.presentation.client.AddMethodType;
 import com.wakacommerce.common.presentation.client.SupportedFieldType;
 import com.wakacommerce.core.catalog.service.type.ProductOptionType;
 import com.wakacommerce.core.catalog.service.type.ProductOptionValidationStrategyType;
 import com.wakacommerce.core.catalog.service.type.ProductOptionValidationType;
-
-import javax.persistence.CascadeType;
-import javax.persistence.*;
-import javax.persistence.Entity;
-import javax.persistence.OrderBy;
-import javax.persistence.Table;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -55,56 +67,78 @@ public class ProductOptionImpl implements ProductOption, AdminMainEntity {
     protected Long id;
     
     @Column(name = "OPTION_TYPE")
-    @AdminPresentation(friendlyName = "productOption_Type", fieldType = SupportedFieldType.WAKA_ENUMERATION, wakaEnumeration = "com.wakacommerce.core.catalog.service.type.ProductOptionType")
+    @AdminPresentation(
+    		friendlyName = "ProductOptionImpl_type", 
+    		fieldType = SupportedFieldType.WAKA_ENUMERATION, 
+    		wakaEnumeration = "com.wakacommerce.core.catalog.service.type.ProductOptionType")
     protected String type;
     
     @Column(name = "ATTRIBUTE_NAME")
-    @AdminPresentation(friendlyName = "productOption_name", helpText = "productOption_nameHelp", requiredOverride = RequiredOverride.REQUIRED)
+    @AdminPresentation(
+    		friendlyName = "ProductOptionImpl_attributeName", 
+    		helpText = "ProductOptionImpl_attributeName_help", 
+    		requiredOverride = RequiredOverride.REQUIRED)
     protected String attributeName;
     
     @Column(name = "LABEL")
     @AdminPresentation(
-    		friendlyName = "productOption_Label", 
-    		helpText = "productOption_labelHelp", 
+    		friendlyName = "ProductOptionImpl_label", 
+    		helpText = "ProductOptionImpl_label_help", 
     		prominent = true)
     protected String label;
 
     @Column(name = "REQUIRED")
-    @AdminPresentation(friendlyName = "productOption_Required", prominent = true)
+    @AdminPresentation(friendlyName = "ProductOptionImpl_required", prominent = true)
     protected Boolean required;
 
     @Column(name = "USE_IN_SKU_GENERATION")
-    @AdminPresentation(friendlyName = "productOption_UseInSKUGeneration")
+    @AdminPresentation(friendlyName = "ProductOptionImpl_useInSkuGeneration")
     private Boolean useInSkuGeneration;
 
     @Column(name = "DISPLAY_ORDER")
-    @AdminPresentation(friendlyName = "productOption_displayOrder")
+    @AdminPresentation(friendlyName = "ProductOptionImpl_displayOrder")
     protected Integer displayOrder;
 
     @Column(name = "VALIDATION_STRATEGY_TYPE")
-    @AdminPresentation(friendlyName = "productOption_validationStrategyType", group = "productOption_validation", fieldType = SupportedFieldType.WAKA_ENUMERATION, wakaEnumeration = "com.wakacommerce.core.catalog.service.type.ProductOptionValidationStrategyType")
+    @AdminPresentation(
+    		friendlyName = "ProductOptionImpl_productOptionValidationStrategyType", 
+    		group = "ProductOptionImpl_grp_validation", 
+    		fieldType = SupportedFieldType.WAKA_ENUMERATION, 
+    		wakaEnumeration = "com.wakacommerce.core.catalog.service.type.ProductOptionValidationStrategyType")
     private String productOptionValidationStrategyType;
 
     @Column(name = "VALIDATION_TYPE")
-    @AdminPresentation(friendlyName = "productOption_validationType", group = "productOption_validation", fieldType = SupportedFieldType.WAKA_ENUMERATION, wakaEnumeration = "com.wakacommerce.core.catalog.service.type.ProductOptionValidationType")
+    @AdminPresentation(
+    		friendlyName = "ProductOptionImpl_productOptionValidationType", 
+    		group = "ProductOptionImpl_grp_validation", 
+    		fieldType = SupportedFieldType.WAKA_ENUMERATION, 
+    		wakaEnumeration = "com.wakacommerce.core.catalog.service.type.ProductOptionValidationType")
     private String productOptionValidationType;
 
     @Column(name = "VALIDATION_STRING")
-    @AdminPresentation(friendlyName = "productOption_validationSring", group = "productOption_validation")
+    @AdminPresentation(
+    		friendlyName = "ProductOptionImpl_validationString",
+    		group = "ProductOptionImpl_grp_validation")
     protected String validationString;
 
     @Column(name = "ERROR_CODE")
-    @AdminPresentation(friendlyName = "productOption_errorCode", group = "productOption_validation")
+    @AdminPresentation(
+    		friendlyName = "ProductOptionImpl_errorCode", 
+    		group = "ProductOptionImpl_grp_validation")
     protected String errorCode;
 
     @Column(name = "ERROR_MESSAGE")
-    @AdminPresentation(friendlyName = "productOption_errorMessage", group = "productOption_validation")
+    @AdminPresentation(
+    		friendlyName = "ProductOptionImpl_errorMessage", 
+    		group = "ProductOptionImpl_grp_validation")
     protected String errorMessage;
 
     @OneToMany(mappedBy = "productOption", targetEntity = ProductOptionValueImpl.class, cascade = {CascadeType.ALL})
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="blStandardElements")
     @OrderBy(value = "displayOrder")
-    @AdminPresentationCollection(addType = AddMethodType.PERSIST, friendlyName = "ProductOptionImpl_Allowed_Values")
+    @AdminPresentationCollection(
+    		addType = AddMethodType.PERSIST, 
+    		friendlyName = "ProductOptionImpl_allowedValues")
     protected List<ProductOptionValue> allowedValues = new ArrayList<ProductOptionValue>();
 
     @OneToMany(targetEntity = ProductOptionXrefImpl.class, mappedBy = "productOption")

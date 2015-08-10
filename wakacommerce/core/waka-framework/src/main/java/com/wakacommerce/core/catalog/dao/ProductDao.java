@@ -20,8 +20,6 @@ public interface ProductDao {
     @Nonnull
     public Product readProductById(@Nonnull Long productId);
     
-    public Product readProductByExternalId(String externalId);
-
     public List<Product> readProductsByIds(@Nonnull List<Long> productIds);
 
     @Nonnull

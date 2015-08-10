@@ -89,19 +89,6 @@ public class ProductDaoImpl implements ProductDao {
     }
     
     @Override
-    public Product readProductByExternalId(String externalId) {
-        TypedQuery<Product> query = new TypedQueryBuilder<Product>(Product.class, "product")
-                .addRestriction("product.defaultSku.externalId", "=", externalId)
-                .toQuery(em);
-
-        try {
-            return query.getSingleResult();
-        } catch (NoResultException e) {
-            return null;
-        }
-    }
-
-    @Override
     public List<Product> readProductsByIds(List<Long> productIds) {
         if (productIds == null || productIds.size() == 0) {
             return null;

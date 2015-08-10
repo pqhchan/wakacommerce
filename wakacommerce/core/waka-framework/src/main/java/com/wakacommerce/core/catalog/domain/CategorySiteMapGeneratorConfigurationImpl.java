@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.domain;
 
 import javax.persistence.Column;
@@ -18,23 +17,23 @@ import com.wakacommerce.common.sitemap.domain.SiteMapGeneratorConfigurationImpl;
  */
 @Entity
 @Table(name = "BLC_CAT_SITE_MAP_GEN_CFG")
-@AdminPresentationClass(friendlyName = "CategorySiteMapGeneratorConfigurationImpl")
+@AdminPresentationClass(friendlyName = "CategorySiteMapGeneratorConfigurationImpl_base")
 public class CategorySiteMapGeneratorConfigurationImpl extends SiteMapGeneratorConfigurationImpl implements CategorySiteMapGeneratorConfiguration {
 
     private static final long serialVersionUID = 1L;
 
     @ManyToOne(targetEntity = CategoryImpl.class)
     @JoinColumn(name = "ROOT_CATEGORY_ID", nullable = false)
-    @AdminPresentation(friendlyName = "CategorySiteMapGeneratorConfigurationImpl_Root_Category")
+    @AdminPresentation(friendlyName = "CategorySiteMapGeneratorConfigurationImpl_rootCategory")
     @AdminPresentationToOneLookup()
     protected Category rootCategory;
 
     @Column(name = "STARTING_DEPTH", nullable = false)
-    @AdminPresentation(friendlyName = "CategorySiteMapGeneratorConfigurationImpl_Starting_Depth")
+    @AdminPresentation(friendlyName = "CategorySiteMapGeneratorConfigurationImpl_startingDepth")
     protected int startingDepth = 1;
 
     @Column(name = "ENDING_DEPTH", nullable = false)
-    @AdminPresentation(friendlyName = "CategorySiteMapGeneratorConfigurationImpl_Ending_Depth")
+    @AdminPresentation(friendlyName = "CategorySiteMapGeneratorConfigurationImpl_endingDepth")
     protected int endingDepth = 1;
 
     @Override

@@ -11,6 +11,7 @@ import com.wakacommerce.common.media.domain.Media;
 import com.wakacommerce.common.security.service.ExploitProtectionService;
 import com.wakacommerce.core.catalog.domain.Category;
 import com.wakacommerce.core.catalog.domain.CategoryAttribute;
+import com.wakacommerce.core.catalog.domain.CategoryMediaXref;
 import com.wakacommerce.core.catalog.domain.CategoryProductXref;
 import com.wakacommerce.core.catalog.domain.Product;
 import com.wakacommerce.core.catalog.domain.ProductAttribute;
@@ -472,10 +473,10 @@ public abstract class CatalogEndpoint extends BaseEndpoint {
         Category category = catalogService.findCategoryById(id);
         if (category != null) {
             ArrayList<MediaWrapper> out = new ArrayList<MediaWrapper>();
-            Map<String, Media> media = category.getCategoryMedia();
-            for (Media med : media.values()) {
+            Map<String, CategoryMediaXref> mediaXref = category.getCategoryMediaXref();
+            for (CategoryMediaXref med : mediaXref.values()) {
                 MediaWrapper wrapper = (MediaWrapper)context.getBean(MediaWrapper.class.getName());
-                wrapper.wrapSummary(med, request);
+                wrapper.wrapSummary(med.getMedia(), request);
                 out.add(wrapper);
             }
             return out;

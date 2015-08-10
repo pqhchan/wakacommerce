@@ -1,58 +1,5 @@
 package com.wakacommerce.core.catalog.domain;
 
-import org.apache.commons.beanutils.PropertyUtils;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.Predicate;
-import org.apache.commons.collections.Transformer;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.hibernate.annotations.BatchSize;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Index;
-import org.hibernate.annotations.Parameter;
-import org.hibernate.annotations.SQLDelete;
-import org.hibernate.annotations.Type;
-
-import com.wakacommerce.common.admin.domain.AdminMainEntity;
-import com.wakacommerce.common.cache.Hydrated;
-import com.wakacommerce.common.cache.HydratedSetup;
-import com.wakacommerce.common.cache.engine.CacheFactoryException;
-import com.wakacommerce.common.copy.CreateResponse;
-import com.wakacommerce.common.copy.MultiTenantCopyContext;
-import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransform;
-import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformMember;
-import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformTypes;
-import com.wakacommerce.common.i18n.service.DynamicTranslationProvider;
-import com.wakacommerce.common.media.domain.Media;
-import com.wakacommerce.common.persistence.ArchiveStatus;
-import com.wakacommerce.common.persistence.Status;
-import com.wakacommerce.common.presentation.AdminPresentation;
-import com.wakacommerce.common.presentation.AdminPresentationAdornedTargetCollection;
-import com.wakacommerce.common.presentation.AdminPresentationClass;
-import com.wakacommerce.common.presentation.AdminPresentationDataDrivenEnumeration;
-import com.wakacommerce.common.presentation.AdminPresentationMap;
-import com.wakacommerce.common.presentation.AdminPresentationMapKey;
-import com.wakacommerce.common.presentation.AdminPresentationToOneLookup;
-import com.wakacommerce.common.presentation.OptionFilterParam;
-import com.wakacommerce.common.presentation.OptionFilterParamType;
-import com.wakacommerce.common.presentation.ValidationConfiguration;
-import com.wakacommerce.common.presentation.client.SupportedFieldType;
-import com.wakacommerce.common.presentation.client.VisibilityEnum;
-import com.wakacommerce.common.template.TemplatePathContainer;
-import com.wakacommerce.common.util.DateUtil;
-import com.wakacommerce.common.util.UrlUtil;
-import com.wakacommerce.common.web.Locatable;
-import com.wakacommerce.core.inventory.service.type.InventoryType;
-import com.wakacommerce.core.order.service.type.FulfillmentType;
-import com.wakacommerce.core.search.domain.CategoryExcludedSearchFacet;
-import com.wakacommerce.core.search.domain.CategoryExcludedSearchFacetImpl;
-import com.wakacommerce.core.search.domain.CategorySearchFacet;
-import com.wakacommerce.core.search.domain.CategorySearchFacetImpl;
-import com.wakacommerce.core.search.domain.SearchFacet;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -80,6 +27,57 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import org.apache.commons.beanutils.PropertyUtils;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections.Predicate;
+import org.apache.commons.collections.Transformer;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Index;
+import org.hibernate.annotations.Parameter;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Type;
+
+import com.wakacommerce.common.admin.domain.AdminMainEntity;
+import com.wakacommerce.common.cache.Hydrated;
+import com.wakacommerce.common.cache.HydratedSetup;
+import com.wakacommerce.common.copy.CreateResponse;
+import com.wakacommerce.common.copy.MultiTenantCopyContext;
+import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransform;
+import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformMember;
+import com.wakacommerce.common.extensibility.jpa.copy.DirectCopyTransformTypes;
+import com.wakacommerce.common.i18n.service.DynamicTranslationProvider;
+import com.wakacommerce.common.persistence.ArchiveStatus;
+import com.wakacommerce.common.persistence.Status;
+import com.wakacommerce.common.presentation.AdminPresentation;
+import com.wakacommerce.common.presentation.AdminPresentationAdornedTargetCollection;
+import com.wakacommerce.common.presentation.AdminPresentationClass;
+import com.wakacommerce.common.presentation.AdminPresentationDataDrivenEnumeration;
+import com.wakacommerce.common.presentation.AdminPresentationMap;
+import com.wakacommerce.common.presentation.AdminPresentationMapKey;
+import com.wakacommerce.common.presentation.AdminPresentationToOneLookup;
+import com.wakacommerce.common.presentation.OptionFilterParam;
+import com.wakacommerce.common.presentation.OptionFilterParamType;
+import com.wakacommerce.common.presentation.ValidationConfiguration;
+import com.wakacommerce.common.presentation.client.SupportedFieldType;
+import com.wakacommerce.common.presentation.client.VisibilityEnum;
+import com.wakacommerce.common.template.TemplatePathContainer;
+import com.wakacommerce.common.util.DateUtil;
+import com.wakacommerce.common.util.UrlUtil;
+import com.wakacommerce.common.web.Locatable;
+import com.wakacommerce.core.inventory.service.type.InventoryType;
+import com.wakacommerce.core.order.service.type.FulfillmentType;
+import com.wakacommerce.core.search.domain.CategoryExcludedSearchFacet;
+import com.wakacommerce.core.search.domain.CategoryExcludedSearchFacetImpl;
+import com.wakacommerce.core.search.domain.CategorySearchFacet;
+import com.wakacommerce.core.search.domain.CategorySearchFacetImpl;
+import com.wakacommerce.core.search.domain.SearchFacet;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -116,26 +114,6 @@ public class CategoryImpl implements Category, Status, AdminMainEntity, Locatabl
         return linkBuffer.toString();
     }
 
-    private static void fillInURLMapForCategory(Map<String, List<Long>> categoryUrlMap, Category category, String startingPath, List<Long> startingCategoryList) throws CacheFactoryException {
-        String urlKey = category.getUrlKey();
-        if (urlKey == null) {
-            throw new CacheFactoryException("Cannot create childCategoryURLMap - the urlKey for a category("+category.getId()+") was null");
-        }
-
-        String currentPath = "";
-        if (! "/".equals(category.getUrlKey())) {
-            currentPath = startingPath + "/" + category.getUrlKey();
-        }
-
-        List<Long> newCategoryList = new ArrayList<Long>(startingCategoryList);
-        newCategoryList.add(category.getId());
-
-        categoryUrlMap.put(currentPath, newCategoryList);
-        for (CategoryXref currentCategory : category.getChildCategoryXrefs()) {
-            fillInURLMapForCategory(categoryUrlMap, currentCategory.getSubCategory(), currentPath, newCategoryList);
-        }
-    }
-
     @Id
     @GeneratedValue(generator= "CategoryId")
     @GenericGenerator(
@@ -170,13 +148,6 @@ public class CategoryImpl implements Category, Status, AdminMainEntity, Locatabl
             order = 2010)
     protected Boolean overrideGeneratedUrl = false;
 
-    @Column(name = "EXTERNAL_ID")
-    @Index(name="CATEGORY_E_ID_INDEX", columnNames={"EXTERNAL_ID"})
-    @AdminPresentation(friendlyName = "CategoryImpl_Category_ExternalID",
-            tab = Presentation.Tab.Name.Advanced, tabOrder = Presentation.Tab.Order.Advanced,
-            group = Presentation.Group.Name.Advanced, groupOrder = Presentation.Group.Order.Advanced)
-    protected String externalId;
-
     @Column(name = "URL_KEY")
     @Index(name="CategoryImpl_urlKey", columnNames={"URL_KEY"})
     @AdminPresentation(friendlyName = "CategoryImpl_Category_Url_Key",
@@ -193,7 +164,7 @@ public class CategoryImpl implements Category, Status, AdminMainEntity, Locatabl
     protected String description;
 
     @Column(name = "TAX_CODE")
-    @AdminPresentation(friendlyName = "CategoryImpl_Category_TaxCode", order = 4000,
+    @AdminPresentation(friendlyName = "CategoryImpl_taxCode", order = 4000,
             group = Presentation.Group.Name.Advanced)
     @AdminPresentationDataDrivenEnumeration(optionCanEditValues = true, optionFilterParams = { @OptionFilterParam(
             param = "type.key", value = "TAX_CODE", paramType = OptionFilterParamType.STRING) })
@@ -282,7 +253,7 @@ public class CategoryImpl implements Category, Status, AdminMainEntity, Locatabl
     @BatchSize(size = 50)
     @AdminPresentationMap(friendlyName = "CategoryImpl_categoryMedia",
         tab = Presentation.Tab.Name.Media, tabOrder = Presentation.Tab.Order.Media,
-        keyPropertyFriendlyName = "CategoryImpl_categoryMedia_key",
+        keyPropertyFriendlyName = "图片类别",
         deleteEntityUponRemove = true,
         mediaField = "media.url",
         toOneTargetProperty = "media",
@@ -298,9 +269,6 @@ public class CategoryImpl implements Category, Status, AdminMainEntity, Locatabl
         }
     )
     protected Map<String, CategoryMediaXref> categoryMedia = new HashMap<String, CategoryMediaXref>();
-
-    @Transient
-    protected Map<String, Media> legacyCategoryMedia = new HashMap<String, Media>();
 
     @OneToMany(mappedBy = "category", targetEntity = FeaturedProductImpl.class, cascade = {CascadeType.ALL})
     @Cascade(value={org.hibernate.annotations.CascadeType.ALL, org.hibernate.annotations.CascadeType.DELETE_ORPHAN})   
@@ -392,10 +360,6 @@ public class CategoryImpl implements Category, Status, AdminMainEntity, Locatabl
 
     @Embedded
     protected ArchiveStatus archiveStatus = new ArchiveStatus();
-
-    @Transient
-    @Deprecated
-    protected Map<String, List<Long>> childCategoryURLMap;
 
     @Transient
     @Hydrated(factoryMethod = "createChildCategoryIds")
@@ -721,31 +685,6 @@ public class CategoryImpl implements Category, Status, AdminMainEntity, Locatabl
     }
 
     @Override
-    @Deprecated
-    public Map<String, List<Long>> getChildCategoryURLMap() {
-        if (childCategoryURLMap == null) {
-            createChildCategoryURLMap();
-        }
-        return childCategoryURLMap;
-    }
-
-    public Map<String, List<Long>> createChildCategoryURLMap() {
-        try {
-            Map<String, List<Long>> newMap = new HashMap<String, List<Long>>(50);
-            fillInURLMapForCategory(newMap, this, "", new ArrayList<Long>(10));
-            return newMap;
-        } catch (CacheFactoryException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @Override
-    @Deprecated
-    public void setChildCategoryURLMap(Map<String, List<Long>> childCategoryURLMap) {
-        this.childCategoryURLMap = childCategoryURLMap;
-    }
-    
-    @Override
     public List<Category> buildFullCategoryHierarchy(List<Category> currentHierarchy) {
         if (currentHierarchy == null) { 
             currentHierarchy = new ArrayList<Category>();
@@ -1020,27 +959,6 @@ public class CategoryImpl implements Category, Status, AdminMainEntity, Locatabl
     }
 
     @Override
-    @Deprecated
-    public Map<String, Media> getCategoryMedia() {
-        if (legacyCategoryMedia.size() == 0) {
-            for (Map.Entry<String, CategoryMediaXref> entry : getCategoryMediaXref().entrySet()) {
-                legacyCategoryMedia.put(entry.getKey(), entry.getValue().getMedia());
-            }
-        }
-        return Collections.unmodifiableMap(legacyCategoryMedia);
-    }
-
-    @Override
-    @Deprecated
-    public void setCategoryMedia(Map<String, Media> categoryMedia) {
-        this.categoryMedia.clear();
-        this.legacyCategoryMedia.clear();
-        for(Map.Entry<String, Media> entry : categoryMedia.entrySet()){
-            this.categoryMedia.put(entry.getKey(), new CategoryMediaXrefImpl(this, entry.getValue(), entry.getKey()));
-        }
-    }
-    
-    @Override
     public Map<String, CategoryMediaXref> getCategoryMediaXref() {
         return categoryMedia;
     }
@@ -1192,7 +1110,6 @@ public class CategoryImpl implements Category, Status, AdminMainEntity, Locatabl
         cloned.setName(name);
         cloned.setLongDescription(longDescription);
         cloned.setInventoryType(getInventoryType());
-        cloned.setExternalId(externalId);
         cloned.setDisplayTemplate(displayTemplate);
         cloned.setDescription(description);
         for(CategoryXref entry : allParentCategoryXrefs){
@@ -1283,16 +1200,6 @@ public class CategoryImpl implements Category, Status, AdminMainEntity, Locatabl
     @Override
     public String getLocation() {
         return getUrl();
-    }
-
-    @Override
-    public String getExternalId() {
-        return externalId;
-    }
-
-    @Override
-    public void setExternalId(String externalId) {
-        this.externalId = externalId;
     }
 
 }

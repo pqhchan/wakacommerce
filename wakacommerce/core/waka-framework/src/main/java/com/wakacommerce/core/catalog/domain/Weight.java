@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.domain;
 
 import javax.persistence.Column;
@@ -21,16 +20,20 @@ public class Weight implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Column(name = "WEIGHT")
-    @AdminPresentation(friendlyName = "ProductWeight_Product_Weight", order = 9000,
-        tab = ProductImpl.Presentation.Tab.Name.Shipping, tabOrder = ProductImpl.Presentation.Tab.Order.Shipping,
-        group = ProductImpl.Presentation.Group.Name.Shipping, groupOrder = ProductImpl.Presentation.Group.Order.Shipping)
+    @AdminPresentation(friendlyName = "Weight_weight", order = 9000,
+        tab = ProductImpl.Presentation.Tab.Name.Shipping, 
+        tabOrder = ProductImpl.Presentation.Tab.Order.Shipping,
+        group = ProductImpl.Presentation.Group.Name.Shipping, 
+        groupOrder = ProductImpl.Presentation.Group.Order.Shipping)
     protected BigDecimal weight;
 
         
     @Column(name = "WEIGHT_UNIT_OF_MEASURE")
-    @AdminPresentation(friendlyName = "ProductWeight_Product_Weight_Units", order = 10000,
-        tab = ProductImpl.Presentation.Tab.Name.Shipping, tabOrder = ProductImpl.Presentation.Tab.Order.Shipping,
-        group = ProductImpl.Presentation.Group.Name.Shipping, groupOrder = ProductImpl.Presentation.Group.Order.Shipping,
+    @AdminPresentation(friendlyName = "Weight_weightUnitOfMeasure", order = 10000,
+        tab = ProductImpl.Presentation.Tab.Name.Shipping, 
+        tabOrder = ProductImpl.Presentation.Tab.Order.Shipping,
+        group = ProductImpl.Presentation.Group.Name.Shipping, 
+        groupOrder = ProductImpl.Presentation.Group.Order.Shipping,
         fieldType= SupportedFieldType.WAKA_ENUMERATION, 
         wakaEnumeration="com.wakacommerce.common.util.WeightUnitOfMeasureType")
     protected String weightUnitOfMeasure;

@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.order.service;
 
 import org.springframework.stereotype.Service;
@@ -471,7 +470,9 @@ public class FulfillmentGroupServiceImpl implements FulfillmentGroupService {
 
     @Override
     public boolean isShippable(FulfillmentType fulfillmentType) {
-        if (fulfillmentType.GIFT_CARD.equals(fulfillmentType) || fulfillmentType.DIGITAL.equals(fulfillmentType) || fulfillmentType.PHYSICAL_PICKUP.equals(fulfillmentType)) {
+        if (fulfillmentType.GIFT_CARD.equals(fulfillmentType) || 
+        		fulfillmentType.DIGITAL.equals(fulfillmentType) || 
+        		fulfillmentType.PHYSICAL_PICKUP.equals(fulfillmentType)) {
             return false;
         }
         return true;

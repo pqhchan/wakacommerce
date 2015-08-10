@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.order.service.type;
 
 import java.io.Serializable;
@@ -17,11 +16,11 @@ public class FulfillmentType implements Serializable, WakaEnumType {
 
     private static final Map<String, FulfillmentType> TYPES = new LinkedHashMap<String, FulfillmentType>();
 
-    public static final FulfillmentType DIGITAL = new FulfillmentType("DIGITAL", "Digital");
-    public static final FulfillmentType PHYSICAL_SHIP = new FulfillmentType("PHYSICAL_SHIP", "Physical Ship");
-    public static final FulfillmentType PHYSICAL_PICKUP = new FulfillmentType("PHYSICAL_PICKUP", "Physical Pickup");
-    public static final FulfillmentType PHYSICAL_PICKUP_OR_SHIP = new FulfillmentType("PHYSICAL_PICKUP_OR_SHIP", "Physical Pickup or Ship");
-    public static final FulfillmentType GIFT_CARD = new FulfillmentType("GIFT_CARD", "Gift Card");
+    public static final FulfillmentType DIGITAL = new FulfillmentType("DIGITAL", "数字");
+    public static final FulfillmentType PHYSICAL_SHIP = new FulfillmentType("PHYSICAL_SHIP", "快递");
+    public static final FulfillmentType PHYSICAL_PICKUP = new FulfillmentType("PHYSICAL_PICKUP", "自提");
+    public static final FulfillmentType PHYSICAL_PICKUP_OR_SHIP = new FulfillmentType("PHYSICAL_PICKUP_OR_SHIP", "快递或自提");
+    public static final FulfillmentType GIFT_CARD = new FulfillmentType("GIFT_CARD", "礼品卡");
 
     public static FulfillmentType getInstance(final String type) {
         return TYPES.get(type);

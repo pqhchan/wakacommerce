@@ -1,12 +1,5 @@
 package com.wakacommerce.core.catalog.domain;
 
-import com.wakacommerce.common.copy.MultiTenantCloneable;
-import com.wakacommerce.common.media.domain.Media;
-import com.wakacommerce.core.inventory.service.type.InventoryType;
-import com.wakacommerce.core.order.service.type.FulfillmentType;
-import com.wakacommerce.core.search.domain.CategoryExcludedSearchFacet;
-import com.wakacommerce.core.search.domain.CategorySearchFacet;
-
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -14,6 +7,12 @@ import java.util.Map;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+
+import com.wakacommerce.common.copy.MultiTenantCloneable;
+import com.wakacommerce.core.inventory.service.type.InventoryType;
+import com.wakacommerce.core.order.service.type.FulfillmentType;
+import com.wakacommerce.core.search.domain.CategoryExcludedSearchFacet;
+import com.wakacommerce.core.search.domain.CategorySearchFacet;
 
 public interface Category extends Serializable, MultiTenantCloneable<Category> {
 
@@ -34,9 +33,9 @@ public interface Category extends Serializable, MultiTenantCloneable<Category> {
     @Deprecated
     public void setDefaultParentCategory(@Nullable Category defaultParentCategory);
 
-    Category getParentCategory();
+    public Category getParentCategory();
 
-    void setParentCategory(Category category);
+    public void setParentCategory(Category category);
 
     @Nullable
     public String getUrl();
@@ -76,20 +75,6 @@ public interface Category extends Serializable, MultiTenantCloneable<Category> {
     public String getDisplayTemplate();
 
     public void setDisplayTemplate(@Nullable String displayTemplate);
-
-    @Deprecated
-    @Nonnull
-    public Map<String,List<Long>> getChildCategoryURLMap();
-
-    @Deprecated
-    public void setChildCategoryURLMap(@Nonnull Map<String, List<Long>> childCategoryURLMap);
-
-    @Nonnull
-    @Deprecated
-    public Map<String, Media> getCategoryMedia() ;
-
-    @Deprecated
-    public void setCategoryMedia(@Nonnull Map<String, Media> categoryMedia);
 
     public Map<String, CategoryMediaXref> getCategoryMediaXref();
 
@@ -219,9 +204,5 @@ public interface Category extends Serializable, MultiTenantCloneable<Category> {
     public String getTaxCode();
 
     public void setTaxCode(String taxCode);
-
-    public String getExternalId();
-
-    public void setExternalId(String externalId);
 
 }

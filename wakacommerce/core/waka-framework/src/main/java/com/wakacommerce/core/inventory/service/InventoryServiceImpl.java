@@ -1,5 +1,3 @@
-
-
 package com.wakacommerce.core.inventory.service;
 
 import org.apache.commons.logging.Log;

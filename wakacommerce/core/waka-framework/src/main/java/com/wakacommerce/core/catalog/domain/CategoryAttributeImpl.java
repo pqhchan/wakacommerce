@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.domain;
 
 import org.hibernate.annotations.Cache;
@@ -28,7 +27,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
 /**
  *
  * @ hui
@@ -37,7 +35,7 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name="BLC_CATEGORY_ATTRIBUTE")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="blCategories")
-@AdminPresentationClass(friendlyName = "baseCategoryAttribute")
+@AdminPresentationClass(friendlyName = "CategoryAttributeImpl_baseCategoryAttribute")
 @DirectCopyTransform({
         @DirectCopyTransformMember(templateTokens = DirectCopyTransformTypes.SANDBOX, skipOverlaps = true),
         @DirectCopyTransformMember(templateTokens = DirectCopyTransformTypes.MULTITENANT_CATALOG)
@@ -65,7 +63,9 @@ public class CategoryAttributeImpl implements CategoryAttribute {
     protected String name;
 
     @Column(name = "VALUE")
-    @AdminPresentation(friendlyName = "ProductAttributeImpl_Attribute_Value", order=2, group = "ProductAttributeImpl_Description", prominent=true)
+    @AdminPresentation(
+    		friendlyName = "CategoryAttributeImpl_value", order=2, 
+    		group = "CategoryAttributeImpl_grp_desc", prominent=true)
     protected String value;
 
     @Column(name = "SEARCHABLE")

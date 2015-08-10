@@ -76,19 +76,6 @@ public class SkuDaoImpl implements SkuDao {
     }
 
     @Override
-    public Sku readSkuByExternalId(String externalId) {
-        TypedQuery<Sku> query = new TypedQueryBuilder<Sku>(Sku.class, "sku")
-                .addRestriction("sku.externalId", "=", externalId)
-                .toQuery(em);
-
-        try {
-            return query.getSingleResult();
-        } catch (NoResultException e) {
-            return null;
-        }
-    }
-
-    @Override
     public Sku readSkuByUpc(String upc) {
         TypedQuery<Sku> query = new TypedQueryBuilder<Sku>(Sku.class, "sku")
                 .addRestriction("sku.upc", "=", upc)

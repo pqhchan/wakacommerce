@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.domain;
 
 import org.hibernate.annotations.Cache;
@@ -36,17 +35,15 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name="BLC_PRODUCT_ATTRIBUTE")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="blProducts")
-@AdminPresentationClass(friendlyName = "ProductAttributeImpl_baseProductAttribute")
+@AdminPresentationClass(friendlyName = "ProductAttributeImpl_base")
 @DirectCopyTransform({
         @DirectCopyTransformMember(templateTokens = DirectCopyTransformTypes.SANDBOX, skipOverlaps=true),
         @DirectCopyTransformMember(templateTokens = DirectCopyTransformTypes.MULTITENANT_CATALOG, skipOverlaps=true)
 })
 public class ProductAttributeImpl implements ProductAttribute {
 
-    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
     
-    /** The id. */
     @Id
     @GeneratedValue(generator= "ProductAttributeId")
     @GenericGenerator(
@@ -60,23 +57,20 @@ public class ProductAttributeImpl implements ProductAttribute {
     @Column(name = "PRODUCT_ATTRIBUTE_ID")
     protected Long id;
     
-    /** The name. */
     @Column(name = "NAME", nullable=false)
     @Index(name="PRODUCTATTRIBUTE_NAME_INDEX", columnNames={"NAME"})
     @AdminPresentation(visibility = VisibilityEnum.HIDDEN_ALL)
     protected String name;
 
-    /** The value. */
     @Column(name = "VALUE")
-    @AdminPresentation(friendlyName = "ProductAttributeImpl_Attribute_Value", order=2, group = "ProductAttributeImpl_Description", prominent=true)
+    @AdminPresentation(friendlyName = "ProductAttributeImpl_value", order=2, 
+    group = "ProductAttributeImpl_grp_desc", prominent=true)
     protected String value;
 
-    /** The searchable. */
     @Column(name = "SEARCHABLE")
     @AdminPresentation(excluded = true)
     protected Boolean searchable = false;
     
-    /** The product. */
     @ManyToOne(targetEntity = ProductImpl.class, optional=false, cascade = CascadeType.REFRESH)
     @JoinColumn(name = "PRODUCT_ID")
     @Index(name="PRODUCTATTRIBUTE_INDEX", columnNames={"PRODUCT_ID"})

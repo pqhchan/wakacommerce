@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.domain;
 
 import org.hibernate.annotations.Cache;
@@ -43,7 +42,6 @@ import javax.persistence.Table;
 })
 public class CategoryProductXrefImpl implements CategoryProductXref {
 
-    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -63,12 +61,10 @@ public class CategoryProductXrefImpl implements CategoryProductXref {
     @JoinColumn(name = "CATEGORY_ID")
     protected Category category = new CategoryImpl();
 
-    /** The product. */
     @ManyToOne(targetEntity = ProductImpl.class, optional=false, cascade = CascadeType.REFRESH)
     @JoinColumn(name = "PRODUCT_ID")
     protected Product product = new ProductImpl();
 
-    /** The display order. */
     @Column(name = "DISPLAY_ORDER", precision = 10, scale = 6)
     @AdminPresentation(visibility = VisibilityEnum.HIDDEN_ALL)
     protected BigDecimal displayOrder;

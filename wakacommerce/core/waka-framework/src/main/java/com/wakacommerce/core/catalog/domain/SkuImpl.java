@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.domain;
 
 import org.apache.commons.beanutils.MethodUtils;
@@ -96,14 +95,13 @@ import javax.persistence.Transient;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "BLC_SKU")
-//multi-column indexes don't appear to get exported correctly when declared at the field level, so declaring here as a workaround
 @org.hibernate.annotations.Table(appliesTo = "BLC_SKU", indexes = {
     @Index(name = "SKU_URL_KEY_INDEX",
         columnNames = { "URL_KEY" }
     )
 })
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "blProducts")
-@AdminPresentationClass(friendlyName = "baseSku")
+@AdminPresentationClass(friendlyName = "SkuImpl_baseSku")
 @DirectCopyTransform({
         @DirectCopyTransformMember(templateTokens = DirectCopyTransformTypes.SANDBOX, skipOverlaps=true),
         @DirectCopyTransformMember(templateTokens = DirectCopyTransformTypes.MULTITENANT_CATALOG)
@@ -125,25 +123,18 @@ public class SkuImpl implements Sku {
         }
     )
     @Column(name = "SKU_ID")
-    @AdminPresentation(friendlyName = "SkuImpl_Sku_ID", visibility = VisibilityEnum.HIDDEN_ALL)
+    @AdminPresentation(friendlyName = "SkuImpl_id", visibility = VisibilityEnum.HIDDEN_ALL)
     protected Long id;
 
-    @Column(name = "EXTERNAL_ID")
-    @Index(name="SKU_EXTERNAL_ID_INDEX", columnNames={"EXTERNAL_ID"})
-    @AdminPresentation(friendlyName = "SkuImpl_Sku_ExternalID",
-            tab = Presentation.Tab.Name.Advanced, tabOrder = Presentation.Tab.Order.Advanced,
-            group = Presentation.Group.Name.Advanced, groupOrder = Presentation.Group.Order.Advanced)
-    protected String externalId;
-
     @Column(name = "URL_KEY")
-    @AdminPresentation(friendlyName = "SkuImpl_Sku_UrlKey", order = 4000,
+    @AdminPresentation(friendlyName = "SkuImpl_urlKey", order = 4000,
         tab = ProductImpl.Presentation.Tab.Name.Advanced, tabOrder = ProductImpl.Presentation.Tab.Order.Advanced,
         group = ProductImpl.Presentation.Group.Name.Advanced, groupOrder = ProductImpl.Presentation.Group.Order.Advanced,
         excluded = true)
     protected String urlKey;
 
     @Column(name = "DISPLAY_TEMPLATE")
-    @AdminPresentation(friendlyName = "SkuImpl_Sku_Display_Template", order = 5000,
+    @AdminPresentation(friendlyName = "SkuImpl_displayTemplate", order = 5000,
         tab = ProductImpl.Presentation.Tab.Name.Advanced, tabOrder = ProductImpl.Presentation.Tab.Order.Advanced,
         group = ProductImpl.Presentation.Group.Name.Advanced, groupOrder = ProductImpl.Presentation.Group.Order.Advanced,
         excluded = true)
@@ -157,14 +148,14 @@ public class SkuImpl implements Sku {
     protected String upc;
 
     @Column(name = "SALE_PRICE", precision = 19, scale = 5)
-    @AdminPresentation(friendlyName = "SkuImpl_Sku_Sale_Price", order = 2000, 
+    @AdminPresentation(friendlyName = "SkuImpl_salePrice", order = 2000, 
         group = ProductImpl.Presentation.Group.Name.Price, groupOrder = ProductImpl.Presentation.Group.Order.Price,
         prominent = true, gridOrder = 6, 
         fieldType = SupportedFieldType.MONEY)
     protected BigDecimal salePrice;
 
     @Column(name = "RETAIL_PRICE", precision = 19, scale = 5)
-    @AdminPresentation(friendlyName = "SkuImpl_Sku_Retail_Price", order = 1000, 
+    @AdminPresentation(friendlyName = "SkuImpl_retailPrice", order = 1000, 
         group = ProductImpl.Presentation.Group.Name.Price, groupOrder = ProductImpl.Presentation.Group.Order.Price,
         prominent = true, gridOrder = 5, 
         fieldType = SupportedFieldType.MONEY)
@@ -172,13 +163,13 @@ public class SkuImpl implements Sku {
 
     @Column(name = "NAME")
     @Index(name = "SKU_NAME_INDEX", columnNames = {"NAME"})
-    @AdminPresentation(friendlyName = "SkuImpl_Sku_Name", order = ProductImpl.Presentation.FieldOrder.NAME,
+    @AdminPresentation(friendlyName = "SkuImpl_name", order = ProductImpl.Presentation.FieldOrder.NAME,
         group = ProductImpl.Presentation.Group.Name.General, groupOrder = ProductImpl.Presentation.Group.Order.General,
         prominent = true, gridOrder = 1, columnWidth = "260px")
     protected String name;
 
     @Column(name = "DESCRIPTION")
-    @AdminPresentation(friendlyName = "SkuImpl_Sku_Description", order = ProductImpl.Presentation.FieldOrder.SHORT_DESCRIPTION, 
+    @AdminPresentation(friendlyName = "SkuImpl_description", order = ProductImpl.Presentation.FieldOrder.SHORT_DESCRIPTION, 
         group = ProductImpl.Presentation.Group.Name.General, groupOrder = ProductImpl.Presentation.Group.Order.General,
         largeEntry = true, 
         excluded = true)
@@ -187,7 +178,7 @@ public class SkuImpl implements Sku {
     @Lob
     @Type(type = "org.hibernate.type.StringClobType")
     @Column(name = "LONG_DESCRIPTION", length = Integer.MAX_VALUE - 1)
-    @AdminPresentation(friendlyName = "SkuImpl_Sku_Large_Description", order = ProductImpl.Presentation.FieldOrder.LONG_DESCRIPTION,
+    @AdminPresentation(friendlyName = "SkuImpl_longDescription", order = ProductImpl.Presentation.FieldOrder.LONG_DESCRIPTION,
         group = ProductImpl.Presentation.Group.Name.General, groupOrder = ProductImpl.Presentation.Group.Order.General,
         largeEntry = true, 
         fieldType = SupportedFieldType.HTML_BASIC)
@@ -220,19 +211,19 @@ public class SkuImpl implements Sku {
 
     @Column(name = "ACTIVE_START_DATE")
     @Index(name="SKU_ACTIVE_START_INDEX")
-    @AdminPresentation(friendlyName = "SkuImpl_Sku_Start_Date", order = 1000,
+    @AdminPresentation(friendlyName = "SkuImpl_activeStartDate", order = 1000,
         group = ProductImpl.Presentation.Group.Name.ActiveDateRange, 
         groupOrder = ProductImpl.Presentation.Group.Order.ActiveDateRange,
-        tooltip = "skuStartDateTooltip",
+        tooltip = "SkuImpl_activeStartDate_tip",
         defaultValue = "today")
     protected Date activeStartDate;
 
     @Column(name = "ACTIVE_END_DATE")
     @Index(name="SKU_ACTIVE_END_INDEX")
-    @AdminPresentation(friendlyName = "SkuImpl_Sku_End_Date", order = 2000, 
+    @AdminPresentation(friendlyName = "SkuImpl_activeEndDate", order = 2000, 
         group = ProductImpl.Presentation.Group.Name.ActiveDateRange, 
         groupOrder = ProductImpl.Presentation.Group.Order.ActiveDateRange,
-        tooltip = "skuEndDateTooltip")
+        tooltip = "SkuImpl_activeEndDate_tip")
     protected Date activeEndDate;
 
     @Embedded
@@ -245,7 +236,7 @@ public class SkuImpl implements Sku {
     protected DynamicSkuPrices dynamicPrices = null;
 
     @Column(name = "IS_MACHINE_SORTABLE")
-    @AdminPresentation(friendlyName = "ProductImpl_Is_Product_Machine_Sortable", order = 10000,
+    @AdminPresentation(friendlyName = "SkuImpl_isMachineSortable", order = 10000,
         tab = ProductImpl.Presentation.Tab.Name.Shipping, tabOrder = ProductImpl.Presentation.Tab.Order.Shipping,
         group = ProductImpl.Presentation.Group.Name.Shipping, groupOrder = ProductImpl.Presentation.Group.Order.Shipping)
     protected Boolean isMachineSortable = true;
@@ -254,7 +245,7 @@ public class SkuImpl implements Sku {
     @MapKey(name = "key")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "blProducts")
     @BatchSize(size = 50)
-    @AdminPresentationMap(friendlyName = "SkuImpl_Sku_Media",
+    @AdminPresentationMap(friendlyName = "SkuImpl_skuMedia",
         tab = ProductImpl.Presentation.Tab.Name.Media, tabOrder = ProductImpl.Presentation.Tab.Order.Media,
         keyPropertyFriendlyName = "SkuImpl_Sku_Media_Key",
         deleteEntityUponRemove = true,
@@ -294,7 +285,7 @@ public class SkuImpl implements Sku {
     @Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region="blProducts")
     @MapKey(name="name")
     @BatchSize(size = 50)
-    @AdminPresentationMap(friendlyName = "skuAttributesTitle", 
+    @AdminPresentationMap(friendlyName = "SkuImpl_skuAttributes", 
         tab = Presentation.Tab.Name.Advanced, tabOrder = Presentation.Tab.Order.Advanced,
         deleteEntityUponRemove = true, forceFreeFormKeys = true)
     protected Map<String, SkuAttribute> skuAttributes = new HashMap<String, SkuAttribute>();
@@ -304,7 +295,6 @@ public class SkuImpl implements Sku {
     @BatchSize(size = 50)
     @ClonePolicyCollectionOverride
     @ClonePolicyArchive
-    //Use a Set instead of a List - see https://github.com/BroadleafCommerce/BroadleafCommerce/issues/917
     protected Set<SkuProductOptionValueXref> productOptionValueXrefs = new HashSet<SkuProductOptionValueXref>();
 
     @Transient
@@ -573,18 +563,6 @@ public class SkuImpl implements Sku {
     @Override
     public Money getPrice() {
         return isOnSale() ? getSalePrice() : getRetailPrice();
-    }
-
-    @Override
-    @Deprecated
-    public Money getListPrice() {
-        return getRetailPrice();
-    }
-
-    @Override
-    @Deprecated
-    public void setListPrice(Money listPrice) {
-        this.retailPrice = Money.toAmount(listPrice);
     }
 
     @Override
@@ -1104,16 +1082,6 @@ public class SkuImpl implements Sku {
     }
 
     @Override
-    public String getExternalId() {
-        return externalId;
-    }
-
-    @Override
-    public void setExternalId(String externalId) {
-        this.externalId = externalId;
-    }
-
-    @Override
     public String getUpc() {
         return upc;
     }
@@ -1141,7 +1109,6 @@ public class SkuImpl implements Sku {
         cloned.setDimension(dimension);
         cloned.setDiscountable(isDiscountable());
         cloned.setDisplayTemplate(displayTemplate);
-        cloned.setExternalId(externalId);
         cloned.setTaxable(isTaxable());
         cloned.setTaxCode(taxCode);
         cloned.setUrlKey(urlKey);
