@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.web.validator;
 
 import org.springframework.validation.Errors;
@@ -13,7 +12,7 @@ import com.wakacommerce.profile.core.domain.Address;
  * @ hui
  */
 public abstract class AbstractCommonAddressValidatorExtensionHandler extends AbstractExtensionHandler
-        implements BroadleafCommonAddressValidatorExtensionHandler {
+        implements WakaCommonAddressValidatorExtensionHandler {
 
     @Override
     public ExtensionResultStatusType validate(BroadleafFormType formType, Address address, Errors errors) {

@@ -125,7 +125,7 @@ public class AdminPermissionImpl implements AdminPermission {
     protected List<AdminPermission> allParentPermissions = new ArrayList<AdminPermission>();
 
     @Column(name = "IS_FRIENDLY")
-    @AdminPresentation(friendlyName = "AdminPermissionImpl_Is_Friendly",
+    @AdminPresentation(friendlyName = "可否分配",
             order = 4000, group = "一般")
     protected Boolean isFriendly = Boolean.FALSE;
 

@@ -6,11 +6,11 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import com.wakacommerce.common.web.form.BroadleafFormType;
-import com.wakacommerce.common.web.validator.BroadleafCommonAddressValidator;
+import com.wakacommerce.common.web.validator.WakaCommonAddressValidator;
 import com.wakacommerce.core.web.controller.account.CustomerAddressForm;
 
 @Component("blCustomerAddressValidator")
-public class CustomerAddressValidator extends BroadleafCommonAddressValidator implements Validator {
+public class CustomerAddressValidator extends WakaCommonAddressValidator implements Validator {
 
     @SuppressWarnings("rawtypes")
     public boolean supports(Class clazz) {

@@ -1,11 +1,4 @@
 
-/**
- * Broadleaf Commerce Rule Builder
- * This component initializes any JSON data on the page and converts
- * it into a Conditions Rule Builder
- * @see: blc-conditions-builder.js
- * @author:   
- */
 (function($, BLCAdmin) {
     
     var conditionsArray = [];

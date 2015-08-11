@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.pricing.service.tax.provider;
 
 import com.wakacommerce.common.config.domain.ModuleConfiguration;

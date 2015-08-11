@@ -1,11 +1,8 @@
-
-
 package com.wakacommerce.common.sitemap.domain;
 
 import java.util.List;
 
 import com.wakacommerce.common.config.domain.ModuleConfiguration;
-
 
 /**
  *

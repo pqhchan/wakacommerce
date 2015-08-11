@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.wakacommerce.common.web.controller.WakaRedirectController;
-import com.wakacommerce.common.web.security.BroadleafAuthenticationSuccessRedirectStrategy;
+import com.wakacommerce.common.web.security.WakaAuthenticationSuccessRedirectStrategy;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

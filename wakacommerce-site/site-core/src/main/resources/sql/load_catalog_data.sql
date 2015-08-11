@@ -1,13 +1,3 @@
---
--- The Archetype is configured with "hibernate.hbm2ddl.auto" value="create-drop" in "persistence.xml".
---
--- This will cause hibernate to populate the database when the application is started by processing the files that
--- were configured in the hibernate.hbm2ddl.import_files property.
---
--- This file is responsible for loading the the catalog data used in the Archetype.   Implementers can change this file
--- to load their initial catalog.
---
-
 -- Custom store navigation (default template uses these for the header navigation)
 INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE, DISPLAY_TEMPLATE) VALUES (2001,'Home','Home','/',CURRENT_TIMESTAMP, 'layout/home');
 INSERT INTO BLC_CATEGORY (CATEGORY_ID,DESCRIPTION,NAME,URL,ACTIVE_START_DATE) VALUES (2002,'Hot Sauces','Hot Sauces','/hot-sauces',CURRENT_TIMESTAMP);
@@ -60,14 +50,6 @@ INSERT INTO BLC_SEARCH_FACET_RANGE (SEARCH_FACET_RANGE_ID, SEARCH_FACET_ID, MIN_
 INSERT INTO BLC_SEARCH_FACET_RANGE (SEARCH_FACET_RANGE_ID, SEARCH_FACET_ID, MIN_VALUE, MAX_VALUE) VALUES (4, 3, 15, null);
 
 ------------------------------------------------------------------------------------------------------------------
--- Inserting products manually involves five steps which are outlined below.   Typically, products are loaded 
--- up front in the project and then managed via the Broadleaf Commerce admin.   
---
--- Loading through this script is a convenient way to get started when prototyping and can be useful in development
--- as a way to share data-setup without requiring a shared DB connection. 
-------------------------------------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------------------------------------------------
 -- Load Catalog - Step 1:  Create the products
 -- =============================================
 -- In this step, we are also populating the manufacturer for the product
@@ -111,9 +93,6 @@ INSERT INTO BLC_PRODUCT_BUNDLE (AUTO_BUNDLE,BUNDLE_PROMOTABLE,ITEMS_PROMOTABLE,P
 ------------------------------------------------------------------------------------------------------------------
 -- Load Catalog - Step 2:  Create "default" SKUs
 -- =============================================
--- The Broadleaf Commerce product model is setup such that every product has a default SKU.   For many products,
--- a product only has one SKU.    SKUs hold the pricing information for the product and are the actual entity
--- that is added to the cart.    Inventory, Pricing, and Fulfillment concerns are done at the SKU level
 ------------------------------------------------------------------------------------------------------------------
 INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (1,1,'Sudden Death Sauce','As my Chilipals know, I am never one to be satisfied. Hence, the creation of Sudden Death. When you need to go beyond... Sudden Death will deliver! ',10.99,'Y','Y',CURRENT_TIMESTAMP);
 INSERT INTO BLC_SKU (SKU_ID,DEFAULT_PRODUCT_ID,NAME,LONG_DESCRIPTION,RETAIL_PRICE,TAXABLE_FLAG,DISCOUNTABLE_FLAG,ACTIVE_START_DATE) VALUES (2,2,'Sweet Death Sauce','The perfect topper for chicken, fish, burgers or pizza. A great blend of Habanero, Mango, Passion Fruit and more make this Death Sauce an amazing tropical treat.',10.99,'Y','Y',CURRENT_TIMESTAMP);

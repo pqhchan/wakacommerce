@@ -64,7 +64,7 @@ public class HydratedCacheManagerImpl implements CacheEventListener, HydratedCac
         descriptor.setHydratedMutators(scanner.getCacheMutators());
         Map<String, Method[]> mutators = scanner.getIdMutators();
         if (mutators.size() != 1) {
-            throw new RuntimeException("Broadleaf Commerce Hydrated Cache currently only supports entities with a single @Id annotation.");
+            throw new RuntimeException("Hydrated Cache currently only supports entities with a single @Id annotation.");
         }
         Method[] singleMutators = mutators.values().iterator().next();
         descriptor.setIdMutators(singleMutators);

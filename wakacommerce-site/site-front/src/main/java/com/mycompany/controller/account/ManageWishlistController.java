@@ -13,7 +13,7 @@ import com.wakacommerce.core.order.service.exception.AddToCartException;
 import com.wakacommerce.core.order.service.exception.RemoveFromCartException;
 import com.wakacommerce.core.order.service.exception.RequiredAttributeNotProvidedException;
 import com.wakacommerce.core.pricing.service.exception.PricingException;
-import com.wakacommerce.core.web.controller.account.BroadleafManageWishlistController;
+import com.wakacommerce.core.web.controller.account.WakaManageWishlistController;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("/account/wishlist")
-public class ManageWishlistController extends BroadleafManageWishlistController {
+public class ManageWishlistController extends WakaManageWishlistController {
 
     public static final String WISHLIST_ORDER_NAME = "wishlist";
 

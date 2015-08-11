@@ -1,5 +1,3 @@
-
-
 package com.wakacommerce.common.sitemap.domain;
 
 import org.apache.commons.lang3.StringUtils;
@@ -40,7 +38,8 @@ public class SiteMapConfigurationImpl extends AbstractModuleConfiguration implem
     protected Integer maximumURLEntriesPerFile;
 
     @OneToMany(mappedBy = "siteMapConfiguration", targetEntity = SiteMapGeneratorConfigurationImpl.class, cascade = { CascadeType.ALL }, orphanRemoval = true)
-    @AdminPresentationCollection(friendlyName = "SiteMapConfigurationImpl_Generator_Configurations")
+    @AdminPresentationCollection(
+    		friendlyName = "SiteMapConfigurationImpl_Generator_Configurations")
     protected List<SiteMapGeneratorConfiguration> siteMapGeneratorConfigurations = new ArrayList<SiteMapGeneratorConfiguration>();
 
     @Column(name = "SITE_MAP_FILE_NAME")

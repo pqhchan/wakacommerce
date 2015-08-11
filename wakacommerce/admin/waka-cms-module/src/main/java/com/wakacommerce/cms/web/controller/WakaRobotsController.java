@@ -60,7 +60,7 @@ public class WakaRobotsController {
 
     protected String getDefaultRobotsTxt() {
         StringBuilder sb = new StringBuilder();
-        sb.append("# Using default Broadleaf Commerce robots.txt file").append("\n");
+        sb.append("# Using default robots.txt file").append("\n");
         sb.append("User-agent: *").append("\n");
         sb.append("Disallow:").append("\n");
         String fileLoc = WakaFileUtils.appendUnixPaths(baseUrlResolver.getSiteBaseUrl(), "/sitemap.xml.gz");

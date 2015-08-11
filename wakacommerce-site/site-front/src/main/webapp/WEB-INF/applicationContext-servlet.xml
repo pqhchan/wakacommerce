@@ -64,7 +64,8 @@
     
     <!-- Tell Spring to not try to map things in these directories to controllers -->
     <!-- Order must be set to supercede the handler configured by the mvc:annotation-driven annotation -->
-    <mvc:resources order="-10" location="/img/, classpath:/common_style/img/" mapping="/img/**" />
+    <mvc:resources order="-10" location="/images/" mapping="/images/**" />
+     <mvc:resources order="-10" location="classpath:/common_style/img/" mapping="/img/**" />
     <mvc:resources order="-10" location="/fonts/, classpath:/common_style/fonts/" mapping="/fonts/**" />
     <mvc:resources order="-10" location="WEB-INF/favicon.ico" mapping="/favicon.ico" />
     

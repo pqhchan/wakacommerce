@@ -1,4 +1,3 @@
-
 package com.wakacommerce.profile.core.domain;
 
 import org.hibernate.annotations.Cache;
@@ -30,7 +29,9 @@ public class CountryImpl implements Country, AdminMainEntity {
     protected String abbreviation;
 
     @Column(name = "NAME", nullable=false)
-    @AdminPresentation(friendlyName = "CountryImpl_Country", order=12, group = "CountryImpl_Address", prominent = true)
+    @AdminPresentation(
+    		friendlyName = "CountryImpl_Country", order=12, 
+    		group = "CountryImpl_Address", prominent = true)
     protected String name;
 
     public String getAbbreviation() {

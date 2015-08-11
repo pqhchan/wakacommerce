@@ -1,4 +1,3 @@
-
 package com.wakacommerce.profile.core.domain;
 
 import java.io.Serializable;
@@ -27,13 +26,9 @@ public interface Customer extends Serializable, MultiTenantCloneable<Customer> {
 
     public void setPasswordChangeRequired(boolean passwordChangeRequired);
 
-    public String getFirstName();
+    public String getRealName();
 
-    public void setFirstName(String firstName);
-
-    public String getLastName();
-
-    public void setLastName(String lastName);
+    public void setRealName(String realName);
 
     public String getEmailAddress();
 
@@ -102,12 +97,6 @@ public interface Customer extends Serializable, MultiTenantCloneable<Customer> {
     public List<CustomerPayment> getCustomerPayments();
 
     public void setCustomerPayments(List<CustomerPayment> customerPayments);
-
-    public String getTaxExemptionCode();
-
-    public void setTaxExemptionCode(String exemption);
-
-    public boolean isTaxExempt();
 
     public Map<String, Object> getTransientProperties();
 

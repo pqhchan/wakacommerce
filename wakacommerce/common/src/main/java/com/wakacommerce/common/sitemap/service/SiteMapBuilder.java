@@ -1,5 +1,3 @@
-
-
 package com.wakacommerce.common.sitemap.service;
 
 import org.apache.commons.logging.Log;

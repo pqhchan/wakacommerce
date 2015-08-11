@@ -1,14 +1,12 @@
-
 package com.wakacommerce.profile.core.domain;
 
-import org.springframework.context.ApplicationEventPublisher;
+import javax.persistence.PostPersist;
+import javax.persistence.PostUpdate;
+
 import org.springframework.transaction.support.TransactionSynchronizationAdapter;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 import com.wakacommerce.common.util.ApplicationContextHolder;
-
-import javax.persistence.PostPersist;
-import javax.persistence.PostUpdate;
 
 
 /**

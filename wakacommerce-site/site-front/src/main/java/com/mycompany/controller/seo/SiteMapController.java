@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.wakacommerce.common.sitemap.controller.BroadleafSiteMapController;
+import com.wakacommerce.common.sitemap.controller.WakaSiteMapController;
 
 import java.io.IOException;
 
@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  * @ hui
  */
 @Controller
-public class SiteMapController extends BroadleafSiteMapController {
+public class SiteMapController extends WakaSiteMapController {
 
     @RequestMapping(value = { "/sitemap*.xml", "sitemap*.gz" })
     @ResponseBody

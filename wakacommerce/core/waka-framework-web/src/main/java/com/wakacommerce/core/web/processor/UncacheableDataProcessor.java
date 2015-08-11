@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.web.processor;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -180,17 +179,12 @@ public class UncacheableDataProcessor extends AbstractElementProcessor {
     
     protected void addCustomerData(Map<String, Object> attrMap) {
         Customer customer = CustomerState.getCustomer();
-        String firstName = "";
-        String lastName = "";
+        String realName = "";
         boolean anonymous = false;
 
         if (customer != null) {
-            if (!StringUtils.isEmpty(customer.getFirstName())) {
-                firstName = customer.getFirstName();
-            }
-
-            if (!StringUtils.isEmpty(customer.getLastName())) {
-                lastName = customer.getLastName();
+            if (!StringUtils.isEmpty(customer.getRealName())) {
+            	realName = customer.getRealName();
             }
 
             if (customer.isAnonymous()) {
@@ -198,8 +192,7 @@ public class UncacheableDataProcessor extends AbstractElementProcessor {
             }
         }
         
-        attrMap.put("firstName", firstName);
-        attrMap.put("lastName", lastName);
+        attrMap.put("realName", realName);
         attrMap.put("anonymous", anonymous);
     }
     

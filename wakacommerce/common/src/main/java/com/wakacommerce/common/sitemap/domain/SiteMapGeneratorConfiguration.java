@@ -1,5 +1,3 @@
-
-
 package com.wakacommerce.common.sitemap.domain;
 
 import java.io.Serializable;

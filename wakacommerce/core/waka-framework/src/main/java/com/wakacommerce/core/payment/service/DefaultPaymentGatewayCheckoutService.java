@@ -108,11 +108,8 @@ public class DefaultPaymentGatewayCheckoutService implements PaymentGatewayCheck
         Customer customer = order.getCustomer();
         if (customer.isAnonymous()) {
             GatewayCustomerDTO<PaymentResponseDTO> gatewayCustomer = responseDTO.getCustomer();
-            if (StringUtils.isEmpty(customer.getFirstName()) && gatewayCustomer != null) {
-                customer.setFirstName(gatewayCustomer.getFirstName());
-            }
-            if (StringUtils.isEmpty(customer.getLastName()) && gatewayCustomer != null) {
-                customer.setLastName(gatewayCustomer.getLastName());
+            if (StringUtils.isEmpty(customer.getRealName()) && gatewayCustomer != null) {
+                customer.setRealName(gatewayCustomer.getRealName());
             }
             if (StringUtils.isEmpty(customer.getEmailAddress()) && gatewayCustomer != null) {
                 customer.setEmailAddress(gatewayCustomer.getEmail());

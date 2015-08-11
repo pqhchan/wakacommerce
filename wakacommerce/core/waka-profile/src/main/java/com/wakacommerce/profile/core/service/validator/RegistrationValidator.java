@@ -33,12 +33,8 @@ public class RegistrationValidator implements Validator {
             if (!passwordConfirm.equals(password)) {
                 errors.rejectValue("passwordConfirm", "invalid"); 
             }
-            if (!customer.getFirstName().matches(validNameRegex)) {
-                errors.rejectValue("firstName", "firstName.invalid", null, null);
-            }
-
-            if (!customer.getLastName().matches(validNameRegex)) {
-                errors.rejectValue("lastName", "lastName.invalid", null, null);
+            if (!customer.getRealName().matches(validNameRegex)) {
+                errors.rejectValue("realName", "realName.invalid", null, null);
             }
 
             if (!customer.getPassword().matches(validPasswordRegex)) {

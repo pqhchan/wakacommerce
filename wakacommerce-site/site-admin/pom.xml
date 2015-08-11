@@ -10,7 +10,6 @@
     <artifactId>site-admin</artifactId>
     <packaging>war</packaging>
     <name>Site Admin</name>
-    <description>Web Module For Customized Broadleaf Commerce Admin</description>
     <properties>
         <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
         <!-- httpsPort and httpPort are used by embeded jetty server.-->

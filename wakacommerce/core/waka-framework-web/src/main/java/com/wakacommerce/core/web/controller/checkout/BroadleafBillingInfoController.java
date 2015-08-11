@@ -1,5 +1,3 @@
-
-
 package com.wakacommerce.core.web.controller.checkout;
 
 import org.apache.commons.lang.StringUtils;

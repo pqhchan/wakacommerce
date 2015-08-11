@@ -1,46 +1,129 @@
-<header>
-    <div id="header_content">
-        <div id="cart_info">
-
-            <div th:if="${customer.anonymous}"  th:remove="tag">
-
-                <a class="account" th:href="@{/login}">
-                    <span th:utext="#{home.login}">Login</span>
-                </a>
-                &nbsp;|&nbsp; 
-                <a class="account" th:href="@{/register}">
-                    <span th:utext="#{home.register}">Register</span>
-                </a>
-                &nbsp;|&nbsp; 
+<header id="header" class="header2">
+<div id="header-top">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="header-top-right">
+				<div th:if="${customer.anonymous}" th:remove="tag">
+					<div class="header-text-container pull-right">
+		                  <p class="header-text">欢迎来到我的商城，</p>
+		                  <p class="header-link">
+		                      <a th:href="@{/login}">请登录</a>&nbsp;|&nbsp;<a th:href="@{/register}">免费注册</a>
+		                  </p>
+		            </div>
+                </div>
+                <div th:unless="${customer.anonymous}" th:remove="tag">
+	                <div class="header-text-container pull-right">
+		                <ul id="top-links" class="clearfix">
+	                        <li>
+	                           <a th:href="@{/account}" title="我的账号">
+	                           <span class="top-icon top-icon-user"></span>
+	                           <span class="hide-for-xs">我的账号${customer.name}</span>
+	                           </a>
+	                        </li>
+	                        <li><a th:href="@{/logout}"><span th:utext="#{home.logout}">退出</span></a>
+	                        </li>
+	                    </ul>
+	                </div>
+                </div>
+				</div>
+				<!-- End .header-top-right -->
+			</div>
+			<!-- End .col-md-12 -->
+		</div>
+		<!-- End .row -->
+	</div>
+	<!-- End .container -->
+</div>
+<!-- End #header-top -->
+<div id="inner-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5 col-sm-5 col-xs-12 logo-container">
+				<h1 class="logo clearfix">
+					<a th:href="@{/}">我的商城</a>
+				</h1>
             </div>
-            <div th:unless="${customer.anonymous}" th:remove="tag">
-                <span><span th:utext="#{home.welcome}">Welcome</span>, <a class="my-account" th:href="@{/account}" th:utext="${customer.firstName}"></a></span>
-                &nbsp;|&nbsp; 
-                <a th:href="@{/logout}">
-                    <span th:utext="#{home.logout}">Logout</span>
-                </a>
-                &nbsp;|&nbsp; 
-            </div>
-
-
-            <a id="cartLink" class="modalcart" th:href="@{/cart}">
-                <img blc:src="@{/img/shopping_cart.png}" alt="Shopping Cart Icon" />
-                &nbsp; 
-                <span id="headerCartItemWordSingular_i18n" style="display: none;" th:utext="#{home.item}" />
-                <span id="headerCartItemWordPlural_i18n" style="display: none;" th:utext="#{home.items}" />
-                <span class="headerCartItemsCount" th:utext="${cart.itemCount}" />
-                <span class="headerCartItemsCountWord" th:utext="${cart.itemCount == 1} ? #{home.item} :  #{home.items}" />
-            </a>
-
-        </div>
-
-        <div id="logo"><h1><a th:href="@{/}">The Heat Clinic Home</a></h1></div>
-        
-        <div id="search">
-            <blc:form th:action="@{/search}" method="GET">
-            <input type="search" class="search" name="q" th:value="${originalQuery}" />
-            <input type="submit" id="search_button" value="go" />
-            </blc:form>
-        </div>
+		    <div class="col-md-7 col-sm-7 col-xs-12 header-inner-right">
+				<div class="header-inner-right-wrapper clearfix">
+					<div class="dropdown-cart-menu-container pull-right">
+						<div class="btn-group dropdown-cart">
+							<a th:href="@{/cart}" class="btn btn-custom dropdown-toggle"
+								data-toggle="dropdown">
+								<span class="cart-menu-icon"></span>我的购物车
+								<span class="headerCartItemsCount" th:utext="${cart.itemCount}" />&nbsp;&nbsp;&gt;&nbsp;
+							</a>
+							<div class="dropdown-menu dropdown-cart-menu pull-right clearfix" role="menu">
+								<p class="dropdown-cart-description">最新加入的商品</p>
+								<ul class="dropdown-cart-product-list">
+									<li class="item clearfix">
+									    <a href="#" title="Delete item" class="delete-item">
+									    <i class="fa fa-times"></i></a> 
+									    <a href="#" title="Edit item" class="edit-item">
+									    <i class="fa fa-pencil"></i></a>
+										<figure>
+										<a href="product.html"><img src="images/products/thumbnails/item12.jpg" alt="phone 4"/></a>
+										</figure>
+										<div class="dropdown-cart-details">
+											<p class="item-name">
+												<a href="product.html">一只手表，一只手表 </a>
+											</p>
+											<p>
+												<span class="item-price">499</span> x 1
+											</p>
+										</div>
+									 </li>
+									<li class="item clearfix">
+										<a href="#" title="Delete item" class="delete-item">
+										<i class="fa fa-times"></i></a> 
+										<a href="#" title="Edit item" class="edit-item">
+										<i class="fa fa-pencil"></i></a>
+										<figure>
+											<a href="product.html"><img src="images/products/thumbnails/item13.jpg" alt="phone 2"/></a>
+										</figure>
+										<div class="dropdown-cart-details">
+											<p class="item-name">
+												<a href="product.html">另一只手表，另一手表</a>
+											</p>
+											<p>
+												<span class="item-price">40000</span> x 1
+											</p>
+										</div>
+								     </li>
+								</ul>
+								<!-- .dropdown-cart-total -->
+								<div class="dropdown-cart-action">
+									<p>
+										<a href="cart.html" class="btn btn-custom-2 btn-block">去购物车</a>
+									</p>
+								</div>
+							</div>
+							<!-- End .dropdown-cart -->
+						</div>
+					</div>
+				</div>
+		    </div>
+		</div>
     </div>
+		
+	<div id="main-nav-container">
+		<div class="container">
+		<div class="row">
+			<div class="col-md-12 clearfix">
+			    <nav th:substituteby="layout/partials/nav" />
+			    <div id="quick-access">
+	            <blc:form th:action="@{/search}" class="form-inline quick-search-form" role="form" method="GET">
+	                <div class="form-group">
+	                <input type="search" class="form-control" name="q"
+	                    th:value="${originalQuery}" />
+	                </div>
+	                <input type="submit" id="quick-search" class="btn btn-custom" value="" />
+	            </blc:form>
+	            </div>
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
 </header>
+<!-- End #header -->

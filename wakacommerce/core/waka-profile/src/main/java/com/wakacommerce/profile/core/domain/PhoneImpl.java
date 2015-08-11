@@ -1,12 +1,4 @@
-
 package com.wakacommerce.profile.core.domain;
-
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
-
-import com.wakacommerce.common.presentation.AdminPresentation;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +7,13 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
+import com.wakacommerce.common.presentation.AdminPresentation;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -37,24 +36,23 @@ public class PhoneImpl implements Phone {
     @Column(name = "PHONE_ID")
     protected Long id;
 
-    @Column(name = "COUNTRY_CODE")
-    @AdminPresentation(friendlyName = "PhoneImpl_Country_Code", order=1, group = "PhoneImpl_Phone")
-    protected String countryCode;
-
     @Column(name = "PHONE_NUMBER", nullable=false)
-    @AdminPresentation(friendlyName = "PhoneImpl_Phone_Number", order=2, group = "PhoneImpl_Phone")
+    @AdminPresentation(
+    		friendlyName = "PhoneImpl_Phone_Number", 
+    		order=2, 
+    		group = "PhoneImpl_grp_general")
     protected String phoneNumber;
 
     @Column(name = "EXTENSION")
-    @AdminPresentation(friendlyName = "PhoneImpl_Extension", order=3, group = "PhoneImpl_Phone")
+    @AdminPresentation(friendlyName = "附加信息", order=3, group = "PhoneImpl_grp_general")
     protected String extension;
 
     @Column(name = "IS_DEFAULT")
-    @AdminPresentation(friendlyName = "PhoneImpl_Default_Phone", order=4, group = "PhoneImpl_Phone")
+    @AdminPresentation(friendlyName = "PhoneImpl_Default_Phone", order=4, group = "PhoneImpl_grp_general")
     protected boolean isDefault = false;
 
     @Column(name = "IS_ACTIVE")
-    @AdminPresentation(friendlyName = "PhoneImpl_Active_Phone", order=5, group = "PhoneImpl_Phone")
+    @AdminPresentation(friendlyName = "PhoneImpl_Active_Phone", order=5, group = "PhoneImpl_grp_general")
     protected boolean isActive = true;
 
     @Override
@@ -65,16 +63,6 @@ public class PhoneImpl implements Phone {
     @Override
     public void setId(Long id) {
         this.id = id;
-    }
-
-    @Override
-    public String getCountryCode() {
-        return countryCode;
-    }
-
-    @Override
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
     }
 
     @Override
@@ -123,7 +111,6 @@ public class PhoneImpl implements Phone {
         int result = 1;
         result = prime * result + (isActive ? 1231 : 1237);
         result = prime * result + (isDefault ? 1231 : 1237);
-        result = prime * result + ((countryCode == null) ? 0 : countryCode.hashCode());
         result = prime * result + ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
         result = prime * result + ((extension == null) ? 0 : extension.hashCode());
 
@@ -147,11 +134,6 @@ public class PhoneImpl implements Phone {
         if (isActive != other.isActive)
             return false;
         if (isDefault != other.isDefault)
-            return false;
-        if (countryCode == null) {
-            if (other.countryCode != null)
-                return false;
-        } else if (!countryCode.equals(other.countryCode))
             return false;
         if (phoneNumber == null) {
             if (other.phoneNumber != null)

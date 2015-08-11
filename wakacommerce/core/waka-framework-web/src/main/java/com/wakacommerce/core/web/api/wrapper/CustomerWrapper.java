@@ -1,5 +1,3 @@
-
-
 package com.wakacommerce.core.web.api.wrapper;
 
 import java.util.ArrayList;
@@ -32,10 +30,7 @@ public class CustomerWrapper extends BaseWrapper implements APIWrapper<Customer>
     protected Long id;
 
     @XmlElement
-    protected String firstName;
-
-    @XmlElement
-    protected String lastName;
+    protected String realName;
 
     @XmlElement
     protected String emailAddress;
@@ -47,8 +42,7 @@ public class CustomerWrapper extends BaseWrapper implements APIWrapper<Customer>
     @Override
     public void wrapDetails(Customer model, HttpServletRequest request) {
         this.id = model.getId();
-        this.firstName = model.getFirstName();
-        this.lastName = model.getLastName();
+        this.realName = model.getRealName();
         this.emailAddress = model.getEmailAddress();
         if (model.getCustomerAttributes() != null && !model.getCustomerAttributes().isEmpty()) {
             Map<String, CustomerAttribute> itemAttributes = model.getCustomerAttributes();
@@ -73,8 +67,7 @@ public class CustomerWrapper extends BaseWrapper implements APIWrapper<Customer>
         CustomerService customerService = (CustomerService) context.getBean("blCustomerService");
         Customer customer = customerService.readCustomerById(this.id);
         customer.setId(this.id);
-        customer.setFirstName(this.firstName);
-        customer.setLastName(this.lastName);
+        customer.setRealName(this.realName);
         customer.setEmailAddress(this.emailAddress);
         if (customerAttributes != null) {
             for (CustomerAttributeWrapper customerAttributeWrapper : customerAttributes) {
@@ -94,20 +87,12 @@ public class CustomerWrapper extends BaseWrapper implements APIWrapper<Customer>
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getRealName() {
+        return realName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setRealName(String realName) {
+        this.realName = realName;
     }
 
     public String getEmailAddress() {

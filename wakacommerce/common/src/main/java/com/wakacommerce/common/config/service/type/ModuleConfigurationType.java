@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.config.service.type;
 
 import java.io.Serializable;
@@ -14,12 +13,12 @@ public class ModuleConfigurationType implements WakaEnumType, Serializable {
 
     private static final Map<String, ModuleConfigurationType> TYPES = new LinkedHashMap<String, ModuleConfigurationType>();
 
-    public static final ModuleConfigurationType FULFILLMENT_PRICING = new ModuleConfigurationType("FULFILLMENT_PRICING", "Fulfillment Pricing Module");
-    public static final ModuleConfigurationType TAX_CALCULATION = new ModuleConfigurationType("TAX_CALCULATION", "Tax Calculation Module");
-    public static final ModuleConfigurationType ADDRESS_VERIFICATION = new ModuleConfigurationType("ADDRESS_VERIFICATION", "Address Verification Module");
-    public static final ModuleConfigurationType PAYMENT_PROCESSOR = new ModuleConfigurationType("PAYMENT_PROCESSOR", "Payment Processor Module");
-    public static final ModuleConfigurationType CDN_PROVIDER = new ModuleConfigurationType("CDN_PROVIDER", "Content Delivery Network Module");
-    public static final ModuleConfigurationType SITE_MAP = new ModuleConfigurationType("SITE_MAP", "Site Map Generator");
+    public static final ModuleConfigurationType FULFILLMENT_PRICING = new ModuleConfigurationType("FULFILLMENT_PRICING", "配送费用");
+    public static final ModuleConfigurationType TAX_CALCULATION = new ModuleConfigurationType("TAX_CALCULATION", "税费计算");
+    public static final ModuleConfigurationType ADDRESS_VERIFICATION = new ModuleConfigurationType("ADDRESS_VERIFICATION", "地址验证");
+    public static final ModuleConfigurationType PAYMENT_PROCESSOR = new ModuleConfigurationType("PAYMENT_PROCESSOR", "支付处理器");
+    public static final ModuleConfigurationType CDN_PROVIDER = new ModuleConfigurationType("CDN_PROVIDER", "内容分发网络");
+    public static final ModuleConfigurationType SITE_MAP = new ModuleConfigurationType("SITE_MAP", "站点地图生成器");
 
     public static ModuleConfigurationType getInstance(final String type) {
         return TYPES.get(type);

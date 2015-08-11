@@ -7,11 +7,11 @@ import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import com.wakacommerce.common.web.form.BroadleafFormType;
-import com.wakacommerce.common.web.validator.BroadleafCommonAddressValidator;
+import com.wakacommerce.common.web.validator.WakaCommonAddressValidator;
 import com.wakacommerce.core.web.checkout.model.BillingInfoForm;
 
 @Component("blBillingInfoFormValidator")
-public class BillingInfoFormValidator extends BroadleafCommonAddressValidator implements Validator {
+public class BillingInfoFormValidator extends WakaCommonAddressValidator implements Validator {
 
     @SuppressWarnings("rawtypes")
     public boolean supports(Class clazz) {

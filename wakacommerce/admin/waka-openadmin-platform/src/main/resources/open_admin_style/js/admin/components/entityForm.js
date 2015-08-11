@@ -34,7 +34,7 @@ $(document).ready(function() {
 
             if (!data.errors) {
                 $(".alert-box").removeClass("alert").addClass("success");
-                $(".alert-box-message").text("Successfully deleted");
+                $(".alert-box-message").text("删除成功");
             } else {
                 showErrors(data, BLCAdmin.messages.problemDeleting);
             }
@@ -75,7 +75,7 @@ $(document).ready(function() {
 
                 if (!data.errors) {
                     $(".alert-box").removeClass("alert").addClass("success");
-                    $(".alert-box-message").text("Successfully saved");
+                    $(".alert-box-message").text("保存成功");
                 } else {
                     showErrors(data, BLCAdmin.messages.problemSaving);
                 }

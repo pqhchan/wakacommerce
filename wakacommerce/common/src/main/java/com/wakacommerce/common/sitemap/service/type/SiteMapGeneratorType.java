@@ -1,5 +1,3 @@
-
-
 package com.wakacommerce.common.sitemap.service.type;
 
 import java.io.Serializable;
@@ -18,11 +16,11 @@ public class SiteMapGeneratorType implements Serializable, WakaEnumType {
 
     private static final Map<String, SiteMapGeneratorType> TYPES = new LinkedHashMap<String, SiteMapGeneratorType>();
 
-    public static final SiteMapGeneratorType CATEGORY = new SiteMapGeneratorType("CATEGORY", "Category");
-    public static final SiteMapGeneratorType PRODUCT = new SiteMapGeneratorType("PRODUCT", "Product");
+    public static final SiteMapGeneratorType CATEGORY = new SiteMapGeneratorType("CATEGORY", "商品分类");
+    public static final SiteMapGeneratorType PRODUCT = new SiteMapGeneratorType("PRODUCT", "商品");
     public static final SiteMapGeneratorType SKU = new SiteMapGeneratorType("SKU", "Sku");
-    public static final SiteMapGeneratorType PAGE = new SiteMapGeneratorType("PAGE", "Page");
-    public static final SiteMapGeneratorType CUSTOM = new SiteMapGeneratorType("CUSTOM", "Custom");
+    public static final SiteMapGeneratorType PAGE = new SiteMapGeneratorType("PAGE", "页面");
+    public static final SiteMapGeneratorType CUSTOM = new SiteMapGeneratorType("CUSTOM", "自定义");
 
     public static SiteMapGeneratorType getInstance(final String type) {
         return TYPES.get(type);

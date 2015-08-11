@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.web.order.security.extension;
 
 import org.springframework.security.core.Authentication;

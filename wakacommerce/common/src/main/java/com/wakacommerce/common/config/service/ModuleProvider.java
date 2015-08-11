@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.config.service;
 
 import com.wakacommerce.common.config.domain.ModuleConfiguration;

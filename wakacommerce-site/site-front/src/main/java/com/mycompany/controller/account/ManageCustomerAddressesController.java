@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.wakacommerce.common.exception.ServiceException;
-import com.wakacommerce.core.web.controller.account.BroadleafManageCustomerAddressesController;
+import com.wakacommerce.core.web.controller.account.WakaManageCustomerAddressesController;
 import com.wakacommerce.core.web.controller.account.CustomerAddressForm;
 import com.wakacommerce.profile.core.domain.Country;
 import com.wakacommerce.profile.core.domain.CustomerAddress;
@@ -24,7 +24,7 @@ import com.wakacommerce.profile.core.domain.State;
 
 @Controller
 @RequestMapping("/account/addresses")
-public class ManageCustomerAddressesController extends BroadleafManageCustomerAddressesController {
+public class ManageCustomerAddressesController extends WakaManageCustomerAddressesController {
 
     @InitBinder
     protected void initBinder(HttpServletRequest request, ServletRequestDataBinder binder) throws Exception {

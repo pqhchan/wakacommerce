@@ -1,7 +1,5 @@
 
-/*
- * Code to hide and show fields on Menu Item Add form.
- */
+  
 (function($, BLCAdmin) {
 
     BLCAdmin.menuItem = {

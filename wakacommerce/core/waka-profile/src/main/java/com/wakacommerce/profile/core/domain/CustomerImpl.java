@@ -1,4 +1,3 @@
-
 package com.wakacommerce.profile.core.domain;
 
 import org.apache.commons.lang3.BooleanUtils;
@@ -71,16 +70,11 @@ public class CustomerImpl implements Customer, AdminMainEntity, Previewable {
     @AdminPresentation(friendlyName = "CustomerImpl_Email_Address", order = 1000, group = "CustomerImpl_Customer",
             prominent = true, gridOrder = 1000)
     protected String emailAddress;
-
-    @Column(name = "FIRST_NAME")
-    @AdminPresentation(friendlyName = "CustomerImpl_First_Name", order = 2000, group = "CustomerImpl_Customer", 
+    
+    @Column(name = "REAL_NAME")
+    @AdminPresentation(friendlyName = "真实姓名", order = 2000, group = "CustomerImpl_Customer", 
             prominent = true, gridOrder = 2000)
-    protected String firstName;
-
-    @Column(name = "LAST_NAME")
-    @AdminPresentation(friendlyName = "CustomerImpl_Last_Name", order = 3000, group = "CustomerImpl_Customer", 
-            prominent = true, gridOrder = 3000)
-    protected String lastName;
+    protected String realName;
 
     @ManyToOne(targetEntity = ChallengeQuestionImpl.class)
     @JoinColumn(name = "CHALLENGE_QUESTION_ID")
@@ -158,13 +152,7 @@ public class CustomerImpl implements Customer, AdminMainEntity, Previewable {
             readOnly = true,
             tab = Presentation.Tab.Name.Contact, tabOrder = Presentation.Tab.Order.Contact)
     protected List<CustomerPayment> customerPayments  = new ArrayList<CustomerPayment>();
-
-    @Column(name = "TAX_EXEMPTION_CODE")
-    @AdminPresentation(friendlyName = "CustomerImpl_Customer_TaxExemptCode", order = 5000,
-            tab = Presentation.Tab.Name.Advanced, tabOrder = Presentation.Tab.Order.Advanced,
-            visibility = VisibilityEnum.GRID_HIDDEN)
-    protected String taxExemptionCode;
-
+    
     @Transient
     protected String unencodedPassword;
 
@@ -222,25 +210,15 @@ public class CustomerImpl implements Customer, AdminMainEntity, Previewable {
     public void setPasswordChangeRequired(boolean passwordChangeRequired) {
         this.passwordChangeRequired = Boolean.valueOf(passwordChangeRequired);
     }
-
+    
     @Override
-    public String getFirstName() {
-        return firstName;
+    public String getRealName() {
+        return realName;
     }
 
     @Override
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    @Override
-    public String getLastName() {
-        return lastName;
-    }
-
-    @Override
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setRealName(String realName) {
+        this.realName = realName;
     }
 
     @Override
@@ -427,8 +405,8 @@ public class CustomerImpl implements Customer, AdminMainEntity, Previewable {
 
     @Override
     public String getMainEntityName() {
-        if (!StringUtils.isEmpty(getFirstName()) && !StringUtils.isEmpty(getLastName())) {
-            return getFirstName() + " " + getLastName();
+        if ( !StringUtils.isEmpty(getRealName()) ) {
+            return getRealName();
         }
         return String.valueOf(getId());
     }
@@ -514,14 +492,12 @@ public class CustomerImpl implements Customer, AdminMainEntity, Previewable {
         cloned.setLoggedIn(loggedIn);
         cloned.setUsername(username);
         cloned.setUnencodedPassword(unencodedPassword);
-        cloned.setTaxExemptionCode(taxExemptionCode);
         cloned.setUnencodedChallengeAnswer(unencodedChallengeAnswer);
         cloned.setRegistered(registered);
         cloned.setReceiveEmail(receiveEmail);
         cloned.setPasswordChangeRequired(passwordChangeRequired);
         cloned.setPassword(password);
-        cloned.setLastName(lastName);
-        cloned.setFirstName(firstName);
+        cloned.setRealName(realName);
         cloned.setEmailAddress(emailAddress);
         cloned.setDeactivated(deactivated);
         for(CustomerPayment entry : customerPayments){
@@ -553,21 +529,6 @@ public class CustomerImpl implements Customer, AdminMainEntity, Previewable {
                 public static final int Advanced = 3000;
             }
         }
-    }
-
-    @Override
-    public String getTaxExemptionCode() {
-        return this.taxExemptionCode;
-    }
-
-    @Override
-    public void setTaxExemptionCode(String exemption) {
-        this.taxExemptionCode = exemption;
-    }
-    
-    @Override
-    public boolean isTaxExempt() {
-        return StringUtils.isNotEmpty(taxExemptionCode);
     }
     
 }

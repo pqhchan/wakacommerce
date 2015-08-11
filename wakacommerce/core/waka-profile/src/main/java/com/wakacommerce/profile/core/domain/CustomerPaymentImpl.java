@@ -1,5 +1,3 @@
-
-
 package com.wakacommerce.profile.core.domain;
 
 import java.util.HashMap;
@@ -83,7 +81,6 @@ public class CustomerPaymentImpl implements CustomerPayment, AdditionalFields {
 
     @Column(name = "PAYMENT_TOKEN")
     @AdminPresentation(friendlyName = "CustomerPaymentImpl_paymentToken",
-            tooltip = "CustomerPaymentImpl_paymentToken_tooltip",
             tab = Presentation.Tab.Name.PAYMENT,
             tabOrder = Presentation.Tab.Order.PAYMENT,
             group = Presentation.Group.Name.PAYMENT,

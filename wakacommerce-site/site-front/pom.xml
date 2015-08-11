@@ -10,7 +10,6 @@
     <artifactId>site-front</artifactId>
     <packaging>war</packaging>
     <name>Site Front</name>
-    <description>Web Module For Broadleaf Commerce Based ECommerce Site</description>
     <properties>
         <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

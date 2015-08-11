@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.extensibility.jpa;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -190,7 +189,7 @@ public class MergePersistenceUnitManager extends DefaultPersistenceUnitManager {
                         if (refined instanceof IllegalStateException) {
                             LOG.warn("A BroadleafClassTransformer is configured for this persistence unit, but Spring " +
                                     "reported a problem (likely that a LoadTimeWeaver is not registered). As a result, " +
-                                    "the Broadleaf Commerce ClassTransformer ("+transformer.getClass().getName()+") is " +
+                                    "the ClassTransformer ("+transformer.getClass().getName()+") is " +
                                     "not being registered with the persistence unit.");
                             weaverRegistered = false;
                         } else {

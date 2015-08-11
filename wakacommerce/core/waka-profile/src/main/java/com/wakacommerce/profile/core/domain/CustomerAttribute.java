@@ -1,9 +1,7 @@
-
 package com.wakacommerce.profile.core.domain;
 
 import com.wakacommerce.common.copy.MultiTenantCloneable;
 import com.wakacommerce.common.value.ValueAssignable;
-
 
 /**
  *

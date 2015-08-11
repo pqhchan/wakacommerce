@@ -1,5 +1,3 @@
-
-
 package com.wakacommerce.common.sitemap.exception;
 
 /**

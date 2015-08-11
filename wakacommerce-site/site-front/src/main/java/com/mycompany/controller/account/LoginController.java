@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.wakacommerce.common.exception.ServiceException;
-import com.wakacommerce.core.web.controller.account.BroadleafLoginController;
+import com.wakacommerce.core.web.controller.account.WakaLoginController;
 import com.wakacommerce.core.web.controller.account.ResetPasswordForm;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
-public class LoginController extends BroadleafLoginController {
+public class LoginController extends WakaLoginController {
     
     @RequestMapping("/login")
     public String login(HttpServletRequest request, HttpServletResponse response, Model model) {

@@ -1,4 +1,3 @@
-
 package com.wakacommerce.profile.core.domain;
 
 import org.springframework.context.ApplicationEvent;

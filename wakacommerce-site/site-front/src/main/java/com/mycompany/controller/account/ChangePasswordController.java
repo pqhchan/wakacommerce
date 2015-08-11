@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.wakacommerce.common.exception.ServiceException;
-import com.wakacommerce.core.web.controller.account.BroadleafChangePasswordController;
+import com.wakacommerce.core.web.controller.account.WakaChangePasswordController;
 import com.wakacommerce.core.web.controller.account.ChangePasswordForm;
 
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/account/password")
-public class ChangePasswordController extends BroadleafChangePasswordController {
+public class ChangePasswordController extends WakaChangePasswordController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String viewChangePassword(HttpServletRequest request, Model model, @ModelAttribute("changePasswordForm") ChangePasswordForm form) {

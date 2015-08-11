@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.wakacommerce.common.exception.ServiceException;
-import com.wakacommerce.core.web.controller.account.BroadleafUpdateAccountController;
+import com.wakacommerce.core.web.controller.account.WakaUpdateAccountController;
 import com.wakacommerce.core.web.controller.account.UpdateAccountForm;
 
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/account")
-public class UpdateAccountController extends BroadleafUpdateAccountController {
+public class UpdateAccountController extends WakaUpdateAccountController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String viewUpdateAccount(HttpServletRequest request, Model model, @ModelAttribute("updateAccountForm") UpdateAccountForm form) {

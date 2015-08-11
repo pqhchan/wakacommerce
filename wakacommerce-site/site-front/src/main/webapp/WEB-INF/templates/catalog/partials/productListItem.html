@@ -1,4 +1,4 @@
-<div th:if="*{featuredProduct}" class="new_badge">New!</div>
+<!-- <div th:if="*{featuredProduct}" class="new_badge">New!</div>
 
 <div class="image">
     <a th:href="@{*{url}}">
@@ -46,4 +46,21 @@
     <h3 th:utext="*{name}"></h3>
     <div class="product-options" th:substituteby="catalog/partials/productOptions"/>
     <input type="button" class="addToCart" th:value="#{product.buyNow}" />
-</div>
+</div> -->
+
+     <div class="item-image-wrapper">
+         <figure class="item-image-container">
+             <a th:href="@{*{url}}">
+                <img class="item-image" th:if="*{media['primary']}" blc:src="@{*{media['primary'].url} + '?browse'}" th:alt="*{name}" />
+                <img class="item-image-hover" th:if="*{media['primary']}" blc:src="@{*{media['primary'].url} + '?browse'}" th:alt="*{name}" />
+             </a>
+         </figure>
+         <div class="item-price-container" th:if="${#object instanceof T(com.wakacommerce.core.catalog.domain.ProductBundle)}">
+	        <span class="item-price" blc:price="*{salePrice}" th:if="*{onSale}" th:classappend="*{defaultSku.onSale}? 'sale'"></span>
+	        <span class="item-price" blc:price="*{retailPrice}" th:classappend="*{onSale}? 'has-sale'"></span>
+	     </div>
+	     <div class="item-price-container" th:unless="${#object instanceof T(com.wakacommerce.core.catalog.domain.ProductBundle)}">
+	        <span class="item-price" blc:price="*{defaultSku.salePrice}" th:if="*{defaultSku.onSale}" th:classappend="*{defaultSku.onSale}? 'sale'"></span>
+	        <span class="item-price" blc:price="*{defaultSku.retailPrice}" th:classappend="*{defaultSku.onSale}? 'has-sale'"></span>
+	     </div>
+     </div><!-- End .item-image-wrapper -->

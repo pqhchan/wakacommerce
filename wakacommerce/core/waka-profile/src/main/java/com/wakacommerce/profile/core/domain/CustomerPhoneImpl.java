@@ -1,4 +1,3 @@
-
 package com.wakacommerce.profile.core.domain;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -46,7 +45,10 @@ public class CustomerPhoneImpl implements CustomerPhone{
     protected Long id;
 
     @Column(name = "PHONE_NAME")
-    @AdminPresentation(friendlyName = "CustomerPhoneImpl_Phone_Name", order=1, group = "CustomerPhoneImpl_Identification",
+    @AdminPresentation(
+    		friendlyName = "CustomerPhoneImpl_Phone_Name", 
+    		order=1, 
+    		group = "CustomerPhoneImpl_Identification",
             groupOrder = 1, prominent = true, gridOrder = 1)
     protected String phoneName;
 

@@ -144,7 +144,7 @@ public class SequenceGeneratorCorruptionDetection implements ApplicationListener
                                         "property to true in your application's common.properties or common-shared.properties. If you would like to provide a default schema to be used to qualify table names used in the\n" +
                                         "queries for this detection, set the 'default.schema.sequence.generator' property in your application's common.properties or common-shared.properties. Also, if you are upgrading\n" +
                                         "from 1.6 or below, please refer to http://docs.broadleafcommerce.org/current/1.6-to-2.0-Migration.html for important information regarding migrating your SEQUENCE_GENERATOR table.";
-                                    LOG.error("Broadleaf Commerce failed to start", new RuntimeException(reason));
+                                    LOG.error("Waka Commerce failed to start", new RuntimeException(reason));
                                     System.exit(1);
                                 }
                             }

@@ -1,6 +1,4 @@
-
 package com.wakacommerce.core.web.order.security.exception;
-
 
 public class OrderLockAcquisitionFailureException extends RuntimeException {
 

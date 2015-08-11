@@ -1,5 +1,3 @@
-
-
 package com.wakacommerce.common.payment.dto;
 
 import java.util.HashMap;
@@ -15,8 +13,7 @@ public class GatewayCustomerDTO<T> {
 
     protected Map<String, Object> additionalFields;
     protected String customerId;
-    protected String firstName;
-    protected String lastName;
+    protected String realName;
     protected String companyName;
     protected String phone;
     protected String mobile;
@@ -46,14 +43,9 @@ public class GatewayCustomerDTO<T> {
         this.customerId = customerId;
         return this;
     }
-
-    public GatewayCustomerDTO<T> firstName(String firstName) {
-        this.firstName = firstName;
-        return this;
-    }
-
-    public GatewayCustomerDTO<T> lastName(String lastName) {
-        this.lastName = lastName;
+    
+    public GatewayCustomerDTO<T> realName(String realName) {
+        this.realName = realName;
         return this;
     }
 
@@ -95,12 +87,8 @@ public class GatewayCustomerDTO<T> {
         return customerId;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
+    public String getRealName() {
+        return realName;
     }
 
     public String getCompanyName() {
@@ -130,8 +118,6 @@ public class GatewayCustomerDTO<T> {
     public boolean customerPopulated() {
         return ((getAdditionalFields() != null && !getAdditionalFields().isEmpty()) ||
                 getCustomerId() != null ||
-                getFirstName() != null ||
-                getLastName() != null ||
                 getCompanyName() != null ||
                 getPhone() != null ||
                 getMobile() != null ||

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.wakacommerce.common.exception.ServiceException;
-import com.wakacommerce.core.web.controller.catalog.BroadleafSearchController;
+import com.wakacommerce.core.web.controller.catalog.WakaSearchController;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +16,7 @@ import java.io.IOException;
 
 @Controller
 @RequestMapping("/search")
-public class SearchController extends BroadleafSearchController {
+public class SearchController extends WakaSearchController {
 
     @Override
     @RequestMapping("")

@@ -1,45 +1,149 @@
 <!DOCTYPE HTML>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-
+<!--[if IE 8]> <html class="ie8"> <![endif]-->
+<!--[if IE 9]> <html class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html> <!--<![endif]-->
 <head>
-    <title layout:title-pattern="$DECORATOR_TITLE - $CONTENT_TITLE">Broadleaf Commerce Demo Store - Heat Clinic</title>
     <th:block th:replace="/layout/partials/head"></th:block>
 </head>
 
-<body th:class="${'locale-' + session.blLocale.localeCode}">
-    <div id="notification_bar"></div>
+<body>
+    <div id="wrapper">
     <header th:substituteby="layout/partials/header" />
     
-    <div id="content" class="width_setter group" role="main">
-        <nav th:substituteby="layout/partials/nav" />
-        <blc:content contentType="Homepage Banner Ad" />       
-        <div id="banners" th:if="${contentItem !=null and contentItem['targetUrl'] != null and contentItem['imageUrl'] != null}">
-            <a th:href="@{${contentItem['targetUrl']}}"><img blc:src="@{${contentItem['imageUrl']}}" /></a>       
-        </div>
-        
-        <blc:content contentType="Homepage Middle Promo Snippet" /> 
-        
-        <a th:href="@{/register}" th:if="${contentItem !=null and contentItem['htmlContent'] !=null}" style="text-decoration:none">
-            <div id="home_feature" th:utext="${contentItem['htmlContent']}"></div>
-        </a>
+    <section id="content">
+       <!--   <div id="slider-rev-container">
+               <div id="slider-rev">
+                   <ul>
+                       <li data-transition="fade" data-saveperformance="on"  data-title="Men Collection">
+                           <img blc:src="@{/images/homeslider/transparent.png}" alt="background" style="background-color:#f1f6f7"/>
+                           <div class="tp-caption lfb ltb" data-x="100" data-y="50" data-speed="1200" data-start="600" data-easing="Expo.easeOut">
+                               <a href="#"><img blc:src="@{/images/homeslider/slide2_1.png}" alt="slide2_1" width="300" height="600"/></a>
+                           </div>
+                           <div class="tp-caption rev-title skewfromleft stt" data-x="610" data-y="150" data-speed="800" data-start="900" 
+                           data-easing="Power3.easeIn" data-endspeed="300">New</div>
+                            <div class="tp-caption rev-subtitle skewfromleft stt" data-x="610" data-y="205" data-speed="800" data-start="900" 
+                            data-easing="Power3.easeIn" data-endspeed="300">Men Collection</div>
+                           <div class="tp-caption rev-text sfl stl" data-x="610" data-y="275" data-speed="800" data-start="1300" data-easing="Power3.easeIn"
+                           data-endspeed="300">Integer ultrices ipsum id justo ultrices sed blandit felis ultricies. Duis semper tristique congue. 
+                           Pellentesque id orcised ligula elementum tempor ut non nulla. Aenean lectus nulla, rutrum in tincidunt non, vestibulum a arcu...</div>
+                           
+                           <div class="tp-caption sfb stb" data-x="610" data-y="395" data-speed="1200" data-start="1800" data-easing="Power3.easeIn" data-endspeed="300">
+                               <a href="#" class="btn btn-custom-2">Shop Now</a>
+                           </div>
+                       </li>
+                       
+                       <li data-transition="fade" data-saveperformance="on"  data-title="Sale">
+                           <img blc:src="@{/images/homeslider/transparent.png}" alt="background" style="background-color:#f1f6f7"/>
+                           <div class="tp-caption rev-title skewfromleft stt" data-x="70" data-y="150" data-speed="800" data-start="900" 
+                           data-easing="Power3.easeIn" data-endspeed="300">Sale</div>
+                            <div class="tp-caption rev-subtitle skewfromleft stt" data-x="70" data-y="205" data-speed="800" data-start="900" 
+                            data-easing="Power3.easeIn" data-endspeed="300">It’s here You’re invited</div>
+                           <div class="tp-caption rev-text sfl stl" data-x="70" data-y="275" data-speed="800" data-start="1300" data-easing="Power3.easeIn"
+                           data-endspeed="300">Nulla facilisi. Sed ultrices augue in neque aliquet eleifend volutpat augue viverra. Integer ante tellus, gravida ut vestibulum ut,
+                           varius idleo. Aliquam congue augue nec neque egestas bibendum. 
+                           Phasellus dapibus tellus quis metus...</div>
+                           
+                           <div class="tp-caption sfb stb" data-x="70" data-y="395" data-speed="1200" data-start="1800" data-easing="Power3.easeIn" data-endspeed="300">
+                               <a href="#" class="btn btn-custom-2">Shop Now</a>
+                           </div>
+                           <div class="tp-caption lfb ltb" data-x="570" data-y="50" data-speed="1200" data-start="600" data-easing="Expo.easeOut">
+                               <a href="#"><img blc:src="@{/images/homeslider/slide3_1.png}" alt="slide3_1" width="560" height="600"/></a>
+                           </div>
+                       </li>
+                       
+                       <li data-transition="fade" data-saveperformance="on"  data-title="LookBook">
+                           <img blc:src="@{/images/homeslider/transparent.png}" alt="background" style="background-color:#f1f6f7"/>
+                           <div class="tp-caption lfb ltb" data-x="120" data-y="50" data-speed="1200" data-start="600" data-easing="Expo.easeOut">
+                               <a href="#"><img src="images/homeslider/slide1_1.png" alt="slide1_1" width="330" height="600"/></a>
+                           </div>
+                           <div class="tp-caption rev-title skewfromleft stt" data-x="610" data-y="150" data-speed="800" data-start="900" 
+                           data-easing="Power3.easeIn" data-endspeed="300">Lookbook</div>
+                            <div class="tp-caption rev-subtitle skewfromleft stt" data-x="610" data-y="205" data-speed="800" data-start="900" 
+                            data-easing="Power3.easeIn" data-endspeed="300">Spring-Summer-2012</div>
+                           <div class="tp-caption rev-text sfl stl" data-x="610" data-y="275" data-speed="800" data-start="1300" data-easing="Power3.easeIn"
+                           data-endspeed="300">Praesent arcu urna, cursus sit amet condimentum id, dapibusa mauris. Sed ante massa pellentesque luctus, magna sed ultricies 
+                           molestie, felis tortor pellentesque ligula, in sagittis neque turpis eget augue.</div>
+                           
+                           <div class="tp-caption sfb stb" data-x="610" data-y="395" data-speed="1200" data-start="1800" data-easing="Power3.easeIn" data-endspeed="300">
+                               <a href="#" class="btn btn-custom-2">Shop Now</a>
+                           </div>
+                       </li>
+                       
+                   </ul>
+               </div>
+       </div>-->
 
-        
-        <blc:content contentType="Homepage Featured Products Title" />    
-        <div th:if="${contentItem !=null and contentItem['messageText'] !=null}" class="title_bar" th:utext="${contentItem['messageText']}"></div>
-        
-        <ul th:if="${products}" id="products" class="group">
-            <li th:each="product : ${products}" th:object="${product}" th:include="catalog/partials/productListItem" class="product_container"></li>
-        </ul>
-        
-        <ul th:if="${skus}" id="products" class="group">
-            <li th:each="sku : ${skus}" th:object="${sku}" th:include="catalog/partials/skuListItem" class="product_container"></li>
-        </ul>
-    </div>
-    
+       <div class="lg-margin"></div><!-- Space -->
+       
+       <div class="container">
+       <div class="row">
+       <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 main-content">
+	               <div class="row home-banners">
+	                   <div class="col-md-4 col-sm-4 col-xs-12">
+	                       <a href="#"><img blc:src="@{/images/middle-banner-1.png}" alt="Home Big Banner 1" class="img-responsive"/></a>
+	                   </div><!-- End .col-md-4 -->
+	                   
+	                   <div class="col-md-4 col-sm-4 col-xs-12">
+	                       <a href="#"><img blc:src="@{/images/middle-banner-2.png}" alt="Home Big Banner 2" class="img-responsive"/></a>
+	                   </div><!-- End .col-md-4 -->
+	
+	                   <div class="col-md-4 col-sm-4 col-xs-12">
+	                       <a href="#"><img blc:src="@{/images/middle-banner-3.png}" alt="Home Big Banner 2" class="img-responsive"/></a>
+	                   </div><!-- End .col-md-4 -->
+	               </div><!-- End .home-banners -->
+	
+	               <div class="lg-margin"></div><!-- space -->
+	               
+	               <div class="latest-items carousel-wrapper">
+	                   <header class="content-title">
+	                       <div class="title-bg">
+	                           <h2 class="title">热卖</h2>
+	                       </div><!-- End .title-bg -->
+	                       <p class="title-desc"></p>
+	                   </header>
+	                   <div class="carousel-controls">
+	                       <div id="latest-items-slider-prev" class="carousel-btn carousel-btn-prev">
+	                       </div><!-- End .carousel-prev -->
+	                       <div id="latest-items-slider-next" class="carousel-btn carousel-btn-next carousel-space">
+	                       </div><!-- End .carousel-next -->
+	                   </div><!-- End .carousel-controls -->
+	                   
+	                   <div class="latest-items-slider owl-carousel" th:if="${products}">
+			                <div class="item item-hover" th:each="product : ${products}" th:object="${product}" th:include="catalog/partials/productListItem">
+			                </div>
+			           </div>
+	               </div>
+	               
+	               <div class="latest-items carousel-wrapper">
+                       <header class="content-title">
+                           <div class="title-bg">
+                               <h2 class="title">推荐</h2>
+                           </div><!-- End .title-bg -->
+                           <p class="title-desc"></p>
+                       </header>
+                       <div class="carousel-controls">
+                           <div id="latest-items-slider-prev" class="carousel-btn carousel-btn-prev">
+                           </div><!-- End .carousel-prev -->
+                           <div id="latest-items-slider-next" class="carousel-btn carousel-btn-next carousel-space">
+                           </div><!-- End .carousel-next -->
+                       </div><!-- End .carousel-controls -->
+                       
+                       <div class="latest-items-slider owl-carousel" th:if="${skus}">
+                            <div class="item item-hover" th:each="sku : ${skus}" th:object="${sku}" th:include="catalog/partials/productListItem">
+                            </div>
+                        </div>
+                   </div>
+	            
+	            </div> 
+            </div>
+       
+       </div>
+       </div>
+       </div>
+    </section><!-- End #content -->
     <footer th:substituteby="layout/partials/footer" />
-    
+    </div>
 </body>
 </html>

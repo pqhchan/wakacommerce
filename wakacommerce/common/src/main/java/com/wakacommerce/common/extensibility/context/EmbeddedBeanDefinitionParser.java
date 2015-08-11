@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.extensibility.context;
 
 import java.io.IOException;
@@ -22,42 +21,6 @@ import com.wakacommerce.common.exception.ExceptionHelper;
 import com.wakacommerce.common.extensibility.context.merge.ImportProcessor;
 import com.wakacommerce.common.extensibility.context.merge.exceptions.MergeException;
 
-/**
- * Provides merged xml bean import into a declaring Spring application context. Generally, implementation overrides and custom
- * beans are included in a client implementation's war file and declared in a patchConfigLocations context-param in web.xml, which
- * is utilized by {@link com.wakacommerce.common.web.extensibility.MergeContextLoaderListener}. However, in some circumstances,
- * it may be desirable to load all the Broadleaf Commerce Spring beans into a declaring application context without the
- * aid of MergeContextLoaderListener. A sample use case for this would be a system that needs to run Broadleaf Commerce
- * as a set of embedded services, perhaps not inside of a traditional web container. Usage is as follows:
- *
- * {@code
- * <embedded:mergeImport>
- *     <embedded:location value="classpath:/my_app_context.xml"/>
- *     ...
- * </embedded:mergeImport>
- * }
- *
- * Since a new custom namespace is introduced, this special syntax requires the introduction of a new schema into app context
- * xml:
- *
- * {@code
- * <beans xmlns="http://www.springframework.org/schema/beans"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:context="http://www.springframework.org/schema/context"
-        xmlns:embedded="http://schema.broadleafcommerce.org/embedded"
-        xsi:schemaLocation="http://www.springframework.org/schema/beans
-                http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
-                http://www.springframework.org/schema/context
-                http://www.springframework.org/schema/context/spring-context-4.1.xsd
-                http://schema.broadleafcommerce.org/embedded
-                http://schema.broadleafcommerce.org/embedded/embedded-3.1.xsd">
- * }
- *
- * Note the introduction of the new embedded namespace. Using this syntax, Broadleaf Commerce merge functionality can be
- * achieved on a declared list of app context files and the resulting merged app context will be imported into the
- * declaring app context. This is conceptually similar to Spring's standard {@code <import location="..."/>} syntax for
- * importing additional app context xml files.
- */
 public class EmbeddedBeanDefinitionParser extends AbstractBeanDefinitionParser {
 
     private static Log LOG = LogFactory.getLog(EmbeddedBeanDefinitionParser.class);

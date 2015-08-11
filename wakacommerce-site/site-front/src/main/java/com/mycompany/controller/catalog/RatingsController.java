@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.wakacommerce.core.web.controller.catalog.BroadleafRatingsController;
+import com.wakacommerce.core.web.controller.catalog.WakaRatingsController;
 import com.wakacommerce.core.web.controller.catalog.ReviewForm;
 
 @Controller
-public class RatingsController extends BroadleafRatingsController {
+public class RatingsController extends WakaRatingsController {
 
     @RequestMapping(value = "/reviews/product/{itemId}", method = RequestMethod.GET)
     public String viewReviewForm(HttpServletRequest request, Model model, @PathVariable("itemId") String itemId, @ModelAttribute("reviewForm") ReviewForm form) {

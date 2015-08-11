@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.wakacommerce.core.web.controller.account.BroadleafOrderHistoryController;
+import com.wakacommerce.core.web.controller.account.WakaOrderHistoryController;
 import com.wakacommerce.profile.core.service.CountryService;
 import com.wakacommerce.profile.core.service.StateService;
 
 @Controller
 @RequestMapping("/account/orders")
-public class OrderHistoryController extends BroadleafOrderHistoryController {
+public class OrderHistoryController extends WakaOrderHistoryController {
 
     @Resource(name = "blStateService")
     StateService stateService;

@@ -1,4 +1,3 @@
-
 package com.wakacommerce.profile.core.domain;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -40,7 +39,7 @@ public class RoleImpl implements Role {
 
     @Column(name = "ROLE_NAME", nullable = false)
     @Index(name="ROLE_NAME_INDEX", columnNames={"ROLE_NAME"})
-    @AdminPresentation(friendlyName = "rolesTitle",prominent = true)
+    @AdminPresentation(friendlyName = "角色名",prominent = true)
     protected String roleName;
 
     @Override

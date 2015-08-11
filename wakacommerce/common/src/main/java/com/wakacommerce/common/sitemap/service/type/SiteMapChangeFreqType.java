@@ -1,5 +1,3 @@
-
-
 package com.wakacommerce.common.sitemap.service.type;
 
 import java.io.Serializable;
@@ -18,13 +16,13 @@ public class SiteMapChangeFreqType implements Serializable, WakaEnumType {
 
     private static final Map<String, SiteMapChangeFreqType> TYPES = new LinkedHashMap<String, SiteMapChangeFreqType>();
 
-    public static final SiteMapChangeFreqType ALWAYS = new SiteMapChangeFreqType("ALWAYS", "always");
-    public static final SiteMapChangeFreqType HOURLY = new SiteMapChangeFreqType("HOURLY", "hourly");
-    public static final SiteMapChangeFreqType DAILY = new SiteMapChangeFreqType("DAILY", "daily");
-    public static final SiteMapChangeFreqType WEEKLY = new SiteMapChangeFreqType("WEEKLY", "weekly");
-    public static final SiteMapChangeFreqType MONTHLY = new SiteMapChangeFreqType("MONTHLY", "monthly");
-    public static final SiteMapChangeFreqType YEARLY = new SiteMapChangeFreqType("YEARLY", "yearly");
-    public static final SiteMapChangeFreqType NEVER = new SiteMapChangeFreqType("NEVER", "never");
+    public static final SiteMapChangeFreqType ALWAYS = new SiteMapChangeFreqType("ALWAYS", "随时");
+    public static final SiteMapChangeFreqType HOURLY = new SiteMapChangeFreqType("HOURLY", "小时");
+    public static final SiteMapChangeFreqType DAILY = new SiteMapChangeFreqType("DAILY", "天");
+    public static final SiteMapChangeFreqType WEEKLY = new SiteMapChangeFreqType("WEEKLY", "周");
+    public static final SiteMapChangeFreqType MONTHLY = new SiteMapChangeFreqType("MONTHLY", "月");
+    public static final SiteMapChangeFreqType YEARLY = new SiteMapChangeFreqType("YEARLY", "年");
+    public static final SiteMapChangeFreqType NEVER = new SiteMapChangeFreqType("NEVER", "不更新");
 
     public static SiteMapChangeFreqType getInstance(final String type) {
         return TYPES.get(type);

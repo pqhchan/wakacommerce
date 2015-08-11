@@ -1,4 +1,3 @@
-
 package com.wakacommerce.profile.core.domain;
 
 import org.hibernate.annotations.Cache;
@@ -28,10 +27,8 @@ import javax.persistence.Table;
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="blStandardElements")
 public class CustomerAttributeImpl implements CustomerAttribute {
 
-    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
-    /** The id. */
     @Id
     @GeneratedValue(generator= "CustomerAttributeId")
     @GenericGenerator(
@@ -45,17 +42,14 @@ public class CustomerAttributeImpl implements CustomerAttribute {
     @Column(name = "CUSTOMER_ATTR_ID")
     protected Long id;
     
-    /** The name. */
     @Column(name = "NAME", nullable=false)
     @AdminPresentation(visibility = VisibilityEnum.HIDDEN_ALL)
     protected String name;
 
-    /** The value. */
     @Column(name = "VALUE")
     @AdminPresentation(friendlyName = "CustomerAttributeImpl_Attribute_Value", order=2, group = "ProductAttributeImpl_Description", prominent=true)
     protected String value;
   
-    /** The customer. */
     @ManyToOne(targetEntity = CustomerImpl.class, optional=false)
     @JoinColumn(name = "CUSTOMER_ID")
     protected Customer customer;

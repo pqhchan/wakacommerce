@@ -42,11 +42,11 @@ public class SpringTemporaryRedirectOverrideFilter implements Filter {
      * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)
      */
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        BroadleafResponseWrapper responseWrapper = new BroadleafResponseWrapper((HttpServletResponse) response);
+        WakaResponseWrapper responseWrapper = new WakaResponseWrapper((HttpServletResponse) response);
         chain.doFilter(request, responseWrapper);
         if ( 
-                response instanceof BroadleafResponseWrapper && 
-                302 == ((BroadleafResponseWrapper) response).getStatus() &&
+                response instanceof WakaResponseWrapper && 
+                302 == ((WakaResponseWrapper) response).getStatus() &&
                 isUrlMatch(((HttpServletRequest)request).getRequestURI())
         ) {
             ((HttpServletResponse) response).setStatus(301);

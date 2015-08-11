@@ -1,10 +1,10 @@
-<meta charset="utf-8">
+<meta charset="utf-8"/>
 <!--[if IE]> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <![endif]-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="我的商城">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="我的商城"/>
 <title th:if="${pageTitle == 'TEMPLATE'}" th:remove="tag">
     <title th:inline="text" th:include="${templateName} :: title" />
 </title>
 <title th:unless="${pageTitle == 'TEMPLATE'}" th:utext="${#strings.isEmpty(pageTitle) ? '我的商城' : pageTitle}"></title>
 <blc:bundle name="style.css" mapping-prefix="/css/" 
-    files="style.css,jquery.rating.css,bootstrap.min.css,font-awesome.min.css,owl.carousel.css,prettyPhoto.css,responsive.css" />
+    files="style.css,jquery.rating.css,bootstrap.min.css,font-awesome.min.css,owl.carousel.css,prettyPhoto.css,responsive.css"/>
