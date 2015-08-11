@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.web.api.endpoint.checkout;
 
 import org.apache.commons.logging.Log;

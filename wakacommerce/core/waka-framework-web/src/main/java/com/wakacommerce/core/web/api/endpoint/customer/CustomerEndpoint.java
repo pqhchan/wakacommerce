@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.web.api.endpoint.customer;
 
 import com.wakacommerce.core.web.api.endpoint.BaseEndpoint;

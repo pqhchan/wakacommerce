@@ -53,6 +53,7 @@ public class RuntimeEnvironmentPropertiesConfigurer extends PropertyPlaceholderC
         blcPropertyLocations.add(new ClassPathResource("config/bc/cms/"));
         blcPropertyLocations.add(new ClassPathResource("config/bc/web/"));
         blcPropertyLocations.add(new ClassPathResource("config/bc/fw/"));
+        blcPropertyLocations.add(new ClassPathResource("config/bc/wechat/"));
         
         defaultPropertyLocations.add(new ClassPathResource("runtime-properties/"));
     }

@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.web.controller.catalog;
 
 import com.wakacommerce.common.web.controller.WakaAbstractController;

@@ -1,5 +1,3 @@
-
-
 package com.wakacommerce.core.web.api.wrapper;
 
 import javax.servlet.http.HttpServletRequest;

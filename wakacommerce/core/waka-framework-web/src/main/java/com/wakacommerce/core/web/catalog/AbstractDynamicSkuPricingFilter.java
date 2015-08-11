@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.web.catalog;
 
 import javax.servlet.FilterChain;

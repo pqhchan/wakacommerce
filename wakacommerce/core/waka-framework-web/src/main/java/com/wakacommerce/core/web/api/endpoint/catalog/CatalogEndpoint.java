@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.web.api.endpoint.catalog;
 
 import org.apache.commons.collections.CollectionUtils;

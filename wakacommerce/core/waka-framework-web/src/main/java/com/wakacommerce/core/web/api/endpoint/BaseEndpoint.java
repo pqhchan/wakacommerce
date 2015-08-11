@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.web.api.endpoint;
 
 import org.springframework.beans.BeansException;
