@@ -97,6 +97,7 @@
                 classpath*:/blc-config/site/bl-*-applicationContext-servlet.xml
                 classpath:/applicationContext-servlet-cms-contentClient.xml
                 /WEB-INF/applicationContext-servlet.xml
+                classpath:/bl-wechat-applicationContext.xml
             </param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>

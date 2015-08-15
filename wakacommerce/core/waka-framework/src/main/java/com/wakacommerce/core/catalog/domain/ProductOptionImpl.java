@@ -68,22 +68,20 @@ public class ProductOptionImpl implements ProductOption, AdminMainEntity {
     
     @Column(name = "OPTION_TYPE")
     @AdminPresentation(
-    		friendlyName = "ProductOptionImpl_type", 
+    		friendlyName = "类型", 
     		fieldType = SupportedFieldType.WAKA_ENUMERATION, 
     		wakaEnumeration = "com.wakacommerce.core.catalog.service.type.ProductOptionType")
     protected String type;
     
     @Column(name = "ATTRIBUTE_NAME")
     @AdminPresentation(
-    		friendlyName = "ProductOptionImpl_attributeName", 
-    		helpText = "ProductOptionImpl_attributeName_help", 
+    		friendlyName = "属性名", 
     		requiredOverride = RequiredOverride.REQUIRED)
     protected String attributeName;
     
     @Column(name = "LABEL")
     @AdminPresentation(
-    		friendlyName = "ProductOptionImpl_label", 
-    		helpText = "ProductOptionImpl_label_help", 
+    		friendlyName = "标签", 
     		prominent = true)
     protected String label;
 
@@ -92,7 +90,7 @@ public class ProductOptionImpl implements ProductOption, AdminMainEntity {
     protected Boolean required;
 
     @Column(name = "USE_IN_SKU_GENERATION")
-    @AdminPresentation(friendlyName = "ProductOptionImpl_useInSkuGeneration")
+    @AdminPresentation(friendlyName = "用来生成Sku")
     private Boolean useInSkuGeneration;
 
     @Column(name = "DISPLAY_ORDER")

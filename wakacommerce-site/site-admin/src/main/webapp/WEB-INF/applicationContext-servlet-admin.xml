@@ -14,7 +14,6 @@
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
 
-    <!-- Broadleaf requires AOP -->
     <aop:config/>
     
     <!-- Tell Spring to not try to map things in these directories to controllers -->

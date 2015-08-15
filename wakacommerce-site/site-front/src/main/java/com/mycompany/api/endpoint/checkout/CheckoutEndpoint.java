@@ -1,5 +1,3 @@
-  
-
 package com.mycompany.api.endpoint.checkout;
 
 import org.springframework.http.MediaType;

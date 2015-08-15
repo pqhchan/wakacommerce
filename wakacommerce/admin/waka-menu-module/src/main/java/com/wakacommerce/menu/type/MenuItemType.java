@@ -1,10 +1,8 @@
-
 package com.wakacommerce.menu.type;
 
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-
 
 /**
  *
@@ -16,12 +14,12 @@ public class MenuItemType implements Serializable {
 
     private static final Map<String, MenuItemType> TYPES = new HashMap<String, MenuItemType>();
 
-    public static final MenuItemType LINK = new MenuItemType("LINK", "Link");
-    public static final MenuItemType CATEGORY = new MenuItemType("CATEGORY", "Category");
-    public static final MenuItemType PAGE = new MenuItemType("PAGE", "Page");
-    public static final MenuItemType SUBMENU = new MenuItemType("SUBMENU", "Sub Menu");
-    public static final MenuItemType PRODUCT = new MenuItemType("PRODUCT", "Product");
-    public static final MenuItemType CUSTOM = new MenuItemType("CUSTOM", "Custom");
+    public static final MenuItemType LINK = new MenuItemType("LINK", "链接");
+    public static final MenuItemType CATEGORY = new MenuItemType("CATEGORY", "分类");
+    public static final MenuItemType PAGE = new MenuItemType("PAGE", "页面");
+    public static final MenuItemType SUBMENU = new MenuItemType("SUBMENU", "子菜单");
+    public static final MenuItemType PRODUCT = new MenuItemType("PRODUCT", "商品");
+    public static final MenuItemType CUSTOM = new MenuItemType("CUSTOM", "自定义");
 
 
     public static MenuItemType getInstance(final String type) {

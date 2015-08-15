@@ -32,6 +32,9 @@ public class WakaAsstConfig {
 		public static final String NEWS = "news";
 	}
 	
+	@Value("${site.baseurl}")
+	private String sitefront;
+	
 	@Value("${wechat.token}")
 	private String token;
 	
@@ -217,6 +220,14 @@ public class WakaAsstConfig {
 	
 	public void setGroupsMembersUpdateUrl(String groupsMembersUpdateUrl) {
 		this.groupsMembersUpdateUrl = groupsMembersUpdateUrl;
+	}
+	
+	public String getSitefront() {
+		return sitefront;
+	}
+
+	public void setSitefront(String sitefront) {
+		this.sitefront = sitefront;
 	}
 	
 }

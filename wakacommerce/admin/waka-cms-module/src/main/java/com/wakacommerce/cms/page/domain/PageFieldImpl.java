@@ -1,4 +1,3 @@
- 
 package com.wakacommerce.cms.page.domain;
 
 import org.hibernate.annotations.GenericGenerator;

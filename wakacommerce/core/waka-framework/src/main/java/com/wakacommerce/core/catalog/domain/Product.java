@@ -185,7 +185,4 @@ public interface Product extends Serializable, MultiTenantCloneable<Product> {
     @Deprecated
     public void setAllParentCategories(List<Category> allParentCategories);
 
-    public String getTaxCode();
-
-    public void setTaxCode(String taxCode);
 }

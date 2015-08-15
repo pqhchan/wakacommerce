@@ -1,4 +1,3 @@
-  
 package com.wakacommerce.cms.page.domain;
 
 import com.wakacommerce.cms.field.domain.FieldGroup;

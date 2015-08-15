@@ -17,7 +17,7 @@ public class ProductOptionValidationType implements Serializable, WakaEnumType {
 
     private static final Map<String, ProductOptionValidationType> TYPES = new LinkedHashMap<String, ProductOptionValidationType>();
 
-    public static final ProductOptionValidationType REGEX = new ProductOptionValidationType("REGEX", "Regular Expression");
+    public static final ProductOptionValidationType REGEX = new ProductOptionValidationType("REGEX", "正则表达式");
 
     public static ProductOptionValidationType getInstance(final String type) {
         return TYPES.get(type);

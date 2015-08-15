@@ -105,7 +105,7 @@ public class ProductCustomPersistenceHandler extends CustomPersistenceHandlerAda
             md.remove("allParentCategoryXrefs");
 
             BasicFieldMetadata defaultCategory = ((BasicFieldMetadata) md.get("defaultCategory"));
-            defaultCategory.setFriendlyName("ProductImpl_Parent_Category");
+            defaultCategory.setFriendlyName("所属分类");
         }
 
         return getResultSet(persistencePackage, helper, md);

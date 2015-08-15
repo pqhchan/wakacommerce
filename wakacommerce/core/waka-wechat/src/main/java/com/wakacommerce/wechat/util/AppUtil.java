@@ -6,11 +6,21 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.httpclient.HttpClient;
+import org.apache.http.Consts;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpRequestBase;
+import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 
+import com.google.gson.Gson;
 import com.wakacommerce.wechat.WakaAsstError;
 import com.wakacommerce.wechat.WakaAsstException;
 import com.wakacommerce.wechat.domain.base.BaseEntity;
@@ -63,7 +73,6 @@ public class AppUtil {
 				return (T) respBody;
 			} else {
 				Gson gson = new Gson();
-
 				if (respBody.indexOf("{\"errcode\"") == 0 || respBody.indexOf("{\"errmsg\"") == 0) {
 					WakaAsstError exJson = gson.fromJson(respBody, WakaAsstError.class);
 					if (WakaAsstError.class.getName().equals(resultClass.getName()) && exJson.getCode() == 0) {

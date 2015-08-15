@@ -134,7 +134,7 @@ public class SkuImpl implements Sku {
     protected String urlKey;
 
     @Column(name = "DISPLAY_TEMPLATE")
-    @AdminPresentation(friendlyName = "SkuImpl_displayTemplate", order = 5000,
+    @AdminPresentation(friendlyName = "模板", order = 5000,
         tab = ProductImpl.Presentation.Tab.Name.Advanced, tabOrder = ProductImpl.Presentation.Tab.Order.Advanced,
         group = ProductImpl.Presentation.Group.Name.Advanced, groupOrder = ProductImpl.Presentation.Group.Order.Advanced,
         excluded = true)
@@ -142,20 +142,20 @@ public class SkuImpl implements Sku {
 
     @Column(name = "UPC")
     @Index(name = "SKU_UPC_INDEX", columnNames = { "UPC" })
-    @AdminPresentation(friendlyName = "SkuImpl_Sku_UPC", order = 6000,
+    @AdminPresentation(friendlyName = "条码", order = 6000,
             tab = Presentation.Tab.Name.Advanced, tabOrder = Presentation.Tab.Order.Advanced,
             group = Presentation.Group.Name.Advanced, groupOrder = Presentation.Group.Order.Advanced)
     protected String upc;
 
     @Column(name = "SALE_PRICE", precision = 19, scale = 5)
-    @AdminPresentation(friendlyName = "SkuImpl_salePrice", order = 2000, 
+    @AdminPresentation(friendlyName = "售价", order = 2000, 
         group = ProductImpl.Presentation.Group.Name.Price, groupOrder = ProductImpl.Presentation.Group.Order.Price,
         prominent = true, gridOrder = 6, 
         fieldType = SupportedFieldType.MONEY)
     protected BigDecimal salePrice;
 
     @Column(name = "RETAIL_PRICE", precision = 19, scale = 5)
-    @AdminPresentation(friendlyName = "SkuImpl_retailPrice", order = 1000, 
+    @AdminPresentation(friendlyName = "市场价", order = 1000, 
         group = ProductImpl.Presentation.Group.Name.Price, groupOrder = ProductImpl.Presentation.Group.Order.Price,
         prominent = true, gridOrder = 5, 
         fieldType = SupportedFieldType.MONEY)
@@ -163,13 +163,13 @@ public class SkuImpl implements Sku {
 
     @Column(name = "NAME")
     @Index(name = "SKU_NAME_INDEX", columnNames = {"NAME"})
-    @AdminPresentation(friendlyName = "SkuImpl_name", order = ProductImpl.Presentation.FieldOrder.NAME,
+    @AdminPresentation(friendlyName = "名称", order = ProductImpl.Presentation.FieldOrder.NAME,
         group = ProductImpl.Presentation.Group.Name.General, groupOrder = ProductImpl.Presentation.Group.Order.General,
         prominent = true, gridOrder = 1, columnWidth = "260px")
     protected String name;
 
     @Column(name = "DESCRIPTION")
-    @AdminPresentation(friendlyName = "SkuImpl_description", order = ProductImpl.Presentation.FieldOrder.SHORT_DESCRIPTION, 
+    @AdminPresentation(friendlyName = "描述", order = ProductImpl.Presentation.FieldOrder.SHORT_DESCRIPTION, 
         group = ProductImpl.Presentation.Group.Name.General, groupOrder = ProductImpl.Presentation.Group.Order.General,
         largeEntry = true, 
         excluded = true)
@@ -178,27 +178,21 @@ public class SkuImpl implements Sku {
     @Lob
     @Type(type = "org.hibernate.type.StringClobType")
     @Column(name = "LONG_DESCRIPTION", length = Integer.MAX_VALUE - 1)
-    @AdminPresentation(friendlyName = "SkuImpl_longDescription", order = ProductImpl.Presentation.FieldOrder.LONG_DESCRIPTION,
+    @AdminPresentation(friendlyName = "详细描述", order = ProductImpl.Presentation.FieldOrder.LONG_DESCRIPTION,
         group = ProductImpl.Presentation.Group.Name.General, groupOrder = ProductImpl.Presentation.Group.Order.General,
         largeEntry = true, 
         fieldType = SupportedFieldType.HTML_BASIC)
     protected String longDescription;
 
-    @Column(name = "TAX_CODE")
-    @AdminPresentation(friendlyName = "SkuImpl_Sku_TaxCode", order = 1001, group = ProductImpl.Presentation.Group.Name.Financial)
-    @AdminPresentationDataDrivenEnumeration(optionCanEditValues = true, optionFilterParams = { @OptionFilterParam(
-            param = "type.key", value = "TAX_CODE", paramType = OptionFilterParamType.STRING) })
-    protected String taxCode;
-
     @Column(name = "TAXABLE_FLAG")
     @Index(name="SKU_TAXABLE_INDEX", columnNames={"TAXABLE_FLAG"})
-    @AdminPresentation(friendlyName = "SkuImpl_Sku_Taxable", order = 1000,
-            group = ProductImpl.Presentation.Group.Name.Financial)
+    @AdminPresentation(excluded=true, friendlyName = "是否生效", order = 1000,
+            group = ProductImpl.Presentation.Group.Name.General)
     protected Character taxable;
 
     @Column(name = "DISCOUNTABLE_FLAG")
     @Index(name="SKU_DISCOUNTABLE_INDEX", columnNames={"DISCOUNTABLE_FLAG"})
-    @AdminPresentation(friendlyName = "SkuImpl_Sku_Discountable", order = 2000, 
+    @AdminPresentation(friendlyName = "折扣", order = 2000, 
         tab = ProductImpl.Presentation.Tab.Name.Advanced, tabOrder = ProductImpl.Presentation.Tab.Order.Advanced, 
         group = ProductImpl.Presentation.Group.Name.Advanced, groupOrder = ProductImpl.Presentation.Group.Order.Advanced)
     protected Character discountable = 'Y';
@@ -211,19 +205,17 @@ public class SkuImpl implements Sku {
 
     @Column(name = "ACTIVE_START_DATE")
     @Index(name="SKU_ACTIVE_START_INDEX")
-    @AdminPresentation(friendlyName = "SkuImpl_activeStartDate", order = 1000,
+    @AdminPresentation(friendlyName = "开始", order = 1000,
         group = ProductImpl.Presentation.Group.Name.ActiveDateRange, 
         groupOrder = ProductImpl.Presentation.Group.Order.ActiveDateRange,
-        tooltip = "SkuImpl_activeStartDate_tip",
         defaultValue = "today")
     protected Date activeStartDate;
 
     @Column(name = "ACTIVE_END_DATE")
     @Index(name="SKU_ACTIVE_END_INDEX")
-    @AdminPresentation(friendlyName = "SkuImpl_activeEndDate", order = 2000, 
+    @AdminPresentation(friendlyName = "结束", order = 2000, 
         group = ProductImpl.Presentation.Group.Name.ActiveDateRange, 
-        groupOrder = ProductImpl.Presentation.Group.Order.ActiveDateRange,
-        tooltip = "SkuImpl_activeEndDate_tip")
+        groupOrder = ProductImpl.Presentation.Group.Order.ActiveDateRange)
     protected Date activeEndDate;
 
     @Embedded
@@ -236,7 +228,7 @@ public class SkuImpl implements Sku {
     protected DynamicSkuPrices dynamicPrices = null;
 
     @Column(name = "IS_MACHINE_SORTABLE")
-    @AdminPresentation(friendlyName = "SkuImpl_isMachineSortable", order = 10000,
+    @AdminPresentation(friendlyName = "自动排序", order = 10000,
         tab = ProductImpl.Presentation.Tab.Name.Shipping, tabOrder = ProductImpl.Presentation.Tab.Order.Shipping,
         group = ProductImpl.Presentation.Group.Name.Shipping, groupOrder = ProductImpl.Presentation.Group.Order.Shipping)
     protected Boolean isMachineSortable = true;
@@ -245,9 +237,9 @@ public class SkuImpl implements Sku {
     @MapKey(name = "key")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "blProducts")
     @BatchSize(size = 50)
-    @AdminPresentationMap(friendlyName = "SkuImpl_skuMedia",
+    @AdminPresentationMap(friendlyName = "图片",
         tab = ProductImpl.Presentation.Tab.Name.Media, tabOrder = ProductImpl.Presentation.Tab.Order.Media,
-        keyPropertyFriendlyName = "SkuImpl_Sku_Media_Key",
+        keyPropertyFriendlyName = "键",
         deleteEntityUponRemove = true,
         mediaField = "media.url",
         toOneTargetProperty = "media",
@@ -285,7 +277,7 @@ public class SkuImpl implements Sku {
     @Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region="blProducts")
     @MapKey(name="name")
     @BatchSize(size = 50)
-    @AdminPresentationMap(friendlyName = "SkuImpl_skuAttributes", 
+    @AdminPresentationMap(friendlyName = "附加属性", 
         tab = Presentation.Tab.Name.Advanced, tabOrder = Presentation.Tab.Order.Advanced,
         deleteEntityUponRemove = true, forceFreeFormKeys = true)
     protected Map<String, SkuAttribute> skuAttributes = new HashMap<String, SkuAttribute>();
@@ -328,8 +320,7 @@ public class SkuImpl implements Sku {
     protected List<FulfillmentOption> excludedFulfillmentOptions = new ArrayList<FulfillmentOption>();
 
     @Column(name = "INVENTORY_TYPE")
-    @AdminPresentation(friendlyName = "SkuImpl_Sku_InventoryType",
-            helpText = "skuInventoryTypeHelpText",
+    @AdminPresentation(friendlyName = "库存类型",
         order = 1000,
         tab = ProductImpl.Presentation.Tab.Name.Inventory, tabOrder = ProductImpl.Presentation.Tab.Order.Inventory,
         group = ProductImpl.Presentation.Group.Name.Inventory, groupOrder = ProductImpl.Presentation.Group.Order.Inventory,
@@ -338,7 +329,7 @@ public class SkuImpl implements Sku {
     protected String inventoryType;
     
     @Column(name = "QUANTITY_AVAILABLE")
-    @AdminPresentation(friendlyName = "SkuImpl_Sku_QuantityAvailable",
+    @AdminPresentation(friendlyName = "数量",
             order = 1010,
             tab = ProductImpl.Presentation.Tab.Name.Inventory,
             tabOrder = ProductImpl.Presentation.Tab.Order.Inventory,
@@ -347,7 +338,7 @@ public class SkuImpl implements Sku {
     protected Integer quantityAvailable = 0;
 
     @Column(name = "FULFILLMENT_TYPE")
-    @AdminPresentation(friendlyName = "SkuImpl_Sku_FulfillmentType", order = 1000,
+    @AdminPresentation(friendlyName = "配送方式", order = 1000,
         tab = ProductImpl.Presentation.Tab.Name.Shipping, tabOrder = ProductImpl.Presentation.Tab.Order.Shipping,
         group = ProductImpl.Presentation.Group.Name.Shipping, groupOrder = ProductImpl.Presentation.Group.Order.Shipping,
         fieldType = SupportedFieldType.WAKA_ENUMERATION, 
@@ -1065,23 +1056,6 @@ public class SkuImpl implements Sku {
     }
 
     @Override
-    public String getTaxCode() {
-        if (StringUtils.isEmpty(this.taxCode)) {
-            if (hasDefaultSku() && !StringUtils.isEmpty(lookupDefaultSku().getTaxCode())) {
-                return lookupDefaultSku().getTaxCode();
-            } else if (getProduct() != null && getProduct().getDefaultCategory() != null) {
-                return getProduct().getDefaultCategory().getTaxCode();
-            }
-        }
-        return this.taxCode;
-    }
-
-    @Override
-    public void setTaxCode(String taxCode) {
-        this.taxCode = taxCode;
-    }
-
-    @Override
     public String getUpc() {
         return upc;
     }
@@ -1110,7 +1084,6 @@ public class SkuImpl implements Sku {
         cloned.setDiscountable(isDiscountable());
         cloned.setDisplayTemplate(displayTemplate);
         cloned.setTaxable(isTaxable());
-        cloned.setTaxCode(taxCode);
         cloned.setUrlKey(urlKey);
         cloned.setInventoryType(getInventoryType());
         cloned.setFulfillmentType(getFulfillmentType());

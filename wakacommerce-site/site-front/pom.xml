@@ -71,6 +71,10 @@
             <groupId>com.wakacommerce</groupId>
             <artifactId>waka-framework</artifactId>
         </dependency>
+         <dependency>
+            <groupId>com.wakacommerce</groupId>
+            <artifactId>waka-wechat</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.wakacommerce</groupId>
             <artifactId>waka-framework-web</artifactId>

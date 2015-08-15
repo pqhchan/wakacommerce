@@ -99,7 +99,7 @@ import com.wakacommerce.openadmin.audit.AdminAuditableListener;
         })
     }
 )
-@AdminPresentationClass(populateToOneFields = PopulateToOneFieldsEnum.TRUE, friendlyName = "PageImpl_basePage")
+@AdminPresentationClass(populateToOneFields = PopulateToOneFieldsEnum.TRUE, friendlyName = "页面")
 @DirectCopyTransform({
         @DirectCopyTransformMember(templateTokens = DirectCopyTransformTypes.SANDBOX, skipOverlaps=true),
         @DirectCopyTransformMember(templateTokens = DirectCopyTransformTypes.MULTITENANT_SITE)
@@ -126,14 +126,14 @@ public class PageImpl implements Page, AdminMainEntity, Locatable, ProfileEntity
     
     @ManyToOne(targetEntity = PageTemplateImpl.class)
     @JoinColumn(name = "PAGE_TMPLT_ID")
-    @AdminPresentation(friendlyName = "PageImpl_Page_Template", order = 4000,
+    @AdminPresentation(friendlyName = "模板", order = 4000,
         group = Presentation.Group.Name.Basic, groupOrder = Presentation.Group.Order.Basic, prominent = true,
         requiredOverride = RequiredOverride.REQUIRED)
     @AdminPresentationToOneLookup(lookupDisplayProperty = "templateName")
     protected PageTemplate pageTemplate;
 
     @Column (name = "DESCRIPTION")
-    @AdminPresentation(friendlyName = "PageImpl_Description", order = 1000, 
+    @AdminPresentation(friendlyName = "描述", order = 1000, 
         group = Presentation.Group.Name.Basic, groupOrder = Presentation.Group.Order.Basic,
             requiredOverride = RequiredOverride.REQUIRED,
         prominent = true, gridOrder = 1)
@@ -141,7 +141,7 @@ public class PageImpl implements Page, AdminMainEntity, Locatable, ProfileEntity
 
     @Column (name = "FULL_URL")
     @Index(name="PAGE_FULL_URL_INDEX", columnNames={"FULL_URL"})
-    @AdminPresentation(friendlyName = "PageImpl_Full_Url", order = 3000, 
+    @AdminPresentation(friendlyName = "Url", order = 3000, 
         group = Presentation.Group.Name.Basic, groupOrder = Presentation.Group.Order.Basic,
         prominent = true, gridOrder = 2,
         validationConfigurations = { @ValidationConfiguration(validationImplementation = "blUriPropertyValidator") })
@@ -159,7 +159,7 @@ public class PageImpl implements Page, AdminMainEntity, Locatable, ProfileEntity
     protected Integer priority;
     
     @Column(name = "OFFLINE_FLAG")
-    @AdminPresentation(friendlyName = "PageImpl_Offline", order = 3500,
+    @AdminPresentation(friendlyName = "下线", order = 3500,
         group = Presentation.Group.Name.Basic, groupOrder = Presentation.Group.Order.Basic, defaultValue = "false")
     protected Boolean offlineFlag = false;     
 
@@ -185,7 +185,7 @@ public class PageImpl implements Page, AdminMainEntity, Locatable, ProfileEntity
     protected Set<PageItemCriteria> qualifyingItemCriteria = new HashSet<PageItemCriteria>();
 
     @Column(name = "EXCLUDE_FROM_SITE_MAP")
-    @AdminPresentation(friendlyName = "PageImpl_Exclude_From_Site_Map", order = 1000,
+    @AdminPresentation(friendlyName = "从sitemap中排除", order = 1000,
         tab = Presentation.Tab.Name.Seo, tabOrder = Presentation.Tab.Order.Seo,
         group = Presentation.Group.Name.Basic, groupOrder = Presentation.Group.Order.Basic)
     protected Boolean excludeFromSiteMap;
@@ -193,7 +193,7 @@ public class PageImpl implements Page, AdminMainEntity, Locatable, ProfileEntity
     @OneToMany(mappedBy = "page", targetEntity = PageAttributeImpl.class, cascade = { CascadeType.ALL }, orphanRemoval = true)
     @MapKey(name = "name")
     @BatchSize(size = 50)
-    @AdminPresentationMap(friendlyName = "PageImpl_Page_Attributes_Title",
+    @AdminPresentationMap(friendlyName = "标题",
         deleteEntityUponRemove = true, forceFreeFormKeys = true, keyPropertyFriendlyName = "PageAttributeImpl_Name"
     )
     protected Map<String, PageAttribute> additionalAttributes = new HashMap<String, PageAttribute>();
@@ -211,13 +211,13 @@ public class PageImpl implements Page, AdminMainEntity, Locatable, ProfileEntity
     protected Date activeEndDate;
 
     @Column (name = "META_TITLE")
-    @AdminPresentation(friendlyName = "PageImpl_metaTitle", order = 2000, 
+    @AdminPresentation(friendlyName = "元标题", order = 2000, 
         tab = Presentation.Tab.Name.Seo, tabOrder = Presentation.Tab.Order.Seo,
         group = Presentation.Group.Name.Basic, groupOrder = Presentation.Group.Order.Basic)
     protected String metaTitle;
 
     @Column (name = "META_DESCRIPTION")
-    @AdminPresentation(friendlyName = "PageImpl_metaDescription", order = 3000, 
+    @AdminPresentation(friendlyName = "元信息", order = 3000, 
         tab = Presentation.Tab.Name.Seo, tabOrder = Presentation.Tab.Order.Seo,
         group = Presentation.Group.Name.Basic, groupOrder = Presentation.Group.Order.Basic)
     protected String metaDescription;
@@ -379,8 +379,8 @@ public class PageImpl implements Page, AdminMainEntity, Locatable, ProfileEntity
     public static class Presentation {
         public static class Tab {
             public static class Name {
-                public static final String Rules = "PageImpl_Rules_Tab";
-                public static final String Seo = "PageImpl_Seo_Tab";
+                public static final String Rules = "规则";
+                public static final String Seo = "SEO";
             }
             
             public static class Order {
@@ -391,9 +391,9 @@ public class PageImpl implements Page, AdminMainEntity, Locatable, ProfileEntity
             
         public static class Group {
             public static class Name {
-                public static final String Basic = "PageImpl_Basic";
-                public static final String Page = "PageImpl_Page";
-                public static final String Rules = "PageImpl_Rules";
+                public static final String Basic = "基本信息";
+                public static final String Page = "页面";
+                public static final String Rules = "规则";
             }
             
             public static class Order {

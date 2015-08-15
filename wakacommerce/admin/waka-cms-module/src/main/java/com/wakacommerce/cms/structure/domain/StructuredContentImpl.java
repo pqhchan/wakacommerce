@@ -98,7 +98,7 @@ import com.wakacommerce.openadmin.audit.AdminAuditableListener;
 		})
     }
 )
-@AdminPresentationClass(populateToOneFields = PopulateToOneFieldsEnum.TRUE, friendlyName = "StructuredContentImpl_baseStructuredContent")
+@AdminPresentationClass(populateToOneFields = PopulateToOneFieldsEnum.TRUE, friendlyName = "结构化内容")
 @DirectCopyTransform({
         @DirectCopyTransformMember(templateTokens = DirectCopyTransformTypes.SANDBOX, skipOverlaps=true),
         @DirectCopyTransformMember(templateTokens = DirectCopyTransformTypes.MULTITENANT_SITE)
@@ -125,7 +125,7 @@ public class StructuredContentImpl implements StructuredContent, AdminMainEntity
     @AdminPresentation(excluded = true)
     protected AdminAuditable auditable = new AdminAuditable();
 
-    @AdminPresentation(friendlyName = "StructuredContentImpl_Content_Name", order = 1, 
+    @AdminPresentation(friendlyName = "内容名称", order = 1, 
         group = Presentation.Group.Name.Description, groupOrder = Presentation.Group.Order.Description,
         prominent = true, gridOrder = 1)
     @Column(name = "CONTENT_NAME", nullable = false)
@@ -133,7 +133,7 @@ public class StructuredContentImpl implements StructuredContent, AdminMainEntity
     protected String contentName;
 
     @Column(name = "PRIORITY", nullable = false)
-    @AdminPresentation(friendlyName = "StructuredContentImpl_Priority", order = 3,
+    @AdminPresentation(friendlyName = "优先级", order = 3,
         group = Presentation.Group.Name.Description, groupOrder = Presentation.Group.Order.Description)
     @Index(name="CONTENT_PRIORITY_INDEX", columnNames={"PRIORITY"})
     protected Integer priority;
@@ -155,7 +155,7 @@ public class StructuredContentImpl implements StructuredContent, AdminMainEntity
 
     @ManyToOne(targetEntity = StructuredContentTypeImpl.class)
     @JoinColumn(name="SC_TYPE_ID")
-    @AdminPresentation(friendlyName = "StructuredContentImpl_Content_Type", order = 2, prominent = true,
+    @AdminPresentation(friendlyName = "内容类型", order = 2, prominent = true,
         group = Presentation.Group.Name.Description, groupOrder = Presentation.Group.Order.Description,
         requiredOverride = RequiredOverride.REQUIRED)
     @AdminPresentationToOneLookup(lookupDisplayProperty = "name", forcePopulateChildProperties = true)
@@ -171,7 +171,7 @@ public class StructuredContentImpl implements StructuredContent, AdminMainEntity
     @Transient
     protected Map<String, StructuredContentField> legacyStructuredContentFields = new HashMap<String, StructuredContentField>();
 
-    @AdminPresentation(friendlyName = "StructuredContentImpl_Offline", order = 4, 
+    @AdminPresentation(friendlyName = "下线", order = 4, 
         group = Presentation.Group.Name.Description, groupOrder = Presentation.Group.Order.Description)
     @Column(name = "OFFLINE_FLAG")
     @Index(name="SC_OFFLN_FLG_INDX", columnNames={"OFFLINE_FLAG"})
@@ -350,9 +350,9 @@ public class StructuredContentImpl implements StructuredContent, AdminMainEntity
             
         public static class Group {
             public static class Name {
-                public static final String Description = "StructuredContentImpl_Description";
-                public static final String Internal = "StructuredContentImpl_Internal";
-                public static final String Rules = "StructuredContentImpl_Rules";
+                public static final String Description = "描述";
+                public static final String Internal = "内部";
+                public static final String Rules = "规则";
             }
             
             public static class Order {

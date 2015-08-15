@@ -1,5 +1,3 @@
-  
-
 package com.mycompany.api.endpoint.cart;
 
 import org.springframework.http.MediaType;

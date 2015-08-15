@@ -1,4 +1,3 @@
-
 package com.wakacommerce.core.catalog.domain;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -175,7 +174,7 @@ public class ProductImpl implements Product, Status, AdminMainEntity, Locatable,
     protected Sku defaultSku;
     
     @Column(name = "CAN_SELL_WITHOUT_OPTIONS")
-    @AdminPresentation(friendlyName = "ProductImpl_canSellWithoutOptions",
+    @AdminPresentation(excluded=true, friendlyName = "是否生效",
         tab = Presentation.Tab.Name.Advanced, tabOrder = Presentation.Tab.Order.Advanced,
         group = Presentation.Group.Name.Advanced, groupOrder = Presentation.Group.Order.Advanced)
     protected Boolean canSellWithoutOptions = false;
@@ -971,13 +970,13 @@ public class ProductImpl implements Product, Status, AdminMainEntity, Locatable,
             
         public static class Group {
             public static class Name {
-                public static final String General = "ProductImpl_Product_Description";
-                public static final String Price = "SkuImpl_Price";
-                public static final String ActiveDateRange = "ProductImpl_Product_Active_Date_Range";
-                public static final String Advanced = "ProductImpl_Advanced";
-                public static final String Inventory = "SkuImpl_Sku_Inventory";
-                public static final String Badges = "ProductImpl_Badges";
-                public static final String Shipping = "ProductWeight_Shipping";
+                public static final String General = "描述";
+                public static final String Price = "价格";
+                public static final String ActiveDateRange = "有效日期";
+                public static final String Advanced = "高级";
+                public static final String Inventory = "库存";
+                public static final String Badges = "标记";
+                public static final String Shipping = "物流";
                 public static final String Financial = "ProductImpl_Financial";
             }
             
@@ -1003,16 +1002,6 @@ public class ProductImpl implements Product, Status, AdminMainEntity, Locatable,
             public static final int MANUFACTURER = 6000;
             public static final int URL = 7000;
         }
-    }
-
-    @Override
-    public String getTaxCode() {
-        return getDefaultSku().getTaxCode();
-    }
-
-    @Override
-    public void setTaxCode(String taxCode) {
-        getDefaultSku().setTaxCode(taxCode);
     }
 
     @Override

@@ -1,4 +1,3 @@
-
 package com.wakacommerce.menu.domain;
 
 import org.hibernate.annotations.BatchSize;
@@ -65,14 +64,14 @@ public class MenuImpl implements Menu, AdminMainEntity, ProfileEntity {
     protected Long id;
 
     @Column(name = "NAME", nullable = false)
-    @AdminPresentation(friendlyName = "MenuImpl_Name",
+    @AdminPresentation(friendlyName = "名称",
             order = Presentation.FieldOrder.NAME,
             gridOrder = Presentation.FieldOrder.NAME,
             prominent = true)
     protected String name;
 
     @OneToMany(mappedBy = "parentMenu", targetEntity = MenuItemImpl.class, cascade = { CascadeType.ALL }, orphanRemoval = true)
-    @AdminPresentationCollection(friendlyName = "MenuItemImpl_MenuItems",
+    @AdminPresentationCollection(friendlyName = "子项",
             sortProperty = "sequence",
             addType = AddMethodType.PERSIST)
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "blCMSElements")

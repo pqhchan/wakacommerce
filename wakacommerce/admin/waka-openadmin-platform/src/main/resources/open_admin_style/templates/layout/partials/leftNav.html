@@ -15,7 +15,7 @@
                 <div class="content" 
                     th:style="${(currentAdminModule != null and currentAdminModule.id == module.id) ? '' : 'display: none;'}">
                     <ul>
-                        <li th:each="section : ${module.sections}" 
+                        <li th:each="section : ${module.sections}" th:if="${section.name != '促销'}"
                             th:classappend="${(currentAdminSection != null) and (currentAdminSection.id == section.id) ? 'active' : ''}">
                             <a blc_admin:admin_section_href="${section}">
                                 [[${section.name}]]

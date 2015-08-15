@@ -47,18 +47,18 @@ public class ProductOptionValueImpl implements ProductOptionValue {
     protected Long id;
 
     @Column(name = "ATTRIBUTE_VALUE")
-    @AdminPresentation(friendlyName = "productOptionValue_attributeValue", 
+    @AdminPresentation(friendlyName = "属性值", 
             prominent = true, order = Presentation.FieldOrder.ATTRIBUTE_VALUE,
             gridOrder = Presentation.FieldOrder.ATTRIBUTE_VALUE)
     protected String attributeValue;
 
     @Column(name = "DISPLAY_ORDER")
-    @AdminPresentation(friendlyName = "productOptionValue_displayOrder", prominent = true,
+    @AdminPresentation(friendlyName = "显示顺序", prominent = true,
             gridOrder = Presentation.FieldOrder.DISPLAY_ORDER, order = Presentation.FieldOrder.DISPLAY_ORDER)
     protected Long displayOrder;
 
     @Column(name = "PRICE_ADJUSTMENT", precision = 19, scale = 5)
-    @AdminPresentation(friendlyName = "productOptionValue_adjustment", fieldType = SupportedFieldType.MONEY,
+    @AdminPresentation(friendlyName = "价格调整", fieldType = SupportedFieldType.MONEY,
             prominent = true, gridOrder = Presentation.FieldOrder.PRICE_ADJUSTMENT, order = Presentation.FieldOrder.PRICE_ADJUSTMENT)
     protected BigDecimal priceAdjustment;
 

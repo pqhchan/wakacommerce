@@ -17,10 +17,8 @@ public class DimensionUnitOfMeasureType implements Serializable, WakaEnumType {
 
     private static final Map<String, DimensionUnitOfMeasureType> TYPES = new LinkedHashMap<String, DimensionUnitOfMeasureType>();
 
-    public static final DimensionUnitOfMeasureType CENTIMETERS  = new DimensionUnitOfMeasureType("CENTIMETERS", "Centimeters");
-    public static final DimensionUnitOfMeasureType METERS  = new DimensionUnitOfMeasureType("METERS", "Meters");
-    public static final DimensionUnitOfMeasureType INCHES  = new DimensionUnitOfMeasureType("INCHES", "Inches");
-    public static final DimensionUnitOfMeasureType FEET  = new DimensionUnitOfMeasureType("FEET", "Feet");
+    public static final DimensionUnitOfMeasureType CENTIMETERS  = new DimensionUnitOfMeasureType("CENTIMETERS", "厘米");
+    public static final DimensionUnitOfMeasureType METERS  = new DimensionUnitOfMeasureType("METERS", "米");
 
     public static DimensionUnitOfMeasureType getInstance(final String type) {
         return TYPES.get(type);

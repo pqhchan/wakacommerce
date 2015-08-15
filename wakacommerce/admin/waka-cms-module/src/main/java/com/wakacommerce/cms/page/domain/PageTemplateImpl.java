@@ -69,7 +69,7 @@ public class PageTemplateImpl implements PageTemplate, AdminMainEntity, ProfileE
     protected Long id;
 
     @Column (name = "TMPLT_NAME")
-    @AdminPresentation(friendlyName = "PageTemplateImpl_Template_Name", 
+    @AdminPresentation(friendlyName = "名称", 
         prominent = true, gridOrder = 1)
     protected String templateName;
 
@@ -77,7 +77,7 @@ public class PageTemplateImpl implements PageTemplate, AdminMainEntity, ProfileE
     protected String templateDescription;
 
     @Column (name = "TMPLT_PATH")
-    @AdminPresentation(friendlyName = "PageTemplateImpl_Template_Path", 
+    @AdminPresentation(friendlyName = "路径", 
         visibility = VisibilityEnum.HIDDEN_ALL, 
         readOnly = true)
     protected String templatePath;

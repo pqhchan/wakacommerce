@@ -1,4 +1,3 @@
-
 package com.wakacommerce.common.util;
 
 import java.io.Serializable;
@@ -17,8 +16,7 @@ public class WeightUnitOfMeasureType implements Serializable, WakaEnumType {
 
     private static final Map<String, WeightUnitOfMeasureType> TYPES = new LinkedHashMap<String, WeightUnitOfMeasureType>();
 
-    public static final WeightUnitOfMeasureType POUNDS  = new WeightUnitOfMeasureType("POUNDS", "Pounds");
-    public static final WeightUnitOfMeasureType KILOGRAMS  = new WeightUnitOfMeasureType("KILOGRAMS", "Kilograms");
+    public static final WeightUnitOfMeasureType KILOGRAMS  = new WeightUnitOfMeasureType("KILOGRAMS", "千克");
 
     public static WeightUnitOfMeasureType getInstance(final String type) {
         return TYPES.get(type);

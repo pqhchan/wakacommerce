@@ -179,10 +179,6 @@ public interface Sku extends Serializable, MultiTenantCloneable<Sku> {
 
     public BroadleafCurrency getCurrency();
 
-    public String getTaxCode();
-
-    public void setTaxCode(String taxCode);
-
     public String getUpc();
 
     public void setUpc(String upc);

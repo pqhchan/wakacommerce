@@ -54,10 +54,10 @@ public class StructuredContentFieldTemplateImpl implements StructuredContentFiel
     protected Long id;
 
     @AdminPresentation(
-		friendlyName = "StructuredContentFieldTemplateImpl_Field_Template_Name", 
+		friendlyName = "字段名称", 
 		order = 1, 
 		gridOrder = 2, 
-		group = "StructuredContentFieldTemplateImpl_Details", 
+		group = "详细信息", 
 		prominent = true
     )
     @Column (name = "NAME")

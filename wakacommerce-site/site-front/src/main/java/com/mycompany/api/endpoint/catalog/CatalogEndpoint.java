@@ -1,5 +1,3 @@
-  
-
 package com.mycompany.api.endpoint.catalog;
 
 import org.springframework.http.MediaType;

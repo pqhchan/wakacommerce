@@ -1,4 +1,3 @@
-
 package com.wakacommerce.openadmin.web.rulebuilder.service;
 
 import org.apache.commons.lang.ArrayUtils;

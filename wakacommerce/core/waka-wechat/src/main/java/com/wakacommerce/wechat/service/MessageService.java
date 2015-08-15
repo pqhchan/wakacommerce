@@ -114,7 +114,7 @@ public class MessageService {
 	
 	protected TextResponseMessage defaultResult(String fromUserName, String toUserName) {
 		TextResponseMessage result = new TextResponseMessage();
-		result.setContent("功能菜单\n"+"1. 课表\n"+"2. 身份证\n" + "3. �?卡�?�\n" + "4. whoami\n");
+		result.setContent("欢迎来到我的商城");
 		result.setCreatedDate(new Date());
 		result.setMsgCreatedTime(new Date().getTime() / 1000);
 		result.setFromUserName(fromUserName);
@@ -126,7 +126,7 @@ public class MessageService {
 	private static void loadHandles() {
 		try {
             SAXReader reader = new SAXReader();
-            Document document = reader.read(MessageService.class.getResourceAsStream("/wakaasst-handlers.xml"));
+            Document document = reader.read(MessageService.class.getResourceAsStream("/waka-wechat-handlers.xml"));
             Element list = document.getRootElement();
             @SuppressWarnings("unchecked")
 			List<Element> elements = list.elements();

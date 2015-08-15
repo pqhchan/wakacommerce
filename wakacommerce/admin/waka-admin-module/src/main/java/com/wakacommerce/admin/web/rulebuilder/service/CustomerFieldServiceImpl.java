@@ -1,4 +1,3 @@
-
 package com.wakacommerce.admin.web.rulebuilder.service;
 
 import org.springframework.stereotype.Service;
@@ -60,15 +59,8 @@ public class CustomerFieldServiceImpl extends AbstractRuleBuilderFieldService {
                 .type(SupportedFieldType.STRING)
                 .build());
         fields.add(new FieldData.Builder()
-                .label("rule_customerFirstName")
-                .name("firstName")
-                .operators("blcOperators_Text")
-                .options("[]")
-                .type(SupportedFieldType.STRING)
-                .build());
-        fields.add(new FieldData.Builder()
-                .label("rule_customerLastName")
-                .name("lastName")
+                .label("rule_customerRealName")
+                .name("realName")
                 .operators("blcOperators_Text")
                 .options("[]")
                 .type(SupportedFieldType.STRING)

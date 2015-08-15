@@ -65,14 +65,14 @@ public class MenuItemImpl implements MenuItem, ProfileEntity {
     protected Long id;
 
     @Column(name = "LABEL")
-    @AdminPresentation(friendlyName = "MenuItemImpl_Label",
+    @AdminPresentation(friendlyName = "标签",
             order = Presentation.FieldOrder.LABEL,
             gridOrder = Presentation.FieldOrder.LABEL,
             prominent = true)
     protected String label;
 
     @Column(name = "MENU_ITEM_TYPE")
-    @AdminPresentation(friendlyName = "MenuItemImpl_Type",
+    @AdminPresentation(friendlyName = "类型",
             order = Presentation.FieldOrder.MENU_ITEM_TYPE,
             prominent = true,
             gridOrder = Presentation.FieldOrder.MENU_ITEM_TYPE,
@@ -89,7 +89,7 @@ public class MenuItemImpl implements MenuItem, ProfileEntity {
     protected Menu parentMenu;
 
     @Column(name = "ACTION_URL")
-    @AdminPresentation(friendlyName = "MenuItemImpl_ActionUrl",
+    @AdminPresentation(friendlyName = "Url",
             order = Presentation.FieldOrder.ACTION_URL)
     protected String actionUrl;
 

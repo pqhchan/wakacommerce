@@ -9,7 +9,6 @@
     <artifactId>core</artifactId>
     <packaging>pom</packaging>
     <name>WakaCommerce Core</name>
-    <description>WakaCommerce Core Mid Level Project</description>
     <properties>
         <project.uri>${project.baseUri}/../</project.uri>
     </properties>
@@ -18,5 +17,6 @@
         <module>waka-profile-web</module>
         <module>waka-framework</module>
         <module>waka-framework-web</module>
+        <module>waka-wechat</module>
   </modules>
 </project>
